@@ -1,0 +1,39 @@
+<script type="text/javascript">
+  (function(w,d,s){if(w.setag)return;var p=w.setag=function(){p.handleRequest?p.handleRequest.apply(p,arguments):p.queue.push(arguments)};p.queue=[];const k=d.createElement("script");k.async=!0;k.src=s;const e=d.getElementsByTagName("script")[0];e.parentNode.insertBefore(k,e)})(window,document,"//cdn.shoperatech.com/client/setag.min.js");
+  setag('init','S-4COSUNUODXI7D0');
+  setag("event","page_view",{content: document.title});
+</script>
+
+{% if template.name == 'collection' %}
+<script type="text/javascript">
+  setag('event', 'view_category', {
+    content: {{ collection.title | json }}
+  });
+</script>
+{% endif %}
+
+{% if template.name == 'index' %}
+<script type="text/javascript">
+  setag('event', 'home');
+</script>
+{% endif %}
+
+{% if search.performed %}
+<script type="text/javascript">
+  setag('event', 'search', {
+    content: {{ search.terms | json }}
+  });
+</script>
+{% endif %}
+
+{% if template.name == 'register' %}
+<script type="text/javascript">
+  setag('event', 'sign_up');
+</script>
+{% endif %}
+
+{% if template.name == 'login' %}
+<script type="text/javascript">
+  setag('event', 'login');
+</script>
+{% endif %}

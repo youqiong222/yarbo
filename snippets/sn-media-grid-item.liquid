@@ -1,0 +1,57 @@
+<div
+  class='{{ wrapper_class }}'
+  {{ block.shopify_attributes }}
+>
+  <div class='relative h-full w-full'>
+    {% render 'media-element',
+      class: 'absolute inset-0 w-full h-full',
+      media_class: 'w-full h-full object-cover',
+      media_type: block.settings.media_type,
+      pc_image: block.settings.pc_image,
+      h5_image: block.settings.h5_image,
+      pc_video: block.settings.pc_video,
+      h5_video: block.settings.h5_video,
+      video_url: block.settings.video_url,
+      other_url: block.settings.other_url
+    %}
+    {%- render 'sn-background-overlay', _settings: block.settings -%}
+    <div class='absolute inset-0 z-10 flex flex-col justify-between p-16 md:p-24'>
+      <div>
+        {%- if block.settings.title != blank -%}
+          <h3 class='text-[15px] leading-[1.3] text-white md:text-[18px]'>
+            {{ block.settings.title }}
+          </h3>
+        {%- endif -%}
+        {%- if block.settings.description -%}
+          <div class='mt-4 text-[13px] text-[#E6E6E6] sm:text-[14px]'>
+            {{ block.settings.description }}
+          </div>
+        {%- endif -%}
+      </div>
+      <div class='flex flex-wrap items-end justify-between gap-16'>
+        <div class='block! text-[12px]/[1.3] text-[#F2F2F2]'>
+          {%- if block.settings.bottom_text != blank -%}
+            {{ block.settings.bottom_text }}
+          {%- endif -%}
+        </div>
+        {% if block.settings.icon_anchor_id != blank %}
+          <span
+            data-anchor-id='{{ block.settings.icon_anchor_id }}'
+            class='relative flex h-40 w-40 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-[#CCCCCC66] backdrop-blur-[5px] hover:before:bg-white'
+          >
+            <svg
+              class='relative'
+              width='14'
+              height='8'
+              viewBox='0 0 14 8'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d="M0.919922 0.919189L6.75421 6.75252L12.5866 0.919189" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+            </svg>
+          </span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

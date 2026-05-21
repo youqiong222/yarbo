@@ -1,0 +1,432 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+{%- liquid
+  assign s = section.settings
+  assign product_options_raw = s.product_options | default: ''
+  assign tag_options_raw = s.tag_options | default: ''
+-%}
+<style>
+  #shopify-section-{{ section.id }}{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      background-image: url('{{ section.settings.bac | image_url: width: 2000 }}');
+    }
+  }
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section.id }} {
+      background-image: url('{{ section.settings.h5_bac | image_url: width: 1500 }}');
+    }
+  }
+</style>
+<div
+  class='overflow-hidden {% if s.animations_reveal_on_scroll %}scroll-trigger animate--slide-in{% endif %}'
+  x-data='
+    reviewsVideo({
+      apiBase: {{ s.api_base | default: "https://yarbo-backend-api.yarbo.ai/backend/v3/ugc/page" | json }},
+      limit: {{ s.limit | default: 6 }}
+    })
+  '
+  x-init='load()'
+>
+  <div class='page-container'>
+    {% if s.title != blank %}
+      <h2 class='mb-24 text-center text-[32px] leading-none md:mb-40 md:text-[44px]'>
+        {{ s.title }}
+      </h2>
+    {% endif %}
+
+    <div class='mb-24 flex flex-col items-center justify-center gap-12 md:mb-32 md:flex-row md:gap-16'>
+      <div class='relative w-full md:w-240'>
+        <select
+          x-model='product'
+          @change='reload()'
+          class='h-40 w-full cursor-pointer appearance-none border border-[#cccccc] bg-white px-16 pr-40 text-[13px] text-[#25282A] focus:outline-none'
+        >
+          <option value=''>{{ s.product_placeholder | default: 'Choose a Product' }}</option>
+          {%- assign product_options = product_options_raw | newline_to_br | split: '<br />' -%}
+          {%- for opt in product_options -%}
+            {%- assign opt_v = opt | strip -%}
+            {%- if opt_v != blank -%}
+              <option value='{{ opt_v }}'>{{ opt_v }}</option>
+            {%- endif -%}
+          {%- endfor -%}
+        </select>
+        <svg
+          class='pointer-events-none absolute top-1/2 right-16 -translate-y-1/2'
+          width='10'
+          height='6'
+          viewBox='0 0 10 6'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path d="M1 1L5 5L9 1" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+        </svg>
+      </div>
+      <div class='relative w-full md:w-240'>
+        <select
+          x-model='tag'
+          @change='reload()'
+          class='h-40 w-full cursor-pointer appearance-none border border-[#cccccc] bg-white px-16 pr-40 text-[13px] text-[#25282A] focus:outline-none'
+        >
+          <option value=''>{{ s.tag_placeholder | default: 'Match It to Your Yard' }}</option>
+          {%- assign tag_options = tag_options_raw | newline_to_br | split: '<br />' -%}
+          {%- for opt in tag_options -%}
+            {%- assign opt_v = opt | strip -%}
+            {%- if opt_v != blank -%}
+              <option value='{{ opt_v }}'>{{ opt_v }}</option>
+            {%- endif -%}
+          {%- endfor -%}
+        </select>
+        <svg
+          class='pointer-events-none absolute top-1/2 right-16 -translate-y-1/2'
+          width='10'
+          height='6'
+          viewBox='0 0 10 6'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path d="M1 1L5 5L9 1" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class='columns-2 gap-12 md:columns-2 md:gap-12 lg:columns-3'>
+      <template
+        x-for='(item, idx) in items'
+        :key='idx'
+      >
+        <div class='mb-12 break-inside-avoid overflow-hidden bg-[#F2F2F2]'>
+          <div
+            :data-idx='idx'
+            class='group relative w-full cursor-pointer overflow-hidden bg-gray-100'
+            :class='
+              [
+                [0, 2, 4].includes(idx % 6) ? "aspect-165/300" : "aspect-165/100",
+                [0, 3, 4].includes(idx % 6) ? "md:aspect-390/700" : "md:aspect-390/220",
+              ]
+            '
+            @click='openIndex = idx'
+          >
+            <img
+              :src='item.coverImageLink'
+              :alt='item.name'
+              loading='lazy'
+              width='auto'
+              height='auto'
+              class='h-full w-full object-cover transition-transform duration-500 group-hover:scale-105'
+            >
+            <div
+              class='pointer-events-none absolute bottom-12 left-12 text-[12px] text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]'
+              x-text='item.name'
+            ></div>
+            <div class='pointer-events-none absolute right-12 bottom-12 flex h-28 w-28 items-center justify-center rounded-full bg-[#CCCCCC66] backdrop-blur-[5px]'>
+              <svg
+                width='9'
+                height='11'
+                viewBox='0 0 11 13'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path d="M9.1448 5.79497C10.0395 6.28853 10.0428 6.9094 9.1448 7.46741L2.20628 12.0996C1.33447 12.5602 0.742359 12.2883 0.680203 11.2917L0.650761 1.59657C0.631133 0.678614 1.39499 0.41926 2.12286 0.859376L9.1448 5.79497Z" stroke="#fff" stroke-width="1.3" stroke-linecap="square"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class='p-12 md:p-16'>
+            <div class='flex items-center gap-12'>
+              <img
+                :src='item.avatar'
+                :alt='item.name'
+                loading='lazy'
+                width='auto'
+                height='auto'
+                class='h-40 w-40 flex-none object-cover md:h-50 md:w-50'
+              >
+              <div class='min-w-0 flex-1'>
+                <div
+                  class='text-[12px] leading-[1.2] font-bold text-[#25282A] md:text-[15px]'
+                  x-text='(item.name || "").replace(/^@/, "")'
+                ></div>
+                <div
+                  class='mt-2 text-[12px] leading-[1.2] text-[#8C8F91]'
+                  x-text='(item.tags || []).join(", ")'
+                ></div>
+              </div>
+            </div>
+            <div class='mt-12 text-[12px] leading-[1.4] text-[#515355] md:text-[15px]'>
+              <p
+                :class='expanded[idx] ? "" : "line-clamp-2"'
+                x-text='item.description'
+                x-effect='item.description; $nextTick(() => checkTruncated(idx, $el))'
+              ></p>
+              <template x-if='!expanded[idx] && truncated[idx]'>
+                <span
+                  @click.stop='expanded[idx] = true'
+                  class='mt-2 inline-block cursor-pointer text-[13px] text-[#25282A] underline hover:opacity-80'
+                >
+                  See more
+                </span>
+              </template>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <div
+      class='mt-32 flex items-center justify-center md:mt-48'
+      x-show='hasMore'
+    >
+      <button
+        type='button'
+        @click='loadMore()'
+        :disabled='loading'
+        class='flex h-40 min-w-180 cursor-pointer items-center justify-center gap-8 border border-[#25282A] bg-white px-32 text-[15px] text-[#25282A] transition-colors hover:bg-[#25282A] hover:text-white disabled:cursor-not-allowed disabled:opacity-60 max-sm:w-full md:h-48'
+      >
+        <template x-if='!loading'>
+          <span>{{ s.load_more_text | default: 'Load More' }}</span>
+        </template>
+        <template x-if='loading'>
+          <span class='inline-block h-20 w-20 animate-spin rounded-full border-2 border-current border-t-transparent'></span>
+        </template>
+      </button>
+    </div>
+  </div>
+
+  {% comment %} Video modal {% endcomment %}
+  <template x-teleport='body'>
+    <div class='css-reset tailwind-layout'>
+      <div
+        x-cloak
+        x-show='openIndex !== null'
+        x-transition.opacity.duration.300ms
+        class='fixed inset-0 z-50 flex items-center justify-center bg-[#25282A]/80'
+      >
+        <div
+          @click.outside='openIndex = null'
+          x-transition.scale.95.duration.300ms
+          class='relative mx-4 aspect-video w-full max-w-960 bg-black'
+        >
+          <button
+            @click='openIndex = null'
+            type='button'
+            class='absolute -top-12 -right-12 z-10 flex h-40 w-40 cursor-pointer items-center justify-center rounded-full border-0 bg-white text-black hover:bg-gray-100'
+          >
+            <svg
+              width='12'
+              height='12'
+              viewBox='0 0 12 12'
+              fill='none'
+            >
+              <path d="M10.918 0.919237L0.917969 10.9192M10.918 10.9192L0.917969 0.919235" stroke="currentColor" stroke-width="1.3" stroke-linecap="square"/>
+            </svg>
+          </button>
+          <template x-if='openIndex !== null && items[openIndex]'>
+            <video
+              :src='items[openIndex].videoLink'
+              :poster='items[openIndex].coverImageLink'
+              class='absolute inset-0 h-full w-full object-contain'
+              controls
+              playsinline
+              autoplay
+            ></video>
+          </template>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('reviewsVideo', (opts) => ({
+      apiBase: opts.apiBase,
+      limit: opts.limit || 6,
+      product: '',
+      tag: '',
+      items: [],
+      expanded: {},
+      truncated: {},
+      page: 1,
+      total: 0,
+      loading: false,
+      openIndex: null,
+
+      get hasMore() {
+        return this.items.length < this.total;
+      },
+
+      checkTruncated(idx, el) {
+        if (!el) return;
+        this.truncated[idx] = el.scrollHeight - el.clientHeight > 1;
+      },
+
+      buildUrl(page) {
+        const url = new URL(this.apiBase);
+        url.searchParams.set('limit', this.limit);
+        url.searchParams.set('page', page);
+        if (this.product) url.searchParams.append('product', this.product);
+        if (this.tag) url.searchParams.append('tag', this.tag);
+        return url.toString();
+      },
+
+      async load() {
+        if (this.loading) return;
+        this.loading = true;
+        try {
+          const res = await fetch(this.buildUrl(this.page));
+          const json = await res.json();
+          const data = (json && json.data) || {};
+          this.total = data.count || 0;
+          const list = Array.isArray(data.list) ? data.list : [];
+          this.items = this.items.concat(list);
+        } catch (e) {
+          console.error('[reviewsVideo] load failed', e);
+        } finally {
+          this.loading = false;
+        }
+      },
+
+      loadMore() {
+        if (this.loading || !this.hasMore) return;
+        this.page += 1;
+        this.load();
+      },
+
+      reload() {
+        this.page = 1;
+        this.items = [];
+        this.expanded = {};
+        this.truncated = {};
+        this.total = 0;
+        this.load();
+      },
+    }));
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Reviews Video",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "image_picker",
+      "id": "bac",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_bac",
+      "label": "H5 Background Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "load_more_text",
+      "label": "Load More Text",
+      "default": "Load More"
+    },
+    {
+      "type": "header",
+      "content": "API Filters"
+    },
+    {
+      "type": "text",
+      "id": "api_base",
+      "label": "API Base URL",
+      "default": "https://yarbo-backend-api.yarbo.ai/backend/v3/ugc/page",
+      "info": "Base endpoint for UGC list"
+    },
+    {
+      "type": "number",
+      "id": "limit",
+      "label": "Items per Page",
+      "default": 6
+    },
+    {
+      "type": "text",
+      "id": "product_placeholder",
+      "label": "Product Placeholder",
+      "default": "Choose a Product"
+    },
+    {
+      "type": "textarea",
+      "id": "product_options",
+      "label": "Product Options",
+      "info": "One per line. Empty = hide select.",
+      "default": "Yarbo Lawn Mower\nYarbo Snow Blower\nYarbo Core\nYarbo Blower"
+    },
+    {
+      "type": "text",
+      "id": "tag_placeholder",
+      "label": "Tag Placeholder",
+      "default": "Match It to Your Yard"
+    },
+    {
+      "type": "textarea",
+      "id": "tag_options",
+      "label": "Tag Options",
+      "info": "One per line. Empty = hide select.",
+      "default": "Wet Grass\nThick Grass\nLifestyle\nTurnaround\nPet & Yarbo\nDownhill\nSlopy Lawn\nUneven Lawn\nTowing\nNight Work\nLarge Lawn\nMultiple Yarbos\nNoise Level\nLawn Care\nObstacles\nMowing Stripes\nOvergrown Grass\nTrees\nMowing Along Edges\nMaintenence\nWild Grass\nDitch\nMulti-zone Management\nWet Snow\nLarge Yard\nHeavy Snow\nThick Snow\nSnow Pile\nAPP\nRoute Planning\nEnd of Driveway\nBlowing Power"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Video"
+    }
+  ]
+}
+{% endschema %}

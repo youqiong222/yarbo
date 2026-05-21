@@ -1,0 +1,23 @@
+.page-title {
+  margin-top: 0;
+}
+
+.main-page-title {
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 750px) {
+  .main-page-title {
+    margin-bottom: 40px;
+  }
+}
+
+.page-placeholder-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.page-placeholder {
+  width: 524px;
+  height: 524px;
+}

@@ -1,0 +1,375 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+{%- liquid
+  assign s = section.settings
+
+  assign pc_w = s.pc_aspect_ratio_w | default: 16
+  assign pc_h = s.pc_aspect_ratio_h | default: 9
+  assign pc_ratio = pc_w | append: '/' | append: pc_h
+
+  assign h5_w = s.h5_aspect_ratio_w | default: 16
+  assign h5_h = s.h5_aspect_ratio_h | default: 9
+  assign h5_ratio = h5_w | append: '/' | append: h5_h
+-%}
+
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <div class='mb-32 md:mb-40'>
+    {% if section.settings.title != blank %}
+      <h2 class='text-center text-[36px] leading-[1.1] uppercase md:text-[52px]'>
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+  </div>
+  <div class='grid grid-cols-1 gap-12 md:grid-cols-2'>
+    {% for block in section.blocks %}
+      <div
+        style='
+          --media-aspect-pc: {{ pc_ratio }};
+          --media-aspect-h5: {{ h5_ratio }};
+        '
+        class='
+          relative
+          aspect-(--media-aspect-h5)
+          md:aspect-(--media-aspect-pc)
+        '
+        {{ block.shopify_attributes }}
+      >
+        {% render 'media-element',
+          class: 'absolute inset-0 w-full h-full',
+          media_class: 'w-full h-full object-cover',
+          media_type: block.settings.media_type,
+          pc_image: block.settings.pc_image,
+          h5_image: block.settings.h5_image,
+          pc_video: block.settings.pc_video,
+          h5_video: block.settings.h5_video,
+          video_url: block.settings.video_url,
+          other_url: block.settings.other_url
+        %}
+        {%- render 'sn-overlay', _settings: block.settings -%}
+
+        <div class='flex h-full w-full items-end'>
+          <div
+            class='relative z-10 w-full p-20 text-white md:p-32'
+          >
+            <div
+              style='--content_width_pc: {{ block.settings.content_width_pc }}px;'
+              class='md:max-w-(--content_width_pc)'
+            >
+              {% if block.settings.title != blank %}
+                <h3 class='mb-8 text-[26px] leading-[1.1] uppercase md:text-[32px]'>
+                  {{ block.settings.title }}
+                </h3>
+              {% endif %}
+
+              {% if block.settings.desc != blank %}
+                <div class='text-[14px] leading-[1.3]'>
+                  {{ block.settings.desc }}
+                </div>
+              {% endif %}
+            </div>
+
+            {% if block.settings.button_text != blank or block.settings.button2_text != blank %}
+              <div
+                style='
+                  --button-color: {{ block.settings.button_color }};
+                  --button-color-hover: {{ block.settings.button_hover_color }};
+                  --button-bg-color: {{ block.settings.button_bg_color }};
+                  --button-bg-hover-color: {{ block.settings.button_bg_hover_color }};
+                '
+                class='mt-20 transition-all duration-300 md:mt-24'
+              >
+                <a
+                  href='{{ block.settings.button2_link | default: '#' }}'
+                  {% if block.settings.btn_anchor_id != blank %}
+                    data-anchor-id='{{ block.settings.btn_anchor_id }}'
+                  {% endif %}
+                  class='
+                    inline-flex
+                    h-44 items-center
+                    justify-center
+                    self-start
+                    bg-(--button-bg-color)
+                    px-24
+                    text-[14px]/[1.4]
+                    tracking-[0]
+                    text-(--button-color)
+                    no-underline
+                    transition-colors
+                    duration-300
+                    hover:bg-(--button-bg-hover-color)
+                    hover:text-(--button-color-hover)
+                    sm:px-32
+                  '
+                >
+                  {{ block.settings.button_text }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Img Text Blocks",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Media Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
+        },
+        {
+          "type": "range",
+          "id": "content_width_pc",
+          "label": "Content Width (PC)",
+          "default": 1320,
+          "min": 400,
+          "max": 1320,
+          "step": 20,
+          "unit": "px"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Desc"
+        },
+        {
+          "type": "header",
+          "content": "Button Settings"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Submit a Ticket"
+        },
+        {
+          "type": "url",
+          "id": "button2_link",
+          "label": "Button2 Link"
+        },
+        {
+          "type": "text",
+          "id": "btn_anchor_id",
+          "label": "Button Anchor Id"
+        },
+        {
+          "type": "header",
+          "content": "Button Color Settings"
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "label": "Button Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_color",
+          "label": "Button Background Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "button_hover_color",
+          "label": "Button Hover Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_hover_color",
+          "label": "Button Background Hover Color",
+          "default": "#FEDB1E"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Img Text Blocks",
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>Installer Program</p>",
+            "desc": "<p>Use the map to find nearby Yarbo volunteer<br/>installers and get in touch for assistance.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>1 on 1 Video Instruction</p>",
+            "desc": "<p>Schedule a video meeting with our technician for<br/>guided installation assistance.</p>",
+            "button_text": "Submit a Ticket"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

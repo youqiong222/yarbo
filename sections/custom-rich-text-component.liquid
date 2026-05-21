@@ -1,0 +1,451 @@
+{% render 'yb-section-style', section: section %}
+
+<div class='rich-text-component'>
+  <div class='rich-text-component-wrapper'>
+    <div class='rich-text-component-inner'>
+      <div class='headerTitle1'>
+        {% if section.settings.title != blank %}
+          <div class='rich-text-title'>
+            <h2 class='yb-section-title lcf-section-title'>{{ section.settings.title }}</h2>
+          </div>
+
+          {% if section.settings.description != blank %}
+            <div class='margin-top-description-style'>
+              <div class='rich-text-description yb-body-3 lcf-section-des'>
+                <span style='color: #02060b;'>
+                  {{ section.settings.description }}
+                </span>
+              </div>
+            </div>
+          {% endif %}
+
+        {% else %}
+          {% if section.settings.description != blank %}
+            <div>
+              {{ section.settings.description }}
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+
+      {% if section.settings.button_text != blank %}
+        <div class='{% if section.settings.title != blank or section.settings.description != blank %}rich-text-button{% endif %}'>
+          {%- capture button_combined_class -%}{{ section.settings.button_class }} yb-single-video-btn{%- endcapture -%}
+          {% render 'yb-button', type: section.settings.button_type, class: button_combined_class, tag: 'button', config: section.settings %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} p {
+    margin: 12px 0;
+  }
+  #shopify-section-{{ section.id }} li {
+    margin: 6px 0;
+  }
+  #shopify-section-{{ section.id }} .yb-single-video-btn {
+      border: 0px;
+      cursor: pointer;
+      height: 48px;
+      line-height: 48px;
+      font-weight: 600;
+  }
+  #shopify-section-{{ section.id }} a {
+    color: #3598db;
+  }
+  .rich-text-description {
+      line-height: 140%;
+  }
+
+  {% if section.settings.pc_image != blank %}
+  @media (min-width: 1920px) {
+    #shopify-section-{{ section.id }} {
+      background-image: url('{{ section.settings.pc_image | image_url: width: 2000 }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+  @media (min-width: 960px) and (max-width: 1919px) {
+    #shopify-section-{{ section.id }} {
+      background-image: url('{{ section.settings.pc_image | image_url: width: 1500 }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+  {% endif %}
+
+  {% if section.settings.m_image != blank %}
+  @media (max-width: 959px) {
+    #shopify-section-{{ section.id }} {
+      background-image: url('{{ section.settings.m_image | image_url: width: 800 }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+  {% endif %}
+
+  #shopify-section-{{ section.id }} .rich-text-component-wrapper {
+    margin: 0px auto;
+    text-align: {{ section.settings.text_align }};
+  }
+  .rich-text-component {
+      margin: auto;
+  }
+  .yb-section-title {
+      font-weight: 800;
+  }
+  /* 1920px+ */
+  @media (min-width: 1920px) {
+      #shopify-section-{{ section.id }} .yb-section-title {
+          line-height: 120%;
+      }
+      .rich-text-component {
+          width: 1000px;
+          margin: auto;
+      }
+    #shopify-section-{{ section.id }} .rich-text-component-wrapper {
+      width: 1000px;
+    }
+    #shopify-section-{{ section.id }} .rich-text-description span {
+      width: 1000px;
+    }
+    #shopify-section-{{ section.id }} .rich-text-description {
+      margin-bottom: 0;
+    }
+    .margin-top-description-style {
+      margin-top: 16px;
+    }
+    #shopify-section-{{ section.id }} .rich-text-button {
+          margin-top: 40px;
+    }
+    #shopify-section-{{ section.id }} .yb-single-video-btn {
+      padding: 0 40px;
+      min-width: 180px;
+    }
+  }
+  /* 1440-1919px */
+  @media (min-width: 1440px) and (max-width: 1919px) {
+      #shopify-section-{{ section.id }} .yb-section-title {
+          line-height: 120%;
+      }
+      .rich-text-component {
+          width: 924px;
+      }
+    #shopify-section-{{ section.id }} .rich-text-component-wrapper {
+      width: 924px;
+    }
+    #shopify-section-{{ section.id }} .rich-text-description {
+      margin-bottom: 0;
+    }
+    .margin-top-description-style {
+      margin-top: 16px;
+    }
+      #shopify-section-{{ section.id }} .rich-text-description span {
+          width: 924px;
+    }
+      #shopify-section-{{ section.id }} .rich-text-button {
+          margin-top: 32px;
+    }
+      #shopify-section-{{ section.id }} .yb-single-video-btn {
+      padding: 0 40px;
+         min-width: 180px;
+    }
+  }
+  /* 960-1439px */
+  @media (min-width: 960px) and (max-width: 1439px) {
+      #shopify-section-{{ section.id }} .yb-section-title {
+          line-height: 120%;
+      }
+      .rich-text-component {
+          width: 728px;
+      }
+    #shopify-section-{{ section.id }} .rich-text-component-wrapper {
+      width: 728px;
+    }
+    #shopify-section-{{ section.id }} .rich-text-description {
+              margin-bottom: 0;
+    }
+        .margin-top-description-style {
+      margin-top: 16px;
+    }
+          #shopify-section-{{ section.id }} .rich-text-description span {
+              width: 728px;
+              display: inline-block;
+    }
+      #shopify-section-{{ section.id }} .rich-text-button {
+          margin-top: 24px;
+    }
+      #shopify-section-{{ section.id }} .yb-single-video-btn {
+      padding: 0 40px;
+         min-width: 180px;
+    }
+  }
+  /* 680-959px */
+  @media (min-width: 680px) and (max-width: 959px) {
+      #shopify-section-{{ section.id }} .yb-section-title {
+          line-height: 120%;
+          max-width: 600px;
+      }
+      .rich-text-component {
+          padding: 0 24px;
+      }
+    #shopify-section-{{ section.id }} .rich-text-component-wrapper {
+      max-width: 600px;
+    }
+    #shopify-section-{{ section.id }} .rich-text-description {
+      max-width: 600px;
+              margin-bottom: 0;
+    }
+          .margin-top-description-style {
+      margin-top: 16px;
+    }
+            #shopify-section-{{ section.id }} .rich-text-description span {
+              max-width: 600px;
+    }
+      #shopify-section-{{ section.id }} .rich-text-description span {
+          display: inline-block;
+          max-width: 600px;
+    }
+    #shopify-section-{{ section.id }} .rich-text-button {
+         margin-top: 24px;
+    }
+      #shopify-section-{{ section.id }} .yb-single-video-btn {
+      padding: 0 40px;
+         min-width: 180px;
+    }
+  }
+
+  /* 679px */
+  @media (max-width: 679px) {
+      #shopify-section-{{ section.id }} .yb-section-title {
+          max-width: 327px;
+          line-height: 120%;
+          width: 100%;
+      }
+  .rich-text-component {
+      padding: 0 16px;
+  }
+    #shopify-section-{{ section.id }} .rich-text-component-wrapper {
+      max-width: 327px;
+      width: 100%;
+    }
+    #shopify-section-{{ section.id }} .rich-text-description {
+      max-width: 327px;
+      width: 100%;
+              margin-bottom: 0;
+    }
+            .margin-top-description-style {
+      margin-top: 12px;
+    }
+              #shopify-section-{{ section.id }} .rich-text-description span {
+              max-width: 327px;
+              width: 100%;
+    }
+      #shopify-section-{{ section.id }} .rich-text-button {
+          margin-top: 16px;
+    }
+        #shopify-section-{{ section.id }} .rich-text-description span {
+          display: inline-block;
+          max-width: 327px;
+          width: 100%;
+    }
+      #shopify-section-{{ section.id }} .yb-single-video-btn {
+      padding: 0 40px;
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Rich text component",
+  "class": "migrated-page",
+  "settings": [
+    {
+      "type": "radio",
+      "id": "text_align",
+      "label": "Text alignment",
+      "options": [
+        { "value": "left", "label": "左对齐" },
+        { "value": "center", "label": "居中对齐" },
+        { "value": "right", "label": "右对齐" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "标题"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "描述"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "按钮文字"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "按钮类型",
+      "default": "link",
+      "options": [
+        { "value": "link", "label": "链接" },
+        { "value": "anchor", "label": "锚点" },
+        {
+          "value": "modal",
+          "label": "弹窗"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "按钮链接"
+    },
+    {
+      "type": "text",
+      "id": "button_class",
+      "label": "按钮类名"
+    },
+    {
+      "type": "text",
+      "id": "button_anchor",
+      "label": "按钮锚点ID"
+    },
+    {
+      "type": "text",
+      "id": "button_modal_title",
+      "label": "按钮弹窗标题"
+    },
+    {
+      "type": "html",
+      "id": "button_modal_content",
+      "label": "按钮弹窗内容"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "背景图片"
+    },
+    {
+      "type": "image_picker",
+      "id": "m_image",
+      "label": "M端背景图片"
+    },
+    {
+      "type": "header",
+      "content": "section填充"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景颜色",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1920",
+      "label": "1920顶部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1920",
+      "label": "1920底部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1440",
+      "label": "1440顶部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1440",
+      "label": "1440底部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_960",
+      "label": "960顶部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_960",
+      "label": "960底部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_680",
+      "label": "680顶部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_680",
+      "label": "680底部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_375",
+      "label": "375顶部填充",
+      "default": 48,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_375",
+      "label": "375底部填充",
+      "default": 48,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rich text component"
+    }
+  ]
+}
+{% endschema %}

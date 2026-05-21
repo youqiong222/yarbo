@@ -1,0 +1,571 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{%- liquid
+  assign s = section.settings
+  assign pc_w = s.pc_aspect_ratio_w | default: 16
+  assign pc_h = s.pc_aspect_ratio_h | default: 9
+  assign pc_ratio = pc_w | append: '/' | append: pc_h
+  assign h5_w = s.h5_aspect_ratio_w | default: 16
+  assign h5_h = s.h5_aspect_ratio_h | default: 9
+  assign h5_ratio = h5_w | append: '/' | append: h5_h
+-%}
+<div
+  style='
+    --media-aspect-pc: {{ pc_ratio }};
+    --media-aspect-h5: {{ h5_ratio }};
+  '
+  class='
+    swiper
+    relative
+    aspect-(--media-aspect-h5)
+    sm:aspect-(--media-aspect-pc)
+  '
+>
+  <div class='swiper-wrapper'>
+    {%- for block in section.blocks -%}
+      <div
+        class='swiper-slide h-auto!'
+        {{ block.shopify_attributes }}
+        style='
+          --title-color: {{ block.settings.title_color }};
+          --sub-title-color: {{ block.settings.sub_title_color }};
+          --desc-color: {{ block.settings.desc_color }};
+          --content_width_pc: {{ block.settings.content_width_pc }}px;
+        '
+      >
+        {% render 'media-element',
+          class: 'absolute inset-0 w-full h-full',
+          media_class: 'w-full h-full object-cover',
+          media_type: block.settings.media_type,
+          pc_image: block.settings.pc_image,
+          h5_image: block.settings.h5_image,
+          pc_video: block.settings.pc_video,
+          h5_video: block.settings.h5_video,
+          video_url: block.settings.video_url,
+          other_url: block.settings.other_url
+        %}
+        {%- render 'sn-overlay', _settings: block.settings -%}
+        <div class='page-container relative z-10 h-full'>
+          <div
+            data-pos='{{ block.settings.content_position_pc }}'
+            data-pos-h5='{{ block.settings.content_position_h5 }}'
+            class='content-position relative flex h-full w-full py-32 md:py-60'
+          >
+            <div class='w-full md:max-w-(--content_width_pc)'>
+              {% if block.settings.sub_title != blank %}
+                <span class='mb-8 inline-block text-[15px] leading-[1.3] text-(--sub-title-color) md:mb-12 md:text-[18px]'>
+                  {{- block.settings.sub_title -}}
+                </span>
+              {% endif %}
+
+              {% if block.settings.title != blank %}
+                <h2 class='text-[36px] leading-none text-(--title-color) uppercase md:text-[52px]'>
+                  {{ block.settings.title }}
+                </h2>
+              {% endif %}
+
+              {%- if block.settings.desc != blank -%}
+                <div class='mt-12 text-[15px] leading-[1.3] text-(--desc-color) md:mt-16 md:text-[18px]'>
+                  <div class='hidden md:block'>
+                    {{ block.settings.desc }}
+                  </div>
+                  <div class='block md:hidden'>
+                    {{ block.settings.desc | strip_html }}
+                  </div>
+                </div>
+              {%- endif -%}
+
+              {% if block.settings.button1_text != blank
+                and block.settings.button1_link != blank
+                or block.settings.button2_text != blank
+                and block.settings.button2_link != blank
+              %}
+                <div
+                  class='content-position flex'
+                  data-pos='{{ block.settings.content_position_pc }}'
+                  data-pos-h5='{{ block.settings.content_position_h5 }}'
+                >
+                  <div
+                    style='
+                      --button1-border-color: {{ block.settings.button1_border_color }};
+                      --button1-color: {{ block.settings.button1_color }};
+                      --button1-bg-color: {{ block.settings.button1_bg_color }};
+                      --button1-color-hover: {{ block.settings.button1_hover_color }};
+                      --button1-bg-hover-color: {{ block.settings.button1_bg_hover_color }};
+                      --button2-border-color: {{ block.settings.button2_border_color }};
+                      --button2-color: {{ block.settings.button2_color }};
+                      --button2-bg-color: {{ block.settings.button2_bg_color }};
+                      --button2-color-hover: {{ block.settings.button2_hover_color }};
+                      --button2-bg-hover-color: {{ block.settings.button2_bg_hover_color }};
+                    '
+                    class='mt-24 flex flex-wrap gap-8 transition-all duration-700 sm:mt-32 sm:gap-12 md:mt-40'
+                  >
+                    {% if block.settings.button1_text != blank and block.settings.button1_link != blank %}
+                      <a
+                        href='{{ block.settings.button1_link | default: '#' }}'
+                        {% if block.settings.button1_anchor_id != blank %}
+                          data-anchor-id='{{ block.settings.button1_anchor_id }}'
+                        {% endif %}
+                        class='
+                          inline-flex
+                          h-40 items-center justify-center
+                          self-start
+                          border
+                          border-(--button1-border-color)
+                          bg-(--button1-bg-color) px-24
+                          text-[13px]/[1.3]
+                          tracking-[0]
+                          text-(--button1-color)
+                          no-underline
+                          transition-colors
+                          duration-300
+                          hover:border-(--button1-bg-hover-color)
+                          hover:bg-(--button1-bg-hover-color)
+                          hover:text-(--button1-color-hover)
+                          sm:h-44
+                          sm:min-w-170
+                          sm:px-32
+                          sm:text-[14px]/[1.4]
+                        '
+                      >
+                        {{ block.settings.button1_text }}
+                      </a>
+                    {% endif %}
+                    {%- if block.settings.button2_text != blank and block.settings.button2_link != blank -%}
+                      <a
+                        href='{{ block.settings.button2_link | default: '#' }}'
+                        {% if block.settings.button2_anchor_id != blank %}
+                          data-anchor-id='{{ block.settings.button2_anchor_id }}'
+                        {% endif %}
+                        class='
+                          inline-flex
+                          h-40
+                          items-center
+                          justify-center
+                          self-start
+                          border
+                          border-(--button2-border-color)
+                          bg-(--button2-bg-color)
+                          px-24 text-[13px]/[1.3]
+                          tracking-[0]
+                          text-(--button2-color)
+                          no-underline
+                          transition-colors
+                          duration-300
+                          hover:border-(--button2-bg-hover-color)
+                          hover:bg-(--button2-bg-hover-color)
+                          hover:text-(--button2-color-hover)
+                          sm:h-44
+                          sm:min-w-170
+                          sm:px-32
+                          sm:text-[14px]/[1.4]
+                        '
+                      >
+                        {{ block.settings.button2_text }}
+                      </a>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<script>
+  (() => {
+    const sectionElement = document.querySelector(
+      '#shopify-section-{{ section.id }}',
+    );
+    if (!sectionElement) return;
+    const swiperElement = sectionElement.querySelector('.swiper');
+    if (swiperElement) {
+      new Swiper(swiperElement, {
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true,
+        },
+        {%- if section.settings.auto_rotate %}
+        autoplay: { delay: {{ section.settings.change_slides_speed | times: 1000 }}, disableOnInteraction: false },
+        {% endif -%}
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Common Banner",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Aspect Ratio Width",
+      "default": 16
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Aspect Ratio Height",
+      "default": 9
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Aspect Ratio Width",
+      "default": 4
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Aspect Ratio Height",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
+        },
+        {
+          "type": "range",
+          "id": "content_width_pc",
+          "label": "Content Width (PC)",
+          "default": 1320,
+          "min": 400,
+          "max": 1320,
+          "step": 20,
+          "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "content_position_pc",
+          "label": "Content Position (PC)",
+          "options": [
+            { "value": "top-left", "label": "Top Left" },
+            { "value": "top-center", "label": "Top Center" },
+            { "value": "top-right", "label": "Top Right" },
+            { "value": "middle-left", "label": "Middle Left" },
+            { "value": "middle-center", "label": "Middle Center" },
+            { "value": "middle-right", "label": "Middle Right" },
+            { "value": "bottom-left", "label": "Bottom Left" },
+            { "value": "bottom-center", "label": "Bottom Center" },
+            { "value": "bottom-right", "label": "Bottom Right" }
+          ],
+          "default": "middle-left"
+        },
+        {
+          "type": "select",
+          "id": "content_position_h5",
+          "label": "Content Position (Mobile)",
+          "options": [
+            { "value": "top-left", "label": "Top Left" },
+            { "value": "top-center", "label": "Top Center" },
+            { "value": "top-right", "label": "Top Right" },
+            { "value": "middle-left", "label": "Middle Left" },
+            { "value": "middle-center", "label": "Middle Center" },
+            { "value": "middle-right", "label": "Middle Right" },
+            { "value": "bottom-left", "label": "Bottom Left" },
+            { "value": "bottom-center", "label": "Bottom Center" },
+            { "value": "bottom-right", "label": "Bottom Right" }
+          ],
+          "default": "middle-left"
+        },
+        {
+          "type": "richtext",
+          "id": "sub_title",
+          "label": "Sub Title"
+        },
+        {
+          "type": "color",
+          "id": "sub_title_color",
+          "label": "Sub Title Color",
+          "default": "#E6E6E6"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "color",
+          "id": "desc_color",
+          "label": "Description Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "header",
+          "content": "Button1 Settings"
+        },
+        {
+          "type": "text",
+          "id": "button1_text",
+          "label": "Button1 Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button1_link",
+          "label": "Button1 Link"
+        },
+        {
+          "type": "text",
+          "id": "button1_anchor_id",
+          "label": "Button1 Anchor Id"
+        },
+        {
+          "type": "header",
+          "content": "Button1 Color Settings"
+        },
+        {
+          "type": "color",
+          "id": "button1_color",
+          "label": "Button1 Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "button1_border_color",
+          "label": "Button1 Border Color",
+          "default": "#FEDB1E"
+        },
+        {
+          "type": "color",
+          "id": "button1_bg_color",
+          "label": "Button1 Background Color",
+          "default": "#FEDB1E"
+        },
+        {
+          "type": "color",
+          "id": "button1_hover_color",
+          "label": "Button1 Hover Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button1_bg_hover_color",
+          "label": "Button1 Background Hover Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "header",
+          "content": "Button2 Settings"
+        },
+        {
+          "type": "text",
+          "id": "button2_text",
+          "label": "Button2 Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button2_link",
+          "label": "Button2 Link"
+        },
+        {
+          "type": "text",
+          "id": "button2_anchor_id",
+          "label": "Button2 Anchor Id"
+        },
+        {
+          "type": "header",
+          "content": "Button2 Color Settings"
+        },
+        {
+          "type": "color",
+          "id": "button2_color",
+          "label": "Button2 Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "button2_border_color",
+          "label": "Button2 Border Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "button2_bg_color",
+          "label": "Button2 Background Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "button2_hover_color",
+          "label": "Button2 Hover Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "button2_bg_hover_color",
+          "label": "Button2 Background Hover Color",
+          "default": "#FEDB1E"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Common Banner",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "title": "<p>Become a Yarbo <br/>Affiliate Partner</p>",
+            "desc": "<p>Easy Promotion, Easy Earnings!</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

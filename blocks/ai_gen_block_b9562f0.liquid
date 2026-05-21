@@ -1,0 +1,281 @@
+{% doc %}
+  @prompt
+    我需要一个能放代码块的组件，我需要放zoho form的链接，间距也需可调整, 我现在这个代码显示不出来咋回事, https://forms.zohopublic.com/yarbo/form/DealerApplicationEU/formperma/NqfUmepgpzj7XzUWNYWY1RhyN77QzUTTLlPlDEbeYMs
+    之前的html代码是这样的，但是现在生成出来的还是显示不了, <div id="shopline-section-17466028221192f37626" class="shopline-section section nsa-accesstive" data-original-filter="none">
+
+    <style>
+    #shopline-section-17466028221192f37626.section-padding, #shopline-section-17466028221192f37626 .section-padding {
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+    @media only screen and (max-width: 959px) {
+      #shopline-section-17466028221192f37626.section-padding, #shopline-section-17466028221192f37626 .section-padding {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+    }
+    </style>
+    <style>
+        #shopline-section-17466028221192f37626 {
+          background-color: rgba(0, 0, 0, 0);
+        }
+
+        /* 375-679px */
+        @media (max-width: 679px) {
+          #shopline-section-17466028221192f37626 {
+            padding-top: 0px;
+            padding-bottom: 0px;
+          }
+        }
+
+        /* 680-959px */
+        @media (min-width: 680px) and (max-width: 959px) {
+          #shopline-section-17466028221192f37626 {
+            padding-top: 0px;
+            padding-bottom: 0px;
+          }
+        }
+
+        /* 960-1439px */
+        @media (min-width: 960px) and (max-width: 1439px) {
+          #shopline-section-17466028221192f37626 {
+            padding-top: 0px;
+            padding-bottom: 0px;
+          }
+        }
+
+        /* 1440-1919px */
+        @media (min-width: 1440px) and (max-width: 1919px) {
+          #shopline-section-17466028221192f37626 {
+            padding-top: 0px;
+            padding-bottom: 0px;
+          }
+        }
+
+        /* 1920px+ */
+        @media (min-width: 1920px) {
+          #shopline-section-17466028221192f37626 {
+            padding-top: 0px;
+            padding-bottom: 0px;
+          }
+        }
+      </style>
+
+    <div class="section-padding rte color-scheme-none nsa-accesstive" data-original-filter="none">
+        <iframe id="DearlerForm" src="https://forms.zohopublic.com/yarbo/form/DealerApplicationEU/formperma/NqfUmepgpzj7XzUWNYWY1RhyN77QzUTTLlPlDEbeYMs?utm_source=www.yarbo.com&amp;utm_medium=referral" width="100%" height="1000px" title="Yarbo Dealer Application Form" style="width: 100%" data-original-src="https://forms.zohopublic.com/yarbo/form/DealerApplicationEU/formperma/NqfUmepgpzj7XzUWNYWY1RhyN77QzUTTLlPlDEbeYMs" data-original-font-size="10.5px" data-original-line-height="16.8px" data-original-word-spacing="0px" data-original-letter-spacing="1.05e-07px" data-original-text-align="start" data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;" data-original-zoom="1" class="nsa-accesstive" data-original-filter="none"></iframe>
+    </div>
+    </div>
+    你可以模仿这个，我需要填代码块
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% style %}
+  .ai-custom-code-container-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+  }
+
+  .ai-custom-code-wrapper-{{ ai_gen_id }} {
+    padding-top: {{ block.settings.padding_top }}px;
+    padding-bottom: {{ block.settings.padding_bottom }}px;
+    padding-left: {{ block.settings.padding_horizontal }}px;
+    padding-right: {{ block.settings.padding_horizontal }}px;
+    background-color: {{ block.settings.background_color }};
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-custom-code-content-{{ ai_gen_id }} {
+    width: 100%;
+  }
+
+  .ai-custom-code-content-{{ ai_gen_id }} iframe {
+    width: 100%;
+    border: none;
+  }
+
+  .ai-custom-code-placeholder-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  @media screen and (max-width: 959px) {
+    .ai-custom-code-wrapper-{{ ai_gen_id }} {
+      padding-top: {{ block.settings.padding_top_mobile }}px;
+      padding-bottom: {{ block.settings.padding_bottom_mobile }}px;
+      padding-left: {{ block.settings.padding_horizontal_mobile }}px;
+      padding-right: {{ block.settings.padding_horizontal_mobile }}px;
+    }
+  }
+{% endstyle %}
+{% if block.settings.anchor_id != blank %}
+  <div
+    style='display: block;'
+    data-anchor-target-id='{{ block.settings.anchor_id }}'
+  ></div>
+{% endif %}
+<ai-custom-code-{{ ai_gen_id }}
+  class='ai-custom-code-container-{{ ai_gen_id }}'
+  {{ block.shopify_attributes }}
+>
+  <div class='ai-custom-code-wrapper-{{ ai_gen_id }}'>
+    {% if block.settings.custom_code != blank %}
+      <div class='ai-custom-code-content-{{ ai_gen_id }}'>
+        {{ block.settings.custom_code }}
+      </div>
+    {% else %}
+      <div class='ai-custom-code-placeholder-{{ ai_gen_id }}'>请在设置中添加自定义代码（支持 HTML、iframe 等）</div>
+    {% endif %}
+  </div>
+</ai-custom-code-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AiCustomCode{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.initializeScripts();
+      }
+
+      initializeScripts() {
+        const scripts = this.querySelectorAll('script');
+        scripts.forEach((oldScript) => {
+          const newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach((attr) => {
+            newScript.setAttribute(attr.name, attr.value);
+          });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      }
+    }
+
+    customElements.define('ai-custom-code-{{ ai_gen_id }}', AiCustomCode{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "自定义代码块",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "header",
+      "content": "代码设置"
+    },
+    {
+      "type": "liquid",
+      "id": "custom_code",
+      "label": "自定义代码"
+    },
+    {
+      "type": "header",
+      "content": "桌面端间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "上边距",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "下边距",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "左右边距",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "移动端间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "上边距",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "下边距",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal_mobile",
+      "label": "左右边距",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "样式设置"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "桌面宽度",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "自定义代码块"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,99 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <div class='flex gap-32 bg-[#FCFAF2] p-20 max-md:flex-col md:gap-24 md:px-24 md:py-40'>
+    {%- for block in section.blocks -%}
+      <div
+        {{ block.shopify_attributes }}
+        class='flex-1'
+      >
+        <div class='flex flex-1 justify-center text-center'>
+          {% if block.settings.title != blank %}
+            <div>
+              <h3 class='text-[36px] leading-none text-[#DDBA00] uppercase md:text-[52px]'>
+                {{ block.settings.title -}}
+              </h3>
+              {% if block.settings.text != blank %}
+                <p class='mt-4 text-[13px] leading-[1.3] md:text-[14px]'>
+                  {{ block.settings.text }}
+                </p>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Count Up Blocks",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Count Up Blocks",
+      "blocks": [{ "type": "block" }]
+    }
+  ]
+}
+{% endschema %}

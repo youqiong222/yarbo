@@ -1,0 +1,301 @@
+{%- liquid
+  assign b = block.settings
+  assign count = b.item_count | default: 3
+-%}
+<div
+  {{ block.shopify_attributes }}
+  class='
+    block-{{ block.id }} w-full
+    bg-(--bg-color) pt-(--pt-h5) pb-(--pb-h5)
+    md:pt-(--pt-pc) md:pb-(--pb-pc)
+  '
+  style='
+    --pt-pc: {{ b.pt_pc }}px;
+    --pb-pc: {{ b.pb_pc }}px;
+    --pt-h5: {{ b.pt_h5 }}px;
+    --pb-h5: {{ b.pb_h5 }}px;
+    --top-size-pc: {{ b.top_font_size_pc }}px;
+    --top-size-h5: {{ b.top_font_size_h5 }}px;
+    --unit-size-pc: {{ b.unit_font_size_pc }}px;
+    --unit-size-h5: {{ b.unit_font_size_h5 }}px;
+    --bottom-size-pc: {{ b.bottom_font_size_pc }}px;
+    --bottom-size-h5: {{ b.bottom_font_size_h5 }}px;
+    --top-color: {{ b.top_color }};
+    --bottom-color: {{ b.bottom_color }};
+    --bg-color: {{ b.bg_color }};
+  '
+>
+  <div class='page-container'>
+    <div class='mx-auto max-w-820'>
+      <div class='flex flex-wrap justify-center gap-x-12 gap-y-24 md:flex-nowrap md:justify-between md:gap-0'>
+        {%- for i in (1..4) -%}
+          {%- if forloop.index > count -%}{%- break -%}{%- endif -%}
+          {%- assign value_key = 'item_' | append: i | append: '_value' -%}
+          {%- assign unit_key = 'item_' | append: i | append: '_unit' -%}
+          {%- assign bottom_key = 'item_' | append: i | append: '_bottom' -%}
+          {%- assign value_val = b[value_key] -%}
+          {%- assign unit_val = b[unit_key] -%}
+          {%- assign bottom_val = b[bottom_key] -%}
+          {%- if value_val != blank or bottom_val != blank -%}
+            <div class='flex basis-[calc(50%-6px)] flex-col items-center text-center md:flex-1 md:basis-auto'>
+              {%- if value_val != blank or unit_val != blank -%}
+                <h4 class='text-(length:--top-size-h5) leading-none font-bold text-(--top-color) md:text-(length:--top-size-pc)'>
+                  {{ value_val }}
+                  {%- if unit_val != blank -%}
+                    <span class='ml-2 align-baseline text-(length:--unit-size-h5) md:text-(length:--unit-size-pc)'>{{ unit_val }}</span>
+                  {%- endif -%}
+                </h4>
+              {%- endif -%}
+              {%- if bottom_val != blank -%}
+                <p class='mt-4 text-(length:--bottom-size-h5) leading-[1.3] text-(--bottom-color) md:mt-4 md:text-(length:--bottom-size-pc)'>
+                  {{ bottom_val }}
+                </p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Number Roll",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Items"
+    },
+    {
+      "type": "range",
+      "id": "item_count",
+      "label": "Item Count",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Item 1"
+    },
+    {
+      "type": "text",
+      "id": "item_1_value",
+      "label": "Value",
+      "default": "300"
+    },
+    {
+      "type": "text",
+      "id": "item_1_unit",
+      "label": "Unit",
+      "default": "W"
+    },
+    {
+      "type": "text",
+      "id": "item_1_bottom",
+      "label": "Bottom Text",
+      "default": "Dual Motor Drive"
+    },
+    {
+      "type": "header",
+      "content": "Item 2"
+    },
+    {
+      "type": "text",
+      "id": "item_2_value",
+      "label": "Value",
+      "default": "1.2 - 4"
+    },
+    {
+      "type": "text",
+      "id": "item_2_unit",
+      "label": "Unit",
+      "default": "IN"
+    },
+    {
+      "type": "text",
+      "id": "item_2_bottom",
+      "label": "Bottom Text",
+      "default": "Adjustable Height Control"
+    },
+    {
+      "type": "header",
+      "content": "Item 3"
+    },
+    {
+      "type": "text",
+      "id": "item_3_value",
+      "label": "Value",
+      "default": "600"
+    },
+    {
+      "type": "text",
+      "id": "item_3_unit",
+      "label": "Unit",
+      "default": "W"
+    },
+    {
+      "type": "text",
+      "id": "item_3_bottom",
+      "label": "Bottom Text",
+      "default": "Total Power Output"
+    },
+    {
+      "type": "header",
+      "content": "Item 4"
+    },
+    {
+      "type": "text",
+      "id": "item_4_value",
+      "label": "Value"
+    },
+    {
+      "type": "text",
+      "id": "item_4_unit",
+      "label": "Unit"
+    },
+    {
+      "type": "text",
+      "id": "item_4_bottom",
+      "label": "Bottom Text"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "top_font_size_pc",
+      "label": "Value Font Size (PC)",
+      "min": 20,
+      "max": 120,
+      "step": 1,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "top_font_size_h5",
+      "label": "Value Font Size (Mobile)",
+      "min": 16,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "unit_font_size_pc",
+      "label": "Unit Font Size (PC)",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "unit_font_size_h5",
+      "label": "Unit Font Size (Mobile)",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "bottom_font_size_pc",
+      "label": "Bottom Font Size (PC)",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "bottom_font_size_h5",
+      "label": "Bottom Font Size (Mobile)",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "top_color",
+      "label": "Value Text Color",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "bottom_color",
+      "label": "Bottom Text Color",
+      "default": "#515355"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Spacing (PC)"
+    },
+    {
+      "type": "range",
+      "id": "pt_pc",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb_pc",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "pt_h5",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb_h5",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Number Roll"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,625 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+<div
+  class='page-container  {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+  style='
+    --button-border-color: {{ section.settings.button_border_color }};
+    --button-color: {{ section.settings.button_color }};
+    --button-bg-color: {{ section.settings.button_bg_color }};
+    --button-color-hover: {{ section.settings.button_hover_color }};
+    --button-bg-hover-color: {{ section.settings.button_bg_hover_color }};
+  '
+  {% if section.settings.button_action == 'popup' %}
+    x-data='{ open: false }'
+  {% endif %}
+>
+  <div
+    class='flex justify-between md:gap-20'
+  >
+    <div class='flex flex-col gap-12 md:gap-16'>
+      <h2 class='mb-0 text-[36px] leading-none uppercase md:text-[44px]'>
+        {{ section.settings.title }}
+      </h2>
+      <div class='text-[15px] leading-[1.3] text-[#515355] md:text-[15px]'>
+        {{ section.settings.text }}
+      </div>
+    </div>
+    {% if section.settings.button_text != blank %}
+      {% if section.settings.button_action == 'popup' %}
+        <button
+          type='button'
+          @click='open = true'
+          class='
+            mt-32
+            hidden h-40
+            cursor-pointer
+            items-center
+            justify-center
+            self-start border
+            border-(--button-border-color)
+            bg-(--button-bg-color)
+            px-24
+            text-[14px]
+            leading-[1.3]
+            tracking-[0]
+            text-(--button-color)
+            no-underline
+            transition-colors
+            duration-300
+            hover:border-(--button-bg-hover-color)
+            hover:bg-(--button-bg-hover-color)
+            hover:text-(--button-color-hover) sm:h-44
+            sm:min-w-138
+            sm:px-32 sm:text-[15px]
+            md:inline-flex
+          '
+        >
+          {{ section.settings.button_text }}
+        </button>
+      {% else %}
+        <a
+          href='{{ section.settings.button_link | default: '#' }}'
+          class='
+            mt-24
+            hidden h-40
+            items-center
+            justify-center
+            self-start
+            border border-(--button-border-color)
+            bg-(--button-bg-color)
+            px-24
+            text-[14px]
+            leading-[1.3]
+            tracking-[0]
+            text-(--button-color)
+            no-underline
+            transition-colors
+            duration-300
+            hover:border-(--button-bg-hover-color)
+            hover:bg-(--button-bg-hover-color)
+            hover:text-(--button-color-hover) sm:h-44
+            sm:min-w-138
+            sm:px-32 sm:text-[15px]
+            md:mt-32 md:inline-flex
+          '
+        >
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    {% endif %}
+  </div>
+  <div class='swiper mt-32 min-w-0 [overflow:unset] md:mt-40 md:overflow-hidden'>
+    <div class='swiper-wrapper md:grid md:grid-cols-4 md:gap-x-12 md:gap-y-24'>
+      {% for block in section.blocks %}
+        <div class='swiper-slide flex flex-col'>
+          <div>
+            {%- liquid
+              assign b = block.settings
+              assign pc_w = b.pc_aspect_ratio_w | default: 16
+              assign pc_h = b.pc_aspect_ratio_h | default: 9
+              assign pc_ratio = pc_w | append: '/' | append: pc_h
+              assign h5_w = b.h5_aspect_ratio_w | default: 16
+              assign h5_h = b.h5_aspect_ratio_h | default: 9
+              assign h5_ratio = h5_w | append: '/' | append: h5_h
+            -%}
+            <div
+              style='
+                --media-aspect-pc: {{ pc_ratio }};
+                --media-aspect-h5: {{ h5_ratio }};
+              '
+              class='
+                relative aspect-(--media-aspect-h5) w-full
+                overflow-hidden md:aspect-(--media-aspect-pc)
+              '
+            >
+              {% render 'media-element',
+                class: 'absolute inset-0 w-full h-full object-cover',
+                media_type: block.settings.media_type,
+                media_class: 'w-full h-full object-cover',
+                pc_image: block.settings.pc_image,
+                h5_image: block.settings.h5_image,
+                pc_video: block.settings.pc_video,
+                h5_video: block.settings.h5_video,
+                video_url: block.settings.video_url,
+                other_url: block.settings.other_url
+              %}
+              {%- render 'sn-overlay', _settings: block.settings -%}
+            </div>
+          </div>
+          <div class='flex flex-1 items-center gap-16 bg-[#f2f2f2] px-20 py-16 md:px-24 md:py-16'>
+            <div class='flex h-68 w-65 flex-col items-center justify-center bg-[#fedb1e] px-12 py-10 text-center'>
+              <div class='theme-title text-[32px] md:text-[32px]'>
+                {{ block.settings.day }}
+              </div>
+              <div class='text-[14px] leading-[1.3] font-bold md:text-[15px]'>
+                {{ block.settings.month }}
+              </div>
+            </div>
+
+            <div class='flex flex-1 flex-col gap-4'>
+              <div class='text-[14px] leading-[1.3] text-[#515355] md:text-[15px]'>
+                {{ block.settings.datetime }}
+              </div>
+              <div class='text-[14px] leading-[1.3] font-bold md:text-[15px]'>
+                {{ block.settings.title }}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% if section.settings.button_text != blank %}
+    {% if section.settings.button_action == 'popup' %}
+      <button
+        type='button'
+        @click='open = true'
+        class='
+          mt-32
+          inline-flex h-40
+          w-full
+          items-center
+          justify-center
+          self-start border
+          border-(--button-border-color)
+          bg-(--button-bg-color)
+          px-24
+          text-[14px] leading-[1.3]
+          tracking-[0]
+          text-(--button-color)
+          no-underline
+          transition-colors
+          duration-300
+          hover:border-(--button-bg-hover-color)
+          hover:bg-(--button-bg-hover-color)
+          hover:text-(--button-color-hover) sm:h-44
+          sm:min-w-138
+          sm:px-32
+          sm:text-[15px]
+          md:hidden
+        '
+      >
+        {{ section.settings.button_text }}
+      </button>
+      <template x-teleport='body'>
+        <div class='css-reset tailwind-layout'>
+          <div
+            x-cloak
+            x-show='open'
+            x-transition.opacity.duration.300ms
+            class='fixed inset-0 z-999 flex items-center justify-center bg-black/60 p-20'
+          >
+            <div
+              @click.outside='open = false'
+              x-transition.scale.95.duration.300ms
+              class='relative w-full max-w-640 bg-white p-24 md:p-40'
+            >
+              <button
+                type='button'
+                @click='open = false'
+                class='absolute top-16 right-16 flex h-32 w-32 cursor-pointer items-center justify-center border-0 bg-transparent p-0'
+              >
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                >
+                  <path d='M18 6L6 18M6 6L18 18' stroke='currentColor' stroke-width='2' stroke-linecap='round'/>
+                </svg>
+              </button>
+              <h3 class='mb-18 text-center text-[18px] md:mb-24 md:text-[24px]'>{{ section.settings.subscribe_title }}</h3>
+              <div>
+                {% render 'sn-subscribe-klaviyo',
+                  emailType: section.settings.email_type,
+                  klaviyoListId: section.settings.klaviyo_list_id,
+                  step1: section.settings.step1,
+                  step1Placeholder: section.settings.step1_placeholder,
+                  step2: section.settings.step2,
+                  step2Placeholder: section.settings.step2_placeholder,
+                  step3: section.settings.step3,
+                  step3Placeholder: section.settings.step3_placeholder
+                %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    {% else %}
+      <a
+        href='{{ section.settings.button_link | default: '#' }}'
+        class='
+          mt-32
+          inline-flex h-40
+          w-full
+          items-center
+          justify-center
+          self-start border
+          border-(--button-border-color)
+          bg-(--button-bg-color)
+          px-24
+          text-[14px] leading-[1.3]
+          tracking-[0]
+          text-(--button-color)
+          no-underline
+          transition-colors
+          duration-300
+          hover:border-(--button-bg-hover-color)
+          hover:bg-(--button-bg-hover-color)
+          hover:text-(--button-color-hover) sm:h-44
+          sm:min-w-138
+          sm:px-32
+          sm:text-[15px] md:mt-32
+          md:hidden
+        '
+      >
+        {{ section.settings.button_text }}
+      </a>
+    {% endif %}
+  {% endif %}
+</div>
+
+<script>
+  (() => {
+    const sectionElement = document.querySelector('#shopify-section-{{ section.id }}');
+    if (!sectionElement) return;
+
+    const swiperContainer = sectionElement.querySelector('.swiper');
+    if (!swiperContainer) return;
+
+    let mySwiper = null;
+    const mediaQuery = window.matchMedia('(min-width: 1000px)');
+
+    const handleSwiper = (e) => {
+      if (e.matches) {
+        if (mySwiper !== null) {
+          mySwiper.destroy(true, true);
+          mySwiper = null;
+        }
+      } else {
+        if (mySwiper === null) {
+          mySwiper = new Swiper(swiperContainer, {
+            slidesPerView: 1.2,
+            spaceBetween: 12,
+            breakpoints: {
+              768: {
+                slidesPerView: 2.2,
+                spaceBetween: 24,
+              },
+            },
+          });
+        }
+      }
+    };
+
+    handleSwiper(mediaQuery);
+    mediaQuery.addEventListener('change', handleSwiper);
+  })();
+</script>
+{% schema %}
+{
+  "name": "Livestream Agenda",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Button"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_action",
+      "label": "Button Action",
+      "options": [
+        {
+          "value": "link",
+          "label": "Open Link"
+        },
+        {
+          "value": "popup",
+          "label": "Open Klaviyo Popup"
+        }
+      ],
+      "default": "link"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_form_id",
+      "label": "Klaviyo Form ID"
+    },
+    {
+      "type": "header",
+      "content": "Button Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button Hover Color",
+      "default": "#25282a"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_hover_color",
+      "label": "Button Background Hover Color",
+      "default": "#FEDB1E"
+    },
+    {
+      "type": "text",
+      "id": "subscribe_title",
+      "label": "Subscribe Title",
+      "default": "Subscribe for Exclusive Live Streaming Updates"
+    },
+    {
+      "type": "header",
+      "content": "Subscribe Settings"
+    },
+    {
+      "type": "text",
+      "id": "email_type",
+      "label": "Email Type"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo List ID"
+    },
+    {
+      "type": "text",
+      "id": "step1",
+      "label": "Step 1 Button Text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "step1_placeholder",
+      "label": "Step 1 Placeholder",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "step2",
+      "label": "Step 2 Button Text"
+    },
+    {
+      "type": "text",
+      "id": "step2_placeholder",
+      "label": "Step 2 Placeholder"
+    },
+    {
+      "type": "text",
+      "id": "step3",
+      "label": "Step 3 Button Text"
+    },
+    {
+      "type": "text",
+      "id": "step3_placeholder",
+      "label": "Step 3 Placeholder"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "header",
+          "content": "Media Aspect Ratio"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_w",
+          "label": "PC Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_h",
+          "label": "PC Ratio Height"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_w",
+          "label": "Mobile Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_h",
+          "label": "Mobile Ratio Height"
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
+        },
+        {
+          "type": "text",
+          "id": "day",
+          "label": "Day",
+          "default": "23"
+        },
+        {
+          "type": "text",
+          "id": "month",
+          "label": "Month",
+          "default": "Mar"
+        },
+        {
+          "type": "text",
+          "id": "datetime",
+          "label": "Date time text",
+          "default": "3/23 Mar, 2:00PM (EDT)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "M Series Demo: Finally Here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Livestream Agenda",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

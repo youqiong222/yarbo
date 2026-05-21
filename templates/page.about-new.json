@@ -1,0 +1,935 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_banner_full_screen_7EitjJ": {
+      "type": "sa-banner-full-screen",
+      "blocks": {
+        "slide_KFpMYJ": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_479.png",
+            "h5_image": "shopify://shop_images/Frame_480.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "content_width_pc": 800,
+            "content_position_pc": "middle-center",
+            "content_position_h5": "middle-center",
+            "mobile_bg_color": "#000000",
+            "title": "<p>Making the impossible, possible.</p>",
+            "title_color": "#ffffff",
+            "desc": "<p>A testament to human determination, the Golden Gate Bridge turned an impossible vision into an icon. Yarbo channels that same spirit, empowering you to master your yard year-round, effortlessly.</p>",
+            "desc_color": "#ffffff",
+            "button1_text": "Watch Video ▶",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_type": "video",
+            "button1_media_type": "video",
+            "button1_pc_video": "shopify://files/videos/681fb51deed649f395c32dd86f010d57.mp4",
+            "button1_h5_video": "shopify://files/videos/681fb51deed649f395c32dd86f010d57.mp4",
+            "button1_video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "button1_other_url": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_type": "url",
+            "button2_media_type": "video_url",
+            "button2_video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "button2_other_url": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e",
+            "featured_product": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_KFpMYJ"
+      ],
+      "name": "Banner Full Screen",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "use_aspect_ratio": "no",
+        "pc_aspect_ratio_w": 16,
+        "pc_aspect_ratio_h": 9,
+        "h5_aspect_ratio_w": 4,
+        "h5_aspect_ratio_h": 3,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_common_img_text_rAbcqd": {
+      "type": "sa-common-img-text",
+      "blocks": {
+        "item_UHnkgp": {
+          "type": "item",
+          "settings": {
+            "image_width": 53,
+            "pc_layout": "image_left",
+            "mobile_layout": "text_top",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_483.png",
+            "h5_image": "shopify://shop_images/Frame_484.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>Why We Began</p>",
+            "title_color": "#ffffff",
+            "title_size_pc": 52,
+            "title_size_mobile": 36,
+            "desc": "People face the ongoing challenge of snow removal, a task in high demand but lacking effective technological solutions, making winter life harder. Yarbo believes in a different version of the future with fully automated yards, giving you more time for what matters. This is why we created our autonomous yard robot.",
+            "desc_color": "#ffffff",
+            "desc_size_pc": 18,
+            "desc_size_mobile": 15,
+            "button_text": "Button",
+            "button_link": "",
+            "button_color": "#ffffff",
+            "button_border_color": "#25282a",
+            "button_bg_color": "#25282a",
+            "button_hover_color": "#25282a",
+            "button_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "item_UHnkgp"
+      ],
+      "name": "Common Text Media",
+      "settings": {
+        "anchor_id": "",
+        "bg_color": "#0d0d0d",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 80,
+        "gap": 48
+      }
+    },
+    "sa_timeline_swiper_CTCtTe": {
+      "type": "sa-timeline-swiper",
+      "blocks": {
+        "block_yhnLEi": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2026_New_Start.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2026",
+            "desc": "<p><strong>2026 New Start</strong></p><p>The M Series is coming soon, revolutionizing the global yard life worldwide.</p>"
+          }
+        },
+        "block_bgd9HM": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2025.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2025",
+            "desc": "<p><strong>Launched new products, Yarbo Lawn Mower Pro and Yarbo Trimmer Package hit the market. Users have more smart yard options.</strong></p>"
+          }
+        },
+        "block_7XiyWX": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2024.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2024",
+            "desc": "<p><strong>More than 5,000 Yarbo units—snow blowers, lawn mowers, and blowers—were delivered globally.</strong></p>"
+          }
+        },
+        "block_RwPg96": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2027.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2023",
+            "desc": "<p><strong>Over 1,000 Yarbo Snow Blowers are delivered worldwide.</strong></p>"
+          }
+        },
+        "block_rTktrT": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2028.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2022",
+            "desc": "<p><strong>Officially changed the company name to Yarbo. Evolution from Snowbot to Yarbo, raising over $3.45 million through a successful crowdfunding program.</strong></p>"
+          }
+        },
+        "block_9pPwBc": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2029_1.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2021",
+            "desc": "<p><strong>Launch of the public beta version of Snowbot S1.</strong></p>"
+          }
+        },
+        "block_JCQryE": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2029.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2020",
+            "desc": "<p><strong>Snowbot passes testing, with the autonomous snow blower functionality fully validated.</strong></p>"
+          }
+        },
+        "block_3B3Mh9": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2030.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2019",
+            "desc": "<p><strong>The Snowbot is exhibited at Spoga+Gafa in Germany.</strong></p>"
+          }
+        },
+        "block_rVrCCH": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2031.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2018",
+            "desc": "<p><strong>The Snowbot prototype enters the testing stage.</strong></p>"
+          }
+        },
+        "block_8Jidj9": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2032.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2017",
+            "desc": "<p><strong>Definition of the project for an autonomous robotic snow blower and developed the Snowbot prototype.</strong></p>"
+          }
+        },
+        "block_8ywHRH": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2033.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2016",
+            "desc": "<p><strong>Refinement of the idea for the world's first autonomous snow blower.</strong></p>"
+          }
+        },
+        "block_zK8t94": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2034.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "year": "2015",
+            "desc": "<p><strong>The company is established.</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_yhnLEi",
+        "block_bgd9HM",
+        "block_7XiyWX",
+        "block_RwPg96",
+        "block_rTktrT",
+        "block_9pPwBc",
+        "block_JCQryE",
+        "block_3B3Mh9",
+        "block_rVrCCH",
+        "block_8Jidj9",
+        "block_8ywHRH",
+        "block_zK8t94"
+      ],
+      "name": "Timeline Swiper",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Our Milestones</p>",
+        "pc_aspect_ratio_w": 1,
+        "pc_aspect_ratio_h": 1,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1
+      }
+    },
+    "sa_common_img_text_zwEaU9": {
+      "type": "sa-common-img-text",
+      "blocks": {
+        "item_xTYmTc": {
+          "type": "item",
+          "settings": {
+            "image_width": 53,
+            "pc_layout": "image_right",
+            "mobile_layout": "text_top",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_485.png",
+            "h5_image": "shopify://shop_images/Frame_486.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "h5_aspect_ratio_w": 1,
+            "h5_aspect_ratio_h": 1,
+            "title": "<p>Yarbo Today</p>",
+            "title_color": "#ffffff",
+            "title_size_pc": 52,
+            "title_size_mobile": 36,
+            "desc": "Today, Yarbo is a global brand with thousands of units delivered worldwide. We manufacture at scale through dedicated facilities, in-house assembly lines, and a trusted global supplier network. From snow blowers to lawn mowers, our modular systems deliver effortless, all-season yard care with durability and intelligent design.",
+            "desc_color": "#ffffff",
+            "desc_size_pc": 18,
+            "desc_size_mobile": 15,
+            "button_text": "Button",
+            "button_link": "",
+            "button_color": "#ffffff",
+            "button_border_color": "#25282a",
+            "button_bg_color": "#25282a",
+            "button_hover_color": "#25282a",
+            "button_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "item_xTYmTc"
+      ],
+      "name": "Common Text Media",
+      "settings": {
+        "anchor_id": "",
+        "bg_color": "#0d0d0d",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 32,
+        "gap": 48
+      }
+    },
+    "sa_yarbo_map_XNxNrN": {
+      "type": "sa-yarbo-map",
+      "blocks": {
+        "stat_item_eNLfcJ": {
+          "type": "stat_item",
+          "settings": {
+            "count": 30,
+            "unit": "+",
+            "description": "Countries and regions"
+          }
+        },
+        "stat_item_LiJeiD": {
+          "type": "stat_item",
+          "settings": {
+            "count": 50000,
+            "unit": "+",
+            "description": "Units sold globally"
+          }
+        },
+        "stat_item_HjJkTc": {
+          "type": "stat_item",
+          "settings": {
+            "count": 10000,
+            "unit": "+",
+            "description": "Trusted users"
+          }
+        },
+        "stat_item_WgJcXm": {
+          "type": "stat_item",
+          "settings": {
+            "count": 10,
+            "unit": "+",
+            "description": "Years of industry experience"
+          }
+        }
+      },
+      "block_order": [
+        "stat_item_eNLfcJ",
+        "stat_item_LiJeiD",
+        "stat_item_HjJkTc",
+        "stat_item_WgJcXm"
+      ],
+      "name": "Yarbo Map Count up",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#0d0d0d",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "image_width": 62,
+        "pc_layout": "image_left",
+        "mobile_layout": "text_top",
+        "title": "Yarbo Around The World",
+        "title_color": "#ffffff",
+        "title_size_pc": 42,
+        "title_size_mobile": 32,
+        "desc": "Yarbo is trusted in homes across the globe, with a growing presence in over 30 countries. Wherever you are, we’re making yard care cleaner, smarter, and more accessible.",
+        "desc_color": "#ffffff",
+        "desc_size_pc": 16,
+        "desc_size_mobile": 13,
+        "stat_count_color": "#fedb1e",
+        "stat_count_pc": 44,
+        "stat_count_mobile": 32,
+        "stat_desc_color": "#ffffff",
+        "stat_desc_pc": 14,
+        "stat_desc_mobile": 13,
+        "media_type": "image",
+        "pc_image": "shopify://shop_images/Frame_492.png",
+        "h5_image": "shopify://shop_images/Frame_493.png",
+        "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+        "other_url": "",
+        "show_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "pc_aspect_ratio_w": 16,
+        "pc_aspect_ratio_h": 9,
+        "h5_aspect_ratio_w": 16,
+        "h5_aspect_ratio_h": 9
+      }
+    },
+    "sa_index_awards_DmJqYc": {
+      "type": "sa-index-awards",
+      "blocks": {
+        "block_RptQCT": {
+          "type": "block",
+          "settings": {
+            "text": "2024 Edison Awards",
+            "award_img": "shopify://shop_images/Frame_2036457807_6ded0d61-99b1-4de0-867b-3b755e9a155a.png"
+          }
+        },
+        "block_VCN3yq": {
+          "type": "block",
+          "settings": {
+            "text": "iF Design Award 2026",
+            "award_img": "shopify://shop_images/Frame_2036457811.png"
+          }
+        },
+        "block_dkyNw4": {
+          "type": "block",
+          "settings": {
+            "text": "CES Innovation Awards 2025",
+            "award_img": "shopify://shop_images/Frame_2036457812.png"
+          }
+        },
+        "block_dEfPtN": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award 2023",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_fjEPmG": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_NBbN9M": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_RptQCT",
+        "block_VCN3yq",
+        "block_dkyNw4",
+        "block_dEfPtN",
+        "block_fjEPmG",
+        "block_NBbN9M"
+      ],
+      "name": "Index Awards",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "h5_padding_top": 48,
+        "h5_padding_bottom": 56
+      }
+    },
+    "sa_index_accordion_DNCPNd": {
+      "type": "sa-index-accordion",
+      "blocks": {
+        "block_JjVNXd": {
+          "type": "block",
+          "settings": {
+            "label": "",
+            "title": "<p>Unified Vision</p>",
+            "desc": "<p>Our mission revolves around a shared vision: harnessing cutting-edge technology to tackle real-world challenges in yard maintenance. This vision is continually reinforced through user interaction, shaping the future of our industry.</p>",
+            "learn_more_url": "/",
+            "show_btn": false,
+            "icon": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582947.png",
+            "h5_image": "shopify://shop_images/Frame_1484582950.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_nCYtYe": {
+          "type": "block",
+          "settings": {
+            "label": "",
+            "title": "<p>Pride In Creation</p>",
+            "desc": "<p>We take pride in our product—a creation born from scratch with limitless potential. Our dedication stems from a passion for raising the bar in robotics. Each meticulously crafted detail represents progress, driving us forward with a sense of achievement.</p>",
+            "learn_more_url": "/",
+            "show_btn": false,
+            "icon": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582948.png",
+            "h5_image": "shopify://shop_images/Frame_1484582951.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_e7qnEn": {
+          "type": "block",
+          "settings": {
+            "label": "",
+            "title": "<p>Exceptional Team</p>",
+            "desc": "<p>At Yarbo, our team embodies intelligence, integrity, resilience, and foresight. Their skills drive our groundbreaking efforts, fueled by unwavering belief, determination, and a vision to make a lasting impact in robotics and beyond. They are our invaluable assets.</p>",
+            "learn_more_url": "/",
+            "show_btn": false,
+            "icon": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582949.png",
+            "h5_image": "shopify://shop_images/Frame_1484582952.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "block_JjVNXd",
+        "block_nCYtYe",
+        "block_e7qnEn"
+      ],
+      "name": "Index Accordion",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 40,
+        "padding_bottom": 80,
+        "h5_padding_top": 32,
+        "h5_padding_bottom": 56,
+        "sub_title": "",
+        "title": "<p>What Motivates Us</p>"
+      }
+    },
+    "sa_img_text_swiper_medium_UdFNbP": {
+      "type": "sa-img-text-swiper-medium",
+      "blocks": {
+        "block_AtPKga": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582953.png",
+            "h5_image": "shopify://shop_images/Frame_1484582963.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>December 19, 2023</p>",
+            "desc": "<p>Team Yarbo filmed a video of the Yarbo Snow Blower in action.</p>"
+          }
+        },
+        "block_9teETx": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582954.png",
+            "h5_image": "shopify://shop_images/Frame_1484582964.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>February 23, 2023</p>",
+            "desc": "<p>Team Yarbo tested Yarbo Snow Blower.</p>"
+          }
+        },
+        "block_ArJmb7": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582955.png",
+            "h5_image": "shopify://shop_images/Frame_1484582965.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>June 28, 2024</p>",
+            "desc": "<p>Team Yarbo held an offline event at one of the users' houses.</p>"
+          }
+        },
+        "block_McFcBV": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582956.png",
+            "h5_image": "shopify://shop_images/Frame_1484582966.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>November 19, 2023</p>",
+            "desc": "<p>Outdoor testing in 3-4 meters deep snow.</p>"
+          }
+        },
+        "block_JwemDQ": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582957.png",
+            "h5_image": "shopify://shop_images/Frame_1484582967.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>December 19, 2023</p>",
+            "desc": "<p>Auto-plan operated in a snowstorm.</p>"
+          }
+        },
+        "block_xANkWw": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582958.png",
+            "h5_image": "shopify://shop_images/Frame_1484582968.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>September 17, 2023</p>",
+            "desc": "<p>Mass production of Yarbo 2023 version.</p>"
+          }
+        },
+        "block_W3wnNB": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582959.png",
+            "h5_image": "shopify://shop_images/Frame_1484582969.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>November 30, 2023</p>",
+            "desc": "<p>Yarbo showcased at the 28th Conference of the Parties (COP28) in Dubai.</p>"
+          }
+        },
+        "block_HaFBE7": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582960.png",
+            "h5_image": "shopify://shop_images/Frame_1484582970.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>January 14, 2024</p>",
+            "desc": "<p>Yarbo proudly showcases its latest innovations at CES 2024.</p>"
+          }
+        },
+        "block_xaWTqG": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582961.png",
+            "h5_image": "shopify://shop_images/Frame_1484582971.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>December 25, 2023</p>",
+            "desc": "<p>Yarbo team visited users in Alaska.</p>"
+          }
+        },
+        "block_dG4bwn": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582962.png",
+            "h5_image": "shopify://shop_images/Frame_1484582972.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>January 5, 2023</p>",
+            "desc": "<p>Yarbo won the 2023 CES Innovation Award.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_AtPKga",
+        "block_9teETx",
+        "block_ArJmb7",
+        "block_McFcBV",
+        "block_JwemDQ",
+        "block_xANkWw",
+        "block_W3wnNB",
+        "block_HaFBE7",
+        "block_xaWTqG",
+        "block_dG4bwn"
+      ],
+      "name": "Img Text Swiper Medium",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#f2f2f2",
+        "title": "<p>Moments with yarbo</p>",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 80,
+        "pc_aspect_ratio_w": 876,
+        "pc_aspect_ratio_h": 492,
+        "h5_aspect_ratio_w": 300,
+        "h5_aspect_ratio_h": 224,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_people_say_WQ9g4r": {
+      "type": "sa-people-say",
+      "blocks": {
+        "block_9RTeTR": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>\"We visited a user who had suffered severe burns, leaving her with just one arm. Despite this, she was able to install and operate Yarbo to blow the snow! That moment grounds me - Yarbo is not just about the revolution and a future vision, it is now making a real difference for people in need.\"</p>",
+            "name": "– Allen"
+          }
+        },
+        "block_fJb7PH": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>\"We tested Yarbo during this massive storm and were super excited. Yarbo managed to clear the snow in the midst of the storm, a task beyond human capability. That's the beauty of technology, turning the impossible into possible!\"</p>",
+            "name": "– ZL"
+          }
+        },
+        "block_hhPW6C": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>\"I remember when I received the first after-sales call at 3 am in the morning. It was a tough one for me and the entire customer service journey that winter started from here. I feel like we were moving forward slowly, but looking back, we've really come a long way.\"</p>",
+            "name": "– Rachel"
+          }
+        },
+        "block_JdiAci": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>\"Customer feedback we've received this year is crucial to me, as it's a reflection of our work and guides our next steps. It's a survival challenge for the entire company. Fortunately, we've done pretty well. I believe that we're on the right track, about to make a significant impact, and will even lead The 4th Industrial Revolution.\"</p>",
+            "name": "– Jay"
+          }
+        },
+        "block_nK3YmK": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>\"One of my most memorable moments was when I didn't speak up and stick to my own ideas, causing us to waste time and end up with unsatisfactory results. This happened while developing a new product, but it taught me to always start from the foundational logic and theories, and stand by them.\"</p>",
+            "name": "– Garfield"
+          }
+        },
+        "block_iymjMN": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>\"When I was flying back and forth between China and America, running numerous tests and updates, those moments really meant a lot to me. Countless adjustments have led to the Yarbo we have today, and I always feel like we can never test enough. Bugs are our friends.\"</p>",
+            "name": "– Tarik"
+          }
+        }
+      },
+      "block_order": [
+        "block_9RTeTR",
+        "block_fJb7PH",
+        "block_hhPW6C",
+        "block_JdiAci",
+        "block_nK3YmK",
+        "block_iymjMN"
+      ],
+      "name": "People Say",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "<p>Our Mission, From the Start</p>",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 60,
+        "pc_image": "shopify://shop_images/Frame_1484582974.png",
+        "h5_image": "shopify://shop_images/Frame_1484582975.png",
+        "show_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "line_jwaU4c": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_articles_block_cWkfrT": {
+      "type": "sa-articles-block",
+      "blocks": {
+        "blog_PKymri": {
+          "type": "blog",
+          "settings": {
+            "article": "blog-news/which-is-better-wired-or-wireless-robot-mowers-a-complete-guide"
+          }
+        },
+        "blog_UcDUjg": {
+          "type": "blog",
+          "settings": {
+            "article": "blog-news/does-automatic-lawn-cutter-work-discover-the-truth-about-robot-lawn-edgers"
+          }
+        },
+        "blog_63JLw3": {
+          "type": "blog",
+          "settings": {
+            "article": "blog-news/riding-lawn-mower-cost-whats-the-price-tag-for-your-perfect-fit"
+          }
+        }
+      },
+      "block_order": [
+        "blog_PKymri",
+        "blog_UcDUjg",
+        "blog_63JLw3"
+      ],
+      "name": "Articles Block",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Discover the latest news</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_banner_full_screen_7EitjJ",
+    "sa_common_img_text_rAbcqd",
+    "sa_timeline_swiper_CTCtTe",
+    "sa_common_img_text_zwEaU9",
+    "sa_yarbo_map_XNxNrN",
+    "sa_index_awards_DmJqYc",
+    "sa_index_accordion_DNCPNd",
+    "sa_img_text_swiper_medium_UdFNbP",
+    "sa_people_say_WQ9g4r",
+    "line_jwaU4c",
+    "sa_articles_block_cWkfrT"
+  ]
+}

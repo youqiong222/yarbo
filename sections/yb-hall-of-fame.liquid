@@ -1,0 +1,212 @@
+<link
+  rel='stylesheet'
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide.min_223bf385-ef7c-40c3-82e5-833dddfd1855.css'
+>
+<link
+  rel='stylesheet'
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide-extension-video.min.css'
+>
+<link
+  rel='stylesheet'
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-video.min_ee0e93f3-0431-46cb-a624-35daae31c826.css'
+  media='all'
+>
+<link
+  rel='stylesheet'
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-hall-of-fame.css'
+>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-video.min_ed91e4e0-7924-425e-9e88-5e9d0b914bd4.js'
+  defer
+></script>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide.min_8fbe9c70-a659-4943-b0df-b8e38e01e7a2.js'
+  defer
+></script>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide-extension-video.min.js'
+  defer
+></script>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-hall-of-fame.js'
+  defer
+></script>
+<style>
+  #shopify-section-{{ section.id }} h2 {
+    font-size: var(--title2-font-size, 32px);
+  }
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top | default: 0 }}px;
+      margin-bottom: {{ section.settings.margin_bottom | default: 0 }}px;
+    }
+  }
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.h5_margin_top | default: 0 }}px;
+      margin-bottom: {{ section.settings.h5_margin_bottom | default: 0 }}px;
+    }
+  }
+  #shopify-section-{{ section.id }} .yb-hall-of-fame{
+    margin-top:0;
+  }
+</style>
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<yb-hall-of-fame>
+  <section class='yb-hall-of-fame'>
+    <h2>{{ section.settings.heading }}</h2>
+
+    <div class='yb-hall-of-fame__bg'>
+      {% if section.settings.bg_image != blank %}
+        {{ section.settings.bg_image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
+      {% endif %}
+    </div>
+
+    <div class='yb-hall-of-fame__tabs-container'>
+      <div class='yb-hall-of-fame__tabs'>
+        <div
+          class='yb-hall-of-fame__tab active'
+          data-award='First Prize'
+        >
+          First prizes
+        </div>
+        <div
+          class='yb-hall-of-fame__tab'
+          data-award='Second prize'
+        >
+          Second prizes
+        </div>
+        <div
+          class='yb-hall-of-fame__tab'
+          data-award='Third Prize'
+        >
+          Third prizes
+        </div>
+        <div
+          class='yb-hall-of-fame__tab'
+          data-award='Special prizes'
+        >
+          Special prizes
+        </div>
+      </div>
+
+      <div class='yb-hall-of-fame__tabs-content'>
+        <div class='yb-hall-of-fame__tab-pane splide splide__tab-pane active'>
+          <div
+            class='yb-hall-of-fame__loading'
+            style='display: none;'
+          >
+            Loading...
+          </div>
+
+          <div
+            class='splide__arrows'
+            style='display: flex;'
+          >
+            <button class='splide__arrow splide__arrow--prev'>
+              <svg
+                fill='currentColor'
+                height='32'
+                viewBox='0 0 24 32'
+                width='24'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path d="M16.1852 16.7601L9.01997 23.9253L7.5 22.4053L13.9052 16.0001L7.5 9.59483L9.01998 8.07486L16.1852 15.2401C16.6049 15.6598 16.6049 16.3403 16.1852 16.7601Z" fill="currentColor"></path>
+              </svg>
+            </button>
+            <button class='splide__arrow splide__arrow--next'>
+              <svg
+                fill='currentColor'
+                height='32'
+                viewBox='0 0 24 32'
+                width='24'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path d="M16.1852 16.7601L9.01997 23.9253L7.5 22.4053L13.9052 16.0001L7.5 9.59483L9.01998 8.07486L16.1852 15.2401C16.6049 15.6598 16.6049 16.3403 16.1852 16.7601Z" fill="currentColor"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class='splide__track video-slideshow-container'>
+            <ul class='splide__list video-slideshow-list'></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class='yb-hall-of-fame__modal hidden'>
+        <div class='yb-hall-of-fame__modal-close'>
+          <svg
+            fill='none'
+            height='36'
+            viewBox='0 0 36 36'
+            width='36'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path clip-rule="evenodd" d="M7.11612 7.11631C7.60427 6.62815 8.39573 6.62815 8.88388 7.11631L28.6829 26.9153C29.171 27.4034 29.171 28.1949 28.6829 28.6831C28.1947 29.1712 27.4033 29.1712 26.9151 28.6831L7.11612 8.88407C6.62796 8.39592 6.62796 7.60446 7.11612 7.11631Z" fill="white" fill-rule="evenodd"></path>
+            <path clip-rule="evenodd" d="M28.8839 7.11612C29.372 7.60427 29.372 8.39573 28.8839 8.88388L9.08489 28.6829C8.59673 29.171 7.80527 29.171 7.31712 28.6829C6.82896 28.1947 6.82896 27.4033 7.31712 26.9151L27.1161 7.11612C27.6043 6.62796 28.3957 6.62796 28.8839 7.11612Z" fill="white" fill-rule="evenodd"></path>
+          </svg>
+        </div>
+        <div class='yb-hall-of-fame__modal-content-container'>
+          <div class='splide'>
+            <div class='splide__track'>
+              <ul class='splide__list'></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</yb-hall-of-fame>
+
+{% schema %}
+{
+  "name": "Yarbo Hall of Fame",
+  "class": "section migrated-page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Yarbo Hall of Fame"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_margin_top",
+      "label": "H5 Margin Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_margin_bottom",
+      "label": "H5 Margin Bottom",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,412 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<style>
+  #shopify-section-{{ section.id }}  {
+    overflow: visible;
+  }
+</style>
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <div class='flex items-start max-md:flex-col'>
+    <div class='md:sticky md:top-80 md:w-[43%]'>
+      {%- liquid
+        assign s = section.settings
+        assign pc_w = s.pc_aspect_ratio_w | default: 16
+        assign pc_h = s.pc_aspect_ratio_h | default: 9
+        assign pc_ratio = pc_w | append: '/' | append: pc_h
+        assign h5_w = s.h5_aspect_ratio_w | default: 16
+        assign h5_h = s.h5_aspect_ratio_h | default: 9
+        assign h5_ratio = h5_w | append: '/' | append: h5_h
+      -%}
+      <div
+        style='
+          --media-aspect-pc: {{ pc_ratio }};
+          --media-aspect-h5: {{ h5_ratio }};
+        '
+        class='
+          relative
+          aspect-(--media-aspect-h5)
+          md:aspect-(--media-aspect-pc)
+        '
+      >
+        {% render 'media-element',
+          class: 'absolute inset-0 w-full h-full',
+          media_class: 'w-full h-full object-cover',
+          media_type: section.settings.media_type,
+          pc_image: section.settings.pc_image,
+          h5_image: section.settings.h5_image,
+          pc_video: section.settings.pc_video,
+          h5_video: section.settings.h5_video,
+          video_url: section.settings.video_url,
+          other_url: section.settings.other_url
+        %}
+        {%- render 'sn-overlay', _settings: section.settings -%}
+      </div>
+    </div>
+    <div class='flex-1 max-md:mt-60 md:ml-60'>
+      <h2 class='text-[32px] leading-none md:text-[44px]'>
+        {{ section.settings.right_side_title }}
+      </h2>
+      <div class='mt-12 text-[16px] leading-[1.3] text-[#515355] md:mt-12 md:text-[18px]'>
+        {{ section.settings.right_side_desc }}
+      </div>
+      <div class=' mt-60 flex flex-col gap-48 md:gap-60'>
+        {% for block in section.blocks %}
+          <div>
+            {%- liquid
+              assign b = block.settings
+              assign pc_w = b.pc_aspect_ratio_w | default: 16
+              assign pc_h = b.pc_aspect_ratio_h | default: 9
+              assign pc_ratio = pc_w | append: '/' | append: pc_h
+              assign h5_w = b.h5_aspect_ratio_w | default: 16
+              assign h5_h = b.h5_aspect_ratio_h | default: 9
+              assign h5_ratio = h5_w | append: '/' | append: h5_h
+            -%}
+            <div
+              style='
+                --media-aspect-pc: {{ pc_ratio }};
+                --media-aspect-h5: {{ h5_ratio }};
+              '
+              class='
+                relative
+                aspect-(--media-aspect-h5)
+                md:aspect-(--media-aspect-pc)
+              '
+            >
+              {% render 'media-element',
+                class: 'absolute inset-0 w-full h-full',
+                media_class: 'w-full h-full object-cover',
+                media_type: block.settings.media_type,
+                pc_image: block.settings.pc_image,
+                h5_image: block.settings.h5_image,
+                pc_video: block.settings.pc_video,
+                h5_video: block.settings.h5_video,
+                video_url: block.settings.video_url,
+                other_url: block.settings.other_url
+              %}
+              {%- render 'sn-overlay', _settings: block.settings -%}
+            </div>
+            <div class='mt-20 md:mt-24'>
+              <h3 class='leading-1.1 text-[26px] md:text-[32px] '>
+                {{ block.settings.title }}
+              </h3>
+              <div class='mt-8  text-[14px] leading-[1.3] text-[#515355] md:mt-12'>
+                {{ block.settings.desc }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Feature Media",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Left Side Content"
+    },
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media Type",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "video", "label": "Shopify Video" },
+        { "value": "video_url", "label": "External Video URL" }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "PC Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_image",
+      "label": "Mobile Image (Optional)"
+    },
+    {
+      "type": "video",
+      "id": "pc_video",
+      "label": "PC Video"
+    },
+    {
+      "type": "video",
+      "id": "h5_video",
+      "label": "Mobile Video (Optional)"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "PC Video URL"
+    },
+    {
+      "type": "text",
+      "id": "h5_video_url",
+      "label": "Mobile Video URL (Optional)"
+    },
+    {
+      "type": "header",
+      "content": "Overlay Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show Media Overlay",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Media Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height"
+    },
+    {
+      "type": "header",
+      "content": "Right Side Content"
+    },
+    {
+      "type": "richtext",
+      "id": "right_side_title",
+      "label": "Right Side Title"
+    },
+    {
+      "type": "richtext",
+      "id": "right_side_desc",
+      "label": "Right Side Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Right Side Item",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "header",
+          "content": "Media Aspect Ratio"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_w",
+          "label": "PC Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_h",
+          "label": "PC Ratio Height"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_w",
+          "label": "Mobile Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_h",
+          "label": "Mobile Ratio Height"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Item Title"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Item Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Feature Media",
+      "settings": {
+        "right_side_title": "<p>Non-Slip Design</p>",
+        "right_side_desc": "<p>No more worrying about slips or uneven terrain — Yarbo stays firmly in control, giving you a safe, stable, and reliable clearing experience. Its innovative non-slip design ensures traction in snow, ice, and tricky slopes, so every pass is precise and effortless.</p>"
+      },
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>Traction Spikes</p>",
+            "desc": "<p>Yarbo’s traction spikes grip snow and ice to keep every pass stable and controlled. Tackle steep or slippery surfaces with confidence and safety.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>Tread Pattern</p>",
+            "desc": "<p>The deep-bite tread pattern provides reliable traction and smooth movement across all snowy and icy terrain. Stay balanced, precise, and in control every time.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

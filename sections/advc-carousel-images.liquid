@@ -1,0 +1,406 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/index.min_a6c806a6-87e0-4ffa-a52e-9079f5f1e788.css"
+>
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    --advc-container-padding-top: {{ section.settings.padding_top_pc }}px;
+    --advc-container-padding-bottom: {{ section.settings.padding_bottom_pc }}px;
+    --advc-container-padding-right: 40px;
+    --advc-container-padding-left: 40px;
+    --advc-container-max-width: 1420px;
+  }
+
+  #shopify-section-{{ section.id }} .advc-title {
+    --advc-title-font-family: "Nunito Sans", sans-serif;
+    --advc-title-font-weight: 800;
+    --advc-title-font-style: normal;
+    --advc-title-color: {{ section.settings.text_color }};
+    --advc-title-font-size: 32px;
+    --advc-title-letter-spacing: 0em;
+    --advc-title-line-height: 1;
+
+    font-family: var(--advc-title-font-family);
+    color: var(--advc-title-color);
+    font-size: var(--advc-title-font-size);
+    letter-spacing: var(--advc-title-letter-spacing);
+    line-height: var(--advc-title-line-height);
+    font-weight: var(--advc-title-font-weight);
+    font-style: var(--advc-title-font-style);
+  }
+
+  #shopify-section-{{ section.id }} .advc-sub-title {
+    --advc-sub-title-font-family: "Nunito Sans", sans-serif;
+    --advc-sub-title-font-weight: 400;
+    --advc-sub-title-font-style: normal;
+    --advc-sub-title-color: {{ section.settings.text_color }};
+    --advc-sub-title-font-size: 20px;
+    --advc-sub-title-letter-spacing: 0em;
+    --advc-sub-title-line-height: 1;
+
+    font-family: var(--advc-sub-title-font-family);
+    color: var(--advc-sub-title-color);
+    font-size: var(--advc-sub-title-font-size);
+    letter-spacing: var(--advc-sub-title-letter-spacing);
+    line-height: var(--advc-sub-title-line-height);
+    font-weight: var(--advc-sub-title-font-weight);
+    font-style: var(--advc-sub-title-font-style);
+  }
+
+  #shopify-section-{{ section.id }} .advc-body {
+    --advc-body-font-family: "Nunito Sans", sans-serif;
+    --advc-body-font-style: normal;
+    --advc-body-color: {{ section.settings.text_color }};
+    --advc-body-font-size: 16px;
+    --advc-body-letter-spacing: 0em;
+    --advc-body-line-height: 1.6;
+
+    font-family: var(--advc-body-font-family);
+    color: var(--advc-body-color);
+    font-size: var(--advc-body-font-size);
+    letter-spacing: var(--advc-body-letter-spacing);
+    line-height: var(--advc-body-line-height);
+    font-weight: 400;
+    font-style: var(--advc-body-font-style);
+  }
+
+  #shopify-section-{{ section.id }} .advc-image {
+    --advc-image-border-thickness: 0px;
+    --advc-image-border-opacity: 1;
+    --advc-image-border-radius: 0px;
+    --advc-image-border-color: 0, 0, 0;
+    --advc-image-shadow-opacity: 0;
+    --advc-image-shadow-offset-x: 0px;
+    --advc-image-shadow-offset-y: 4px;
+    --advc-image-shadow-blur: 5px;
+    --advc-image-shadow-color: 0, 0, 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #shopify-section-{{ section.id }} .advc-global-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  @media only screen and (max-width: 750px) {
+    #shopify-section-{{ section.id }} {
+      --advc-container-padding-top: {{ section.settings.padding_top_m }}px;
+      --advc-container-padding-bottom: {{ section.settings.padding_bottom_m }}px;
+      --advc-container-padding-right: 20px;
+      --advc-container-padding-left: 20px;
+    }
+    #shopify-section-{{ section.id }} .advc-title {
+      --advc-title-font-size: 24px;
+    }
+    #shopify-section-{{ section.id }} .advc-sub-title {
+      --advc-sub-title-font-size: 20px;
+    }
+    #shopify-section-{{ section.id }} .advc-body {
+      --advc-body-font-size: 16px;
+    }
+  }
+</style>
+
+{% assign first_image_ratio = 1.0 %}
+{% if section.blocks.size > 0 and section.blocks[0].settings.image != blank %}
+  {% assign first_image_ratio = 1.0 | divided_by: section.blocks[0].settings.image.aspect_ratio %}
+{% endif %}
+
+<div
+  class="advc-carousel-images-with-text advc-container"
+  data-autoplay="{{ section.settings.autoplay }}"
+  data-autoplay-speed="{{ section.settings.autoplay_speed }}"
+  data-best-mobile-style="false"
+  data-block-length="{{ section.blocks.size }}"
+  data-desktop-col="{{ section.settings.desktop_cols }}"
+  data-init="false"
+  data-mobile-col="{{ section.settings.mobile_cols }}"
+  data-mobile-paginate-style="touch"
+  data-mobile-slide-mode="true"
+  data-paginate-style="tip_arrow"
+  data-section-id="{{ section.id }}"
+  data-section-type="advc-carousel-images-with-text"
+  style="--advc-desktop-col: {{ section.settings.desktop_cols }}; --advc-first-image-ratio: {{ first_image_ratio }};"
+>
+  <div class="splide" id="splide-{{ section.id | remove: '-' }}">
+
+    <div class="advc-carousel-images-with-text__head">
+      <div class="advc-carousel-images-with-text__head-info">
+        {% if section.settings.title != blank %}
+          <h2 class="advc-carousel-images-with-text__head-title advc-title">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <div class="advc-carousel-images-with-text__head-text advc-body advc-richtext">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="advc-carousel-images-with-text__main splide__track" style="padding-left: 0px; padding-right: 0px;">
+      <ul class="advc-carousel-images-with-text__list splide__list">
+
+        {% for block in section.blocks %}
+          <li class="advc-carousel-images-with-text__item splide__slide advc-a-nested" data-hover-animation="false" {{ block.shopify_attributes }}>
+            <div class="advc-carousel-images-with-text__item-image">
+
+              {% comment %} 根据图片比例动态生成高度占位，防止闪烁 {% endcomment %}
+              {% assign padding_top = 100 %}
+              {% if block.settings.image != blank %}
+                {% assign padding_top = 1 | divided_by: block.settings.image.aspect_ratio | times: 100 %}
+              {% endif %}
+
+              <div class="advc-global-image is-scale" style="padding-top: {{ padding_top }}%;">
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: class: 'advc-image lazyloaded', loading: 'lazy' }}
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'advc-image placeholder-svg' }}
+                {% endif %}
+              </div>
+            </div>
+
+            {% if block.settings.text != blank %}
+              <div class="advc-carousel-images-with-text__item-description advc-body advc-richtext">
+                {{ block.settings.text }}
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+
+      </ul>
+    </div>
+  </div>
+</div>
+<script>
+  (() => {
+    /**
+     * Splide 迁移初始化适配器
+     * 遵循不使用 var 的原则
+     */
+    const initMigratedSplide = () => {
+      const containers = document.querySelectorAll('[data-section-type="advc-carousel-images-with-text"]');
+      containers.forEach((container) => {
+        // 1. 提取参数
+        const blockLength = Number(container.dataset.blockLength) || 0;
+        const desktopCol = Number(container.dataset.desktopCol) || 3;
+        const mobileCol = Number(container.dataset.mobileCol) || 1;
+        const speed = (Number(container.dataset.autoplaySpeed) || 5) * 1000;
+        const isAutoplay = container.dataset.autoplay === 'true';
+
+        // 2. 检查基础库是否加载
+        if (typeof Splide === 'undefined') {
+          console.error('Splide 核心库未加载，请检查 lib-splide.min.js');
+          return;
+        }
+
+        // 3. 实例化 Splide
+        const splideElement = container.querySelector('.splide');
+        if (!splideElement) return;
+
+        const splide = new Splide(splideElement, {
+          interval: speed,
+          autoWidth: true,
+          // 逻辑：如果块数大于显示数，则开启循环/自动播放
+          autoplay: blockLength > desktopCol && isAutoplay,
+          type: blockLength > desktopCol ? 'loop' : 'slide',
+          keyboard: blockLength > desktopCol,
+          drag: true,
+          pagination: false,
+          arrows: false,
+          perPage: desktopCol,
+          perMove: 1,
+          trimSpace: false,
+          breakpoints: {
+            750: {
+              gap: 15,
+              perPage: mobileCol,
+              focus: 'center',
+              autoplay: blockLength > mobileCol && isAutoplay,
+              type: blockLength > mobileCol ? 'loop' : 'slide',
+            },
+          },
+        });
+
+        // 4. 监听挂载事件（对应原代码中的 data-init 标记）
+        splide.on('mounted', () => {
+          container.dataset.init = 'true';
+        });
+
+        splide.mount();
+      });
+    };
+
+    // 执行初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMigratedSplide);
+    } else {
+      initMigratedSplide();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "ADVC Image Carousel",
+  "class": "shopline-section advc-section advc",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Epic Rewards Await!"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Submit now to secure your spot in the next #MyYarboJourney campaign (date to be announced)! By entering, you'll have the chance to:</p>"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Carousel Settings"
+    },
+    {
+      "type": "range",
+      "id": "desktop_cols",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "Desktop Columns",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "mobile_cols",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Mobile Columns",
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay Speed",
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_pc",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_pc",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_m",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_m",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_slide",
+      "name": "Image Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description Text",
+          "default": "<p>Be <strong>featured</strong> in Yarbo's Hall of Fame</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ADVC Image Carousel",
+      "blocks": [
+        {
+          "type": "image_slide"
+        },
+        {
+          "type": "image_slide"
+        },
+        {
+          "type": "image_slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

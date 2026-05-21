@@ -1,0 +1,228 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<div
+  style='
+    --bg-color: {{ section.settings.bg_color }};
+    --title-color: {{ section.settings.title_color }};
+    --card-title-color: {{ section.settings.card_title_color }};
+    --text-color: {{ section.settings.text_color }};
+  '
+  class='bg-(--bg-color) {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+>
+  <div class='page-container'>
+    {% if section.settings.title != blank %}
+      <h2 class='text-center text-[32px] leading-[1.1] text-(--title-color) md:text-[56px]'>
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class='mt-56 grid grid-cols-1 gap-40 md:mt-120 md:grid-cols-2 md:gap-80 xl:gap-140'>
+        {% for block in section.blocks %}
+          <div
+            class='flex items-center gap-20 md:gap-28'
+            {{ block.shopify_attributes }}
+          >
+            <div class='flex h-72 w-72 shrink-0 items-center justify-center rounded-full md:h-80 md:w-80'>
+              {% if block.settings.icon != blank %}
+                <img
+                  src='{{ block.settings.icon | image_url: width: 160 }}'
+                  alt='{{ block.settings.title | escape }}'
+                  class='h-full w-full'
+                  loading='lazy'
+                  width='auto'
+                  height='auto'
+                >
+              {% endif %}
+            </div>
+
+            <div class='flex min-w-0 flex-col gap-10'>
+              {% if block.settings.title != blank %}
+                <h3 class='text-[22px] leading-[1.15] font-semibold text-(--card-title-color) uppercase md:text-[28px]'>
+                  {{ block.settings.title }}
+                </h3>
+              {% endif %}
+
+              <div class='flex flex-wrap items-center gap-x-8 gap-y-4 text-[18px] leading-[1.35] text-(--text-color) md:text-[24px]'>
+                {% if block.settings.primary_text != blank %}
+                  {% if block.settings.primary_link != blank %}
+                    <a
+                      href='{{ block.settings.primary_link }}'
+                      class='text-(--text-color) no-underline transition-opacity duration-300 hover:opacity-70'
+                    >
+                      {{ block.settings.primary_text }}
+                    </a>
+                  {% else %}
+                    <span>{{ block.settings.primary_text }}</span>
+                  {% endif %}
+                {% endif %}
+
+                {% if block.settings.secondary_text != blank %}
+                  {% if block.settings.secondary_link != blank %}
+                    <a
+                      href='{{ block.settings.secondary_link }}'
+                      class='text-(--text-color) no-underline transition-opacity duration-300 hover:opacity-70'
+                    >
+                      {{ block.settings.secondary_text }}
+                    </a>
+                  {% else %}
+                    <span>{{ block.settings.secondary_text }}</span>
+                  {% endif %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Section",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Contact Us"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#25282A"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_item",
+      "name": "Contact Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "REACH OUT TO OUR TEAM"
+        },
+        {
+          "type": "text",
+          "id": "primary_text",
+          "label": "Primary Text",
+          "default": "media@yarbo.com"
+        },
+        {
+          "type": "url",
+          "id": "primary_link",
+          "label": "Primary Link"
+        },
+        {
+          "type": "text",
+          "id": "secondary_text",
+          "label": "Secondary Text",
+          "default": "Download Media Kit"
+        },
+        {
+          "type": "url",
+          "id": "secondary_link",
+          "label": "Secondary Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Section",
+      "blocks": [
+        {
+          "type": "contact_item",
+          "settings": {
+            "title": "REACH OUT TO OUR PR TEAM",
+            "primary_text": "media@yarbo.com",
+            "secondary_text": "Download Media Kit"
+          }
+        },
+        {
+          "type": "contact_item",
+          "settings": {
+            "title": "REACH OUT TO OUR SALES TEAM",
+            "primary_text": "dealer@yarbo.com",
+            "secondary_text": "+1 (631) 818 1850"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

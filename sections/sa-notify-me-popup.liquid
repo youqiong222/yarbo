@@ -1,0 +1,106 @@
+{%- comment -%}
+  Global "Notify Me" / Back-in-Stock subscription popup.
+  Rendered once via theme.liquid. Listens for the `notify-me:open`
+  window event dispatched from disabled add-to-cart buttons.
+
+  Event detail: { productTitle, variantTitle, productImage, variantId, productId }
+{%- endcomment -%}
+<div
+  class='css-reset tailwind-layout'
+  x-data='
+    {
+      open: false,
+      product: { title: "", variant: "", image: "", variantId: "", productId: "" },
+      init() {
+        window.addEventListener("notify-me:open", (e) => {
+          this.product = {
+            title: (e.detail && e.detail.productTitle) || "",
+            variant: (e.detail && e.detail.variantTitle) || "",
+            image: (e.detail && e.detail.productImage) || "",
+            variantId: (e.detail && e.detail.variantId) || "",
+            productId: (e.detail && e.detail.productId) || ""
+          };
+          this.open = true;
+        });
+      }
+    }
+  '
+>
+  <div
+    x-cloak
+    x-show='open'
+    x-transition.opacity.duration.300ms
+    class='fixed inset-0 z-9999 flex items-center justify-center bg-black/60 p-20'
+  >
+    <div
+      @click.outside='open = false'
+      x-transition.scale.95.duration.300ms
+      class='relative w-full max-w-560 bg-white p-24 md:p-40'
+    >
+      <button
+        type='button'
+        @click='open = false'
+        aria-label='Close'
+        class='absolute top-16 right-16 flex h-32 w-32 cursor-pointer items-center justify-center border-0 bg-transparent p-0'
+      >
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+        >
+          <path d='M18 6L6 18M6 6L18 18' stroke='currentColor' stroke-width='2' stroke-linecap='round'/>
+        </svg>
+      </button>
+
+      <h3 class='mb-12 pr-32 text-[18px] leading-[1.3] md:mb-16 md:text-[22px]'>
+        {{ settings.notify_me_title | default: 'Notify Me When Available' }}
+      </h3>
+
+      {% if settings.notify_me_text != blank %}
+        <p class='mb-16 text-[14px] leading-[1.4] text-[#515355] md:mb-20 md:text-[15px]'>
+          {{ settings.notify_me_text }}
+        </p>
+      {% endif %}
+
+      <div
+        x-show='product.title'
+        class='mb-20 flex items-center gap-12 bg-[#f6f6f6] p-12 md:p-16'
+      >
+        <template x-if='product.image'>
+          <img
+            :src='product.image'
+            :alt='product.title'
+            width='64'
+            height='64'
+            class='h-56 w-56 shrink-0 object-cover md:h-64 md:w-64'
+          >
+        </template>
+        <div class='flex min-w-0 flex-1 flex-col gap-4'>
+          <div
+            class='truncate text-[14px] leading-[1.3] font-bold md:text-[15px]'
+            x-text='product.title'
+          ></div>
+        </div>
+      </div>
+
+      <div>
+        {% render 'sn-subscribe-klaviyo',
+          emailType: settings.notify_me_email_type,
+          klaviyoListId: settings.notify_me_klaviyo_list_id,
+          step1: settings.notify_me_button_text,
+          step1Placeholder: settings.notify_me_placeholder
+        %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Notify Me Popup",
+  "class": "css-reset tailwind-layout",
+  "settings": []
+}
+{% endschema %}

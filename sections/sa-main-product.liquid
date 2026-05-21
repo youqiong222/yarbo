@@ -1,0 +1,632 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    overflow: visible!important;
+  }
+</style>
+<div
+  class='mb-52 overflow-hidden'
+  data-anchor-target-id='main-product'
+>
+  <div class='w-full overflow-x-clip pt-14 md:sticky md:top-0'>
+    <div class='relative mx-auto flex h-full max-w-1440 flex-col px-16 md:flex-row md:px-40'>
+      <div class='relative md:w-1/2'>
+        <div
+          id='sticky-gallery'
+          class='transition-all duration-300 md:sticky md:top-56 md:h-[calc(100dvh-70px)]'
+        >
+          {%- render 'sn-product-medias', product: product -%}
+        </div>
+      </div>
+      <div class='relative z-10 min-w-0 flex-1 md:p-32 lg:p-60'>
+        <div class='flex h-full flex-col min-[1600px]:translate-x-120 md:shadow-sm lg:[1400px]:translate-x-40'>
+          {%- render 'sn-product-info', product: product, section: section -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- render 'sn-product-zoom', product: product -%}
+
+<script>
+  (() => {
+    const mediaQuery = window.matchMedia('(min-width: 1000px)');
+    const stickyGallery = document.getElementById('sticky-gallery');
+    if (!stickyGallery) return;
+
+    // 连续插值区间：在该区间内平滑从 top:56 / h:calc(100dvh-70px) 过渡到 top:0 / h:100dvh
+    const START_Y = 0;
+    const END_Y = 96;
+    const START_TOP = 56;
+    const START_HEIGHT_OFFSET = 100;
+
+    let ticking = false;
+    let bound = false;
+
+    const clamp01 = (n) => Math.max(0, Math.min(1, n));
+
+    const applyInterpolatedState = (y) => {
+      const t = clamp01((y - START_Y) / (END_Y - START_Y));
+      const top = START_TOP * (1 - t);
+      const heightOffset = START_HEIGHT_OFFSET * (1 - t);
+
+      stickyGallery.style.top = `${top.toFixed(2)}px`;
+      stickyGallery.style.height = `calc(100dvh - ${heightOffset.toFixed(2)}px)`;
+    };
+
+    const updateByScroll = () => {
+      ticking = false;
+      const y = window.scrollY || window.pageYOffset || 0;
+      applyInterpolatedState(y);
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateByScroll);
+      }
+    };
+
+    const bindScroll = () => {
+      if (bound) return;
+      bound = true;
+      // 逐帧计算时禁用 transition，避免“追帧感”导致卡顿。
+      stickyGallery.style.transition = 'none';
+      window.addEventListener('scroll', onScroll, { passive: true });
+      updateByScroll();
+    };
+
+    const unbindScroll = () => {
+      if (!bound) return;
+      bound = false;
+      window.removeEventListener('scroll', onScroll);
+      stickyGallery.style.transition = '';
+      stickyGallery.style.top = '';
+      stickyGallery.style.height = '';
+    };
+
+    const handleBreakpoint = (e) => {
+      if (e.matches) {
+        bindScroll();
+      } else {
+        unbindScroll();
+      }
+    };
+
+    handleBreakpoint(mediaQuery);
+    mediaQuery.addEventListener('change', handleBreakpoint);
+  })();
+</script>
+{% schema %}
+{
+  "name": "t:sections.main-product.name",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "product_nav",
+      "name": "Product Nav",
+      "settings": [
+        {
+          "type": "range",
+          "id": "pc_top",
+          "label": "Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "pc_bottom",
+          "label": "Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_top",
+          "label": "H5 Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_bottom",
+          "label": "H5 Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "collection",
+          "id": "belong_collection",
+          "label": "Belong Collection"
+        },
+        {
+          "type": "text",
+          "id": "belong_collection_title",
+          "label": "Belong Collection Title"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "spacing_line",
+      "name": "Spacing Line",
+      "settings": [
+        {
+          "type": "range",
+          "id": "pc_top",
+          "label": "Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "pc_bottom",
+          "label": "Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "h5_top",
+          "label": "H5 Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "h5_bottom",
+          "label": "H5 Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 24
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Product Title",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "pc_top",
+          "label": "Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "pc_bottom",
+          "label": "Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_top",
+          "label": "H5 Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_bottom",
+          "label": "H5 Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "Product Price",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "pc_top",
+          "label": "Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "pc_bottom",
+          "label": "Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_top",
+          "label": "H5 Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_bottom",
+          "label": "H5 Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "payment",
+      "name": "Payment",
+      "limit": 1
+    },
+    {
+      "type": "text_link",
+      "name": "Text Link",
+      "settings": [
+        {
+          "type": "range",
+          "id": "pc_top",
+          "label": "Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "pc_bottom",
+          "label": "Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_top",
+          "label": "H5 Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_bottom",
+          "label": "H5 Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    },
+    {
+      "type": "variants_placeholder",
+      "name": "variants_placeholder",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "pc_top",
+          "label": "Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "pc_bottom",
+          "label": "Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_top",
+          "label": "H5 Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_bottom",
+          "label": "H5 Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Variants Title",
+          "default": "Select an Option:"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_product_variants",
+          "label": "Show product variants",
+          "default": false,
+          "info": "Enable to show all product variants. If disabled, you can select specific products as variants."
+        },
+        {
+          "type": "product_list",
+          "id": "product_variant_list",
+          "label": "Product Variant List"
+        }
+      ]
+    },
+    {
+      "type": "features_placeholder",
+      "name": "features_placeholder",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "pc_top",
+          "label": "Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "pc_bottom",
+          "label": "Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_top",
+          "label": "H5 Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_bottom",
+          "label": "H5 Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "richtext",
+          "id": "features",
+          "label": "Features (one per line, will auto format into a list)"
+        }
+      ]
+    },
+    {
+      "type": "includes_placeholder",
+      "name": "includes_placeholder",
+      "settings": [
+        {
+          "type": "range",
+          "id": "pc_top",
+          "label": "Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "pc_bottom",
+          "label": "Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_top",
+          "label": "H5 Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_bottom",
+          "label": "H5 Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "What's Included Title",
+          "default": "What's Included"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "include_block",
+      "name": "What's included",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "recommend",
+      "name": "Recommend",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "You May Also Like"
+        },
+        {
+          "type": "range",
+          "id": "pc_top",
+          "label": "Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "pc_bottom",
+          "label": "Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_top",
+          "label": "H5 Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_bottom",
+          "label": "H5 Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "policies_placeholder",
+      "name": "policies_placeholder",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "pc_top",
+          "label": "Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "pc_bottom",
+          "label": "Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_top",
+          "label": "H5 Top Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "h5_bottom",
+          "label": "H5 Bottom Spacing (px)",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "policy_block",
+      "name": "Policy Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

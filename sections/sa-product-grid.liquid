@@ -1,0 +1,428 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  {%- assign blocks_size = section.blocks.size -%}
+
+  {%- if blocks_size == 4 -%}
+    <div class='hidden md:block'>
+      <div class='flex flex-col gap-12'>
+        <div class='flex flex-1 gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative flex-1 overflow-hidden aspect-650/300' %}
+          {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative flex-1 overflow-hidden aspect-650/300' %}
+        </div>
+        <div class='flex flex-1 gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative flex-1 overflow-hidden aspect-650/300' %}
+          {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative flex-1 overflow-hidden aspect-650/300' %}
+        </div>
+      </div>
+    </div>
+    <div class='block md:hidden'>
+      <div class='flex flex-col gap-12'>
+        {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative flex-1 overflow-hidden aspect-340/200' %}
+        {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative flex-1 overflow-hidden aspect-340/200' %}
+        {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative flex-1 overflow-hidden aspect-340/200' %}
+        {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative flex-1 overflow-hidden aspect-340/200' %}
+      </div>
+    </div>
+  {%- elsif blocks_size == 5 -%}
+    <div class='hidden md:block'>
+      <div class='flex flex-col gap-12'>
+        <div class='flex flex-1 gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative flex-1 overflow-hidden aspect-654/300' %}
+          {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative flex-1 overflow-hidden aspect-654/300' %}
+        </div>
+        <div class='flex flex-1 gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative flex-1 aspect-430/300 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative flex-1 aspect-430/300 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative flex-1 aspect-430/300 overflow-hidden' %}
+        </div>
+      </div>
+    </div>
+    <div class='block md:hidden'>
+      <div class='flex flex-col gap-12'>
+        {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative flex-1 overflow-hidden aspect-340/200' %}
+        {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative flex-1 overflow-hidden aspect-340/200' %}
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative flex-1 aspect-165/200 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative flex-1 aspect-165/200 overflow-hidden' %}
+        </div>
+        {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative flex-1 aspect-340/200 overflow-hidden' %}
+      </div>
+    </div>
+  {%- elsif blocks_size == 6 -%}
+    <div class='hidden md:block'>
+      <div class='flex gap-12'>
+        <div class='flex flex-1 flex-col gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative flex-1 overflow-hidden' %}
+        </div>
+        <div class='flex flex-1 flex-col gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative aspect-430/360 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative aspect-430/228 overflow-hidden' %}
+        </div>
+        <div class='flex flex-1 flex-col gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[5], wrapper_class: 'relative flex-1 overflow-hidden' %}
+        </div>
+      </div>
+    </div>
+    <div class='block md:hidden'>
+      <div class='flex flex-col gap-12'>
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden ' %}
+          {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+        </div>
+        {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative aspect-340/200 overflow-hidden' %}
+        {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative aspect-340/200 overflow-hidden' %}
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative flex-1 aspect-165/200 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[5], wrapper_class: 'relative flex-1 aspect-165/200 overflow-hidden' %}
+        </div>
+      </div>
+    </div>
+  {%- elsif blocks_size == 7 -%}
+    <div class='hidden md:block'>
+      <div class='flex gap-12'>
+        <div class='flex flex-1 flex-col gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative flex-1 overflow-hidden' %}
+        </div>
+        <div class='flex flex-1 flex-col gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative aspect-430/190 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative aspect-430/190 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative aspect-430/190 overflow-hidden' %}
+        </div>
+        <div class='flex flex-1 flex-col gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[5], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[6], wrapper_class: 'relative flex-1 overflow-hidden' %}
+        </div>
+      </div>
+    </div>
+    <div class='block md:hidden'>
+      <div class='flex flex-col gap-12'>
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative flex-1 aspect-165/200  overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative flex-1 aspect-165/200  overflow-hidden' %}
+        </div>
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative flex-1 aspect-165/200 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative flex-1 aspect-165/200 overflow-hidden' %}
+        </div>
+        {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative aspect-340/200 overflow-hidden' %}
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[5], wrapper_class: 'relative flex-1 overflow-hidden aspect-165/200' %}
+          {% render 'sn-media-grid-item', block: section.blocks[6], wrapper_class: 'relative flex-1 overflow-hidden aspect-165/200' %}
+        </div>
+      </div>
+    </div>
+  {%- elsif blocks_size == 8 -%}
+    <div class='hidden md:block'>
+      <div class='flex flex-col gap-12'>
+        <div class='grid grid-cols-1 gap-12 md:grid-cols-[374fr_545fr_374fr]'>
+          {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative aspect-374/400 overflow-hidden' %}
+          <div class='flex h-full flex-col gap-12'>
+            {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative flex-1 overflow-hidden' %}
+            {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          </div>
+          {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative aspect-374/400 overflow-hidden' %}
+        </div>
+        <div class='grid grid-cols-1 gap-12 md:grid-cols-[374fr_545fr_374fr]'>
+          <div class='flex h-full'>
+            {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          </div>
+          {% render 'sn-media-grid-item', block: section.blocks[5], wrapper_class: 'relative aspect-545/400 overflow-hidden' %}
+          <div class='flex h-full flex-col gap-12'>
+            {% render 'sn-media-grid-item', block: section.blocks[6], wrapper_class: 'relative flex-1 overflow-hidden' %}
+            {% render 'sn-media-grid-item', block: section.blocks[7], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='block md:hidden'>
+      <div class='flex flex-col gap-12'>
+        {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative aspect-340/150 overflow-hidden' %}
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+        </div>
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+        </div>
+        {% render 'sn-media-grid-item', block: section.blocks[5], wrapper_class: 'relative aspect-340/200 flex-1 overflow-hidden' %}
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[6], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[7], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+        </div>
+      </div>
+    </div>
+  {%- elsif blocks_size == 9 -%}
+    <div class='hidden md:block'>
+      <div class='flex flex-col gap-12'>
+        <div class='grid grid-cols-1 gap-12 md:grid-cols-[374fr_545fr_374fr]'>
+          {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative aspect-374/400 overflow-hidden' %}
+          <div class='flex h-full flex-col gap-12'>
+            {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative flex-1 overflow-hidden' %}
+            {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          </div>
+          {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative aspect-374/400 overflow-hidden' %}
+        </div>
+        <div class='grid grid-cols-1 gap-12 md:grid-cols-[374fr_545fr_374fr]'>
+          <div class='flex h-full flex-col gap-12'>
+            {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative flex-1 overflow-hidden' %}
+            {% render 'sn-media-grid-item', block: section.blocks[5], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          </div>
+          {% render 'sn-media-grid-item', block: section.blocks[6], wrapper_class: 'relative flex-1 overflow-hidden aspect-545/400' %}
+          <div class='flex h-full flex-col gap-12'>
+            {% render 'sn-media-grid-item', block: section.blocks[7], wrapper_class: 'relative flex-1 overflow-hidden' %}
+            {% render 'sn-media-grid-item', block: section.blocks[8], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='block md:hidden'>
+      <div class='flex flex-col gap-12'>
+        {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative aspect-340/150 overflow-hidden' %}
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+        </div>
+        {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative aspect-340/150 overflow-hidden' %}
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[5], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+        </div>
+        {% render 'sn-media-grid-item', block: section.blocks[6], wrapper_class: 'relative aspect-340/200 overflow-hidden' %}
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[7], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[8], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+        </div>
+      </div>
+    </div>
+  {%- elsif blocks_size == 10 -%}
+    <div class='hidden md:block'>
+      <div class='flex flex-col gap-12'>
+        <div class='grid grid-cols-1 gap-12 md:grid-cols-[374fr_545fr_374fr]'>
+          {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative aspect-374/400 overflow-hidden' %}
+          <div class='flex h-full flex-col gap-12'>
+            {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative flex-1 overflow-hidden' %}
+            {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          </div>
+          {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative aspect-374/400 overflow-hidden' %}
+        </div>
+        <div class='grid grid-cols-1 gap-12 md:grid-cols-[374fr_545fr_374fr]'>
+          <div class='flex h-full flex-col gap-12'>
+            {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative flex-1 overflow-hidden' %}
+            {% render 'sn-media-grid-item', block: section.blocks[5], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          </div>
+          <div class='flex h-full gap-12'>
+            {% render 'sn-media-grid-item', block: section.blocks[6], wrapper_class: 'relative flex-1 aspect-268/400 overflow-hidden' %}
+            {% render 'sn-media-grid-item', block: section.blocks[7], wrapper_class: 'relative flex-1 aspect-268/400 overflow-hidden' %}
+          </div>
+
+          <div class='flex h-full flex-col gap-12'>
+            {% render 'sn-media-grid-item', block: section.blocks[8], wrapper_class: 'relative flex-1 overflow-hidden' %}
+            {% render 'sn-media-grid-item', block: section.blocks[9], wrapper_class: 'relative flex-1 overflow-hidden' %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='block md:hidden'>
+      <div class='flex flex-col gap-12'>
+        {% render 'sn-media-grid-item', block: section.blocks[0], wrapper_class: 'relative aspect-340/150 overflow-hidden' %}
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[1], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[2], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+        </div>
+        {% render 'sn-media-grid-item', block: section.blocks[3], wrapper_class: 'relative aspect-340/150 overflow-hidden' %}
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[4], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[5], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+        </div>
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[6], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[7], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+        </div>
+        <div class='flex gap-12'>
+          {% render 'sn-media-grid-item', block: section.blocks[8], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+          {% render 'sn-media-grid-item', block: section.blocks[9], wrapper_class: 'relative aspect-165/200 flex-1 overflow-hidden' %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Product Media Grid",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "block",
+      "type": "block",
+      "settings": [
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            { "value": "image", "label": "Image" },
+            { "value": "video_url", "label": "Video URL (.mp4)" }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "Mobile Image (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "PC Video URL"
+        },
+        {
+          "type": "text",
+          "id": "h5_video_url",
+          "label": "Mobile Video URL (Optional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": true
+        },
+        {
+          "type": "color_background",
+          "id": "overlay_color_background",
+          "label": "Overlay Color Background",
+          "default": "linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 89.91%)"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 100
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "richtext",
+          "id": "bottom_text",
+          "label": "Bottom Text"
+        },
+        {
+          "type": "text",
+          "id": "icon_anchor_id",
+          "label": "Icon Anchor Id"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Media Grid",
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>24/7 Autonomous Snow Clearing</p>",
+            "description": "<p>Wake up to a Cleared Driveway</p>",
+            "bottom_text": "<p>*Plow blade available separately.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>Built for -13°F Blizzards</p>",
+            "description": "<p>Ready for Real Winters</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>6–40 Yards Throw Control</p>",
+            "description": "<p>Small Size, Big Strength</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>Adjustable Auger, 12\" Height</p>",
+            "description": "<p>Handle Deep Snow Efficiently</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>Engineered for Durability and Safety</p>",
+            "description": "<p>Built for Toughness</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>Tackle Wet Snow with the Plow Blade</p>",
+            "description": "<p>Power Through Wet Snow</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

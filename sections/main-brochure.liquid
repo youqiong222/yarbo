@@ -1,0 +1,252 @@
+{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}
+{{ 'yb-base.css' | asset_url | stylesheet_tag }}
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css" rel="stylesheet" />
+{% assign image_lists = section.settings.images | split: ',' %}
+<style>
+  .section-header,
+  .announcement-bar-section,
+  .shopify-section-group-footer-group
+  {
+    display: none !important;
+  }
+  #shopify-section-{{ section.id }} {
+    overflow-x: hidden;
+  }
+</style>
+<style>
+    .my-page img {max-width: 100%}
+    #book {
+        transform-origin: top left;
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        margin: 0 auto;
+    }
+    @media only screen and (min-width: 768px) {
+        #book {
+            transform-origin: top;
+        }
+    }
+    {% if section.settings.hiddenHeader == 'hidden' %}
+        /* 注意：Shopify 默认的头部 ID 通常是 shopify-section-header 或 shopify-section-announcement-bar */
+        #shopify-section-header {
+            display: none;
+        }
+    {% endif %}
+    {% if section.settings.hiddenFooter == 'hidden' %}
+        /* 注意：Shopify 默认的尾部 ID 通常是 shopify-section-footer */
+        #shopify-section-footer {
+            display: none;
+        }
+    {% endif %}
+    .announcement-bar--container {
+        display: none !important;
+    }
+</style>
+
+<div class="relative h-fit min-h-full w-fit min-w-full overflow-scroll pt-[80px]">
+    <div id="book">
+        {% for image in image_lists %}
+            {% assign clean_image = image | strip_html | strip %}
+            <div class="my-page"><img src="{{ clean_image }}"></div>
+        {% endfor %}
+    </div>
+
+    <div class="fixed top-0 flex h-[60px] w-full flex-row items-center bg-white px-2 text-xs shadow-[0_-1px_6px_1px_rgba(0,0,0,.1)] md:px-5 md:text-lg">
+        <div class="flex w-1/3 flex-col items-center gap-2 md:flex-row md:gap-4">
+        <span class="md:min-w-24" id="pageNum">Cover</span>
+        <div class="flex">
+            <i class="iconfont icon-shouqi" id="zoomUp" onclick="updateTransform('zoomUp')"></i>
+            <i class="iconfont icon-zhankai mx-2 md:mx-4 opacity-30" id="zoomDown" onclick="updateTransform('zoomDown')"></i>
+            <a class="iconfont icon-Union" href="{{ section.settings.downloadUrl }}" target="_blank">
+            </a>
+        </div>
+        </div>
+        <h1 class="flex-1 text-center text-base font-bold md:text-2xl">Yarbo Brochure</h1>
+        <div class="w-1/3 text-right">
+            <span class="cursor-pointer rounded-md bg-[#FEDB1E] px-2 py-1 md:rounded-xl md:px-4 md:py-2 backHistory">Back</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentScale = 1;
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const pageWH = {width: 0, height: 0, isMoblie: false};
+
+    if (viewportWidth < 768) {
+        pageWH.isMoblie = true;
+        pageWH.width = Math.ceil(viewportWidth);
+        pageWH.height = Math.ceil((viewportWidth / 362) * 500);
+    } else {
+        pageWH.isMoblie = false;
+        const renderWidth = viewportWidth - 60;
+        const renderHeight = viewportHeight - 100;
+        const wRate = 362 / renderWidth;
+        const hRate = 250 / renderHeight;
+        if (hRate > wRate) {
+            pageWH.width = Math.ceil((renderHeight / 250) * 181);
+            pageWH.height = Math.ceil(renderHeight);
+        } else {
+            pageWH.width = Math.ceil(renderWidth / 2);
+            pageWH.height = Math.ceil((renderWidth / 362) * 250);
+        }
+    }
+
+    const pageFlip = new St.PageFlip(document.getElementById('book'), {
+        width: pageWH.width,
+        height: pageWH.height,
+        showCover: true
+    });
+
+    if (!pageWH.isMoblie) {
+        document.querySelector('#book').style.transform = "scale(1) translateX(-25%)";
+        document.querySelector('#book').style.transition = "transform 2s ease";
+    }
+
+    pageFlip.loadFromHTML(document.querySelectorAll('.my-page'));
+
+    pageFlip.on("flip", t => {
+        if (!pageWH.isMoblie) {
+            if (t.data === 0) {
+                document.querySelector('#book').style.transform = "scale(" + currentScale + ") translateX(-25%)";
+                document.querySelector('#book').style.transition = "transform 2s ease";
+                document.querySelector("#pageNum").innerHTML = "Cover";
+            } else if (t.data === pageFlip.getPageCount() - 1) {
+                document.querySelector('#book').style.transform = "scale(" + currentScale + ") translateX(25%)";
+                document.querySelector('#book').style.transition = "transform 2s ease";
+                document.querySelector("#pageNum").innerHTML = "Back Cover";
+            } else {
+                document.querySelector('#book').style.transform = "scale(" + currentScale + ") translateX(0%)";
+                document.querySelector('#book').style.transition = "transform 2s ease";
+                document.querySelector("#pageNum").innerHTML = t.data + "/" + parseInt(pageFlip.getPageCount() - 2);
+            }
+        }
+    });
+
+    document.querySelector('.backHistory').addEventListener('click', function () {
+        window.history.back();
+    });
+
+    function updateTransform(elementName = 'zoomUp') {
+        if (elementName === 'zoomUp' && currentScale === 2) {
+            return false;
+        }
+        if (elementName === 'zoomDown' && currentScale === 1) {
+            return false;
+        }
+
+        const element = document.getElementById('book');
+        if (elementName === 'zoomUp') {
+            currentScale += 0.1;
+            currentScale = Math.min(currentScale, 2);
+        } else {
+            currentScale -= 0.1;
+            currentScale = Math.max(currentScale, 1);
+        }
+
+        if (currentScale > 1) {
+            document.getElementById('zoomDown').classList.remove('opacity-30');
+        }
+
+        if (currentScale === 2) {
+            document.getElementById('zoomUp').classList.add('opacity-30');
+        }
+
+        if (currentScale === 1) {
+            document.getElementById('zoomDown').classList.add('opacity-30');
+        }
+
+        if (currentScale < 2) {
+            document.getElementById('zoomUp').classList.remove('opacity-30');
+        }
+
+        if (element.style.transform) {
+            const scaleRegex = /scale\((\d+(?:\.\d+)?)\)/;
+            element.style.transform = element.style.transform.replace(scaleRegex, `scale(${currentScale})`);
+        } else {
+            element.style.transform = "scale(" + currentScale + ")";
+        }
+    }
+</script>
+
+{% schema %}
+{
+  "name": "产品图册",
+  "class": "section migrated-page",
+  "settings": [
+    {
+      "id": "downloadUrl",
+      "label": "下载地址",
+      "type": "url"
+    },
+    {
+      "id": "images",
+      "label": "图片链接 (请用英文逗号分隔)",
+      "type": "textarea"
+    },
+    {
+      "type": "select",
+      "id": "hiddenHeader",
+      "label": "是否隐藏头部",
+      "default": "hidden",
+      "options": [
+        {
+          "label": "Hidden",
+          "value": "hidden"
+        },
+        {
+          "label": "Display",
+          "value": "display"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "hiddenFooter",
+      "label": "是否隐藏尾部",
+      "default": "hidden",
+      "options": [
+        {
+          "label": "Hidden",
+          "value": "hidden"
+        },
+        {
+          "label": "Display",
+          "value": "display"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "间距设置"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "产品图册"
+    }
+  ]
+}
+{% endschema %}

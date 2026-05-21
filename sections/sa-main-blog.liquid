@@ -1,0 +1,258 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{%- liquid
+  assign articles_per_page = section.settings.articles_per_page | default: 9
+-%}
+
+{{ 'component-pagination.css' | asset_url | stylesheet_tag }}
+
+{%- paginate blog.articles by articles_per_page -%}
+  <div
+    x-data='blogTabs()'
+    @resize.window='updateSlider()'
+    data-section-id='{{ section.id }}'
+    data-blog-url='{{ blog.url }}'
+    data-initial-tag='{{ current_tags | first | handleize }}'
+  >
+    <template
+      data-blog-meta
+      data-pages='{{ paginate.pages }}'
+      data-current-page='{{ paginate.current_page }}'
+    ></template>
+
+    <div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+      {%- if blog.all_tags.size > 0 -%}
+        <div class='relative mb-32 md:mb-40'>
+          <div
+            class='absolute bottom-0 left-0 z-0 block! h-4 w-full bg-[#CCCCCC]'
+          ></div>
+          <div class='no-scrollbar theme-title relative z-10 flex w-full gap-24 overflow-x-auto pb-12 md:pb-16'>
+            <div
+              data-tag-handle=''
+              @click="switchTag('')"
+              class='shrink-0 cursor-pointer text-[16px]/[1.1] font-bold uppercase transition-colors md:text-[20px]/[1.2] md:hover:text-[#25282A]'
+              :class="activeTag === '' ? 'text-[#25282A]' : 'text-[#A6A6A6]'"
+            >
+              All
+            </div>
+            {%- for tag in blog.all_tags -%}
+              <div
+                data-tag-handle='{{ tag | handleize }}'
+                @click="switchTag('{{ tag | handleize }}')"
+                class='shrink-0 cursor-pointer text-[16px]/[1.1] font-bold uppercase transition-colors md:text-[20px]/[1.2] md:hover:text-[#25282A]'
+                :class="activeTag === '{{ tag | handleize }}' ? 'text-[#25282A]' : 'text-[#A6A6A6]'"
+              >
+                {{ tag }}
+              </div>
+            {%- endfor -%}
+            <div
+              class='absolute bottom-0 left-0 block! h-4 bg-[#25282A] transition-all duration-300 ease-out'
+              :style='`width: ${sliderWidth}px; transform: translateX(${sliderOffset}px);`'
+            ></div>
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div
+        x-show='loading'
+        class='flex justify-center py-60'
+      >
+        <svg
+          class='h-28 w-28 animate-spin text-[#25282A]'
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 24 24'
+        >
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+      </div>
+
+      <div x-show='!loading'>
+        <div data-blog-article-grid>
+          {%- if blog.articles.size > 0 -%}
+            <ul class='tailwind-layout m-0 grid list-none grid-cols-1 gap-16 p-0 md:grid-cols-3 md:gap-20'>
+              {%- for article in blog.articles -%}
+                <li>
+                  {% render 'sn-article-card', article: article %}
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- else -%}
+            <p class='tailwind-layout py-40 text-center text-[14px] text-[#8C8C8C]'>No articles found.</p>
+          {%- endif -%}
+        </div>
+        <div data-blog-article-pagination>
+          {%- if paginate.pages > 1 -%}
+            {% render 'sn-pagination', paginate: paginate %}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endpaginate -%}
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('blogTabs', () => ({
+      activeTag: '',
+      currentPage: 1,
+      totalPages: 1,
+      loading: false,
+      sliderWidth: 0,
+      sliderOffset: 0,
+      controller: null,
+      sectionId: '',
+      blogUrl: '',
+
+      init() {
+        this.sectionId = this.$root.dataset.sectionId;
+        this.blogUrl = this.$root.dataset.blogUrl;
+        this.activeTag = this.$root.dataset.initialTag || '';
+
+        const meta = this.$root.querySelector('[data-blog-meta]');
+        if (meta) {
+          this.totalPages = parseInt(meta.dataset.pages) || 1;
+          this.currentPage = parseInt(meta.dataset.currentPage) || 1;
+        }
+
+        this.bindPaginationLinks();
+        this.$nextTick(() => this.updateSlider());
+      },
+
+      updateSlider() {
+        this.$nextTick(() => {
+          const el = this.$root.querySelector(`[data-tag-handle="${this.activeTag}"]`);
+          if (el) {
+            this.sliderWidth = el.offsetWidth;
+            this.sliderOffset = el.offsetLeft;
+            const container = el.parentElement;
+            container.scrollTo({
+              left: el.offsetLeft - container.offsetWidth / 2 + el.offsetWidth / 2,
+              behavior: 'smooth',
+            });
+          }
+        });
+      },
+
+      switchTag(tag) {
+        if (this.activeTag === tag) return;
+        this.activeTag = tag;
+        this.currentPage = 1;
+        this.updateSlider();
+        this.fetchArticles();
+      },
+
+      async fetchArticles() {
+        if (this.controller) this.controller.abort();
+        this.controller = new AbortController();
+        this.loading = true;
+
+        let url = this.blogUrl;
+        if (this.activeTag) url += `/tagged/${this.activeTag}`;
+
+        const params = new URLSearchParams({
+          page: this.currentPage,
+          section_id: this.sectionId,
+        });
+        const targetHref = `${url}?${params.toString()}`;
+        history.pushState(null, '', `${url}?page=${this.currentPage}`);
+        try {
+          const res = await fetch(targetHref, {
+            signal: this.controller.signal,
+          });
+          if (!res.ok) throw new Error(res.status);
+          const html = await res.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+
+          const meta = doc.querySelector('[data-blog-meta]');
+          if (meta) {
+            this.totalPages = parseInt(meta.dataset.pages) || 1;
+            this.currentPage = parseInt(meta.dataset.currentPage) || 1;
+          }
+
+          const grid = doc.querySelector('[data-blog-article-grid]');
+          const existingGrid = this.$root.querySelector('[data-blog-article-grid]');
+          if (grid && existingGrid) existingGrid.innerHTML = grid.innerHTML;
+
+          const pagination = doc.querySelector('[data-blog-article-pagination]');
+          const existingPagination = this.$root.querySelector('[data-blog-article-pagination]');
+          if (existingPagination) {
+            existingPagination.innerHTML = pagination ? pagination.innerHTML : '';
+            this.bindPaginationLinks();
+          }
+
+          this.loading = false;
+        } catch (err) {
+          if (err.name === 'AbortError') return;
+          console.error('Blog fetch error:', err);
+          this.loading = false;
+        }
+      },
+
+      bindPaginationLinks() {
+        this.$nextTick(() => {
+          const container = this.$root.querySelector('[data-blog-article-pagination]');
+          if (!container) return;
+          container.querySelectorAll('a[href]').forEach((link) => {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              const url = new URL(link.href, window.location.origin);
+              this.currentPage = parseInt(url.searchParams.get('page')) || 1;
+              this.fetchArticles();
+              this.$root.querySelector('[data-blog-article-grid]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          });
+        });
+      },
+    }));
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Blog Articles",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 56
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "articles_per_page",
+      "min": 3,
+      "max": 18,
+      "step": 3,
+      "default": 9,
+      "label": "Articles per page"
+    }
+  ]
+}
+{% endschema %}

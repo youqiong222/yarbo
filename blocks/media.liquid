@@ -1,0 +1,284 @@
+{%- liquid
+  assign b = block.settings
+  assign pc_ratio = b.pc_aspect_ratio_w | append: '/' | append: b.pc_aspect_ratio_h
+  assign h5_ratio = b.h5_aspect_ratio_w | append: '/' | append: b.h5_aspect_ratio_h
+-%}
+
+<div
+  class='
+    {% if b.layout == 'container' %}page-container{% endif %}
+    block-{{ block.id }}
+    pt-(--pt-h5) pb-(--pb-h5)
+    md:pt-(--pt-pc) md:pb-(--pb-pc)
+  '
+  style='
+    --pt-pc: {{ b.pt_pc }}px;
+    --pb-pc: {{ b.pb_pc }}px;
+    --pt-h5: {{ b.pt_h5 }}px;
+    --pb-h5: {{ b.pb_h5 }}px;
+    {% if b.use_aspect_ratio %}
+      --media-aspect-pc: {{ pc_ratio }};
+      --media-aspect-h5: {{ h5_ratio }};
+    {% else %}
+      --media-height-pc: {{ b.pc_height }}px;
+      --media-height-h5: {{ b.h5_height }}px;
+    {% endif %}
+  '
+  {{ block.shopify_attributes }}
+>
+  <div
+    class='
+      relative w-full overflow-hidden
+      {% if b.use_aspect_ratio %}
+        aspect-(--media-aspect-h5) md:aspect-(--media-aspect-pc)
+      {% else %}
+        h-(--media-height-h5) md:h-(--media-height-pc)
+      {% endif %}
+    '
+  >
+    {% render 'media-element',
+      class: 'absolute inset-0 w-full h-full',
+      media_class: 'w-full h-full object-cover',
+      media_type: b.media_type,
+      pc_image: b.pc_image,
+      h5_image: b.h5_image,
+      pc_video: b.pc_video,
+      h5_video: b.h5_video,
+      video_url: b.video_url,
+      other_url: b.other_url
+    %}
+    {%- render 'sn-overlay', _settings: b -%}
+    {% if b.title != blank or b.text != blank %}
+      <div
+        style='--text-color:{{ b.color }}'
+        class='absolute bottom-28 left-28 flex-1 pl-12 before:absolute before:top-0 before:left-0 before:h-full before:w-4 before:bg-[#FEDB1E] before:content-[""]'
+      >
+        <h4 class='text-[26px] leading-[1.1] text-(--text-color) md:text-[32px]'>
+          {{ b.title }}
+        </h4>
+        <div class='mt-4 text-[12px]/[1.3] text-(--text-color)'>
+          {{ b.text }}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Media Block",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout Width",
+      "options": [
+        { "value": "full", "label": "Full Width" },
+        { "value": "container", "label": "Container" }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Shopify Video"
+        },
+        {
+          "value": "video_url",
+          "label": "External Video URL"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "PC Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_image",
+      "label": "H5 Image"
+    },
+    {
+      "type": "video",
+      "id": "pc_video",
+      "label": "PC Shopify Video"
+    },
+    {
+      "type": "video",
+      "id": "h5_video",
+      "label": "H5 Shopify Video(Optional)"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Platform Video URL (YouTube/Vimeo)",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+    },
+    {
+      "type": "text",
+      "id": "other_url",
+      "label": "Other Video URL",
+      "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+    },
+    {
+      "type": "header",
+      "content": "Overlay Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show Media Overlay",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Size & Aspect Ratio"
+    },
+    { "type": "paragraph", "content": "--- Fixed Height Settings ---" },
+    {
+      "type": "number",
+      "id": "pc_height",
+      "label": "PC Height (px)",
+      "default": 500
+    },
+    {
+      "type": "number",
+      "id": "h5_height",
+      "label": "Mobile Height (px)",
+      "default": 500
+    },
+    { "type": "paragraph", "content": "--- Aspect Ratio Settings ---" },
+    {
+      "type": "checkbox",
+      "id": "use_aspect_ratio",
+      "label": "Use Aspect Ratio Control",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width",
+      "default": 16
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height",
+      "default": 9
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width",
+      "default": 4
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Spacing (PC)"
+    },
+    {
+      "type": "range",
+      "id": "pt_pc",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb_pc",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "pt_h5",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb_h5",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Color",
+      "default": "#fff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "media block"
+    }
+  ]
+}
+{% endschema %}

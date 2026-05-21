@@ -1,0 +1,407 @@
+{{ 'yb-savings-calculator.css' | asset_url | stylesheet_tag }}
+<script
+  src='{{ 'yb-savings-calculator.js' | asset_url }}'
+  defer='defer'
+></script>
+<style>
+  #shopify-section-{{ section.id }}{
+    overflow: visible;
+  }
+</style>
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div class='hidden-lap-and-up w-full'>
+  <div class='relative aspect-375/250 md:aspect-627/680'>
+    {% render 'media-element',
+      class: 'w-full h-full',
+      media_class: 'w-full h-full object-cover',
+      media_type: 'image',
+      pc_image: section.settings.pc_image,
+      h5_image: section.settings.h5_image
+    %}
+    {%- render 'sn-overlay', _settings: section.settings -%}
+    <header class='absolute bottom-0 left-0 flex gap-20 p-16 py-32'>
+      <div class='flex flex-col gap-24 md:gap-32'>
+        <h2 class=' text-[36px] leading-none text-white md:text-[52px]'>
+          {{ section.settings.title }}
+        </h2>
+        {% if section.settings.button != blank %}
+          <a
+            href='{{ section.settings.link }}'
+            {% if section.settings.btn_anchor_id != blank %}
+              data-anchor-id='{{ section.settings.btn_anchor_id }}'
+            {% endif %}
+            class='yb-savings-calculator-btn w-fit cursor-pointer bg-[#FEDB1E] px-24 py-10 text-[15px] leading-[1.3] hover:bg-[#25282a] hover:text-white'
+          >
+            {{ section.settings.button }}
+          </a>
+        {% endif %}
+      </div>
+    </header>
+  </div>
+</div>
+<div class='page-container'>
+  <div class='mt-32 flex flex-col md:mt-0 md:flex-row'>
+    <div class=' hidden-pocket h-fit md:sticky md:top-20 md:w-[47%]'>
+      <div class='relative aspect-375/250 md:aspect-627/680'>
+        {% render 'media-element',
+          class: 'w-full h-full',
+          media_class: 'w-full h-full object-cover',
+          media_type: 'image',
+          pc_image: section.settings.pc_image,
+          h5_image: section.settings.h5_image
+        %}
+        {%- render 'sn-overlay', _settings: section.settings -%}
+        <header class='absolute top-0 left-0 flex gap-40 p-60'>
+          <div class='flex flex-col gap-24 md:gap-32'>
+            <h2 class=' text-[36px] leading-none text-white md:text-[52px]'>
+              {{ section.settings.title }}
+            </h2>
+            {% if section.settings.button != blank and section.settings.link != blank %}
+              <a
+                href='{{ section.settings.link }}'
+                class='yb-savings-calculator-btn w-fit cursor-pointer bg-[#FEDB1E] px-32 py-10 text-[15px] leading-[1.3] hover:bg-[#25282a] hover:text-white'
+              >
+                {{ section.settings.button }}
+              </a>
+            {% endif %}
+          </div>
+        </header>
+      </div>
+    </div>
+    <div class='w-full flex-1 md:w-[53%] md:pl-60'>
+      {% assign product_list = section.settings.product_list %}
+      {% assign skip_card_product_styles = false %}
+      <div class='swiper '>
+        <div class='swiper-wrapper md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-68'>
+          {% for product in product_list limit: 8 %}
+            <div class='swiper-slide h-auto'>
+              {% render 'sn-card-product',
+                card_product: product,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                show_rating: section.settings.show_rating,
+                show_secondary_image: section.settings.show_secondary_image,
+                skip_styles: skip_card_product_styles,
+                quick_add: section.settings.quick_add
+              %}
+              {%- assign skip_card_product_styles = true -%}
+            </div>
+          {% else %}
+            {% for i in (1..4) %}
+              <div class='swiper-slide h-auto'>
+                <div class='flex h-300 items-center justify-center rounded-md bg-gray-100 text-gray-400'>Product Placeholder</div>
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+        <div
+          class='hero-pagination mt-32 flex w-full items-center justify-center space-x-3 md:hidden'
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  (() => {
+    const sectionElement = document.querySelector('#shopify-section-{{ section.id }}');
+    if (!sectionElement) return;
+
+    const swiperContainer = sectionElement.querySelector('.swiper');
+    if (!swiperContainer) return;
+
+    // 声明一个变量来存储 swiper 实例
+    let mySwiper = null;
+
+    // 定义媒体查询：1000px 及以上
+    const mediaQuery = window.matchMedia('(min-width: 1000px)');
+    // 核心控制函数
+    const handleSwiper = (e) => {
+      console.log('Media Query Matched:', e.matches);
+      // 如果屏幕宽度 >= 1000px
+      if (e.matches) {
+        if (mySwiper !== null) {
+          mySwiper.destroy(true, true);
+          mySwiper = null;
+        }
+      }
+      // 如果屏幕宽度 < 1000px
+      else {
+        if (mySwiper === null) {
+          mySwiper = new Swiper(swiperContainer, {
+            spaceBetween: 12,
+            slidesPerView: 2,
+            pagination: {
+              el: '#shopify-section-{{ section.id }} .hero-pagination',
+              clickable: true,
+              renderBullet: function (index, className) {
+                const bulletClasses = `
+                ${className}
+                rounded-none opacity-100
+                w-8 h-8 bg-[#CCCCCC] transition-all duration-300 block cursor-pointer m-0
+                hover:bg-white
+                [&.swiper-pagination-bullet-active]:w-50 [&.swiper-pagination-bullet-active]:h-8 [&.swiper-pagination-bullet-active]:bg-[#25282a]
+              `;
+                return `<span class="${bulletClasses.trim().replace(/\s+/g, ' ')}"></span>`;
+              },
+            },
+          });
+        }
+      }
+    };
+
+    // 页面加载时执行一次判断
+    handleSwiper(mediaQuery);
+
+    // 监听窗口尺寸变化，实时销毁或创建
+    mediaQuery.addEventListener('change', handleSwiper);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Bundles",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "button",
+      "label": "Button text"
+    },
+    {
+      "type": "header",
+      "content": "Link"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "btn_anchor_id",
+      "label": "Button Anchor Id"
+    },
+    {
+      "type": "header",
+      "content": "Product list"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Product List"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.featured-collection.settings.image_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.all.image_shape.options__1.label"
+        },
+        {
+          "value": "arch",
+          "label": "t:sections.all.image_shape.options__2.label"
+        },
+        {
+          "value": "blob",
+          "label": "t:sections.all.image_shape.options__3.label"
+        },
+        {
+          "value": "chevronleft",
+          "label": "t:sections.all.image_shape.options__4.label"
+        },
+        {
+          "value": "chevronright",
+          "label": "t:sections.all.image_shape.options__5.label"
+        },
+        {
+          "value": "diamond",
+          "label": "t:sections.all.image_shape.options__6.label"
+        },
+        {
+          "value": "parallelogram",
+          "label": "t:sections.all.image_shape.options__7.label"
+        },
+        {
+          "value": "round",
+          "label": "t:sections.all.image_shape.options__8.label"
+        }
+      ],
+      "default": "default",
+      "label": "t:sections.all.image_shape.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_rating.label",
+      "info": "t:sections.featured-collection.settings.show_rating.info"
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+        },
+        {
+          "value": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+        },
+        {
+          "value": "bulk",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "PC Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_image",
+      "label": "Mobile Image (Optional)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show Media Overlay",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "name": "block",
+      "type": "Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Avatar"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Megan"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundles"
+    }
+  ]
+}
+{% endschema %}

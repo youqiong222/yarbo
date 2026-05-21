@@ -1,0 +1,420 @@
+{% render 'yb-section-style', section: section %}
+{% if section.settings.bg_image %}
+  <style>
+    #shopline-section-{{ section.id }} {
+      background: url({{ section.settings.bg_image | image_url }});
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+{% endif %}
+{% if section.settings.bg_image_mobile %}
+  <style>
+    @media (max-width: 959px) {
+      #shopline-section-{{ section.id }} {
+        background: url({{ section.settings.bg_image_mobile | image_url }});
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+    }
+  </style>
+{% endif %}
+{% if section.settings.is_affirm_popup %}
+  <script>
+    _affirm_config = {
+      public_api_key: 'PH9LWGD5DNG5CR1E',
+      script: 'https://cdn1.affirm.com/js/v2/affirm.js',
+    };
+    (function (l, g, m, e, a, f, b) {
+      var d,
+        c = l[m] || {},
+        h = document.createElement(f),
+        n = document.getElementsByTagName(f)[0],
+        k = function (a, b, c) {
+          return function () {
+            a[b]._.push([c, arguments]);
+          };
+        };
+      c[e] = k(c, e, 'set');
+      d = c[e];
+      c[a] = {};
+      c[a]._ = [];
+      d._ = [];
+      c[a][b] = k(c, a, b);
+      a = 0;
+      for (b = 'set add save post open empty reset on off trigger ready setProduct'.split(' '); a < b.length; a++) d[b[a]] = k(c, e, b[a]);
+      a = 0;
+      for (b = ['get', 'token', 'url', 'items']; a < b.length; a++) d[b[a]] = function () {};
+      h.async = !0;
+      h.src = g[f];
+      n.parentNode.insertBefore(h, n);
+      delete g[f];
+      d(g);
+      l[m] = c;
+    })(window, _affirm_config, 'affirm', 'checkout', 'ui', 'script', 'ready');
+  </script>
+  <script>
+    function openAffirmModal() {
+      const amount = document.querySelector('.yb-affirm-popup__btn').dataset.amount;
+      if (affirm && amount) {
+        affirm.ui.openModal({
+          amount: Number(amount),
+          pageType: 'product',
+        });
+      }
+    }
+  </script>
+  <style>
+    .yb-affirm-popup__btn {
+      cursor: pointer;
+    }
+  </style>
+{% endif %}
+<style>
+  @media (max-width: 959px) {
+      #shopline-section-{{ section.id }}  .custom_grid_richtext_big_item{
+        grid-column: span 2 !important;
+      }
+    }
+    .custom_grid_richtext-heading p{
+      margin: 0;
+    }
+    .custom_grid_richtext_item:first-child p{
+      color:#fff;
+    }
+</style>
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div class=' padding-{{ section.id }} {% if section.settings.mobile_hide %} mobile_hide {% endif %} {% if section.settings.desktop_hide %}desktop_hide{% endif %}'>
+  <div class='yb-section-container'>
+    {% if section.settings.heading != blank %}
+      <div class='section_header'>
+        <h3 class='yb-section-title'>{{ section.settings.heading }}</h3>
+      </div>
+    {% endif %}
+    <div class='custom_grid_richtext_inner'>
+      <div
+        class='custom_grid_richtext_wrapper'
+        blocks_count='{{ section.blocks.size }}'
+      >
+        {% for block in section.blocks %}
+          <div
+            {% if block.settings.amount %}
+              onclick='openAffirmModal()'
+            {% endif %}
+            {% if block.settings.amount %}
+              data-amount='{{ block.settings.amount }}'
+            {% endif %}
+            style='grid-row: span {{ block.settings.line_height }}; grid-column: span {{ block.settings.column_width }};'
+            class='custom_grid_richtext_item {% if block.settings.column_width > 2 %}custom_grid_richtext_big_item{% endif %} {% if block.settings.amount %}yb-affirm-popup__btn{% endif %}'
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.jump_type == 'link' %}
+              <a
+                href='{{ block.settings.link }}'
+                class='custom_grid_richtext_item_inner'
+              >
+            {% else %}
+              <div
+                class='custom_grid_richtext_item_inner {% if block.settings.jump_type == 'anchor' %}anchor_link_wrapper{% endif %}'
+                {% if block.settings.jump_type == 'anchor' %}
+                  style='cursor: pointer;' data-anchor-id='#shopline-section-{{ block.settings.anchor_id }}'
+                {% endif %}
+              >
+            {% endif %}
+            <div class='custom_grid_text_wrapper'>
+              <h4 class='custom_grid_richtext-heading yb-h3'>{{ block.settings.title }}</h4>
+              <div class='custom_grid_richtext-text bz-body-3'>
+                {{ block.settings.richtext }}
+              </div>
+            </div>
+            <div class='custom_richtext_img_wrapper custom_richtext_img_wrapper-{{ block.id }}'>
+              {% if block.settings.image %}
+                {% assign pc_size_val = '1/' | append: pc_cols %}
+                {% render 'yb-image', pc_size: pc_size_val, mobile_size: '100%', data: block.settings.image %}
+              {% else %}
+                <div class='custom_image_overlay'></div>
+              {% endif %}
+            </div>
+            {% if block.settings.jump_type == 'link' %}
+              </a>
+            {% else %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const anchorLinks = document.querySelectorAll('.anchor_link_wrapper');
+    anchorLinks.forEach((link) => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const anchorId = link.getAttribute('data-anchor-id');
+        const anchorElement = document.querySelector(anchorId);
+        if (anchorElement) {
+          anchorElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Custom Grid Richtext",
+  "class": "migrated-page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Section Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_affirm_popup",
+      "label": "是否添加affirm弹窗",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "section填充"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Add background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Add background Image for mobile"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Add background Color",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1920",
+      "label": "1920顶部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1920",
+      "label": "1920底部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1440",
+      "label": "1440顶部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1440",
+      "label": "1440底部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_960",
+      "label": "960顶部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_960",
+      "label": "960底部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_680",
+      "label": "680顶部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_680",
+      "label": "680底部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_375",
+      "label": "375顶部填充",
+      "default": 48,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_375",
+      "label": "375底部填充",
+      "default": 48,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "richtext",
+      "name": "Rich Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Add Title"
+        },
+        {
+          "id": "richtext",
+          "type": "richtext",
+          "label": "Add Text"
+        },
+        {
+          "type": "header",
+          "content": "Block Dimentions"
+        },
+        {
+          "type": "range",
+          "id": "line_height",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "unit": "px",
+          "label": "Line height",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "column_width",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "unit": "px",
+          "label": "Column Width",
+          "default": 2
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Add Image"
+        },
+        {
+          "type": "select",
+          "id": "jump_type",
+          "label": "跳转类型",
+          "default": "none",
+          "options": [
+            {
+              "value": "none",
+              "label": "不跳转"
+            },
+            {
+              "value": "link",
+              "label": "链接"
+            },
+            {
+              "value": "anchor",
+              "label": "锚点"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "amount",
+          "label": "Amount",
+          "info": "弹窗默认金额，单位美分，默认3999美元"
+        },
+        {
+          "type": "text",
+          "id": "anchor_id",
+          "label": "跳转锚点（section id）"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "跳转链接"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Grid Richtext",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "richtext",
+          "settings": {
+            "line_height": 2,
+            "column_width": 2
+          }
+        },
+        {
+          "type": "richtext",
+          "settings": {
+            "line_height": 1,
+            "column_width": 2
+          }
+        },
+        {
+          "type": "richtext",
+          "settings": {
+            "line_height": 1,
+            "column_width": 1
+          }
+        },
+        {
+          "type": "richtext",
+          "settings": {
+            "line_height": 1,
+            "column_width": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

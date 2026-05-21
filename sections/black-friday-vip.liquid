@@ -1,0 +1,4549 @@
+{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}
+<style>
+  #shopify-section-{{ section.id }} {
+    overflow-x: hidden;
+  }
+</style>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/section-video2_875cea7d-b93d-4d99-bbd4-0c518987d22e.css"
+  rel="stylesheet"
+  type="text/css"
+  media="all"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-video.min_ee0e93f3-0431-46cb-a624-35daae31c826.css"
+  rel="stylesheet"
+  type="text/css"
+  media="all"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide.min_223bf385-ef7c-40c3-82e5-833dddfd1855.css"
+  rel="stylesheet"
+  type="text/css"
+  media="all"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/media-wall_72ccc081-c134-4698-bcdc-6003d9c4d774.css"
+  rel="stylesheet"
+  type="text/css"
+  media="all"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/media-wall-scroll_ee0be0a0-0a04-4f3a-9613-5014fc633558.css"
+  rel="stylesheet"
+  type="text/css"
+  media="all"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/swiper-bundle.min.css"
+  rel="stylesheet"
+  type="text/css"
+  media="all"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/component-card.css"
+  rel="stylesheet"
+  type="text/css"
+  media="all"
+>
+<script
+  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-video.min_ed91e4e0-7924-425e-9e88-5e9d0b914bd4.js"
+  defer
+></script>
+<script
+  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide.min_8fbe9c70-a659-4943-b0df-b8e38e01e7a2.js"
+  defer
+></script>
+<script
+  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/media-wall-scroll_588feedb-a84d-4673-b588-2cecf8c1523d.js"
+  defer
+></script>
+
+<script
+  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/swiper-bundle.min.js"
+></script>
+<style>
+  .display-block {
+    display: block !important;
+  }
+
+  .display-none {
+    display: none !important;
+  }
+
+  .display-flex {
+    display: flex !important;
+  }
+
+  .display-inline-block {
+    display: inline-block !important;
+  }
+
+  .display-inline-flex {
+    display: inline-flex !important;
+  }
+
+  @media screen and (max-width: 959px) {
+    .display-block-tablet {
+      display: block !important;
+    }
+
+    .display-none-tablet {
+      display: none !important;
+    }
+
+    .display-flex-tablet {
+      display: flex !important;
+    }
+
+    .display-inline-block-tablet {
+      display: inline-block !important;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .display-block-desktop {
+      display: block !important;
+    }
+
+    .display-none-desktop {
+      display: none !important;
+    }
+
+    .display-flex-desktop {
+      display: flex !important;
+    }
+
+    .display-inline-block-desktop {
+      display: inline-block !important;
+    }
+
+    .display-inline-flex-desktop {
+      display: inline-flex !important;
+    }
+  }
+
+  :root {
+    /**
+  * content element
+  */
+    --z-index-hover: 1;
+    --z-index-active: 2;
+    --z-index-focus: 3;
+
+    /**
+  * overlay element
+  */
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1010;
+    --z-index-fixed: 1020;
+    --z-index-modal: 1030;
+    --z-index-popover: 1040;
+    --z-index-tooltip: 1050;
+    --z-index-toast: 1060;
+  }
+
+  :root {
+    --title1-font-size: calc(var(--title-font-size) * 1);
+    --title2-font-size: calc(var(--title-font-size) * 0.833333);
+    --title3-font-size: calc(var(--title-font-size) * 0.733333);
+    --title4-font-size: calc(var(--title-font-size) * 0.666667);
+    --title5-font-size: calc(var(--title-font-size) * 0.6);
+    --title6-font-size: calc(var(--title-font-size) * 0.6);
+
+    --body1-font-size: calc(var(--body-font-size) * 1.142857);
+    --body2-font-size: calc(var(--body-font-size) * 1.071429);
+    --body3-font-size: calc(var(--body-font-size) * 1);
+    --body4-font-size: calc(var(--body-font-size) * 0.928571);
+    --body5-font-size: calc(var(--body-font-size) * 0.857143);
+    --body6-font-size: calc(var(--body-font-size) * 0.857143);
+  }
+
+  @media (min-width: 960px) {
+    :root {
+      --title1-font-size: calc(var(--title-font-size) * 2.333333);
+      --title2-font-size: calc(var(--title-font-size) * 1.666667);
+      --title3-font-size: calc(var(--title-font-size) * 1.2);
+      --title4-font-size: calc(var(--title-font-size) * 1);
+      --title5-font-size: calc(var(--title-font-size) * 0.833333);
+      --title6-font-size: calc(var(--title-font-size) * 0.666667);
+
+      --body1-font-size: calc(var(--body-font-size) * 1.571429);
+      --body2-font-size: calc(var(--body-font-size) * 1.285714);
+      --body3-font-size: calc(var(--body-font-size) * 1.142857);
+      --body4-font-size: calc(var(--body-font-size) * 1);
+      --body5-font-size: calc(var(--body-font-size) * 0.928571);
+      --body6-font-size: calc(var(--body-font-size) * 0.857143);
+    }
+  }
+
+  .title1,
+  .title2,
+  .title3,
+  .title4,
+  .title5,
+  .title6 {
+    font-family: var(--title-font);
+    font-style: var(--title-font-style);
+    font-weight: var(--title-font-weight, 700);
+    letter-spacing: var(--title-letter-spacing);
+    line-height: var(--title-line-height);
+    margin-bottom: 0;
+    margin-top: 0;
+    word-break: break-word;
+    text-transform: var(--title-text-transform);
+  }
+
+  .title1 {
+    font-size: var(--title1-font-size);
+  }
+
+  .title2 {
+    font-size: var(--title2-font-size);
+  }
+
+  .title3 {
+    font-size: var(--title3-font-size);
+  }
+
+  .title4 {
+    font-size: var(--title4-font-size);
+  }
+
+  .title5 {
+    font-size: var(--title5-font-size);
+  }
+
+  .title6 {
+    font-size: var(--title6-font-size);
+  }
+
+  .body-font,
+  .body1,
+  .body2,
+  .body3,
+  .body4,
+  .body5,
+  .body6 {
+    font-family: var(--body-font);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight, 400);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var(--body-line-height);
+    word-break: break-word;
+  }
+
+  .body1 {
+    font-size: var(--body1-font-size);
+  }
+
+  .body2 {
+    font-size: var(--body2-font-size);
+  }
+
+  .body3 {
+    font-size: var(--body3-font-size);
+  }
+
+  .body4 {
+    font-size: var(--body4-font-size);
+  }
+
+  .body5 {
+    font-size: var(--body5-font-size);
+  }
+
+  .body6 {
+    font-size: var(--body6-font-size);
+  }
+
+  :root {
+    --duration-short: 100ms;
+    --duration-long: 500ms;
+    --duration-default: 250ms;
+  }
+  .card .card__badge:not(:empty) {
+    line-height: 1.2;
+  }
+</style>
+<div class="migrated-page">
+  <div id="shopify-section-1763986875633202eec9" class="shopline-section nsa-accesstive" data-original-filter="none">
+    <style>
+      #shopify-section-1763986875633202eec9 {
+        background-color: #ffffff;
+      }
+
+      /* 375-679px */
+      @media (max-width: 679px) {
+        #shopify-section-1763986875633202eec9 {
+          padding-top: 48px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 680-959px */
+      @media (min-width: 680px) and (max-width: 959px) {
+        #shopify-section-1763986875633202eec9 {
+          padding-top: 64px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 960-1439px */
+      @media (min-width: 960px) and (max-width: 1439px) {
+        #shopify-section-1763986875633202eec9 {
+          padding-top: 64px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 1440-1919px */
+      @media (min-width: 1440px) and (max-width: 1919px) {
+        #shopify-section-1763986875633202eec9 {
+          padding-top: 100px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 1920px+ */
+      @media (min-width: 1920px) {
+        #shopify-section-1763986875633202eec9 {
+          padding-top: 120px;
+          padding-bottom: 0px;
+        }
+      }
+    </style>
+
+    <div class="rich-text-component nsa-accesstive" data-original-filter="none">
+      <div class="rich-text-component-wrapper nsa-accesstive" data-original-filter="none">
+        <div class="rich-text-component-inner nsa-accesstive" data-original-filter="none">
+          <div class="headerTitle1 nsa-accesstive" data-original-filter="none">
+            <div class="rich-text-title nsa-accesstive" data-original-filter="none">
+              <h2
+                class="yb-section-title lcf-section-title nsa-accesstive"
+                data-original-font-size="40px"
+                data-original-line-height="48px"
+                data-original-word-spacing="0px"
+                data-original-letter-spacing="4e-07px"
+                data-original-text-align="center"
+                data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                data-original-zoom="1"
+                data-original-filter="none"
+              >
+                <div data-lark-html-role="root" class="nsa-accesstive" data-original-filter="none">
+                  <span
+                    style="font-size: 20px;"
+                    data-original-font-size="20px"
+                    data-original-line-height="48px"
+                    data-original-word-spacing="0px"
+                    data-original-letter-spacing="4e-07px"
+                    data-original-text-align="center"
+                    data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                    data-original-zoom="1"
+                    class="nsa-accesstive"
+                    data-original-filter="none"
+                    ><strong
+                      data-original-font-size="20px"
+                      data-original-line-height="48px"
+                      data-original-word-spacing="0px"
+                      data-original-letter-spacing="4e-07px"
+                      data-original-text-align="center"
+                      data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                      data-original-zoom="1"
+                      class="nsa-accesstive"
+                      data-original-filter="none"
+                      ><span
+                        class="text-only nsa-accesstive"
+                        data-eleid="3"
+                        data-original-font-size="20px"
+                        data-original-line-height="48px"
+                        data-original-word-spacing="0px"
+                        data-original-letter-spacing="4e-07px"
+                        data-original-text-align="center"
+                        data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                        data-original-zoom="1"
+                        data-original-filter="none"
+                        >Use code
+                        <span
+                          style="color: #e03e2d;"
+                          data-original-font-size="20px"
+                          data-original-line-height="48px"
+                          data-original-word-spacing="0px"
+                          data-original-letter-spacing="4e-07px"
+                          data-original-text-align="center"
+                          data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                          data-original-zoom="1"
+                          class="nsa-accesstive"
+                          data-original-filter="none"
+                          >MPROVIP500</span
+                        >
+                        for a $500 discount on Lawn Mower Pro Module.</span
+                      ></strong
+                    > </span
+                  ><br>
+                  <span
+                    style="font-size: 20px;"
+                    data-original-font-size="20px"
+                    data-original-line-height="48px"
+                    data-original-word-spacing="0px"
+                    data-original-letter-spacing="4e-07px"
+                    data-original-text-align="center"
+                    data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                    data-original-zoom="1"
+                    class="nsa-accesstive"
+                    data-original-filter="none"
+                    ><strong
+                      data-original-font-size="20px"
+                      data-original-line-height="48px"
+                      data-original-word-spacing="0px"
+                      data-original-letter-spacing="4e-07px"
+                      data-original-text-align="center"
+                      data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                      data-original-zoom="1"
+                      class="nsa-accesstive"
+                      data-original-filter="none"
+                      ><span
+                        class="text-only nsa-accesstive"
+                        data-eleid="5"
+                        data-original-font-size="20px"
+                        data-original-line-height="48px"
+                        data-original-word-spacing="0px"
+                        data-original-letter-spacing="4e-07px"
+                        data-original-text-align="center"
+                        data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                        data-original-zoom="1"
+                        data-original-filter="none"
+                        >Use code
+                        <span
+                          style="color: #e03e2d;"
+                          data-original-font-size="20px"
+                          data-original-line-height="48px"
+                          data-original-word-spacing="0px"
+                          data-original-letter-spacing="4e-07px"
+                          data-original-text-align="center"
+                          data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                          data-original-zoom="1"
+                          class="nsa-accesstive"
+                          data-original-filter="none"
+                          >VIPMODULE</span
+                        >
+                        for a $200 discount on other modules.</span
+                      ></strong
+                    ></span
+                  >
+                </div>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      #shopify-section-1763986875633202eec9 .yb-single-video-btn {
+        border: 0px;
+        cursor: pointer;
+        height: 48px;
+        line-height: 48px;
+        font-weight: 600;
+      }
+
+      .rich-text-description {
+        line-height: 140%;
+      }
+      #shopify-section-1763986875633202eec9 .rich-text-component-wrapper {
+        margin: 0px auto;
+        text-align: center;
+      }
+      .rich-text-component {
+        margin: auto;
+      }
+      .yb-section-title {
+        font-weight: 800;
+      }
+      /* 1920px+ */
+      @media (min-width: 1920px) {
+        #shopify-section-1763986875633202eec9 .yb-section-title {
+          line-height: 120%;
+        }
+        .rich-text-component {
+          width: 1000px;
+          margin: auto;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-component-wrapper {
+          width: 1000px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description span {
+          width: 1000px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description {
+          margin-bottom: 0;
+        }
+        .margin-top-description-style {
+          margin-top: 16px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-button {
+          margin-top: 40px;
+        }
+        #shopify-section-1763986875633202eec9 .yb-single-video-btn {
+          padding: 0 40px;
+
+          min-width: 180px;
+        }
+      }
+      /* 1440-1919px */
+      @media (min-width: 1440px) and (max-width: 1919px) {
+        #shopify-section-1763986875633202eec9 .yb-section-title {
+          line-height: 120%;
+        }
+        .rich-text-component {
+          width: 924px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-component-wrapper {
+          width: 924px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description {
+          margin-bottom: 0;
+        }
+        .margin-top-description-style {
+          margin-top: 16px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description span {
+          width: 924px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-button {
+          margin-top: 32px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-title {
+        }
+        #shopify-section-1763986875633202eec9 .yb-single-video-btn {
+          padding: 0 40px;
+
+          min-width: 180px;
+        }
+      }
+      /* 960-1439px */
+      @media (min-width: 960px) and (max-width: 1439px) {
+        #shopify-section-1763986875633202eec9 .yb-section-title {
+          line-height: 120%;
+        }
+        .rich-text-component {
+          width: 728px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-component-wrapper {
+          width: 728px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description {
+          margin-bottom: 0;
+        }
+        .margin-top-description-style {
+          margin-top: 16px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description span {
+          width: 728px;
+          display: inline-block;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-button {
+          margin-top: 24px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-title {
+        }
+        #shopify-section-1763986875633202eec9 .yb-single-video-btn {
+          padding: 0 40px;
+
+          min-width: 180px;
+        }
+      }
+      /* 680-959px */
+      @media (min-width: 680px) and (max-width: 959px) {
+        #shopify-section-1763986875633202eec9 .yb-section-title {
+          line-height: 120%;
+          max-width: 600px;
+        }
+        .rich-text-component {
+          padding: 0 24px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-component-wrapper {
+          max-width: 600px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description {
+          max-width: 600px;
+          margin-bottom: 0;
+        }
+        .margin-top-description-style {
+          margin-top: 16px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description span {
+          max-width: 600px;
+        }
+        #shopify-section-1763986875633202eec9 .headerTitle1 {
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description span {
+          display: inline-block;
+          max-width: 600px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-button {
+          margin-top: 24px;
+        }
+        #shopify-section-1763986875633202eec9 .yb-single-video-btn {
+          padding: 0 40px;
+
+          min-width: 180px;
+        }
+      }
+
+      /* 679px */
+      @media (max-width: 679px) {
+        #shopify-section-1763986875633202eec9 .yb-section-title {
+          max-width: 327px;
+          line-height: 120%;
+          width: 100%;
+        }
+        .rich-text-component {
+          padding: 0 16px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-component-wrapper {
+          max-width: 327px;
+          width: 100%;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description {
+          max-width: 327px;
+          width: 100%;
+          margin-bottom: 0;
+        }
+        .margin-top-description-style {
+          margin-top: 12px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description span {
+          max-width: 327px;
+          width: 100%;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-button {
+          margin-top: 16px;
+        }
+        #shopify-section-1763986875633202eec9 .rich-text-description span {
+          display: inline-block;
+          max-width: 327px;
+          width: 100%;
+        }
+        #shopify-section-1763986875633202eec9 .yb-single-video-btn {
+          padding: 0 40px;
+          width: 100%;
+        }
+      }
+    </style>
+  </div>
+  <div id="shopify-section-1749286728389c2951ae" class="shopline-section nsa-accesstive" data-original-filter="none">
+    <style>
+      #shopify-section-1749286728389c2951ae {
+        background-color: #ffffff;
+      }
+
+      /* 375-679px */
+      @media (max-width: 679px) {
+        #shopify-section-1749286728389c2951ae {
+          padding-top: 0px;
+          padding-bottom: 14px;
+        }
+      }
+
+      /* 680-959px */
+      @media (min-width: 680px) and (max-width: 959px) {
+        #shopify-section-1749286728389c2951ae {
+          padding-top: 0px;
+          padding-bottom: 29px;
+        }
+      }
+
+      /* 960-1439px */
+      @media (min-width: 960px) and (max-width: 1439px) {
+        #shopify-section-1749286728389c2951ae {
+          padding-top: 0px;
+          padding-bottom: 32px;
+        }
+      }
+
+      /* 1440-1919px */
+      @media (min-width: 1440px) and (max-width: 1919px) {
+        #shopify-section-1749286728389c2951ae {
+          padding-top: 0px;
+          padding-bottom: 42px;
+        }
+      }
+
+      /* 1920px+ */
+      @media (min-width: 1920px) {
+        #shopify-section-1749286728389c2951ae {
+          padding-top: 0px;
+          padding-bottom: 69px;
+        }
+      }
+    </style>
+
+    <div class="padding-1749286728389c2951ae nsa-accesstive" data-original-filter="none">
+      <div class="yb-section-container nsa-accesstive" data-original-filter="none">
+        <div class="yb-section-header nsa-accesstive" data-original-filter="none">
+          <h3
+            class="yb-section-title nsa-accesstive"
+          ></h3>
+        </div>
+        <div
+          class="mySwiper-1749286728389c2951ae custom_featured_collection_inner swiper-initialized swiper-horizontal swiper-backface-hidden nsa-accesstive"
+          style="position: relative;"
+          data-original-filter="none"
+        >
+          <div
+            class="swiper-wrapper custom_featured_collection_wrapper column-count-4 nsa-accesstive"
+            id="swiper-wrapper-1749286728389c2951ae"
+            aria-live="polite"
+            data-original-filter="none"
+          >
+            <div
+              class="swiper-slide custom_product-card-wrapper nsa-accesstive"
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal nsa-accesstive"
+                data-product-id="16070534805481450466262015"
+                data-product-form-id="quick-add-undefined__16070534805481450466262015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-original-filter="none"
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main nsa-accesstive" data-original-filter="none">
+                  <div
+                    class="card__inner--wrapper global-product-card-border-shadow nsa-accesstive"
+                    style=""
+                    data-original-filter="none"
+                  >
+                    <div
+                      class="card__inner ratio nsa-accesstive"
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                      data-original-filter="none"
+                    >
+                      <a
+                        href="/products/yarbo-lawn-mower-pro-module"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Frame-2036456437-_1_664c48fa-1d0e-4e62-a005-c3223725eb76.png?v=1772522179"
+                          alt="Yarbo Lawn Mower Pro Module"
+                          width="1000"
+                          height="1000"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="eager"
+                          class="collection-hero__image"
+                        >
+                      </a>
+
+                      <div
+                        style=" background-color:#EE4700; "
+                        class="card__badge left_bottom nsa-accesstive"
+                        data-original-filter="none"
+                      >
+                        <span
+                          class="body4 fw-bold nsa-accesstive"
+                          data-original-font-size="14px"
+                          data-original-line-height="22.4px"
+                          data-original-word-spacing="0px"
+                          data-original-letter-spacing="1.4e-07px"
+                          data-original-text-align="start"
+                          data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                          data-original-zoom="1"
+                          data-original-filter="none"
+                        >
+                          New
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content nsa-accesstive" style="--swatch-gap: 6px" data-original-filter="none">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display nsa-accesstive"
+                    >
+                      Lawn Mower Pro Module
+                    </h3>
+
+                    <div
+                      class="card__content-bottom card__content-bottom-center nsa-accesstive"
+                      data-original-filter="none"
+                    >
+                      <div class="price nsa-accesstive" data-original-filter="none">
+                        <div class="price__container nsa-accesstive" data-original-filter="none">
+                          <div
+                            class="price__regular body2 nsa-accesstive"
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                            data-original-filter="none"
+                          >
+                            <span
+                              class="fw-bold price-item price-item--regular nsa-accesstive"
+                            >
+                              $1,799.00
+                            </span>
+                            <span
+                              class="body5 price-position-origin nsa-accesstive"
+                            >
+                              <span
+                                style="text-decoration: line-through;"
+                                class="fw-bold price-item--regular nsa-accesstive"
+                                >$2,299.00</span
+                              >
+                            </span>
+                          </div>
+                          <div
+                            data-amount="179900"
+                            data-color="#000000"
+                            class="nsa-accesstive"
+                            data-original-filter="none"
+                          >
+                            <div
+                              class="stage-splitit-snipp__container nsa-accesstive"
+                              data-original-filter="none"
+                              style="--splitit-text-color: #000000;"
+                            >
+                              <span
+                                class="stage-splitit-snipp__text nsa-accesstive"
+                              >
+                                <span
+                                  class="stage-splitit-snipp__monthly-amount nsa-accesstive"
+                                  >$300/mo</span
+                                >
+                                <span
+                                  class="stage-splitit-snipp__apr-text nsa-accesstive"
+                                >
+                                  for 6 months at 0% APR with Splitit.</span
+                                >
+                              </span>
+                            </div>
+
+                            <style>
+                              .stage-splitit-snipp__container {
+                                width: 100%;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: flex-start;
+                                font-size: 0.875rem;
+                                line-height: 1.5;
+                                /* 使用 CSS 变量，默认值为 #666 */
+                                color: var(--splitit-text-color, #666);
+                              }
+
+                              .stage-splitit-snipp__text {
+                                flex-wrap: wrap;
+                                gap: 0.25rem;
+                                color: inherit;
+                              }
+
+                              .stage-splitit-snipp__monthly-amount {
+                                font-weight: 700;
+                                font-size: 1.5em;
+                                /* 月付金额颜色，默认比文字颜色深一些 */
+                                color: var(--splitit-amount-color, var(--splitit-text-color, #333));
+                              }
+
+                              .stage-splitit-snipp__apr-text {
+                                font-weight: 400;
+                                font-size: 1em;
+                                color: inherit;
+                              }
+
+                              /* 移动端适配 */
+                              @media (max-width: 767px) {
+                                .stage-splitit-snipp__container {
+                                  font-size: 0.75rem;
+                                }
+                              }
+                            </style>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button nsa-accesstive" data-original-filter="none"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder nsa-accesstive" data-original-filter="none"></div>
+                <div class="custom-buttons nsa-accesstive" data-original-filter="none">
+                  <a
+                    href="/products/yarbo-lawn-mower-pro-module"
+                    class="yb-single-video-btn nsa-accesstive"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper nsa-accesstive"
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal nsa-accesstive"
+                data-product-id="16068909475103003595402015"
+                data-product-form-id="quick-add-undefined__16068909475103003595402015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-original-filter="none"
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main nsa-accesstive" data-original-filter="none">
+                  <div
+                    class="card__inner--wrapper global-product-card-border-shadow nsa-accesstive"
+                    style=""
+                    data-original-filter="none"
+                  >
+                    <div
+                      class="card__inner ratio nsa-accesstive"
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                      data-original-filter="none"
+                    >
+                      <a
+                        href="/products/lawn-mower-module"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Frame-1948755237.jpg?v=1772522027"
+                          alt="Lawn Mower Module"
+                          width="1081"
+                          height="1081"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="eager"
+                          class="collection-hero__image"
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card__content nsa-accesstive" style="--swatch-gap: 6px" data-original-filter="none">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display nsa-accesstive"
+                    >
+                      Lawn Mower Module
+                    </h3>
+
+                    <div
+                      class="card__content-bottom card__content-bottom-center nsa-accesstive"
+                      data-original-filter="none"
+                    >
+                      <div class="price nsa-accesstive" data-original-filter="none">
+                        <div class="price__container nsa-accesstive" data-original-filter="none">
+                          <div
+                            class="price__regular body2 nsa-accesstive"
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                            data-original-filter="none"
+                          >
+                            <span
+                              class="fw-bold price-item price-item--regular nsa-accesstive"
+                            >
+                              $1,099.00
+                            </span>
+                            <span
+                              class="body5 price-position-origin nsa-accesstive"
+                            >
+                              <span
+                                style="text-decoration: line-through;"
+                                class="fw-bold price-item--regular nsa-accesstive"
+                                >$1,299.00</span
+                              >
+                            </span>
+                          </div>
+                          <div
+                            data-amount="109900"
+                            data-color="#000000"
+                            class="nsa-accesstive"
+                            data-original-filter="none"
+                          >
+                            <div
+                              class="stage-splitit-snipp__container nsa-accesstive"
+                              data-original-filter="none"
+                              style="--splitit-text-color: #000000;"
+                            >
+                              <span
+                                class="stage-splitit-snipp__text nsa-accesstive"
+                              >
+                                <span
+                                  class="stage-splitit-snipp__monthly-amount nsa-accesstive"
+                                  >$183/mo</span
+                                >
+                                <span
+                                  class="stage-splitit-snipp__apr-text nsa-accesstive"
+                                >
+                                  for 6 months at 0% APR with Splitit.</span
+                                >
+                              </span>
+                            </div>
+
+                            <style>
+                              .stage-splitit-snipp__container {
+                                width: 100%;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: flex-start;
+                                font-size: 0.875rem;
+                                line-height: 1.5;
+                                /* 使用 CSS 变量，默认值为 #666 */
+                                color: var(--splitit-text-color, #666);
+                              }
+
+                              .stage-splitit-snipp__text {
+                                flex-wrap: wrap;
+                                gap: 0.25rem;
+                                color: inherit;
+                              }
+
+                              .stage-splitit-snipp__monthly-amount {
+                                font-weight: 700;
+                                font-size: 1.5em;
+                                /* 月付金额颜色，默认比文字颜色深一些 */
+                                color: var(--splitit-amount-color, var(--splitit-text-color, #333));
+                              }
+
+                              .stage-splitit-snipp__apr-text {
+                                font-weight: 400;
+                                font-size: 1em;
+                                color: inherit;
+                              }
+
+                              /* 移动端适配 */
+                              @media (max-width: 767px) {
+                                .stage-splitit-snipp__container {
+                                  font-size: 0.75rem;
+                                }
+                              }
+                            </style>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button nsa-accesstive" data-original-filter="none"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder nsa-accesstive" data-original-filter="none"></div>
+                <div class="custom-buttons nsa-accesstive" data-original-filter="none">
+                  <a
+                    href="/products/lawn-mower-module"
+                    class="yb-single-video-btn nsa-accesstive"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper nsa-accesstive"
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal nsa-accesstive"
+                data-product-id="16068909475363721533042015"
+                data-product-form-id="quick-add-undefined__16068909475363721533042015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-original-filter="none"
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main nsa-accesstive" data-original-filter="none">
+                  <div
+                    class="card__inner--wrapper global-product-card-border-shadow nsa-accesstive"
+                    style=""
+                    data-original-filter="none"
+                  >
+                    <div
+                      class="card__inner ratio nsa-accesstive"
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                      data-original-filter="none"
+                    >
+                      <a
+                        href="/products/snow-blower-module"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Frame-1948755238.jpg?v=1772522032"
+                          alt="Snow Blower Module"
+                          width="1081"
+                          height="1081"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card__content nsa-accesstive" style="--swatch-gap: 6px" data-original-filter="none">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display nsa-accesstive"
+                    >
+                      Snow Blower Module
+                    </h3>
+
+                    <div
+                      class="card__content-bottom card__content-bottom-center nsa-accesstive"
+                      data-original-filter="none"
+                    >
+                      <div class="price nsa-accesstive" data-original-filter="none">
+                        <div class="price__container nsa-accesstive" data-original-filter="none">
+                          <div
+                            class="price__regular body2 nsa-accesstive"
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                            data-original-filter="none"
+                          >
+                            <span
+                              class="fw-bold price-item price-item--regular nsa-accesstive"
+                            >
+                              $1,099.00
+                            </span>
+                            <span
+                              class="body5 price-position-origin nsa-accesstive"
+                            >
+                              <span
+                                style="text-decoration: line-through;"
+                                class="fw-bold price-item--regular nsa-accesstive"
+                                >$1,299.00</span
+                              >
+                            </span>
+                          </div>
+                          <div
+                            data-amount="109900"
+                            data-color="#000000"
+                            class="nsa-accesstive"
+                            data-original-filter="none"
+                          >
+                            <div
+                              class="stage-splitit-snipp__container nsa-accesstive"
+                              data-original-filter="none"
+                              style="--splitit-text-color: #000000;"
+                            >
+                              <span
+                                class="stage-splitit-snipp__text nsa-accesstive"
+                              >
+                                <span
+                                  class="stage-splitit-snipp__monthly-amount nsa-accesstive"
+                                  >$183/mo</span
+                                >
+                                <span
+                                  class="stage-splitit-snipp__apr-text nsa-accesstive"
+                                >
+                                  for 6 months at 0% APR with Splitit.</span
+                                >
+                              </span>
+                            </div>
+
+                            <style>
+                              .stage-splitit-snipp__container {
+                                width: 100%;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: flex-start;
+                                font-size: 0.875rem;
+                                line-height: 1.5;
+                                /* 使用 CSS 变量，默认值为 #666 */
+                                color: var(--splitit-text-color, #666);
+                              }
+
+                              .stage-splitit-snipp__text {
+                                flex-wrap: wrap;
+                                gap: 0.25rem;
+                                color: inherit;
+                              }
+
+                              .stage-splitit-snipp__monthly-amount {
+                                font-weight: 700;
+                                font-size: 1.5em;
+                                /* 月付金额颜色，默认比文字颜色深一些 */
+                                color: var(--splitit-amount-color, var(--splitit-text-color, #333));
+                              }
+
+                              .stage-splitit-snipp__apr-text {
+                                font-weight: 400;
+                                font-size: 1em;
+                                color: inherit;
+                              }
+
+                              /* 移动端适配 */
+                              @media (max-width: 767px) {
+                                .stage-splitit-snipp__container {
+                                  font-size: 0.75rem;
+                                }
+                              }
+                            </style>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button nsa-accesstive" data-original-filter="none"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder nsa-accesstive" data-original-filter="none"></div>
+                <div class="custom-buttons nsa-accesstive" data-original-filter="none">
+                  <a
+                    href="/products/snow-blower-module"
+                    class="yb-single-video-btn nsa-accesstive"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper nsa-accesstive"
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal nsa-accesstive"
+                data-product-id="16068909475393920521972015"
+                data-product-form-id="quick-add-undefined__16068909475393920521972015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-original-filter="none"
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main nsa-accesstive" data-original-filter="none">
+                  <div
+                    class="card__inner--wrapper global-product-card-border-shadow nsa-accesstive"
+                    style=""
+                    data-original-filter="none"
+                  >
+                    <div
+                      class="card__inner ratio nsa-accesstive"
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                      data-original-filter="none"
+                    >
+                      <a
+                        href="/products/blower-module"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Frame-1948755236_62d3f721-10b9-41b2-a6fc-1fab1a69d1f7.jpg?v=1772522022"
+                          alt="Blower Module"
+                          width="1081"
+                          height="1081"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card__content nsa-accesstive" style="--swatch-gap: 6px" data-original-filter="none">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display nsa-accesstive"
+                    >
+                      Blower Module
+                    </h3>
+
+                    <div
+                      class="card__content-bottom card__content-bottom-center nsa-accesstive"
+                      data-original-filter="none"
+                    >
+                      <div class="price nsa-accesstive" data-original-filter="none">
+                        <div class="price__container nsa-accesstive" data-original-filter="none">
+                          <div
+                            class="price__regular body2 nsa-accesstive"
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                            data-original-filter="none"
+                          >
+                            <span
+                              class="fw-bold price-item price-item--regular nsa-accesstive"
+                            >
+                              $899.00
+                            </span>
+                            <span
+                              class="body5 price-position-origin nsa-accesstive"
+                            >
+                              <span
+                                style="text-decoration: line-through;"
+                                class="fw-bold price-item--regular nsa-accesstive"
+                                >$1,099.00</span
+                              >
+                            </span>
+                          </div>
+                          <div
+                            data-amount="89900"
+                            data-color="#000000"
+                            class="nsa-accesstive"
+                            data-original-filter="none"
+                          >
+                            <div
+                              class="stage-splitit-snipp__container nsa-accesstive"
+                              data-original-filter="none"
+                              style="--splitit-text-color: #000000;"
+                            >
+                              <span
+                                class="stage-splitit-snipp__text nsa-accesstive"
+                              >
+                                <span
+                                  class="stage-splitit-snipp__monthly-amount nsa-accesstive"
+                                  >$150/mo</span
+                                >
+                                <span
+                                  class="stage-splitit-snipp__apr-text nsa-accesstive"
+                                >
+                                  for 6 months at 0% APR with Splitit.</span
+                                >
+                              </span>
+                            </div>
+
+                            <style>
+                              .stage-splitit-snipp__container {
+                                width: 100%;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: flex-start;
+                                font-size: 0.875rem;
+                                line-height: 1.5;
+                                /* 使用 CSS 变量，默认值为 #666 */
+                                color: var(--splitit-text-color, #666);
+                              }
+
+                              .stage-splitit-snipp__text {
+                                flex-wrap: wrap;
+                                gap: 0.25rem;
+                                color: inherit;
+                              }
+
+                              .stage-splitit-snipp__monthly-amount {
+                                font-weight: 700;
+                                font-size: 1.5em;
+                                /* 月付金额颜色，默认比文字颜色深一些 */
+                                color: var(--splitit-amount-color, var(--splitit-text-color, #333));
+                              }
+
+                              .stage-splitit-snipp__apr-text {
+                                font-weight: 400;
+                                font-size: 1em;
+                                color: inherit;
+                              }
+
+                              /* 移动端适配 */
+                              @media (max-width: 767px) {
+                                .stage-splitit-snipp__container {
+                                  font-size: 0.75rem;
+                                }
+                              }
+                            </style>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button nsa-accesstive" data-original-filter="none"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder nsa-accesstive" data-original-filter="none"></div>
+                <div class="custom-buttons nsa-accesstive" data-original-filter="none">
+                  <a
+                    href="/products/blower-module"
+                    class="yb-single-video-btn nsa-accesstive"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="custom_swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination-lock nsa-accesstive"
+            data-original-filter="none"
+          >
+            <span
+              class="swiper-pagination-bullet swiper-pagination-bullet-active nsa-accesstive"
+              tabindex="0"
+              role="button"
+              aria-label="Go to slide 1"
+              aria-current="true"
+            ></span>
+          </div>
+          <div
+            class="custom_swiper-button-prev-1749286728389c2951ae swiper-button-disabled swiper-button-lock nsa-accesstive"
+            tabindex="-1"
+            role="button"
+            aria-label="Previous slide"
+            aria-controls="swiper-wrapper-1749286728389c2951ae"
+            aria-disabled="true"
+            data-original-filter="none"
+          ></div>
+          <div
+            class="custom_swiper-button-next-1749286728389c2951ae swiper-button-disabled swiper-button-lock nsa-accesstive"
+            tabindex="-1"
+            role="button"
+            aria-label="Next slide"
+            aria-controls="swiper-wrapper-1749286728389c2951ae"
+            aria-disabled="true"
+            data-original-filter="none"
+          ></div>
+          <span
+            class="swiper-notification nsa-accesstive"
+            aria-live="assertive"
+            aria-atomic="true"
+          ></span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var customProduct = new Swiper('.mySwiper-1749286728389c2951ae', {
+        slidesPerView: 1.1,
+        spaceBetween: 12,
+        pagination: {
+          el: '.custom_swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.custom_swiper-button-next-1749286728389c2951ae',
+          prevEl: '.custom_swiper-button-prev-1749286728389c2951ae',
+        },
+        breakpoints: {
+          680: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          960: {
+            slidesPerView: 4,
+            spaceBetween: 16,
+          },
+        },
+      });
+
+      // 确保深色模式样式生效
+    </script>
+    <style>
+      div#sales__flash-sale-price-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+      }
+      #shopify-section-1749286728389c2951ae .price .price__sale {
+        gap: 4px;
+      }
+      #shopify-section-1749286728389c2951ae .yb-section-container {
+        overflow: hidden;
+      }
+      /* 深色模式标题颜色 */
+      #shopify-section-1749286728389c2951ae .yb-section-header.is-dark-mode .yb-section-title {
+        color: #fff !important;
+      }
+      #shopify-section-1749286728389c2951ae .custom_featured_collection_inner {
+        position: relative;
+      }
+      #shopify-section-1749286728389c2951ae .bz-head-4 {
+        margin-bottom: 4px;
+      }
+      #shopify-section-1749286728389c2951ae .custom_swiper-pagination {
+        position: unset;
+        margin-top: 32px;
+        text-align: center;
+      }
+      #shopify-section-1749286728389c2951ae #quantity {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        position: absolute;
+      }
+      #shopify-section-1749286728389c2951ae .swiper-pagination-bullet {
+        width: 16px;
+        border-radius: 6px;
+        height: 4px;
+        transition: all 0.3s ease;
+      }
+      #shopify-section-1749286728389c2951ae .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        width: 64px;
+        background: #a9a9a9;
+      }
+      #shopify-section-1749286728389c2951ae .custom_swiper-button-prev-1749286728389c2951ae,
+      #shopify-section-1749286728389c2951ae .custom_swiper-button-next-1749286728389c2951ae {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      #shopify-section-1749286728389c2951ae .custom_swiper-button-prev-1749286728389c2951ae:hover,
+      #shopify-section-1749286728389c2951ae .custom_swiper-button-next-1749286728389c2951ae:hover {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      #shopify-section-1749286728389c2951ae .custom_swiper-button-prev-1749286728389c2951ae {
+        left: 16px;
+      }
+      #shopify-section-1749286728389c2951ae .custom_swiper-button-next-1749286728389c2951ae {
+        right: 16px;
+      }
+      #shopify-section-1749286728389c2951ae .custom_swiper-button-prev-1749286728389c2951ae::after,
+      #shopify-section-1749286728389c2951ae .custom_swiper-button-next-1749286728389c2951ae::after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        border: 2px solid #333;
+        border-top: none;
+        border-right: none;
+      }
+      #shopify-section-1749286728389c2951ae .custom_swiper-button-prev-1749286728389c2951ae::after {
+        transform: rotate(45deg);
+        margin-left: 3px;
+      }
+      #shopify-section-1749286728389c2951ae .custom_swiper-button-next-1749286728389c2951ae::after {
+        transform: rotate(-135deg);
+        margin-right: 3px;
+      }
+      #shopify-section-1749286728389c2951ae .custom_product_form {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+      }
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .product-card-wrapper {
+        background: #fff;
+      }
+      /* 深色模式样式 - 必须在默认样式之后定义以确保优先级 */
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper[data-dark-mode='true'] .product-card-wrapper,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .product-card-wrapper {
+        background-color: #28292c !important;
+        background: #28292c !important;
+      }
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .price-item,
+      .custom_product-card-wrapper .price-item--regular {
+        font-weight: 400 !important;
+      }
+      #shopify-section-1749286728389c2951ae .custom_featured_collection_wrapper .quick-add {
+        display: none !important;
+      }
+      #shopify-section-1749286728389c2951ae .card__content-bottom .price__sale {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #shopify-section-1749286728389c2951ae .swiper-slide.custom_product-card-wrapper {
+        height: auto;
+      }
+      #shopify-section-1749286728389c2951ae .section_header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      #shopify-section-1749286728389c2951ae .custom_product_form .button {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper img {
+        width: 100%;
+        height: auto;
+      }
+      #shopify-section-1749286728389c2951ae .custom-buttons .button {
+        width: auto;
+        margin: auto;
+        margin-top: 16px;
+        padding-left: 25px;
+        padding-right: 30px;
+      }
+      #shopify-section-1749286728389c2951ae .custom-buttons .button {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        padding: 13px 36px;
+      }
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .card .card__content {
+        margin-top: 12px;
+      }
+      #shopify-section-1749286728389c2951ae .card .card__content .product__title {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      #shopify-section-1749286728389c2951ae .card .card__content .product__title,
+      #shopify-section-1749286728389c2951ae .price__regular .price-item--regular,
+      #shopify-section-1749286728389c2951ae .price-item--sale,
+      #shopify-section-1749286728389c2951ae .custom-buttons,
+      ._sales__flash-sale-promotion-price_1xt6h_7 {
+        color: #25282a;
+      }
+      #shopify-section-1749286728389c2951ae .price-position-origin .price-item--regular,
+      ._sales__flash-sale-origin-price_1xt6h_10 {
+        color: #6e6e73;
+      }
+      /* 深色模式文字颜色 */
+      #shopify-section-1749286728389c2951ae
+        .custom_product-card-wrapper.is-dark-mode
+        .card
+        .card__content
+        .product__title,
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .card__content .product__title,
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .product__title,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .card .card__content .product__title,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .card__content .product__title,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .product__title,
+      #shopify-section-1749286728389c2951ae
+        .custom_product-card-wrapper.is-dark-mode
+        .price__regular
+        .price-item--regular,
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price-item--regular,
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price .price-item--sale,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price__regular .price-item--regular,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price-item--regular,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price-item--sale,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price .price-item--regular,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price .price-item--sale,
+      #shopify-section-1749286728389c2951ae
+        .custom_product-card-wrapper.is-dark-mode
+        ._sales__flash-sale-promotion-price_1xt6h_7,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+        color: #fff !important;
+      }
+      #shopify-section-1749286728389c2951ae
+        .custom_product-card-wrapper.is-dark-mode
+        .price-position-origin
+        .price-item--regular,
+      #shopify-section-1749286728389c2951ae
+        .custom_product-card-wrapper.is-dark-mode
+        .price
+        .price-position-origin
+        .price-item--regular,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price-position-origin .price-item--regular,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price .price-position-origin .price-item--regular,
+      #shopify-section-1749286728389c2951ae
+        .custom_product-card-wrapper.is-dark-mode
+        ._sales__flash-sale-origin-price_1xt6h_10,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+        color: #e6e6e7 !important;
+      }
+      /* 深色模式 Splitit 文字颜色 */
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .stage-splitit-snipp__container,
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .stage-splitit-snipp__text,
+      #shopify-section-1749286728389c2951ae
+        .custom_product-card-wrapper.is-dark-mode
+        .stage-splitit-snipp__monthly-amount,
+      #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .stage-splitit-snipp__apr-text,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .stage-splitit-snipp__container,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .stage-splitit-snipp__text,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .stage-splitit-snipp__monthly-amount,
+      #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .stage-splitit-snipp__apr-text {
+        color: #fff !important;
+        --splitit-text-color: #fff !important;
+        --splitit-amount-color: #fff !important;
+      }
+      #shopify-section-1749286728389c2951ae .card .card__inner--wrapper,
+      #shopify-section-1749286728389c2951ae .card .card__media {
+        background: transparent !important;
+        border-radius: 0px;
+      }
+      #shopify-section-1749286728389c2951ae .card__inner--wrapper img {
+        border-radius: 0px;
+      }
+      @media (max-width: 679px) {
+        #shopify-section-1749286728389c2951ae .custom_swiper-pagination {
+          position: unset;
+          margin-top: 32px;
+        }
+        #shopify-section-1749286728389c2951ae .body5.bz-body-3 .fw-bold.price-item--regular {
+          font-size: 14px;
+        }
+        #shopify-section-1749286728389c2951ae .custom_swiper-button-prev-1749286728389c2951ae,
+        #shopify-section-1749286728389c2951ae .custom_swiper-button-next-1749286728389c2951ae {
+          width: 40px;
+          height: 40px;
+        }
+        #shopify-section-1749286728389c2951ae .custom_swiper-button-prev-1749286728389c2951ae {
+          left: 12px;
+        }
+        #shopify-section-1749286728389c2951ae .custom_swiper-button-next-1749286728389c2951ae {
+          right: 12px;
+        }
+        #shopify-section-1749286728389c2951ae .custom_swiper-button-prev-1749286728389c2951ae::after,
+        #shopify-section-1749286728389c2951ae .custom_swiper-button-next-1749286728389c2951ae::after {
+          width: 10px;
+          height: 10px;
+          border-width: 1.5px;
+        }
+      }
+
+      /* 375-679px */
+      @media (max-width: 679px) {
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .card .card__content {
+          margin: 12px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .product-card-wrapper {
+          padding: 16px 16px 24px 16px;
+          border-radius: 14.72px;
+        }
+        /* 深色模式背景色 - 375-679px */
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper[data-dark-mode='true']
+          .product-card-wrapper,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .product-card-wrapper {
+          background-color: #28292c !important;
+          background: #28292c !important;
+        }
+        #shopify-section-1749286728389c2951ae .card__inner--wrapper {
+          border-radius: 0px;
+        }
+        #shopify-section-1749286728389c2951ae .card .card__content .product__title {
+          margin-bottom: 16px;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286728389c2951ae .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae .price-item--sale,
+        ._sales__flash-sale-promotion-price_1xt6h_7 {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286728389c2951ae .price .price-position-origin .price-item--regular,
+        ._sales__flash-sale-origin-price_1xt6h_10 {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        /* 深色模式文字颜色 - 375-679px */
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          .card
+          .card__content
+          .product__title,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .card .card__content .product__title {
+          color: #fff !important;
+        }
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price-item--sale,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-promotion-price_1xt6h_7,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+          color: #fff !important;
+        }
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-origin-price_1xt6h_10,
+        #shopify-section-1749286728389c2951ae
+          [data-dark-mode='true']
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+          color: #e6e6e7 !important;
+        }
+        #shopify-section-1749286728389c2951ae .custom-buttons {
+          text-align: center;
+          margin: 16px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286728389c2951ae .card__inner--wrapper img {
+          margin: 0px auto;
+          object-fit: contain;
+          aspect-ratio: 279/233;
+          width: 100%;
+          height: 100%;
+        }
+        #shopify-section-1749286728389c2951ae .yb-single-video-btn {
+          max-width: 100%;
+          min-width: 180px;
+        }
+      }
+
+      /* 680-959px */
+      @media (min-width: 680px) and (max-width: 959px) {
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .card .card__content {
+          margin: 12px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .product-card-wrapper {
+          padding: 16px 16px 24px 16px;
+          border-radius: 14.72px;
+        }
+        /* 深色模式背景色 - 680-959px */
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper[data-dark-mode='true']
+          .product-card-wrapper,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .product-card-wrapper {
+          background-color: #28292c !important;
+          background: #28292c !important;
+        }
+        #shopify-section-1749286728389c2951ae .card__inner--wrapper {
+          border-radius: 0px;
+        }
+        #shopify-section-1749286728389c2951ae .card .card__content .product__title {
+          margin-bottom: 16px;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286728389c2951ae .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae .price-item--sale,
+        ._sales__flash-sale-promotion-price_1xt6h_7 {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286728389c2951ae .price .price-position-origin .price-item--regular,
+        ._sales__flash-sale-origin-price_1xt6h_10 {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        /* 深色模式文字颜色 - 680-959px */
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          .card
+          .card__content
+          .product__title,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .card .card__content .product__title {
+          color: #fff !important;
+        }
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price-item--sale,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-promotion-price_1xt6h_7,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+          color: #fff !important;
+        }
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-origin-price_1xt6h_10,
+        #shopify-section-1749286728389c2951ae
+          [data-dark-mode='true']
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+          color: #e6e6e7 !important;
+        }
+        #shopify-section-1749286728389c2951ae .custom-buttons {
+          text-align: center;
+          margin: 16px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286728389c2951ae .card__inner--wrapper img {
+          object-fit: contain;
+          aspect-ratio: 279/233;
+          width: 100%;
+          height: 100%;
+        }
+        #shopify-section-1749286728389c2951ae .column-count-3 img {
+          margin: 0px auto;
+          object-fit: contain;
+          aspect-ratio: 385/315;
+          width: 100%;
+          height: 100%;
+        }
+        #shopify-section-1749286728389c2951ae .yb-single-video-btn {
+          max-width: 100%;
+          min-width: 180px;
+        }
+      }
+
+      /* 960-1439px */
+      @media (min-width: 960px) and (max-width: 1439px) {
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .card .card__content {
+          margin: 7px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .product-card-wrapper {
+          padding: 12px 12px 17px 12px;
+          border-radius: 8px;
+        }
+        /* 深色模式背景色 - 960-1439px */
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper[data-dark-mode='true']
+          .product-card-wrapper,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .product-card-wrapper {
+          background-color: #28292c !important;
+          background: #28292c !important;
+        }
+        #shopify-section-1749286728389c2951ae .card__inner--wrapper {
+          border-radius: 0px;
+        }
+        #shopify-section-1749286728389c2951ae .card .card__content .product__title {
+          margin-bottom: 8px;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286728389c2951ae .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae .price-item--sale,
+        ._sales__flash-sale-promotion-price_1xt6h_7 {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286728389c2951ae .price .price-position-origin .price-item--regular,
+        ._sales__flash-sale-origin-price_1xt6h_10 {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        /* 深色模式文字颜色 - 960-1439px */
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          .card
+          .card__content
+          .product__title,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .card .card__content .product__title {
+          color: #fff !important;
+        }
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price-item--sale,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-promotion-price_1xt6h_7,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+          color: #fff !important;
+        }
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-origin-price_1xt6h_10,
+        #shopify-section-1749286728389c2951ae
+          [data-dark-mode='true']
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+          color: #e6e6e7 !important;
+        }
+        #shopify-section-1749286728389c2951ae .custom-buttons {
+          text-align: center;
+          margin: 12px auto 0px;
+          /* max-width: calc(100% - 2 * 8px); */
+        }
+        #shopify-section-1749286728389c2951ae .card__inner--wrapper img {
+          /* width: 189px !important; */
+          /* height: 156px !important; */
+          aspect-ratio: 189 / 156;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+        #shopify-section-1749286728389c2951ae .column-count-3 img {
+          /* width: 263px !important; */
+          /* height: 218px !important; */
+          aspect-ratio: 263 / 218;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+      }
+
+      /* 1440-1919px */
+      @media (min-width: 1440px) and (max-width: 1919px) {
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .card .card__content {
+          margin: 8px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .product-card-wrapper {
+          padding: 16px 16px 24px 16px;
+          border-radius: 16px;
+        }
+        /* 深色模式背景色 - 1440-1919px */
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper[data-dark-mode='true']
+          .product-card-wrapper,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .product-card-wrapper {
+          background-color: #28292c !important;
+          background: #28292c !important;
+        }
+        #shopify-section-1749286728389c2951ae .card__inner--wrapper {
+          border-radius: 0px;
+        }
+        #shopify-section-1749286728389c2951ae .card .card__content .product__title {
+          margin-bottom: 12px;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286728389c2951ae .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae .price-item--sale,
+        ._sales__flash-sale-promotion-price_1xt6h_7 {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286728389c2951ae .price .price-position-origin .price-item--regular,
+        ._sales__flash-sale-origin-price_1xt6h_10 {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        /* 深色模式文字颜色 - 1440-1919px */
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          .card
+          .card__content
+          .product__title,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .card .card__content .product__title {
+          color: #fff !important;
+        }
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price-item--sale,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-promotion-price_1xt6h_7,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+          color: #fff !important;
+        }
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-origin-price_1xt6h_10,
+        #shopify-section-1749286728389c2951ae
+          [data-dark-mode='true']
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+          color: #e6e6e7 !important;
+        }
+        #shopify-section-1749286728389c2951ae .custom-buttons {
+          text-align: center;
+          max-width: calc(100% - 2 * 8px);
+          margin: 16px auto 0px;
+        }
+        #shopify-section-1749286728389c2951ae .card__inner--wrapper img {
+          /* width: 256px !important; */
+          /* height: 211px !important; */
+          aspect-ratio: 256 / 211;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+        #shopify-section-1749286728389c2951ae .column-count-3 img {
+          /* width: 353px !important; */
+          /* height: 296px !important; */
+          aspect-ratio: 353 / 296;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+      }
+
+      /* 1920px+ */
+      @media (min-width: 1920px) {
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .card .card__content {
+          max-width: calc(100% - 2 * 8px);
+          margin: 8px auto 0px;
+        }
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper .product-card-wrapper {
+          padding: 16px 16px 24px 16px;
+          border-radius: 16px;
+        }
+        /* 深色模式背景色 - 1920px+ */
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper[data-dark-mode='true']
+          .product-card-wrapper,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .product-card-wrapper {
+          background-color: #28292c !important;
+          background: #28292c !important;
+        }
+        #shopify-section-1749286728389c2951ae .card__inner--wrapper {
+          border-radius: 0px;
+        }
+        #shopify-section-1749286728389c2951ae .card .card__content .product__title {
+          margin-bottom: 16px;
+          font-weight: 700 !important;
+          font-size: 18px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286728389c2951ae .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae .price-item--sale,
+        ._sales__flash-sale-promotion-price_1xt6h_7 {
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286728389c2951ae .price .price-position-origin .price-item--regular,
+        ._sales__flash-sale-origin-price_1xt6h_10 {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 1.4;
+        }
+        /* 深色模式文字颜色 - 1920px+ */
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          .card
+          .card__content
+          .product__title,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .card .card__content .product__title {
+          color: #fff !important;
+        }
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price .price-item--regular,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] .price-item--sale,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-promotion-price_1xt6h_7,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+          color: #fff !important;
+        }
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286728389c2951ae
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-origin-price_1xt6h_10,
+        #shopify-section-1749286728389c2951ae
+          [data-dark-mode='true']
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286728389c2951ae [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+          color: #e6e6e7 !important;
+        }
+        #shopify-section-1749286728389c2951ae .custom-buttons {
+          text-align: center;
+          max-width: calc(100% - 2 * 8px);
+          margin: 16px auto 0px;
+        }
+        #shopify-section-1749286728389c2951ae .card__inner--wrapper img {
+          /* width: 306px !important; */
+          /* height: 256px !important; */
+          aspect-ratio: 306 / 256;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+        #shopify-section-1749286728389c2951ae .column-count-3 img {
+          /* width: 424px !important; */
+          /* height: 355px !important; */
+          aspect-ratio: 424 / 355;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+      }
+    </style>
+  </div>
+  <div id="shopify-section-17492866450278e8d332" class="shopline-section">
+    <style>
+      #shopify-section-17492866450278e8d332 {
+        background-color: #f5f5f5;
+      }
+
+      /* 375-679px */
+      @media (max-width: 679px) {
+        #shopify-section-17492866450278e8d332 {
+          padding-top: 48px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 680-959px */
+      @media (min-width: 680px) and (max-width: 959px) {
+        #shopify-section-17492866450278e8d332 {
+          padding-top: 64px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 960-1439px */
+      @media (min-width: 960px) and (max-width: 1439px) {
+        #shopify-section-17492866450278e8d332 {
+          padding-top: 64px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 1440-1919px */
+      @media (min-width: 1440px) and (max-width: 1919px) {
+        #shopify-section-17492866450278e8d332 {
+          padding-top: 100px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 1920px+ */
+      @media (min-width: 1920px) {
+        #shopify-section-17492866450278e8d332 {
+          padding-top: 120px;
+          padding-bottom: 0px;
+        }
+      }
+    </style>
+
+    <div class="rich-text-component">
+      <div class="rich-text-component-wrapper">
+        <div class="rich-text-component-inner">
+          <div class="headerTitle1">
+            <div class="rich-text-title">
+              <h2 class="yb-section-title lcf-section-title">
+                <span style="font-size: 24px;"
+                  ><strong
+                    >Use code <span style="color: #ee4700;">BFACC</span> to enjoy 10% off all accessories.</strong
+                  ></span
+                >
+              </h2>
+            </div>
+          </div>
+          <div class="rich-text-button">
+            <a href="https://www.yarbo.com/accessories" class="undefined yb-single-video-btn">Shop All Accessories</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      #shopify-section-17492866450278e8d332 .yb-single-video-btn {
+        border: 0px;
+        cursor: pointer;
+        height: 48px;
+        line-height: 48px;
+        font-weight: 600;
+      }
+
+      .rich-text-description {
+        line-height: 140%;
+      }
+      #shopify-section-17492866450278e8d332 .rich-text-component-wrapper {
+        margin: 0px auto;
+        text-align: center;
+      }
+      .rich-text-component {
+        margin: auto;
+      }
+      .yb-section-title {
+        font-weight: 800;
+      }
+      /* 1920px+ */
+      @media (min-width: 1920px) {
+        #shopify-section-17492866450278e8d332 .yb-section-title {
+          line-height: 120%;
+        }
+        .rich-text-component {
+          width: 1000px;
+          margin: auto;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-component-wrapper {
+          width: 1000px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description span {
+          width: 1000px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description {
+          margin-bottom: 0;
+        }
+        .margin-top-description-style {
+          margin-top: 16px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-button {
+          margin-top: 40px;
+        }
+        #shopify-section-17492866450278e8d332 .yb-single-video-btn {
+          padding: 0 40px;
+
+          min-width: 180px;
+        }
+      }
+      /* 1440-1919px */
+      @media (min-width: 1440px) and (max-width: 1919px) {
+        #shopify-section-17492866450278e8d332 .yb-section-title {
+          line-height: 120%;
+        }
+        .rich-text-component {
+          width: 924px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-component-wrapper {
+          width: 924px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description {
+          margin-bottom: 0;
+        }
+        .margin-top-description-style {
+          margin-top: 16px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description span {
+          width: 924px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-button {
+          margin-top: 32px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-title {
+        }
+        #shopify-section-17492866450278e8d332 .yb-single-video-btn {
+          padding: 0 40px;
+
+          min-width: 180px;
+        }
+      }
+      /* 960-1439px */
+      @media (min-width: 960px) and (max-width: 1439px) {
+        #shopify-section-17492866450278e8d332 .yb-section-title {
+          line-height: 120%;
+        }
+        .rich-text-component {
+          width: 728px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-component-wrapper {
+          width: 728px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description {
+          margin-bottom: 0;
+        }
+        .margin-top-description-style {
+          margin-top: 16px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description span {
+          width: 728px;
+          display: inline-block;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-button {
+          margin-top: 24px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-title {
+        }
+        #shopify-section-17492866450278e8d332 .yb-single-video-btn {
+          padding: 0 40px;
+
+          min-width: 180px;
+        }
+      }
+      /* 680-959px */
+      @media (min-width: 680px) and (max-width: 959px) {
+        #shopify-section-17492866450278e8d332 .yb-section-title {
+          line-height: 120%;
+          max-width: 600px;
+        }
+        .rich-text-component {
+          padding: 0 24px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-component-wrapper {
+          max-width: 600px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description {
+          max-width: 600px;
+          margin-bottom: 0;
+        }
+        .margin-top-description-style {
+          margin-top: 16px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description span {
+          max-width: 600px;
+        }
+        #shopify-section-17492866450278e8d332 .headerTitle1 {
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description span {
+          display: inline-block;
+          max-width: 600px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-button {
+          margin-top: 24px;
+        }
+        #shopify-section-17492866450278e8d332 .yb-single-video-btn {
+          padding: 0 40px;
+
+          min-width: 180px;
+        }
+      }
+
+      /* 679px */
+      @media (max-width: 679px) {
+        #shopify-section-17492866450278e8d332 .yb-section-title {
+          max-width: 327px;
+          line-height: 120%;
+          width: 100%;
+        }
+        .rich-text-component {
+          padding: 0 16px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-component-wrapper {
+          max-width: 327px;
+          width: 100%;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description {
+          max-width: 327px;
+          width: 100%;
+          margin-bottom: 0;
+        }
+        .margin-top-description-style {
+          margin-top: 12px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description span {
+          max-width: 327px;
+          width: 100%;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-button {
+          margin-top: 16px;
+        }
+        #shopify-section-17492866450278e8d332 .rich-text-description span {
+          display: inline-block;
+          max-width: 327px;
+          width: 100%;
+        }
+        #shopify-section-17492866450278e8d332 .yb-single-video-btn {
+          padding: 0 40px;
+          width: 100%;
+        }
+      }
+    </style>
+  </div>
+  <div id="shopify-section-1749286670712fe2a97f" class="shopline-section">
+    <style>
+      #shopify-section-1749286670712fe2a97f {
+        background-color: #f5f5f5;
+      }
+
+      /* 375-679px */
+      @media (max-width: 679px) {
+        #shopify-section-1749286670712fe2a97f {
+          padding-top: 0px;
+          padding-bottom: 48px;
+        }
+      }
+
+      /* 680-959px */
+      @media (min-width: 680px) and (max-width: 959px) {
+        #shopify-section-1749286670712fe2a97f {
+          padding-top: 0px;
+          padding-bottom: 64px;
+        }
+      }
+
+      /* 960-1439px */
+      @media (min-width: 960px) and (max-width: 1439px) {
+        #shopify-section-1749286670712fe2a97f {
+          padding-top: 0px;
+          padding-bottom: 64px;
+        }
+      }
+
+      /* 1440-1919px */
+      @media (min-width: 1440px) and (max-width: 1919px) {
+        #shopify-section-1749286670712fe2a97f {
+          padding-top: 0px;
+          padding-bottom: 100px;
+        }
+      }
+
+      /* 1920px+ */
+      @media (min-width: 1920px) {
+        #shopify-section-1749286670712fe2a97f {
+          padding-top: 0px;
+          padding-bottom: 120px;
+        }
+      }
+    </style>
+
+    <div class="padding-1749286670712fe2a97f">
+      <div class="yb-section-container">
+        <div class="yb-section-header ">
+          <h3 class="yb-section-title"></h3>
+        </div>
+        <div
+          class="mySwiper-1749286670712fe2a97f custom_featured_collection_inner swiper-initialized swiper-horizontal swiper-backface-hidden"
+          style="position: relative;"
+        >
+          <div
+            class="swiper-wrapper custom_featured_collection_wrapper column-count-4"
+            id="swiper-wrapper-1749286670712fe2a97f"
+            aria-live="polite"
+          >
+            <div
+              class="swiper-slide custom_product-card-wrapper"
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal"
+                data-product-id="16068909475424455055222015"
+                data-product-form-id="quick-add-undefined__16068909475424455055222015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main">
+                  <div class="card__inner--wrapper global-product-card-border-shadow " style="">
+                    <div
+                      class="card__inner ratio   "
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                    >
+                      <a
+                        href="/products/plow-blade"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Plow-Blade.png?v=1772523465"
+                          alt="Snow Plow Blade"
+                          width="4320"
+                          height="4320"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+
+                      <div
+                        style=" background-color:#EE4700; "
+                        class="
+                          card__badge
+                          left_bottom
+                        "
+                      >
+                        <span class="body4 fw-bold"> 10% OFF </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content" style="--swatch-gap: 6px">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display"
+                    >
+                      Snow Plow Blade
+                    </h3>
+
+                    <div
+                      class="
+                        card__content-bottom
+                        card__content-bottom-center
+                      "
+                    >
+                      <div class="price  ">
+                        <div class="price__container">
+                          <div
+                            class="price__regular body2 "
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                          >
+                            <span
+                              class="
+                                fw-bold
+                                price-item price-item--regular
+                              "
+                            >
+                              $159.00
+                            </span>
+                            <span class="body5 price-position-origin" style="display:none;">
+                              <span class="fw-bold price-item--regular "></span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder"></div>
+                <div class="custom-buttons">
+                  <a
+                    href="/products/plow-blade"
+                    class=" yb-single-video-btn"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper"
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal"
+                data-product-id="16068909477278169650892015"
+                data-product-form-id="quick-add-undefined__16068909477278169650892015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main">
+                  <div class="card__inner--wrapper global-product-card-border-shadow " style="">
+                    <div
+                      class="card__inner ratio   "
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                    >
+                      <a
+                        href="/products/high-rtk-antenna-mount"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/RTK-Antenna-for-Data-Cente.png?v=1772523481"
+                          alt="High RTK Antenna Mount"
+                          width="4320"
+                          height="4320"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+
+                      <div
+                        style=" background-color:#EE4700; "
+                        class="
+                          card__badge
+                          left_bottom
+                        "
+                      >
+                        <span class="body4 fw-bold"> 10% OFF </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content" style="--swatch-gap: 6px">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display"
+                    >
+                      High RTK Antenna Mount – New (1 pc)
+                    </h3>
+
+                    <div
+                      class="
+                        card__content-bottom
+                        card__content-bottom-center
+                      "
+                    >
+                      <div class="price  ">
+                        <div class="price__container">
+                          <div
+                            class="price__regular body2 "
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                          >
+                            <span
+                              class="
+                                fw-bold
+                                price-item price-item--regular
+                              "
+                            >
+                              $26.00
+                            </span>
+                            <span class="body5 price-position-origin" style="display:none;">
+                              <span class="fw-bold price-item--regular "></span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder"></div>
+                <div class="custom-buttons">
+                  <a
+                    href="/products/high-rtk-antenna-mount"
+                    class=" yb-single-video-btn"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper "
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal"
+                data-product-id="16068909476738949926352015"
+                data-product-form-id="quick-add-undefined__16068909476738949926352015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main">
+                  <div class="card__inner--wrapper global-product-card-border-shadow " style="">
+                    <div
+                      class="card__inner ratio   "
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                    >
+                      <a
+                        href="/products/yarbo-track-grease-200ml-"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/grease_bba4b7f2-6e46-4c91-8ff9-ad6fa34425fd.png?v=1772523921"
+                          alt="Yarbo Track Grease (200ml)"
+                          width="1173"
+                          height="1001"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+
+                      <div
+                        style=" background-color:#EE4700; "
+                        class="
+                          card__badge
+                          left_bottom
+                        "
+                      >
+                        <span class="body4 fw-bold"> 10% OFF </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content" style="--swatch-gap: 6px">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display"
+                    >
+                      Yarbo Track Grease (200 ml)
+                    </h3>
+
+                    <div
+                      class="
+                        card__content-bottom
+                        card__content-bottom-center
+                      "
+                    >
+                      <div class="price  ">
+                        <div class="price__container">
+                          <div
+                            class="price__regular body2 "
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                          >
+                            <span
+                              class="
+                                fw-bold
+                                price-item price-item--regular
+                              "
+                            >
+                              $49.00
+                            </span>
+                            <span class="body5 price-position-origin" style="display:none;">
+                              <span class="fw-bold price-item--regular "></span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder"></div>
+                <div class="custom-buttons">
+                  <a
+                    href="/products/yarbo-track-grease-200ml-"
+                    class=" yb-single-video-btn"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper "
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal"
+                data-product-id="16068909475451969689582015"
+                data-product-form-id="quick-add-undefined__16068909475451969689582015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main">
+                  <div class="card__inner--wrapper global-product-card-border-shadow " style="">
+                    <div
+                      class="card__inner ratio   "
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                    >
+                      <a
+                        href="/products/shear-pins-cotter-pins-set-8-sets-"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/f1_d2d12ce5-367a-4b7d-bbaa-f611dbe167e3.jpg?v=1772523896"
+                          alt="Shear Pins &amp; Cotter Pins Set (8 Sets)"
+                          width="1280"
+                          height="1280"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+
+                      <div
+                        style=" background-color:#EE4700; "
+                        class="
+                          card__badge
+                          left_bottom
+                        "
+                      >
+                        <span class="body4 fw-bold"> 10% OFF </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content" style="--swatch-gap: 6px">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display"
+                    >
+                      Shear Pins &amp; Cotter Pins Set (8 Sets)
+                    </h3>
+
+                    <div
+                      class="
+                        card__content-bottom
+                        card__content-bottom-center
+                      "
+                    >
+                      <div class="price  ">
+                        <div class="price__container">
+                          <div
+                            class="price__regular body2 "
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                          >
+                            <span
+                              class="
+                                fw-bold
+                                price-item price-item--regular
+                              "
+                            >
+                              $29.00
+                            </span>
+                            <span class="body5 price-position-origin" style="display:none;">
+                              <span class="fw-bold price-item--regular "></span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder"></div>
+                <div class="custom-buttons">
+                  <a
+                    href="/products/shear-pins-cotter-pins-set-8-sets-"
+                    class=" yb-single-video-btn"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper "
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal"
+                data-product-id="16071376908565684291312015"
+                data-product-form-id="quick-add-undefined__16071376908565684291312015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main">
+                  <div class="card__inner--wrapper global-product-card-border-shadow " style="">
+                    <div
+                      class="card__inner ratio   "
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                    >
+                      <a
+                        href="/products/straight-blades-bolts-2-pcs-"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/2-17_b8c2f8d1-da92-450b-849a-a3dbeba7a5ac.png?v=1772520971"
+                          alt="Straight Blades &amp; Bolts (2 Pcs)"
+                          width="2160"
+                          height="2160"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+
+                      <div
+                        style=" background-color:#EE4700; "
+                        class="
+                          card__badge
+                          left_bottom
+                        "
+                      >
+                        <span class="body4 fw-bold"> 10% OFF </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content" style="--swatch-gap: 6px">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display"
+                    >
+                      Straight Blades &amp; Bolts 2 Pcs (for Lawn Mower Pro Module)
+                    </h3>
+
+                    <div
+                      class="
+                        card__content-bottom
+                        card__content-bottom-center
+                      "
+                    >
+                      <div class="price  ">
+                        <div class="price__container">
+                          <div
+                            class="price__regular body2 "
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                          >
+                            <span
+                              class="
+                                fw-bold
+                                price-item price-item--regular
+                              "
+                            >
+                              $90.00
+                            </span>
+                            <span class="body5 price-position-origin" style="display:none;">
+                              <span class="fw-bold price-item--regular "></span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder"></div>
+                <div class="custom-buttons">
+                  <a
+                    href="/products/straight-blades-bolts-2-pcs-"
+                    class=" yb-single-video-btn"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper "
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal"
+                data-product-id="16071376702066508891042015"
+                data-product-form-id="quick-add-undefined__16071376702066508891042015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main">
+                  <div class="card__inner--wrapper global-product-card-border-shadow " style="">
+                    <div
+                      class="card__inner ratio   "
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                    >
+                      <a
+                        href="/products/cutting-disc-bolts-for-lawn-mower-pro-module-"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/pro-_1_a3025acf-abb5-4859-b47d-2bca94e19e6b.png?v=1772524269"
+                          alt="Cutting Disc &amp; Bolts (for Lawn Mower Pro Module)"
+                          width="2160"
+                          height="2160"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+
+                      <div
+                        style=" background-color:#EE4700; "
+                        class="
+                          card__badge
+                          left_bottom
+                        "
+                      >
+                        <span class="body4 fw-bold"> 10% OFF </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content" style="--swatch-gap: 6px">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display"
+                    >
+                      Cutting Disc &amp; Bolts (for Lawn Mower Pro Module)
+                    </h3>
+
+                    <div
+                      class="
+                        card__content-bottom
+                        card__content-bottom-center
+                      "
+                    >
+                      <div class="price  ">
+                        <div class="price__container">
+                          <div
+                            class="price__regular body2 "
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                          >
+                            <span
+                              class="
+                                fw-bold
+                                price-item price-item--regular
+                              "
+                            >
+                              $49.00
+                            </span>
+                            <span class="body5 price-position-origin" style="display:none;">
+                              <span class="fw-bold price-item--regular "></span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder"></div>
+                <div class="custom-buttons">
+                  <a
+                    href="/products/cutting-disc-bolts-for-lawn-mower-pro-module-"
+                    class=" yb-single-video-btn"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper "
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal"
+                data-product-id="16068909475286378566912015"
+                data-product-form-id="quick-add-undefined__16068909475286378566912015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main">
+                  <div class="card__inner--wrapper global-product-card-border-shadow " style="">
+                    <div
+                      class="card__inner ratio   "
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                    >
+                      <a
+                        href="/products/cutting-blades-bolts-40-pcs-"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Frame-2036456420.png?v=1772522174"
+                          alt="Cutting Blades &amp; Bolts (40 Pcs)"
+                          width="1600"
+                          height="1600"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+
+                      <div
+                        style=" background-color:#EE4700; "
+                        class="
+                          card__badge
+                          left_bottom
+                        "
+                      >
+                        <span class="body4 fw-bold"> 10% OFF </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content" style="--swatch-gap: 6px">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display"
+                    >
+                      Cutting Blades &amp; Bolts (40 Pcs)
+                    </h3>
+
+                    <div
+                      class="
+                        card__content-bottom
+                        card__content-bottom-center
+                      "
+                    >
+                      <div class="price  ">
+                        <div class="price__container">
+                          <div
+                            class="price__regular body2 "
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                          >
+                            <span
+                              class="
+                                fw-bold
+                                price-item price-item--regular
+                              "
+                            >
+                              $39.00
+                            </span>
+                            <span class="body5 price-position-origin" style="display:none;">
+                              <span class="fw-bold price-item--regular "></span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder"></div>
+                <div class="custom-buttons">
+                  <a
+                    href="/products/cutting-blades-bolts-40-pcs-"
+                    class=" yb-single-video-btn"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper "
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal"
+                data-product-id="16069228066999516552052015"
+                data-product-form-id="quick-add-undefined__16069228066999516552052015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main">
+                  <div class="card__inner--wrapper global-product-card-border-shadow " style="">
+                    <div
+                      class="card__inner ratio   "
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                    >
+                      <a
+                        href="/products/back-brace-mount"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/20250915-151238_2010548a-e87d-4c77-aac9-a8087b41ced4.jpg?v=1772521295"
+                          alt="Back Brace Mount"
+                          width="2160"
+                          height="2160"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+
+                      <div
+                        style=" background-color:#EE4700; "
+                        class="
+                          card__badge
+                          left_bottom
+                        "
+                      >
+                        <span class="body4 fw-bold"> 10% OFF </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content" style="--swatch-gap: 6px">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display"
+                    >
+                      Back Brace Mount
+                    </h3>
+
+                    <div
+                      class="
+                        card__content-bottom
+                        card__content-bottom-center
+                      "
+                    >
+                      <div class="price  ">
+                        <div class="price__container">
+                          <div
+                            class="price__regular body2 "
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                          >
+                            <span
+                              class="
+                                fw-bold
+                                price-item price-item--regular
+                              "
+                            >
+                              $149.00
+                            </span>
+                            <span class="body5 price-position-origin" style="display:none;">
+                              <span class="fw-bold price-item--regular "></span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder"></div>
+                <div class="custom-buttons">
+                  <a
+                    href="/products/back-brace-mount"
+                    class=" yb-single-video-btn"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper "
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal"
+                data-product-id="16068909475260206109832015"
+                data-product-form-id="quick-add-undefined__16068909475260206109832015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main">
+                  <div class="card__inner--wrapper global-product-card-border-shadow " style="">
+                    <div
+                      class="card__inner ratio   "
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                    >
+                      <a
+                        href="/products/cutting-disc-bolts"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/4-1.jpg?v=1772521790"
+                          alt="Cutting Disc &amp; Bolts"
+                          width="1080"
+                          height="1081"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+
+                      <div
+                        style=" background-color:#EE4700; "
+                        class="
+                          card__badge
+                          left_bottom
+                        "
+                      >
+                        <span class="body4 fw-bold"> 10% OFF </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content" style="--swatch-gap: 6px">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display"
+                    >
+                      Cutting Disc &amp; Bolts
+                    </h3>
+
+                    <div
+                      class="
+                        card__content-bottom
+                        card__content-bottom-center
+                      "
+                    >
+                      <div class="price  ">
+                        <div class="price__container">
+                          <div
+                            class="price__regular body2 "
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                          >
+                            <span
+                              class="
+                                fw-bold
+                                price-item price-item--regular
+                              "
+                            >
+                              $29.00
+                            </span>
+                            <span class="body5 price-position-origin" style="display:none;">
+                              <span class="fw-bold price-item--regular "></span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder"></div>
+                <div class="custom-buttons">
+                  <a
+                    href="/products/cutting-disc-bolts"
+                    class=" yb-single-video-btn"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide custom_product-card-wrapper "
+              role="group"
+            >
+              <style>
+                .custom-buttons button.pay-button-buy-now {
+                  display: none !important;
+                }
+                .custom-buttons button.product-form__submit {
+                  background-color: #fedb1e !important;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div
+                class="product-card-wrapper card card-wrapper product-card-style-normal"
+                data-product-id="16068909477083050627972015"
+                data-product-form-id="quick-add-undefined__16068909477083050627972015"
+                style="
+                  --card-image-padding: 0px;
+                  --color-card-background: 244, 247, 251;
+                  --color-card-text: 0, 0, 0;
+                "
+                data-promotion-price="mounted"
+                data-member-price="mounted"
+              >
+                <div class="card-main">
+                  <div class="card__inner--wrapper global-product-card-border-shadow " style="">
+                    <div
+                      class="card__inner ratio   "
+                      style="
+                        --ratio-percent: 83%;
+                        --image-fill-type: ;
+                        --badge-border-radius: 4px;
+                        --image-object-position:;
+                      "
+                    >
+                      <a
+                        href="/products/rtk-antenna-for-data-center-rover"
+                        class="card__media"
+                      >
+                        <img
+                          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/RTK-Antenna-for-Data-Cente-_3_e09e9955-26ac-466a-91c2-08e9fb636631.png?v=1772523476"
+                          alt="RTK Antenna for Data Center &amp; Rover"
+                          width="4320"
+                          height="4320"
+                          sizes="(max-width: 959px) calc(100vw * 1/1),(min-width: 960px) calc(100vw * 1/4)"
+                          fetchpriority="auto"
+                          decoding="async"
+                          data-scale="hover-scale"
+                          loading="lazy"
+                          class="collection-hero__image"
+                        >
+                      </a>
+
+                      <div
+                        style=" background-color:#EE4700; "
+                        class="
+                          card__badge
+                          left_bottom
+                        "
+                      >
+                        <span class="body4 fw-bold"> 10% OFF </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content" style="--swatch-gap: 6px">
+                    <h3
+                      class="product__title bz-body-2 body3 full-display"
+                    >
+                      RTK Antenna for Data Center &amp; Rover
+                    </h3>
+
+                    <div
+                      class="
+                        card__content-bottom
+                        card__content-bottom-center
+                      "
+                    >
+                      <div class="price  ">
+                        <div class="price__container">
+                          <div
+                            class="price__regular body2 "
+                            style="display: flex;flex-wrap: wrap;align-items: center;gap: 4px;flex-direction: row;text-align: center;justify-content: center;"
+                          >
+                            <span
+                              class="
+                                fw-bold
+                                price-item price-item--regular
+                              "
+                            >
+                              $30.00
+                            </span>
+                            <span class="body5 price-position-origin" style="display:none;">
+                              <span class="fw-bold price-item--regular "></span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__button"></div>
+                  </div>
+                </div>
+
+                <div class="card__bottom-actions--empty-placeholder"></div>
+                <div class="custom-buttons">
+                  <a
+                    href="/products/rtk-antenna-for-data-center-rover"
+                    class=" yb-single-video-btn"
+                    >Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="custom_swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+            <span
+              class="swiper-pagination-bullet swiper-pagination-bullet-active"
+              tabindex="0"
+              role="button"
+              aria-label="Go to slide 1"
+              aria-current="true"
+            ></span
+            ><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span
+            ><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span
+            ><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span
+            ><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span
+            ><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6"></span
+            ><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7"></span>
+          </div>
+          <div
+            class="custom_swiper-button-prev-1749286670712fe2a97f swiper-button-disabled"
+            tabindex="-1"
+            role="button"
+            aria-label="Previous slide"
+            aria-controls="swiper-wrapper-1749286670712fe2a97f"
+            aria-disabled="true"
+          ></div>
+          <div
+            class="custom_swiper-button-next-1749286670712fe2a97f"
+            tabindex="0"
+            role="button"
+            aria-label="Next slide"
+            aria-controls="swiper-wrapper-1749286670712fe2a97f"
+            aria-disabled="false"
+          ></div>
+          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+      </div>
+      <script>
+        setTimeout(() => {
+          document
+            .querySelectorAll('#shopify-section-1749286670712fe2a97f #sales__flash-sale-price-container')
+            .forEach((wrapper) => {
+              if (wrapper) {
+                console.log(wrapper);
+                if (wrapper.children[1]) {
+                  wrapper.children[1].style.display = 'none';
+                }
+              }
+            });
+        }, 5000);
+      </script>
+    </div>
+
+    <script>
+      var customProduct = new Swiper('.mySwiper-1749286670712fe2a97f', {
+        slidesPerView: 1.1,
+        spaceBetween: 12,
+        pagination: {
+          el: '.custom_swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.custom_swiper-button-next-1749286670712fe2a97f',
+          prevEl: '.custom_swiper-button-prev-1749286670712fe2a97f',
+        },
+        breakpoints: {
+          680: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          960: {
+            slidesPerView: 4,
+            spaceBetween: 16,
+          },
+        },
+      });
+
+      // 确保深色模式样式生效
+    </script>
+    <style>
+      div#sales__flash-sale-price-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+      }
+      #shopify-section-1749286670712fe2a97f .price .price__sale {
+        gap: 4px;
+      }
+      #shopify-section-1749286670712fe2a97f .yb-section-container {
+        overflow: hidden;
+      }
+      /* 深色模式标题颜色 */
+      #shopify-section-1749286670712fe2a97f .yb-section-header.is-dark-mode .yb-section-title {
+        color: #fff !important;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_featured_collection_inner {
+        position: relative;
+      }
+      #shopify-section-1749286670712fe2a97f .bz-head-4 {
+        margin-bottom: 4px;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_swiper-pagination {
+        position: unset;
+        margin-top: 32px;
+        text-align: center;
+      }
+      #shopify-section-1749286670712fe2a97f #quantity {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        position: absolute;
+      }
+      #shopify-section-1749286670712fe2a97f .swiper-pagination-bullet {
+        width: 16px;
+        border-radius: 6px;
+        height: 4px;
+        transition: all 0.3s ease;
+      }
+      #shopify-section-1749286670712fe2a97f .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        width: 64px;
+        background: #a9a9a9;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_swiper-button-prev-1749286670712fe2a97f,
+      #shopify-section-1749286670712fe2a97f .custom_swiper-button-next-1749286670712fe2a97f {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      #shopify-section-1749286670712fe2a97f .custom_swiper-button-prev-1749286670712fe2a97f:hover,
+      #shopify-section-1749286670712fe2a97f .custom_swiper-button-next-1749286670712fe2a97f:hover {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      #shopify-section-1749286670712fe2a97f .custom_swiper-button-prev-1749286670712fe2a97f {
+        left: 16px;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_swiper-button-next-1749286670712fe2a97f {
+        right: 16px;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_swiper-button-prev-1749286670712fe2a97f::after,
+      #shopify-section-1749286670712fe2a97f .custom_swiper-button-next-1749286670712fe2a97f::after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        border: 2px solid #333;
+        border-top: none;
+        border-right: none;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_swiper-button-prev-1749286670712fe2a97f::after {
+        transform: rotate(45deg);
+        margin-left: 3px;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_swiper-button-next-1749286670712fe2a97f::after {
+        transform: rotate(-135deg);
+        margin-right: 3px;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_product_form {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .product-card-wrapper {
+        background: #fff;
+      }
+      /* 深色模式样式 - 必须在默认样式之后定义以确保优先级 */
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper[data-dark-mode='true'] .product-card-wrapper,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .product-card-wrapper {
+        background-color: #28292c !important;
+        background: #28292c !important;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .price-item,
+      .custom_product-card-wrapper .price-item--regular {
+        font-weight: 400 !important;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_featured_collection_wrapper .quick-add {
+        display: none !important;
+      }
+      #shopify-section-1749286670712fe2a97f .card__content-bottom .price__sale {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #shopify-section-1749286670712fe2a97f .swiper-slide.custom_product-card-wrapper {
+        height: auto;
+      }
+      #shopify-section-1749286670712fe2a97f .section_header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_product_form .button {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper img {
+        width: 100%;
+        height: auto;
+      }
+      #shopify-section-1749286670712fe2a97f .custom-buttons .button {
+        width: auto;
+        margin: auto;
+        margin-top: 16px;
+        padding-left: 25px;
+        padding-right: 30px;
+      }
+      #shopify-section-1749286670712fe2a97f .custom-buttons .button {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        padding: 13px 36px;
+      }
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .card .card__content {
+        margin-top: 12px;
+      }
+      #shopify-section-1749286670712fe2a97f .card .card__content .product__title {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      #shopify-section-1749286670712fe2a97f .card .card__content .product__title,
+      #shopify-section-1749286670712fe2a97f .price__regular .price-item--regular,
+      #shopify-section-1749286670712fe2a97f .price-item--sale,
+      #shopify-section-1749286670712fe2a97f .custom-buttons,
+      ._sales__flash-sale-promotion-price_1xt6h_7 {
+        color: #25282a;
+      }
+      #shopify-section-1749286670712fe2a97f .price-position-origin .price-item--regular,
+      ._sales__flash-sale-origin-price_1xt6h_10 {
+        color: #6e6e73;
+      }
+      /* 深色模式文字颜色 */
+      #shopify-section-1749286670712fe2a97f
+        .custom_product-card-wrapper.is-dark-mode
+        .card
+        .card__content
+        .product__title,
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .card__content .product__title,
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .product__title,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .card .card__content .product__title,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .card__content .product__title,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .product__title,
+      #shopify-section-1749286670712fe2a97f
+        .custom_product-card-wrapper.is-dark-mode
+        .price__regular
+        .price-item--regular,
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price-item--regular,
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price .price-item--sale,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price__regular .price-item--regular,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price-item--regular,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price-item--sale,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price .price-item--regular,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price .price-item--sale,
+      #shopify-section-1749286670712fe2a97f
+        .custom_product-card-wrapper.is-dark-mode
+        ._sales__flash-sale-promotion-price_1xt6h_7,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+        color: #fff !important;
+      }
+      #shopify-section-1749286670712fe2a97f
+        .custom_product-card-wrapper.is-dark-mode
+        .price-position-origin
+        .price-item--regular,
+      #shopify-section-1749286670712fe2a97f
+        .custom_product-card-wrapper.is-dark-mode
+        .price
+        .price-position-origin
+        .price-item--regular,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price-position-origin .price-item--regular,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price .price-position-origin .price-item--regular,
+      #shopify-section-1749286670712fe2a97f
+        .custom_product-card-wrapper.is-dark-mode
+        ._sales__flash-sale-origin-price_1xt6h_10,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+        color: #e6e6e7 !important;
+      }
+      /* 深色模式 Splitit 文字颜色 */
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .stage-splitit-snipp__container,
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .stage-splitit-snipp__text,
+      #shopify-section-1749286670712fe2a97f
+        .custom_product-card-wrapper.is-dark-mode
+        .stage-splitit-snipp__monthly-amount,
+      #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .stage-splitit-snipp__apr-text,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .stage-splitit-snipp__container,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .stage-splitit-snipp__text,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .stage-splitit-snipp__monthly-amount,
+      #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .stage-splitit-snipp__apr-text {
+        color: #fff !important;
+        --splitit-text-color: #fff !important;
+        --splitit-amount-color: #fff !important;
+      }
+      #shopify-section-1749286670712fe2a97f .card .card__inner--wrapper,
+      #shopify-section-1749286670712fe2a97f .card .card__media {
+        background: transparent !important;
+        border-radius: 0px;
+      }
+      #shopify-section-1749286670712fe2a97f .card__inner--wrapper img {
+        border-radius: 0px;
+      }
+      @media (max-width: 679px) {
+        #shopify-section-1749286670712fe2a97f .custom_swiper-pagination {
+          position: unset;
+          margin-top: 32px;
+        }
+        #shopify-section-1749286670712fe2a97f .body5.bz-body-3 .fw-bold.price-item--regular {
+          font-size: 14px;
+        }
+        #shopify-section-1749286670712fe2a97f .custom_swiper-button-prev-1749286670712fe2a97f,
+        #shopify-section-1749286670712fe2a97f .custom_swiper-button-next-1749286670712fe2a97f {
+          width: 40px;
+          height: 40px;
+        }
+        #shopify-section-1749286670712fe2a97f .custom_swiper-button-prev-1749286670712fe2a97f {
+          left: 12px;
+        }
+        #shopify-section-1749286670712fe2a97f .custom_swiper-button-next-1749286670712fe2a97f {
+          right: 12px;
+        }
+        #shopify-section-1749286670712fe2a97f .custom_swiper-button-prev-1749286670712fe2a97f::after,
+        #shopify-section-1749286670712fe2a97f .custom_swiper-button-next-1749286670712fe2a97f::after {
+          width: 10px;
+          height: 10px;
+          border-width: 1.5px;
+        }
+      }
+
+      /* 375-679px */
+      @media (max-width: 679px) {
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .card .card__content {
+          margin: 12px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .product-card-wrapper {
+          padding: 16px 16px 24px 16px;
+          border-radius: 14.72px;
+        }
+        /* 深色模式背景色 - 375-679px */
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper[data-dark-mode='true']
+          .product-card-wrapper,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .product-card-wrapper {
+          background-color: #28292c !important;
+          background: #28292c !important;
+        }
+        #shopify-section-1749286670712fe2a97f .card__inner--wrapper {
+          border-radius: 0px;
+        }
+        #shopify-section-1749286670712fe2a97f .card .card__content .product__title {
+          margin-bottom: 16px;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286670712fe2a97f .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f .price-item--sale,
+        ._sales__flash-sale-promotion-price_1xt6h_7 {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286670712fe2a97f .price .price-position-origin .price-item--regular,
+        ._sales__flash-sale-origin-price_1xt6h_10 {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        /* 深色模式文字颜色 - 375-679px */
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          .card
+          .card__content
+          .product__title,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .card .card__content .product__title {
+          color: #fff !important;
+        }
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price-item--sale,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-promotion-price_1xt6h_7,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+          color: #fff !important;
+        }
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-origin-price_1xt6h_10,
+        #shopify-section-1749286670712fe2a97f
+          [data-dark-mode='true']
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+          color: #e6e6e7 !important;
+        }
+        #shopify-section-1749286670712fe2a97f .custom-buttons {
+          text-align: center;
+          margin: 16px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286670712fe2a97f .card__inner--wrapper img {
+          margin: 0px auto;
+          object-fit: contain;
+          aspect-ratio: 279/233;
+          width: 100%;
+          height: 100%;
+        }
+        #shopify-section-1749286670712fe2a97f .yb-single-video-btn {
+          max-width: 100%;
+          min-width: 180px;
+        }
+      }
+
+      /* 680-959px */
+      @media (min-width: 680px) and (max-width: 959px) {
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .card .card__content {
+          margin: 12px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .product-card-wrapper {
+          padding: 16px 16px 24px 16px;
+          border-radius: 14.72px;
+        }
+        /* 深色模式背景色 - 680-959px */
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper[data-dark-mode='true']
+          .product-card-wrapper,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .product-card-wrapper {
+          background-color: #28292c !important;
+          background: #28292c !important;
+        }
+        #shopify-section-1749286670712fe2a97f .card__inner--wrapper {
+          border-radius: 0px;
+        }
+        #shopify-section-1749286670712fe2a97f .card .card__content .product__title {
+          margin-bottom: 16px;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286670712fe2a97f .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f .price-item--sale,
+        ._sales__flash-sale-promotion-price_1xt6h_7 {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286670712fe2a97f .price .price-position-origin .price-item--regular,
+        ._sales__flash-sale-origin-price_1xt6h_10 {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        /* 深色模式文字颜色 - 680-959px */
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          .card
+          .card__content
+          .product__title,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .card .card__content .product__title {
+          color: #fff !important;
+        }
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price-item--sale,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-promotion-price_1xt6h_7,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+          color: #fff !important;
+        }
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-origin-price_1xt6h_10,
+        #shopify-section-1749286670712fe2a97f
+          [data-dark-mode='true']
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+          color: #e6e6e7 !important;
+        }
+        #shopify-section-1749286670712fe2a97f .custom-buttons {
+          text-align: center;
+          margin: 16px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286670712fe2a97f .card__inner--wrapper img {
+          object-fit: contain;
+          aspect-ratio: 279/233;
+          width: 100%;
+          height: 100%;
+        }
+        #shopify-section-1749286670712fe2a97f .column-count-3 img {
+          margin: 0px auto;
+          object-fit: contain;
+          aspect-ratio: 385/315;
+          width: 100%;
+          height: 100%;
+        }
+        #shopify-section-1749286670712fe2a97f .yb-single-video-btn {
+          max-width: 100%;
+          min-width: 180px;
+        }
+      }
+
+      /* 960-1439px */
+      @media (min-width: 960px) and (max-width: 1439px) {
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .card .card__content {
+          margin: 7px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .product-card-wrapper {
+          padding: 12px 12px 17px 12px;
+          border-radius: 8px;
+        }
+        /* 深色模式背景色 - 960-1439px */
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper[data-dark-mode='true']
+          .product-card-wrapper,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .product-card-wrapper {
+          background-color: #28292c !important;
+          background: #28292c !important;
+        }
+        #shopify-section-1749286670712fe2a97f .card__inner--wrapper {
+          border-radius: 0px;
+        }
+        #shopify-section-1749286670712fe2a97f .card .card__content .product__title {
+          margin-bottom: 8px;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286670712fe2a97f .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f .price-item--sale,
+        ._sales__flash-sale-promotion-price_1xt6h_7 {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286670712fe2a97f .price .price-position-origin .price-item--regular,
+        ._sales__flash-sale-origin-price_1xt6h_10 {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        /* 深色模式文字颜色 - 960-1439px */
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          .card
+          .card__content
+          .product__title,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .card .card__content .product__title {
+          color: #fff !important;
+        }
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price-item--sale,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-promotion-price_1xt6h_7,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+          color: #fff !important;
+        }
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-origin-price_1xt6h_10,
+        #shopify-section-1749286670712fe2a97f
+          [data-dark-mode='true']
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+          color: #e6e6e7 !important;
+        }
+        #shopify-section-1749286670712fe2a97f .custom-buttons {
+          text-align: center;
+          margin: 12px auto 0px;
+          /* max-width: calc(100% - 2 * 8px); */
+        }
+        #shopify-section-1749286670712fe2a97f .card__inner--wrapper img {
+          /* width: 189px !important; */
+          /* height: 156px !important; */
+          aspect-ratio: 189 / 156;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+        #shopify-section-1749286670712fe2a97f .column-count-3 img {
+          /* width: 263px !important; */
+          /* height: 218px !important; */
+          aspect-ratio: 263 / 218;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+      }
+
+      /* 1440-1919px */
+      @media (min-width: 1440px) and (max-width: 1919px) {
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .card .card__content {
+          margin: 8px auto 0px;
+          max-width: calc(100% - 2 * 8px);
+        }
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .product-card-wrapper {
+          padding: 16px 16px 24px 16px;
+          border-radius: 16px;
+        }
+        /* 深色模式背景色 - 1440-1919px */
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper[data-dark-mode='true']
+          .product-card-wrapper,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .product-card-wrapper {
+          background-color: #28292c !important;
+          background: #28292c !important;
+        }
+        #shopify-section-1749286670712fe2a97f .card__inner--wrapper {
+          border-radius: 0px;
+        }
+        #shopify-section-1749286670712fe2a97f .card .card__content .product__title {
+          margin-bottom: 12px;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286670712fe2a97f .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f .price-item--sale,
+        ._sales__flash-sale-promotion-price_1xt6h_7 {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286670712fe2a97f .price .price-position-origin .price-item--regular,
+        ._sales__flash-sale-origin-price_1xt6h_10 {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        /* 深色模式文字颜色 - 1440-1919px */
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          .card
+          .card__content
+          .product__title,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .card .card__content .product__title {
+          color: #fff !important;
+        }
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price-item--sale,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-promotion-price_1xt6h_7,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+          color: #fff !important;
+        }
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-origin-price_1xt6h_10,
+        #shopify-section-1749286670712fe2a97f
+          [data-dark-mode='true']
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+          color: #e6e6e7 !important;
+        }
+        #shopify-section-1749286670712fe2a97f .custom-buttons {
+          text-align: center;
+          max-width: calc(100% - 2 * 8px);
+          margin: 16px auto 0px;
+        }
+        #shopify-section-1749286670712fe2a97f .card__inner--wrapper img {
+          /* width: 256px !important; */
+          /* height: 211px !important; */
+          aspect-ratio: 256 / 211;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+        #shopify-section-1749286670712fe2a97f .column-count-3 img {
+          /* width: 353px !important; */
+          /* height: 296px !important; */
+          aspect-ratio: 353 / 296;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+      }
+
+      /* 1920px+ */
+      @media (min-width: 1920px) {
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .card .card__content {
+          max-width: calc(100% - 2 * 8px);
+          margin: 8px auto 0px;
+        }
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper .product-card-wrapper {
+          padding: 16px 16px 24px 16px;
+          border-radius: 16px;
+        }
+        /* 深色模式背景色 - 1920px+ */
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .product-card-wrapper,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper[data-dark-mode='true']
+          .product-card-wrapper,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .product-card-wrapper {
+          background-color: #28292c !important;
+          background: #28292c !important;
+        }
+        #shopify-section-1749286670712fe2a97f .card__inner--wrapper {
+          border-radius: 0px;
+        }
+        #shopify-section-1749286670712fe2a97f .card .card__content .product__title {
+          margin-bottom: 16px;
+          font-weight: 700 !important;
+          font-size: 18px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286670712fe2a97f .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f .price-item--sale,
+        ._sales__flash-sale-promotion-price_1xt6h_7 {
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 1.4;
+        }
+        #shopify-section-1749286670712fe2a97f .price .price-position-origin .price-item--regular,
+        ._sales__flash-sale-origin-price_1xt6h_10 {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 1.4;
+        }
+        /* 深色模式文字颜色 - 1920px+ */
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          .card
+          .card__content
+          .product__title,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .card .card__content .product__title {
+          color: #fff !important;
+        }
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f .custom_product-card-wrapper.is-dark-mode .price-item--sale,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price .price-item--regular,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] .price-item--sale,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-promotion-price_1xt6h_7,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-promotion-price_1xt6h_7 {
+          color: #fff !important;
+        }
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286670712fe2a97f
+          .custom_product-card-wrapper.is-dark-mode
+          ._sales__flash-sale-origin-price_1xt6h_10,
+        #shopify-section-1749286670712fe2a97f
+          [data-dark-mode='true']
+          .price
+          .price-position-origin
+          .price-item--regular,
+        #shopify-section-1749286670712fe2a97f [data-dark-mode='true'] ._sales__flash-sale-origin-price_1xt6h_10 {
+          color: #e6e6e7 !important;
+        }
+        #shopify-section-1749286670712fe2a97f .custom-buttons {
+          text-align: center;
+          max-width: calc(100% - 2 * 8px);
+          margin: 16px auto 0px;
+        }
+        #shopify-section-1749286670712fe2a97f .card__inner--wrapper img {
+          /* width: 306px !important; */
+          /* height: 256px !important; */
+          aspect-ratio: 306 / 256;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+        #shopify-section-1749286670712fe2a97f .column-count-3 img {
+          /* width: 424px !important; */
+          /* height: 355px !important; */
+          aspect-ratio: 424 / 355;
+          margin: 0px auto;
+          object-fit: contain;
+        }
+      }
+    </style>
+  </div>
+
+  {% render 'yarbo-community' %}
+</div>
+{% schema %}
+{
+  "name": "Black friday vip"
+
+}
+{% endschema %}

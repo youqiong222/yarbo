@@ -1,0 +1,1180 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "sa-main-product",
+      "blocks": {
+        "product_nav_bPLNqt": {
+          "type": "product_nav",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 0,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "belong_collection": "robots",
+            "belong_collection_title": "Y Series"
+          }
+        },
+        "title_eAXAgB": {
+          "type": "title",
+          "settings": {
+            "pc_top": 12,
+            "pc_bottom": 16,
+            "h5_top": 12,
+            "h5_bottom": 16
+          }
+        },
+        "judge_me_reviews_preview_badge_4PLQtV": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price_mVRiPc": {
+          "type": "price",
+          "settings": {
+            "pc_top": 16,
+            "pc_bottom": 8,
+            "h5_top": 16,
+            "h5_bottom": 8
+          }
+        },
+        "features_placeholder_y3bKpN": {
+          "type": "features_placeholder",
+          "settings": {
+            "pc_top": 16,
+            "pc_bottom": 16,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "features": "<ul><li>Autonomous Snow Clearing</li><li>2-stage Design</li><li>Clears up to 12 inches of snow with a 24-inch width</li><li>Auto Recharging Ensuring 24/7 Operation</li></ul>"
+          }
+        },
+        "spacing_line_ebJKPd": {
+          "type": "spacing_line",
+          "disabled": true,
+          "settings": {
+            "pc_top": 24,
+            "pc_bottom": 24,
+            "h5_top": 24,
+            "h5_bottom": 24
+          }
+        },
+        "variants_placeholder_qNnHhk": {
+          "type": "variants_placeholder",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 0,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "title": "Select an Option:",
+            "show_product_variants": false,
+            "product_variant_list": [
+              "dev",
+              "dev1",
+              "dev2"
+            ]
+          }
+        },
+        "spacing_line_jMqyHc": {
+          "type": "spacing_line",
+          "settings": {
+            "pc_top": 24,
+            "pc_bottom": 24,
+            "h5_top": 24,
+            "h5_bottom": 24
+          }
+        },
+        "includes_placeholder_V6cAhh": {
+          "type": "includes_placeholder",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 0,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "title": "What's Included"
+          }
+        },
+        "include_block_qieaCk": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Yarbo_Core_c1e2746a-1083-4f2f-8706-687a510d2fef.png",
+            "title": "Yarbo Core x1"
+          }
+        },
+        "include_block_9KaNrx": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Lawn_Mower_Pro_Module_cacfdbe4-93e4-43cc-b9ef-be97abf38480.png",
+            "title": "Lawn Mower Pro Module x1"
+          }
+        },
+        "include_block_zJmG33": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Blower_Module_2b0587f9-bcfd-466f-b818-53438796a712.png",
+            "title": "Leaf Blower Module x1"
+          }
+        },
+        "include_block_khtfJd": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Yarbo_Trimmer_Package_f575fb74-1466-4369-9c60-b0c4599842a3.png",
+            "title": "Trimmer Module x1"
+          }
+        },
+        "include_block_ENnXkA": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Docking_Station_50427415-6c68-4b48-ab08-68f9ba98dea9.png",
+            "title": "Docking Station x1"
+          }
+        },
+        "include_block_XRyz8b": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Yarbo_Battery_92def579-002b-4dbd-b649-47389b7ec8ef.png",
+            "title": "Y Series Battery x1"
+          }
+        },
+        "include_block_FKxrhR": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Wired_Charger_353b02f6-c709-4d24-80e4-9281af5c9aeb.png",
+            "title": "Wired Charger x1"
+          }
+        },
+        "include_block_mNV6Lr": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Data_Center_1980c737-fcf8-4ec1-80a1-145b228dc0c5.png",
+            "title": "Data Center x1"
+          }
+        },
+        "include_block_m6qqWx": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Installation_Tool_Kit.png",
+            "title": "Installation & Tool Kit x1"
+          }
+        },
+        "include_block_R8FXc9": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Tow_Hitch_06a1f99f-ea19-403b-b8be-bdba2babe535.png",
+            "title": "Tow Hitch x1"
+          }
+        },
+        "include_block_BzDdTY": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Straight_Blades_Bolts_2_Pcs_for_Lawn_Mower_Pro_Module_c2c08ebb-1960-4d86-bd1b-04bba5acfdc9.png",
+            "title": "Straight Blades & Bolts 2 Pcs x1"
+          }
+        },
+        "include_block_A7WGb7": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/20260507-150652.jpg",
+            "title": "Cutting Disc & Bolts x1"
+          }
+        },
+        "include_block_DaP7yY": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Back_Brace_Mount_d6d47112-1408-43c3-9d27-c4ef90fc0a31.png",
+            "title": "Spare Trimmer Line Spool x1"
+          }
+        },
+        "spacing_line_j6EQQH": {
+          "type": "spacing_line",
+          "settings": {
+            "pc_top": 24,
+            "pc_bottom": 24,
+            "h5_top": 24,
+            "h5_bottom": 24
+          }
+        },
+        "text_link_kbxz3U": {
+          "type": "text_link",
+          "disabled": true,
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 24,
+            "h5_top": 0,
+            "h5_bottom": 24,
+            "text": "Have a yard under ¼ acre? Shop our M-Series instead.",
+            "url": "/"
+          }
+        },
+        "policies_placeholder_eAqKkT": {
+          "type": "policies_placeholder",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 24,
+            "h5_top": 0,
+            "h5_bottom": 12
+          }
+        },
+        "policy_block_Gc4zTG": {
+          "type": "policy_block",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_-_Chunky_d2d86344-fa5d-41c0-897b-8115805e8449.svg",
+            "title": "2-Year Warranty"
+          }
+        },
+        "policy_block_AJhgKh": {
+          "type": "policy_block",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_-_Chunky_b9bb95d8-0a03-4ef3-a480-d44d71bb8874.svg",
+            "title": "30-Day Hassle-Free Returns"
+          }
+        },
+        "policy_block_TL8wHG": {
+          "type": "policy_block",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_-_Chunky_286c2318-458a-4a69-8990-27758cb3e470.svg",
+            "title": "24/7 Support"
+          }
+        },
+        "payment_c4pbmn": {
+          "type": "payment",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product_nav_bPLNqt",
+        "title_eAXAgB",
+        "judge_me_reviews_preview_badge_4PLQtV",
+        "price_mVRiPc",
+        "features_placeholder_y3bKpN",
+        "spacing_line_ebJKPd",
+        "variants_placeholder_qNnHhk",
+        "spacing_line_jMqyHc",
+        "includes_placeholder_V6cAhh",
+        "include_block_qieaCk",
+        "include_block_9KaNrx",
+        "include_block_zJmG33",
+        "include_block_khtfJd",
+        "include_block_ENnXkA",
+        "include_block_XRyz8b",
+        "include_block_FKxrhR",
+        "include_block_mNV6Lr",
+        "include_block_m6qqWx",
+        "include_block_R8FXc9",
+        "include_block_BzDdTY",
+        "include_block_A7WGb7",
+        "include_block_DaP7yY",
+        "spacing_line_j6EQQH",
+        "text_link_kbxz3U",
+        "policies_placeholder_eAqKkT",
+        "policy_block_Gc4zTG",
+        "policy_block_AJhgKh",
+        "policy_block_TL8wHG",
+        "payment_c4pbmn"
+      ],
+      "settings": {}
+    },
+    "sa_product_anchors_3tkCDP": {
+      "type": "sa-product-anchors",
+      "blocks": {
+        "block_QKKwMP": {
+          "type": "block",
+          "settings": {
+            "anchor_title": "Overview",
+            "btn_anchor_id": "overview"
+          }
+        },
+        "block_gJYRea": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "anchor_title": "What’s Included",
+            "btn_anchor_id": ""
+          }
+        },
+        "block_9d3Vty": {
+          "type": "block",
+          "settings": {
+            "anchor_title": "Specifications",
+            "btn_anchor_id": "spec"
+          }
+        },
+        "block_FUPryH": {
+          "type": "block",
+          "settings": {
+            "anchor_title": "Reviews",
+            "btn_anchor_id": "review"
+          }
+        },
+        "block_EYLaRx": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "anchor_title": "Manuals",
+            "btn_anchor_id": "manuals"
+          }
+        }
+      },
+      "block_order": [
+        "block_QKKwMP",
+        "block_gJYRea",
+        "block_9d3Vty",
+        "block_FUPryH",
+        "block_EYLaRx"
+      ],
+      "name": "Product Anchors",
+      "settings": {}
+    },
+    "sa_index_accordion_UXDJVQ": {
+      "type": "sa-index-accordion",
+      "blocks": {
+        "block_AbNBy3": {
+          "type": "block",
+          "settings": {
+            "label": "Spring Preparation",
+            "title": "<p><strong>SPRING CLEANUP & PREP</strong></p>",
+            "desc": "<p>Clear debris, prep your lawn, and get your yard ready for a fresh start.</p>",
+            "learn_more_url": "shopify://pages/shop-by-scenario-spring",
+            "show_btn": true,
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M20.0002 6.66663C18.1592 6.66663 16.6668 8.15901 16.6668 9.99996V10.0598L16.615 10.0299C15.0207 9.1094 12.9821 9.65565 12.0616 11.25C11.1411 12.8443 11.6874 14.8829 13.2817 15.8034L13.3335 15.8333L13.2817 15.8632C11.6874 16.7837 11.1411 18.8223 12.0616 20.4166C12.9821 22.0109 15.0207 22.5572 16.615 21.6367L16.6668 21.6068V21.6666C16.6668 23.5076 18.1592 25 20.0002 25C21.8411 25 23.3335 23.5076 23.3335 21.6666V21.6068L23.3853 21.6367C24.9796 22.5572 27.0183 22.0109 27.9387 20.4166C28.8592 18.8223 28.313 16.7837 26.7186 15.8632L26.6668 15.8333L26.7186 15.8034C28.313 14.8829 28.8592 12.8443 27.9387 11.25C27.0183 9.65565 24.9796 9.1094 23.3853 10.0299L23.3335 10.0598V9.99996C23.3335 8.15901 21.8411 6.66663 20.0002 6.66663ZM20.0001 18.3333C21.3808 18.3333 22.5001 17.214 22.5001 15.8333C22.5001 14.4526 21.3808 13.3333 20.0001 13.3333C18.6194 13.3333 17.5001 14.4526 17.5001 15.8333C17.5001 17.214 18.6194 18.3333 20.0001 18.3333Z\" fill=\"#25282A\"></path>\n<path d=\"M18.3335 33.3333H16.6668C12.0645 33.3333 8.3335 29.6023 8.3335 25V23.3333H10.0002C14.6025 23.3333 18.3335 27.0643 18.3335 31.6666V33.3333Z\" fill=\"#25282A\"></path>\n<path d=\"M23.3335 33.3333H21.6668V31.6666C21.6668 27.0643 25.3978 23.3333 30.0002 23.3333H31.6668V25C31.6668 29.6023 27.9359 33.3333 23.3335 33.3333Z\" fill=\"#25282A\"></path>\n</svg>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_412.png",
+            "h5_image": "shopify://shop_images/Frame_408.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_gANU6w": {
+          "type": "block",
+          "settings": {
+            "label": "Summer Lawn Care",
+            "title": "<p><strong>EFFORTLESS LAWN CARE</strong></p>",
+            "desc": "<p>Keep your lawn perfectly maintained with consistent, automated mowing.</p>",
+            "learn_more_url": "shopify://pages/shop-by-scenario-summer",
+            "show_btn": true,
+            "icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M18.3334 11.6667V6.66675H21.6667V11.6667H18.3334Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M21.6667 28.3334V33.3334H18.3334V28.3334H21.6667Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M25.0001 20.0001C25.0001 22.7615 22.7615 25.0001 20.0001 25.0001C17.2387 25.0001 15.0001 22.7615 15.0001 20.0001C15.0001 17.2387 17.2387 15.0001 20.0001 15.0001C22.7615 15.0001 25.0001 17.2387 25.0001 20.0001Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M6.66675 21.6667H11.6667V18.3334H6.66675V21.6667Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M33.3334 18.3334H28.3334V21.6667H33.3334V18.3334Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M12.929 15.286L9.39347 11.7505L11.7505 9.39347L15.286 12.929L12.929 15.286Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M27.0711 24.7141L30.6067 28.2496L28.2496 30.6067L24.7141 27.0711L27.0711 24.7141Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M11.7505 30.6067L15.286 27.0712L12.929 24.7141L9.39347 28.2497L11.7505 30.6067Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M28.2496 9.39349L24.7141 12.929L27.0711 15.286L30.6067 11.7505L28.2496 9.39349Z\" fill=\"#A6A6A6\"></path>\n</svg>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_413.png",
+            "h5_image": "shopify://shop_images/Frame_409.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_L7cwnB": {
+          "type": "block",
+          "settings": {
+            "label": "Autumn Leaf Cleanup",
+            "title": "<p><strong>LEAF CLEANUP MADE EASY</strong></p>",
+            "desc": "<p>Tackle heavy leaf buildup quickly and keep your yard neat through the season.</p>",
+            "learn_more_url": "shopify://pages/shop-by-scenario-autumn",
+            "show_btn": true,
+            "icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M26.5833 6.77075C16.8033 6.77075 8.875 13.9062 8.875 22.7083V33.3333H12.4167L12.4167 23.7456L20.0187 16.1436L22.523 18.6479L15.9583 25.2126V29.7129C24.9069 28.9133 31.8958 22.1182 31.8958 13.8541L31.8958 6.77075H26.5833Z\" fill=\"#A6A6A6\"></path>\n</svg>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_414.png",
+            "h5_image": "shopify://shop_images/Frame_410.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_id8wmJ": {
+          "type": "block",
+          "settings": {
+            "label": "Winter Snow Removal",
+            "title": "<p>HEAVY SNOW REMOVAL</p>",
+            "desc": "<p>Handle snow with ease—clear driveways and paths without lifting a finger.</p>",
+            "learn_more_url": "shopify://pages/shop-by-scenario-winter",
+            "show_btn": true,
+            "icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M24.6053 9.64334L21.6668 11.3399V15.1889L23.3335 16.1512L26.6668 14.2267L26.6668 10.8336L30.0001 10.8336L30.0001 14.2267L32.9387 15.9233L31.272 18.81L28.3334 17.1135L25.0001 19.038V20.9624L28.3334 22.8869L31.272 21.1904L32.9387 24.0771L30.0001 25.7737V29.1669H26.6668V25.7737L23.3334 23.8492L21.6668 24.8114V28.6604L24.6053 30.357L22.9387 33.2438L20.0001 31.5472L17.0616 33.2438L15.3949 30.357L18.3334 28.6605V24.8114L16.6668 23.8492L13.3334 25.7737L13.3334 29.1669H10.0001L10.0001 25.7737L7.06152 24.0771L8.72819 21.1904L11.6668 22.887L15.0001 20.9625V19.0379L11.6668 17.1135L8.72824 18.81L7.06157 15.9233L10.0001 14.2267L10.0001 10.8335H13.3334L13.3334 14.2267L16.6668 16.1512L18.3334 15.1889V11.34L15.3949 9.64337L17.0616 6.75662L20.0001 8.45319L22.9387 6.75659L24.6053 9.64334ZM21.6668 20.0002C21.6668 20.9207 20.9206 21.6669 20.0001 21.6669C19.0796 21.6669 18.3334 20.9207 18.3334 20.0002C18.3334 19.0797 19.0796 18.3335 20.0001 18.3335C20.9206 18.3335 21.6668 19.0797 21.6668 20.0002Z\" fill=\"#A6A6A6\"></path>\n</svg>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_415.png",
+            "h5_image": "shopify://shop_images/Frame_411.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "block_AbNBy3",
+        "block_gANU6w",
+        "block_L7cwnB",
+        "block_id8wmJ"
+      ],
+      "name": "Index Accordion",
+      "settings": {
+        "anchor_id": "overview",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 40,
+        "padding_bottom": 80,
+        "h5_padding_top": 32,
+        "h5_padding_bottom": 56,
+        "sub_title": "Shop by Scenario",
+        "title": "<p><strong>TIRED OF DIFFERENT YARD PROBLEMS EVERY SEASON?</strong><br/> Yarbo’s modular, smart system adapts to your needs,</p><p>so yard care stays simple all year round.<br/></p>",
+        "heading_alignment": "left"
+      }
+    },
+    "sa_index_scrolling_f84cbA": {
+      "type": "sa-index-scrolling",
+      "blocks": {
+        "block_Pjafi9": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/4_16_1.jpg",
+            "media_type": "video",
+            "video": "shopify://files/videos/FDownloader.Net_AQOErI5zI7yOZjcJYj-gNgOnfnlaaoFwEz8iLxC1ApM_neKehdTRT1BfkZzesEFEnFyYt0EJx53ltkYJLrUnH85G9D3SUsSwg_r8FNJfgpbYvg_720p_(HD) (1) (1).mp4",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/maxresdefault_841a2015-1a0f-4310-94b4-007bb71171b1.jpg",
+            "media_type2": "video_url",
+            "video_url2": "https://www.youtube.com/watch?v=8C1kjZNcKtA&t=293s",
+            "other_url2": "",
+            "img3": "shopify://shop_images/4_16.jpg",
+            "media_type3": "video",
+            "video3": "shopify://files/videos/FDownloader.Net_AQOeMxGsr34smltwLsp1ZAUSU-bKoA8Mn0zSsigOPe7L3miMHOqUQtRSZin4lzM0tuD1GquZiSw4VpljdTwYtlb4zqnLCx9KiypfrN5Pw70Q-Q_720p_(HD).mp4",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_wHptCq": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/maxresdefault_1_84c1907c-a9d5-4501-ab28-b8097fa31eb8.jpg",
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=9BP40fKU9Kw&t=124s",
+            "other_url": "",
+            "img2": "shopify://shop_images/image_43.png",
+            "media_type2": "video",
+            "video_url2": "",
+            "other_url2": "",
+            "img3": "shopify://shop_images/9704b596f477feac12a64afe79203ee666118bb7.png",
+            "media_type3": "video",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_THQg4B": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/667826560_122107351779214436_7325298365434661641_n_1.jpg",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/maxresdefault_2.jpg",
+            "media_type2": "video_url",
+            "video_url2": "https://www.youtube.com/watch?v=cO7XFB0cBMo&t=463s",
+            "other_url2": "",
+            "img3": "shopify://shop_images/4_16_1_f3174828-68cd-4041-89b3-a4216bcb831d.jpg",
+            "media_type3": "video",
+            "video3": "shopify://files/videos/FDownloader.Net_AQMm8jBzQ7aqcZIk-yGpNS_8fj6F7blOMARsOUIErvv9z6H1I7fUywfHI0-Q3LFIqq0dAJh6C4i8xu5g8iYGfMCEr7brn89B0YTd_bw0-MAbeQ_720p_(HD) (1).mp4",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_eXe8id": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "img": "shopify://shop_images/10f7b24d0723718f6be8ae0a9a10e04fd2b8c1a7.png",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/a00d39adac7e15aa2c56e8f3122b965ba851e184.jpg",
+            "media_type2": "video",
+            "video_url2": "",
+            "other_url2": "",
+            "img3": "shopify://shop_images/9704b596f477feac12a64afe79203ee666118bb7.png",
+            "media_type3": "video",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_Pjafi9",
+        "block_wHptCq",
+        "block_THQg4B",
+        "block_eXe8id"
+      ],
+      "name": "Index Scrolling",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 0,
+        "title": "<p>Trusted by Thousands <br/>of Homeowners and experts</p>",
+        "link": "shopify://pages/yarbo-official-community",
+        "link_text": "Join the Community"
+      }
+    },
+    "sa_why_shop_with_hover_k7XPTy": {
+      "type": "sa-why-shop-with-hover",
+      "blocks": {
+        "item_xmtz4K": {
+          "type": "item",
+          "settings": {
+            "title": "FREE SHIPPING",
+            "desc": "Delivered in 3-8 business days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_1.svg"
+          }
+        },
+        "item_ErnbbJ": {
+          "type": "item",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Help anytime you need",
+            "icon": "shopify://shop_images/Icon_-_Chunky_2.svg"
+          }
+        },
+        "item_mT6WKC": {
+          "type": "item",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Pay now or over time using affirm or splitit",
+            "icon": "shopify://shop_images/Icon_-_Chunky_5.svg"
+          }
+        },
+        "item_VReyNX": {
+          "type": "item",
+          "settings": {
+            "title": "30-Day Free Returns",
+            "desc": "Full refund, no hassle",
+            "icon": "shopify://shop_images/Icon_-_Chunky_3.svg"
+          }
+        },
+        "item_Mz9E67": {
+          "type": "item",
+          "settings": {
+            "title": "up to 5-year Warranty",
+            "desc": "Protection you can trust",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4.svg"
+          }
+        },
+        "item_3Uihyb": {
+          "type": "item",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Safe and protected checkout",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_xmtz4K",
+        "item_ErnbbJ",
+        "item_mT6WKC",
+        "item_VReyNX",
+        "item_Mz9E67",
+        "item_3Uihyb"
+      ],
+      "name": "Why Shop Hover",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "pc_aspect_ratio_w": 250,
+        "pc_aspect_ratio_h": 300,
+        "title": "WHY SHOP WITH US",
+        "auto_rotate": true,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_img_text_with_label_YEbffm": {
+      "type": "sa-img-text-with-label",
+      "blocks": {
+        "block_PAHG47": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Circular Driveway",
+            "desc": "<p>24″ clearing width with adjustable 6–40 ft throw covers wide two-car lanes.33</p>"
+          }
+        },
+        "block_YENeEr": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Sidewalks",
+            "desc": "<p>24″ clearing width with adjustable 6–40 ft throw covers wide two-car lanes.22</p>"
+          }
+        },
+        "block_EJ9KEw": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Multi-Zone Management",
+            "desc": "<p>24″ clearing width with adjustable 6–40 ft throw covers wide two-car lanes.11</p>"
+          }
+        },
+        "block_x7iBiz": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Gravel Driveway",
+            "desc": "<p>24″ clearing width with adjustable 6–40 ft throw covers wide two-car lanes.</p>"
+          }
+        },
+        "block_bhpR34": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Large Driveway",
+            "desc": "<p>24″ clearing width with adjustable 6–40 ft throw covers wide two-car lanes.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_PAHG47",
+        "block_YENeEr",
+        "block_EJ9KEw",
+        "block_x7iBiz",
+        "block_bhpR34"
+      ],
+      "disabled": true,
+      "name": "Img Text With Label",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "<p>SEE YARBO IN ACTION</p>",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 80,
+        "pc_aspect_ratio_w": 876,
+        "pc_aspect_ratio_h": 492,
+        "h5_aspect_ratio_w": 320,
+        "h5_aspect_ratio_h": 180
+      }
+    },
+    "sa_product_single_banner_rxEKXB": {
+      "type": "sa-product-single-banner",
+      "blocks": {
+        "slide_YfeLTA": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_width_pc": 1320,
+            "content_position_pc": "bottom-left",
+            "content_position_h5": "bottom-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "<p>Maximize Every Pass </p><p>with the plow blade</p>",
+            "title_m": "<p>Maximize Every Pass </p><p>with the plow blade</p>",
+            "title_color": "#ffffff",
+            "desc": "<p>Designed for maximum efficiency, the plow blade moves more </p><p>snow in every sweep, keeping driveways and sidewalks clear</p><p> faster.</p>",
+            "desc_color": "#ffffff",
+            "show_button1": false,
+            "button1_text": "",
+            "button1_link": "/",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "show_button2": false,
+            "button2_text": "",
+            "button2_link": "/",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e",
+            "show_add_button": false,
+            "add_text": "",
+            "add_color": "#25282a",
+            "add_border_color": "#fedb1e",
+            "add_bg_color": "#fedb1e",
+            "add_hover_color": "#ffffff",
+            "add_bg_hover_color": "#25282a",
+            "featured_product": "yarbo-snow-blower-blower",
+            "show_product_card": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_YfeLTA"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (max-width: 999px) {.page-container {padding: 0; }}"
+      ],
+      "name": "Product Single Banner",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 48,
+        "pc_aspect_ratio_w": 1320,
+        "pc_aspect_ratio_h": 600,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500,
+        "bac": "#0d0d0d",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_product_single_banner_dctBnh": {
+      "type": "sa-product-single-banner",
+      "blocks": {
+        "slide_pX6yMB": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "bottom-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "<p>The Future of Yard </p><p>Care is Autonomous</p>",
+            "title_m": "<p>The Future of </p><p>Yard Care is </p><p>Autonomous</p>",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "show_button1": false,
+            "button1_text": "Shop Now",
+            "button1_link": "/",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "show_button2": false,
+            "button2_text": "Book a Demo",
+            "button2_link": "/",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e",
+            "show_add_button": false,
+            "add_text": "",
+            "add_color": "#25282a",
+            "add_border_color": "#fedb1e",
+            "add_bg_color": "#fedb1e",
+            "add_hover_color": "#ffffff",
+            "add_bg_hover_color": "#25282a",
+            "featured_product": "",
+            "show_product_card": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_pX6yMB"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (max-width: 999px) {.page-container {padding: 0; }}"
+      ],
+      "name": "Product Single Banner",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 32,
+        "pc_aspect_ratio_w": 1320,
+        "pc_aspect_ratio_h": 600,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500,
+        "bac": "#0d0d0d",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_product_feature_media_fdE78f": {
+      "type": "sa-product-feature-media",
+      "blocks": {
+        "block_dQjdRU": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "title": "<p>Traction Spikes</p>",
+            "desc": "<p>Yarbo’s traction spikes grip snow and ice to keep every pass stable and controlled. Tackle steep or slippery surfaces with confidence and safety.</p>"
+          }
+        },
+        "block_WGRiV4": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "title": "<p>Tread Pattern</p>",
+            "desc": "<p>The deep-bite tread pattern provides reliable traction and smooth movement across all snowy and icy terrain. Stay balanced, precise, and in control every time.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_dQjdRU",
+        "block_WGRiV4"
+      ],
+      "disabled": true,
+      "name": "Product Feature Media",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "media_type": "image",
+        "video_url": "",
+        "h5_video_url": "",
+        "show_overlay": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "right_side_title": "<p>Non-Slip Design</p>",
+        "right_side_desc": "<p>No more worrying about slips or uneven terrain — Yarbo stays firmly in control, giving you a safe, stable, and reliable clearing experience. Its innovative non-slip design ensures traction in snow, ice, and tricky slopes, so every pass is precise and effortless.</p>"
+      }
+    },
+    "sa_product_img_swiper_LUiM8z": {
+      "type": "sa-product-img-swiper",
+      "blocks": {
+        "block_YM77fT": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": "<p><strong>Clear more, stress less.</strong> Cover wide driveways and large areas in one pass with up to a maximum of 40ft throwing distance— that means less time shoveling, more time enjoying your day.</p>"
+          }
+        },
+        "block_d43Xgf": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": "<p><strong>Control the snow’s height. </strong>Adjust the deflector angle from -5° to 50 to manage how high snow is thrown. Keep it low for nearby areas or higher to clear deeper piles.</p>"
+          }
+        },
+        "block_nCPFcp": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": "<p><strong>Aim exactly where you want. </strong>Rotate the chute from -10° to 190° across a wide range to direct snow with precision. Clear paths without piling snow where you don’t want it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_YM77fT",
+        "block_d43Xgf",
+        "block_nCPFcp"
+      ],
+      "disabled": true,
+      "name": "Built for Large Yards & Driveways",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "<p>Built for Large Yards & Driveways</p>",
+        "description": "<p>Yarbo monitors weather conditions and automatically begins clearing when snowfall starts. By working continuously throughout the storm, it prevents buildup and keeps driveways and paths accessible without manual effort.</p>",
+        "button_link": "",
+        "button_text": "",
+        "pc_aspect_ratio_w": 500,
+        "pc_aspect_ratio_h": 336,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "text_position": "bottom"
+      }
+    },
+    "sa_product_specifications_REjqRh": {
+      "type": "sa-product-specifications",
+      "name": "Product Specifications",
+      "settings": {
+        "anchor_id": "spec",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "heading": "SPECIFICATIONS"
+      }
+    },
+    "sa_product_img_text_blocks_cEgrkf": {
+      "type": "sa-product-img-text-blocks",
+      "blocks": {
+        "block_J3AXKf": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_width_pc": 1320,
+            "title": "<p>Installer Program</p>",
+            "desc": "<p>Use the map to find nearby Yarbo volunteer<br/>installers and get in touch for assistance.</p>",
+            "button_text": "Submit a Ticket",
+            "button2_link": "",
+            "btn_anchor_id": "",
+            "button_color": "#25282a",
+            "button_bg_color": "#ffffff",
+            "button_hover_color": "#25282a",
+            "button_bg_hover_color": "#fedb1e"
+          }
+        },
+        "block_QPbnzM": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_width_pc": 1320,
+            "title": "<p>1 on 1 Video Instruction</p>",
+            "desc": "<p>Schedule a video meeting with our technician for<br/>guided installation assistance.</p>",
+            "button_text": "Schedule a Call",
+            "button2_link": "",
+            "btn_anchor_id": "",
+            "button_color": "#25282a",
+            "button_bg_color": "#ffffff",
+            "button_hover_color": "#25282a",
+            "button_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "block_J3AXKf",
+        "block_QPbnzM"
+      ],
+      "disabled": true,
+      "name": "Installer Program & 1 on 1 Video Instruction",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 50,
+        "h5_padding_bottom": 56,
+        "pc_aspect_ratio_w": 652,
+        "pc_aspect_ratio_h": 450,
+        "h5_aspect_ratio_w": 340,
+        "h5_aspect_ratio_h": 300
+      }
+    },
+    "sa_product_manual_YxpEM3": {
+      "type": "sa-product-manual",
+      "blocks": {
+        "manual_rypPgf": {
+          "type": "manual",
+          "settings": {
+            "link": "/",
+            "title": "2024 Yarbo Y Core + Snow Blower Quick Start Guide"
+          }
+        },
+        "manual_wyWqmc": {
+          "type": "manual",
+          "settings": {
+            "link": "/",
+            "title": "2024 Yarbo Y Core + Snow Blower User Manual"
+          }
+        },
+        "manual_CTxNmL": {
+          "type": "manual",
+          "settings": {
+            "link": "/",
+            "title": "2024 Yarbo Y Core User Manual"
+          }
+        },
+        "video_FWbEaC": {
+          "type": "video",
+          "settings": {
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=LXb3EKWsInQ",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo Installation Guide"
+          }
+        },
+        "video_MbUJEf": {
+          "type": "video",
+          "settings": {
+            "video_cover": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo Snow Blower Installation Guide"
+          }
+        },
+        "video_QDA38i": {
+          "type": "video",
+          "settings": {
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo App Setup Tutorial"
+          }
+        },
+        "video_cyw4MU": {
+          "type": "video",
+          "settings": {
+            "media_type": "video_url",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo Docking Installation Guide"
+          }
+        }
+      },
+      "block_order": [
+        "manual_rypPgf",
+        "manual_wyWqmc",
+        "manual_CTxNmL",
+        "video_FWbEaC",
+        "video_MbUJEf",
+        "video_QDA38i",
+        "video_cyw4MU"
+      ],
+      "disabled": true,
+      "name": "Product Manuals",
+      "settings": {
+        "anchor_id": "manuals",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "installation_title": "Setup and Installation",
+        "manuals_title": "MANUALS"
+      }
+    },
+    "17766702216e9a8a44": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_tC8BmC": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_tC8BmC"
+      ],
+      "settings": {
+        "anchor_id": "review",
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_product_anchors_3tkCDP",
+    "sa_index_accordion_UXDJVQ",
+    "sa_index_scrolling_f84cbA",
+    "sa_why_shop_with_hover_k7XPTy",
+    "sa_img_text_with_label_YEbffm",
+    "sa_product_single_banner_rxEKXB",
+    "sa_product_single_banner_dctBnh",
+    "sa_product_feature_media_fdE78f",
+    "sa_product_img_swiper_LUiM8z",
+    "sa_product_specifications_REjqRh",
+    "sa_product_img_text_blocks_cEgrkf",
+    "sa_product_manual_YxpEM3",
+    "17766702216e9a8a44"
+  ]
+}

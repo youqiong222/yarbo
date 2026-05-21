@@ -1,0 +1,2032 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "sa-main-product",
+      "blocks": {
+        "product_nav_bPLNqt": {
+          "type": "product_nav",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 0,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "belong_collection": "robots",
+            "belong_collection_title": "Y Series"
+          }
+        },
+        "title_eAXAgB": {
+          "type": "title",
+          "settings": {
+            "pc_top": 12,
+            "pc_bottom": 16,
+            "h5_top": 12,
+            "h5_bottom": 16
+          }
+        },
+        "price_mVRiPc": {
+          "type": "price",
+          "settings": {
+            "pc_top": 16,
+            "pc_bottom": 8,
+            "h5_top": 16,
+            "h5_bottom": 8
+          }
+        },
+        "features_placeholder_y3bKpN": {
+          "type": "features_placeholder",
+          "settings": {
+            "pc_top": 16,
+            "pc_bottom": 16,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "features": "<ul><li>Autonomous Snow Clearing</li><li>2-stage Design</li><li>Clears up to 12 inches of snow with a 24-inch width</li><li>Auto Recharging Ensuring 24/7 Operation</li></ul>"
+          }
+        },
+        "spacing_line_ebJKPd": {
+          "type": "spacing_line",
+          "disabled": true,
+          "settings": {
+            "pc_top": 24,
+            "pc_bottom": 24,
+            "h5_top": 24,
+            "h5_bottom": 24
+          }
+        },
+        "variants_placeholder_qNnHhk": {
+          "type": "variants_placeholder",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 0,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "title": "Select an Option:",
+            "show_product_variants": false,
+            "product_variant_list": [
+              "dev",
+              "dev1",
+              "dev2"
+            ]
+          }
+        },
+        "spacing_line_jMqyHc": {
+          "type": "spacing_line",
+          "settings": {
+            "pc_top": 24,
+            "pc_bottom": 24,
+            "h5_top": 24,
+            "h5_bottom": 24
+          }
+        },
+        "includes_placeholder_V6cAhh": {
+          "type": "includes_placeholder",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 0,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "title": "What's Included"
+          }
+        },
+        "include_block_qieaCk": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Yarbo_Core_97923c84-737e-48a1-947c-0a303686f46f.png",
+            "title": "Yarbo Core x1"
+          }
+        },
+        "include_block_9KaNrx": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Snow_Blower_Module_f14c8a55-a7a9-4941-b42e-0afd02880685.png",
+            "title": "Snow Blower Module x1"
+          }
+        },
+        "include_block_ENnXkA": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Wired_Charger_353b02f6-c709-4d24-80e4-9281af5c9aeb.png",
+            "title": "Wired Charger x1"
+          }
+        },
+        "include_block_kiktmP": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Data_Center_1980c737-fcf8-4ec1-80a1-145b228dc0c5.png",
+            "title": "Data Center x1"
+          }
+        },
+        "include_block_FjWeqY": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Installation_Tool_Kit.png",
+            "title": "Installation & Tool Kit x1"
+          }
+        },
+        "include_block_mNV6Lr": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Yarbo_Battery_92def579-002b-4dbd-b649-47389b7ec8ef.png",
+            "title": "Y Series Battery x1"
+          }
+        },
+        "include_block_DaP7yY": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Docking_Station_50427415-6c68-4b48-ab08-68f9ba98dea9.png",
+            "title": "Docking Station x1"
+          }
+        },
+        "include_block_BzDdTY": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Snow_Track_1499901b-f49a-49f0-b6a5-2d9d93fc7158.png",
+            "title": "Snow Track x1"
+          }
+        },
+        "include_block_A7WGb7": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Snow_Shovel_42c5dfda-bccb-420c-bdde-6fb04a2a2872.png",
+            "title": "Cleaning Shovel x1"
+          }
+        },
+        "include_block_Qetx8J": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Tow_Hitch_206484c1-6ac0-4df4-a318-8c9860448999.png",
+            "title": "Tow Hitch x1"
+          }
+        },
+        "spacing_line_j6EQQH": {
+          "type": "spacing_line",
+          "settings": {
+            "pc_top": 24,
+            "pc_bottom": 24,
+            "h5_top": 24,
+            "h5_bottom": 24
+          }
+        },
+        "text_link_kbxz3U": {
+          "type": "text_link",
+          "disabled": true,
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 24,
+            "h5_top": 0,
+            "h5_bottom": 24,
+            "text": "Have a yard under ¼ acre? Shop our M-Series instead.",
+            "url": "/"
+          }
+        },
+        "policies_placeholder_eAqKkT": {
+          "type": "policies_placeholder",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 24,
+            "h5_top": 0,
+            "h5_bottom": 12
+          }
+        },
+        "policy_block_Gc4zTG": {
+          "type": "policy_block",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_-_Chunky_d2d86344-fa5d-41c0-897b-8115805e8449.svg",
+            "title": "2-Year Warranty"
+          }
+        },
+        "policy_block_AJhgKh": {
+          "type": "policy_block",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_-_Chunky_b9bb95d8-0a03-4ef3-a480-d44d71bb8874.svg",
+            "title": "30-Day Hassle-Free Returns"
+          }
+        },
+        "policy_block_TL8wHG": {
+          "type": "policy_block",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_-_Chunky_286c2318-458a-4a69-8990-27758cb3e470.svg",
+            "title": "24/7 Support"
+          }
+        },
+        "payment_NXW9cF": {
+          "type": "payment",
+          "settings": {}
+        },
+        "spacing_line_96Ne66": {
+          "type": "spacing_line",
+          "settings": {
+            "pc_top": 24,
+            "pc_bottom": 24,
+            "h5_top": 24,
+            "h5_bottom": 24
+          }
+        },
+        "recommend_nBwEdV": {
+          "type": "recommend",
+          "settings": {
+            "title": "You May Also Like",
+            "pc_top": 0,
+            "pc_bottom": 0,
+            "h5_top": 0,
+            "h5_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "product_nav_bPLNqt",
+        "title_eAXAgB",
+        "price_mVRiPc",
+        "features_placeholder_y3bKpN",
+        "spacing_line_ebJKPd",
+        "variants_placeholder_qNnHhk",
+        "spacing_line_jMqyHc",
+        "includes_placeholder_V6cAhh",
+        "include_block_qieaCk",
+        "include_block_9KaNrx",
+        "include_block_ENnXkA",
+        "include_block_kiktmP",
+        "include_block_FjWeqY",
+        "include_block_mNV6Lr",
+        "include_block_DaP7yY",
+        "include_block_BzDdTY",
+        "include_block_A7WGb7",
+        "include_block_Qetx8J",
+        "spacing_line_j6EQQH",
+        "text_link_kbxz3U",
+        "policies_placeholder_eAqKkT",
+        "policy_block_Gc4zTG",
+        "policy_block_AJhgKh",
+        "policy_block_TL8wHG",
+        "payment_NXW9cF",
+        "spacing_line_96Ne66",
+        "recommend_nBwEdV"
+      ],
+      "settings": {}
+    },
+    "sa_product_anchors_rHyDdp": {
+      "type": "sa-product-anchors",
+      "blocks": {
+        "block_9ECRXR": {
+          "type": "block",
+          "settings": {
+            "anchor_title": "Overview",
+            "btn_anchor_id": "overview"
+          }
+        },
+        "block_rerbJt": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "anchor_title": "What’s Included",
+            "btn_anchor_id": ""
+          }
+        },
+        "block_8fw39b": {
+          "type": "block",
+          "settings": {
+            "anchor_title": "Specifications",
+            "btn_anchor_id": "spec"
+          }
+        },
+        "block_fEEnyM": {
+          "type": "block",
+          "settings": {
+            "anchor_title": "Reviews",
+            "btn_anchor_id": "review"
+          }
+        },
+        "block_JeE4Wa": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "anchor_title": "Manuals",
+            "btn_anchor_id": "manuals"
+          }
+        }
+      },
+      "block_order": [
+        "block_9ECRXR",
+        "block_rerbJt",
+        "block_8fw39b",
+        "block_fEEnyM",
+        "block_JeE4Wa"
+      ],
+      "name": "Product Anchors",
+      "settings": {}
+    },
+    "sa_product_grid_wttMap": {
+      "type": "sa-product-grid",
+      "blocks": {
+        "block_jkaAzk": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457839_3.png",
+            "h5_image": "shopify://shop_images/Frame_2036457896_1.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 100,
+            "title": "<p>24/7 Autonomous Snow Clearing</p>",
+            "description": "<p>Wake up to a Cleared Driveway</p>",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_TEhhb9": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457866.png",
+            "h5_image": "shopify://shop_images/Frame_2036457897_3.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 100,
+            "title": "<p>Built for -13°F Blizzards</p>",
+            "description": "<p>Ready for Real Winters</p>",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_bYKR6L": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457867.png",
+            "h5_image": "shopify://shop_images/Frame_2036457898.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 100,
+            "title": "<p>6–40 Yards Throw Control</p>",
+            "description": "<p>Small Size, Big Strength</p>",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_faqeHA": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457870_4b952e93-1c66-490b-a235-0b842bff8939.png",
+            "h5_image": "shopify://shop_images/Frame_2036457899.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 100,
+            "title": "<p>Adjustable Auger, 12\" Height</p>",
+            "description": "<p>Handle Deep Snow Efficiently</p>",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_Lh77U7": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457868_476d27d9-a438-4c16-899c-96bdbce51e39.png",
+            "h5_image": "shopify://shop_images/Frame_2036457900.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 100,
+            "title": "<p>Engineered for Durability and Safety</p>",
+            "description": "<p>Built for Toughness</p>",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_V3qymp": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457869_fde7d660-969a-415a-9e1a-2f45a9ca6f68.png",
+            "h5_image": "shopify://shop_images/Frame_2036457901.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 100,
+            "title": "<p>Tackle Wet Snow with the Plow Blade</p>",
+            "description": "<p>Power Through Wet Snow</p>",
+            "bottom_text": "<p>*Plow blade available separately.</p>",
+            "icon_anchor_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_jkaAzk",
+        "block_TEhhb9",
+        "block_bYKR6L",
+        "block_faqeHA",
+        "block_Lh77U7",
+        "block_V3qymp"
+      ],
+      "name": "Text Media Grid 5 Items",
+      "settings": {
+        "anchor_id": "overview",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 100,
+        "padding_bottom": 60,
+        "h5_padding_top": 50,
+        "h5_padding_bottom": 0
+      }
+    },
+    "sa_spec_compare_w4TdAR": {
+      "type": "sa-spec-compare",
+      "disabled": true,
+      "name": "Spec Compare",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "heading": "KEY DIFFERENCES",
+        "highlight_color": "#fce300",
+        "product_list": [
+          "dev",
+          "dev1"
+        ]
+      }
+    },
+    "sa_compare_bundles_7CK69g": {
+      "type": "sa-compare-bundles",
+      "disabled": true,
+      "name": "Compare Bundles",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "COMPARE BUNDLES",
+        "product_list": [
+          "dev",
+          "dev1",
+          "dev2",
+          "dev3"
+        ]
+      }
+    },
+    "sa_media_text_vertical_BJXPK3": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "text_wWALDJ": {
+          "type": "text",
+          "settings": {
+            "content_width_pc": 860,
+            "html_tag": "h2",
+            "text": "<p>Relentless. Smart.  Frost-Proof Mornings.</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 80,
+            "font_size_h5": 40,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 120,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 20,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_TcmqbH": {
+          "type": "text",
+          "name": "text block",
+          "settings": {
+            "content_width_pc": 860,
+            "html_tag": "div",
+            "text": "<p>Hands-free snow removal that starts as soon as the flakes fall, no shovels, no pushing, no hassle.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 24,
+            "pb_pc": 80,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 56,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "media_t6JdPR": {
+          "type": "media",
+          "name": "media block",
+          "settings": {
+            "layout": "full",
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/-20250925-114053.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "pc_height": 500,
+            "h5_height": 500,
+            "use_aspect_ratio": true,
+            "pc_aspect_ratio_w": 1440,
+            "pc_aspect_ratio_h": 800,
+            "h5_aspect_ratio_w": 4,
+            "h5_aspect_ratio_h": 5,
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "title": "",
+            "text": "",
+            "color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_wWALDJ",
+        "text_TcmqbH",
+        "media_t6JdPR"
+      ],
+      "name": "Relentless. Smart.  Frost-Proof Mornings.",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 0,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_product_img_swiper_BkGKzV": {
+      "type": "sa-product-img-swiper",
+      "blocks": {
+        "block_UePhfd": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/Video.19628 (1).mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": "<p><strong>Packed Snow. </strong>The two-stage intake breaks it up and clears in passes.<br/><br/></p>"
+          }
+        },
+        "block_i3GkBM": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/YarboVideo2025 (1).mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": "<p><strong>In The Blizzard. </strong>Efficiency in every drift. Let the Yarbo do the heavy lifting.<br/><br/></p>"
+          }
+        },
+        "block_yXiFDV": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/111.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": "<p><strong>Wet Snow. </strong>Attach the plow blade to push through with fewer clogs.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_UePhfd",
+        "block_i3GkBM",
+        "block_yXiFDV"
+      ],
+      "name": "Get the Highlights",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 48,
+        "h5_padding_bottom": 48,
+        "title": "<p><strong>Tackle Different Snow Types</strong></p>",
+        "description": "",
+        "button_link": "",
+        "button_text": "",
+        "pc_aspect_ratio_w": 500,
+        "pc_aspect_ratio_h": 336,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "text_position": "bottom"
+      }
+    },
+    "sa_media_text_vertical_TBzxDw": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "text_DfgMNP": {
+          "type": "text",
+          "name": "label",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Performance</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 120,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 12,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_J7KtWD": {
+          "type": "text",
+          "name": "title",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "h2",
+            "text": "<p>Wider. Deeper. Faster.</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 80,
+            "font_size_h5": 40,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 16,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 20,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_YRPq4F": {
+          "type": "text",
+          "name": "text",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>12″ intake height, 24″ clearing width—clears deep snow in layers.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 24,
+            "pb_pc": 120,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 56,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "media_hRE6Gh": {
+          "type": "media",
+          "name": "media",
+          "settings": {
+            "layout": "container",
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/Packed-Snow.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "pc_height": 500,
+            "h5_height": 500,
+            "use_aspect_ratio": true,
+            "pc_aspect_ratio_w": 1320,
+            "pc_aspect_ratio_h": 600,
+            "h5_aspect_ratio_w": 4,
+            "h5_aspect_ratio_h": 5,
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "title": "",
+            "text": "",
+            "color": "#ffffff"
+          },
+          "blocks": {}
+        },
+        "text_xcVjdG": {
+          "type": "text",
+          "name": "title",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "h2",
+            "text": "<p>24/7 Autonomous Cleaning</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 52,
+            "font_size_h5": 36,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 40,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 32,
+            "pb_h5": 12,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_NzzCNx": {
+          "type": "text",
+          "name": "text",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Yarbo monitors weather conditions and automatically begins clearing when </p><p>snowfall starts. By working continuously throughout the storm, it prevents buildup </p><p>and keeps driveways and paths accessible without manual effort.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 16,
+            "pb_pc": 60,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_DfgMNP",
+        "text_J7KtWD",
+        "text_YRPq4F",
+        "media_hRE6Gh",
+        "text_xcVjdG",
+        "text_NzzCNx"
+      ],
+      "custom_css": [
+        ".block-AWWhrbUhST1dOSWRsM__text_J7KtWD,.block-AU1VkaDVRbXREcDZwU__text_xcVjdG {text-transform: uppercase;}"
+      ],
+      "name": "Power ThatClears Faster",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 48,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_product_img_text_Tw7hRh": {
+      "type": "sa-product-img-text",
+      "blocks": {
+        "item_HKCrre": {
+          "type": "item",
+          "settings": {
+            "image_width": 54,
+            "pc_layout": "image_right",
+            "mobile_layout": "image_top",
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/Auto-Recharging-1.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 470,
+            "h5_aspect_ratio_w": 340,
+            "h5_aspect_ratio_h": 245,
+            "title": "<p>One Setup. <br/>Season-Long Autonomy.</p>",
+            "desc": "<p>Map your driveway once in the app - Yarbo robotic snow blower handles every storm automatically. Auto-docks at ~20%. Resumes at ~80%.</p>",
+            "block_title1": "<p><strong>1.5</strong> Hours</p>",
+            "block_text1": "<p>Fast Charging</p>",
+            "block_title2": "<p><strong>38.4</strong> Ah</p>",
+            "block_text2": "<p>Battery Capacity</p>",
+            "block_title3": "",
+            "block_text3": ""
+          }
+        },
+        "item_rDLKUp": {
+          "type": "item",
+          "settings": {
+            "image_width": 54,
+            "pc_layout": "image_left",
+            "mobile_layout": "image_top",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Snow-Blower-0.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "h5_aspect_ratio_w": 340,
+            "h5_aspect_ratio_h": 230,
+            "title": "<p>Performs in Extreme Cold</p>",
+            "desc": "<p>Engineered to operate in temperatures as low as -13°F, so your yard stays clear even on the coldest winter days.</p>",
+            "block_title1": "<p><strong>-13°F</strong></p>",
+            "block_text1": "<p>Minimum Operating Temperature</p>",
+            "block_title2": "",
+            "block_text2": "",
+            "block_title3": "",
+            "block_text3": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_HKCrre",
+        "item_rDLKUp"
+      ],
+      "custom_css": [
+        "@media (max-width: 999px) {.mt-24.flex.justify-between.gap-16.md\\:mt-40 {display: grid; grid-template-columns: 1fr 1fr; }}"
+      ],
+      "name": "One Setup.  Season-Long Autonomy.",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "anchor_id": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 56
+      }
+    },
+    "sa_product_single_banner_rxEKXB": {
+      "type": "sa-product-single-banner",
+      "blocks": {
+        "slide_YfeLTA": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457882.png",
+            "h5_image": "shopify://shop_images/Frame_2036457902.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 10,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "bottom-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "<p>Maximize Every Pass </p><p>with the plow blade</p>",
+            "title_m": "<p>Maximize Every Pass </p><p>with the plow blade</p>",
+            "title_color": "#ffffff",
+            "desc": "<p>Designed for maximum efficiency, the plow blade moves more </p><p>snow in every sweep, keeping driveways and sidewalks clear</p><p> faster.</p>",
+            "desc_color": "#ffffff",
+            "show_button1": false,
+            "button1_text": "",
+            "button1_link": "/",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "show_button2": false,
+            "button2_text": "",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e",
+            "show_add_button": false,
+            "add_text": "",
+            "add_color": "#25282a",
+            "add_border_color": "#fedb1e",
+            "add_bg_color": "#fedb1e",
+            "add_hover_color": "#ffffff",
+            "add_bg_hover_color": "#25282a",
+            "featured_product": "plow-blade",
+            "show_product_card": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_YfeLTA"
+      ],
+      "custom_css": [
+        "@media (max-width: 999px) {.page-container {padding: 0; }}"
+      ],
+      "name": "Product Single Banner",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 48,
+        "pc_aspect_ratio_w": 1320,
+        "pc_aspect_ratio_h": 600,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_product_img_swiper_LUiM8z": {
+      "type": "sa-product-img-swiper",
+      "blocks": {
+        "block_YM77fT": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457879_1.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": "<p><strong>Clear more, stress less.</strong> Cover wide driveways and large areas in one pass with up to a maximum of 40ft throwing distance— that means less time shoveling, more time enjoying your day.</p>"
+          }
+        },
+        "block_d43Xgf": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457881.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": "<p><strong>Control How Far Snow Is Thrown. </strong>Adjust the deflector angle from -5° to 50° to control throwing distance. Aim lower to throw farther, higher to drop snow close by. </p>"
+          }
+        },
+        "block_nCPFcp": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457880.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": "<p><strong>Control Which Direction Snow Goes. </strong>Rotate the chute from -10° to 190° to direct snow left, right, or anywhere in between—so it lands exactly where you want.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_YM77fT",
+        "block_d43Xgf",
+        "block_nCPFcp"
+      ],
+      "name": "Built for Large Yards & Driveways",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "<p>Built for Large Yards & Driveways</p>",
+        "description": "<p>Yarbo monitors weather conditions and automatically begins clearing when snowfall starts. By working continuously throughout the storm, it prevents buildup and keeps driveways and paths accessible without manual effort.</p>",
+        "button_link": "",
+        "button_text": "",
+        "pc_aspect_ratio_w": 500,
+        "pc_aspect_ratio_h": 336,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "text_position": "bottom"
+      }
+    },
+    "sa_img_text_with_label_YEbffm": {
+      "type": "sa-img-text-with-label",
+      "blocks": {
+        "block_PAHG47": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457883.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Large Driveway",
+            "desc": "<p>24″ clearing width with adjustable 6–40 ft throw covers wide two-car lanes.</p>"
+          }
+        },
+        "block_YENeEr": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457884.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Gravel Driveway",
+            "desc": "<p>Raise the intake up to ~2″ to skim uneven gravel. The metal chute resists incidental gravel impacts.</p>"
+          }
+        },
+        "block_EJ9KEw": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457886.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Circular Driveway",
+            "desc": "<p>Turn on <strong>Spiral Mode</strong>—it circles the center for quick, even coverage on circular or semicircular layouts.</p>"
+          }
+        },
+        "block_eyfCkN": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457887.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Sidewalks",
+            "desc": "<p>Map multiple zones—paths, driveways, sidewalks. Clear several areas in one run.</p>"
+          }
+        },
+        "block_x7iBiz": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457888.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Multi-Zone Management",
+            "desc": "<p>Map multiple zones in the app to match your property and adjust depth and schedule per zone.</p>"
+          }
+        },
+        "block_bhpR34": {
+          "type": "Block",
+          "disabled": true,
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Large Driveway",
+            "desc": "<p>24″ clearing width with adjustable 6–40 ft throw covers wide two-car lanes.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_PAHG47",
+        "block_YENeEr",
+        "block_EJ9KEw",
+        "block_eyfCkN",
+        "block_x7iBiz",
+        "block_bhpR34"
+      ],
+      "name": "Img Text With Label",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "<p><strong>Fits Different Driveways</strong></p>",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 80,
+        "pc_aspect_ratio_w": 876,
+        "pc_aspect_ratio_h": 492,
+        "h5_aspect_ratio_w": 320,
+        "h5_aspect_ratio_h": 180
+      }
+    },
+    "sa_product_img_text_38BKMi": {
+      "type": "sa-product-img-text",
+      "blocks": {
+        "item_egTN66": {
+          "type": "item",
+          "settings": {
+            "image_width": 54,
+            "pc_layout": "image_right",
+            "mobile_layout": "image_top",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457889.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "title": "<p>2-stage design</p>",
+            "desc": "<p>The Yarbo 2-stage snow blower delivers superior efficiency, handles deep and wet snow with ease, outperforming single-stage models in every aspect.</p>",
+            "block_title1": "",
+            "block_text1": "",
+            "block_title2": "",
+            "block_text2": "",
+            "block_title3": "",
+            "block_text3": ""
+          }
+        },
+        "item_JkcHUp": {
+          "type": "item",
+          "settings": {
+            "image_width": 54,
+            "pc_layout": "image_left",
+            "mobile_layout": "image_top",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457890.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "title": "<p>built to last</p>",
+            "desc": "<p>The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in temperatures as low as -13°F, and carries an IPX5 waterproof rating for reliable performance.</p>",
+            "block_title1": "",
+            "block_text1": "",
+            "block_title2": "",
+            "block_text2": "",
+            "block_title3": "",
+            "block_text3": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_egTN66",
+        "item_JkcHUp"
+      ],
+      "name": "2-stage design",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "anchor_id": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40
+      }
+    },
+    "sa_product_feature_media_fdE78f": {
+      "type": "sa-product-feature-media",
+      "blocks": {
+        "block_dQjdRU": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457892_1.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "title": "<p>Traction Spikes</p>",
+            "desc": "<p>Yarbo’s traction spikes grip snow and ice to keep every pass stable and controlled. Tackle steep or slippery surfaces with confidence and safety.</p>"
+          }
+        },
+        "block_WGRiV4": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457893.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "title": "<p>Tread Pattern</p>",
+            "desc": "<p>The deep-bite tread pattern provides reliable traction and smooth movement across all snowy and icy terrain. Stay balanced, precise, and in control every time.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_dQjdRU",
+        "block_WGRiV4"
+      ],
+      "name": "Product Feature Media",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "media_type": "image",
+        "pc_image": "shopify://shop_images/Frame_2036457891.png",
+        "video_url": "",
+        "h5_video_url": "",
+        "show_overlay": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "pc_aspect_ratio_w": 2,
+        "pc_aspect_ratio_h": 3,
+        "right_side_title": "<p>Non-Slip Design</p>",
+        "right_side_desc": "<p>No more worrying about slips or uneven terrain — Yarbo stays firmly in control, giving you a safe, stable, and reliable clearing experience. Its innovative non-slip design ensures traction in snow, ice, and tricky slopes, so every pass is precise and effortless.</p>"
+      }
+    },
+    "sa_product_single_banner_full_whrKyY": {
+      "type": "sa-product-single-banner-full",
+      "blocks": {
+        "slide_atb3iX": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "middle-center",
+            "mobile_bg_color": "#000000",
+            "sub_title": "<p>Yarbo App</p>",
+            "sub_title_color": "#e6e6e6",
+            "title": "<p>Control Your Yard <br/>from Anywhere</p>",
+            "title_color": "#ffffff",
+            "desc": "<p>Manage your yard care tools with ease, <br/>whether you’re at home or on the go. </p>",
+            "desc_color": "#ffffff",
+            "button1_text": "Download on iOS",
+            "button1_link": "/",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#ffffff",
+            "button1_bg_color": "#ffffff",
+            "button1_hover_color": "#25282a",
+            "button1_bg_hover_color": "#fedb1e",
+            "button2_text": "Download on Android",
+            "button2_link": "/",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_atb3iX"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "a {margin: 0 auto;}"
+      ],
+      "name": "Product Single Banner Full",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 600,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 250
+      }
+    },
+    "sa_product_single_banner_dctBnh": {
+      "type": "sa-product-single-banner",
+      "blocks": {
+        "slide_pX6yMB": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458023_61c7103c-3241-478c-bd2c-a42dd4dbe996.png",
+            "h5_image": "shopify://shop_images/Frame_2036458024_822b91fd-7ef0-49bc-b674-73f200ac8746.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "bottom-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "<p>The Future of Yard </p><p>Care is Autonomous</p>",
+            "title_m": "<p>The Future of </p><p>Yard Care is </p><p>Autonomous</p>",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "show_button1": false,
+            "button1_text": "Shop Now",
+            "button1_link": "/",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "show_button2": true,
+            "button2_text": "Book a Demo",
+            "button2_link": "shopify://pages/product-demo-program",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e",
+            "show_add_button": true,
+            "add_text": "Shop Now",
+            "add_color": "#25282a",
+            "add_border_color": "#fedb1e",
+            "add_bg_color": "#fedb1e",
+            "add_hover_color": "#ffffff",
+            "add_bg_hover_color": "#25282a",
+            "featured_product": "yarbo-snow-blower",
+            "show_product_card": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_pX6yMB"
+      ],
+      "custom_css": [
+        "@media (max-width: 999px) {.page-container {padding: 0; }}"
+      ],
+      "name": "Product Single Banner",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 32,
+        "pc_aspect_ratio_w": 1320,
+        "pc_aspect_ratio_h": 600,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_product_img_text_blocks_cEgrkf": {
+      "type": "sa-product-img-text-blocks",
+      "blocks": {
+        "block_J3AXKf": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458192.png",
+            "h5_image": "shopify://shop_images/Frame_2036458192.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 16,
+            "content_width_pc": 1320,
+            "title": "<p>Installer Program</p>",
+            "desc": "<p>Use the map to find nearby Yarbo volunteer<br/>installers and get in touch for assistance.</p>",
+            "button_text": "Find a Nearby Installer",
+            "button2_link": "shopify://pages/installer",
+            "btn_anchor_id": "",
+            "button_color": "#25282a",
+            "button_bg_color": "#ffffff",
+            "button_hover_color": "#25282a",
+            "button_bg_hover_color": "#fedb1e"
+          }
+        },
+        "block_QPbnzM": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458193.png",
+            "h5_image": "shopify://shop_images/Frame_2036458198.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 16,
+            "content_width_pc": 1320,
+            "title": "<p>1 on 1 Video Instruction</p>",
+            "desc": "<p>Schedule a video meeting with our technician for<br/>guided installation assistance.</p>",
+            "button_text": "Schedule a Call",
+            "button2_link": "https://support.yarbo.com/portal/en/home",
+            "btn_anchor_id": "",
+            "button_color": "#25282a",
+            "button_bg_color": "#ffffff",
+            "button_hover_color": "#25282a",
+            "button_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "block_J3AXKf",
+        "block_QPbnzM"
+      ],
+      "name": "Installer Program & 1 on 1 Video Instruction",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "<p>Installation Support, Your Way</p>",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 50,
+        "h5_padding_bottom": 56,
+        "pc_aspect_ratio_w": 652,
+        "pc_aspect_ratio_h": 450,
+        "h5_aspect_ratio_w": 340,
+        "h5_aspect_ratio_h": 300
+      }
+    },
+    "sa_product_manual_YxpEM3": {
+      "type": "sa-product-manual",
+      "blocks": {
+        "manual_rypPgf": {
+          "type": "manual",
+          "settings": {
+            "link": "/https://support.yarbo.com/portal/en/kb/articles/2024-yarbo-snow-blower-qsg",
+            "title": "2024 Yarbo Snow Blower Quick Start Guide"
+          }
+        },
+        "manual_wyWqmc": {
+          "type": "manual",
+          "settings": {
+            "link": "/https://support.yarbo.com/portal/en/kb/articles/2024-yarbo-snow-blower-user-manual",
+            "title": "2024 Yarbo Snow Blower User Manual"
+          }
+        },
+        "manual_CTxNmL": {
+          "type": "manual",
+          "settings": {
+            "link": "/https://support.yarbo.com/portal/en/kb/articles/yarbo-core-user-manual",
+            "title": "2024 Yarbo Core User Manual"
+          }
+        },
+        "video_FWbEaC": {
+          "type": "video",
+          "settings": {
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=LXb3EKWsInQ",
+            "other_url": "https://cdn4.fireworktv.com/medias/2025/9/28/1759048654-ozkutjqb/watermarked/720/2e055b17-4b0b-4621-a7e7-733fe4adbdef.mp4",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo Installation Guide"
+          }
+        },
+        "video_MbUJEf": {
+          "type": "video",
+          "settings": {
+            "video_cover": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo Snow Blower Installation Guide"
+          }
+        },
+        "video_QDA38i": {
+          "type": "video",
+          "settings": {
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo App Setup Tutorial"
+          }
+        },
+        "video_cyw4MU": {
+          "type": "video",
+          "settings": {
+            "media_type": "video_url",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo Docking Installation Guide"
+          }
+        }
+      },
+      "block_order": [
+        "manual_rypPgf",
+        "manual_wyWqmc",
+        "manual_CTxNmL",
+        "video_FWbEaC",
+        "video_MbUJEf",
+        "video_QDA38i",
+        "video_cyw4MU"
+      ],
+      "disabled": true,
+      "name": "Product Manuals",
+      "settings": {
+        "anchor_id": "manuals",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "installation_title": "Setup and Installation",
+        "manuals_title": "MANUALS"
+      }
+    },
+    "sa_product_specifications_REjqRh": {
+      "type": "sa-product-specifications",
+      "name": "Product Specifications",
+      "settings": {
+        "anchor_id": "spec",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "heading": "SPECIFICATIONS"
+      }
+    },
+    "sa_product_single_banner_full_URkWkw": {
+      "type": "sa-product-single-banner-full",
+      "blocks": {
+        "slide_PPw3J9": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458233.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "middle-left",
+            "mobile_bg_color": "#000000",
+            "sub_title": "<p>Yarbo App</p>",
+            "sub_title_color": "#e6e6e6",
+            "title": "<p>Control Your Yard <br/>from Anywhere</p>",
+            "title_color": "#ffffff",
+            "desc": "<p>Manage your yard care tools with ease, <br/>whether you’re at home or on the go. </p>",
+            "desc_color": "#ffffff",
+            "button1_text": "Download on iOS",
+            "button1_link": "https://apps.apple.com/cn/app/yarbo/id6443747952",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Download on Android",
+            "button2_link": "https://play.google.com/store/apps/details?id=com.hanyang.yarbo&pcampaignid",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        },
+        "slide_JzPz3n": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "middle-left",
+            "mobile_bg_color": "#000000",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_PPw3J9",
+        "slide_JzPz3n"
+      ],
+      "name": "Product Single Banner Full",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 16,
+        "pc_aspect_ratio_h": 9,
+        "h5_aspect_ratio_w": 4,
+        "h5_aspect_ratio_h": 3
+      }
+    },
+    "sa_product_img_swiper_with_modal_EFQBEB": {
+      "type": "sa-product-img-swiper-with-modal",
+      "blocks": {
+        "block_Anjw7E": {
+          "type": "Block",
+          "settings": {
+            "title": "<p>CUSTOM SCHEDULES</p>",
+            "desc": "",
+            "text_layout": "bottom",
+            "show_modal": true,
+            "show_modal_media": false,
+            "modal_title": "<p>Snow Clearing. On Your Schedule.</p>",
+            "modal_desc": "<p>Plan yard care easily in the Yarbo app using custom schedules. Set your preferred times and let Yarbo handle snow clearing automatically, helping keep outdoor areas clear with less day-to-day effort.Yarbo is designed to keep scheduled snow clearing on track with auto-recharge. If the battery drops below 20%, it automatically returns to the dock to recharge and resumes snow clearing once it reaches over 80%, helping the task continue without manual intervention.With custom schedules in place across mapped outdoor areas, Yarbo follows your planned snow clearing routine more consistently over time, helping keep driveways, pathways, and entrances clearer and easier to manage.</p>",
+            "modal_media_type": "image",
+            "modal_video_url": "",
+            "modal_other_url": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458234.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_CLFGPH": {
+          "type": "Block",
+          "settings": {
+            "title": "<p>ZONE MAPPING & ALERTS</p>",
+            "desc": "",
+            "text_layout": "bottom",
+            "show_modal": true,
+            "show_modal_media": false,
+            "modal_title": "<p>Manage Multiple Zones with Ease.</p>",
+            "modal_desc": "<p>Easily map your yard in the Yarbo app and divide it into separate mowing zones based on your layout. Whether it is the front yard, backyard, or side yard, Yarbo helps you manage each area more clearly and precisely.Each mapped zone can be handled more independently, making it easier to organize mowing across different parts of your property and stay updated on task progress in the app.With multi-zone mapping in place, Yarbo helps make lawn care more flexible and easier to manage across your entire yard over time.</p>",
+            "modal_media_type": "image",
+            "modal_video_url": "",
+            "modal_other_url": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458235.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_BW3fmA": {
+          "type": "Block",
+          "settings": {
+            "title": "<p>YARD LIVE VIEW</p>",
+            "desc": "",
+            "text_layout": "bottom",
+            "show_modal": true,
+            "show_modal_media": false,
+            "modal_title": "<p>Check In Anytime, Anywhere.</p>",
+            "modal_desc": "<p>Stay connected to your yard with Live Yard View through Smart Vision in the Yarbo app. View real-time footage from your phone and check what’s happening around your property whenever you need. With live access through Smart Vision, you can watch yard conditions, check on ongoing tasks, and see the area around your machine in real time. Whether you are away from home or simply want added reassurance, Live Yard View helps you stay visually connected to your yard, giving you an added layer of awareness.</p>",
+            "modal_media_type": "image",
+            "modal_pc_image": "shopify://shop_images/Frame_2036458231.png",
+            "modal_video_url": "",
+            "modal_other_url": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458227.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "block_Anjw7E",
+        "block_CLFGPH",
+        "block_BW3fmA"
+      ],
+      "name": "Product Img Swiper Modal",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "",
+        "bg_color": "#0d0d0d",
+        "title_color": "#ffffff",
+        "block_title_color": "#ffffff",
+        "block_desc_color": "#e6e6e6",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1,
+        "pc_aspect_ratio_h": 1.2,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1
+      }
+    },
+    "sa_faq_Bmctzz": {
+      "type": "sa-faq",
+      "blocks": {
+        "tab_PQNFbQ": {
+          "type": "tab",
+          "settings": {
+            "label": "Products Features"
+          }
+        },
+        "qa_zpKQwC": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>How do I set up and operate the Yarbo Snow Blower?</p>",
+            "answer": "<p>Setup takes minutes: draw your driveway once in the app, and Yarbo Snow Blower handles every storm automatically. It monitors weather conditions and begins clearing when snowfall starts—no manual activation needed. The system auto-docks at ~20% battery, recharges to ~80% in 90 minutes, and resumes clearing throughout multi-day storms.</p>"
+          }
+        },
+        "qa_ndwRL9": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Can I control the Yarbo Snow Blower manually when needed?</p>",
+            "answer": "<p>Yes. While autonomous operation is the primary mode, you maintain full remote control via smartphone. Adjust throwing distance (6–40 ft), direction (chute rotation -10° to 190°), intake height, and clearing patterns—all from indoors. Switch between scheduled autonomous clearing and manual spot-clearing as needed for custom snow removal.</p>"
+          }
+        },
+        "qa_cjUCd9": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Is the Yarbo Snow Blower suitable for my driveway type?</p>",
+            "answer": "<p>Yarbo Snow Blower adapts to various driveway configurations: large two-car driveways (24-inch clearing width covers wide lanes), gravel driveways (raise intake ~2 inches to skim uneven surfaces), circular driveways (Spiral Mode for efficient coverage), and multi-zone properties (map driveways, paths, and sidewalks separately). Yarbo Snow Blower clears up to 6,000 ft² per charge in 1 inch of snow.</p>"
+          }
+        },
+        "qa_N84fJ9": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>How does the Yarbo Snow Blower perform compared to traditional snow blowers?</p>",
+            "answer": "<p>Yarbo Snow Blower eliminates manual shoveling and operates 24/7 during storms—preventing dangerous buildup that traditional blowers can't match. The 2-stage design handles snow intake up to 12 inches deep, while autonomous operation means you wake up to cleared driveways without lifting a finger. With a 90-minute runtime and 90-minute recharging (20% to 80%), Yarbo Snow Blower enables continuous operation throughout extended storms.</p>"
+          }
+        },
+        "qa_GxTNfN": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>What surfaces can the Yarbo Snow Blower operate on, and how does it handle uneven ground?</p>",
+            "answer": "<p>Yarbo Snow Blower operates on a wide range of surfaces, including paved driveways, concrete walkways, asphalt, and gravel. The rubber track system adapts to surface irregularities, and the linear actuator raises the auger to navigate small steps and surface imperfections up to 2 inches (5 cm)—such as sidewalk cracks, tile gaps, and uneven transitions. For gravel surfaces, simply raise the intake height to skim above loose stones and prevent debris from being thrown. Yarbo Snow Blower handles slopes up to 36% (21°), making it suitable for sloped driveways and tiered properties.</p>"
+          }
+        },
+        "qa_3eiKta": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>How does the Yarbo Snow Blower handle extreme cold and heavy storm conditions?</p>",
+            "answer": "<p>Yarbo Snow Blower is engineered for harsh winter environments with an operating range of -13°F to +140°F (-25°C to +60°C) as standard. For extreme conditions down to -40°C, onboard heating modules protect the battery and drivetrain—keeping Yarbo Snow Blower fully operational even in the most severe winter storms. The 2-stage design with 24-inch clearing width and up to 40-foot throwing distance handles dry, wet, and packed snow types. Rather than waiting for snow to accumulate, Yarbo Snow Blower is designed to begin clearing immediately when snowfall starts—preventing dangerous buildup before it becomes unmanageable.</p>"
+          }
+        },
+        "tab_KpdA9K": {
+          "type": "tab",
+          "settings": {
+            "label": "Support & Care"
+          }
+        },
+        "qa_NtAyVa": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>I'm having trouble with setup—what should I do?</p>",
+            "answer": "<p>Follow the step-by-step guide in the Yarbo App or included user manual. For additional help, visit wiki.yarbo.com, join our Discord Forum, or connect with users in our Official Facebook Group. Reach 24/7 support at 1 (631) 818-1850, email <a href=\"mailto:support@yarbo.com\">support@yarbo.com</a>, or submit a ticket through the Yarbo App.</p>"
+          }
+        },
+        "qa_Fxi3gm": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>What is Yarbo’s return policy?</p>",
+            "answer": "<p>Yarbo offers a <strong>30-day return policy</strong> for eligible products.To qualify for a return:</p><ul><li> The product must be in <strong>original packaging</strong></li><li> All accessories and documentation must be included </li><li> The item must be in <strong>resalable condition</strong></li></ul><p>Return shipping fees and packaging costs may be deducted if applicable.</p>"
+          }
+        },
+        "qa_BzVJqQ": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>What warranty does Yarbo offer?</p>",
+            "answer": "<p>Yarbo products include a <strong>2-year limited warranty</strong>.You can also choose an <strong>optional 3-year extended warranty</strong>, providing up to <strong>5 years of total coverage</strong> (available in select regions).</p>"
+          }
+        },
+        "qa_4JVn4r": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>Can I cancel my order after placing it?</p>",
+            "answer": "<p>Yes—orders can be canceled before shipment.<br/>If the order has already shipped, it will be treated as a return and subject to the return policy.</p>"
+          }
+        },
+        "qa_7xFHi6": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>What if my delivery is delayed?</p>",
+            "answer": "<p>While Yarbo aims for fast delivery, delays may occur due to:</p><ul><li> Weather conditions </li><li> Carrier issues </li><li> High seasonal demand </li></ul><p>Yarbo will keep you updated with tracking and support assistance.</p>"
+          }
+        },
+        "qa_CtmjmK": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>How can I contact Yarbo support?</p>",
+            "answer": "<p>You can reach Yarbo through:</p><ul><li> Email: <strong>support@yarbo.com</strong></li><li> Phone: <strong>+1 (631) 818-1850</strong></li><li> Yarbo App support system </li></ul><p>Support is available <strong>24/7</strong>.</p>"
+          }
+        },
+        "qa_mwpTc8": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>How long does Yarbo shipping take?</p>",
+            "answer": "<p>Yarbo orders typically ship within <strong>3–8 business days</strong> for in-stock products in the United States.<br/> For <strong>pre-order items</strong>, delivery timelines are shown on the product page.For <strong>Canada and Europe</strong>:</p><ul><li> Core & Modules: 3–8 business days </li><li> Accessories: 10–15 business days </li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_PQNFbQ",
+        "qa_zpKQwC",
+        "qa_ndwRL9",
+        "qa_cjUCd9",
+        "qa_N84fJ9",
+        "qa_GxTNfN",
+        "qa_3eiKta",
+        "tab_KpdA9K",
+        "qa_NtAyVa",
+        "qa_Fxi3gm",
+        "qa_BzVJqQ",
+        "qa_4JVn4r",
+        "qa_7xFHi6",
+        "qa_CtmjmK",
+        "qa_mwpTc8"
+      ],
+      "name": "Faq",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": true,
+        "padding_top": 90,
+        "padding_bottom": 50,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Frequently Asked Questions</p>",
+        "see_all_text": "",
+        "see_all_url": "",
+        "enable_tabs": true
+      }
+    },
+    "1776673423f53ec727": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_FecPRj": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_FecPRj"
+      ],
+      "settings": {
+        "anchor_id": "review",
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_product_anchors_rHyDdp",
+    "sa_product_grid_wttMap",
+    "sa_spec_compare_w4TdAR",
+    "sa_compare_bundles_7CK69g",
+    "sa_media_text_vertical_BJXPK3",
+    "sa_product_img_swiper_BkGKzV",
+    "sa_media_text_vertical_TBzxDw",
+    "sa_product_img_text_Tw7hRh",
+    "sa_product_single_banner_rxEKXB",
+    "sa_product_img_swiper_LUiM8z",
+    "sa_img_text_with_label_YEbffm",
+    "sa_product_img_text_38BKMi",
+    "sa_product_feature_media_fdE78f",
+    "sa_product_single_banner_full_whrKyY",
+    "sa_product_single_banner_dctBnh",
+    "sa_product_img_text_blocks_cEgrkf",
+    "sa_product_manual_YxpEM3",
+    "sa_product_specifications_REjqRh",
+    "sa_product_single_banner_full_URkWkw",
+    "sa_product_img_swiper_with_modal_EFQBEB",
+    "sa_faq_Bmctzz",
+    "1776673423f53ec727"
+  ]
+}

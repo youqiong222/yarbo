@@ -1,0 +1,37 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_BrEMKa": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "career_form_KkdP37": {
+      "type": "career-form",
+      "custom_css": [
+        ".flex.items-baseline.justify-center.mobile\\:justify-between {max-width: 75rem; margin: auto;}",
+        "career-form.career-form.form-container {max-width: 75rem; margin: auto; padding-left: 5rem; padding-right: 5rem; padding-top: 2.5rem; padding-bottom: 2.5rem;}",
+        "@media (max-width: 767px) {career-form.career-form.form-container {border-radius: 1.5rem; padding-left: 1.0625rem; padding-right: 1.0625rem; padding-top: 1.6875rem; padding-bottom: 2.625rem; }}"
+      ],
+      "name": "Career 提交表单",
+      "settings": {}
+    }
+  },
+  "order": [
+    "custom_liquid_BrEMKa",
+    "career_form_KkdP37"
+  ]
+}

@@ -1,0 +1,61 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {}
+    },
+    "rich_text_pdMjxH": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_khmDjn": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sorry, We Can't Find What You Need.",
+            "heading_size": "h1"
+          }
+        },
+        "text_AKaEi8": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>These might help you.</strong></p>"
+          }
+        },
+        "text_47JgTE": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li><a href=\"https://www.yarbo.com\" title=\"https://www.yarbo.com\">Yarbo Homepage</a></li><li><a href=\"/collections/mower\" title=\"Mower+\">Robot Lawn Mower</a></li><li><a href=\"/collections/snow-blower\" title=\"Snow Blower+\">Robot Snow Blower</a></li><li><a href=\"/collections/blower\" title=\"Blower+\">Leaf Blower</a></li><li><a href=\"/pages/our-story\" title=\"Our Story\">Our Story</a></li><li><a href=\"/pages/find-a-dealer\" title=\"FIND A DEALER\">Find a Dealer</a></li><li><a href=\"/pages/become-a-dealer\" title=\"BECOME A DEALER NEW\">Become a Dealer</a></li></ul><p><strong>Need Help Regarding Your Order? </strong></p><ul><li><a href=\"/pages/contact-new\" title=\"CONTACT NEW\">Contact Us</a></li><li><a href=\"/pages/legal-shipping-policy\" title=\"Shipping Policy\">Shipping Policy</a></li><li><a href=\"/pages/warranty-policy\" title=\"Yarbo Warranty Policy （2026）\">Warranty Policy</a></li><li><a href=\"/pages/legal-refund-policy\" title=\"Refund & Exchange Policy\">Refund Policy</a></li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_khmDjn",
+        "text_AKaEi8",
+        "text_47JgTE"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_pdMjxH"
+  ]
+}

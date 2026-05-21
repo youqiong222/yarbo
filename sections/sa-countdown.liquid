@@ -1,0 +1,811 @@
+{% render 'yb-section-style', section: section %}
+<style>
+  .yb-countdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .yb-countdown-title-left-img-box,
+  .yb-countdown-title-right-img-box {
+    width: 100px;
+    height: 100px;
+  }
+
+  .yb-countdown-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .yb-countdown-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .yb-countdown-header-text {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .yb-countdown-header-text .yb-countdown-header-text-title {
+    max-width: 1000px;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .yb-countdown-header-text .yb-countdown-header-text-content {
+    max-width: 1000px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.4;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .yb-countdown-content {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .yb-countdown-content .countdown-item {
+    background-color: #000;
+    color: #fff;
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .yb-countdown-content .countdown-separator {
+    font-size: 32px;
+    margin-bottom: 62px;
+    font-weight: bold;
+    color: #000;
+    line-height: 1.2;
+  }
+
+  .yb-countdown-content .countdown-label {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 18px;
+    color: #000;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  .yb-countdown-content .countdown-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .yb-countdown-container-layout-2 {
+    display: flex;
+    justify-content: center;
+    min-height: 140px;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .yb-countdown-container-layout-2 .yb-countdown-header-content-split {
+    width: 1px;
+    height: 140px;
+    opacity: 0.3;
+    background: #909090;
+  }
+
+  .yb-countdown-container-layout-2 .yb-countdown-content {
+    margin-top: 0;
+  }
+
+  .yb-countdown-container-layout-2 .yb-countdown-header-text .yb-countdown-header-text-title {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 120%;
+    letter-spacing: 0px;
+  }
+
+  .yb-countdown-content-left-img-box,
+  .yb-countdown-content-right-img-box {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 42px;
+  }
+
+  .yb-countdown-content-left-img-box {
+    margin-right: 12px;
+  }
+  .yb-countdown-content-right-img-box {
+    margin-left: 12px;
+  }
+
+  /* 375-679px */
+  @media (max-width: 679px) {
+    .yb-countdown-header {
+      gap: 5px;
+    }
+    .yb-countdown-title-left-img-box,
+    .yb-countdown-title-right-img-box {
+      width: 50px;
+      height: 50px;
+    }
+    .yb-countdown-content-left-img-box,
+    .yb-countdown-content-right-img-box {
+      width: 32px;
+      height: 32px;
+    }
+    .yb-countdown-header-text .yb-countdown-header-text-title {
+      max-width: 327px;
+      font-size: 24px;
+    }
+    .yb-countdown-header-text .yb-countdown-header-text-content {
+      max-width: 327px;
+      font-size: 16px;
+      margin-top: 12px;
+    }
+    .yb-countdown-content {
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .yb-countdown-content .countdown-item {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      font-size: 24px;
+    }
+    .yb-countdown-content .countdown-separator {
+      font-size: 24px;
+      margin-bottom: 37px;
+    }
+    .yb-countdown-content .countdown-label {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .yb-countdown-container-layout-2 {
+      flex-flow: column;
+      gap: 24px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-header-content-split {
+      display: none;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-header-text .yb-countdown-header-text-title {
+      font-size: 24px;
+    }
+    .yb-countdown-content-left-img-box,
+    .yb-countdown-content-right-img-box {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 44px;
+    }
+    .yb-countdown-content-left-img-box {
+      margin-right: -4px;
+    }
+    .yb-countdown-content-right-img-box {
+      margin-left: -4px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-content .countdown-item {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      font-size: 24px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-content .countdown-label {
+      font-size: 14px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-content .countdown-separator {
+      font-size: 24px;
+      margin-bottom: 37px;
+    }
+  }
+
+  /* 680-959px */
+  @media (min-width: 680px) and (max-width: 959px) {
+    .yb-countdown-header-text .yb-countdown-header-text-title {
+      max-width: 600px;
+      font-size: 32px;
+    }
+    .yb-countdown-header-text .yb-countdown-header-text-content {
+      max-width: 600px;
+      font-size: 20px;
+      margin-top: 16px;
+    }
+    .yb-countdown-content {
+      margin-top: 48px;
+    }
+    .yb-countdown-content .countdown-separator {
+      font-size: 32px;
+      margin-bottom: 62px;
+    }
+    .yb-countdown-content .countdown-label {
+      margin-top: 16px;
+      font-size: 18px;
+    }
+
+    .yb-countdown-container-layout-2 {
+      flex-flow: column;
+      gap: 32px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-header-content-split {
+      display: none;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-header-text .yb-countdown-header-text-title {
+      font-size: 24px;
+    }
+    .yb-countdown-content-left-img-box,
+    .yb-countdown-content-right-img-box {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 36px;
+    }
+    .yb-countdown-content-left-img-box {
+      margin-right: 4px;
+    }
+    .yb-countdown-content-right-img-box {
+      margin-left: 4px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-content .countdown-item {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      font-size: 32px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-content .countdown-label {
+      font-size: 14px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-content .countdown-separator {
+      font-size: 24px;
+      margin-bottom: 53px;
+    }
+  }
+
+  /* 960-1439px */
+  @media (min-width: 960px) and (max-width: 1439px) {
+    .yb-countdown-title-left-img-box,
+    .yb-countdown-title-right-img-box {
+      width: 64px;
+      height: 64px;
+    }
+    .yb-countdown-header-text .yb-countdown-header-text-title {
+      max-width: 728px;
+      font-size: 28px;
+    }
+    .yb-countdown-header-text .yb-countdown-header-text-content {
+      max-width: 728px;
+      font-size: 18px;
+      margin-top: 16px;
+    }
+    .yb-countdown-content .countdown-item {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      font-size: 32px;
+    }
+    .yb-countdown-content .countdown-separator {
+      font-size: 24px;
+      margin-bottom: 53px;
+    }
+    .yb-countdown-content .countdown-label {
+      margin-top: 16px;
+      font-size: 14px;
+    }
+    .yb-countdown-container-layout-2 {
+      min-height: 108px;
+      gap: 56px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-header-content-split {
+      height: 108px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-header-text .yb-countdown-header-text-title {
+      font-size: 24px;
+    }
+    .yb-countdown-content-left-img-box,
+    .yb-countdown-content-right-img-box {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 36px;
+    }
+    .yb-countdown-content-left-img-box {
+      margin-right: 4px;
+    }
+    .yb-countdown-content-right-img-box {
+      margin-left: 4px;
+    }
+  }
+
+  /* 1440-1919px */
+  @media (min-width: 1440px) and (max-width: 1919px) {
+    .yb-countdown-title-left-img-box,
+    .yb-countdown-title-right-img-box {
+      width: 80px;
+      height: 80px;
+    }
+    .yb-countdown-header-text .yb-countdown-header-text-title {
+      max-width: 924px;
+      font-size: 36px;
+    }
+    .yb-countdown-header-text .yb-countdown-header-text-content {
+      max-width: 924px;
+      font-size: 20px;
+      margin-top: 24px;
+    }
+
+    .yb-countdown-container-layout-2 {
+      min-height: 140px;
+      gap: 64px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-header-content-split {
+      height: 140px;
+    }
+    .yb-countdown-container-layout-2 .yb-countdown-header-text .yb-countdown-header-text-title {
+      font-size: 24px;
+    }
+    .yb-countdown-content-left-img-box,
+    .yb-countdown-content-right-img-box {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 41px;
+    }
+    .yb-countdown-content-left-img-box {
+      margin-right: 12px;
+    }
+    .yb-countdown-content-right-img-box {
+      margin-left: 12px;
+    }
+  }
+</style>
+
+<div class='yb-countdown-container {% if section.settings.section_layout == '2' %}yb-countdown-container-layout-2{% endif %}'>
+  <div class='yb-countdown-header'>
+    {% if section.settings.left_img != blank and section.settings.section_layout == '1' %}
+      <div class='yb-countdown-title-left-img-box'>
+        {% if section.settings.left_img %}
+          <img
+            src='{{ section.settings.left_img | image_url: width: 150 }}'
+            alt='Left Image'
+            loading='lazy'
+            width='auto'
+            height='auto'
+          >
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class='yb-countdown-header-text'>
+      <div class='yb-countdown-header-text-title'>
+        {{ section.settings.title }}
+      </div>
+      {% if section.settings.section_layout == '1' %}
+        <div class='yb-countdown-header-text-content'>
+          {{ section.settings.content }}
+        </div>
+      {% elsif section.settings.section_layout == '2' and section.settings.content != blank %}
+        <div class='yb-countdown-header-text-content'>
+          {{ section.settings.content }}
+        </div>
+      {% endif %}
+    </div>
+    {% if section.settings.right_img != blank and section.settings.section_layout == '1' %}
+      <div class='yb-countdown-title-right-img-box'>
+        {% if section.settings.right_img %}
+          <img
+            src='{{ section.settings.right_img | image_url: width: 150 }}'
+            alt='Right Image'
+            loading='lazy'
+            width='auto'
+            height='auto'
+          >
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+  {% if section.settings.section_layout == '2' %}
+    <div class='yb-countdown-header-content-split'></div>
+  {% endif %}
+  <div
+    class='yb-countdown-content'
+    data-year='{{ section.settings.year }}'
+    data-time='{{ section.settings.time }}'
+    data-date='{{ section.settings.date }}'
+    data-timezone='{{ section.settings.timezone }}'
+  >
+    {% if section.settings.left_img != blank and section.settings.section_layout == '2' %}
+      <div class='yb-countdown-content-left-img-box'>
+        {% if section.settings.left_img %}
+          <img
+            src='{{ section.settings.left_img | image_url: width: 200 }}'
+            alt='Left Image'
+            loading='lazy'
+            width='auto'
+            height='auto'
+          >
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class='countdown-group'>
+      <div
+        class='countdown-item countdown-item-days'
+        style='color: {{ section.settings.time_color }}; background-color: {{ section.settings.card_color }};'
+      >
+        03
+      </div>
+      <div
+        class='countdown-label'
+        style='color: {{ section.settings.card_title_color }};'
+      >
+        Days
+      </div>
+    </div>
+    <div
+      class='countdown-separator'
+      style='color: {{ section.settings.card_title_color }};'
+    >
+      :
+    </div>
+    <div class='countdown-group'>
+      <div
+        class='countdown-item countdown-item-hours'
+        style='color: {{ section.settings.time_color }}; background-color: {{ section.settings.card_color }};'
+      >
+        03
+      </div>
+      <div
+        class='countdown-label'
+        style='color: {{ section.settings.card_title_color }};'
+      >
+        Hours
+      </div>
+    </div>
+    <div
+      class='countdown-separator'
+      style='color: {{ section.settings.card_title_color }};'
+    >
+      :
+    </div>
+    <div class='countdown-group'>
+      <div
+        class='countdown-item countdown-item-minutes'
+        style='color: {{ section.settings.time_color }}; background-color: {{ section.settings.card_color }};'
+      >
+        03
+      </div>
+      <div
+        class='countdown-label'
+        style='color: {{ section.settings.card_title_color }};'
+      >
+        Minutes
+      </div>
+    </div>
+    <div
+      class='countdown-separator'
+      style='color: {{ section.settings.card_title_color }};'
+    >
+      :
+    </div>
+    <div class='countdown-group'>
+      <div
+        class='countdown-item countdown-item-second'
+        style='color: {{ section.settings.time_color }}; background-color: {{ section.settings.card_color }};'
+      >
+        03
+      </div>
+      <div
+        class='countdown-label'
+        style='color: {{ section.settings.card_title_color }};'
+      >
+        Seconds
+      </div>
+    </div>
+    {% if section.settings.right_img != blank and section.settings.section_layout == '2' %}
+      <div class='yb-countdown-content-right-img-box'>
+        {% if section.settings.right_img %}
+          <img
+            src='{{ section.settings.right_img | image_url: width: 200 }}'
+            alt='Right Image'
+            loading='lazy'
+            width='auto'
+            height='auto'
+          >
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  (() => {
+    const ybCountdownContainers = document.querySelectorAll('.yb-countdown-container');
+    ybCountdownContainers.forEach((container) => {
+      initYbCountdownTime(container);
+    });
+  })();
+
+  async function initYbCountdownTime(container) {
+    const ybCountdownContent = container.querySelector('.yb-countdown-content');
+    const year = ybCountdownContent.dataset.year;
+    const time = ybCountdownContent.dataset.time;
+    const date = ybCountdownContent.dataset.date;
+    const timezone = ybCountdownContent.dataset.timezone;
+
+    const dateStr = `${year}-${date.replace('.', '-')}`;
+    const timeStr = time.replace(/(\d{2}):(\d{2})(AM|PM)/, (match, h, m, meridiem) => {
+      let hour = parseInt(h);
+      if (meridiem === 'PM' && hour !== 12) hour += 12;
+      if (meridiem === 'AM' && hour === 12) hour = 0;
+      return `${hour.toString().padStart(2, '0')}:${m}`;
+    });
+
+    const eventDate = new Date(`${dateStr} ${timeStr}`);
+
+    // 获取本地时区偏移（包含夏令时）
+    const localOffset = new Date().getTimezoneOffset();
+
+    // 计算目标时区偏移
+    const targetOffset = (() => {
+      const match = timezone.match(/^GMT([+-])(\d+)$/);
+      if (!match) return 0;
+      const [_, sign, hours] = match;
+      let offset = sign === '+' ? parseInt(hours) * 60 * -1 : parseInt(hours) * 60;
+
+      // 检查是否为美国时区
+      const isUSTimezone = timezone.match(/^GMT[-](?:4|5|6|7|8|9|10)$/);
+      if (isUSTimezone) {
+        // 如果是美国时区，检查夏令时
+        const targetDate = new Date(eventDate);
+        const dstStart = new Date(targetDate.getFullYear(), 2, 14 - ((targetDate.getDay() + 6) % 7)); // 3月第二个周日
+        const dstEnd = new Date(targetDate.getFullYear(), 10, 7 - ((targetDate.getDay() + 6) % 7)); // 11月第一个周日
+        dstStart.setHours(2, 0, 0, 0);
+        dstEnd.setHours(2, 0, 0, 0);
+        const isDST = targetDate >= dstStart && targetDate < dstEnd;
+        // 如果目标时区处于夏令时，额外调整一小时
+        offset -= isDST ? 60 : 0;
+      }
+
+      return offset;
+    })();
+
+    // 计算时区差并调整事件时间
+    const offsetDiff = targetOffset - localOffset;
+    eventDate.setMinutes(eventDate.getMinutes() + offsetDiff);
+
+    const daysElement = ybCountdownContent.querySelector('.countdown-item-days');
+    const hoursElement = ybCountdownContent.querySelector('.countdown-item-hours');
+    const minutesElement = ybCountdownContent.querySelector('.countdown-item-minutes');
+    const secondElement = ybCountdownContent.querySelector('.countdown-item-second');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        daysElement.textContent = '00';
+        hoursElement.textContent = '00';
+        minutesElement.textContent = '00';
+        secondElement.textContent = '00';
+        clearInterval(updateCountdown);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      daysElement.textContent = String(days).padStart(2, '0');
+      hoursElement.textContent = String(hours).padStart(2, '0');
+      minutesElement.textContent = String(minutes).padStart(2, '0');
+      secondElement.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+</script>
+{% schema %}
+{
+  "name": "倒计时",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Section Title"
+    },
+    {
+      "id": "left_img",
+      "type": "image_picker",
+      "label": "左侧图片"
+    },
+    {
+      "id": "right_img",
+      "type": "image_picker",
+      "label": "右侧图片"
+    },
+    {
+      "id": "content",
+      "type": "richtext",
+      "label": "内容"
+    },
+    {
+      "type": "text",
+      "id": "year",
+      "label": "年份",
+      "info": "格式为: 2025",
+      "default": "2025"
+    },
+    {
+      "type": "select",
+      "id": "section_layout",
+      "label": "布局",
+      "options": [
+        {
+          "value": "1",
+          "label": "布局 1"
+        },
+        {
+          "value": "2",
+          "label": "布局 2"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "text",
+      "id": "date",
+      "label": "日期",
+      "info": "格式为: 05.15",
+      "default": "05.15"
+    },
+    {
+      "type": "text",
+      "id": "time",
+      "label": "时间",
+      "info": "格式为: 02:00PM",
+      "default": "02:00PM"
+    },
+    {
+      "type": "text",
+      "id": "timezone",
+      "label": "时区",
+      "info": "格式为: GMT-6",
+      "default": "GMT-6"
+    },
+    {
+      "type": "color",
+      "id": "time_color",
+      "label": "时间颜色",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "时间卡片颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "时间标题颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景颜色",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1920",
+      "label": "1920顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 1,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1920",
+      "label": "1920底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 1,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1440",
+      "label": "1440顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1440",
+      "label": "1440底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_960",
+      "label": "960顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_960",
+      "label": "960底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 1,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_680",
+      "label": "680顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 1,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_680",
+      "label": "680底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_375",
+      "label": "375顶部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_375",
+      "label": "375底部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "yb countdown",
+      "settings": {
+        "title": "Spring Sale Ends in:"
+      }
+    }
+  ]
+}
+{% endschema %}

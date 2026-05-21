@@ -1,0 +1,49 @@
+<div class='bg-[#FCFCFC]'>
+  <div class='border-b border-[#CCCCCC] py-56 md:py-80'>
+    <div class='mx-auto max-w-876 px-16 md:px-40'>
+      <h1 class='text-[36px] leading-none uppercase md:text-[52px]'>
+        {{ page.title }}
+      </h1>
+    </div>
+  </div>
+  <div
+    class='
+      py-32
+      md:py-60
+      [&_:is(p,em,ul,ol)]:text-[14px]
+      [&_:is(p,em,ul,ol)]:leading-[1.3]
+      [&_:is(p,em,ul,ol)]:text-[#515355] md:[&_:is(p,em,ul,ol)]:text-[15px]
+      [&_:is(table,th,td)]:border [&_:is(table,th,td)]:border-[#ccc] [&_:is(th,td)]:p-6
+      [&_:is(ul,ol)]:mt-16
+      [&_:is(ul,ol)]:pl-18
+      [&_a]:font-medium [&_a]:underline [&_a]:decoration-[#25282A] [&_a]:decoration-2 [&_a]:underline-offset-4 [&_div]:mt-8
+      [&_div]:mb-12 [&_em]:not-italic
+      [&_h3]:my-16
+      [&_h3]:mt-30
+      [&_h3]:text-[20px] [&_h3]:leading-[1.1] md:[&_h3]:mt-60 [&_h4]:my-16
+      [&_h4]:text-[14px]
+      [&_h4]:leading-[1.1]
+      md:[&_h4]:text-[15px]
+      [&_li]:list-disc
+      [&_p]:mt-16 [&_p]:has-[em]:m-0 [&_table]:mt-24 [&_table]:border-collapse
+    '
+  >
+    <div class='mx-auto max-w-876 px-16 md:px-40'>
+      <div>{{ page.content }}</div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Common Policy",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Common Policy",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

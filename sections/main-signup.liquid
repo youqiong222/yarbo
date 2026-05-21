@@ -1,0 +1,969 @@
+<script src='{{ 'jsencrypt.min.js' | asset_url }}'></script>
+{{ 'yb-base.css' | asset_url | stylesheet_tag }}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.20/babel.min.js'></script>
+{% comment %}
+  <link
+    href='https://cdnjs.cloudflare.com/ajax/libs/antd/4.24.14/antd.min.css'
+    rel='stylesheet'
+  >
+{% endcomment %}
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/antd-scoped.css?v=1776135340'
+  rel='stylesheet'
+>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/antd/5.11.1/antd.min.js'></script>
+<style>
+  :root {
+    font-size: 16px;
+  }
+  .main-signup {
+    max-width: 800px;
+    margin: 0 16px;
+  }
+  .main-signup button {
+    border: 0;
+  }
+  .main-signup input::placeholder {
+    font-size: 14px !important;
+  }
+  .ant-form-item-control-input {
+    flex-wrap: wrap;
+  }
+  .cart-drawer__overlay:empty {
+    display: none !important;
+  }
+  span.ant-checkbox-inner {
+    display: none !important;
+  }
+  .main-signup .h-10 {
+    height: 32px;
+  }
+  .ant-form-item {
+    margin: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .ant-input-outlined,
+  .ant-input {
+    border-radius: 6px;
+  }
+
+  .ant-checkbox {
+    top: 0;
+  }
+
+  .ant-checkbox-wrapper a:hover {
+    color: #69b1ff !important;
+  }
+
+  .login-link {
+    color: #0578ff !important;
+  }
+
+  .login-link:hover {
+    color: #69b1ff !important;
+  }
+
+  .ant-checkbox-wrapper-in-form-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .ant-checkbox + span {
+    padding-right: 8px;
+    padding-left: 10px;
+    font-weight: 400;
+  }
+
+  .ant-input-suffix {
+    font-weight: 400;
+  }
+
+  .ant-btn-submit {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    height: 3rem;
+    padding: 4px 15px;
+    border-radius: 6px;
+    color: #fff;
+    background: #1677ff;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+  }
+
+  .ant-btn-submit:hover {
+    color: #fff;
+    background: #4096ff;
+  }
+  .main-signup .text-sm {
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .ant-col {
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+
+  .ant-notification-notice.ant-notification-notice-info.css-10ed4xt.ant-notification-notice-closable {
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    border-radius: 6px !important;
+    margin: 0 !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: 100%;
+  }
+  .ant-notification-notice.ant-notification-notice-success.css-10ed4xt.ant-notification-notice-closable {
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    border-radius: 6px !important;
+    margin: 0 !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: 100%;
+  }
+  .ant-notification-notice.ant-notification-notice-error.css-10ed4xt.ant-notification-notice-closable {
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    border-radius: 6px !important;
+    margin: 0 !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: 100%;
+  }
+
+  span.anticon.anticon-info-circle.ant-notification-notice-icon.ant-notification-notice-icon-info {
+    font-size: 20px !important;
+  }
+
+  .ant-notification-notice-message {
+    font-size: 14px !important;
+    margin-bottom: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 30px !important;
+  }
+
+  .ant-notification-notice-icon {
+    font-size: 16px !important;
+    align-self: anchor-center !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ant-notification-notice.ant-notification-notice-info.css-10ed4xt.ant-notification-notice-closable {
+      width: 384px !important;
+    }
+    .ant-notification-notice.ant-notification-notice-success.css-10ed4xt.ant-notification-notice-closable {
+      width: 384px !important;
+    }
+    .ant-notification-notice.ant-notification-notice-error.css-10ed4xt.ant-notification-notice-closable {
+      width: 384px !important;
+    }
+  }
+</style>
+<div
+  class='relative flex h-screen items-center justify-center bg-[#F5F5F5]'
+>
+  <div class='main-signup h-fit overflow-hidden rounded-2xl bg-white p-10'>
+    <div class='relative mb-4 h-10 w-10 overflow-hidden rounded-full'>
+      <img
+        alt=''
+        width='auto'
+        height='auto'
+        loading='lazy'
+        decoding=''
+        data-nimg='fill'
+        sizes='100vw'
+        srcset='
+          https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/cd8dc007-62fb-4c68-5caa-f8b200c25d00/q=100,w=640,q=75   640w,
+          https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/cd8dc007-62fb-4c68-5caa-f8b200c25d00/q=100,w=750,q=75   750w,
+          https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/cd8dc007-62fb-4c68-5caa-f8b200c25d00/q=100,w=828,q=75   828w,
+          https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/cd8dc007-62fb-4c68-5caa-f8b200c25d00/q=100,w=1080,q=75 1080w,
+          https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/cd8dc007-62fb-4c68-5caa-f8b200c25d00/q=100,w=1200,q=75 1200w,
+          https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/cd8dc007-62fb-4c68-5caa-f8b200c25d00/q=100,w=1920,q=75 1920w,
+          https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/cd8dc007-62fb-4c68-5caa-f8b200c25d00/q=100,w=2048,q=75 2048w,
+          https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/cd8dc007-62fb-4c68-5caa-f8b200c25d00/q=100,w=3840,q=75 3840w
+        '
+        src='https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/cd8dc007-62fb-4c68-5caa-f8b200c25d00/q=100,w=3840,q=75'
+        style='
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          inset: 0px;
+          color: transparent;
+        '
+      >
+    </div>
+    <div class='mb-6 text-2xl font-bold'>Create Yarbo Account</div>
+    <form
+      id='signup'
+      class='ant-form ant-form-vertical ant-form-hide-required-mark'
+      style='max-width: 600px'
+      data-gtm-vis-recent-on-screen164900126_524='1007'
+      data-gtm-vis-first-on-screen164900126_524='1007'
+      data-gtm-vis-total-visible-time164900126_524='100'
+      data-goc-registerlistener-added='true'
+      data-gtm-vis-has-fired164900126_524='1'
+    >
+      <div class='ant-form-item'>
+        <div class='ant-row ant-form-item-row'>
+          <div class='ant-col ant-form-item-label ant-col-xs-24'>
+            <label
+              for='reset_email'
+              class='ant-form-item-required'
+              title=''
+            >
+              <span class='font-semibold'>Email Address</span>
+            </label>
+          </div>
+          <div class='ant-col ant-form-item-control ant-col-xs-24'>
+            <div class='ant-form-item-control-input'>
+              <div class='ant-form-item-control-input-content'>
+                <input
+                  id='reset_email'
+                  aria-required='true'
+                  class='ant-input ant-input-outlined h-10'
+                  type='text'
+                  value=''
+                  aria-describedby='reset_email_help'
+                  aria-invalid='true'
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='ant-form-item'>
+        <div class='ant-row ant-form-item-row'>
+          <div class='ant-col ant-form-item-label ant-col-xs-24'>
+            <label
+              for='signup_code'
+              class='ant-form-item-required'
+              title=''
+            >
+              <span class='font-semibold'>Email Verification Code</span>
+            </label>
+          </div>
+          <div class='ant-col ant-form-item-control ant-col-xs-24'>
+            <div class='ant-form-item-control-input'>
+              <div class='ant-form-item-control-input-content'>
+                <span
+                  class='ant-input-affix-wrapper ant-input-outlined h-10'
+                >
+                  <input
+                    id='signup_code'
+                    aria-required='true'
+                    class='ant-input'
+                    type='text'
+                    value=''
+                  >
+                  <span class='ant-input-suffix'>
+                    <button
+                      class='rounded-full bg-[#FFD700] px-3 py-1 text-sm text-black'
+                      id='CodeButton'
+                    >
+                      <span>Send Code</span>
+                    </button>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='ant-form-item'>
+        <div class='ant-row ant-form-item-row'>
+          <div class='ant-col ant-form-item-label ant-col-xs-24'>
+            <label
+              for='signup_password'
+              class='ant-form-item-required'
+            >
+              <span class='font-semibold'>Password</span>
+            </label>
+          </div>
+          <div class='ant-col ant-form-item-control ant-col-xs-24'>
+            <div class='ant-form-item-control-input'>
+              <div class='ant-form-item-control-input-content'>
+                <span
+                  class='ant-input-affix-wrapper ant-input-outlined ant-input-password h-10'
+                >
+                  <input
+                    id='signup_password'
+                    aria-required='true'
+                    class='ant-input'
+                    type='password'
+                    autocomplete='current-password'
+                    aria-describedby='signup_password_help'
+                  >
+                  <span
+                    class='ant-input-suffix'
+                    style='cursor: pointer'
+                    onclick="togglePasswordVisibility('signup_password', this)"
+                  >
+                    <span
+                      role='img'
+                      aria-label='eye-invisible'
+                      class='anticon anticon-eye-invisible ant-input-password-icon'
+                    >
+                      <svg
+                        viewBox='64 64 896 896'
+                        focusable='false'
+                        data-icon='eye-invisible'
+                        width='1em'
+                        height='1em'
+                        fill='currentColor'
+                        aria-hidden='true'
+                      >
+                        <path
+                            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+                        ></path>
+                        <path
+                            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+                        ></path>
+                      </svg>
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='ant-form-item'>
+        <div class='ant-row ant-form-item-row'>
+          <div class='ant-col ant-form-item-label ant-col-xs-24'>
+            <label
+              for='signup_confirm'
+              class='ant-form-item-required'
+            >
+              <span class='font-semibold'>Confirm Password</span>
+            </label>
+          </div>
+          <div class='ant-col ant-form-item-control ant-col-xs-24'>
+            <div class='ant-form-item-control-input'>
+              <div class='ant-form-item-control-input-content'>
+                <span
+                  class='ant-input-affix-wrapper ant-input-outlined ant-input-password h-10'
+                >
+                  <input
+                    id='signup_confirm'
+                    aria-required='true'
+                    class='ant-input'
+                    type='password'
+                    autocomplete='current-password'
+                  >
+                  <span
+                    class='ant-input-suffix'
+                    style='cursor: pointer'
+                    onclick="togglePasswordVisibility('signup_confirm', this)"
+                  >
+                    <span
+                      role='img'
+                      aria-label='eye-invisible'
+                      class='anticon anticon-eye-invisible ant-input-password-icon'
+                    >
+                      <svg
+                        viewBox='64 64 896 896'
+                        focusable='false'
+                        data-icon='eye-invisible'
+                        width='1em'
+                        height='1em'
+                        fill='currentColor'
+                        aria-hidden='true'
+                      >
+                        <path
+                            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+                        ></path>
+                        <path
+                            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+                        ></path>
+                      </svg>
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='ant-form-item'>
+        <div class='ant-row ant-form-item-row'>
+          <div class='ant-col ant-form-item-label ant-col-xs-24'>
+            <label
+              for='signup_referral'
+              class='ant-form-item-required'
+            >
+              <span class='font-semibold'>Referral Code (Optional)</span>
+            </label>
+          </div>
+          <div class='ant-col ant-form-item-control ant-col-xs-24'>
+            <div class='ant-form-item-control-input'>
+              <div class='ant-form-item-control-input-content'>
+                <input
+                  id='signup_referral'
+                  class='ant-input ant-input-outlined h-10'
+                  type='text'
+                  placeholder='Enter referral code if you have one'
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='ant-form-item'>
+        <div class='ant-row ant-form-item-row'>
+          <div class='ant-col ant-form-item-control ant-col-xs-24'>
+            <div class='ant-form-item-control-input'>
+              <div class='ant-form-item-control-input-content'>
+                <label
+                  class='ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item'
+                >
+                  <span class='ant-checkbox ant-wave-target'>
+                    <input
+                      id='signup_agreement'
+                      class=''
+                      type='checkbox'
+                      data-gtm-form-interact-field-id='0'
+                      aria-describedby='signup_agreement_help'
+                      aria-invalid='true'
+                    >
+                    <span class='ant-checkbox-inner'></span>
+                  </span>
+                  <span>
+                    <span class='text-[#666]'>
+                      I agree to comply with the yarbo
+                      <a
+                        target='_blank'
+                        class='text-black'
+                        href='{{ section.settings.privacy_policy_url | default: '/legal/privacy-policy' }}'
+                      >
+                        Privacy Policy
+                      </a>
+                      and
+                      <a
+                        target='_blank'
+                        class='text-black'
+                        href='{{ section.settings.terms_of_service_url | default: '/legal/terms-of-service' }}'
+                      >
+                        Terms of Use
+                      </a>
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class='ant-form-item-margin-offset'
+          ></div>
+        </div>
+      </div>
+      <div
+        class='ant-form-item'
+        style='margin-bottom: 24px'
+      >
+        <div class='ant-row ant-form-item-row'>
+          <div class='ant-col ant-form-item-control ant-col-xs-24'>
+            <div class='ant-form-item-control-input'>
+              <div class='ant-form-item-control-input-content'>
+                <button
+                  id='signup_submit'
+                  type='submit'
+                  class='ant-btn ant-btn-primary ant-btn-submit h-12 text-base'
+                  style='width: 100%'
+                >
+                  <span>Submit</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class='flex flex-row justify-center text-sm'>
+      <span class='text-[#666]'>Already have an account?</span>
+      <a
+        href='{{ routes.account_login_url }}'
+        class='login-link cursor-pointer text-[#0578ff] hover:text-[#69b1ff]'
+      >
+        &nbsp;Log In Now
+      </a>
+    </div>
+  </div>
+</div>
+<script type='text/babel'>
+  /* ---------------- 公钥 ---------------- */
+  const PUBLIC_KEY = `
+    -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArKL/bit2fQBoTZiaEKWY
+    HyXtkK5inpQxPrDHQ7KYHBwtBbdZ0aqkxdSdt22PZKzs8mN0IUw2PpyRZWmI2RzB
+    t/DLtS7/fmjlznd4pIIS5IURk9pnPgC797Q4v/d0OvDZhSdEK9DJVuGyfE6Tpjf4
+    rhef/hNg0ANXZ6PW5uztrHenmyKYfRvkstfXYH6OBcxMtUgONJG3yWFdPCGAjpuj
+    1x1K0AfA2cRLe/Q/eD3rrpLWSyuElVlAxcVh/7+i5VJUxc7a8U9cHhgeGXsxw0bd
+    /hJyWVwSjFR8lOBwulEzluOteXdK5ylJ72fUiP57Ky6qanQ+D7dKidIPtrDNurio
+    4QIDAQAB
+    -----END PUBLIC KEY-----
+    `;
+
+  /** RSA 加密 */
+  function rsaEncrypt(str) {
+    const encryptor = new JSEncrypt();
+    encryptor.setPublicKey(PUBLIC_KEY);
+    return encryptor.encrypt(str);
+  }
+
+  const notification = antd.notification;
+
+  function togglePasswordVisibility(inputId, iconElement) {
+    const passwordInput = document.getElementById(inputId);
+    const isPassword = passwordInput.getAttribute('type') === 'password';
+    passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+    const iconContainer = iconElement.querySelector('span');
+    if (isPassword) {
+      iconContainer.setAttribute('aria-label', 'eye');
+      iconContainer.innerHTML = `
+            <svg viewBox="64 64 896 896" focusable="false" data-icon="eye" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                <path d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path>
+            </svg>`;
+    } else {
+      iconContainer.setAttribute('aria-label', 'eye-invisible');
+      iconContainer.innerHTML = `
+            <svg viewBox="64 64 896 896" focusable="false" data-icon="eye-invisible" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                <path d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"></path>
+            </svg>`;
+    }
+  }
+
+  const DOM = {
+    emailInput: document.getElementById('reset_email'),
+    codeInput: document.getElementById('signup_code'),
+    passwordInput: document.getElementById('signup_password'),
+    confirmPasswordInput: document.getElementById('signup_confirm'),
+    referralInput: document.getElementById('signup_referral'),
+    submitButton: document.getElementById('signup_submit'),
+    sendCodeButton: document.getElementById('CodeButton'),
+    checkbox: document.getElementById('signup_agreement'),
+    agreementContainer: document.querySelector('.ant-form-item'),
+    agreementHelp: document.getElementById('signup_agreement_help'),
+  };
+
+  const REGEX = {
+    email:
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,22}$/,
+  };
+
+  const API = {
+    sendCode: 'https://4zx17x5q7l.execute-api.us-east-1.amazonaws.com/Stage/yarbo/message-service/msg/mail/captcha',
+    register: 'https://4zx17x5q7l.execute-api.us-east-1.amazonaws.com/Stage/yarbo/commonUser/register',
+  };
+
+  let state = {
+    isCodeValid: false,
+    isEmailValid: false,
+    isPasswordValid: false,
+    isConfirmValid: false,
+    isAgreementChecked: false,
+  };
+
+  const debounceInput = (fn, delay = 300) => {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn(...args), delay);
+    };
+  };
+
+  const showError = (element, message) => {
+    // Add error class to the form item
+    const formItem = element.closest('.ant-form-item');
+    if (formItem) {
+      formItem.classList.add('ant-form-item-has-error');
+    }
+
+    // Add error class to input wrapper if it exists
+    const inputWrapper = element.closest('.ant-input-affix-wrapper');
+    if (inputWrapper) {
+      inputWrapper.classList.add('ant-input-affix-wrapper-status-error');
+    } else if (element.classList.contains('ant-input')) {
+      // Add error class directly to input if it's not in a wrapper
+      element.classList.add('ant-input-status-error');
+    }
+
+    // Get the form item row element
+    const formItemRow = element.closest('.ant-form-item-row');
+    if (formItemRow) {
+      // Check if error element already exists
+      let errorElement = formItemRow.nextElementSibling;
+      if (!errorElement || !errorElement.classList.contains('ant-form-item-explain-error')) {
+        // Create error element if it doesn't exist
+        errorElement = document.createElement('div');
+        errorElement.className = 'ant-form-item-explain ant-form-item-explain-error';
+        formItemRow.parentNode.insertBefore(errorElement, formItemRow.nextSibling);
+      }
+
+      // Set error message
+      errorElement.textContent = message;
+      errorElement.style.display = 'flex';
+      errorElement.style.position = 'absolute';
+      errorElement.style.width = '22.5rem';
+      errorElement.style.fontSize = '.75rem';
+
+      // Adjust the margin of the form item to accommodate the error message
+      setTimeout(() => {
+        const errorHeight = errorElement.offsetHeight;
+        const formItem = element.closest('.ant-form-item');
+        if (formItem && errorHeight > 0) {
+          // Add extra margin to prevent overlap with next form item
+          formItem.style.marginBottom = `${errorHeight}px`;
+        }
+
+        // If ResizeObserver is available, use it to monitor height changes
+        if (window.ResizeObserver && !errorElement._resizeObserver) {
+          const observer = new ResizeObserver(() => {
+            const newHeight = errorElement.offsetHeight;
+            if (formItem && newHeight > 0) {
+              formItem.style.marginBottom = `${newHeight}px`;
+            }
+          });
+          observer.observe(errorElement);
+          errorElement._resizeObserver = observer;
+        } else {
+          // Fallback: add resize listener if not already added
+          if (!window._errorResizeListener) {
+            window.addEventListener('resize', () => {
+              document.querySelectorAll('.ant-form-item-explain-error').forEach((el) => {
+                if (el.style.display !== 'none') {
+                  const height = el.offsetHeight;
+                  const item = el.closest('.ant-form-item');
+                  if (item && height > 0) {
+                    item.style.marginBottom = `${height}px`;
+                  }
+                }
+              });
+            });
+            window._errorResizeListener = true;
+          }
+        }
+      }, 0);
+    }
+  };
+
+  const hideError = (element) => {
+    // Remove error class from the form item
+    const formItem = element.closest('.ant-form-item');
+    if (formItem) {
+      formItem.classList.remove('ant-form-item-has-error');
+      // Reset the margin to the default
+      formItem.style.marginBottom = '';
+    }
+
+    // Remove error class from input wrapper if it exists
+    const inputWrapper = element.closest('.ant-input-affix-wrapper');
+    if (inputWrapper) {
+      inputWrapper.classList.remove('ant-input-affix-wrapper-status-error');
+    } else if (element.classList.contains('ant-input')) {
+      // Remove error class directly from input if it's not in a wrapper
+      element.classList.remove('ant-input-status-error');
+    }
+
+    // Get the form item row element
+    const formItemRow = element.closest('.ant-form-item-row');
+    if (formItemRow) {
+      // Check if error element exists
+      let errorElement = formItemRow.nextElementSibling;
+      if (errorElement && errorElement.classList.contains('ant-form-item-explain-error')) {
+        // Hide the error element
+        errorElement.style.display = 'none';
+      }
+    }
+  };
+
+  const validateEmail = (email) => {
+    if (!email) {
+      showError(DOM.emailInput, 'Email cannot be empty.');
+      return false;
+    }
+    if (!REGEX.email.test(email)) {
+      showError(DOM.emailInput, 'Incorrect email format');
+      return false;
+    }
+    hideError(DOM.emailInput);
+    return true;
+  };
+
+  const validateCode = () => {
+    const code = DOM.codeInput.value.trim();
+    if (!code) {
+      showError(DOM.codeInput, 'Please enter the email verification code');
+      return false;
+    }
+    hideError(DOM.codeInput);
+    return true;
+  };
+
+  const validatePassword = (password) => {
+    if (!password) {
+      showError(DOM.passwordInput, 'Password cannot be empty.');
+      return false;
+    }
+    if (!REGEX.password.test(password)) {
+      showError(DOM.passwordInput, 'Use 8-22 characters with uppercase, lowercase, numbers, and special characters.');
+      return false;
+    }
+    hideError(DOM.passwordInput);
+    return true;
+  };
+
+  const validateConfirmPassword = (password, confirmPassword) => {
+    if (!confirmPassword) {
+      showError(DOM.confirmPasswordInput, 'Confirm password cannot be empty.');
+      return false;
+    }
+    if (password !== confirmPassword) {
+      showError(DOM.confirmPasswordInput, 'Confirmed password does not match the new password, please enter again');
+      return false;
+    }
+    hideError(DOM.confirmPasswordInput);
+    return true;
+  };
+
+  const handleAgreementCheck = () => {
+    const isChecked = DOM.checkbox.checked;
+
+    if (!isChecked) {
+      const formItemRow = DOM.checkbox.closest('.ant-form-item-row');
+      if (formItemRow) {
+        // Check if error element already exists
+        let errorElement = formItemRow.nextElementSibling;
+        if (!errorElement || !errorElement.classList.contains('ant-form-item-explain-error')) {
+          // Create error element if it doesn't exist
+          errorElement = document.createElement('div');
+          errorElement.className = 'ant-form-item-explain ant-form-item-explain-error';
+          formItemRow.parentNode.insertBefore(errorElement, formItemRow.nextSibling);
+        }
+        // Set error message
+        errorElement.textContent = 'Should accept agreement';
+        errorElement.style.display = 'flex';
+        errorElement.style.position = 'absolute';
+        errorElement.style.fontSize = '12px';
+      }
+    } else {
+      // If checkbox is checked, remove error message
+      const formItemRow = DOM.checkbox.closest('.ant-form-item-row');
+      if (formItemRow) {
+        let errorElement = formItemRow.nextElementSibling;
+        if (errorElement && errorElement.classList.contains('ant-form-item-explain-error')) {
+          errorElement.style.display = 'none';
+        }
+      }
+    }
+
+    return isChecked;
+  };
+
+  const encrypt = (string) => {
+    const publicKey = `-----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArKL/bit2fQBoTZiaEKWYHyXtkK5inpQxPrDHQ7KYHBwtBbdZ0aqkxdSdt22PZKzs8mN0IUw2PpyRZWmI2RzBt/DLtS7/fmjlznd4pIIS5IURk9pnPgC797Q4v/d0OvDZhSdEK9DJVuGyfE6Tpjf4rhef/hNg0ANXZ6PW5uztrHenmyKYfRvkstfXYH6OBcxMtUgONJG3yWFdPCGAjpuj1x1K0AfA2cRLe/Q/eD3rrpLWSyuElVlAxcVh/7+i5VJUxc7a8U9cHhgeGXsxw0bd/hJyWVwSjFR8lOBwulEzluOteXdK5ylJ72fUiP57Ky6qanQ+D7dKidIPtrDNurio4QIDAQAB
+    -----END PUBLIC KEY-----`;
+    const rsaEncrypt = new JSEncrypt();
+    rsaEncrypt.setPublicKey(publicKey);
+    return rsaEncrypt.encrypt(string);
+  };
+
+  const updateSessionStorage = (referralCode) => {
+    if (referralCode) {
+      // Update tradeAttributeInfo
+      const tradeAttributeInfo = {
+        referralCode: {
+          value: referralCode,
+          source: 'Member',
+        },
+        sourceType: {
+          value: 'member_plugin_referral',
+          source: 'Member',
+        },
+      };
+      sessionStorage.setItem('tradeAttributeInfo', JSON.stringify(tradeAttributeInfo));
+
+      // Update REGISTER_EXTRA_INFO
+      const registerExtraInfo = {
+        memberReferralCode: {
+          value: referralCode,
+          source: 'Member',
+        },
+      };
+      sessionStorage.setItem('REGISTER_EXTRA_INFO', JSON.stringify(registerExtraInfo));
+    }
+  };
+
+  const handleSendCode = (e) => {
+    e.preventDefault();
+    const email = DOM.emailInput.value.trim();
+    if (!validateEmail(email)) return;
+    startCountdown();
+
+    try {
+      fetch(API.sendCode, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 1, target: email }),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          if (!data.success) {
+            notification.error({
+              message: data.message,
+              closeIcon: false,
+              duration: 3,
+              placement: 'top', // Use placement property instead of just top
+            });
+            return;
+          }
+          notification.success({
+            message: 'The email verification code has been sent',
+            closeIcon: false,
+            duration: 3,
+            placement: 'top', // Use placement property instead of just top
+          });
+        });
+    } catch (error) {
+      console.error('Send Code Error:', error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const email = DOM.emailInput.value.trim();
+    const password = DOM.passwordInput.value.trim();
+    const confirmPassword = DOM.confirmPasswordInput.value.trim();
+    const code = DOM.codeInput.value.trim();
+    const referralCode = DOM.referralInput.value.trim();
+
+    // Update session storage if referral code exists
+    if (referralCode) {
+      updateSessionStorage(referralCode);
+    }
+
+    state.isEmailValid = validateEmail(email);
+    state.isPasswordValid = validatePassword(password);
+    state.isConfirmValid = validateConfirmPassword(password, confirmPassword);
+    state.isAgreementChecked = handleAgreementCheck();
+    state.isCodeValid = validateCode();
+
+    // 加密
+    const raw = `${email}:${code}:${password}`;
+    const encrypted = rsaEncrypt(raw);
+    if (!encrypted) {
+      console.error('RSA encryption failed');
+      return;
+    }
+
+    if (!Object.values(state).every((v) => v)) return;
+
+    try {
+      const response = await fetch(API.register, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ registerData: encrypted }),
+      });
+
+      const data = await response.json();
+
+      if (data.success || data.code === 200) {
+        notification.success({
+          message: 'Registration successful',
+          closeIcon: false,
+          duration: 2,
+          placement: 'top',
+        });
+        setTimeout(() => {
+          window.location.href = '{{ routes.account_login_url }}';
+        }, 1000);
+      } else {
+        notification.error({
+          message: data.message || 'Registration failed, please try again.',
+          closeIcon: false,
+          duration: 3,
+          placement: 'top',
+        });
+      }
+    } catch (error) {
+      console.error('error:', error);
+      notification.error({
+        message: '注册失败，请稍后重试',
+        closeIcon: false,
+        duration: 3,
+        placement: 'top',
+      });
+    }
+  };
+
+  const startCountdown = () => {
+    let countdown = 60;
+    DOM.sendCodeButton.disabled = true;
+
+    const interval = setInterval(() => {
+      DOM.sendCodeButton.textContent = `${countdown--}s`;
+      if (countdown <= 0) {
+        clearInterval(interval);
+        DOM.sendCodeButton.disabled = false;
+        DOM.sendCodeButton.textContent = 'Send Code';
+      }
+    }, 1000);
+  };
+
+  DOM.checkbox.addEventListener('click', handleAgreementCheck);
+  DOM.sendCodeButton.addEventListener('click', handleSendCode);
+  DOM.submitButton.addEventListener('click', handleSubmit);
+
+  DOM.emailInput.addEventListener(
+    'input',
+    debounceInput(() => (state.isEmailValid = validateEmail(DOM.emailInput.value.trim()))),
+  );
+
+  DOM.passwordInput.addEventListener(
+    'input',
+    debounceInput(() => {
+      state.isPasswordValid = validatePassword(DOM.passwordInput.value.trim());
+    }),
+  );
+
+  DOM.confirmPasswordInput.addEventListener(
+    'input',
+    debounceInput(() => (state.isConfirmValid = validateConfirmPassword(DOM.passwordInput.value.trim(), DOM.confirmPasswordInput.value.trim()))),
+  );
+
+  DOM.codeInput.addEventListener('input', () => {
+    validateCode();
+  });
+</script>
+{% schema %}
+{
+  "name": "main signup",
+  "class": "migrated-page",
+  "settings": [
+    {
+      "type": "url",
+      "id": "privacy_policy_url",
+      "label": "Privacy Policy URL"
+    },
+    {
+      "type": "url",
+      "id": "terms_of_service_url",
+      "label": "Terms of Use URL"
+    }
+  ]
+}
+{% endschema %}

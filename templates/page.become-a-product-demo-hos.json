@@ -1,0 +1,491 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_43fXdd": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "yb_banner_swiper_fGWz9U": {
+      "type": "yb-banner-swiper",
+      "blocks": {
+        "item_AWbiRX": {
+          "type": "item",
+          "settings": {
+            "text_horizontal_position": "left",
+            "text_vertical_position": "center",
+            "text_width": 50,
+            "description": "<p>Become aProduct DemoHost</p>",
+            "title": "<p>Earn Rewards by Simply Sharing</p>",
+            "subTitle": "<p>Share your real experience and help others make smart choices</p>",
+            "enable_btn_group": true,
+            "enable_global_btn": false,
+            "enable_global_anchor": false,
+            "global_anchor_id": "",
+            "button_text": "Apply Now",
+            "button_type": "link",
+            "button_link": "https://forms.zohopublic.com/yarbo/form/HostRegistrationFormforShowcase/formperma/qWWpqoMD4CG6gLH21ohb23XqkWPCzZ03IuHiQL4dRnc",
+            "button_class": "",
+            "button_anchor": "",
+            "button_modal_title": "",
+            "button_modal_content": "",
+            "button2_text": "",
+            "button2_type": "link",
+            "button2_link": "https://www.yarbo.com/showcases",
+            "button2_class": "",
+            "button2_anchor": "",
+            "button2_modal_title": "",
+            "button2_modal_content": "",
+            "enable_subscription": false,
+            "subscription_absolute": false,
+            "subscription_position": 24,
+            "email_type": "",
+            "klaviyo_list_id": "",
+            "subscription_title": "",
+            "subscription_button_text": "",
+            "pc_img": "shopify://shop_images/Frame-2036457138_1944x_c5fb73d0-5b51-410a-8a43-b6814fe6d713.webp",
+            "pc_external_video": "",
+            "mobile_img": "shopify://shop_images/Showcase-2-M-20250718-_2__750x_b1934a1c-60ac-4c12-9449-16dccbabd028.webp",
+            "mobile_external_video": "",
+            "mobile_layout": "style1"
+          }
+        }
+      },
+      "block_order": [
+        "item_AWbiRX"
+      ],
+      "name": "Yb-Banner",
+      "settings": {
+        "banner_speed": 6
+      }
+    },
+    "yarbo_horizontal_sliding_of_pictures_and_texts_ftjPch": {
+      "type": "Yarbo-horizontal-sliding-of-pictures-and-texts",
+      "name": "Horizontal sliding of pictures and texts",
+      "settings": {
+        "common_title": "<p><strong>What You’ll Help Us Build</strong></p>",
+        "common_content": "",
+        "common_button_text": "Become a Host",
+        "common_button_class": "",
+        "common_button_type": "link",
+        "common_button_link": "https://forms.zohopublic.com/yarbo/form/HostRegistrationFormforShowcase/formperma/qWWpqoMD4CG6gLH21ohb23XqkWPCzZ03IuHiQL4dRnc",
+        "common_button_anchor": "",
+        "common_button_modal_title": "",
+        "common_button_modal_content": "",
+        "video_title": "",
+        "video_content": "<p>Every smart yard begins with a real story. That’s why we created theProduct Demo Program Program — to let people see Yarbo in action through users like you. As a host, you’ll share your honest experience<strong>in online meetings or by welcoming visitors in person</strong>. You’ll help others make smarter decisions and shape the future of autonomous yard care.<strong>And your time will be appreciated with exclusive perks!</strong></p>",
+        "video_label_title_1": "<p>100+</p>",
+        "video_label_content_1": "<p>Buyers Influenced</p>",
+        "video_label_title_2": "<p>60+</p>",
+        "video_label_content_2": "<p>Hosts Joined</p>",
+        "video_label_title_3": "<p>5,000</p>",
+        "video_label_content_3": "<p>Points perProduct Demo Program</p>",
+        "picture": "shopify://shop_images/Mask-group-_58_-0.webp",
+        "picture_youtube_video_url": "",
+        "picture_firework_video_url": "",
+        "bg_color": "#ffffff",
+        "padding_top_1920": 0,
+        "padding_bottom_1920": 0,
+        "padding_top_1440": 0,
+        "padding_bottom_1440": 0,
+        "padding_top_960": 0,
+        "padding_bottom_960": 0,
+        "padding_top_680": 0,
+        "padding_bottom_680": 0,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yarbo_picture_card_display_HreGfx": {
+      "type": "yarbo-picture-card-display",
+      "blocks": {
+        "image_text_block_dDQaiw": {
+          "type": "image_text_block",
+          "settings": {
+            "title": "<p>Rewards perProduct Demo Program</p>",
+            "text": "<p>Earn 5,000 Yarbo Points for everyProduct Demo Program— and 30,000 Points for each sale you help close.</p>",
+            "image": "shopify://shop_images/Mask-group-_59_-1_676x_80d58dba-ed3a-4d98-8376-f329f5416004.webp"
+          }
+        },
+        "image_text_block_zXXrkw": {
+          "type": "image_text_block",
+          "settings": {
+            "title": "<p>Unlock Free Products</p>",
+            "text": "<p>Refer 20 customers who buy a Yarbo Core Set through your </p><p>Product Demo Program to get a free Yarbo module. Only Core Set purchases count—more sales, more rewards.</p>",
+            "image": "shopify://shop_images/Mask-group-_60_-0_676x_20400507-f603-484c-8a20-91f2c7cc7b53.webp"
+          }
+        },
+        "image_text_block_qaYwaA": {
+          "type": "image_text_block",
+          "settings": {
+            "title": "<p>Top Contributor Perks</p>",
+            "text": "<p>Special bonuses and recognition await our top-performing hosts with the highest sales.</p>",
+            "image": "shopify://shop_images/Mask-group-_61_-1_676x_0a4f6ecf-c8d2-4db0-ab9d-ef93e3ab3de6.webp"
+          }
+        },
+        "image_text_block_ch3ciX": {
+          "type": "image_text_block",
+          "settings": {
+            "title": "<p>Yarbo Merchandise</p>",
+            "text": "<p>As a host, you’ll receive free Yarbo gear as a thank-you for your support.</p>",
+            "image": "shopify://shop_images/Mask-group-_62_-1_676x_a814447a-a0db-4d80-a8aa-7eb06554b12d.webp"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_dDQaiw",
+        "image_text_block_zXXrkw",
+        "image_text_block_qaYwaA",
+        "image_text_block_ch3ciX"
+      ],
+      "name": "Yarbo Picture card display",
+      "settings": {
+        "anchor_id": "",
+        "bg_color": "#f5f5f5",
+        "common_title": "<p><strong>What You Will Get</strong></p>",
+        "common_content": "",
+        "common_button_text": "Join us Now",
+        "M-swiper-show": false,
+        "PC-number-show": 4,
+        "common_button_type": "link",
+        "common_button_link": "https://forms.zohopublic.com/yarbo/form/HostRegistrationFormforShowcase/formperma/qWWpqoMD4CG6gLH21ohb23XqkWPCzZ03IuHiQL4dRnc",
+        "common_button_anchor": "",
+        "common_button_modal_title": "",
+        "common_button_modal_content": "",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 80,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 40,
+        "padding_top_680": 64,
+        "padding_bottom_680": 38,
+        "padding_top_375": 48,
+        "padding_bottom_375": 34
+      }
+    },
+    "custom_rich_text_component_bVbxCj": {
+      "type": "custom-rich-text-component",
+      "custom_css": [
+        ".headerTitle1 {font-size: 14px;}"
+      ],
+      "name": "Rich text component",
+      "settings": {
+        "text_align": "center",
+        "title": "",
+        "description": "<p>💡 Guest Perk: Friends who register with your referral link receive a $200 coupon toward their first order.</p><p><a href=\"https://www.yarbo.com/membership-referral\" target=\"_blank\" title=\"https://www.yarbo.com/membership-referral\"><em>[Learn more]</em></a></p>",
+        "button_text": "",
+        "button_type": "link",
+        "button_link": "",
+        "button_class": "",
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "bg_color": "#f5f5f5",
+        "padding_top_1920": 1,
+        "padding_bottom_1920": 66,
+        "padding_top_1440": 1,
+        "padding_bottom_1440": 56,
+        "padding_top_960": 2,
+        "padding_bottom_960": 42,
+        "padding_top_680": 1,
+        "padding_bottom_680": 38,
+        "padding_top_375": 0,
+        "padding_bottom_375": 32
+      }
+    },
+    "custom_multicolumn_swiper_6CAVQb": {
+      "type": "custom-multicolumn-swiper",
+      "blocks": {
+        "item_GExY66": {
+          "type": "item",
+          "settings": {
+            "heading": "<p>Sign Up</p>",
+            "info_text": "<p>STEP 1</p>",
+            "text_color": "#000000",
+            "bg_color": "#d9d9d9",
+            "text": "<p>Choose to host online<br/>Product Demo, in-person visits, or both — whatever suits you best.</p>",
+            "image": "shopify://shop_images/Group-2036456568-0.webp"
+          }
+        },
+        "item_t3TYqY": {
+          "type": "item",
+          "settings": {
+            "heading": "<p>Receive Requests</p>",
+            "info_text": "<p>STEP 2</p>",
+            "text_color": "#000000",
+            "bg_color": "#d9d9d9",
+            "text": "<p>Once approved, you’ll get matched with visitors based on your availability and preferences.</p>",
+            "image": "shopify://shop_images/Group-2036456569-0.webp"
+          }
+        },
+        "item_GQE3PA": {
+          "type": "item",
+          "settings": {
+            "heading": "<p>Host the Product Demo</p>",
+            "info_text": "<p>STEP 3</p>",
+            "text_color": "#000000",
+            "bg_color": "#d9d9d9",
+            "text": "<p>We’ll guide you through the process — just share your honest thoughts and real experience.</p>",
+            "image": "shopify://shop_images/Group-2036456570-0.webp"
+          }
+        },
+        "item_ALwRYE": {
+          "type": "item",
+          "settings": {
+            "heading": "<p>Earn Rewards</p>",
+            "info_text": "<p>STEP 4</p>",
+            "text_color": "#000000",
+            "bg_color": "#d9d9d9",
+            "text": "<p>Complete a Product Demoor inspire a purchase to earn Yarbo Points within 2 business days.</p>",
+            "image": "shopify://shop_images/Group-2036456571-0.webp"
+          }
+        }
+      },
+      "block_order": [
+        "item_GExY66",
+        "item_t3TYqY",
+        "item_GQE3PA",
+        "item_ALwRYE"
+      ],
+      "name": "Custom Multicolumn Swiper",
+      "settings": {
+        "heading": "<p>How Does It Work</p>",
+        "text": "",
+        "arrow_reverse": false,
+        "button_text": "Apply Now",
+        "button_type": "link",
+        "button_link": "https://forms.zohopublic.com/yarbo/form/HostRegistrationFormforShowcase/formperma/qWWpqoMD4CG6gLH21ohb23XqkWPCzZ03IuHiQL4dRnc",
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "bg_color": "#ffffff",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yarbo_comments_display_WVLdUH": {
+      "type": "yarbo-comments-display",
+      "blocks": {
+        "image_text_block_Vg3z7e": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Bryan</p>",
+            "comments_small_title": "<p>VA, US</p>",
+            "comments_text": "<p>\"There is no other machine quite like it on the market. The company truly cares about its customer and is passionate about their product. I enjoy watching mine run its work plans automated. I can’t wait to see what new modules they come up with.\"<br/></p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/pic-20250220-cap.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_CQHR6i": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Scott</p>",
+            "comments_small_title": "<p>MN, US</p>",
+            "comments_text": "<p>\"My mission is to demo my Yarbo family and the incredible capabilities of the current Yarbo model by sharing my positive experiences with potential customers.\"</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/Frame-2036456262-_1_-0_45dcc56a-1607-4555-87da-63a61425e0c1.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_mch4Yg": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Kent</p>",
+            "comments_small_title": "<p>NY, US</p>",
+            "comments_text": "<p>\"Today as a PPP member (tester) I get to work closer with Yarbo staff on both the 2023 and 2024 systems. I have lots of experience with the Lawn Mower, Snow Blower, and Plow Blade as well.\"</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/Frame-2036456260-0_08746bcc-3a0b-47c8-a63c-b36adff93429.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_PzVbaA": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Sean</p>",
+            "comments_small_title": "<p>Dartmouth, CA</p>",
+            "comments_text": "<p>“You need to have a bit of technical skill, and be willing to do some problem solving, but I can certainly help to get you over most humps, if they come up.”</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/ff-9f6d2f3583d1edac3d6f89a8e019b4b9-ff-20240618-213047_1.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_dgLLnq": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Will</p>",
+            "comments_small_title": "<p>PA, US</p>",
+            "comments_text": "<p>“I love gadgets! I like to talk about them and show them off. If you're interested in coming by to see it then I will show you what I have learned.”</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/ff-341307d580de30f791a08481bfd805eb-ff-20241007-173904_1.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_ktcfEd": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Robert</p>",
+            "comments_small_title": "<p>Vilnius, LT</p>",
+            "comments_text": "<p>\"I'm an RC hobbyist and I'm up for any challenge.\"</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/ff-688dd8e2fc83c0f0a0dea591793891cc-ff-1000011815_1.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_Vg3z7e",
+        "image_text_block_CQHR6i",
+        "image_text_block_mch4Yg",
+        "image_text_block_PzVbaA",
+        "image_text_block_dgLLnq",
+        "image_text_block_ktcfEd"
+      ],
+      "name": "Yarbo Comments display",
+      "settings": {
+        "anchor_id": "",
+        "bg_color": "#f5f5f5",
+        "common_title": "<p>Meet Some of Our Product Demo Hosts</p>",
+        "common_content": "<p>Real Yarbo users who’ve seen it all — and are glad to help you decide.</p>",
+        "common_button_text": "Become a Host",
+        "M-swiper-show": false,
+        "common_button_type": "link",
+        "common_button_link": "https://forms.zohopublic.com/yarbo/form/HostRegistrationFormforShowcase/formperma/qWWpqoMD4CG6gLH21ohb23XqkWPCzZ03IuHiQL4dRnc",
+        "common_button_anchor": "",
+        "common_button_modal_title": "",
+        "common_button_modal_content": "",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yb_faq_new_kBHpq3": {
+      "type": "yb-faq-new",
+      "blocks": {
+        "item_QeYmxj": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Who can become a host?</p>",
+            "description": "<p>Any Yarbo owner interested in sharing their honest feedback and showcasing Yarbo in action.</p>"
+          }
+        },
+        "item_BFV9xj": {
+          "type": "item",
+          "settings": {
+            "title": "<p>What do I get for becoming a host?</p>",
+            "description": "<p>As a host, you’ll earn 5,000 Yarbo Points for each qualified potential customer you host in an online or offline product demo, and 30,000 Yarbo Points for each referred customer who purchases a Yarbo Core Set through your referral. If you successfully refer 20 customers who each purchase a Yarbo Core Set, you’ll receive a free Yarbo module. The more qualified purchases you generate, the more rewards you unlock. Top-performing hosts with the highest sales enjoy special bonuses and recognition. Plus, you’ll receive exclusive Yarbo merchandise, including T-shirts, caps, and more, as a thank-you for your support.</p>"
+          }
+        },
+        "item_y3FqrW": {
+          "type": "item",
+          "settings": {
+            "title": "<p>How do I schedule a product demo?</p>",
+            "description": "<p>For online product demo, we’ll share visit requests—including visitor info, products of interest, and preferred times—with all hosts. Hosts who are available and willing can accept the request. For offline showcases, hosts set up an availability calendar, allowing visitors nearby to book a time that works. Yarbo will support you throughout the process.</p>"
+          }
+        },
+        "item_EHNDcg": {
+          "type": "item",
+          "settings": {
+            "title": "<p>How do I host a product demo?</p>",
+            "description": "<p>You can host either a 1:1 online meeting or welcome visitors to see your Yarbo in person. For online sessions, we’ll create and share the meeting link with you and the visitor. For in-person visits, your address will only be shared once you confirm you’re ready to host. Then, you’ll meet the visitor at your home.</p>"
+          }
+        },
+        "item_Fdk6Mz": {
+          "type": "item",
+          "settings": {
+            "title": "<p>How long does each product demo take?</p>",
+            "description": "<p>Typically 30 to 60 minutes, depending on the interaction.</p>"
+          }
+        },
+        "item_ELgjkL": {
+          "type": "item",
+          "settings": {
+            "title": "<p>What if I’m not comfortable hosting in person?</p>",
+            "description": "<p>No problem! You can choose to host only online sessions, and we won’t include you as an option for onsite product demo.</p>"
+          }
+        },
+        "item_YhYhwy": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Do I need to prepare anything?</p>",
+            "description": "<p>We’ll provide helpful materials and keep the FAQ knowledge base updated for you. Besides that, just be ready to share your honest experience and answer questions about Yarbo.</p>"
+          }
+        },
+        "item_xQtBgh": {
+          "type": "item",
+          "settings": {
+            "title": "<p>How do I track my rewards?</p>",
+            "description": "<p>Rewards are credited to your account after each product demo and any purchases made through your referral link. If a purchase isn’t tracked automatically, we’ll regularly verify visitor purchases and add points for you. You can check your rewards and updates anytime in your user center.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_QeYmxj",
+        "item_BFV9xj",
+        "item_y3FqrW",
+        "item_EHNDcg",
+        "item_Fdk6Mz",
+        "item_ELgjkL",
+        "item_YhYhwy",
+        "item_xQtBgh"
+      ],
+      "name": " Yb FAQ New",
+      "settings": {
+        "anchor_id": "",
+        "title": "<p>FAQs</p>",
+        "color_background": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_43fXdd",
+    "yb_banner_swiper_fGWz9U",
+    "yarbo_horizontal_sliding_of_pictures_and_texts_ftjPch",
+    "yarbo_picture_card_display_HreGfx",
+    "custom_rich_text_component_bVbxCj",
+    "custom_multicolumn_swiper_6CAVQb",
+    "yarbo_comments_display_WVLdUH",
+    "yb_faq_new_kBHpq3"
+  ]
+}

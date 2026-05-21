@@ -1,0 +1,603 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{%- liquid
+  assign s = section.settings
+  assign desktop_image = s.desktop_image
+  assign mobile_image = s.mobile_image
+  assign desktop_image_url = s.desktop_image_url | strip
+  assign mobile_image_url = s.mobile_image_url | strip
+  assign button_link = s.button_link | default: '#'
+-%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner {
+  	position: relative;
+  	overflow: hidden;
+  	background: {{ s.background_color }};
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__media {
+  	position: relative;
+  	min-height: {{ s.desktop_height }}px;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__picture,
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__picture img,
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__image-url {
+  	display: block;
+  	width: 100%;
+  	height: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__picture,
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__image-url {
+  	position: absolute;
+  	inset: 0;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__picture img,
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__image-url {
+  	object-fit: cover;
+  	object-position: center;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__image-url {
+  	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: cover;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__desktop,
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__mobile {
+  	display: none;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__desktop {
+  	display: block;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__overlay {
+  	position: absolute;
+  	inset: 0;
+  	background: rgba(0, 0, 0, {{ s.overlay_opacity | times: 0.01 }});
+  	pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__inner {
+  	position: relative;
+  	z-index: 1;
+  	display: flex;
+  	min-height: {{ s.desktop_height }}px;
+  	width: 100%;
+  	max-width: {{ s.content_max_width }}px;
+  	margin: 0 auto;
+  	padding: {{ s.desktop_padding_top }}px {{ s.desktop_padding_horizontal }}px {{ s.desktop_padding_bottom }}px;
+  	align-items: {{ s.desktop_vertical_alignment }};
+  	justify-content: {{ s.desktop_horizontal_alignment }};
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__content {
+  	display: flex;
+  	width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__content--left {
+  	justify-content: flex-start;
+  	text-align: left;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__content--center {
+  	justify-content: center;
+  	text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__content--right {
+  	justify-content: flex-end;
+  	text-align: right;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__actions {
+  	display: flex;
+  	width: 50%;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__button {
+  	display: inline-flex;
+  	align-items: center;
+  	justify-content: center;
+  	min-height: 56px;
+    line-height: 56px;
+  	padding: 8px 36px;
+  	border: {{ s.button_border_width }}px solid {{ s.button_border_color }};
+  	border-radius: {{ s.button_radius }}px;
+  	background: {{ s.button_background }};
+  	color: {{ s.button_text_color }};
+  	font-size: {{ s.button_font_size }}px;
+  	font-weight: 500;
+  	line-height: 1.2;
+  	text-decoration: none;
+  	transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  #shopify-section-{{ section.id }} .sa-spoga-gafa-banner__button:hover {
+  	background: {{ s.button_hover_background }};
+  	color: {{ s.button_hover_text_color }};
+  	border-color: {{ s.button_hover_border_color }};
+  	transform: translateY(-1px);
+  }
+
+  @media screen and (max-width: 767px) {
+  	#shopify-section-{{ section.id }} .sa-spoga-gafa-banner__media,
+  	#shopify-section-{{ section.id }} .sa-spoga-gafa-banner__inner {
+  		min-height: {{ s.mobile_height }}px;
+  	}
+
+  	#shopify-section-{{ section.id }} .sa-spoga-gafa-banner__desktop {
+  		display: none;
+  	}
+
+  	#shopify-section-{{ section.id }} .sa-spoga-gafa-banner__mobile {
+  		display: block;
+  	}
+
+  	#shopify-section-{{ section.id }} .sa-spoga-gafa-banner__inner {
+  		max-width: 100%;
+  		padding: {{ s.mobile_padding_top }}px {{ s.mobile_padding_horizontal }}px {{ s.mobile_padding_bottom }}px;
+  		align-items: {{ s.mobile_vertical_alignment }};
+  		justify-content: {{ s.mobile_horizontal_alignment }};
+  	}
+
+  	#shopify-section-{{ section.id }} .sa-spoga-gafa-banner__content,
+  	#shopify-section-{{ section.id }} .sa-spoga-gafa-banner__actions {
+  		justify-content: center;
+  		text-align: center;
+  	}
+
+  	#shopify-section-{{ section.id }} .sa-spoga-gafa-banner__button {
+  		min-height: 44px;
+  		padding: 8px 28px;
+      line-height: 44px;
+  		font-size: {{ s.button_font_size_mobile }}px;
+  	}
+  }
+{%- endstyle -%}
+
+<section class='sa-spoga-gafa-banner'>
+  <div class='sa-spoga-gafa-banner__media'>
+    {%- if desktop_image != blank or desktop_image_url != blank -%}
+      <div class='sa-spoga-gafa-banner__desktop'>
+        {%- if desktop_image != blank -%}
+          <picture class='sa-spoga-gafa-banner__picture'>
+            {{
+              desktop_image
+              | image_url: width: 3840
+              | image_tag: widths: '750, 1100, 1500, 2000, 2400, 3000, 3840', loading: 'lazy', alt: s.image_alt, class: 'sa-spoga-gafa-banner__img'
+            }}
+          </picture>
+        {%- else -%}
+          <div
+            class='sa-spoga-gafa-banner__image-url'
+            style='background-image: url("{{ desktop_image_url }}");'
+            aria-hidden='true'
+          ></div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if mobile_image != blank or mobile_image_url != blank -%}
+      <div class='sa-spoga-gafa-banner__mobile'>
+        {%- if mobile_image != blank -%}
+          <picture class='sa-spoga-gafa-banner__picture'>
+            {{
+              mobile_image
+              | image_url: width: 2000
+              | image_tag: widths: '375, 550, 750, 900, 1200, 1500, 2000', loading: 'lazy', alt: s.image_alt, class: 'sa-spoga-gafa-banner__img'
+            }}
+          </picture>
+        {%- else -%}
+          <div
+            class='sa-spoga-gafa-banner__image-url'
+            style='background-image: url("{{ mobile_image_url }}");'
+            aria-hidden='true'
+          ></div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class='sa-spoga-gafa-banner__overlay'></div>
+
+    <div class='sa-spoga-gafa-banner__inner'>
+      <div class='sa-spoga-gafa-banner__content sa-spoga-gafa-banner__content--{{ s.content_alignment }}'>
+        {%- if s.button_text != blank -%}
+          <div class='sa-spoga-gafa-banner__actions'>
+            <a
+              href='{{ button_link }}'
+              class='sa-spoga-gafa-banner__button'
+              {% if s.open_new_tab %}
+                target='_blank' rel='noopener noreferrer'
+              {% endif %}
+            >
+              {{ s.button_text }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SA Spoga Gafa Banner",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "Mobile Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Image Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "text",
+      "id": "desktop_image_url",
+      "label": "Desktop Image URL",
+      "default": "https://www.yarbo.com/cdn-resource-files-s/img3/155a4ab54952e24f/image/store/1737714205978/33333.png?w=3840&h=841&q=100"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "mobile_image_url",
+      "label": "Mobile Image URL",
+      "default": "https://www.yarbo.com/cdn-resource-files-s/img3/155a4ab54952e24f/image/store/1737714205978/image-(33).jpeg?w=1500&h=1820&q=100"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image Alt Text",
+      "default": "2024 Product Catalog"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#1c1c1c"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 1000,
+      "max": 1800,
+      "step": 20,
+      "unit": "px",
+      "label": "Content Max Width",
+      "default": 1440
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 300,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop Height",
+      "default": 420
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 360,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile Height",
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Content Padding Top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Content Padding Bottom",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_horizontal",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Horizontal Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Content Padding Top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Content Padding Bottom",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_horizontal",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Horizontal Padding",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "desktop_vertical_alignment",
+      "label": "Desktop Vertical Alignment",
+      "default": "flex-end",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Middle"
+        },
+        {
+          "value": "flex-end",
+          "label": "Bottom"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "desktop_horizontal_alignment",
+      "label": "Desktop Horizontal Alignment",
+      "default": "flex-end",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_vertical_alignment",
+      "label": "Mobile Vertical Alignment",
+      "default": "flex-end",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Middle"
+        },
+        {
+          "value": "flex-end",
+          "label": "Bottom"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_horizontal_alignment",
+      "label": "Mobile Horizontal Alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content Alignment",
+      "default": "right",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get Our Digital Catalog"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_new_tab",
+      "label": "Open Link In New Tab",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop Button Font Size",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "button_font_size_mobile",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Button Font Size",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Border Width",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Border Radius",
+      "default": 7
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button Background",
+      "default": "#00000000"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#1c1c1c"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Button Hover Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Button Hover Border Color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA Spoga Gafa Banner"
+    }
+  ]
+}
+{% endschema %}

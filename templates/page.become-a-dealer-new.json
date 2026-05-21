@@ -1,0 +1,459 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_common_banner_7mREQ6": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_pXaHWt": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036456889.png",
+            "h5_image": "shopify://shop_images/Frame_2036456890.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_width_pc": 500,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "bottom-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "<p>Become A <br/>Yarbo Dealer</p>",
+            "title_color": "#ffffff",
+            "desc": "<p>Join Yarbo's dealer network to access the World‘s First Module yard care robots, dedicated territory support, and strong profit margins. Contact Us: dealer@yarbo.com</p>",
+            "desc_color": "#ffffff",
+            "button1_text": "Join Us",
+            "button1_link": "/",
+            "button1_anchor_id": "form",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "View Yarbo Brochure",
+            "button2_link": "shopify://pages/brochure",
+            "button2_anchor_id": "",
+            "button2_color": "#ffffff",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "rgba(0,0,0,0)",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_pXaHWt"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "1776347054df9bc7f6": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b9562f0_XNFRLp": {
+          "type": "ai_gen_block_b9562f0",
+          "settings": {
+            "anchor_id": "form",
+            "custom_code": "<iframe\nid=\"DearlerForm\"\nsrc=\"https://forms.zohopublic.com/yarbo/form/DealerApplication/formperma/tP-a7e7BFBajiYm5nwSIQXGtFSIzLq1ueH-xCSpk54A\"\nwidth=\"100%\"\nheight=\"1000px\"\ntitle=\"Yarbo Dealer Application Form\"\nstyle=\"width: 100%\"\n></iframe>",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_horizontal": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0,
+            "padding_horizontal_mobile": 0,
+            "desktop_width_percent": 100,
+            "background_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b9562f0_XNFRLp"
+      ],
+      "name": "自定义Html",
+      "settings": {}
+    },
+    "sa_img_text_features_3DCqgz": {
+      "type": "sa-img-text-features",
+      "blocks": {
+        "accordion_item_KdFFq6": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "01",
+            "title": "Unique, In-Demand Products",
+            "description": "Offer the unique modular, all-season solution that a growing community of homeowners loves.",
+            "pc_image": "shopify://shop_images/Frame_2036456891_1.png"
+          }
+        },
+        "accordion_item_LTV4cX": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "02",
+            "title": "Competitive Margins & Growth",
+            "description": "Enjoy attractive profit potential and exclusive territory support to maximize your ROI.",
+            "pc_image": "shopify://shop_images/Frame_2036456892_1.png"
+          }
+        },
+        "accordion_item_CRThyc": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "03",
+            "title": "Complete Marketing & Training",
+            "description": "Get equipped with full sales enablement tools, product training, and co-op advertising support.",
+            "pc_image": "shopify://shop_images/Frame_2036456893_1.png"
+          }
+        },
+        "accordion_item_ajTJae": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "04",
+            "title": "Instant Backline Support",
+            "description": "Connect directly with our engineers for real-time solutions and happier customers.",
+            "pc_image": "shopify://shop_images/Frame_2036456894_2.png"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_KdFFq6",
+        "accordion_item_LTV4cX",
+        "accordion_item_CRThyc",
+        "accordion_item_ajTJae"
+      ],
+      "name": "Features Accordion",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#fcfcfc",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "Why Partner With Yarbo?",
+        "description": "",
+        "image_width": 50,
+        "pc_layout": "image_left",
+        "mobile_layout": "image_top",
+        "pc_aspect_ratio_w": 1,
+        "pc_aspect_ratio_h": 1,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1
+      }
+    },
+    "sa_blocks_grid_Ncm3gw": {
+      "type": "sa-blocks-grid",
+      "blocks": {
+        "step_item_M3rFXC": {
+          "type": "step_item",
+          "settings": {
+            "number": "01",
+            "title": "REGISTER",
+            "description": "Submit required information through our form.",
+            "icon": "shopify://shop_images/Icon_-_Chunky.svg"
+          }
+        },
+        "step_item_X3eyqE": {
+          "type": "step_item",
+          "settings": {
+            "number": "02",
+            "title": "REVIEW",
+            "description": "Our team will review your submission and contact you within 3 business days.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_1e5f9fb1-add8-4135-bb16-ef797a0fcee8.svg"
+          }
+        },
+        "step_item_UMWFh7": {
+          "type": "step_item",
+          "settings": {
+            "number": "03",
+            "title": "CONFIRMATION",
+            "description": "Engage in strategic discussions and execute partnership agreements.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_2a57235a-bf35-4e1b-8e1e-6d89ab759278.svg"
+          }
+        },
+        "step_item_4f9Hkm": {
+          "type": "step_item",
+          "settings": {
+            "number": "04",
+            "title": "BECOME A DEALER",
+            "description": "Work together and start growing the business together in your region.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_be36605b-21e1-4aa6-a144-4c8fcab4f0df.svg"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_M3rFXC",
+        "step_item_X3eyqE",
+        "step_item_UMWFh7",
+        "step_item_4f9Hkm"
+      ],
+      "name": "Blocks Text Grid",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "title": "HOW IT WORKS"
+      }
+    },
+    "sa_index_scrolling_7Dyww8": {
+      "type": "sa-index-scrolling",
+      "blocks": {
+        "block_gnHe6X": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/4_16_1.jpg",
+            "media_type": "video",
+            "video": "shopify://files/videos/FDownloader.Net_AQOErI5zI7yOZjcJYj-gNgOnfnlaaoFwEz8iLxC1ApM_neKehdTRT1BfkZzesEFEnFyYt0EJx53ltkYJLrUnH85G9D3SUsSwg_r8FNJfgpbYvg_720p_(HD) (1) (1).mp4",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/maxresdefault_841a2015-1a0f-4310-94b4-007bb71171b1.jpg",
+            "media_type2": "video_url",
+            "video_url2": "https://www.youtube.com/watch?v=8C1kjZNcKtA&t=293s",
+            "other_url2": "",
+            "img3": "shopify://shop_images/4_16.jpg",
+            "media_type3": "video",
+            "video3": "shopify://files/videos/FDownloader.Net_AQOeMxGsr34smltwLsp1ZAUSU-bKoA8Mn0zSsigOPe7L3miMHOqUQtRSZin4lzM0tuD1GquZiSw4VpljdTwYtlb4zqnLCx9KiypfrN5Pw70Q-Q_720p_(HD).mp4",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_QD3xTV": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/maxresdefault_1_84c1907c-a9d5-4501-ab28-b8097fa31eb8.jpg",
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=9BP40fKU9Kw&t=124s",
+            "other_url": "",
+            "img2": "shopify://shop_images/image_43.png",
+            "media_type2": "video",
+            "video_url2": "",
+            "other_url2": "",
+            "img3": "shopify://shop_images/9704b596f477feac12a64afe79203ee666118bb7.png",
+            "media_type3": "video",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_bLPnDh": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/667826560_122107351779214436_7325298365434661641_n_1.jpg",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/maxresdefault_2.jpg",
+            "media_type2": "video_url",
+            "video_url2": "https://www.youtube.com/watch?v=cO7XFB0cBMo&t=463s",
+            "other_url2": "",
+            "img3": "shopify://shop_images/4_16_1_f3174828-68cd-4041-89b3-a4216bcb831d.jpg",
+            "media_type3": "video",
+            "video3": "shopify://files/videos/FDownloader.Net_AQMm8jBzQ7aqcZIk-yGpNS_8fj6F7blOMARsOUIErvv9z6H1I7fUywfHI0-Q3LFIqq0dAJh6C4i8xu5g8iYGfMCEr7brn89B0YTd_bw0-MAbeQ_720p_(HD) (1).mp4",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_Rz4TW3": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "img": "shopify://shop_images/10f7b24d0723718f6be8ae0a9a10e04fd2b8c1a7.png",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/a00d39adac7e15aa2c56e8f3122b965ba851e184.jpg",
+            "media_type2": "video",
+            "video_url2": "",
+            "other_url2": "",
+            "img3": "shopify://shop_images/9704b596f477feac12a64afe79203ee666118bb7.png",
+            "media_type3": "video",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_gnHe6X",
+        "block_QD3xTV",
+        "block_bLPnDh",
+        "block_Rz4TW3"
+      ],
+      "name": "Index Scrolling",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 0,
+        "title": "<p>Trusted by Thousands <br/>of Homeowners and experts</p>",
+        "link": "shopify://pages/yarbo-official-community",
+        "link_text": "Join the Community"
+      }
+    },
+    "sa_index_awards_RUeciE": {
+      "type": "sa-index-awards",
+      "blocks": {
+        "block_JhXeE7": {
+          "type": "block",
+          "settings": {
+            "text": "2024 Edison Awards",
+            "award_img": "shopify://shop_images/Frame_2036457807_6ded0d61-99b1-4de0-867b-3b755e9a155a.png"
+          }
+        },
+        "block_T4XR8Y": {
+          "type": "block",
+          "settings": {
+            "text": "iF Design Award 2026",
+            "award_img": "shopify://shop_images/Frame_2036457811.png"
+          }
+        },
+        "block_kFYjU7": {
+          "type": "block",
+          "settings": {
+            "text": "CES Innovation Awards 2025",
+            "award_img": "shopify://shop_images/Frame_2036457812.png"
+          }
+        },
+        "block_VFGyYw": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award 2023",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_cypCkG": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_8Na6cF": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_JhXeE7",
+        "block_T4XR8Y",
+        "block_kFYjU7",
+        "block_VFGyYw",
+        "block_cypCkG",
+        "block_8Na6cF"
+      ],
+      "name": "Index Awards",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "h5_padding_top": 48,
+        "h5_padding_bottom": 56
+      }
+    },
+    "sa_common_banner_wmVJNk": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_RJAq3Q": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/ebdf8c9d-b51c-4cc6-b46d-e8f94bc88d97.webp",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "middle-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_RJAq3Q"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 16,
+        "pc_aspect_ratio_h": 9,
+        "h5_aspect_ratio_w": 4,
+        "h5_aspect_ratio_h": 5,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_common_banner_7mREQ6",
+    "1776347054df9bc7f6",
+    "sa_img_text_features_3DCqgz",
+    "sa_blocks_grid_Ncm3gw",
+    "sa_index_scrolling_7Dyww8",
+    "sa_index_awards_RUeciE",
+    "sa_common_banner_wmVJNk"
+  ]
+}

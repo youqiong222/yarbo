@@ -1,0 +1,26 @@
+.list-menu--disclosure {
+  position: absolute;
+  min-width: 100%;
+  width: 200px;
+  border: 1px solid rgba(var(--color-foreground), 0.2);
+}
+
+.list-menu--disclosure:focus {
+  outline: none;
+}
+
+.list-menu__item--active {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.list-menu__item--active:hover {
+  text-decoration-thickness: 2px;
+}
+
+.list-menu--disclosure.localization-selector {
+  max-height: 180px;
+  overflow: auto;
+  width: 100px;
+  padding: 4px;
+}

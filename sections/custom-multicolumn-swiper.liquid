@@ -1,0 +1,907 @@
+{% render 'yb-section-style', section: section %}
+
+<div class='custom_tri_column_outter'>
+  <div class='yb-section-container'>
+    {% if section.settings.heading != blank
+      or section.settings.text != blank
+      or section.settings.button_text != blank
+    %}
+      <div class='zj5-section_header'>
+        <div class='headerTitle'>
+          <h3 class='zj5-section-title yb-section-title'>{{ section.settings.heading }}</h3>
+          <div class='zj5-section-des'>{{ section.settings.text }}</div>
+        </div>
+        {% if section.settings.button_text != blank %}
+          {% render 'yb-button',
+            type: section.settings.button_type,
+            class: 'yb-single-video-btn',
+            tag: 'button',
+            config: section.settings
+          %}
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class='lcf-custom_multicolumn'>
+      <div class='multicolumn-swiper-slide'>
+        <div class='swiper-wrapper'>
+          {% for block in section.blocks %}
+            <div class='lcf_custom_multicolumn-card swiper-slide' {{ block.shopify_attributes }}>
+              {% if block.settings.image != blank %}
+                <div class='lcf_custom_tri_column_image_wrapper' style='position: relative;'>
+                  {{
+                    block.settings.image
+                    | image_url: width: 800
+                    | image_tag: style: 'width:100%;height:100%', loading: 'lazy'
+                  }}
+                  <div class='column-arrow-separator pc-hidden'>
+                    <svg
+                      t='1746363969915'
+                      class='icon'
+                      viewBox='213.33 128 591.36 762.15'
+                      version='1.1'
+                      xmlns='http://www.w3.org/2000/svg'
+                      p-id='1553'
+                      width='200'
+                      height='200'
+                    >
+                      <defs>
+                        <linearGradient id="myGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stop-color="rgba(254, 219, 30, 0)"></stop>
+                          <stop offset="100%" stop-color="rgba(254, 219, 30, 1)"></stop>
+                        </linearGradient>
+                      </defs>
+                      <path d="M541.866667 128l262.826666 381.098667h-328.533333L213.333333 128h328.533334zM541.866667 890.154667H213.333333l262.826667-381.056h328.533333l-262.826666 381.056z" fill="url(#myGradient)" p-id="1554"></path>
+                    </svg>
+                  </div>
+                </div>
+              {% endif %}
+              {% if block.settings.info_text != blank %}
+                <div
+                  class='lcf-steps lcf_yb-tri-col-body'
+                  style='color: {{ block.settings.text_color }}; background: {{ block.settings.bg_color }};'
+                >
+                  {{ block.settings.info_text }}
+                </div>
+              {% endif %}
+              {% if block.settings.heading != blank %}
+                <h4 class='lcf_bz-head-4'>{{ block.settings.heading }}</h4>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class='lcf_yb-multi-col-body'>{{ block.settings.text }}</div>
+              {% endif %}
+              <div class='column-arrow-separator mobile-hidden'>
+                <svg viewBox='213.33 128 591.36 762.15' class='icon' xmlns='http://www.w3.org/2000/svg'>
+                  <defs>
+                    <linearGradient id="goldenGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#FEDB1E" stop-opacity="0"/>
+                      <stop offset="100%" stop-color="#FEDB1E" stop-opacity="1"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M541.866667 128l262.826666 381.098667h-328.533333L213.333333 128h328.533334zM541.866667 890.154667H213.333333l262.826667-381.056h328.533333l-262.826666 381.056z"
+                        fill="url(#goldenGradient)" />
+                </svg>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class='multicolumn-swiper-button-prev'></div>
+        <div class='multicolumn-swiper-button-next'></div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  #shopify-section-{{ section.id }} .column-arrow-separator svg {
+      width: 100%;
+      height: 100%;
+  }
+  #shopify-section-{{ section.id }} .swiper-wrapper > .swiper-slide:last-of-type .column-arrow-separator {
+      display: none !important;
+  }
+  {% unless section.blocks.size > 4 %}
+      #shopify-section-{{ section.id }} .swiper-backface-hidden .swiper-slide:last-child{
+          margin-right: 0px !important;
+      }
+      #shopify-section-{{ section.id }} .swiper-wrapper {
+          justify-content: center;
+      }
+  {% endunless %}
+  #shopify-section-{{ section.id }} .multicolumn-swiper-slide {
+      overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .lcf-custom_multicolumn{
+      position: relative;
+  }
+  #shopify-section-{{ section.id }} .multicolumn-swiper-button-prev {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 8px;
+      width: 56px;
+      height: 56px;
+      box-shadow: 0px 4px 12px 0px #00000014;
+      background-color: #ffffff;
+      border-radius: 50%;
+      z-index: 1;
+      cursor: pointer;
+  }
+  #shopify-section-{{ section.id }} .multicolumn-swiper-button-next {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 8px;
+      width: 56px;
+      height: 56px;
+      box-shadow: 0px 4px 12px 0px #00000014;
+      background-color: #ffffff;
+      border-radius: 50%;
+      z-index: 1;
+      cursor: pointer;
+  }
+  #shopify-section-{{ section.id }} .multicolumn-swiper-button-next::after {
+      content: "next";
+      transform: translateX(0);
+      transition: transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .multicolumn-swiper-button-next:hover::after {
+      transform: translateX(4px);
+  }
+
+  #shopify-section-{{ section.id }} .multicolumn-swiper-button-prev::after {
+      transform: translateX(0);
+      transition: transform 0.3s ease;
+      content: "prev";
+  }
+
+  #shopify-section-{{ section.id }} .multicolumn-swiper-button-prev:hover::after {
+      transform: translateX(-4px);
+  }
+
+  #shopify-section-{{ section.id }} .multicolumn-swiper-button-next::after,
+  #shopify-section-{{ section.id }} .multicolumn-swiper-button-prev::after {
+      font-family: swiper-icons;
+      font-size: var(--swiper-navigation-size);
+      text-transform: none !important;
+      letter-spacing: 0;
+      font-variant: initial;
+      line-height: 1;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #000000;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+  }
+  #shopify-section-{{ section.id }}  .zj5-section-des{
+      margin-bottom: 0px !important;
+  }
+  #shopify-section-{{ section.id }} .lcf_custom_tri_column_image_wrapper {
+      width: 100%;
+      height: auto;
+  }
+  #shopify-section-{{ section.id }} .yb-section-container {
+      text-align: -webkit-center;
+      overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .column-arrow-separator {
+      position: absolute;
+      z-index: 2;
+  }
+  #shopify-section-{{ section.id }} .lcf_bz-head-4{
+      font-weight: 700;
+      text-align: center;
+  }
+  #shopify-section-{{ section.id }} .lcf_yb-multi-col-body {
+      text-align: center;
+      font-weight: 400;
+  }
+
+  @media (min-width: 1920px){
+      #shopify-section-{{ section.id }} .lcf-custom_multicolumn {
+          background: #fff;
+          padding: 60px 50px 43px;
+          border-radius: 16px;
+      }
+      #shopify-section-{{ section.id }} .zj5-section_header{
+          text-align: -webkit-center;
+          max-width:1000px;
+          margin: 0px auto 64px;
+      }
+      #shopify-section-{{ section.id }} .column-arrow-separator {
+          top: 50%;
+          transform: {% if section.settings.arrow_reverse %}translate(-50%, -50%) scaleX(-1){% else %}translateY(-50%){% endif %};
+          right: -36px;
+      }
+       #shopify-section-{{ section.id }} .zj5-section-title{
+          font-weight: 800;
+          font-size: 40px;
+          line-height: 120%;
+          text-align: center;
+          margin-bottom: 16px;
+       }
+        #shopify-section-{{ section.id }} .zj5-section-des{
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 140%;
+          text-align: center;
+
+        }
+        #shopify-section-{{ section.id }} .headerTitle{
+          margin-bottom: 40px;
+        }
+      #shopify-section-{{ section.id }} .lcf_bz-head-4{
+          font-size: 24px;
+          line-height: 120%;
+          margin: 47px auto 0px;
+          max-width: 264px;
+      }
+      #shopify-section-{{ section.id }} .lcf_yb-multi-col-body {
+          font-size: 14px;
+          line-height: 140%;
+          margin: 26px auto 0px;
+          max-width: 264px;
+      }
+      #shopify-section-{{ section.id }} .lcf-steps.lcf_yb-tri-col-body {
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 140%;
+          padding: 5px 17px;
+          width: fit-content;
+          border-radius: 24px;
+          margin-top: 24px;
+      }
+      #shopify-section-{{ section.id }} .lcf_custom_tri_column_image_wrapper img {
+          max-width: 161px;
+          max-height: 161px;
+          margin: 0px auto;
+      }
+      #shopify-section-{{ section.id }} .column-arrow-separator path, #shopify-section-{{ section.id }} .column-arrow-separator svg {
+          width: 45px;
+          height: 58px;
+      }
+  }
+  @media (min-width: 1440px) and (max-width: 1919px){
+      #shopify-section-{{ section.id }} .lcf-custom_multicolumn {
+          background: #fff;
+          padding: 48px 50px 36px;
+          border-radius: 13.71px;
+      }
+      #shopify-section-{{ section.id }} .column-arrow-separator path, #shopify-section-{{ section.id }} .column-arrow-separator svg  {
+          width: 38.57px;
+          height: 49.71px;
+      }
+      #shopify-section-{{ section.id }} .lcf_custom_tri_column_image_wrapper img {
+          max-width: 138px;
+          max-height: 138px;
+          margin: 0px auto;
+      }
+      #shopify-section-{{ section.id }} .column-arrow-separator {
+          top: 50%;
+          transform: {% if section.settings.arrow_reverse %}translate(-50%, -50%) scaleX(-1){% else %}translateY(-50%){% endif %};
+          right: -30px;
+      }
+      #shopify-section-{{ section.id }} .zj5-section_header{
+          text-align: -webkit-center;
+          max-width: 924px;
+          margin: 0px auto 56px;
+      }
+       #shopify-section-{{ section.id }} .zj5-section-title{
+          font-weight: 800;
+          font-size: 36px;
+          line-height: 120%;
+          text-align: center;
+          margin-bottom: 16px;
+       }
+        #shopify-section-{{ section.id }} .zj5-section-des{
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 140%;
+          text-align: center;
+        }
+        #shopify-section-{{ section.id }} .headerTitle{
+          margin-bottom: 32px;
+        }
+      #shopify-section-{{ section.id }} .lcf_bz-head-4{
+          font-size: 20px;
+          line-height: 140%;
+          margin: 37px auto 0px;
+          max-width: 226px
+      }
+      #shopify-section-{{ section.id }} .lcf_yb-multi-col-body {
+          font-size: 12px;
+          line-height: 140%;
+          margin: 23px auto 0px;
+          max-width: 226px
+      }
+      #shopify-section-{{ section.id }} .lcf-steps.lcf_yb-tri-col-body {
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 140%;
+          padding: 4px 14px;
+          width: fit-content;
+          border-radius: 24px;
+          margin-top: 24px;
+      }
+  }
+  @media (min-width: 960px) and (max-width: 1439px){
+      #shopify-section-{{ section.id }} .multicolumn-swiper-button-next {
+          right: 4px;
+          width: 40px;
+          height: 40px;
+      }
+
+      #shopify-section-{{ section.id }} .multicolumn-swiper-button-prev {
+          left: 4px;
+          width: 40px;
+          height: 40px;
+      }
+
+      #shopify-section-{{ section.id }} .multicolumn-swiper-button-next::after,
+      #shopify-section-{{ section.id }} .multicolumn-swiper-button-prev::after {
+          font-size: 13px;
+      }
+      #shopify-section-{{ section.id }} .lcf-custom_multicolumn {
+          background: #fff;
+          padding: 43px 50px 40px;
+          border-radius: 10.29px;
+      }
+      #shopify-section-{{ section.id }} .lcf_custom_tri_column_image_wrapper img {
+          max-width: 103.5px;
+          max-height: 103.5px;
+          margin: 0px auto;
+      }
+      #shopify-section-{{ section.id }} .column-arrow-separator {
+          top: 50%;
+          transform: {% if section.settings.arrow_reverse %}translate(-50%, -50%) scaleX(-1){% else %}translateY(-50%){% endif %};
+          right: -24px;
+      }
+      #shopify-section-{{ section.id }} .zj5-section_header{
+          text-align: -webkit-center;
+          max-width: 728px;
+          margin: 0px auto 48px;
+      }
+       #shopify-section-{{ section.id }} .zj5-section-title{
+          font-weight: 800;
+          font-size: 28px;
+          line-height: 120%;
+          text-align: center;
+          margin-bottom: 16px;
+       }
+        #shopify-section-{{ section.id }} .zj5-section-des{
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 140%;
+          text-align: center;
+        }
+        #shopify-section-{{ section.id }} .headerTitle{
+          margin-bottom: 24px;
+        }
+      #shopify-section-{{ section.id }} .lcf_bz-head-4{
+          font-size: 14px;
+          line-height: 140%;
+          margin: 27px auto 0px;
+          max-width: 169px;
+      }
+      #shopify-section-{{ section.id }} .lcf_yb-multi-col-body {
+          font-size: 12px;
+          line-height: 140%;
+          margin: 18px auto 0px;
+          max-width: 169px;
+      }
+      #shopify-section-{{ section.id }} .lcf-steps.lcf_yb-tri-col-body {
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 140%;
+          padding: 3px 8px;
+          width: fit-content;
+          border-radius: 16px;
+          margin-top: 17.5px;
+      }
+      #shopify-section-{{ section.id }} .column-arrow-separator path, #shopify-section-{{ section.id }} .column-arrow-separator svg  {
+          width: 28.93px;
+          height: 37.29px;
+      }
+  }
+  @media (min-width: 680px) and (max-width: 959px){
+      #shopify-section-{{ section.id }} .multicolumn-swiper-button-next,
+      #shopify-section-{{ section.id }} .multicolumn-swiper-button-prev {
+          display: none;
+      }
+      #shopify-section-{{ section.id }} .lcf-custom_multicolumn {
+          background: #fff;
+          padding: 56px 0px 56px;
+          border-radius: 29.48px;
+      }
+      #shopify-section-{{ section.id }} .lcf_bz-head-4{
+          font-size: 24px;
+          line-height: 120%;
+          margin: 32px auto 0px;
+          max-width: calc(100% - 48px * 2);
+      }
+      #shopify-section-{{ section.id }} .zj5-section_header{
+          text-align: -webkit-center;
+          max-width: 600px;
+          margin: 0px auto 56px;
+      }
+       #shopify-section-{{ section.id }} .zj5-section-title{
+          font-weight: 800;
+          font-size: 32px;
+          line-height: 120%;
+          text-align: center;
+          margin-bottom: 16px;
+       }
+        #shopify-section-{{ section.id }} .zj5-section-des{
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 140%;
+          text-align: center;
+        }
+        #shopify-section-{{ section.id }} .headerTitle{
+          margin-bottom: 24px;
+        }
+      #shopify-section-{{ section.id }} .lcf_yb-multi-col-body {
+          font-size: 18px;
+          line-height: 140%;
+          margin: 16px auto 0px;
+          max-width: calc(100% - 48px * 2);
+      }
+      #shopify-section-{{ section.id }} .lcf-steps.lcf_yb-tri-col-body {
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 120%;
+          padding: 8px 20px;
+          width: fit-content;
+          border-radius: 44px;
+          margin-top: 32px;
+      }
+      #shopify-section-{{ section.id }} .lcf_custom_tri_column_image_wrapper img {
+          max-width: 212px;
+          max-height: 212px;
+          width: 100%;
+          height: 100%;
+          margin: 0px auto;
+          object-fit: cover;
+      }
+      #shopify-section-{{ section.id }} .swiper-wrapper {
+          flex-direction: column;
+      }
+      #shopify-section-{{ section.id }} .column-arrow-separator path, #shopify-section-{{ section.id }} .column-arrow-separator svg  {
+          width: 82px;
+          height: 106px;
+      }
+      #shopify-section-{{ section.id }} .swiper-wrapper > .swiper-slide:last-of-type .column-arrow-separator {
+          display: none !important;
+      }
+      #shopify-section-{{ section.id }} .column-arrow-separator.mobile-hidden {
+          position: unset;
+          width: 82px;
+          height: 106px;
+          margin-top: 56px;
+          margin-bottom: 56px;
+          transform: {% if section.settings.arrow_reverse %}rotate(-90deg){% else %}rotate(90deg){% endif %};
+      }
+  }
+  @media (max-width: 679px){
+      #shopify-section-{{ section.id }} .multicolumn-swiper-button-next,
+      #shopify-section-{{ section.id }} .multicolumn-swiper-button-prev {
+          display: none;
+      }
+      #shopify-section-{{ section.id }} .lcf-custom_multicolumn {
+          background: #fff;
+          padding: 32px 0px 32px;
+          border-radius: 16px;
+      }
+      #shopify-section-{{ section.id }} .zj5-section_header{
+          text-align: -webkit-center;
+          max-width: 327px;
+          margin: 0px auto 32px;
+      }
+       #shopify-section-{{ section.id }} .zj5-section-title{
+          font-weight: 800;
+          font-size: 24px;
+          line-height: 120%;
+          text-align: center;
+          margin-bottom: 12px;
+       }
+        #shopify-section-{{ section.id }} .zj5-section-des{
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 140%;
+          text-align: center;
+        }
+        #shopify-section-{{ section.id }} .headerTitle{
+          margin-bottom: 16px;
+        }
+      #shopify-section-{{ section.id }} .lcf_bz-head-4{
+          font-size: 18px;
+          line-height: 140%;
+          margin: 24px auto 0px;
+          max-width: calc(100% - 32px * 2);
+      }
+      #shopify-section-{{ section.id }} .lcf_yb-multi-col-body {
+          font-size: 14px;
+          line-height: 140%;
+          margin: 8px auto 0px;
+          max-width: calc(100% - 32px * 2);
+      }
+      #shopify-section-{{ section.id }} .lcf-steps.lcf_yb-tri-col-body {
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 140%;
+          padding: 2px 8px;
+          width: fit-content;
+          border-radius: 24px;
+          margin-top: 24px;
+      }
+      #shopify-section-{{ section.id }} .lcf_custom_tri_column_image_wrapper img {
+          max-width: 120px;
+          max-height: 120px;
+          width: 100%;
+          height: 100%;
+          margin: 0px auto;
+          object-fit: cover;
+      }
+      #shopify-section-{{ section.id }} .swiper-wrapper > .swiper-slide:last-of-type .column-arrow-separator {
+          display: none !important;
+      }
+      #shopify-section-{{ section.id }} .column-arrow-separator path, #shopify-section-{{ section.id }} .column-arrow-separator svg  {
+          width: 45px;
+          height: 58px;
+      }
+      #shopify-section-{{ section.id }} .swiper-wrapper {
+          flex-direction: column;
+      }
+      #shopify-section-{{ section.id }} .column-arrow-separator.mobile-hidden {
+          position: unset;
+          width: 45px;
+          height: 58px;
+          margin-top: 20.5px;
+          margin-bottom: 20.5px;
+          transform: {% if section.settings.arrow_reverse %}rotate(-90deg){% else %}rotate(90deg){% endif %};
+      }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      let multiColumnSwiper_{{ section.id | replace: '-', '_' }};
+
+      function initMultiColumnSwiper_{{ section.id | replace: '-', '_' }}() {
+          const multiColumnScreenWidth = window.innerWidth;
+          const swiperElement = document.querySelector("#shopify-section-{{ section.id }} .multicolumn-swiper-slide");
+
+          if (!swiperElement) {
+              return;
+          }
+
+          if (typeof Swiper === 'undefined') {
+              return;
+          }
+
+          if (multiColumnSwiper_{{ section.id | replace: '-', '_' }}) {
+              multiColumnSwiper_{{ section.id | replace: '-', '_' }}.destroy(true, true);
+              multiColumnSwiper_{{ section.id | replace: '-', '_' }} = undefined;
+          }
+
+          if (multiColumnScreenWidth > 959) {
+              try {
+                  multiColumnSwiper_{{ section.id | replace: '-', '_' }} = new Swiper("#shopify-section-{{ section.id }} .multicolumn-swiper-slide", {
+                      loop: false,
+                      slidesPerView: 4,
+                      spaceBetween: 20,
+                      speed: 1000,
+                      allowTouchMove: true,
+                      grabCursor: true,
+                      navigation: {
+                          nextEl: '#shopify-section-{{ section.id }} .multicolumn-swiper-button-next',
+                          prevEl: '#shopify-section-{{ section.id }} .multicolumn-swiper-button-prev',
+                      },
+                      breakpoints: {
+                          1200: {
+                              slidesPerView: 4,
+                              spaceBetween: 20,
+                          },
+                          1024: {
+                              slidesPerView: 3,
+                              spaceBetween: 15,
+                          },
+                          960: {
+                              slidesPerView: 2,
+                              spaceBetween: 10,
+                          }
+                      },
+                      on: {
+                          init: function() {
+                              updateNavigationButtons_{{ section.id | replace: '-', '_' }}();
+                          },
+                          slideChange: function() {
+                              updateNavigationButtons_{{ section.id | replace: '-', '_' }}();
+                          },
+                          resize: function() {
+                              updateNavigationButtons_{{ section.id | replace: '-', '_' }}();
+                          }
+                      }
+                  });
+              } catch (error) {
+                  console.error(error);
+              }
+          }
+      }
+
+      setTimeout(initMultiColumnSwiper_{{ section.id | replace: '-', '_' }}, 100);
+
+      window.addEventListener('load', function() {
+          if (!multiColumnSwiper_{{ section.id | replace: '-', '_' }}) {
+              initMultiColumnSwiper_{{ section.id | replace: '-', '_' }}();
+          }
+      });
+
+      let resizeTimer_{{ section.id | replace: '-', '_' }};
+      window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer_{{ section.id | replace: '-', '_' }});
+          resizeTimer_{{ section.id | replace: '-', '_' }} = setTimeout(initMultiColumnSwiper_{{ section.id | replace: '-', '_' }}, 250);
+      });
+
+      function updateNavigationButtons_{{ section.id | replace: '-', '_' }}() {
+          const swiper = multiColumnSwiper_{{ section.id | replace: '-', '_' }};
+          if (!swiper) return;
+
+          const prevButton = document.querySelector('#shopify-section-{{ section.id }} .multicolumn-swiper-button-prev');
+          const nextButton = document.querySelector('#shopify-section-{{ section.id }} .multicolumn-swiper-button-next');
+
+          if (!prevButton || !nextButton) return;
+
+          const canGoPrev = swiper.allowSlidePrev;
+          const canGoNext = swiper.allowSlideNext;
+          const isBeginning = swiper.isBeginning;
+          const isEnd = swiper.isEnd;
+
+          if (isBeginning || !canGoPrev) {
+              prevButton.style.opacity = '0.3';
+              prevButton.style.pointerEvents = 'none';
+              prevButton.style.cursor = 'not-allowed';
+          } else {
+              prevButton.style.opacity = '1';
+              prevButton.style.pointerEvents = 'auto';
+              prevButton.style.cursor = 'pointer';
+          }
+
+          if (isEnd || !canGoNext) {
+              nextButton.style.opacity = '0.3';
+              nextButton.style.pointerEvents = 'none';
+              nextButton.style.cursor = 'not-allowed';
+          } else {
+              nextButton.style.opacity = '1';
+              nextButton.style.pointerEvents = 'auto';
+              nextButton.style.cursor = 'pointer';
+          }
+      }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom Multicolumn Swiper",
+  "class": "migrated-page",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "<p>Yarbo Lawn Mower Mow Smarter, Not Harder</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Add Text",
+      "default": "<p>Yarbo Lawn Mower keeps your lawn in perfect shape 24/7, gives you a relaxing start of your day instead of sweating behind a mower</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "arrow_reverse",
+      "label": "Arrow Reverse",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "按钮文字",
+      "default": "Shop Now"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "按钮类型",
+      "default": "link",
+      "options": [
+        { "value": "link", "label": "链接" },
+        { "value": "anchor", "label": "锚点" },
+        {
+          "value": "modal",
+          "label": "弹窗"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "按钮链接"
+    },
+    {
+      "type": "text",
+      "id": "button_anchor",
+      "label": "按钮锚点ID"
+    },
+    {
+      "type": "text",
+      "id": "button_modal_title",
+      "label": "按钮弹窗标题"
+    },
+    {
+      "type": "html",
+      "id": "button_modal_content",
+      "label": "按钮弹窗内容"
+    },
+    {
+      "type": "header",
+      "content": "section填充"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Add background Color",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1920",
+      "label": "1920顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1920",
+      "label": "1920底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1440",
+      "label": "1440顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1440",
+      "label": "1440底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_960",
+      "label": "960顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_960",
+      "label": "960底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_680",
+      "label": "680顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_680",
+      "label": "680底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_375",
+      "label": "375顶部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_375",
+      "label": "375底部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Add Heading",
+          "default": "<p>Application Submission</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "info_text",
+          "label": "Info text content",
+          "default": "<p>STEP 1</p>"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Add Info Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Add Info Background Color",
+          "default": "#D9D9D9"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Add Content",
+          "default": "<p>Complete and submit your application to start your journey with the Yarbo PPP.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Add Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Multicolumn Swiper",
+      "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,674 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_common_banner_VK7rXx": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_4aHDpJ": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/20260520-172135.jpg",
+            "h5_image": "shopify://shop_images/20260520-172144.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "bottom-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_4aHDpJ"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 750,
+        "h5_aspect_ratio_h": 1296,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_livestream_agenda_GR3dpq": {
+      "type": "sa-livestream-agenda",
+      "blocks": {
+        "slide_k9BbKE": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_1484582974.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 321,
+            "pc_aspect_ratio_h": 334,
+            "h5_aspect_ratio_w": 300,
+            "h5_aspect_ratio_h": 312,
+            "day": "15",
+            "month": "May.",
+            "datetime": "02:00PM (EDT)",
+            "title": "Memorial Day Sale Satrts Today, Your Lawn Deserves an Upgrade"
+          }
+        },
+        "slide_VtfCJL": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/POWER_THAT_HANDLES_REAL_LAWNS_1.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 321,
+            "pc_aspect_ratio_h": 334,
+            "h5_aspect_ratio_w": 300,
+            "h5_aspect_ratio_h": 312,
+            "day": "18",
+            "month": "May.",
+            "datetime": "11:30AM (EDT)",
+            "title": "Get Your Lawn Memorial Day Ready"
+          }
+        },
+        "slide_VQAYpX": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Power_in_Action_1.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 321,
+            "pc_aspect_ratio_h": 334,
+            "h5_aspect_ratio_w": 300,
+            "h5_aspect_ratio_h": 312,
+            "day": "19",
+            "month": "May.",
+            "datetime": "11:30AM (EDT)",
+            "title": "Get Ahead of Memorial Day"
+          }
+        },
+        "slide_46KMwz": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/20260430-102648.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 321,
+            "pc_aspect_ratio_h": 334,
+            "h5_aspect_ratio_w": 300,
+            "h5_aspect_ratio_h": 312,
+            "day": "20",
+            "month": "May.",
+            "datetime": "02:00PM (EDT)",
+            "title": "Get Your Yard Ready for the Holiday Weekend"
+          }
+        },
+        "slide_X4MzwG": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Image_6.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 321,
+            "pc_aspect_ratio_h": 334,
+            "h5_aspect_ratio_w": 300,
+            "h5_aspect_ratio_h": 312,
+            "day": "23",
+            "month": "Mar",
+            "datetime": "3/23 Mar, 2:00PM (EDT)",
+            "title": "M Series Demo: Finally Here"
+          }
+        },
+        "slide_4frcct": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Image_7.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 321,
+            "pc_aspect_ratio_h": 334,
+            "h5_aspect_ratio_w": 300,
+            "h5_aspect_ratio_h": 312,
+            "day": "23",
+            "month": "Mar",
+            "datetime": "3/23 Mar, 2:00PM (EDT)",
+            "title": "M Series Demo: Finally Here"
+          }
+        },
+        "slide_iVkMRA": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Image_8.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 321,
+            "pc_aspect_ratio_h": 334,
+            "h5_aspect_ratio_w": 300,
+            "h5_aspect_ratio_h": 312,
+            "day": "23",
+            "month": "Mar",
+            "datetime": "3/23 Mar, 2:00PM (EDT)",
+            "title": "M Series Demo: Finally Here"
+          }
+        },
+        "slide_a6xYtp": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Image_2_f1d87c25-a7d0-4eb3-ab27-fbe09377e3f8.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 321,
+            "pc_aspect_ratio_h": 334,
+            "h5_aspect_ratio_w": 300,
+            "h5_aspect_ratio_h": 312,
+            "day": "23",
+            "month": "Mar",
+            "datetime": "3/23 Mar, 2:00PM (EDT)",
+            "title": "M Series Demo: Finally Here"
+          }
+        }
+      },
+      "block_order": [
+        "slide_k9BbKE",
+        "slide_VtfCJL",
+        "slide_VQAYpX",
+        "slide_46KMwz",
+        "slide_X4MzwG",
+        "slide_4frcct",
+        "slide_iVkMRA",
+        "slide_a6xYtp"
+      ],
+      "name": "Livestream Agenda",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Livestream Agenda</p>",
+        "text": "<p>Mark your calendar or subscribe to stay in the loop!</p>",
+        "button_text": "Notify via Email",
+        "button_link": "shopify://pages/about-us",
+        "button_action": "popup",
+        "klaviyo_form_id": "",
+        "button_color": "#ffffff",
+        "button_border_color": "#25282a",
+        "button_bg_color": "#25282a",
+        "button_hover_color": "#25282a",
+        "button_bg_hover_color": "#fedb1e",
+        "subscribe_title": "Subscribe for Exclusive Live Streaming Updates",
+        "email_type": "live-webinar",
+        "klaviyo_list_id": "VG4sg3",
+        "step1": "Go",
+        "step1_placeholder": "Email",
+        "step2": "Go",
+        "step2_placeholder": "Name",
+        "step3": "Subscribe",
+        "step3_placeholder": ""
+      }
+    },
+    "line_4bHy8g": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_firework_video_Xgn3Dd": {
+      "type": "sa-firework-video",
+      "blocks": {
+        "playlist_Af4zqa": {
+          "type": "playlist",
+          "settings": {
+            "label": "Lawn Mowing",
+            "playlist": "5ndKN2"
+          }
+        },
+        "playlist_L3hrFr": {
+          "type": "playlist",
+          "settings": {
+            "label": "Fall Maintenance",
+            "playlist": "gwYK2d"
+          }
+        },
+        "playlist_6QX7Ti": {
+          "type": "playlist",
+          "settings": {
+            "label": "Snow Removal",
+            "playlist": "v7ROAB"
+          }
+        },
+        "playlist_wdYjRW": {
+          "type": "playlist",
+          "settings": {
+            "label": "Spring Setup",
+            "playlist": "oPNJZQ"
+          }
+        }
+      },
+      "block_order": [
+        "playlist_Af4zqa",
+        "playlist_L3hrFr",
+        "playlist_6QX7Ti",
+        "playlist_wdYjRW"
+      ],
+      "name": "SA Firework Video",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "Seasonal Live Highlights",
+        "channel": "yarbo"
+      }
+    },
+    "sa_firework_video_K7xjAM": {
+      "type": "sa-firework-video",
+      "blocks": {
+        "playlist_Nbqcjc": {
+          "type": "playlist",
+          "settings": {
+            "label": "PRODUCT SPECIFIC",
+            "playlist": "gdR23G"
+          }
+        },
+        "playlist_prwDDY": {
+          "type": "playlist",
+          "settings": {
+            "label": "EVENT SPECIALS",
+            "playlist": "g1WVKj"
+          }
+        },
+        "playlist_YdThUj": {
+          "type": "playlist",
+          "disabled": true,
+          "settings": {
+            "label": "CREATIVE SHOWCASE",
+            "playlist": ""
+          }
+        }
+      },
+      "block_order": [
+        "playlist_Nbqcjc",
+        "playlist_prwDDY",
+        "playlist_YdThUj"
+      ],
+      "name": "SA Firework Video",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "LIVE Q&A & EVENT",
+        "channel": "yarbo"
+      }
+    },
+    "sa_index_collections_WcNqdB": {
+      "type": "sa-index-collections",
+      "blocks": {
+        "block_TLdUHJ": {
+          "type": "block",
+          "settings": {
+            "label": "Y Series",
+            "product_list": [
+              "yarbo-lawn-mower-pro-snow-blower",
+              "yarbo-snow-blower-lawn-mower",
+              "yarbo-lawn-mower-pro",
+              "yarbo-snow-blower"
+            ],
+            "shop_all_text": "",
+            "shop_all_url": ""
+          }
+        },
+        "block_tXLDPk": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "label": "M Series",
+            "product_list": [],
+            "shop_all_text": "",
+            "shop_all_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_TLdUHJ",
+        "block_tXLDPk"
+      ],
+      "name": "Index Collections",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 56,
+        "title": "<p>Single Purpose. Superior Performance.</p>",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_rating": false,
+        "quick_add": "standard"
+      }
+    },
+    "line_QbDbGb": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_banner_count_up_X7rA4H": {
+      "type": "sa-banner-count-up",
+      "blocks": {
+        "slide_6QWGfr": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458031.png",
+            "h5_image": "shopify://shop_images/Frame_2036458032.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_width_pc": 560,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "middle-left",
+            "title": "<p><strong>Why Yarbo </strong></p><p><strong>Stands Out</strong></p>",
+            "count_1": 500,
+            "unit_1": "%",
+            "description_1": "Growth",
+            "count_2": 10,
+            "unit_2": "+ Years",
+            "description_2": "R&D",
+            "count_3": 33,
+            "unit_3": "",
+            "description_3": "Countries"
+          }
+        }
+      },
+      "block_order": [
+        "slide_6QWGfr"
+      ],
+      "name": "Banner Count Up",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1320,
+        "pc_aspect_ratio_h": 550,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_section_carousel_mkRpMt": {
+      "type": "sa-section-carousel",
+      "blocks": {
+        "item_xiKbQ3": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_427.png"
+          }
+        },
+        "item_EqHMwg": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_425_1.png"
+          }
+        },
+        "item_nkN9Dw": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_428_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_xiKbQ3",
+        "item_EqHMwg",
+        "item_nkN9Dw"
+      ],
+      "name": "Carousel",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "padding_top": 12,
+        "padding_bottom": 64,
+        "h5_padding_top": 12,
+        "h5_padding_bottom": 12
+      }
+    },
+    "sa_common_img_text_dEKa6H": {
+      "type": "sa-common-img-text",
+      "blocks": {
+        "item_xiHQe7": {
+          "type": "item",
+          "settings": {
+            "image_width": 50,
+            "pc_layout": "image_right",
+            "mobile_layout": "image_top",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458033.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 4,
+            "pc_aspect_ratio_h": 3,
+            "title": "<p>Get in Touch</p>",
+            "title_color": "#000000",
+            "title_size_pc": 44,
+            "title_size_mobile": 32,
+            "desc": "Questions, support, or partnerships—reach out and our team will get you what you need.",
+            "desc_color": "#515355",
+            "desc_size_pc": 18,
+            "desc_size_mobile": 16,
+            "button_text": "Contact Us",
+            "button_link": "shopify://pages/contact-new",
+            "button_color": "#ffffff",
+            "button_border_color": "#25282a",
+            "button_bg_color": "#25282a",
+            "button_hover_color": "#25282a",
+            "button_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "item_xiHQe7"
+      ],
+      "name": "Common Text Media",
+      "settings": {
+        "anchor_id": "",
+        "bg_color": "rgba(0,0,0,0)",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "gap": 32
+      }
+    },
+    "line_gTpLKC": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_why_shop_with_hover_Yx8Vwq": {
+      "type": "sa-why-shop-with-hover",
+      "blocks": {
+        "item_RikjYw": {
+          "type": "item",
+          "settings": {
+            "title": "FREE SHIPPING",
+            "desc": "Delivered in 3-8 business days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_1.svg",
+            "show_image": false
+          }
+        },
+        "item_RUUr6R": {
+          "type": "item",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Help anytime you need",
+            "icon": "shopify://shop_images/Icon_-_Chunky_2.svg",
+            "show_image": false
+          }
+        },
+        "item_KehVpd": {
+          "type": "item",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Pay now or over time using affirm or splitit",
+            "icon": "shopify://shop_images/Icon_-_Chunky_5.svg",
+            "show_image": false
+          }
+        },
+        "item_jwNY6g": {
+          "type": "item",
+          "settings": {
+            "title": "30-Day Free Returns",
+            "desc": "Full refund, no hassle",
+            "icon": "shopify://shop_images/Icon_-_Chunky_3.svg",
+            "show_image": false
+          }
+        },
+        "item_JgUwrp": {
+          "type": "item",
+          "settings": {
+            "title": "up to 5-year Warranty",
+            "desc": "Protection you can trust",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4.svg",
+            "show_image": false
+          }
+        },
+        "item_3M7ibR": {
+          "type": "item",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Safe and protected checkout",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "item_RikjYw",
+        "item_RUUr6R",
+        "item_KehVpd",
+        "item_jwNY6g",
+        "item_JgUwrp",
+        "item_3M7ibR"
+      ],
+      "name": "Why Shop Hover",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "pc_aspect_ratio_w": 250,
+        "pc_aspect_ratio_h": 300,
+        "title": "WHY SHOP WITH US",
+        "auto_rotate": true,
+        "change_slides_speed": 5
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_common_banner_VK7rXx",
+    "sa_livestream_agenda_GR3dpq",
+    "line_4bHy8g",
+    "sa_firework_video_Xgn3Dd",
+    "sa_firework_video_K7xjAM",
+    "sa_index_collections_WcNqdB",
+    "line_QbDbGb",
+    "sa_banner_count_up_X7rA4H",
+    "sa_section_carousel_mkRpMt",
+    "sa_common_img_text_dEKa6H",
+    "line_gTpLKC",
+    "sa_why_shop_with_hover_Yx8Vwq"
+  ]
+}

@@ -1,0 +1,16 @@
+{{ 'yb_snippet_modal.css' | asset_url | stylesheet_tag }}
+<script src='{{ 'yb_snippet_modal.js' | asset_url }}' defer></script>
+
+{% comment %}
+  使用方式:
+  {% render 'yarbo_snippet_modal', content: "+", class: "expand-btn", title: block.settings.modal_title, html: block.settings.modal_content %}
+  参数说明: content: 按钮内容 class: 按钮样式 title: 弹窗标题 html: 弹窗内容
+{% endcomment %}
+
+<button
+  data-modal-title='{{ title }}'
+  data-modal-html='{{ html }}'
+  class='{{ class }} modal-btn'
+>
+  {{ content }}
+</button>

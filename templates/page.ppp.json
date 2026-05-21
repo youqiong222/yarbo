@@ -1,0 +1,560 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_4fw7pL": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "yb_banner_swiper_fhdkcD": {
+      "type": "yb-banner-swiper",
+      "blocks": {
+        "item_HQxeQa": {
+          "type": "item",
+          "settings": {
+            "text_horizontal_position": "left",
+            "text_vertical_position": "center",
+            "text_width": 40,
+            "description": "",
+            "title": "<p>YARBO PRODUCT PIONEER PROGRAM</p>",
+            "subTitle": "<p>Join the community to try new features early and shape the future of Yarbo</p>",
+            "enable_btn_group": true,
+            "enable_global_btn": false,
+            "enable_global_anchor": false,
+            "global_anchor_id": "",
+            "button_text": "Apply Now >",
+            "button_type": "modal",
+            "button_link": "",
+            "button_class": "",
+            "button_anchor": "",
+            "button_modal_title": "Apply to be a PPP member!",
+            "button_modal_content": "<iframe id=\"pppForm\" src=\"https://forms.zohopublic.com/yarbo/form/PPPApplicationFormCreatedonSep042025/formperma/obG1C4dFT3KAFtld-_-NfWEU5NqKZVve9xE3dd7HcEY\" width=\"100%\" height=\"1300px\" title=\"Apply to be a PPP member\" style=\"width: 100%\"></iframe>",
+            "button2_text": "",
+            "button2_type": "link",
+            "button2_link": "",
+            "button2_class": "",
+            "button2_anchor": "",
+            "button2_modal_title": "",
+            "button2_modal_content": "",
+            "enable_subscription": false,
+            "subscription_absolute": false,
+            "subscription_position": 24,
+            "email_type": "",
+            "klaviyo_list_id": "",
+            "subscription_title": "",
+            "subscription_button_text": "",
+            "pc_img": "shopify://shop_images/q1_1944x_a3c8f8c9-3967-4d9c-ba03-dc190a8820b6.webp",
+            "pc_external_video": "",
+            "mobile_img": "shopify://shop_images/Frame-2036456745-_1__750x_78a74e6e-fd61-4183-be67-1427b13de422.webp",
+            "mobile_external_video": "",
+            "mobile_layout": "style1"
+          }
+        }
+      },
+      "block_order": [
+        "item_HQxeQa"
+      ],
+      "name": "Yb-Banner",
+      "settings": {
+        "banner_speed": 6
+      }
+    },
+    "rich_directory_view_RiQywH": {
+      "type": "rich-directory-view",
+      "blocks": {
+        "perfect_card_ewz8ie": {
+          "type": "perfect_card",
+          "settings": {
+            "image": "shopify://shop_images/db90a630-6182-4e55-8d93-edc315b76724.png",
+            "text": "<p>Exclusive Communication Channel</p>",
+            "text_horizontal_position": "flex-end",
+            "text_vertical_position": "center",
+            "text_color": "#000000"
+          }
+        },
+        "perfect_card_ci9QxT": {
+          "type": "perfect_card",
+          "settings": {
+            "image": "shopify://shop_images/d5e5250b-6c7b-4bab-8695-989b952e2eb6.png",
+            "text": "<p>Early Access to the Products</p>",
+            "text_horizontal_position": "flex-end",
+            "text_vertical_position": "center",
+            "text_color": "#000000"
+          }
+        },
+        "perfect_card_JMtjtT": {
+          "type": "perfect_card",
+          "settings": {
+            "image": "shopify://shop_images/986b4a18-3344-4cbd-afdb-6386af152037.png",
+            "text": "<p>Special Gifts</p>",
+            "text_horizontal_position": "flex-end",
+            "text_vertical_position": "center",
+            "text_color": "#000000"
+          }
+        },
+        "perfect_card_k6PL67": {
+          "type": "perfect_card",
+          "settings": {
+            "image": "shopify://shop_images/4b6f1a21-0e4a-41e7-9acf-c8d013919222.png",
+            "text": "<p>Exclusive Content</p>",
+            "text_horizontal_position": "flex-end",
+            "text_vertical_position": "center",
+            "text_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "perfect_card_ewz8ie",
+        "perfect_card_ci9QxT",
+        "perfect_card_JMtjtT",
+        "perfect_card_k6PL67"
+      ],
+      "name": "Rich Directory View",
+      "settings": {
+        "title": "<p>WHAT WE CAN BRING YOU</p>",
+        "desktop_columns": 4,
+        "mobile_columns": "2",
+        "bg_color": "rgba(0,0,0,0)",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 64,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yb_multicolumn_zTHrtB": {
+      "type": "yb-multicolumn",
+      "blocks": {
+        "image_item_UYjnh7": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Product Exploration and Feedback",
+            "block_description": "<p>Independently explore Yarbo and provide detailed feedback on setup, mapping, and RTK installation, highlighting any challenges you encounter.</p>",
+            "block_image": "shopify://shop_images/65759166-7b63-48e4-a517-8080244b021f.png",
+            "block_rating": 5
+          }
+        },
+        "image_item_XEtRDt": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Multimedia Documentation",
+            "block_description": "<p>Capture and share photos and videos of the unboxing, installation, and Yarbo's performance in various scenarios for marketing purpose and social media operation.</p>",
+            "block_image": "shopify://shop_images/3487f4e2-d59f-495c-8b14-f85706a69504.png",
+            "block_rating": 5
+          }
+        },
+        "image_item_4887pM": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Firmware and Software Testing",
+            "block_description": "<p>Test new firmware updates and software features, reporting any issues and suggesting improvements.</p>",
+            "block_image": "shopify://shop_images/495d7503-a23c-492d-90e0-3cb633714896.png",
+            "block_rating": 5
+          }
+        },
+        "image_item_gNVUyX": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Real-World Product Testing",
+            "block_description": "<p>Use Yarbo in different real-world scenarios, evaluating its performance and usability, and sharing your insights with us.</p>",
+            "block_image": "shopify://shop_images/aaeed5a0-54ca-438a-adab-f5f1cb5ddf8b.png",
+            "block_rating": 5
+          }
+        },
+        "image_item_RNB34Q": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Social Media Engagement",
+            "block_description": "<p>Share your Yarbo experience on social media, helping to raise awareness and engage with the community.</p>",
+            "block_image": "shopify://shop_images/89a59ec4-0a9c-426c-b7ff-b3ab3a4a0632.png",
+            "block_rating": 5
+          }
+        },
+        "image_item_mHEyNk": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Direct Communication",
+            "block_description": "<p>Share your feedback and suggestions for improving the product. Contact us directly with any issues or concerns while using Yarbo so we can address them swiftly and enhance your experience.</p>",
+            "block_image": "shopify://shop_images/1e6873ce-1a33-4942-ad97-465102e16b8a.png",
+            "block_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "image_item_UYjnh7",
+        "image_item_XEtRDt",
+        "image_item_4887pM",
+        "image_item_gNVUyX",
+        "image_item_RNB34Q",
+        "image_item_mHEyNk"
+      ],
+      "name": "Yb Multicolumn",
+      "settings": {
+        "anchor_id": "",
+        "title": "<p>YOUR ROLE AS A PPP MEMBER</p>",
+        "description": "",
+        "pc_grid_columns": 2,
+        "show_rating": false,
+        "common_button_class": "",
+        "button_text": "",
+        "button_type": "link",
+        "button_link": "",
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "dark_mode": false,
+        "bg_color": "rgba(0,0,0,0)",
+        "highlight_color": "#f1c40f",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 60,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 50,
+        "padding_top_960": 64,
+        "padding_bottom_960": 32,
+        "padding_top_680": 64,
+        "padding_bottom_680": 32,
+        "padding_top_375": 48,
+        "padding_bottom_375": 24
+      }
+    },
+    "yb_case_studies_KXGbAa": {
+      "type": "yb-case-studies",
+      "blocks": {
+        "card_GHkPft": {
+          "type": "card",
+          "settings": {
+            "title": "<p>Kent Ross</p>",
+            "content": "<p>\"As a PPP Team member I work with Yarbo staff to test things before they get pushed out to the user community. This may be Application or firmware updates, hardware, new features, or even reviewing documentation or web site content. Different subsets of the Team are used for different tasks as needed. As a team member I probably dedicate ~20 hours/week to Yarbo- including time spent trying to help others on the Yarbo Facebook groups. Being a retired engineer (and a geek!) makes being a Team member fun, but there certainly is frustration too, which eventually results in a much better product for the user community. Yarbo has some great staff, and I greatly enjoy working with them.\"<br/><br/></p>",
+            "avatar_title": "",
+            "avatar_content": "",
+            "link": "",
+            "media_image": "shopify://shop_images/9258eaec-22b9-4516-b396-05937036a5ea.png",
+            "media_external_youtube_video": "",
+            "media_external_video": "",
+            "css_style": "style-1"
+          }
+        },
+        "card_G7dbMn": {
+          "type": "card",
+          "settings": {
+            "title": "<p>Scott Grams</p>",
+            "content": "<p>\"My yarbo journey as a PPP member started in early 2022 as a kickstarter backer. It has been an awesome adventure filled with a full array of emotions. Similar to that of raising my son. Starting with the fear of the unknown. As a backer not knowing what to expect, and if it will even work in the crazy Minnesota winters. Then changing over to the struggles of trying to get the best possible results with each of the current versions. Then the amazement of seeing its improvements with each of the 3 versions of hardware, as well as the many firmware and software improvements along the way. Finally followed by the excitement of seeing and experiencing what it is capable of doing today. Looking back at how far it has come since my journey started just a few short years ago. Finishing up now with dreaming of what it will become in the future as it continues to improve and Yarbo continues to develop new modules.\"</p>",
+            "avatar_title": "",
+            "avatar_content": "",
+            "link": "",
+            "media_image": "shopify://shop_images/2f38dc48-373d-4fdf-80fa-7611d3c35a9a.png",
+            "media_external_youtube_video": "",
+            "media_external_video": "",
+            "css_style": "style-1"
+          }
+        },
+        "card_EUj44j": {
+          "type": "card",
+          "settings": {
+            "title": "<p>Steve Thibodeau</p>",
+            "content": "<p><br/>\"My experience in being a PPP member has been simply AMAZING! Looking back at a lot of the posts it was users helping users, and with Big Brother Yarbo in the background to answer things no one else could. It was a lot of suggestions of features, it was a lot of disappointment when Yarbo wasn’t working the way it should. It was seeing the excitement when a new firmware was being released and then the feedback from everyone about the good and bad. Most importantly it was a 'family' of users that with each one of us having the ultimate goal of wanting to see Yarbo succeed and offering the honest feedback to help it get there. This is a special group of people who understand that it’s not just about them, but about the whole community. While some most of us were provided our rovers and modules slightly earlier than the public, but that honor came the responsibility of testing daily, running plans hundreds times, dealing with broken parts, error messages, and robots that didn’t always want to play. \"</p>",
+            "avatar_title": "",
+            "avatar_content": "",
+            "link": "",
+            "media_image": "shopify://shop_images/82db22c2-13cc-4898-af74-47cd79fa9639.png",
+            "media_external_youtube_video": "",
+            "media_external_video": "",
+            "css_style": "style-1"
+          }
+        }
+      },
+      "block_order": [
+        "card_GHkPft",
+        "card_G7dbMn",
+        "card_EUj44j"
+      ],
+      "name": "Yarbo Case Studies",
+      "settings": {
+        "anchor_id": "",
+        "common_title": "CURRENT PPP MEMBER EXPERIENCES",
+        "common_content": "",
+        "common_button_text": "Join Them Now!",
+        "common_button_type": "modal",
+        "common_button_link": "",
+        "common_button_anchor": "",
+        "common_button_modal_title": "Apply to be a PPP member!",
+        "common_button_modal_content": "<iframe id=\"pppForm\" src=\"https://forms.zohopublic.com/yarbo/form/PPPApplicationFormCreatedonSep042025/formperma/obG1C4dFT3KAFtld-_-NfWEU5NqKZVve9xE3dd7HcEY\" width=\"100%\" height=\"1300px\" title=\"Apply to be a PPP member\" style=\"width: 100%\"></iframe>",
+        "bg_color": "#ffffff",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yb_image_text_block_diBPWj": {
+      "type": "yb-image-text-block",
+      "blocks": {
+        "image_text_block_PDdFQ7": {
+          "type": "image_text_block",
+          "settings": {
+            "layout": "left",
+            "image_width": 30,
+            "text_width": 70,
+            "text_padding": 33,
+            "block_title": "",
+            "block_description": "<p>By becoming a member of the Product Pioneer Program, you are not just a tester but a key part of the Yarbo family. Your insights and feedback will directly contribute to the success of Yarbo, helping us create products that truly meet the needs of our users. Together, we can shape the future of Yarbo and achieve success as a community. Cheers! 🍺</p>",
+            "pc_image": "shopify://shop_images/b9e949e3-df28-413f-9049-067fa0a80fab.png",
+            "pc_external_video": "",
+            "mobile_image": "shopify://shop_images/b9e949e3-df28-413f-9049-067fa0a80fab.png",
+            "mobile_external_video": "",
+            "mobile_full_width": "false"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_PDdFQ7"
+      ],
+      "name": "yb-image-text-block",
+      "settings": {
+        "anchor_id": "",
+        "section_title": "",
+        "bg_color": "rgba(0,0,0,0)",
+        "padding_top_1920": 0,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 0,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 0,
+        "padding_bottom_960": 64,
+        "padding_top_680": 0,
+        "padding_bottom_680": 64,
+        "padding_top_375": 0,
+        "padding_bottom_375": 48
+      }
+    },
+    "custom_rich_text_component_emfBBQ": {
+      "type": "custom-rich-text-component",
+      "name": "Rich text component",
+      "settings": {
+        "text_align": "center",
+        "title": "<p><strong>CONTACT US</strong></p>",
+        "description": "<p>For any inquiries about the Yarbo Product Pioneer Program, please reach out to<a href=\"mailto:pioneer@yarbo.com\"><strong> pioneer@yarbo.com</strong></a><strong>. </strong>We're here to assist you and look forward to your participation in the program!</p>",
+        "button_text": "Apply Now >",
+        "button_type": "modal",
+        "button_link": "",
+        "button_class": "",
+        "button_anchor": "",
+        "button_modal_title": "Apply to be a PPP member!",
+        "button_modal_content": "<iframe id=\"pppForm\" src=\"https://forms.zohopublic.com/yarbo/form/PPPApplicationFormCreatedonSep042025/formperma/obG1C4dFT3KAFtld-_-NfWEU5NqKZVve9xE3dd7HcEY\" width=\"100%\" height=\"1300px\" title=\"Apply to be a PPP member\" style=\"width: 100%\"></iframe>",
+        "bg_color": "#f5f5f5",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "custom_tricolumn_EHgG3b": {
+      "type": "custom-tricolumn",
+      "blocks": {
+        "item_PPmCja": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/713cc0b1-e66f-4a20-9edc-68e2f13f9bcf.png",
+            "heading": "<p>STEP 1 <br/>Application Submission</p>",
+            "text": "<p>Complete and submit your application to start your journey with the Yarbo PPP.</p>"
+          }
+        },
+        "item_FQQGYL": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/8bc5e4ec-1404-4616-ab2c-69f033e19f3a.png",
+            "heading": "<p>STEP 2 <br/>Application Review</p>",
+            "text": "<p>Our team will review your application to ensure it meets our criteria. Selected applicants will be notified via email within a month of submission.</p>"
+          }
+        },
+        "item_AJnmDG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/fa761535-3f08-46db-94e9-7b153da88327.png",
+            "heading": "<p>STEP 3 <br/>Group Invitation</p>",
+            "text": "<p>Successful candidates will be invited to join the exclusive Facebook PPP group to interact with other PPP members and the Yarbo team.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_PPmCja",
+        "item_FQQGYL",
+        "item_AJnmDG"
+      ],
+      "name": "Custom Tricolumn",
+      "settings": {
+        "anchor_id": "",
+        "heading": "<p>APPLICATION PROCESS</p>",
+        "text": "",
+        "button_text": "Shop Now",
+        "button_type": "add-cart",
+        "button_link": "",
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "button_add_cart_product": "",
+        "button_add_cart_product_list": [],
+        "button2_text": "Shop Now",
+        "button2_type": "add-cart",
+        "button2_link": "",
+        "button2_anchor": "",
+        "button2_modal_title": "Apply to be a PPP member!",
+        "button2_modal_content": "<iframe id=\"pppForm\" src=\"https://launch.yarbo.com/?ff_landing=43\" title=\"Yarbo ppp Application Form\"></iframe>",
+        "button3_text": "Shop Now",
+        "button3_type": "add-cart",
+        "button3_link": "",
+        "button3_anchor": "",
+        "button3_modal_title": "",
+        "button3_modal_content": "",
+        "bg_color": "rgba(0,0,0,0)",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 0,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 0,
+        "padding_top_960": 64,
+        "padding_bottom_960": 0,
+        "padding_top_680": 64,
+        "padding_bottom_680": 0,
+        "padding_top_375": 48,
+        "padding_bottom_375": 0
+      }
+    },
+    "custom_rich_text_component_qfinaQ": {
+      "type": "custom-rich-text-component",
+      "name": "Rich text component",
+      "settings": {
+        "text_align": "center",
+        "title": "",
+        "description": "<p>Applicants who have previously participated in Yarbo's Referral, Showcase, or Installer programs may have an increased likelihood of being selected. Your experience with these programs shows a strong understanding of our products and a commitment to supporting our brand, which we highly value in our selection process.</p>",
+        "button_text": "Apply Now",
+        "button_type": "modal",
+        "button_link": "",
+        "button_class": "",
+        "button_anchor": "",
+        "button_modal_title": "Apply to be a PPP member!",
+        "button_modal_content": "<iframe id=\"pppForm\" src=\"https://forms.zohopublic.com/yarbo/form/PPPApplicationFormCreatedonSep042025/formperma/obG1C4dFT3KAFtld-_-NfWEU5NqKZVve9xE3dd7HcEY\" width=\"100%\" height=\"1300px\" title=\"Apply to be a PPP member\" style=\"width: 100%\"></iframe>",
+        "bg_color": "rgba(0,0,0,0)",
+        "padding_top_1920": 0,
+        "padding_bottom_1920": 0,
+        "padding_top_1440": 0,
+        "padding_bottom_1440": 0,
+        "padding_top_960": 0,
+        "padding_bottom_960": 0,
+        "padding_top_680": 0,
+        "padding_bottom_680": 0,
+        "padding_top_375": 0,
+        "padding_bottom_375": 0
+      }
+    },
+    "yb_faq_new_wFMjfQ": {
+      "type": "yb-faq-new",
+      "blocks": {
+        "faq_item_69q9py": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Who is eligible to apply for the PPP?</p>",
+            "description": "<p>Current Yarbo users who own a Yarbo product and are active users are eligible to apply. Applicants should also have technical proficiency, commitment to testing, and good communication skills.</p>"
+          }
+        },
+        "faq_item_EXYjVk": {
+          "type": "item",
+          "settings": {
+            "title": "<p>How do I apply for the PPP?</p>",
+            "description": "<p>You can apply by filling out the application form on this page. Make sure to provide your personal information, answer the mandatory questions before submitting your application.</p>"
+          }
+        },
+        "faq_item_JmkHqf": {
+          "type": "item",
+          "settings": {
+            "title": "<p>What kind of feedback is expected from PPP members?</p>",
+            "description": "<p>We expect detailed feedback on your experiences with Yarbo products, including any challenges or issues during setup, usage, and testing. Your observations and suggestions will help us improve our products.</p>"
+          }
+        },
+        "faq_item_aGzw97": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Can I share my experiences publicly?</p>",
+            "description": "<p>Yes, you are welcome to share your experiences and thoughts publicly. We value and encourage diverse feedback, as it helps us improve our products.</p>"
+          }
+        },
+        "faq_item_tzDFPF": {
+          "type": "item",
+          "settings": {
+            "title": "<p>What if I encounter issues with the product during testing?</p>",
+            "description": "<p>Please contact us directly with any issues or concerns. Our team is ready to help you resolve any problems you encounter.</p>"
+          }
+        },
+        "faq_item_8aJ8ch": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Is there a cost to join the PPP?</p>",
+            "description": "<p>There is no cost to join the PPP. Your participation and feedback are valuable to us.</p>"
+          }
+        },
+        "faq_item_97bwKB": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Is there a limit to the number of PPP members?</p>",
+            "description": "<p>Yes, there is a limit to the number of members we can accept into the PPP to ensure we can provide adequate support and gather meaningful feedback. The exact number may vary depending on our current capacity and the specific needs of each testing phase.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_69q9py",
+        "faq_item_EXYjVk",
+        "faq_item_JmkHqf",
+        "faq_item_aGzw97",
+        "faq_item_tzDFPF",
+        "faq_item_8aJ8ch",
+        "faq_item_97bwKB"
+      ],
+      "name": " Yb FAQ New",
+      "settings": {
+        "anchor_id": "",
+        "title": "<p>FAQs</p>",
+        "color_background": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_4fw7pL",
+    "yb_banner_swiper_fhdkcD",
+    "rich_directory_view_RiQywH",
+    "yb_multicolumn_zTHrtB",
+    "yb_case_studies_KXGbAa",
+    "yb_image_text_block_diBPWj",
+    "custom_rich_text_component_emfBBQ",
+    "custom_tricolumn_EHgG3b",
+    "custom_rich_text_component_qfinaQ",
+    "yb_faq_new_wFMjfQ"
+  ]
+}

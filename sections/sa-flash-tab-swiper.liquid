@@ -1,0 +1,362 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+{%- liquid
+  assign s = section.settings
+  assign ratio = s.aspect_ratio | default: 1
+-%}
+
+<div
+  style='
+    --bg-color: {{ s.bg_color }};
+    --padding-top: {{ s.padding_top }}px;
+    --padding-bottom: {{ s.padding_bottom }}px;
+    --h5-padding-top: {{ s.h5_padding_top }}px;
+    --h5-padding-bottom: {{ s.h5_padding_bottom }}px;
+    --media-aspect: {{ ratio }};
+  '
+  class='
+    bg-(--bg-color)
+    pt-(--h5-padding-top) pb-(--h5-padding-bottom)
+    md:pt-(--padding-top) md:pb-(--padding-bottom)
+    {% if s.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <style>
+    #shopify-section-{{ section.id }} .swiper-pagination-top {
+      width: auto !important;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 24px;
+      background-color: #ffffff;
+      max-width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+
+    #shopify-section-{{ section.id }} .swiper-pagination-top::-webkit-scrollbar { display: none; }
+    #shopify-section-{{ section.id }} .swiper-pagination-top.is-black {
+      background-color: #222222;
+    }
+    #shopify-section-{{ section.id }} .swiper-pagination-top::before {
+      content: '';
+      position: absolute;
+      height: 48px;
+      background: #fedb1e;
+      border-radius: 24px;
+      transition: all 0.3s ease;
+      z-index: 0;
+      width: var(--slide-width, 0);
+      transform: translateX(var(--slide-left, 0));
+    }
+    #shopify-section-{{ section.id }} .yb-tab-bullet {
+      position: relative;
+      z-index: 1;
+      height: 48px;
+      padding: 0 32px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #6e6e73;
+      white-space: nowrap;
+      cursor: pointer;
+      opacity: 0.2;
+      transition: color 0.3s ease, opacity 0.3s ease;
+      background: transparent;
+      margin: 0 !important;
+      width: auto;
+    }
+    @media (min-width: 768px) {
+      #shopify-section-{{ section.id }} .yb-tab-bullet {
+        padding: 0 40px;
+        font-size: 16px;
+      }
+    }
+    #shopify-section-{{ section.id }} .yb-tab-bullet.swiper-pagination-bullet-active {
+      color: #000000;
+      opacity: 1;
+    }
+    #shopify-section-{{ section.id }} .swiper-pagination-top.is-black .yb-tab-bullet.swiper-pagination-bullet-active {
+      color: #000000;
+      opacity: 1;
+    }
+
+    #shopify-section-{{ section.id }} .yb-flash-tab-next {
+      position: relative;
+    }
+    #shopify-section-{{ section.id }} .yb-flash-tab-next::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(#fedb1e var(--progress, 0%), transparent var(--progress, 0%));
+      mask: radial-gradient(transparent 60%, #000 0);
+      -webkit-mask: radial-gradient(transparent 60%, #000 0);
+      pointer-events: none;
+    }
+  </style>
+
+  <div class='page-container text-center'>
+    {% if s.title != blank %}
+      <h2 class='theme-title text-[28px] leading-[1.1] font-bold uppercase md:text-[44px]'>
+        {{ s.title }}
+      </h2>
+    {% endif %}
+    {% if s.content != blank %}
+      <div class='mt-12 text-[16px] md:mt-16 md:text-[20px]'>
+        {{ s.content }}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if section.blocks.size > 0 %}
+    {%- liquid
+      assign is_black = false
+      if s.card_color == 'yb-image-text-swiper-card-black'
+        assign is_black = true
+      endif
+    -%}
+
+    <div class='page-container mt-32 md:mt-48'>
+      <div
+        data-auto-play-time='{{ s.auto_play_time }}'
+        class='yb-flash-tab-swiper relative'
+      >
+        <div class='mb-24 flex justify-center md:mx-0 md:mb-32'>
+          <div class='swiper-pagination-top {% if is_black %}is-black{% endif %}'></div>
+        </div>
+
+        <div class='swiper'>
+          <div class='swiper-wrapper'>
+            {% for block in section.blocks %}
+              <div
+                data-tab='{{ block.settings.tab_name | escape }}'
+                class='swiper-slide h-auto!'
+                {{ block.shopify_attributes }}
+              >
+                <div
+                  class='
+                    flex flex-col overflow-hidden rounded-[16px]
+                    md:flex-row
+                    {% if is_black %}bg-[#1f1f1f] text-white{% else %}bg-white text-[#1f1f1f]{% endif %}
+                  '
+                >
+                  <div class='relative aspect-(--media-aspect) w-full md:w-1/2'>
+                    {% render 'media-element',
+                      class: 'absolute inset-0 w-full h-full object-cover',
+                      media_class: 'w-full h-full object-cover',
+                      media_type: block.settings.media_type,
+                      pc_image: block.settings.pc_image,
+                      h5_image: block.settings.h5_image,
+                      pc_video: block.settings.pc_video,
+                      h5_video: block.settings.h5_video,
+                      video_url: block.settings.video_url,
+                      other_url: block.settings.other_url
+                    %}
+                    {%- render 'sn-overlay', _settings: block.settings -%}
+                  </div>
+                  <div class='relative flex flex-1 flex-col p-24 md:p-48 md:pt-60 md:pb-104'>
+                    {% if block.settings.title != blank %}
+                      <div class='text-[24px] leading-[1.2] font-bold md:text-[32px]'>
+                        {{ block.settings.title }}
+                      </div>
+                    {% endif %}
+                    {% if block.settings.text != blank %}
+                      <div class='mt-16 text-[16px] leading-[1.4] md:mt-24 md:text-[20px]'>
+                        {{ block.settings.text }}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class='pointer-events-none absolute right-24 bottom-24 z-20 hidden gap-16 md:right-32 md:bottom-32 md:flex'>
+          <div class='yb-flash-tab-prev pointer-events-auto hidden h-40 w-40 cursor-pointer items-center justify-center rounded-full border border-[#cccccc] bg-white transition-colors hover:bg-[#f2f2f2] md:flex md:h-48 md:w-48'>
+            <svg
+              width='8'
+              height='14'
+              viewBox='0 0 8 14'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d='M6.75325 12.5859L0.919923 6.7526L6.75325 0.91927' stroke='#25282A' stroke-width='1.3' stroke-linecap='square'/>
+            </svg>
+          </div>
+          <div class='yb-flash-tab-next pointer-events-auto flex h-40 w-40 cursor-pointer items-center justify-center rounded-full border border-[#cccccc] bg-white transition-colors hover:bg-[#f2f2f2] md:h-48 md:w-48'>
+            <svg
+              width='8'
+              height='14'
+              viewBox='0 0 8 14'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d='M1.24675 0.91927L7.08008 6.7526L1.24675 12.5859' stroke='#25282A' stroke-width='1.3' stroke-linecap='square'/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<script>
+  (() => {
+    const sectionEl = document.querySelector('#shopify-section-{{ section.id }}');
+    if (!sectionEl) return;
+    const root = sectionEl.querySelector('.yb-flash-tab-swiper');
+    if (!root) return;
+
+    const auto_play_time = (parseInt(root.getAttribute('data-auto-play-time'), 10) || 8) * 1000;
+    const slides = root.querySelectorAll('.swiper-slide');
+
+    const swiper = new Swiper(root.querySelector('.swiper'), {
+      loop: true,
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      pagination: {
+        el: root.querySelector('.swiper-pagination-top'),
+        clickable: true,
+        bulletClass: 'yb-tab-bullet',
+        bulletActiveClass: 'swiper-pagination-bullet-active',
+        renderBullet: (index, className) => '<span class="' + className + '">' + (slides[index]?.getAttribute('data-tab') || '') + '</span>',
+      },
+      navigation: {
+        nextEl: root.querySelector('.yb-flash-tab-next'),
+        prevEl: root.querySelector('.yb-flash-tab-prev'),
+      },
+      autoplay: { delay: auto_play_time, disableOnInteraction: false },
+    });
+
+    const updateIndicator = () => {
+      const pagination = root.querySelector('.swiper-pagination-top');
+      const active = pagination?.querySelector('.swiper-pagination-bullet-active');
+      if (!pagination || !active) return;
+      pagination.style.setProperty('--slide-width', active.offsetWidth + 'px');
+      pagination.style.setProperty('--slide-left', active.offsetLeft + 'px');
+      // Center active bullet within pagination scroll
+      const target = active.offsetLeft - (pagination.clientWidth - active.offsetWidth) / 2;
+      pagination.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+    };
+    swiper.on('slideChange', updateIndicator);
+    setTimeout(updateIndicator, 0);
+
+    const nextButton = root.querySelector('.yb-flash-tab-next');
+    let progressTimer;
+    let progress = 0;
+    const tick = 100;
+    const startProgress = () => {
+      clearInterval(progressTimer);
+      progress = 0;
+      nextButton.style.setProperty('--progress', '0%');
+      progressTimer = setInterval(() => {
+        progress += (tick / auto_play_time) * 100;
+        nextButton.style.setProperty('--progress', progress + '%');
+        if (progress >= 100) {
+          clearInterval(progressTimer);
+          progress = 0;
+        }
+      }, tick);
+    };
+    startProgress();
+    swiper.on('slideChange', startProgress);
+    swiper.on('autoplayStart', startProgress);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Flash Tab Swiper",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor Id" },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    { "type": "header", "content": "Section" },
+    { "type": "color", "id": "bg_color", "label": "Background Color", "default": "#f5f5f5" },
+    { "type": "richtext", "id": "title", "label": "Title", "default": "<p>Trusted by Real Yards</p>" },
+    { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Real experiences, visible results, shared by our community.</p>" },
+    {
+      "type": "select",
+      "id": "card_color",
+      "label": "Card Style",
+      "options": [
+        { "value": "yb-image-text-swiper-card-white", "label": "White" },
+        { "value": "yb-image-text-swiper-card-black", "label": "Black" }
+      ],
+      "default": "yb-image-text-swiper-card-white"
+    },
+    { "type": "number", "id": "aspect_ratio", "label": "Media Aspect Ratio (W / H)", "default": 1 },
+    { "type": "range", "id": "auto_play_time", "label": "Autoplay Time (s)", "min": 3, "max": 20, "step": 1, "default": 8 },
+    { "type": "header", "content": "Spacing Settings" },
+    { "type": "number", "id": "padding_top", "label": "Padding Top", "default": 74 },
+    { "type": "number", "id": "padding_bottom", "label": "Padding Bottom", "default": 80 },
+    { "type": "number", "id": "h5_padding_top", "label": "H5 Padding Top", "default": 30 },
+    { "type": "number", "id": "h5_padding_bottom", "label": "H5 Padding Bottom", "default": 14 }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Slide",
+      "settings": [
+        { "type": "text", "id": "tab_name", "label": "Tab Name" },
+        { "type": "text", "id": "title", "label": "Card Title" },
+        { "type": "richtext", "id": "text", "label": "Card Text" },
+        { "type": "header", "content": "Media Settings" },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            { "value": "image", "label": "Image" },
+            { "value": "video", "label": "Shopify Video" },
+            { "value": "video_url", "label": "External Video URL" }
+          ],
+          "default": "image"
+        },
+        { "type": "image_picker", "id": "pc_image", "label": "PC Image" },
+        { "type": "image_picker", "id": "h5_image", "label": "H5 Image" },
+        { "type": "video", "id": "pc_video", "label": "PC Shopify Video" },
+        { "type": "video", "id": "h5_video", "label": "H5 Shopify Video(Optional)" },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        { "type": "header", "content": "Overlay Settings" },
+        { "type": "checkbox", "id": "show_overlay", "label": "Show Media Overlay", "default": false },
+        { "type": "color", "id": "overlay_color", "label": "Overlay Color", "default": "#000000" },
+        { "type": "range", "id": "overlay_opacity", "label": "Overlay Opacity", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 40 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flash Tab Swiper",
+      "blocks": [
+        { "type": "block", "settings": { "tab_name": "Martin Cole" } },
+        { "type": "block", "settings": { "tab_name": "Scott Grams" } },
+        { "type": "block", "settings": { "tab_name": "Brian Fisher" } },
+        { "type": "block", "settings": { "tab_name": "Rob such" } },
+        { "type": "block", "settings": { "tab_name": "Ryan Maggio" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,672 @@
+<style>
+  /* 容器层 */
+  .subscribe-popup-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    white-space: normal;
+    font-size: 0.8333333333vw;
+    /* 1920下 1em = 16px */
+  }
+
+  .subscribe-popup-container.subscribe-popup-show {
+    display: flex;
+  }
+
+  .subscribe-popup-wrapper {
+    width: 37.5em;
+    background-color: #fff;
+    border-radius: 0.5em;
+  }
+
+  .subscribe-popup-new-wrapper {
+    width: 37.5em;
+    background-color: #fff;
+    border-radius: 1em !important;
+    -webkit-border-radius: 1em !important;
+    -moz-border-radius: 1em !important;
+    -ms-border-radius: 1em !important;
+    -o-border-radius: 1em !important;
+  }
+
+  /* 头部区域 */
+  .subscribe-popup-header {
+    width: 100%;
+    height: 11.25em;
+    background-image: url('https://cdn.myshopline.com/sl/slfs/sl-new/174210307219831/bg-yellow.png');
+    background-size: cover;
+    position: relative;
+    padding: 2.5em 0;
+    text-align: center;
+  }
+
+  .subscribe-popup-header-new {
+    background-image: url('https://img-va.myshopline.com/image/store/1737714205978/yarbo-subscri-yellow.png?w=3840&h=2160') !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 3840 / 2160;
+    height: auto;
+    min-height: 11.25em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .subscribe-popup-close-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .subscribe-popup-close-icon-new {
+    position: absolute;
+    top: 5px !important;
+    right: 7px !important;
+    cursor: pointer;
+  }
+
+  .subscribe-popup-header-title {
+    font-size: 2em;
+    font-weight: 800;
+    line-height: 1.75em;
+    color: rgb(4, 9, 33);
+  }
+
+  .subscribe-popup-header-subtitle {
+    width: 25.75em;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 1.375em;
+    color: rgb(125, 81, 18);
+  }
+
+  .subscribe-popup-bottom {
+    padding: 2em;
+  }
+
+  /* 内容区域 */
+  .subscribe-popup-content {
+  }
+
+  .subscribe-popup-higlight {
+    padding: 0 0.2em;
+    color: rgb(11, 11, 11);
+    background-color: rgb(254, 219, 30);
+    border-radius: 0.2em;
+  }
+
+  .subscribe-popup-image {
+    width: 100%;
+    height: 12.5em;
+    background-color: #f5f5f5;
+  }
+
+  .subscribe-popup-product-title {
+    text-align: center;
+    font-size: 2.5em;
+    line-height: 1.3;
+    font-weight: 900;
+    color: rgb(11, 11, 11);
+  }
+
+  .subscribe-popup-product-description {
+    text-align: center;
+    color: rgb(11, 11, 11);
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1.33333;
+  }
+
+  .subscribe-popup-description2 {
+    text-align: center;
+    color: rgb(12, 13, 16);
+    font-size: 0.9375em;
+    line-height: 1;
+    margin-top: 1.0666em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .subscribe-popup-desc-icon {
+    display: block;
+    width: 1.4375em;
+    height: 1.4375em;
+    margin-right: 0.5em;
+  }
+
+  .subscribe-popup-desc-icon2 {
+    width: 100px;
+    margin: 0.5em auto 1.25em;
+    display: block;
+  }
+
+  /* 分隔线 */
+  .subscribe-popup-join {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 2.8em;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(254, 219, 30);
+    color: #000;
+    font-size: 1.25em;
+    font-weight: 700;
+    border-radius: 1.4em;
+    margin-top: 1.25rem;
+  }
+
+  .subscribe-popup-icon3 {
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .subscribe-popup-icon4 {
+    width: 3.65em;
+    position: absolute;
+    right: 0.9em;
+    bottom: -1.9em;
+  }
+
+  /* 操作区域 */
+  .subscribe-popup-actions {
+    margin-top: 1.75rem;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .subscribe-popup-action-group {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1rem;
+    background-color: rgba(255, 246, 206);
+    padding: 0.5rem 1rem;
+  }
+
+  .subscribe-popup-action-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .subscribe-popup-action-item-title {
+    border-radius: 624.9375rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 1.125rem;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 700;
+    color: white;
+  }
+
+  .subscribe-popup-action-item-name {
+    font-size: 1rem;
+    line-height: 1;
+    color: black;
+  }
+
+  .subscribe-popup-action-item-img {
+    position: absolute;
+    top: -0.625rem;
+    right: 0;
+    aspect-ratio: 114/52;
+    width: 7.125rem;
+  }
+
+  .subscribe-popup-action-icon {
+    width: 2.8571em;
+    height: 2.8571em;
+  }
+
+  .subscribe-popup-action-icon > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .subscribe-popup-action-text {
+    flex-grow: 1;
+  }
+
+  @media screen and (max-width: 959px) {
+    .subscribe-popup-actions {
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .subscribe-popup-action-item-img {
+      width: 4.5rem;
+      top: -0.25rem;
+    }
+
+    .subscribe-popup-action-item-name {
+      font-size: 0.625rem;
+    }
+
+    .subscribe-popup-action-item-title {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.625rem;
+      line-height: 1;
+    }
+
+    .subscribe-popup-wrapper {
+      font-size: 4.2666666vw;
+      /* 375下 1em = 16px */
+      width: calc(100% - 1.875em);
+      margin: 0 auto;
+      height: auto;
+    }
+
+    .subscribe-popup-header {
+      padding: 2.5em 0 1.4375em;
+      height: auto;
+      border-radius: 0.5em 0.5em 0 0;
+    }
+
+    .subscribe-popup-header-title {
+      font-size: 1.25em;
+      line-height: 1.4;
+    }
+
+    .subscribe-popup-header-subtitle {
+      font-size: 0.75em;
+      line-height: 1.33333333;
+      width: 100%;
+    }
+
+    .subscribe-popup-bottom {
+      padding: 1.25em 1em;
+    }
+
+    .subscribe-popup-product-title {
+      font-size: 1.25em;
+      line-height: 1.416666;
+    }
+
+    .subscribe-popup-higlight {
+      padding: 0 0.333333333em;
+      border-radius: 0.333333333em;
+    }
+
+    .subscribe-popup-product-description {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .subscribe-popup-product-link {
+      text-decoration: none;
+    }
+
+    .subscribe-popup-description2 {
+      font-size: 0.75em;
+      line-height: 1.8333333;
+      margin-top: 0.75em;
+    }
+
+    .subscribe-popup-desc-icon {
+      width: 1.91666667em;
+      height: 1.91666667em;
+      margin-right: 0.6666667em;
+    }
+
+    .subscribe-popup-desc-icon2 {
+      width: 15em;
+    }
+
+    .subscribe-popup-join {
+      margin-top: 1.125rem;
+      font-size: 1.125em;
+      height: 3.111111em;
+      line-height: 3.111111em;
+      border-radius: 1.5555556em;
+    }
+
+    .subscribe-popup-icon3 {
+      width: 1.3333333em;
+      height: 1.3333333em;
+    }
+
+    .subscribe-popup-icon4 {
+      width: 2.7222222em;
+      height: 2.3888889em;
+      right: 1px;
+      bottom: -1.444444em;
+    }
+
+    .subscribe-popup-action-group {
+      padding: 1em 1.5em;
+      margin-top: 0.75em;
+      row-gap: 1em;
+      line-height: 1.05em;
+      text-align: left;
+    }
+
+    .subscribe-popup-action-item {
+      gap: 0.5rem;
+    }
+
+    .subscribe-popup-action-icon {
+      width: 2.333333em;
+      height: 2.333333em;
+    }
+  }
+
+  @media screen and (max-width: 959px) and (min-width: 768px) {
+    .subscribe-popup-wrapper {
+      font-size: 3.6vw;
+    }
+  }
+  /*邮箱二次弹窗*/
+  .subscribe-popup-container-recheck {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    font-size: 16px;
+    z-index: 9999;
+  }
+
+  .subscribe-popup-container-recheck.subscribe-popup-container-recheck-show {
+    display: flex;
+  }
+
+  .subscribe-popup-container-recheck-content {
+    background-color: #fff;
+    border-radius: 0.75em;
+    height: 11.3125em;
+    text-align: center;
+    color: #000;
+  }
+
+  .subscribe-popup-container-recheck-title {
+    font-size: 1.25em;
+    height: 3em;
+    line-height: 3;
+  }
+
+  .subscribe-popup-container-recheck-info {
+    font-size: 1em;
+    line-height: 1.5em;
+    padding: 0 2em;
+  }
+
+  .subscribe-popup-container-recheck-email {
+    color: rgb(227, 46, 33);
+  }
+
+  .subscribe-popup-container-recheck-bottom {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgb(229, 229, 229);
+    margin-top: 0.625em;
+    font-size: 1.2em;
+    align-items: center;
+    height: 3.125em;
+  }
+
+  .subscribe-popup-container-recheck-line {
+    width: 1px;
+    height: 1.666667em;
+    background: rgb(238, 238, 238);
+  }
+
+  .subscribe-popup-container-recheck-clear,
+  .subscribe-popup-container-recheck-checked {
+    flex: 1;
+    cursor: pointer;
+  }
+
+  .subscribe-popup-container-recheck-clear {
+    color: rgb(119, 119, 119);
+  }
+
+  @media screen and (max-width: 959px) {
+    .subscribe-popup-container-recheck {
+      font-size: 4.2666666vw;
+      /* 375下 1em = 16px */
+    }
+
+    .subscribe-popup-container-recheck-content {
+      border-radius: 0.75em;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .subscribe-popup-container-recheck-title {
+      font-size: 1em;
+      height: 2.875em;
+      line-height: 2.875em;
+    }
+
+    .subscribe-popup-container-recheck-info {
+      font-size: 1em;
+      line-height: 1.5em;
+      white-space: break-spaces;
+    }
+
+    .subscribe-popup-container-recheck-bottom {
+      margin-top: 0.75em;
+      font-size: 1em;
+      height: 2.875em;
+      line-height: 2.875em;
+    }
+
+    .subscribe-popup-container-recheck-line {
+      height: 2em;
+    }
+  }
+
+  .subscribe-popup-features {
+    display: flex;
+    color: #000;
+    font-size: 15px;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 12px 0;
+    padding: 0 24px;
+  }
+
+  .subscribe-popup-feature {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .checkmark-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background-color: #ffd700;
+    color: #333;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  /* 移动端适配 */
+  @media (max-width: 768px) {
+    .subscribe-popup-features {
+      flex-direction: column;
+      gap: 9px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      font-size: 18px;
+      padding-left: 120px;
+      margin-left: 24px;
+    }
+
+    .subscribe-popup-feature {
+      gap: 9px;
+    }
+
+    .checkmark-circle {
+      width: 18px;
+      height: 18px;
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .subscribe-popup-features {
+      font-size: 16.8px;
+      gap: 6px;
+      padding-left: 120px;
+      margin-left: 18px;
+    }
+
+    .checkmark-circle {
+      width: 16px;
+      height: 16px;
+      font-size: 10px;
+    }
+  }
+</style>
+
+<div
+  class='subscribe-popup-container'
+  {% if popup_id != blank %}
+    data-popup-id='{{ popup_id }}'
+  {% endif %}
+>
+  <div class='subscribe-popup-wrapper'>
+    <div class='subscribe-popup-header'>
+      <div class='subscribe-popup-close-icon'>
+        <svg
+          width='20'
+          height='20'
+          viewBox='0 0 41 41'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path d="M22.3739 20.3879L34.4977 8.26409C34.6218 8.13997 34.6218 7.93977 34.4977 7.81565L33.2645 6.58245C33.1404 6.45832 32.9402 6.45832 32.816 6.58245L20.6922 18.7063C20.6322 18.7663 20.5281 18.7663 20.468 18.7063L8.34016 6.57844C8.21604 6.45432 8.01584 6.45432 7.89172 6.57844L6.65852 7.81165C6.5344 7.93577 6.5344 8.13596 6.65852 8.26008L18.7823 20.3839C18.8424 20.444 18.8424 20.5481 18.7823 20.6081L6.65852 32.74C6.5344 32.8641 6.5344 33.0643 6.65852 33.1884L7.89172 34.4216C8.01584 34.5457 8.21604 34.5457 8.34016 34.4216L20.464 22.2978C20.524 22.2377 20.6281 22.2377 20.6882 22.2978L32.812 34.4216C32.9362 34.5457 33.1364 34.5457 33.2605 34.4216L34.4937 33.1884C34.6178 33.0643 34.6178 32.8641 34.4937 32.74L22.3739 20.6121C22.3138 20.5521 22.3138 20.448 22.3739 20.3879Z" fill="#333333"/>
+        </svg>
+      </div>
+      <div class='subscribe-popup-header-title'>Thank you for subscribing.</div>
+      <div class='subscribe-popup-header-subtitle'>
+        Please check your email for details.
+        <br>
+        *Don't forget to check your spam folder.
+      </div>
+    </div>
+    <div class='subscribe-popup-bottom'>
+      <div class='subscribe-popup-content'>
+        <div class='subscribe-popup-product-title'>Join Our Exclusive Facebook Group</div>
+        <div class='subscribe-popup-features'>
+          <div class='subscribe-popup-feature'>
+            <span class='checkmark-circle'>✓</span>
+            <span>Talk to Active Users</span>
+          </div>
+          <div class='subscribe-popup-feature'>
+            <span class='checkmark-circle'>✓</span>
+            <span>Pop-Up Giveaway Events</span>
+          </div>
+          <div class='subscribe-popup-feature'>
+            <span class='checkmark-circle'>✓</span>
+            <span>Chat with Team Yarbo</span>
+          </div>
+        </div>
+        <div class='subscribe-popup-description2'>
+          <img
+            class='subscribe-popup-desc-icon'
+            width='auto'
+            height='auto'
+            src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/aa5_be66c51c-c31e-4fc1-b222-7b639bb9e50e.png'
+          >
+          Private group · 33.0K members
+        </div>
+        <img
+          class='subscribe-popup-desc-icon2'
+          width='auto'
+          height='auto'
+          src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/hand1_4c38e0ed-23e4-4e0a-aee8-491eeac1a2f3.png'
+        >
+      </div>
+
+      {% if localization.country.iso_code == 'AU' %}
+        <a
+          class='subscribe-popup-join'
+          href='https://www.facebook.com/share/g/1F2LApVCZH/'
+          target='_blank'
+        >
+          <span>Join Now</span>
+          <img
+            width='auto'
+            height='auto'
+            class='subscribe-popup-icon4'
+            src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/hand1_4c38e0ed-23e4-4e0a-aee8-491eeac1a2f3.png'
+            alt=''
+          >
+        </a>
+      {% else %}
+        <a
+          class='subscribe-popup-join'
+          href='https://www.facebook.com/groups/1714379818996666/'
+          target='_blank'
+        >
+          <span>Join Now</span>
+          <img
+            width='auto'
+            height='auto'
+            class='subscribe-popup-icon4'
+            src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/hand1_4c38e0ed-23e4-4e0a-aee8-491eeac1a2f3.png'
+            alt=''
+          >
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div
+  class='subscribe-popup-container-recheck'
+  {% if popup_id != blank %}
+    data-popup-id='{{ popup_id }}'
+  {% endif %}
+>
+  <div class='subscribe-popup-container-recheck-content'>
+    <div class='subscribe-popup-container-recheck-title'>Email Check Needed</div>
+    <div class='subscribe-popup-container-recheck-info'>
+      We are unable to verify your email address.
+      <br>
+      Please check if the email
+      <span class='subscribe-popup-container-recheck-email'>asdla23@qq.com</span>
+      is correct.
+    </div>
+    <div class='subscribe-popup-container-recheck-bottom'>
+      <div class='subscribe-popup-container-recheck-clear'>Re-enter my email</div>
+      <div class='subscribe-popup-container-recheck-line'></div>
+      <div class='subscribe-popup-container-recheck-checked'>Yes, it is correct</div>
+    </div>
+  </div>
+</div>

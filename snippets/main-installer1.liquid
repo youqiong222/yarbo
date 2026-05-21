@@ -1,0 +1,3560 @@
+{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}
+{{ 'yb-base.css' | asset_url | stylesheet_tag }}
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.20/babel.min.js'></script>
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/antd-scoped.css?v=1776135340'
+  rel='stylesheet'
+>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/antd/5.11.1/antd.min.js'></script>
+
+<link
+  href='https://vjs.zencdn.net/8.16.1/video-js.css'
+  rel='stylesheet'
+>
+<script
+  defer
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide-extension-video.min.js'
+></script>
+<script
+  id='fw-async'
+  async
+  strategy='lazyOnload'
+  type='text/javascript'
+  src='https://asset.fwcdn3.com/js/fwn.js'
+></script>
+
+<style>
+  #shopify-section-{{
+    section.id
+  }} .main {
+        --tw-bg-opacity: 1;
+        background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+    }
+
+  #shopify-section-{{
+    section.id
+  }} #endErrorSection {
+      padding: 0;
+  }
+
+  #shopify-section-{{
+    section.id
+  }} #endErrorSection p{
+      margin-bottom: 0;
+  }
+
+  #shopify-section-{{
+    section.id
+  }} #endSuccessSection {
+      padding: 0;
+  }
+
+  #shopify-section-{{
+    section.id
+  }} #endSuccessSection p{
+      margin-bottom: 0;
+  }
+
+    #shopify-section-{{
+    section.id
+  }} .text-\\\[\#0074CB\] {
+        --tw-text-opacity: 1;
+        color: rgb(0 116 203 / var(--tw-text-opacity));
+    }
+
+    #shopify-section-{{
+    section.id
+  }} .iconfont {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #shopify-section-{{
+    section.id
+  }} .ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector input {
+       height: 100%;
+  }
+
+    #shopify-section-{{
+    section.id
+  }} .icon-box-baiosdfnnsd-bai'o' s'd' f'n' n's' d {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #shopify-section-{{
+    section.id
+  }} .grid {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+    }
+
+    #shopify-section-{{
+    section.id
+  }} .ant-row {
+        display: flex;
+        flex-flow: column;
+    }
+
+    #shopify-section-{{
+    section.id
+  }} .installer .ant-input {
+        height: 3rem;
+    }
+
+    #shopify-section-{{
+    section.id
+  }} :where(.css-kghr11).ant-input {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 4px 11px;
+        color: rgba(0, 0, 0, 0.88);
+        font-size: 14px;
+        line-height: 1.5714285714285714;
+        list-style: none;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        min-width: 0;
+        border-radius: 6px;
+        transition: all 0.2s;
+    }
+
+    #shopify-section-{{
+    section.id
+  }} :where(.css-kghr11).ant-select-single .ant-select-selector {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        color: rgba(0, 0, 0, 0.88);
+        font-size: 14px;
+        line-height: 1.5714285714285714;
+        list-style: none;
+        font-family: inherit;
+        display: flex;
+        border-radius: 6px;
+    }
+
+    #shopify-section-{{
+    section.id
+  }} .ant-select {
+        min-height: 2.875rem;
+    }
+
+    #shopify-section-{{
+    section.id
+  }} .ant-select,
+    .ant-select-selection-placeholder {
+        font-size: 1.125rem;
+    }
+
+    #shopify-section-{{
+    section.id
+  }} .ant-select-selector {
+        min-height: 100%;
+        position: relative;
+        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        border-radius: 6px;
+        align-items: center;
+        display: flex
+    }
+
+    #shopify-section-{{
+    section.id
+  }} :where(.css-kghr11).ant-select-single .ant-select-selector .ant-select-selection-search {
+        position: absolute;
+        top: 0;
+        inset-inline-start: 11px;
+        inset-inline-end: 11px;
+        bottom: 0;
+    }
+
+   #shopify-section-{{
+    section.id
+  }} .text-\[\#00C441\] {
+      --tw-text-opacity: 1;
+      color: rgb(0 196 65 / var(--tw-text-opacity));
+  }
+
+    #shopify-section-{{
+    section.id
+  }} :where(.css-kghr11).ant-select:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+        outline: none;
+        appearance: none;
+        font-family: inherit;
+        padding: 0 10px;
+    }
+
+    #shopify-section-{{
+    section.id
+  }} .ant-select {
+      min-width: 80px;
+  }
+
+  .ant-notification-notice.ant-notification-notice-info.css-10ed4xt.ant-notification-notice-closable {
+      height: 30px !important;
+      display: flex !important;
+      align-items: center !important;
+      border-radius: 6px !important;
+      margin: 0 !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+      width: 100%;
+  }
+   .ant-notification-notice.ant-notification-notice-success.css-10ed4xt.ant-notification-notice-closable {
+      height: 30px !important;
+      display: flex !important;
+      align-items: center !important;
+      border-radius: 6px !important;
+      margin: 0 !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+      width: 100%;
+  }
+   .ant-notification-notice.ant-notification-notice-error.css-10ed4xt.ant-notification-notice-closable {
+      height: 30px !important;
+      display: flex !important;
+      align-items: center !important;
+      border-radius: 6px !important;
+      margin: 0 !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+      width: 100%;
+  }
+
+
+  #shopify-section-{{
+    section.id
+  }} #YarbosectionBox p {
+      margin-bottom: 0;
+  }
+
+  #shopify-section-{{
+    section.id
+  }} .border-\[\#00C441\] {
+      --tw-border-opacity: 1;
+      border-color: rgb(0 196 65 / var(--tw-border-opacity));
+  }
+
+  @media screen and (max-width: 768px) {
+      .ant-notification-notice.ant-notification-notice-info.css-10ed4xt.ant-notification-notice-closable {
+          width: 384px !important;
+      }
+      .ant-notification-notice.ant-notification-notice-success.css-10ed4xt.ant-notification-notice-closable {
+          width: 384px !important;
+      }
+      .ant-notification-notice.ant-notification-notice-error.css-10ed4xt.ant-notification-notice-closable {
+          width: 384px !important;
+      }
+  }
+
+  span.anticon.anticon-info-circle.ant-notification-notice-icon.ant-notification-notice-icon-info {
+      font-size: 20px !important;
+
+  }
+
+  .ant-notification-notice-message {
+      font-size: 14px !important;
+      margin-bottom : 0 !important;
+      padding-right: 0 !important;
+  }
+
+  .text-\[\#0074CB\] {
+      --tw-text-opacity: 1;
+      color: rgb(0 116 203 / var(--tw-text-opacity)) !important;
+  }
+
+  .ant-upload-list-item-actions{
+      left: 50% !important;
+  }
+
+  .ant-modal-close{
+      display: flex !important;
+      align-items: center  !important;
+  }
+
+  .ant-modal-close-x{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+  }
+</style>
+
+<div
+  id='mainContentInstallerRegister'
+  class='main'
+>
+  <p
+    class='mobile:pt-8 mobile:pb-6 mobile:text-2xl/6 pt-[90px] pb-[48px] text-center text-[40px]/none font-extrabold'
+  >
+    Yarbo Volunteer Installer Program
+  </p>
+  <section
+    class='mobile:px-[16px] relative mx-auto w-full max-w-[106rem] lg:px-[48px]'
+  >
+    <div
+      class='mobile:mx-4 mobile:py-9 mobile:px-7 rounded-[24px] bg-white px-[100px] py-[70px] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]'
+    >
+      <p
+        class='mobile:text-base/5 text-center text-[32px]/none font-extrabold'
+      >
+        A Letter From Team Yarbo
+      </p>
+      <i
+        class='mobile:my-4 my-[32px] block h-[1px] w-full bg-[#02060B]'
+      ></i>
+      <div class='mobile:text-[10px]/4 text-xl/[28px]'>
+        <p
+          class='mobile:pb-2 mobile:first:text-xs/4 mobile:last:text-xs/4 pb-[16px] first:text-2xl/[34px] last:text-2xl/[34px]'
+        >
+          Hey there, future Yarbo helper!
+        </p>
+        <p
+          class='mobile:pb-2 mobile:first:text-xs/4 mobile:last:text-xs/4 pb-[16px] first:text-2xl/[34px] last:text-2xl/[34px]'
+        >
+          Welcome aboard the Yarbo Volunteer Installer Program! Some members of the Yarbo community, whether due to age or physical limitations, may need extra
+          help with installing their Yarbo. Your support makes a huge difference and truly helps them get the most out of their experience.
+        </p>
+        <p
+          class='mobile:pb-2 mobile:first:text-xs/4 mobile:last:text-xs/4 pb-[16px] first:text-2xl/[34px] last:text-2xl/[34px]'
+        >
+          Here's the quick rundown to get you started as a Volunteer Installer:
+        </p>
+        <p
+          class='mobile:pb-2 mobile:first:text-xs/4 mobile:last:text-xs/4 pb-[16px] first:text-2xl/[34px] last:text-2xl/[34px]'
+        >
+          1. Dive into our handy materials to get the scoop on Yarbo installation.
+          <br>
+          2. Take an online quiz to show off your installation knowledge.
+          <br>
+          3. (Optional) Record a video to help Team Yarbo know you better.
+          <br>
+          &nbsp;&nbsp;(Note:You don't need to complete all steps at once)
+        </p>
+        <p
+          class='mobile:pb-2 mobile:first:text-xs/4 mobile:last:text-xs/4 pb-[16px] first:text-2xl/[34px] last:text-2xl/[34px]'
+        >
+          We can't wait to see you ace these steps and become a Volunteer Installer!
+        </p>
+        <p
+          class='mobile:pb-2 mobile:first:text-xs/4 mobile:last:text-xs/4 pb-[16px] first:text-2xl/[34px] last:text-2xl/[34px]'
+        >
+          Cheers,
+          <br>
+          Team Yarbo
+        </p>
+      </div>
+    </div>
+    <i class='mobile:h-6 block h-[48px] w-full'></i>
+  </section>
+  <section
+    class='mobile:px-[16px] relative mx-auto w-full max-w-[106rem] lg:px-[48px]'
+  >
+    <div
+      id='installer-form'
+      class='installer mobile:w-[343px] mobile:mx-auto mobile:px-6 mobile:py-9 mobile:rounded-[18px] w-full rounded-[24px] bg-white px-[100px] py-[70px] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]'
+    >
+      <p
+        class='mobile:text-base/5 text-center text-[32px]/none font-extrabold'
+      >
+        Registration Details For Installer Use Only
+      </p>
+      <p
+        class='mobile:pt-2 mobile:pb-4 mobile:text-sm/4 pt-[16px] pb-[32px] text-center text-xl/none font-semibold text-[#676A6D]'
+      >
+        [Note:These Information Will Not Be Displayed Publicly]
+      </p>
+      <form
+        id='installer'
+        autocomplete='off'
+        class='ant-form ant-form-vertical css-kghr11'
+      >
+        <div class='mobile:grid-cols-1 grid grid-cols-2 gap-x-[24px]'>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_first_name'
+                  class='ant-form-item-required'
+                  title='First Name'
+                >
+                  First Name
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div class='ant-form-item-control-input'>
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <input
+                      id='installer_first_name'
+                      aria-required='true'
+                      class='ant-input css-kghr11 ant-input-outlined'
+                      type='text'
+                      value=''
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_last_name'
+                  class='ant-form-item-required'
+                  title='Last Name'
+                >
+                  Last Name
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div class='ant-form-item-control-input'>
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <input
+                      id='installer_last_name'
+                      aria-required='true'
+                      class='ant-input css-kghr11 ant-input-outlined'
+                      type='text'
+                      value=''
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_address_line_1'
+                  class='ant-form-item-required'
+                  title='Address line 1'
+                >
+                  Address line 1
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div class='ant-form-item-control-input'>
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <input
+                      id='installer_address_line_1'
+                      aria-required='true'
+                      class='ant-input css-kghr11 ant-input-outlined'
+                      type='text'
+                      value=''
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_address_line_2'
+                  class=''
+                  title='Address line 2'
+                >
+                  Address line 2
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div class='ant-form-item-control-input'>
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <input
+                      id='installer_address_line_2'
+                      class='ant-input css-kghr11 ant-input-outlined'
+                      type='text'
+                      value=''
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='mobile:grid-cols-1 grid grid-cols-3 gap-x-[24px]'>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_country'
+                  class='ant-form-item-required'
+                  title='Country'
+                >
+                  Country
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div
+                  id='CountrySelect'
+                  class='ant-form-item-control-input'
+                >
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <div
+                      class='ant-select ant-select-outlined ant-select-in-form-item css-kghr11 ant-select-single ant-select-show-arrow'
+                      aria-required='true'
+                    >
+                      <div class='ant-select-selector'>
+                        <span
+                          class='ant-select-selection-search'
+                        >
+                          <input
+                            id='installer_country'
+                            autocomplete='off'
+                            class='ant-select-selection-search-input'
+                            role='combobox'
+                            aria-expanded='false'
+                            aria-haspopup='listbox'
+                            aria-owns='installer_country_list'
+                            aria-autocomplete='list'
+                            aria-controls='installer_country_list'
+                            aria-required='true'
+                            readonly=''
+                            unselectable='on'
+                            type='search'
+                            value=''
+                            style='opacity: 0'
+                          >
+                        </span>
+                        <span
+                          class='ant-select-selection-placeholder'
+                        ></span>
+                      </div>
+                      <span
+                        class='ant-select-arrow'
+                        unselectable='on'
+                        aria-hidden='true'
+                        style='user-select: none'
+                      >
+                        <span
+                          role='img'
+                          aria-label='down'
+                          class='anticon anticon-down ant-select-suffix'
+                        >
+                          <svg
+                            viewBox='64 64 896 896'
+                            focusable='false'
+                            data-icon='down'
+                            width='1em'
+                            height='1em'
+                            fill='currentColor'
+                            aria-hidden='true'
+                          >
+                            <path
+                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_city_or_town'
+                  class='ant-form-item-required'
+                  title='City/Town'
+                >
+                  City/Town
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div class='ant-form-item-control-input'>
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <input
+                      id='installer_city_or_town'
+                      aria-required='true'
+                      class='ant-input css-kghr11 ant-input-outlined'
+                      type='text'
+                      value=''
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_state_or_province'
+                  class=''
+                  title='State/Province'
+                >
+                  State/Province
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div class='ant-form-item-control-input'>
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <input
+                      id='installer_state_or_province'
+                      class='ant-input css-kghr11 ant-input-outlined'
+                      type='text'
+                      value=''
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='mobile:grid-cols-1 grid grid-cols-3 gap-x-[24px]'>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_zip_or_postal_code'
+                  class='ant-form-item-required'
+                  title='Zip/Postal Code'
+                >
+                  Zip/Postal Code
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div class='ant-form-item-control-input'>
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <input
+                      id='installer_zip_or_postal_code'
+                      aria-required='true'
+                      class='ant-input css-kghr11 ant-input-outlined'
+                      type='text'
+                      value=''
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_contact_number'
+                  class=''
+                  title='Contact Number (optional)'
+                >
+                  Contact Number (optional)
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div class='ant-form-item-control-input'>
+                  <div
+                    id='installer_contact_number'
+                    class='ant-form-item-control-input-content'
+                  >
+                    <div
+                      class='mobile:h-8 react-tel-input h-[48px] w-full text-base/none text-[#02060B] transition-colors outline-none placeholder:text-base/none'
+                    >
+                      <div class='special-label'>Phone</div>
+                      <input
+                        class='form-control'
+                        placeholder='Your Phone'
+                        type='tel'
+                        value='+1'
+                        style='
+                          width: 100%;
+                          height: 100%;
+                          font-size: inherit;
+                          color: inherit;
+                        '
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_facebook_account'
+                  class=''
+                  title='Facebook Account (for awarding a badge)'
+                >
+                  Facebook Account (for awarding a badge)
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div class='ant-form-item-control-input'>
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <input
+                      id='installer_facebook_account'
+                      class='ant-input css-kghr11 ant-input-outlined'
+                      type='text'
+                      value=''
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='ant-form-item css-kghr11'>
+          <div class='ant-row ant-form-item-row css-kghr11'>
+            <div class='ant-col ant-form-item-label css-kghr11'>
+              <label
+                for='installer_comments'
+                class='ant-form-item-required'
+                title='Comments (please tell us why you would like to be part of the Yarbo Volunteer Installer program)'
+              >
+                Comments (please tell us why you would like to be part of the Yarbo Volunteer Installer program)
+              </label>
+            </div>
+            <div class='ant-col ant-form-item-control css-kghr11'>
+              <div class='ant-form-item-control-input'>
+                <div
+                  class='ant-form-item-control-input-content'
+                >
+                  <textarea
+                    id='installer_comments'
+                    aria-required='true'
+                    class='ant-input css-kghr11 ant-input-outlined'
+                    style='
+                      overflow-y: hidden;
+                      resize: none;
+                      height: 73px;
+                      min-height: 73px;
+                      max-height: 115px;
+                    '
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='mobile:grid-cols-1 grid grid-cols-2 gap-x-[24px]'>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_t_shirt_size'
+                  class='ant-form-item-required'
+                  title='T-shirt Size'
+                >
+                  T-shirt Size
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div
+                  id='tshirtInput'
+                  class='ant-form-item-control-input'
+                >
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <div
+                      class='ant-select ant-select-outlined ant-select-in-form-item css-kghr11 ant-select-single ant-select-show-arrow'
+                      aria-required='true'
+                    >
+                      <div class='ant-select-selector'>
+                        <span
+                          class='ant-select-selection-search'
+                        >
+                          <input
+                            id='installer_t_shirt_size'
+                            autocomplete='off'
+                            class='ant-select-selection-search-input'
+                            role='combobox'
+                            aria-expanded='false'
+                            aria-haspopup='listbox'
+                            aria-owns='installer_t_shirt_size_list'
+                            aria-autocomplete='list'
+                            aria-controls='installer_t_shirt_size_list'
+                            aria-required='true'
+                            readonly=''
+                            unselectable='on'
+                            type='search'
+                            value=''
+                            style='opacity: 0'
+                          >
+                        </span>
+                        <span
+                          class='ant-select-selection-placeholder'
+                        ></span>
+                      </div>
+                      <span
+                        class='ant-select-arrow'
+                        unselectable='on'
+                        aria-hidden='true'
+                        style='user-select: none'
+                      >
+                        <span
+                          role='img'
+                          aria-label='down'
+                          class='anticon anticon-down ant-select-suffix'
+                        >
+                          <svg
+                            viewBox='64 64 896 896'
+                            focusable='false'
+                            data-icon='down'
+                            width='1em'
+                            height='1em'
+                            fill='currentColor'
+                            aria-hidden='true'
+                          >
+                            <path
+                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div class='ant-form-item-control-input'>
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <div
+                      class='mobile:h-auto mobile:mt-0 mt-[28px] flex h-[46px] items-center'
+                    >
+                      <div
+                        id='agreeContract'
+                        onclick="document.getElementById('agreeContract').style.display = 'none'; document.getElementById('agreeContractCheck').style.display = 'flex';"
+                        style='display: flex'
+                        class='mobile:w-[10px] mobile:h-[10px] mobile:rounded-sm mt-[2px] flex h-[20px] w-[20px] items-center justify-center rounded-[2px] border bg-transparent'
+                      ></div>
+                      <div
+                        id='agreeContractCheck'
+                        onclick="document.getElementById('agreeContractCheck').style.display = 'none'; document.getElementById('agreeContract').style.display = 'flex';"
+                        style='display: none'
+                        class='mobile:w-[10px] mobile:h-[10px] mobile:rounded-sm mt-[2px] flex h-[20px] w-[20px] items-center justify-center rounded-[2px] bg-[#FEDB1E]'
+                      >
+                        <i
+                          class='iconfont icon-true1 mobile:text-[8px]/none text-sm/none'
+                        ></i>
+                      </div>
+                      <a
+                        target='_blank'
+                        class='mobile:text-[10px]/3 pl-2 text-base/[20px] text-[#0074CB] underline'
+                        href='/pages/installer-agreement'
+                      >
+                        I have read and agreed to the Yarbo Installer Contract Agreement
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <i
+          class='mobile:mt-2 mobile:mb-6 mt-[34px] mb-[48px] block h-[1px] w-full bg-[#676A6D]'
+        ></i>
+        <p
+          class='mobile:text-base/5 text-center text-[32px]/none font-extrabold'
+        >
+          Public Details To Be Displayed On Yarbo Volunteer Installer Map
+        </p>
+        <div
+          class='mobile:grid-cols-1 mobile:mt-4 mt-[32px] grid grid-cols-2 gap-x-[24px]'
+        >
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_public_name'
+                  class='ant-form-item-required'
+                  title='Name (only first name required if you prefer)'
+                >
+                  Name (only first name required if you prefer)
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div class='ant-form-item-control-input'>
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <input
+                      id='installer_public_name'
+                      aria-required='true'
+                      class='ant-input css-kghr11 ant-input-outlined'
+                      type='text'
+                      value=''
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='ant-form-item css-kghr11'>
+            <div class='ant-row ant-form-item-row css-kghr11'>
+              <div class='ant-col ant-form-item-label css-kghr11'>
+                <label
+                  for='installer_public_yarbo_owned'
+                  class='ant-form-item-required'
+                  title='Yarbo owned (please list the units you currently own)'
+                >
+                  Yarbo owned (please list the units you currently own)
+                </label>
+              </div>
+              <div
+                class='ant-col ant-form-item-control css-kghr11'
+              >
+                <div
+                  id='YarboownedInput'
+                  class='ant-form-item-control-input'
+                >
+                  <div
+                    class='ant-form-item-control-input-content'
+                  >
+                    <div
+                      class='ant-select ant-select-outlined ant-select-in-form-item css-kghr11 ant-select-multiple ant-select-show-arrow ant-select-show-search'
+                      aria-required='true'
+                    >
+                      <div class='ant-select-selector'>
+                        <div
+                          class='ant-select-selection-overflow'
+                        >
+                          <div
+                            class='ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix'
+                            style='opacity: 1'
+                          >
+                            <div
+                              class='ant-select-selection-search'
+                              style='width: 5px'
+                            >
+                              <input
+                                id='installer_public_yarbo_owned'
+                                autocomplete='off'
+                                class='ant-select-selection-search-input'
+                                role='combobox'
+                                aria-expanded='false'
+                                aria-haspopup='listbox'
+                                aria-owns='installer_public_yarbo_owned_list'
+                                aria-autocomplete='list'
+                                aria-controls='installer_public_yarbo_owned_list'
+                                aria-required='true'
+                                readonly=''
+                                unselectable='on'
+                                type='search'
+                                value=''
+                                style='                                                                    opacity: 0;'
+                              >
+                              <span
+                                class='ant-select-selection-search-mirror'
+                                aria-hidden='true'
+                              >
+                                &nbsp;
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <span
+                          class='ant-select-selection-placeholder'
+                        >
+                          Yarbo owned
+                        </span>
+                      </div>
+                      <span
+                        class='ant-select-arrow'
+                        unselectable='on'
+                        aria-hidden='true'
+                        style='user-select: none'
+                      >
+                        <span
+                          role='img'
+                          aria-label='down'
+                          class='anticon anticon-down ant-select-suffix'
+                        >
+                          <svg
+                            viewBox='64 64 896 896'
+                            focusable='false'
+                            data-icon='down'
+                            width='1em'
+                            height='1em'
+                            fill='currentColor'
+                            aria-hidden='true'
+                          >
+                            <path
+                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='ant-form-item css-kghr11'>
+          <div class='ant-row ant-form-item-row css-kghr11'>
+            <div class='ant-col ant-form-item-label css-kghr11'>
+              <label
+                for='installer_public_pictures'
+                class=''
+                title='Picture of you and or your Yarbo (optional) Max size 20mb'
+              >
+                Picture of you and or your Yarbo (optional) Max size 20mb
+              </label>
+            </div>
+            <div class='ant-col ant-form-item-control css-kghr11'>
+              <div class='ant-form-item-control-input'>
+                <div
+                  class='ant-form-item-control-input-content'
+                >
+                  <div
+                    class='relative flex flex-col rounded-[8px] border bg-white p-4'
+                    id='installer_public_pictures'
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='ant-form-item css-kghr11'>
+          <div class='ant-row ant-form-item-row css-kghr11'>
+            <div class='ant-col ant-form-item-label css-kghr11'>
+              <label
+                for='installer_public_comments'
+                class='ant-form-item-required'
+                title='Comments (introduce yourself to users in need of assistance)'
+              >
+                Comments (introduce yourself to users in need of assistance)
+              </label>
+            </div>
+            <div class='ant-col ant-form-item-control css-kghr11'>
+              <div class='ant-form-item-control-input'>
+                <div
+                  class='ant-form-item-control-input-content'
+                >
+                  <textarea
+                    id='installer_public_comments'
+                    aria-required='true'
+                    class='ant-input css-kghr11 ant-input-outlined'
+                    style='
+                      overflow-y: hidden;
+                      resize: none;
+                      height: 73px;
+                      min-height: 73px;
+                      max-height: 115px;
+                    '
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='ant-form-item css-kghr11'>
+          <div class='ant-row ant-form-item-row css-kghr11'>
+            <div class='ant-col ant-form-item-control css-kghr11'>
+              <div class='ant-form-item-control-input'>
+                <div
+                  class='ant-form-item-control-input-content'
+                >
+                  <button
+                    type='submit'
+                    class='mobile:w-[290px] mobile:h-8 mobile:mt-6 mobile:text-xs/none mt-[34px] h-12 w-full rounded-full bg-[#FDD400] text-lg/none font-semibold text-black hover:opacity-80'
+                  >
+                    Start the training!
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <i class='mobile:h-12 block h-[120px] w-full'></i>
+  </section>
+  <section
+    class='mobile:px-[16px] mobile:pb-12 pb-[120px] relative mx-auto w-full max-w-[106rem] lg:px-[48px]'
+  >
+    <div>
+      <div class='mobile:pb-12 pb-[120px]'>
+        <p class='mobile:px-3 mobile:text-base/5 text-[32px]/none'>
+          <span class='font-extrabold'>Step 1:</span>
+          <span class='font-semibold'>Please Carefully Review The Materials Provided.</span>
+        </p>
+        <p
+          class='mobile:px-3 mobile:pt-3 mobile:text-sm/6 pt-4 text-[28px]/none font-semibold'
+        >
+          Tutorial Videos
+        </p>
+        <div>
+          <p
+            class='mobile:px-3 mobile:py-3 mobile:text-xs/4 py-8 text-2xl/none font-semibold'
+          >
+            Part 1: Video Tutorials
+          </p>
+          <div
+            class='mobile:grid-cols-2 mobile:gap-3 grid grid-cols-4 gap-[32px]'
+          >
+            <div
+              class='group yarbo_video_image relative aspect-[16/9] w-full cursor-pointer'
+            >
+              <img
+                alt='Kf0X9HzB2U0'
+                loading='lazy'
+                decoding='async'
+                data-nimg='fill'
+                class='object-cover transition-all group-hover:scale-105'
+                sizes='100vw'
+                srcset='
+                  https://img.youtube.com/vi/Kf0X9HzB2U0/hqdefault.jpg?w=640,q=75   640w,
+                  https://img.youtube.com/vi/Kf0X9HzB2U0/hqdefault.jpg?w=750,q=75   750w,
+                  https://img.youtube.com/vi/Kf0X9HzB2U0/hqdefault.jpg?w=828,q=75   828w,
+                  https://img.youtube.com/vi/Kf0X9HzB2U0/hqdefault.jpg?w=1080,q=75 1080w,
+                  https://img.youtube.com/vi/Kf0X9HzB2U0/hqdefault.jpg?w=1200,q=75 1200w,
+                  https://img.youtube.com/vi/Kf0X9HzB2U0/hqdefault.jpg?w=1920,q=75 1920w,
+                  https://img.youtube.com/vi/Kf0X9HzB2U0/hqdefault.jpg?w=2048,q=75 2048w,
+                  https://img.youtube.com/vi/Kf0X9HzB2U0/hqdefault.jpg?w=3840,q=75 3840w
+                '
+                src='https://img.youtube.com/vi/Kf0X9HzB2U0/hqdefault.jpg?w=3840,q=75'
+                style='
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  inset: 0px;
+                  color: transparent;
+                '
+              >
+              <div
+                class='mobile:h-8 mobile:w-8 icon-box-baiosdfnnsd absolute top-1/2 left-1/2 grid h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[rgba(2,6,11,0.35)]'
+              >
+                <i
+                  class='iconfont icon-play8 mobile:text-xl text-3xl/none text-white'
+                ></i>
+              </div>
+            </div>
+            <div
+              class='group yarbo_video_image relative aspect-[16/9] w-full cursor-pointer'
+            >
+              <img
+                alt='cujf_6NGKZw'
+                loading='lazy'
+                decoding='async'
+                data-nimg='fill'
+                class='object-cover transition-all group-hover:scale-105'
+                sizes='100vw'
+                srcset='
+                  https://img.youtube.com/vi/cujf_6NGKZw/hqdefault.jpg?w=640,q=75   640w,
+                  https://img.youtube.com/vi/cujf_6NGKZw/hqdefault.jpg?w=750,q=75   750w,
+                  https://img.youtube.com/vi/cujf_6NGKZw/hqdefault.jpg?w=828,q=75   828w,
+                  https://img.youtube.com/vi/cujf_6NGKZw/hqdefault.jpg?w=1080,q=75 1080w,
+                  https://img.youtube.com/vi/cujf_6NGKZw/hqdefault.jpg?w=1200,q=75 1200w,
+                  https://img.youtube.com/vi/cujf_6NGKZw/hqdefault.jpg?w=1920,q=75 1920w,
+                  https://img.youtube.com/vi/cujf_6NGKZw/hqdefault.jpg?w=2048,q=75 2048w,
+                  https://img.youtube.com/vi/cujf_6NGKZw/hqdefault.jpg?w=3840,q=75 3840w
+                '
+                src='https://img.youtube.com/vi/cujf_6NGKZw/hqdefault.jpg?w=3840,q=75'
+                style='
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  inset: 0px;
+                  color: transparent;
+                '
+              >
+              <div
+                class='mobile:h-8 mobile:w-8 icon-box-baiosdfnnsd absolute top-1/2 left-1/2 grid h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[rgba(2,6,11,0.35)]'
+              >
+                <i
+                  class='iconfont icon-play8 mobile:text-xl text-3xl/none text-white'
+                ></i>
+              </div>
+            </div>
+            <div
+              class='group yarbo_video_image relative aspect-[16/9] w-full cursor-pointer'
+            >
+              <img
+                alt='71e6X09iTKE'
+                loading='lazy'
+                decoding='async'
+                data-nimg='fill'
+                class='object-cover transition-all group-hover:scale-105'
+                sizes='100vw'
+                srcset='
+                  https://img.youtube.com/vi/71e6X09iTKE/hqdefault.jpg?w=640,q=75   640w,
+                  https://img.youtube.com/vi/71e6X09iTKE/hqdefault.jpg?w=750,q=75   750w,
+                  https://img.youtube.com/vi/71e6X09iTKE/hqdefault.jpg?w=828,q=75   828w,
+                  https://img.youtube.com/vi/71e6X09iTKE/hqdefault.jpg?w=1080,q=75 1080w,
+                  https://img.youtube.com/vi/71e6X09iTKE/hqdefault.jpg?w=1200,q=75 1200w,
+                  https://img.youtube.com/vi/71e6X09iTKE/hqdefault.jpg?w=1920,q=75 1920w,
+                  https://img.youtube.com/vi/71e6X09iTKE/hqdefault.jpg?w=2048,q=75 2048w,
+                  https://img.youtube.com/vi/71e6X09iTKE/hqdefault.jpg?w=3840,q=75 3840w
+                '
+                src='https://img.youtube.com/vi/71e6X09iTKE/hqdefault.jpg?w=3840,q=75'
+                style='
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  inset: 0px;
+                  color: transparent;
+                '
+              >
+              <div
+                class='mobile:h-8 mobile:w-8 icon-box-baiosdfnnsd absolute top-1/2 left-1/2 grid h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[rgba(2,6,11,0.35)]'
+              >
+                <i
+                  class='iconfont icon-play8 mobile:text-xl text-3xl/none text-white'
+                ></i>
+              </div>
+            </div>
+            <div
+              class='group yarbo_video_image relative aspect-[16/9] w-full cursor-pointer'
+            >
+              <img
+                alt='37EuQM4FJnI'
+                loading='lazy'
+                decoding='async'
+                data-nimg='fill'
+                class='object-cover transition-all group-hover:scale-105'
+                sizes='100vw'
+                srcset='
+                  https://img.youtube.com/vi/37EuQM4FJnI/hqdefault.jpg?w=640,q=75   640w,
+                  https://img.youtube.com/vi/37EuQM4FJnI/hqdefault.jpg?w=750,q=75   750w,
+                  https://img.youtube.com/vi/37EuQM4FJnI/hqdefault.jpg?w=828,q=75   828w,
+                  https://img.youtube.com/vi/37EuQM4FJnI/hqdefault.jpg?w=1080,q=75 1080w,
+                  https://img.youtube.com/vi/37EuQM4FJnI/hqdefault.jpg?w=1200,q=75 1200w,
+                  https://img.youtube.com/vi/37EuQM4FJnI/hqdefault.jpg?w=1920,q=75 1920w,
+                  https://img.youtube.com/vi/37EuQM4FJnI/hqdefault.jpg?w=2048,q=75 2048w,
+                  https://img.youtube.com/vi/37EuQM4FJnI/hqdefault.jpg?w=3840,q=75 3840w
+                '
+                src='https://img.youtube.com/vi/37EuQM4FJnI/hqdefault.jpg?w=3840,q=75'
+                style='
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  inset: 0px;
+                  color: transparent;
+                '
+              >
+              <div
+                class='mobile:h-8 mobile:w-8 icon-box-baiosdfnnsd absolute top-1/2 left-1/2 grid h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[rgba(2,6,11,0.35)]'
+              >
+                <i
+                  class='iconfont icon-play8 mobile:text-xl text-3xl/none text-white'
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p
+            class='mobile:px-3 mobile:py-3 mobile:text-xs/4 py-8 text-2xl/none font-semibold'
+          >
+            Part 2: APP Installation
+          </p>
+          <div
+            class='mobile:grid-cols-2 mobile:gap-3 grid grid-cols-4 gap-[32px]'
+          >
+            <div
+              class='group yarbo_video_image relative aspect-[16/9] w-full cursor-pointer'
+            >
+              <img
+                alt='JEsSevyZjNw'
+                loading='lazy'
+                decoding='async'
+                data-nimg='fill'
+                class='object-cover transition-all group-hover:scale-105'
+                sizes='100vw'
+                srcset='
+                  https://img.youtube.com/vi/JEsSevyZjNw/hqdefault.jpg?w=640,q=75   640w,
+                  https://img.youtube.com/vi/JEsSevyZjNw/hqdefault.jpg?w=750,q=75   750w,
+                  https://img.youtube.com/vi/JEsSevyZjNw/hqdefault.jpg?w=828,q=75   828w,
+                  https://img.youtube.com/vi/JEsSevyZjNw/hqdefault.jpg?w=1080,q=75 1080w,
+                  https://img.youtube.com/vi/JEsSevyZjNw/hqdefault.jpg?w=1200,q=75 1200w,
+                  https://img.youtube.com/vi/JEsSevyZjNw/hqdefault.jpg?w=1920,q=75 1920w,
+                  https://img.youtube.com/vi/JEsSevyZjNw/hqdefault.jpg?w=2048,q=75 2048w,
+                  https://img.youtube.com/vi/JEsSevyZjNw/hqdefault.jpg?w=3840,q=75 3840w
+                '
+                src='https://img.youtube.com/vi/JEsSevyZjNw/hqdefault.jpg?w=3840,q=75'
+                style='
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  inset: 0px;
+                  color: transparent;
+                '
+              >
+              <div
+                class='mobile:h-8 mobile:w-8 icon-box-baiosdfnnsd absolute top-1/2 left-1/2 grid h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[rgba(2,6,11,0.35)]'
+              >
+                <i
+                  class='iconfont icon-play8 mobile:text-xl text-3xl/none text-white'
+                ></i>
+              </div>
+            </div>
+            <div
+              class='group yarbo_video_image relative aspect-[16/9] w-full cursor-pointer'
+            >
+              <img
+                alt='xu5gtfH5ZQ0'
+                loading='lazy'
+                decoding='async'
+                data-nimg='fill'
+                class='object-cover transition-all group-hover:scale-105'
+                sizes='100vw'
+                srcset='
+                  https://img.youtube.com/vi/xu5gtfH5ZQ0/hqdefault.jpg?w=640,q=75   640w,
+                  https://img.youtube.com/vi/xu5gtfH5ZQ0/hqdefault.jpg?w=750,q=75   750w,
+                  https://img.youtube.com/vi/xu5gtfH5ZQ0/hqdefault.jpg?w=828,q=75   828w,
+                  https://img.youtube.com/vi/xu5gtfH5ZQ0/hqdefault.jpg?w=1080,q=75 1080w,
+                  https://img.youtube.com/vi/xu5gtfH5ZQ0/hqdefault.jpg?w=1200,q=75 1200w,
+                  https://img.youtube.com/vi/xu5gtfH5ZQ0/hqdefault.jpg?w=1920,q=75 1920w,
+                  https://img.youtube.com/vi/xu5gtfH5ZQ0/hqdefault.jpg?w=2048,q=75 2048w,
+                  https://img.youtube.com/vi/xu5gtfH5ZQ0/hqdefault.jpg?w=3840,q=75 3840w
+                '
+                src='https://img.youtube.com/vi/xu5gtfH5ZQ0/hqdefault.jpg?w=3840,q=75'
+                style='
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  inset: 0px;
+                  color: transparent;
+                '
+              >
+              <div
+                class='mobile:h-8 mobile:w-8 icon-box-baiosdfnnsd absolute top-1/2 left-1/2 grid h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[rgba(2,6,11,0.35)]'
+              >
+                <i
+                  class='iconfont icon-play8 mobile:text-xl text-3xl/none text-white'
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p
+            class='mobile:px-3 mobile:py-3 mobile:text-xs/4 py-8 text-2xl/none font-semibold'
+          >
+            Part 3: Accessories Installation
+          </p>
+          <div
+            class='mobile:grid-cols-2 mobile:gap-3 grid grid-cols-4 gap-[32px]'
+          >
+            <div
+              class='group yarbo_video_image relative aspect-[16/9] w-full cursor-pointer'
+            >
+              <img
+                alt='Qmwf11AKAzI'
+                loading='lazy'
+                decoding='async'
+                data-nimg='fill'
+                class='object-cover transition-all group-hover:scale-105'
+                sizes='100vw'
+                srcset='
+                  https://img.youtube.com/vi/Qmwf11AKAzI/hqdefault.jpg?w=640,q=75   640w,
+                  https://img.youtube.com/vi/Qmwf11AKAzI/hqdefault.jpg?w=750,q=75   750w,
+                  https://img.youtube.com/vi/Qmwf11AKAzI/hqdefault.jpg?w=828,q=75   828w,
+                  https://img.youtube.com/vi/Qmwf11AKAzI/hqdefault.jpg?w=1080,q=75 1080w,
+                  https://img.youtube.com/vi/Qmwf11AKAzI/hqdefault.jpg?w=1200,q=75 1200w,
+                  https://img.youtube.com/vi/Qmwf11AKAzI/hqdefault.jpg?w=1920,q=75 1920w,
+                  https://img.youtube.com/vi/Qmwf11AKAzI/hqdefault.jpg?w=2048,q=75 2048w,
+                  https://img.youtube.com/vi/Qmwf11AKAzI/hqdefault.jpg?w=3840,q=75 3840w
+                '
+                src='https://img.youtube.com/vi/Qmwf11AKAzI/hqdefault.jpg?w=3840,q=75'
+                style='
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  inset: 0px;
+                  color: transparent;
+                '
+              >
+              <div
+                class='mobile:h-8 mobile:w-8 icon-box-baiosdfnnsd absolute top-1/2 left-1/2 grid h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[rgba(2,6,11,0.35)]'
+              >
+                <i
+                  class='iconfont icon-play8 mobile:text-xl text-3xl/none text-white'
+                ></i>
+              </div>
+            </div>
+            <div
+              class='group yarbo_video_image relative aspect-[16/9] w-full cursor-pointer'
+            >
+              <img
+                alt='BKM7omTTYUM'
+                loading='lazy'
+                decoding='async'
+                data-nimg='fill'
+                class='object-cover transition-all group-hover:scale-105'
+                sizes='100vw'
+                srcset='
+                  https://img.youtube.com/vi/BKM7omTTYUM/hqdefault.jpg?w=640,q=75   640w,
+                  https://img.youtube.com/vi/BKM7omTTYUM/hqdefault.jpg?w=750,q=75   750w,
+                  https://img.youtube.com/vi/BKM7omTTYUM/hqdefault.jpg?w=828,q=75   828w,
+                  https://img.youtube.com/vi/BKM7omTTYUM/hqdefault.jpg?w=1080,q=75 1080w,
+                  https://img.youtube.com/vi/BKM7omTTYUM/hqdefault.jpg?w=1200,q=75 1200w,
+                  https://img.youtube.com/vi/BKM7omTTYUM/hqdefault.jpg?w=1920,q=75 1920w,
+                  https://img.youtube.com/vi/BKM7omTTYUM/hqdefault.jpg?w=2048,q=75 2048w,
+                  https://img.youtube.com/vi/BKM7omTTYUM/hqdefault.jpg?w=3840,q=75 3840w
+                '
+                src='https://img.youtube.com/vi/BKM7omTTYUM/hqdefault.jpg?w=3840,q=75'
+                style='
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  inset: 0px;
+                  color: transparent;
+                '
+              >
+              <div
+                class='mobile:h-8 mobile:w-8 icon-box-baiosdfnnsd absolute top-1/2 left-1/2 grid h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[rgba(2,6,11,0.35)]'
+              >
+                <i
+                  class='iconfont icon-play8 mobile:text-xl text-3xl/none text-white'
+                ></i>
+              </div>
+            </div>
+            <div
+              class='group yarbo_video_image relative aspect-[16/9] w-full cursor-pointer'
+            >
+              <img
+                alt='CLYamXm_nDA'
+                loading='lazy'
+                decoding='async'
+                data-nimg='fill'
+                class='object-cover transition-all group-hover:scale-105'
+                sizes='100vw'
+                srcset='
+                  https://img.youtube.com/vi/CLYamXm_nDA/hqdefault.jpg?w=640,q=75   640w,
+                  https://img.youtube.com/vi/CLYamXm_nDA/hqdefault.jpg?w=750,q=75   750w,
+                  https://img.youtube.com/vi/CLYamXm_nDA/hqdefault.jpg?w=828,q=75   828w,
+                  https://img.youtube.com/vi/CLYamXm_nDA/hqdefault.jpg?w=1080,q=75 1080w,
+                  https://img.youtube.com/vi/CLYamXm_nDA/hqdefault.jpg?w=1200,q=75 1200w,
+                  https://img.youtube.com/vi/CLYamXm_nDA/hqdefault.jpg?w=1920,q=75 1920w,
+                  https://img.youtube.com/vi/CLYamXm_nDA/hqdefault.jpg?w=2048,q=75 2048w,
+                  https://img.youtube.com/vi/CLYamXm_nDA/hqdefault.jpg?w=3840,q=75 3840w
+                '
+                src='https://img.youtube.com/vi/CLYamXm_nDA/hqdefault.jpg?w=3840,q=75'
+                style='
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  inset: 0px;
+                  color: transparent;
+                '
+              >
+              <div
+                class='mobile:h-8 mobile:w-8 icon-box-baiosdfnnsd absolute top-1/2 left-1/2 grid h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[rgba(2,6,11,0.35)]'
+              >
+                <i
+                  class='iconfont icon-play8 mobile:text-xl text-3xl/none text-white'
+                ></i>
+              </div>
+            </div>
+            <div
+              class='group yarbo_video_image relative aspect-[16/9] w-full cursor-pointer'
+            >
+              <img
+                alt='uhJ_1Sx8DJU'
+                loading='lazy'
+                decoding='async'
+                data-nimg='fill'
+                class='object-cover transition-all group-hover:scale-105'
+                sizes='100vw'
+                srcset='
+                  https://img.youtube.com/vi/uhJ_1Sx8DJU/hqdefault.jpg?w=640,q=75   640w,
+                  https://img.youtube.com/vi/uhJ_1Sx8DJU/hqdefault.jpg?w=750,q=75   750w,
+                  https://img.youtube.com/vi/uhJ_1Sx8DJU/hqdefault.jpg?w=828,q=75   828w,
+                  https://img.youtube.com/vi/uhJ_1Sx8DJU/hqdefault.jpg?w=1080,q=75 1080w,
+                  https://img.youtube.com/vi/uhJ_1Sx8DJU/hqdefault.jpg?w=1200,q=75 1200w,
+                  https://img.youtube.com/vi/uhJ_1Sx8DJU/hqdefault.jpg?w=1920,q=75 1920w,
+                  https://img.youtube.com/vi/uhJ_1Sx8DJU/hqdefault.jpg?w=2048,q=75 2048w,
+                  https://img.youtube.com/vi/uhJ_1Sx8DJU/hqdefault.jpg?w=3840,q=75 3840w
+                '
+                src='https://img.youtube.com/vi/uhJ_1Sx8DJU/hqdefault.jpg?w=3840,q=75'
+                style='
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  inset: 0px;
+                  color: transparent;
+                '
+              >
+              <div
+                class='mobile:h-8 mobile:w-8 icon-box-baiosdfnnsd absolute top-1/2 left-1/2 grid h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[rgba(2,6,11,0.35)]'
+              >
+                <i
+                  class='iconfont icon-play8 mobile:text-xl text-3xl/none text-white'
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p
+          class='mobile:py-3 mobile:text-sm/4 py-[32px] text-2xl/none font-semibold'
+        >
+          Other materials
+        </p>
+        <p class='mobile:text-xs/4 text-xl'>
+          We've prepared a special installation guide for Volunteer Installers that addresses common setup challenges and offers solutions. Plus, it features a
+          checklist after each step to ensure everything is installed correctly.
+        </p>
+        <div class='mobile:pt-3 flex flex-col pt-[32px]'>
+          <a
+            target='_blank'
+            class='mobile:text-xs/4 text-2xl/[30px] font-semibold text-[#0074CB]'
+            href='https://drive.google.com/file/d/1GSLb8lyzr58uotYTG8TS1yixxDK1JVI5/view'
+          >
+            Installation Checklist
+          </a>
+          <a
+            target='_blank'
+            class='mobile:text-xs/4 text-2xl/[30px] font-semibold text-[#0074CB]'
+            href='https://drive.google.com/file/d/1mEAi89Rb_B0VnP6NIvheu9QhDyPM2NYu/view'
+          >
+            2024 Yarbo Lawnmower User Manual
+          </a>
+          <a
+            target='_blank'
+            class='mobile:text-xs/4 text-2xl/[30px] font-semibold text-[#0074CB]'
+            href='https://drive.google.com/file/d/1xrMRidsiyxMoX-u1ykAKCmsN8sndsNCN/view'
+          >
+            2024 Yarbo Snowblower User Manual
+          </a>
+          <a
+            target='_blank'
+            class='mobile:text-xs/4 text-2xl/[30px] font-semibold text-[#0074CB]'
+            href='https://drive.google.com/file/d/1Wi9XHDXLyqgaxt8ynH7wb9VhG0ls6Un5/view'
+          >
+            2024 Yarbo Core User Manual
+          </a>
+        </div>
+        <div
+          id='showVideo'
+          class='pointer-events-auto fixed top-0 left-0 z-[1000] flex h-full w-full items-center justify-center bg-[#1D1E1E]'
+          style='display: none'
+        >
+          <div
+            class='relative flex aspect-[16/9] w-full max-w-[1200px] items-center justify-center bg-black'
+            style='height: 100%'
+          >
+            <div id='YouTubevideoplayer'></div>
+          </div>
+          <div
+            id='closeVideo'
+            style='top: 3vw'
+            class='mobile:top-[6vh] bg-opacity-40 mobile:bg-gray-600 3xl:right-14 3xl:top-14 mobile:p-1.5 absolute top-[3vh] right-[3vw] z-[999] flex cursor-pointer items-center justify-center rounded-full bg-black backdrop-blur-lg md:p-4'
+          >
+            <i
+              class='iconfont icon-guanbi mobile:text-lg/none text-white md:text-2xl/none'
+            ></i>
+          </div>
+        </div>
+      </div>
+      <div class='mobile:pb-12 pb-[120px]'>
+        <p class='mobile:px-3 mobile:text-base/5 text-[32px]/none'>
+          <span class='font-extrabold'>Step 2:</span>
+          <span class='font-semibold'>An Easy Quiz To Show Your Expertise</span>
+        </p>
+        <p
+          class='mobile:pt-3 mobile:px-3 mobile:text-sm/4 pt-[32px] text-2xl/none font-semibold'
+        >
+          Notes:
+        </p>
+        <p
+          class='mobile:pt-3 mobile:px-3 mobile:text-xs/4 pt-[16px] text-xl/[28px]'
+        >
+          1. A score of at least 60 points is required to pass.
+          <br>
+          2. You are allowed to retake the test as many times as necessary.
+        </p>
+        <div
+          class='mobile:mt-3 mobile:rounded-xl mt-[32px] w-full rounded-[24px] bg-white shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]'
+        >
+          <div
+            class='mobile:py-7 mobile:px-6 h-full w-full px-[100px] py-[60px]'
+          >
+            <div
+              id='quizBox'
+              class='relative flex h-full flex-col justify-between'
+            >
+              <p
+                class='mobile:text-base/5 text-4xl/[44px] font-extrabold'
+              >
+                Installer Quiz: Ensuring Quality Installation
+              </p>
+              <i
+                class='mobile:w-[45px] mobile:h-[1px] mobile:my-3 my-[24px] block h-[2px] w-[90px] bg-[#02060B]'
+              ></i>
+              <p
+                class='mobile:mb-[214px] mobile:text-[10px]/[14px] mb-[180px] text-2xl/[34px]'
+              >
+                As a Yarbo Volunteer Installer, it is important to approach every job with politeness, patience, and friendliness. Before arriving at a
+                customer's location to assist with the installation, always communicate and confirm the specific timing. Additionally, to become an excellent
+                installer, you need to be prepared to resolve common issues that may arise during the installation of Yarbo, the Data Center, or the Docking
+                Station. Please complete the following quiz.
+              </p>
+              <button
+                id='startButton'
+                type='button'
+                class='mobile:h-8 mobile:text-base/none h-[48px] w-full rounded-full bg-[#FEDB1E] text-lg/none hover:opacity-80'
+              >
+                Start
+              </button>
+            </div>
+            <div
+              id='YarbosectionBox'
+              style='display: none'
+              class='flex h-full flex-col justify-between'
+            >
+              <div class='w-full'>
+                <p
+                  class='mobile:text-base/5 text-4xl/none font-extrabold'
+                >
+                  Yarbo section
+                </p>
+                <div
+                  class='mobile:h-[3px] mobile:my-2 my-[18px] h-[6px] w-full bg-[#E6E6E7]'
+                >
+                  <i
+                    class='block h-full bg-[#00C441] transition-all ease-linear'
+                    style='width: 6.25%'
+                  ></i>
+                </div>
+              </div>
+              <div
+                class='swiper swiper-initialized swiper-horizontal relative h-full w-full flex-1'
+              >
+                <div class='swiper-wrapper'>
+                  <div
+                    class='swiper-slide swiper-slide-active relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      Why is it important to ensure that all the plastic steel strips on Yarbo's packaging are intact upon receiving the shipment?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The plastic steel strips are part of the warranty and must remain unbroken.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              If the strips are removed, it probably indicates that the package has been inspected by customs, and the Yarbo may get damaged.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The plastic steel strips prevent water from entering the packaging.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The strips are used to secure the internal components and should only be removed for product setup.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide swiper-slide-next relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      What is the right way to lift the Snow Blower Module out of the packaging box?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Grasp the handle at the two sides of the module
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Drag the Protection Fence of the module
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Grasp the Bumper of the module
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Grasp one handle at either side of the module
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      How do you put Yarbo into Bluetooth pairing mode to connect to the physical controller?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Press the power button until the tail light turns red and blinks.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Press the physical controller's power button until it turns blue and then turns off.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Press the rover's power button until the tail light turns blue and then turns off.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Press the rover's power button until the tail light turns green and blinks.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      Which button do you need to hold to drive Yarbo with the physical controller?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              LB
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              RT
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              RB
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              LT
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      What is the difference between the high and low mount RTK antennas on the Yarbo rover?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The high mount antenna is used for smoother communication, while the low mount antenna has better signal range.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The high mount antenna is used in snowing scenarios to avoid being covered by thick snow, while the low mount antenna is used in
+                              mowing scenarios to avoid being scratched by shrubs.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The high mount antenna is designed for urban areas, while the low mount antenna is for rural areas.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The low mount antenna provides a better signal stability, while the high mount antenna is for higher altitudes.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      When installing the snow tracks, in which direction should the raised tread pattern face?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Towards the rear of the Yarbo
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Towards the sides of the Yarbo
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Towards the front of the Yarbo
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              It does not matter which direction the tread faces
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      What is the correct way to install the RTK antenna for the Yarbo Core?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The antenna should be installed loosely to avoid damage.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The antenna should be directly pressed into the RTK antenna base port, and leave it loosely connected.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The antenna should be tighten as firmly as possible, but not too tight as it may damage the RTK antenna base port.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The antenna should be installed with a slight tilt to improve signal reception.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      How to Properly Install the POE cable for the Data Center
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Insert the POE cable into the WAN port of the Data Center, connect the adapter POE port, then split the cable into two lines: one
+                              for power supply and one for connecting to the router LAN.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Insert the POE cable into the LAN port of the Data Center, connect the adapter POE port, then split the cable into two lines: one
+                              for power supply and one for connecting to the router LAN.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Plug the POE cable into the Non-POE router, then connect it to the Data Center via the WAN port.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Attach the POE cable to the power supply, then connect both the WAN and LAN cables to the Data Center.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      What is the main difference between the POE cable used for the Data Center and a regular power cable?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              POE cables provide both data and power transmission, while regular power cables only supply power.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              POE cables are designed to be used only with GPS devices.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Regular power cables have higher voltage than POE cables.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              POE cables are used exclusively for wireless communication.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      When initializing the Data Center, the signal strength of the selected installation site is crucial. If the signal strength is found to be
+                      poor, what could be the possible reasons for this?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The Halow connection is not properly configured.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              There are physical obstacles or interference near the installation site.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The Data Center is not powered on correctly.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The Yarbo Core is not properly connected to the Data Center.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      The Data Center is an important component of Yarbo, and the installation environment plays a significant role in ensuring good signal
+                      reception. Which of the following four locations would be suitable for installing the Data Center?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:w-[47.81%] mobile:mt-2 mobile:mr-0 mobile:mb-1 mobile:rounded-xl mt-[18px] mr-[48px] w-[17.71%] cursor-pointer rounded-[20px] border border-[#B3B4B6]'
+                      >
+                        <div
+                          class='mobile:py-[6px] mobile:px-2 relative flex flex-col px-[10px] py-[10px]'
+                        >
+                          <div
+                            class='mobile:mb-[6px] relative mb-[10px] aspect-[230/160] w-full'
+                          >
+                            <img
+                              alt='status'
+                              loading='lazy'
+                              decoding='async'
+                              data-nimg='fill'
+                              class='mobile:rounded-lg rounded-xl object-cover'
+                              sizes='100vw'
+                              srcset='
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/7bc2fa40-0cf6-4a43-54ca-e7b63120ad00/q=100,w=640,q=75   640w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/7bc2fa40-0cf6-4a43-54ca-e7b63120ad00/q=100,w=750,q=75   750w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/7bc2fa40-0cf6-4a43-54ca-e7b63120ad00/q=100,w=828,q=75   828w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/7bc2fa40-0cf6-4a43-54ca-e7b63120ad00/q=100,w=1080,q=75 1080w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/7bc2fa40-0cf6-4a43-54ca-e7b63120ad00/q=100,w=1200,q=75 1200w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/7bc2fa40-0cf6-4a43-54ca-e7b63120ad00/q=100,w=1920,q=75 1920w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/7bc2fa40-0cf6-4a43-54ca-e7b63120ad00/q=100,w=2048,q=75 2048w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/7bc2fa40-0cf6-4a43-54ca-e7b63120ad00/q=100,w=3840,q=75 3840w
+                              '
+                              src='https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/7bc2fa40-0cf6-4a43-54ca-e7b63120ad00/q=100,w=3840,q=75'
+                              style='
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                inset: 0px;
+                                color: transparent;
+                              '
+                            >
+                          </div>
+                          <p
+                            class='flex items-center justify-center'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Under a sloped eaves
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:w-[47.81%] mobile:mt-2 mobile:mr-0 mobile:mb-1 mobile:rounded-xl mt-[18px] mr-[48px] w-[17.71%] cursor-pointer rounded-[20px] border border-[#B3B4B6]'
+                      >
+                        <div
+                          class='mobile:py-[6px] mobile:px-2 relative flex flex-col px-[10px] py-[10px]'
+                        >
+                          <div
+                            class='mobile:mb-[6px] relative mb-[10px] aspect-[230/160] w-full'
+                          >
+                            <img
+                              alt='status'
+                              loading='lazy'
+                              decoding='async'
+                              data-nimg='fill'
+                              class='mobile:rounded-lg rounded-xl object-cover'
+                              sizes='100vw'
+                              srcset='
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/9ff0e0e3-3a69-4aae-e3a3-1cdaaf874c00/q=100,w=640,q=75   640w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/9ff0e0e3-3a69-4aae-e3a3-1cdaaf874c00/q=100,w=750,q=75   750w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/9ff0e0e3-3a69-4aae-e3a3-1cdaaf874c00/q=100,w=828,q=75   828w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/9ff0e0e3-3a69-4aae-e3a3-1cdaaf874c00/q=100,w=1080,q=75 1080w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/9ff0e0e3-3a69-4aae-e3a3-1cdaaf874c00/q=100,w=1200,q=75 1200w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/9ff0e0e3-3a69-4aae-e3a3-1cdaaf874c00/q=100,w=1920,q=75 1920w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/9ff0e0e3-3a69-4aae-e3a3-1cdaaf874c00/q=100,w=2048,q=75 2048w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/9ff0e0e3-3a69-4aae-e3a3-1cdaaf874c00/q=100,w=3840,q=75 3840w
+                              '
+                              src='https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/9ff0e0e3-3a69-4aae-e3a3-1cdaaf874c00/q=100,w=3840,q=75'
+                              style='
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                inset: 0px;
+                                color: transparent;
+                              '
+                            >
+                          </div>
+                          <p
+                            class='flex items-center justify-center'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Roof
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:w-[47.81%] mobile:mt-2 mobile:mr-0 mobile:mb-1 mobile:rounded-xl mt-[18px] mr-[48px] w-[17.71%] cursor-pointer rounded-[20px] border border-[#B3B4B6]'
+                      >
+                        <div
+                          class='mobile:py-[6px] mobile:px-2 relative flex flex-col px-[10px] py-[10px]'
+                        >
+                          <div
+                            class='mobile:mb-[6px] relative mb-[10px] aspect-[230/160] w-full'
+                          >
+                            <img
+                              alt='status'
+                              loading='lazy'
+                              decoding='async'
+                              data-nimg='fill'
+                              class='mobile:rounded-lg rounded-xl object-cover'
+                              sizes='100vw'
+                              srcset='
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/216de3be-83f1-4969-73af-c14e7fd9b000/q=100,w=640,q=75   640w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/216de3be-83f1-4969-73af-c14e7fd9b000/q=100,w=750,q=75   750w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/216de3be-83f1-4969-73af-c14e7fd9b000/q=100,w=828,q=75   828w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/216de3be-83f1-4969-73af-c14e7fd9b000/q=100,w=1080,q=75 1080w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/216de3be-83f1-4969-73af-c14e7fd9b000/q=100,w=1200,q=75 1200w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/216de3be-83f1-4969-73af-c14e7fd9b000/q=100,w=1920,q=75 1920w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/216de3be-83f1-4969-73af-c14e7fd9b000/q=100,w=2048,q=75 2048w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/216de3be-83f1-4969-73af-c14e7fd9b000/q=100,w=3840,q=75 3840w
+                              '
+                              src='https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/216de3be-83f1-4969-73af-c14e7fd9b000/q=100,w=3840,q=75'
+                              style='
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                inset: 0px;
+                                color: transparent;
+                              '
+                            >
+                          </div>
+                          <p
+                            class='flex items-center justify-center'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Garage
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:w-[47.81%] mobile:mt-2 mobile:mr-0 mobile:mb-1 mobile:rounded-xl mt-[18px] mr-[48px] w-[17.71%] cursor-pointer rounded-[20px] border border-[#B3B4B6]'
+                      >
+                        <div
+                          class='mobile:py-[6px] mobile:px-2 relative flex flex-col px-[10px] py-[10px]'
+                        >
+                          <div
+                            class='mobile:mb-[6px] relative mb-[10px] aspect-[230/160] w-full'
+                          >
+                            <img
+                              alt='status'
+                              loading='lazy'
+                              decoding='async'
+                              data-nimg='fill'
+                              class='mobile:rounded-lg rounded-xl object-cover'
+                              sizes='100vw'
+                              srcset='
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/f65a1da9-458e-4985-ef82-5db4d7e8de00/q=100,w=640,q=75   640w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/f65a1da9-458e-4985-ef82-5db4d7e8de00/q=100,w=750,q=75   750w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/f65a1da9-458e-4985-ef82-5db4d7e8de00/q=100,w=828,q=75   828w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/f65a1da9-458e-4985-ef82-5db4d7e8de00/q=100,w=1080,q=75 1080w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/f65a1da9-458e-4985-ef82-5db4d7e8de00/q=100,w=1200,q=75 1200w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/f65a1da9-458e-4985-ef82-5db4d7e8de00/q=100,w=1920,q=75 1920w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/f65a1da9-458e-4985-ef82-5db4d7e8de00/q=100,w=2048,q=75 2048w,
+                                https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/f65a1da9-458e-4985-ef82-5db4d7e8de00/q=100,w=3840,q=75 3840w
+                              '
+                              src='https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/f65a1da9-458e-4985-ef82-5db4d7e8de00/q=100,w=3840,q=75'
+                              style='
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                inset: 0px;
+                                color: transparent;
+                              '
+                            >
+                          </div>
+                          <p
+                            class='flex items-center justify-center'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Corner of the wall
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      During the first-time installation of the Data Center (prior to initialization or update from lower than version 1.0.20 to higher version
+                      of DC), what does a flashing red signal light indicate, and how can it be resolved?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The Data Center has been successfully connected to the network, and no action is needed.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The GPS signal is weak, and the issue can be resolved by adjusting the antenna or installation site.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The Data Center has encountered an error, which may include incorrect latitude and longitude data, a damaged RTK antenna, or other
+                              hardware issues. Check the RTK antenna and hardware and reinstall the Data Center.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The Data Center is overheating and needs to be powered down for a few hours.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      The installation environment for the docking station is similar to that of the Data Center, requiring that there be no obstructions within
+                      120 degrees above Yarbo. Why is this necessary?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              To ensure the docking station has enough power supply for stable operation.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              To avoid interference with other devices nearby.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Ensuring reliable RTK data transmission is critical for Yarbo's automatic recharging system, as it requires data from more than 25
+                              satellites to avoid positioning errors that could prevent accurate docking.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              The docking station requires a clear line of sight to communicate with the Data Center.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      When installing the docking station, it’s crucial to ensure that there are no other metal objects within a 7-feet radius. What is the
+                      reason for this?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Metal objects can cause interference with the docking station’s power supply.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Metal objects can block wireless signals, reducing the communication range.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Metal objects can affect the magnetic sensor module on the docking station, leading to positioning errors.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Metal objects can lead to the docking station overheating, causing performance issues.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      Can the docking station be installed on a slope?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Yes, as long as the slope is no greater than 10 degrees.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              No, the docking station must be installed on a flat surface with an angle no greater than 1 degree.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Yes, but only if the slope is in the north-south direction.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              No, the docking station requires a slope of at least 5 degrees for optimal performance.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class='swiper-slide relative w-full'
+                    style='width: 1061px'
+                  >
+                    <p
+                      class='mobile:text-[10px]/[14px] text-2xl/[34px]'
+                    >
+                      What does it mean when the LED light of docking station status is Solid Blue?
+                    </p>
+                    <div
+                      class='mobile:justify-between flex flex-wrap'
+                    >
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Fully charged
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Charging
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Standby
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class='mobile:first:mt-14 mobile:mb-[6px] mb-[12px] w-full cursor-pointer rounded-full border border-[#B3B4B6] first:mt-[18px]'
+                      >
+                        <div
+                          class='mobile:p-2 relative flex flex-col px-[18px] py-[10px]'
+                        >
+                          <p
+                            class='flex items-center justify-start'
+                          >
+                            <i
+                              class='iconfont icon-A8 mobile:text-xs/none mr-[4px] text-xl/none text-[#B3B4B6]'
+                            ></i>
+                            <span
+                              class='mobile:text-[10px]/3 text-base/[20px]'
+                            >
+                              Overheated
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class='mobile:mt-6 grid grid-cols-2 gap-[32px]'
+              >
+                <button
+                  id='PreviousButton'
+                  type='button'
+                  class='mobile:h-8 mobile:text-base/none h-[48px] w-full cursor-not-allowed rounded-full border text-lg/none'
+                  disabled=''
+                >
+                  &lt; Previous
+                </button>
+                <button
+                  id='NextButton'
+                  type='button'
+                  class='mobile:h-8 mobile:text-base/none h-[48px] w-full rounded-full bg-[#FEDB1E] text-lg/none'
+                >
+                  Next &gt;
+                </button>
+              </div>
+            </div>
+            <div
+              id='endErrorSection'
+              style='display: none'
+              class='flex h-full w-full flex-col items-center justify-center py-[70px] font-semibold'
+            >
+              <div
+                class='mobile:w-[206px] relative aspect-[412/260] w-[412px]'
+              >
+                <img
+                  alt='status'
+                  loading='lazy'
+                  decoding='async'
+                  data-nimg='fill'
+                  sizes='100vw'
+                  srcset='
+                    https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/8cf34c93-0622-4866-daa4-b22b3362a100/q=100,w=640,q=75   640w,
+                    https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/8cf34c93-0622-4866-daa4-b22b3362a100/q=100,w=750,q=75   750w,
+                    https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/8cf34c93-0622-4866-daa4-b22b3362a100/q=100,w=828,q=75   828w,
+                    https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/8cf34c93-0622-4866-daa4-b22b3362a100/q=100,w=1080,q=75 1080w,
+                    https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/8cf34c93-0622-4866-daa4-b22b3362a100/q=100,w=1200,q=75 1200w,
+                    https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/8cf34c93-0622-4866-daa4-b22b3362a100/q=100,w=1920,q=75 1920w,
+                    https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/8cf34c93-0622-4866-daa4-b22b3362a100/q=100,w=2048,q=75 2048w,
+                    https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/8cf34c93-0622-4866-daa4-b22b3362a100/q=100,w=3840,q=75 3840w
+                  '
+                  src='https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/8cf34c93-0622-4866-daa4-b22b3362a100/q=100,w=3840,q=75'
+                  style='
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    inset: 0px;
+                    color: transparent;
+                  '
+                >
+              </div>
+              <p
+                class='mobile:pt-3 mobile:text-lg/5 pt-[24px] text-4xl/[44px]'
+              >
+                Unfortunately
+              </p>
+              <p
+                class='mobile:pt-[2px] mobile:text-xs/3 pt-[4px] text-2xl/[28px]'
+              >
+                please try again.
+              </p>
+              <p
+                class='mobile:pt-3 mobile:text-[10px]/3 pt-[24px] text-xl/[24px]'
+              >
+                Your score: 0
+              </p>
+              <button
+                type='button'
+                class='mobile:w-[115px] mobile:h-[32px] mobile:text-xs/none mt-[8px] h-[48px] w-[172px] rounded-full bg-[#2F323D] text-lg/none font-semibold text-white'
+              >
+                Try again
+              </button>
+            </div>
+            <div
+              id='endSuccessSection'
+              style='display: none'
+              class='flex h-full w-full flex-col items-center justify-center py-[70px] font-semibold'
+            >
+              <div class='mobile:w-[206px] relative aspect-[412/260] w-[412px]'>
+                <img
+                  alt='status'
+                  loading='lazy'
+                  decoding='async'
+                  data-nimg='fill'
+                  sizes='100vw'
+                  srcset='https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/63f997b0-813a-43b2-891e-d99e8804e600/q=100,w=640,q=75 640w, https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/63f997b0-813a-43b2-891e-d99e8804e600/q=100,w=750,q=75 750w, https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/63f997b0-813a-43b2-891e-d99e8804e600/q=100,w=828,q=75 828w, https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/63f997b0-813a-43b2-891e-d99e8804e600/q=100,w=1080,q=75 1080w, https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/63f997b0-813a-43b2-891e-d99e8804e600/q=100,w=1200,q=75 1200w, https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/63f997b0-813a-43b2-891e-d99e8804e600/q=100,w=1920,q=75 1920w, https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/63f997b0-813a-43b2-891e-d99e8804e600/q=100,w=2048,q=75 2048w, https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/63f997b0-813a-43b2-891e-d99e8804e600/q=100,w=3840,q=75 3840w'
+                  src='https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/63f997b0-813a-43b2-891e-d99e8804e600/q=100,w=3840,q=75'
+                  style='position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;'
+                >
+              </div>
+              <p class='mobile:pt-3 mobile:text-lg/5 pt-[24px] text-4xl/[44px]'>Congratulations!</p>
+              <p class='mobile:pt-[2px] mobile:text-xs/3 pt-[4px] text-2xl/[28px]'>You have successfully passed the test.</p>
+              <p class='mobile:pt-3 mobile:text-[10px]/3 pt-[24px] text-xl/[24px]'>Your score: 93.75</p>
+              <button
+                type='button'
+                class='mobile:w-[115px] mobile:h-[32px] mobile:text-xs/none mt-[8px] h-[48px] w-[172px] rounded-full bg-[#2F323D] text-lg/none font-semibold text-white'
+              >
+                Try again
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='mobile:pb-12 pb-[120px]'>
+        <p class='mobile:px-3 mobile:text-base/5 text-[32px]/none'>
+          <span class='font-extrabold'>Step 3:</span>
+          <span class='font-semibold'>We'd Love To Get To Know You Better.</span>
+        </p>
+        <p
+          class='mobile:pt-3 mobile:px-3 mobile:text-sm/4 pt-[32px] text-2xl/none font-semibold'
+        >
+          We Invite You To Submit A Video With The Following Points:
+          <br>
+          (While this step is not mandatory, completing it could increase the chances of your application being approved.)
+        </p>
+        <p
+          class='mobile:pt-3 mobile:px-3 mobile:text-xs/4 pt-[16px] text-xl/[28px]'
+        >
+          1. Introduce yourself and explain why you want to join Volunteer Installer program.
+          <br>
+          2. If applicable, discuss your prior experience with Yarbo or similar products, or your technical background.
+          <br>
+          3. Describe the three most challenging aspects of Yarbo installation and how you overcame them.
+          <br>
+          4. Feel free to share any additional insights with Team Yarbo.
+        </p>
+        <p
+          class='mobile:pt-3 mobile:px-3 mobile:text-sm/4 pt-[16px] text-2xl/none font-semibold'
+        >
+          This Video Will Be Reviewed By Team Yarbo
+        </p>
+        <div
+          class='mobile:mt-3 mobile:p-5 mobile:rounded-xl mt-[32px] rounded-[24px] bg-white px-[100px] py-[60px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]'
+        >
+          <div
+            class='mobile:flex-col flex w-full items-center justify-center gap-[24px]'
+          >
+            <div
+              id='videoPreviewBox'
+              class='mobile:w-full relative aspect-[688/387] w-[65%] rounded-[16px] bg-[#F1F1F1]'
+            ></div>
+            <div
+              class='mobile:w-full mobile:h-10 mobile:rounded-lg flex h-[120px] w-[35%] items-center rounded-[16px] border border-dashed border-[#B3B4B6] text-[#B3B4B6]'
+            >
+              <label
+                id='uploadvideoFile'
+                class='relative h-full w-full cursor-pointer'
+              >
+                <p
+                  class='flex h-full w-full items-center justify-center'
+                >
+                  <i
+                    class='iconfont icon-a-shangchuanshipin1 mobile:text-base/none text-[26px]/none'
+                  ></i>
+                  <span
+                    class='mobile:text-xs/none block pl-[10px] text-2xl/none'
+                  >
+                    Upload local video
+                  </span>
+                </p>
+                <div
+                  class='absolute top-0 right-0 bottom-0 left-0 z-10 cursor-pointer'
+                ></div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class='mobile:aspect-[343/256] mobile:w-[343px] mobile:pb-12 relative aspect-[1600/240] w-full pb-[120px]'
+      >
+        <img
+          alt=''
+          loading='lazy'
+          decoding='async'
+          data-nimg='fill'
+          class='mobile:hidden'
+          sizes='100vw'
+          srcset='
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/c24237db-4b04-4604-deae-36a532d3d400/q=100,w=640,q=75   640w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/c24237db-4b04-4604-deae-36a532d3d400/q=100,w=750,q=75   750w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/c24237db-4b04-4604-deae-36a532d3d400/q=100,w=828,q=75   828w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/c24237db-4b04-4604-deae-36a532d3d400/q=100,w=1080,q=75 1080w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/c24237db-4b04-4604-deae-36a532d3d400/q=100,w=1200,q=75 1200w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/c24237db-4b04-4604-deae-36a532d3d400/q=100,w=1920,q=75 1920w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/c24237db-4b04-4604-deae-36a532d3d400/q=100,w=2048,q=75 2048w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/c24237db-4b04-4604-deae-36a532d3d400/q=100,w=3840,q=75 3840w
+          '
+          src='https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/c24237db-4b04-4604-deae-36a532d3d400/q=100,w=3840,q=75'
+          style='
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            inset: 0px;
+            color: transparent;
+          '
+        >
+        <img
+          alt=''
+          loading='lazy'
+          decoding='async'
+          data-nimg='fill'
+          class='md:hidden'
+          sizes='100vw'
+          srcset='
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/deb9bce7-119a-42ba-03aa-135640da4a00/q=100,w=640,q=75   640w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/deb9bce7-119a-42ba-03aa-135640da4a00/q=100,w=750,q=75   750w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/deb9bce7-119a-42ba-03aa-135640da4a00/q=100,w=828,q=75   828w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/deb9bce7-119a-42ba-03aa-135640da4a00/q=100,w=1080,q=75 1080w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/deb9bce7-119a-42ba-03aa-135640da4a00/q=100,w=1200,q=75 1200w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/deb9bce7-119a-42ba-03aa-135640da4a00/q=100,w=1920,q=75 1920w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/deb9bce7-119a-42ba-03aa-135640da4a00/q=100,w=2048,q=75 2048w,
+            https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/deb9bce7-119a-42ba-03aa-135640da4a00/q=100,w=3840,q=75 3840w
+          '
+          src='https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/deb9bce7-119a-42ba-03aa-135640da4a00/q=100,w=3840,q=75'
+          style='
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            inset: 0px;
+            color: transparent;
+          '
+        >
+        <div
+          class='mobile:text-base/5 absolute top-0 left-0 z-10 flex h-full w-full flex-col items-center justify-center text-center text-4xl/[50px] font-extrabold'
+        >
+          <p>Great! We'll review your application promptly and provide feedback.</p>
+          <p class='mobile:pt-4 mobile:px-14'>Thank you for your support to the Yarbo Community!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

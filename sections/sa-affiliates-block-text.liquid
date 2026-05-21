@@ -1,0 +1,258 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div
+  style='
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+  '
+  class='
+    pt-(--h5-padding-top)
+    pb-(--h5-padding-bottom)
+    md:pt-(--padding-top)
+    md:pb-(--padding-bottom) {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <div class='page-container'>
+    {% if section.settings.title != blank or section.settings.description != blank %}
+      <div class='mb-32 text-center md:mb-40'>
+        {% if section.settings.title != blank %}
+          <h2 class='text-[32px] leading-none md:text-[44px]'>
+            <div class='hidden md:block'>
+              {{ section.settings.title }}
+            </div>
+            <div class='md:hidden'>
+              {{ section.settings.title | strip_html }}
+            </div>
+          </h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <div class='mt-8 text-[14px] leading-[1.3] text-[#515355] md:mt-16 md:text-[15px]'>
+            <div class='hidden md:block'>
+              {{ section.settings.description }}
+            </div>
+            <div class='md:hidden'>
+              {{ section.settings.description | strip_html }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class='swiper'>
+      <div class='swiper-wrapper sm:grid sm:grid-cols-4 sm:gap-12'>
+        {% for block in section.blocks %}
+          <div
+            class='swiper-slide h-auto! bg-[#FFF1A5] p-16 md:p-32'
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.icon %}
+              <img
+                loading='lazy'
+                src='{{ block.settings.icon | image_url: width: '60x' }}'
+                width='auto'
+                height='auto'
+                alt='{{ block.settings.title }}'
+              >
+            {% endif %}
+            <h3 class='mt-12 md:mt-12'>{{ block.settings.title }}</h3>
+            <p class='mt-8 text-[#515355] md:mt-8'>
+              {{ block.settings.description }}
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  (() => {
+    // 定义媒体查询：769px 及以上
+    const mediaQuery = window.matchMedia('(min-width: 769px)');
+    // 核心控制函数
+    const handleSwiper = (e) => {
+      if (e.matches) {
+        // 大于等于 769px，销毁 Swiper 实例
+        if (window.affiliatesBlockTextSwiper) {
+          window.affiliatesBlockTextSwiper.destroy(true, true);
+          window.affiliatesBlockTextSwiper = null;
+        }
+      } else {
+        // 小于 769px，初始化 Swiper 实例
+        if (!window.affiliatesBlockTextSwiper) {
+          window.affiliatesBlockTextSwiper = new Swiper(
+            '#shopify-section-{{ section.id }} .swiper',
+            {
+              slidesPerView: 1.4,
+              spaceBetween: 12,
+              {%- if section.settings.auto_rotate %}
+              autoplay: { delay: {{ section.settings.change_slides_speed | times: 1000 }}, disableOnInteraction: false },
+              {% endif -%}
+            },
+          );
+        }
+      }
+    };
+    handleSwiper(mediaQuery);
+    mediaQuery.addEventListener('change', handleSwiper);
+  })();
+</script>
+{% schema %}
+{
+  "name": "Affiliates Block Text",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 100
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Affiliates Block Text",
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "Influencer",
+            "description": "Post Yarbo product information on your channel."
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Influencer",
+            "description": "Post Yarbo product information on your channel."
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Influencer",
+            "description": "Post Yarbo product information on your channel."
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Influencer",
+            "description": "Post Yarbo product information on your channel."
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Influencer",
+            "description": "Post Yarbo product information on your channel."
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Influencer",
+            "description": "Post Yarbo product information on your channel."
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Influencer",
+            "description": "Post Yarbo product information on your channel."
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Influencer",
+            "description": "Post Yarbo product information on your channel."
+          }
+        }
+      ],
+      "settings": {
+        "title": "<p>Yarbo Affiliate <br/>Partners & Channels</p>",
+        "description": "<p>If you have or want experience with (but not limited to) any </p><p>of the following, come join us!</p>"
+      }
+    }
+  ]
+}
+{% endschema %}

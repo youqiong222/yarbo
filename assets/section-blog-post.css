@@ -1,0 +1,227 @@
+.article-template__hero-small {
+  height: 110px;
+}
+
+.article-template__hero-medium {
+  height: 220px;
+}
+
+.article-template__hero-large {
+  height: 330px;
+}
+.article-template__content .page-width {
+  padding: 0;
+}
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .article-template__hero-small {
+    height: 220px;
+  }
+
+  .article-template__hero-medium {
+    height: 440px;
+  }
+
+  .article-template__hero-large {
+    height: 660px;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .article-template__hero-small {
+    height: 274px;
+  }
+
+  .article-template__hero-medium {
+    height: 550px;
+  }
+
+  .article-template__hero-large {
+    height: 824px;
+  }
+
+  .article-template__content h3 {
+    font-size: 44px;
+  }
+
+  .article-template__content h4 {
+    font-size: 32px;
+  }
+}
+
+.article-template header {
+  margin-top: 44px;
+  margin-bottom: 20px;
+  line-height: calc(0.8 / var(--font-body-scale));
+}
+
+.article-template__title {
+  margin: 0;
+}
+
+.article-template__title:not(:only-child) {
+  margin-bottom: 10px;
+}
+
+.article-template__link {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.article-template__link .icon-wrap {
+  display: flex;
+  margin-right: 10px;
+  transform: rotate(180deg);
+}
+
+.article-template__content p {
+  margin-bottom: 16px;
+}
+.article-template__content h2:first-child,
+.article-template__content h3:first-child,
+.article-template__content h4:first-child {
+  margin-top: 0;
+}
+.article-template__content h2,
+.article-template__content h3,
+.article-template__content h4 {
+  font-family:
+    Barlow Semi Condensed,
+    sans-serif;
+  font-weight: 700;
+  letter-spacing: -1%;
+  text-transform: uppercase;
+  line-height: 100%;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+.article-template__content h2,
+.article-template__content h3 {
+  font-size: 32px;
+}
+
+.article-template__content h4 {
+  font-size: 26px;
+}
+
+.article-template__content .ace-line {
+  margin: 24px 0;
+}
+
+.article-template__content ul {
+  padding-left: 14px;
+  margin-bottom: 12px;
+}
+.article-template__content ul .ace-line,
+.article-template__content ul .ace-line {
+  margin: 8px 0;
+}
+.article-template__content li::marker {
+  font-size: 12px;
+  list-style: disc;
+}
+
+.article-template__content table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.article-template__content table col {
+  width: auto !important;
+}
+.article-template__content table th,
+.article-template__content table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.article-template__content table th {
+  font-weight: 600;
+}
+
+.article-template__social-sharing {
+  margin-top: 30px;
+}
+
+.article-template__social-sharing + header,
+.article-template__social-sharing + .article-template__content {
+  margin-top: 14px;
+}
+
+.article-template__comment-wrapper {
+  margin-top: 50px;
+  padding: 26px 0;
+}
+
+@media screen and (min-width: 750px) {
+  .article-template__comment-wrapper {
+    margin-top: 60px;
+    padding: 36px 0;
+  }
+}
+
+.article-template__comment-wrapper h2 {
+  margin-top: 0;
+}
+
+.article-template__comments {
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 750px) {
+  .article-template__comments {
+    margin-bottom: 70px;
+  }
+}
+
+.article-template__comments-fields {
+  margin-bottom: 40px;
+}
+
+.article-template__comments-comment {
+  color: rgba(var(--color-foreground), 0.75);
+  background-color: rgb(var(--color-background));
+  margin-bottom: 14px;
+  padding: 20px 20px 14px;
+}
+
+@media screen and (min-width: 750px) {
+  .article-template__comments-comment {
+    padding: 20px 24px;
+  }
+}
+
+.article-template__comments-comment p {
+  margin: 0 0 10px;
+}
+
+.article-template__comment-fields > * {
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 750px) {
+  .article-template__comment-fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 40px;
+  }
+}
+
+.article-template__comment-warning {
+  margin: 20px 0 24px;
+}
+
+@media screen and (min-width: 990px) {
+  .article-template__comments .pagination-wrapper {
+    margin: 50px 0 80px;
+  }
+}
+
+.article-template__back:last-child {
+  margin-bottom: 32px;
+}

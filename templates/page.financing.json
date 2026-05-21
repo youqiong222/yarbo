@@ -1,0 +1,114 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "yb_banner_swiper_FrBg7m": {
+      "type": "yb-banner-swiper",
+      "blocks": {
+        "item_bpKYfm": {
+          "type": "item",
+          "settings": {
+            "text_horizontal_position": "left",
+            "text_vertical_position": "center",
+            "text_width": 50,
+            "description": "",
+            "title": "<p>Yarbo Financing & Buy Now, Pay Over Time</p>",
+            "subTitle": "<p>Find the right financing solutions for your commercial or residential outdoor power equipment needs. Buy now, pay over time, to access and enjoy your desired Yarbo products now with selected Yarbo Financing Partners.</p>",
+            "enable_btn_group": false,
+            "enable_global_btn": false,
+            "enable_global_anchor": false,
+            "global_anchor_id": "",
+            "button_text": "",
+            "button_type": "link",
+            "button_link": "",
+            "button_class": "",
+            "button_anchor": "",
+            "button_modal_title": "",
+            "button_modal_content": "",
+            "button2_text": "",
+            "button2_type": "link",
+            "button2_link": "",
+            "button2_class": "",
+            "button2_anchor": "",
+            "button2_modal_title": "",
+            "button2_modal_content": "",
+            "enable_subscription": false,
+            "subscription_absolute": false,
+            "subscription_position": 24,
+            "email_type": "",
+            "klaviyo_list_id": "",
+            "subscription_title": "",
+            "subscription_button_text": "",
+            "pc_img": "shopify://shop_images/Frame-2036458241-_1.webp",
+            "pc_external_video": "",
+            "mobile_img": "shopify://shop_images/Frame-2036458242-_1.webp",
+            "mobile_external_video": "",
+            "mobile_layout": "style1"
+          }
+        }
+      },
+      "block_order": [
+        "item_bpKYfm"
+      ],
+      "name": "Yb-Banner",
+      "settings": {
+        "banner_speed": 6
+      }
+    },
+    "yb_faq_categories_VYpEDi": {
+      "type": "yb-faq-categories",
+      "blocks": {
+        "faq_yHpik8": {
+          "type": "faq",
+          "settings": {
+            "question": "Mower Finance",
+            "answer": "<p>Customers of all credit profiles and time in business can rely on Mower Finance to find them a compatible payment solution through a hassle-free process.</p><ul><li>All Credits Considered<br/></li><li>One Application – Multiple Lenders<br/></li><li>Flexible terms depending on the lender you are matched with and credit profile<br/></li><li>Promotional rates may be available<br/></li></ul><p><a href=\"https://mowerfinance.com/dealer-overview/yarbo/\" target=\"_blank\">Learn more & Apply now</a></p>"
+          }
+        },
+        "faq_EkUp8c": {
+          "type": "faq",
+          "settings": {
+            "question": "Synchrony Bank",
+            "answer": "<p>Synchrony offers special promotional financing to help both commercial accounts and homeowners buy now and pay over time.<a href=\"https://www.synchrony.com/financing/cutting-edge\" target=\"_blank\">Learn more & Apply now</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_yHpik8",
+        "faq_EkUp8c"
+      ],
+      "custom_css": [
+        "a {text-decoration: underline;}"
+      ],
+      "name": "Advanced FAQ (Nav)",
+      "settings": {
+        "title": "Financing Options",
+        "bg_color": "#FFFFFF",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 60,
+        "padding_top_m": 40,
+        "padding_bottom_m": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "yb_banner_swiper_FrBg7m",
+    "yb_faq_categories_VYpEDi"
+  ]
+}

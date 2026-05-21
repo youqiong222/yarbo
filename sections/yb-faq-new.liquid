@@ -1,0 +1,151 @@
+{{ 'yb-faq-new.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .faq-of-competencies {
+    --bgColor: {{ section.settings.color_background }};
+  }
+  #shopify-section-{{ section.id }} .faq-of-competencies__list {
+    width: 100%;
+  }
+</style>
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div class='faq-of-competencies'>
+  <div class='faq-of-competencies__wrapper page-width'>
+    {% if section.settings.title != blank %}
+      <div class='faq-of-competencies__header yb-section-title lcf-section-title'>
+        {{ section.settings.title }}
+      </div>
+    {% endif %}
+
+    <div class='faq-of-competencies__container'>
+      <ul class='faq-of-competencies__list'>
+        {% for block in section.blocks %}
+          <li
+            class='faq-of-competencies__item'
+            {{ block.shopify_attributes }}
+          >
+            <div
+              class='faq-of-competencies__trigger'
+              data-module-id='{{ forloop.index0 }}'
+            >
+              <span>{{ block.settings.title }}</span>
+              <svg
+                class='faq-of-competencies__trigger-icon'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M2.29303 6.79598C1.90232 7.1867 1.90232 7.82019 2.29305 8.2109L11.2927 17.2103C11.6834 17.601 12.3169 17.601 12.7076 17.2103L21.707 8.21089C22.0977 7.82017 22.0977 7.18669 21.707 6.79597C21.3162 6.40525 20.6828 6.40525 20.292 6.79597L12.0001 15.0879L3.70795 6.79596C3.31723 6.40525 2.68375 6.40525 2.29303 6.79598Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <div class='faq-of-competencies__drawer'>
+              <div class='faq-of-competencies__description'>
+                {{ block.settings.description }}
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container_{{ section.id | replace: '-', '_' }} = document.querySelector('#shopify-section-{{ section.id }}');
+    if (!container_{{ section.id | replace: '-', '_' }}) return;
+
+    const faq_triggers_{{ section.id | replace: '-', '_' }} = container_{{ section.id | replace: '-', '_' }}.querySelectorAll('.faq-of-competencies__trigger');
+    let currentFaqActiveIndex_{{ section.id | replace: '-', '_' }} = -1;
+
+    function activateFaqModule_{{ section.id | replace: '-', '_' }}(index) {
+      container_{{ section.id | replace: '-', '_' }}.querySelectorAll('.faq-of-competencies__drawer').forEach((d) => {
+        d.classList.remove('active');
+      });
+      container_{{ section.id | replace: '-', '_' }}.querySelectorAll('.faq-of-competencies__trigger').forEach((t) => {
+        t.classList.remove('active');
+      });
+
+      const selectedTrigger = faq_triggers_{{ section.id | replace: '-', '_' }}[index];
+      if (selectedTrigger) {
+          const selectedDrawer = selectedTrigger.nextElementSibling;
+          if (selectedDrawer) selectedDrawer.classList.add('active');
+          selectedTrigger.classList.add('active');
+          currentFaqActiveIndex_{{ section.id | replace: '-', '_' }} = index;
+      }
+    }
+
+    faq_triggers_{{ section.id | replace: '-', '_' }}.forEach((trigger, index) => {
+      trigger.addEventListener('click', function () {
+        const isCurrentlyActive = this.classList.contains('active');
+
+        if (!isCurrentlyActive) {
+          activateFaqModule_{{ section.id | replace: '-', '_' }}(index);
+        } else {
+          container_{{ section.id | replace: '-', '_' }}.querySelectorAll('.faq-of-competencies__drawer').forEach((d) => {
+            d.classList.remove('active');
+          });
+          container_{{ section.id | replace: '-', '_' }}.querySelectorAll('.faq-of-competencies__trigger').forEach((t) => {
+            t.classList.remove('active');
+          });
+          currentFaqActiveIndex_{{ section.id | replace: '-', '_' }} = -1;
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": " Yb FAQ New",
+  "class": "section migrated-page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "主标题"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "背景颜色",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "FAQ项目",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "问题"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "答案"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Yb FAQ New"
+    }
+  ]
+}
+{% endschema %}

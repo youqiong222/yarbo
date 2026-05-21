@@ -1,0 +1,848 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+{% if section.settings.use_aspect_ratio == 'yes' %}
+  {%- liquid
+    assign use_aspect_ratio = true
+    assign s = section.settings
+    assign pc_w = s.pc_aspect_ratio_w | default: 16
+    assign pc_h = s.pc_aspect_ratio_h | default: 9
+    assign pc_ratio = pc_w | append: '/' | append: pc_h
+    assign h5_w = s.h5_aspect_ratio_w | default: 16
+    assign h5_h = s.h5_aspect_ratio_h | default: 9
+    assign h5_ratio = h5_w | append: '/' | append: h5_h
+  -%}
+{% endif %}
+<div
+  {% if use_aspect_ratio %}
+    style='
+      --media-aspect-pc: {{ pc_ratio }};
+      --media-aspect-h5: {{ h5_ratio }};
+    '
+  {% endif %}
+  class='
+    swiper
+    relative
+    {% if use_aspect_ratio %}
+    aspect-(--media-aspect-h5)
+    md:aspect-(--media-aspect-pc)
+    {% else %}
+    h-screen
+    md:min-h-768
+    {% endif %}  {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <div class='swiper-wrapper'>
+    {%- for block in section.blocks -%}
+      <div
+        class='swiper-slide'
+        {{ block.shopify_attributes }}
+        x-data='{ open1: false, open2: false }'
+        style='
+          --title-color: {{ block.settings.title_color }};
+          --desc-color: {{ block.settings.desc_color }};
+          --content_width_pc: {{ block.settings.content_width_pc }}px;
+        '
+      >
+        <div class='relative flex h-full w-full flex-col md:block'>
+          {% render 'media-element',
+            class: 'absolute inset-0 w-full h-full',
+            media_class: 'w-full h-full object-cover',
+            media_type: block.settings.media_type,
+            pc_image: block.settings.pc_image,
+            h5_image: block.settings.h5_image,
+            pc_video: block.settings.pc_video,
+            h5_video: block.settings.h5_video,
+            video_url: block.settings.video_url,
+            other_url: block.settings.other_url
+          %}
+          {%- render 'sn-overlay', _settings: block.settings -%}
+          <div
+            class='page-container relative z-10 h-full'
+          >
+            <div
+              data-pos='{{ block.settings.content_position_pc }}'
+              data-pos-h5='{{ block.settings.content_position_h5 }}'
+              class='content-position flex h-full flex-1 md:py-48'
+            >
+              <div
+                class='relative w-full md:max-w-(--content_width_pc)'
+              >
+                {% if block.settings.title != blank %}
+                  <h2 class='text-[40px] leading-none text-(--title-color) uppercase md:text-[80px]'>
+                    {{ block.settings.title }}
+                  </h2>
+                {% endif %}
+
+                {%- if block.settings.desc != blank -%}
+                  <div class='mt-24 text-[15px] leading-[1.3] text-(--desc-color) md:mt-24 md:text-[18px]'>
+                    {{ block.settings.desc }}
+                  </div>
+                {%- endif -%}
+
+                {%- liquid
+                  assign btn1_has_video = false
+                  if block.settings.button1_type == 'video'
+                    assign btn1_has_video = true
+                  endif
+                  assign btn1_show = false
+                  if block.settings.button1_text != blank and btn1_has_video
+                    assign btn1_show = true
+                  elsif block.settings.button1_text != blank and block.settings.button1_link != blank
+                    assign btn1_show = true
+                  endif
+                  assign btn2_has_video = false
+                  if block.settings.button2_type == 'video'
+                    assign btn2_has_video = true
+                  endif
+                  assign btn2_show = false
+                  if block.settings.button2_text != blank and btn2_has_video
+                    assign btn2_show = true
+                  elsif block.settings.button2_text != blank and block.settings.button2_link != blank
+                    assign btn2_show = true
+                  endif
+                -%}
+                {% if btn1_show or btn2_show %}
+                  <div
+                    class='content-position flex '
+                    data-pos='{{ block.settings.content_position_pc }}'
+                    data-pos-h5='{{ block.settings.content_position_h5 }}'
+                  >
+                    <div
+                      style='
+                        --button1-border-color: {{ block.settings.button1_border_color }};
+                        --button1-color: {{ block.settings.button1_color }};
+                        --button1-bg-color: {{ block.settings.button1_bg_color }};
+                        --button1-color-hover: {{ block.settings.button1_hover_color }};
+                        --button1-bg-hover-color: {{ block.settings.button1_bg_hover_color }};
+                        --button2-border-color: {{ block.settings.button2_border_color }};
+                        --button2-color: {{ block.settings.button2_color }};
+                        --button2-bg-color: {{ block.settings.button2_bg_color }};
+                        --button2-color-hover: {{ block.settings.button2_hover_color }};
+                        --button2-bg-hover-color: {{ block.settings.button2_bg_hover_color }};
+                      '
+                      class='mt-24 flex flex-col gap-12 md:mt-40 md:flex-row'
+                    >
+                      {%- if btn1_show -%}
+                        {%- if block.settings.button1_type == 'video' -%}
+                          <button
+                            @click='open1 = true'
+                            class='
+                              inline-flex
+                              h-44 min-w-170
+                              cursor-pointer
+                              items-center
+                              justify-center
+                              self-start
+                              border border-(--button1-border-color)
+                              bg-(--button1-bg-color)
+                              px-24
+                              text-[13px]/[1.3]
+                              tracking-[0]
+                              text-(--button1-color)
+                              transition-colors
+                              duration-300
+                              hover:border-(--button1-bg-hover-color)
+                              hover:bg-(--button1-bg-hover-color)
+                              hover:text-(--button1-color-hover)
+                              sm:px-32
+                              md:text-[14px]/[1.4]
+                            '
+                          >
+                            {{ block.settings.button1_text }}
+                          </button>
+                        {%- else -%}
+                          <a
+                            href='{{ block.settings.button1_link | default: '#' }}'
+                            {% if block.settings.button1_anchor_id != blank %}
+                              data-anchor-id='{{ block.settings.button1_anchor_id }}'
+                            {% endif %}
+                            class='
+                              inline-flex
+                              h-44 min-w-170
+                              items-center
+                              justify-center
+                              self-start
+                              border border-(--button1-border-color)
+                              bg-(--button1-bg-color)
+                              px-24
+                              text-[13px]/[1.3]
+                              tracking-[0]
+                              text-(--button1-color)
+                              no-underline
+                              transition-colors
+                              duration-300
+                              hover:border-(--button1-bg-hover-color)
+                              hover:bg-(--button1-bg-hover-color)
+                              hover:text-(--button1-color-hover)
+                              sm:px-32
+                              md:text-[14px]/[1.4]
+                            '
+                          >
+                            {{ block.settings.button1_text }}
+                          </a>
+                        {%- endif -%}
+                      {%- endif -%}
+                      {%- if btn2_show -%}
+                        {%- if block.settings.button2_type == 'video' -%}
+                          <button
+                            @click='open2 = true'
+                            class='
+                              inline-flex
+                              h-44
+                              min-w-170
+                              cursor-pointer
+                              items-center
+                              justify-center
+                              self-start
+                              border
+                              border-(--button2-border-color) bg-(--button2-bg-color)
+                              px-24
+                              text-[13px]/[1.3]
+                              tracking-[0]
+                              text-(--button2-color)
+                              transition-colors
+                              duration-300
+                              hover:border-(--button2-bg-hover-color)
+                              hover:bg-(--button2-bg-hover-color)
+                              hover:text-(--button2-color-hover)
+                              sm:px-32
+                              md:text-[14px]/[1.4]
+                            '
+                          >
+                            {{ block.settings.button2_text }}
+                          </button>
+                        {%- else -%}
+                          <a
+                            href='{{ block.settings.button2_link | default: '#' }}'
+                            {% if block.settings.button2_anchor_id != blank %}
+                              data-anchor-id='{{ block.settings.button2_anchor_id }}'
+                            {% endif %}
+                            class='
+                              inline-flex
+                              h-44
+                              min-w-170
+                              items-center
+                              justify-center
+                              self-start
+                              border
+                              border-(--button2-border-color) bg-(--button2-bg-color)
+                              px-24
+                              text-[13px]/[1.3]
+                              tracking-[0]
+                              text-(--button2-color)
+                              no-underline
+                              transition-colors
+                              duration-300
+                              hover:border-(--button2-bg-hover-color)
+                              hover:bg-(--button2-bg-hover-color)
+                              hover:text-(--button2-color-hover)
+                              sm:px-32
+                              md:text-[14px]/[1.4]
+                            '
+                          >
+                            {{ block.settings.button2_text }}
+                          </a>
+                        {%- endif -%}
+                      {%- endif -%}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        {%- if block.settings.button1_type == 'video' and block.settings.button1_text != blank -%}
+          <template x-teleport='body'>
+            <div class='css-reset tailwind-layout modal'>
+              <div
+                x-cloak
+                x-show='open1'
+                x-transition.opacity.duration.300ms
+                class='fixed inset-0 z-50 flex items-center justify-center bg-[#25282A]/80'
+              >
+                <div
+                  @click.outside='open1 = false'
+                  x-transition.scale.95.duration.300ms
+                  class='relative mx-4 aspect-video w-full max-w-960 bg-black'
+                >
+                  <button
+                    @click='open1 = false'
+                    class='absolute -top-12 -right-12 z-10 flex h-40 w-40 cursor-pointer items-center justify-center rounded-full border-0 bg-white text-black hover:bg-gray-100'
+                  >
+                    <svg
+                      width='12'
+                      height='12'
+                      viewBox='0 0 12 12'
+                      fill='none'
+                    >
+                      <path d="M10.918 0.919237L0.917969 10.9192M10.918 10.9192L0.917969 0.919235" stroke="currentColor" stroke-width="1.3" stroke-linecap="square"/>
+                    </svg>
+                  </button>
+                  {% render 'media-element',
+                    class: 'absolute inset-0 w-full sm:h-full z-0 h-[calc(100%-100px)]',
+                    media_class: 'w-full h-full object-cover',
+                    media_type: block.settings.button1_media_type,
+                    pc_video: block.settings.button1_pc_video,
+                    h5_video: block.settings.button1_h5_video,
+                    video_url: block.settings.button1_video_url,
+                    other_url: block.settings.button1_other_url,
+                    controls: true,
+                    muted: false,
+                    is_modal: true
+                  %}
+                </div>
+              </div>
+            </div>
+          </template>
+        {%- endif -%}
+        {%- if block.settings.button2_type == 'video' and block.settings.button2_text != blank -%}
+          <template x-teleport='body'>
+            <div class='css-reset tailwind-layout modal'>
+              <div
+                x-cloak
+                x-show='open2'
+                x-transition.opacity.duration.300ms
+                class='fixed inset-0 z-50 flex items-center justify-center bg-[#25282A]/80'
+              >
+                <div
+                  @click.outside='open2 = false'
+                  x-transition.scale.95.duration.300ms
+                  class='relative mx-4 aspect-video w-full max-w-960 bg-black'
+                >
+                  <button
+                    @click='open2 = false'
+                    class='absolute -top-12 -right-12 z-10 flex h-40 w-40 cursor-pointer items-center justify-center rounded-full border-0 bg-white text-black hover:bg-gray-100'
+                  >
+                    <svg
+                      width='12'
+                      height='12'
+                      viewBox='0 0 12 12'
+                      fill='none'
+                    >
+                      <path d="M10.918 0.919237L0.917969 10.9192M10.918 10.9192L0.917969 0.919235" stroke="currentColor" stroke-width="1.3" stroke-linecap="square"/>
+                    </svg>
+                  </button>
+                  {% render 'media-element',
+                    class: 'absolute inset-0 w-full sm:h-full z-0 h-[calc(100%-100px)]',
+                    media_class: 'w-full h-full object-cover',
+                    media_type: block.settings.button2_media_type,
+                    pc_video: block.settings.button2_pc_video,
+                    h5_video: block.settings.button2_h5_video,
+                    video_url: block.settings.button2_video_url,
+                    other_url: block.settings.button2_other_url,
+                    controls: true,
+                    muted: false,
+                    is_modal: true
+                  %}
+                </div>
+              </div>
+            </div>
+          </template>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+<script>
+  (() => {
+    const sectionElement = document.querySelector(
+      '#shopify-section-{{ section.id }}',
+    );
+    if (!sectionElement) return;
+    const swiperElement = sectionElement.querySelector('.swiper');
+    if (swiperElement) {
+      new Swiper(swiperElement, {
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true,
+        },
+        {%- if section.settings.auto_rotate %}
+        autoplay: { delay: {{ section.settings.change_slides_speed | times: 1000 }}, disableOnInteraction: false },
+        {% endif -%}
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Banner Full Screen",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "radio",
+      "id": "use_aspect_ratio",
+      "label": "Use Aspect Ratio",
+      "options": [
+        { "value": "yes", "label": "Yes" },
+        { "value": "no", "label": "No" }
+      ],
+      "default": "yes",
+      "info": "If 'Yes', the media will maintain the aspect ratio defined below. If 'No', the media will fill the full screen."
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Aspect Ratio Width",
+      "default": 16
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Aspect Ratio Height",
+      "default": 9
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Aspect Ratio Width",
+      "default": 4
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Aspect Ratio Height",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
+        },
+        {
+          "type": "range",
+          "id": "content_width_pc",
+          "label": "Content Width (PC)",
+          "default": 1320,
+          "min": 400,
+          "max": 1320,
+          "step": 20,
+          "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "content_position_pc",
+          "label": "Content Position (PC)",
+          "options": [
+            { "value": "top-left", "label": "Top Left" },
+            { "value": "top-center", "label": "Top Center" },
+            { "value": "top-right", "label": "Top Right" },
+            { "value": "middle-left", "label": "Middle Left" },
+            { "value": "middle-center", "label": "Middle Center" },
+            { "value": "middle-right", "label": "Middle Right" },
+            { "value": "bottom-left", "label": "Bottom Left" },
+            { "value": "bottom-center", "label": "Bottom Center" },
+            { "value": "bottom-right", "label": "Bottom Right" }
+          ],
+          "default": "middle-left"
+        },
+        {
+          "type": "select",
+          "id": "content_position_h5",
+          "label": "Content Position (Mobile)",
+          "options": [
+            { "value": "top-left", "label": "Top Left" },
+            { "value": "top-center", "label": "Top Center" },
+            { "value": "top-right", "label": "Top Right" },
+            { "value": "middle-left", "label": "Middle Left" },
+            { "value": "middle-center", "label": "Middle Center" },
+            { "value": "middle-right", "label": "Middle Right" },
+            { "value": "bottom-left", "label": "Bottom Left" },
+            { "value": "bottom-center", "label": "Bottom Center" },
+            { "value": "bottom-right", "label": "Bottom Right" }
+          ],
+          "default": "middle-left"
+        },
+        {
+          "type": "color",
+          "id": "mobile_bg_color",
+          "label": "Mobile Content Background",
+          "default": "#000000"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "color",
+          "id": "desc_color",
+          "label": "Description Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "header",
+          "content": "Button1 Settings"
+        },
+        {
+          "type": "text",
+          "id": "button1_text",
+          "label": "Button1 Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button1_link",
+          "label": "Button1 Link"
+        },
+        {
+          "type": "text",
+          "id": "button1_anchor_id",
+          "label": "Button1 Anchor Id"
+        },
+        {
+          "type": "select",
+          "id": "button1_type",
+          "label": "Button1 Action Type",
+          "options": [
+            { "value": "url", "label": "URL" },
+            { "value": "video", "label": "Video Modal" }
+          ],
+          "default": "url"
+        },
+        {
+          "type": "select",
+          "id": "button1_media_type",
+          "label": "Button1 Video Type",
+          "options": [
+            { "value": "video", "label": "Shopify Video" },
+            { "value": "video_url", "label": "External Video URL" }
+          ],
+          "default": "video_url"
+        },
+        {
+          "type": "video",
+          "id": "button1_pc_video",
+          "label": "Button1 PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "button1_h5_video",
+          "label": "Button1 H5 Shopify Video (Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "button1_video_url",
+          "label": "Button1 Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "button1_other_url",
+          "label": "Button1 Other Video URL",
+          "info": "ex: xxx.mp4 (Takes priority over Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Button1 Color Settings"
+        },
+        {
+          "type": "color",
+          "id": "button1_color",
+          "label": "Button1 Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "button1_border_color",
+          "label": "Button1 Border Color",
+          "default": "#FEDB1E"
+        },
+        {
+          "type": "color",
+          "id": "button1_bg_color",
+          "label": "Button1 Background Color",
+          "default": "#FEDB1E"
+        },
+        {
+          "type": "color",
+          "id": "button1_hover_color",
+          "label": "Button1 Hover Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button1_bg_hover_color",
+          "label": "Button1 Background Hover Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "header",
+          "content": "Button2 Settings"
+        },
+        {
+          "type": "text",
+          "id": "button2_text",
+          "label": "Button2 Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button2_link",
+          "label": "Button2 Link"
+        },
+        {
+          "type": "text",
+          "id": "button2_anchor_id",
+          "label": "Button2 Anchor Id"
+        },
+        {
+          "type": "select",
+          "id": "button2_type",
+          "label": "Button2 Action Type",
+          "options": [
+            { "value": "url", "label": "URL" },
+            { "value": "video", "label": "Video Modal" }
+          ],
+          "default": "url"
+        },
+        {
+          "type": "select",
+          "id": "button2_media_type",
+          "label": "Button2 Video Type",
+          "options": [
+            { "value": "video", "label": "Shopify Video" },
+            { "value": "video_url", "label": "External Video URL" }
+          ],
+          "default": "video_url"
+        },
+        {
+          "type": "video",
+          "id": "button2_pc_video",
+          "label": "Button2 PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "button2_h5_video",
+          "label": "Button2 H5 Shopify Video (Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "button2_video_url",
+          "label": "Button2 Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "button2_other_url",
+          "label": "Button2 Other Video URL",
+          "info": "ex: xxx.mp4 (Takes priority over Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Button2 Color Settings"
+        },
+        {
+          "type": "color",
+          "id": "button2_color",
+          "label": "Button2 Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "button2_border_color",
+          "label": "Button2 Border Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "button2_bg_color",
+          "label": "Button2 Background Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "button2_hover_color",
+          "label": "Button2 Hover Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "button2_bg_hover_color",
+          "label": "Button2 Background Hover Color",
+          "default": "#FEDB1E"
+        },
+        {
+          "type": "product",
+          "id": "featured_product",
+          "label": "Select Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Full Screen",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "title": "<p>Making the <br/>Impossible Possible</p>",
+            "desc": "<p>We make advanced technology simple and accessible, </p><p>so anyone can enjoy effortless yard care year-round.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

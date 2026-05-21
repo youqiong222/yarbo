@@ -1,0 +1,28 @@
+{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}
+{{ 'yb-base.css' | asset_url | stylesheet_tag }}
+<style>
+  #shopify-section-{{ section.id }} .underline {
+    text-decoration-line: underline;
+    color: #777;
+  }
+  #shopify-section-{{ section.id }} form#visit-form {
+    justify-content: space-between;
+  }
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .migrated-page .pl-20 {
+      padding-right: 1rem !important;
+      padding-left: 1rem !important;
+    }
+  }
+</style>
+<div class="migrated-page">
+  {% render 'main-showcases-visit-form-1' %}
+  {% render 'main-showcases-visit-form-2' %}
+  {% render 'main-showcases-visit-form-3' %}
+</div>
+{% schema %}
+{
+  "name": "Visit Form"
+
+}
+{% endschema %}

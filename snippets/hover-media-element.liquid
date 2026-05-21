@@ -1,0 +1,92 @@
+{%- liquid
+  assign m_type = media_type | default: 'image'
+
+  assign final_h5_image = h5_image | default: pc_image
+  assign final_h5_video = h5_video | default: pc_video
+
+  assign v_controls = false
+  if controls == true
+    assign v_controls = true
+  endif
+
+  assign v_muted = true
+  if muted == false
+    assign v_muted = false
+  endif
+-%}
+
+<div class='{{ class }}'>
+  {%- case m_type -%}
+    {%- when 'image' -%}
+      {%- if pc_image != blank or final_h5_image != blank -%}
+        {%- if pc_image != blank -%}
+          <img
+            src='{{ pc_image | image_url }}'
+            width='auto'
+            height='auto'
+            class='{{ media_class }} {% if final_h5_image != pc_image %}hidden sm:block{% endif %}'
+          >
+        {%- endif -%}
+
+        {%- if final_h5_image != pc_image and final_h5_image != blank -%}
+          <img
+            src='{{ final_h5_image | image_url }}'
+            width='auto'
+            height='auto'
+            class='{{ media_class }} block sm:hidden'
+          >
+        {%- endif -%}
+
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'w-full h-full bg-[#ccc]' }}
+      {%- endif -%}
+
+    {%- when 'video' -%}
+      {%- if pc_video != blank or final_h5_video != blank -%}
+        <!-- PC -->
+        {%- if pc_video != blank -%}
+          <video
+            x-ref='{{ video_ref | default: 'video' }}'
+            class='{{ media_class }} {% if final_h5_video != pc_video %}hidden sm:block{% endif %}'
+            muted
+            loop
+            playsinline
+            preload='metadata'
+          >
+            <source src='{{ pc_video.sources[0].url }}' type='video/mp4'>
+          </video>
+        {%- endif -%}
+
+        <!-- H5 -->
+        {%- if final_h5_video != pc_video and final_h5_video != blank -%}
+          <video
+            x-ref='{{ video_ref | default: 'video' }}'
+            class='{{ media_class }} block sm:hidden'
+            muted
+            loop
+            playsinline
+            preload='metadata'
+          >
+            <source src='{{ final_h5_video.sources[0].url }}' type='video/mp4'>
+          </video>
+        {%- endif -%}
+
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'w-full h-full bg-[#ccc]' }}
+      {%- endif -%}
+
+    {%- when 'video_url' -%}
+      {%- if other_url != blank -%}
+        <video
+          x-ref='{{ video_ref | default: 'video' }}'
+          class='{{ media_class }}'
+          muted
+          loop
+          playsinline
+          preload='metadata'
+        >
+          <source src='{{ other_url }}' type='video/mp4'>
+        </video>
+      {%- endif -%}
+  {%- endcase -%}
+</div>

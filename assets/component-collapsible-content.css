@@ -1,0 +1,128 @@
+.collapsible-content {
+  position: relative;
+  z-index: 0;
+}
+
+.collapsible-section-layout {
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+@media screen and (min-width: 750px) {
+  .collapsible-section-layout {
+    padding-bottom: 70px;
+    padding-top: 70px;
+  }
+}
+
+/* Needed for gradient continuity with or without animation so that transparent PNG images come up as we would expect */
+.collapsible-content__media {
+  background: transparent;
+}
+
+.collapsible-content__media--small {
+  height: 194px;
+}
+
+.collapsible-content__media--large {
+  height: 434px;
+}
+
+@media screen and (min-width: 750px) {
+  .collapsible-content__media--small {
+    height: 314px;
+  }
+
+  .collapsible-content__media--large {
+    height: 694px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .collapsible-content__grid--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.collapsible-content-wrapper-narrow {
+  margin: 0 auto;
+  padding-right: 14px;
+  padding-left: 14px;
+  max-width: 734px;
+}
+
+.collapsible-content__header {
+  word-break: break-word;
+}
+
+.collapsible-content__heading {
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .collapsible-content__heading {
+    margin-bottom: 30px;
+  }
+}
+
+.collapsible-none-layout .accordion + .accordion {
+  border-top: 0;
+}
+
+.collapsible-row-layout .accordion:not(:first-child):not(.color-scheme-1) {
+  margin-top: 10px;
+}
+
+.caption-with-letter-spacing + h2 {
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 750px) {
+  .collapsible-content .accordion {
+    margin-top: 0;
+  }
+}
+
+.collapsible-row-layout .accordion {
+  border: var(--text-boxes-border-width) solid rgba(var(--color-foreground), var(--text-boxes-border-opacity));
+  margin-bottom: 14px;
+  /* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
+  transform: perspective(0);
+}
+
+.collapsible-row-layout .accordion summary,
+.collapsible-row-layout .accordion .accordion__content {
+  padding: 14px;
+}
+
+.collapsible-row-layout .accordion .accordion__content {
+  padding-top: 0;
+}
+
+.collapsible-content summary:hover {
+  background: rgba(var(--color-foreground), 0.04);
+}
+
+.collapsible-content summary:hover .accordion__title {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* check for flexbox gap in older Safari versions */
+@supports not (inset: 10px) {
+  @media screen and (min-width: 750px) {
+    .collapsible-content__grid:not(.collapsible-content__grid--reverse) .grid__item:last-child,
+    .collapsible-content__grid--reverse .collapsible-content__grid-item {
+      padding-left: 50px;
+      padding-right: 0;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .collapsible-content__grid:not(.collapsible-content__grid--reverse) .grid__item:last-child,
+    .collapsible-content__grid--reverse .collapsible-content__grid-item {
+      padding-left: 70px;
+    }
+  }
+}

@@ -1,0 +1,381 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<style>
+  .downloading {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .downloading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+  }
+  .downloading::before {
+    content: 'Waiting download';
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 20px);
+    z-index: 999;
+  }
+
+  @keyframes spin {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  .download-picture-iconfont-box {
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    top: 0;
+    height: 100%;
+    background: #000;
+    width: 100%;
+    transition-duration: 0.5s;
+    opacity: 0;
+    background: linear-gradient(to top, rgb(0 0 0 / 80%), rgb(255 255 255 / 9%));
+  }
+
+  .download-picture-image-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  img.download-picture-image,
+  video.download-picture-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+  }
+
+  video.download-picture-video {
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .download-picture-image-once {
+    width: 100%;
+    padding-top: 66.7%;
+    position: relative;
+  }
+
+  .download-picture-image-once-video {
+    padding-top: 0;
+  }
+
+  .download-picture-image-once-box {
+    width: 48%;
+    transition: 0.5s;
+    margin-bottom: 4%;
+    box-shadow:
+      0 0 #0000,
+      0 0 #0000,
+      0 0 #0000,
+      0 0 #0000,
+      0 0.3125rem 0.9375rem 0 rgba(24, 26, 29, 0.1);
+  }
+  #presskit-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: var(--advc-container-padding-top) var(--advc-container-padding-right) var(--advc-container-padding-bottom) var(--advc-container-padding-left);
+    width: 100%;
+  }
+  .download-picture-title {
+    font-size: 25px;
+    padding-bottom: 12px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #000;
+  }
+  .download-picture-iconfont-box:hover {
+    opacity: 1;
+  }
+  i.download-picture-iconfont {
+    padding: 0 10px 10px 0;
+  }
+  .download-picture-image-once-box:hover {
+    transform: translateY(-10px);
+  }
+  div#presskit-container {
+    padding: 0 20px;
+  }
+  @media screen and (max-width: 749.99px) {
+    .download-picture-image-once-box {
+      width: 100%;
+    }
+    .download-picture-title {
+      font-size: 18px;
+    }
+  }
+</style>
+<div id='presskit-container'></div>
+
+<div
+  class='ant-message ant-message-top'
+  id='download-process'
+  style='left: 50%;transform: translateX(-50%);position: fixed;background: white;top: 110px;z-index: 9999;padding: 10px 20px;border-radius: 8px;font-size: 0.875rem; display: none;'
+>
+  <div class='ant-message-notice-wrapper'>
+    <div class='ant-message-notice ant-message-notice-loading'>
+      <div class='ant-message-notice-content'>
+        <div class='ant-message-custom-content ant-message-loading'>
+          <span
+            role='img'
+            aria-label='loading'
+            class='anticon anticon-loading anticon-spin'
+          >
+            <svg
+              viewBox='0 0 1024 1024'
+              focusable='false'
+              data-icon='loading'
+              width='1em'
+              height='1em'
+              fill='currentColor'
+              aria-hidden='true'
+            >
+              <path d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"></path>
+            </svg>
+          </span>
+          <span style='margin-left: 16px;'>Waiting download</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  async function init({ pressKitApiUrl, downloadApiUrl, compressedKeyParam }) {
+    try {
+      const res = await fetch(pressKitApiUrl);
+      const { data } = await res.json();
+      const container = document.getElementById('presskit-container');
+      container.innerHTML = '';
+
+      const titlesMap = {
+        YARBO_LOGO: 'Yarbo Logos',
+        YARBO_FAMILY: 'Yarbo Family',
+        YARBO_S1: 'Yarbo Snow Blower',
+        YARBO_LAWN_MOWER_PRO: 'Yarbo Lawn Mower Pro',
+        YARBO_M1: 'Yarbo Lawn Mower',
+        YARBO_TRIMMER_PACKAGE: 'Yarbo Trimmer Package',
+        YARBO_B1: 'Yarbo Blower',
+        YARBO_CORE: 'Yarbo Core',
+        YARBO_APP: 'Yarbo App',
+      };
+
+      const renderOrder = [
+        'YARBO_LOGO',
+        'YARBO_FAMILY',
+        'YARBO_S1',
+        'YARBO_LAWN_MOWER_PRO',
+        'YARBO_M1',
+        'YARBO_TRIMMER_PACKAGE',
+        'YARBO_B1',
+        'YARBO_CORE',
+        'YARBO_APP',
+      ];
+
+      renderOrder.forEach((category) => {
+        const items = data[category] || [];
+        const section = document.createElement('div');
+        section.className = 'download-picture-box';
+        const title = titlesMap[category] || category;
+        section.innerHTML = `
+        <h2 class="download-picture-title">
+          ${title}
+        </h2>
+        <div class="download-picture-image-box"></div>
+      `;
+
+        const grid = section.querySelector('.download-picture-image-box');
+        items.forEach((item) => {
+          const card = document.createElement('div');
+          card.className = 'download-picture-image-once-box';
+
+          card.dataset.downloadKey = encodeURIComponent(item.key);
+          card.dataset.filename = item.key.split('/').pop();
+
+          const ext = (item.key.split('.').pop() || '').toLowerCase();
+          const videoExts = ['mp4', 'webm', 'ogg', 'mov', 'm4v'];
+          const isVideo = videoExts.includes(ext);
+
+          const mediaHTML = isVideo
+            ? `<video src="${item.accessUrl}"
+                    class="download-picture-image download-picture-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"></video>`
+            : `<img src="${item.accessUrl}"
+                  alt="${category}"
+                  class="download-picture-image">`;
+
+          card.innerHTML = `
+          <div class="download-picture-image-once">
+            ${mediaHTML}
+            <div class="download-picture-iconfont-box">
+              <i class="download-picture-iconfont"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 3v12m0 0l-3-3m3 3l3-3m-9 8h12" />
+                                </svg></i>
+            </div>
+          </div>
+        `;
+
+          grid.appendChild(card);
+        });
+
+        container.appendChild(section);
+      });
+
+      container.addEventListener('click', (event) => handleDownloadClick(event, { downloadApiUrl, compressedKeyParam }));
+    } catch (error) {
+      console.error('初始化失败:', error);
+    }
+  }
+
+  function handleDownloadClick(event, { downloadApiUrl, compressedKeyParam }) {
+    const card = event.target.closest('[data-download-key]');
+    if (!card) return;
+
+    const downloadKey = card.dataset.downloadKey;
+    const filename = card.dataset.filename;
+    const downloadUrl = `${downloadApiUrl}?${compressedKeyParam}=${downloadKey}`;
+
+    card.style.pointerEvents = 'none';
+    card.classList.add('downloading');
+
+    downloadFile(downloadUrl, filename, card);
+  }
+
+  async function downloadFile(downloadUrl, filename, card = null) {
+    try {
+      const response = await fetch(downloadUrl);
+      if (!response.ok) throw new Error('download error');
+
+      const responseData = await response.json();
+      if (!responseData.success || responseData.code !== '00000') {
+        throw new Error(responseData.message || 'API Error');
+      }
+
+      const fileUrl = responseData.data;
+      const fileResponse = await fetch(fileUrl);
+      if (!fileResponse.ok) throw new Error('download error');
+
+      const blob = await fileResponse.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('下载失败:', error);
+      alert(error.message || 'download error');
+    } finally {
+      if (card) {
+        card.style.pointerEvents = 'auto';
+        card.classList.remove('downloading');
+      }
+      const processEl = document.getElementById('download-process');
+      if (processEl) processEl.style.display = 'none';
+    }
+  }
+
+  function DownloadAll(downloadApiUrl, compressedKeyParam) {
+    const processEl = document.getElementById('download-process');
+    if (processEl) processEl.style.display = 'block';
+
+    const downloadUrl = `${downloadApiUrl}?${compressedKeyParam}=all`;
+    fetch(downloadUrl)
+      .then((res) => res.json())
+      .then((responseData) => {
+        if (!responseData.success || responseData.code !== '00000') {
+          throw new Error(responseData.message || 'API Error');
+        }
+        window.open(responseData.data, '_blank');
+      })
+      .catch((err) => {
+        console.error('zip download error:', err);
+        alert(err.message || 'download error');
+      })
+      .finally(() => {
+        if (processEl) processEl.style.display = 'none';
+      });
+  }
+
+  init({
+    pressKitApiUrl: '{{ section.settings.all-picture-url }}',
+    downloadApiUrl: '{{ section.settings.download-url }}',
+    compressedKeyParam: '{{ section.settings.download-key }}',
+  });
+
+  // 事件委托：无论按钮何时渲染或是否为 Swiper clone 都能捕获
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('.yb-banner-swiper-button-secondary')) {
+      DownloadAll('{{ section.settings.download-url }}', '{{ section.settings.download-key }}');
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "download-picture",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "id": "all-picture-url",
+      "type": "text",
+      "label": "页面图片数据接口",
+      "default": "https://4zx17x5q7l.execute-api.us-east-1.amazonaws.com/Stage/yarbo/common/ListPressKit",
+      "info": "默认get请求"
+    },
+    {
+      "id": "download-url",
+      "type": "text",
+      "label": "下载图片接口",
+      "default": "https://4zx17x5q7l.execute-api.us-east-1.amazonaws.com/Stage/yarbo/common/downloadPressKit",
+      "info": "默认get请求"
+    },
+    {
+      "id": "download-key",
+      "type": "text",
+      "label": "下载接口参数名",
+      "default": "compressedKey",
+      "info": "下载请求参数名"
+    }
+  ],
+  "presets": [
+    {
+      "name": "yb download-picture"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,115 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <h2 class='mb-32 text-center text-[24px] md:mb-64 md:text-[40px]'>{{ section.settings.title }}</h2>
+  <div class='grid grid-cols-2 gap-x-8 gap-y-32 md:grid-cols-4 md:gap-x-16'>
+    {%- for block in section.blocks -%}
+      <div class='text-center'>
+        {% render 'media-element',
+          class: 'aspect-square',
+          media_class: 'w-full h-full object-cover',
+          media_type: 'image',
+          pc_image: block.settings.pc_image,
+          h5_image: block.settings.h5_image
+        %}
+        <h3 class='mt-12 text-[14px] md:mt-16 md:text-[18px]'>{{ block.settings.point_title }}</h3>
+        <p class='mt-4 text-[12px] md:text-[14px]'>{{ block.settings.point_description }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+  <div class='mt-30 flex justify-center'>
+    <a
+      class='h-48 rounded-full bg-[#FEDB1E] px-40 text-[16px] leading-48 md:h-48 md:min-w-180'
+      href='{{ section.settings.btn_link }}'
+    >
+      {{ section.settings.btn_label }}
+    </a>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Points Grid",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 100
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "point_title",
+          "label": "Point Title"
+        },
+        {
+          "type": "textarea",
+          "id": "point_description",
+          "label": "Point Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Points Grid",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

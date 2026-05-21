@@ -1,0 +1,1475 @@
+{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}
+
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-banner-swiper.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide.min_223bf385-ef7c-40c3-82e5-833dddfd1855.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-subscribe-klaviyo.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/snippet-klaviyo-country-list.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/snippet-subscribe-popup.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/snippet-subscribe-popup2.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+<script
+  defer
+  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-subscribe-klaviyo.js"
+></script>
+
+<div class="migrated-page">
+  <!-- START content_for_index -->
+  <div class="shopline-section section" id="shopify-section-175688183261798e9aa1">
+    <style>
+      #shopify-section-175688183261798e9aa1 {
+        background-color: #F5F5F5;
+      }
+
+      /* 375-679px */
+      @media (max-width: 679px) {
+        #shopify-section-175688183261798e9aa1 {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 680-959px */
+      @media (min-width: 680px) and (max-width: 959px) {
+        #shopify-section-175688183261798e9aa1 {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 960-1439px */
+      @media (min-width: 960px) and (max-width: 1439px) {
+        #shopify-section-175688183261798e9aa1 {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 1440-1919px */
+      @media (min-width: 1440px) and (max-width: 1919px) {
+        #shopify-section-175688183261798e9aa1 {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 1920px+ */
+      @media (min-width: 1920px) {
+        #shopify-section-175688183261798e9aa1 {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+    </style>
+    <style>
+      #yb-banner-swiper__175688183261798e9aa1 .splide {
+        --fill-duration: 6s;
+      }
+
+      #yb-banner-swiper__175688183261798e9aa1 .yb-banner-swiper-splide__track {
+        z-index: unset;
+      }
+
+      #yb-banner-swiper__175688183261798e9aa1 .subscribe-popup-container.subscribe-popup-new {
+        position: absolute;
+      }
+
+      #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-policy-text {
+        position: relative;
+      }
+
+      #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-input {
+        color: rgb(var(--color-text, inherit));
+      }
+
+      /* 订阅框样式修复 */
+      #yb-banner-swiper__175688183261798e9aa1 .yb-banner-swiper-subscription-wrapper {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo {
+        width: 100%;
+      }
+
+      #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-input-wrapper {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-desc {
+        margin-bottom: 12px;
+        color: rgb(var(--color-text, inherit));
+      }
+
+      /* 修复 policy 区域样式 */
+      #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-policy {
+        margin-top: 12px;
+        width: 100%;
+        max-width: 482px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-policy-text {
+        flex: 1;
+        min-width: 0;
+        word-wrap: break-word;
+        white-space: normal;
+        line-height: 1.5;
+        font-size: 12px;
+        color: #fff !important;
+        display: inline;
+      }
+
+      #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-checkbox-wrapper {
+        flex-shrink: 0;
+        margin-right: 8px;
+        margin-top: 2px;
+      }
+
+      #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-link {
+        color: #fff !important;
+        text-decoration: underline !important;
+      }
+
+      /* 确保绝对定位时的容器宽度 */
+      #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-absolute {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      /* 响应式调整 */
+      @media (max-width: 959px) {
+        #yb-banner-swiper__175688183261798e9aa1 .yb-banner-swiper-subscription-wrapper {
+          max-width: 100%;
+        }
+
+        #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-input-wrapper {
+          max-width: 100%;
+        }
+
+        #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-policy {
+          max-width: 100%;
+        }
+      }
+    </style>
+    <div class="yb-banner-swiper yb-banner-swiper__basic-size" id="yb-banner-swiper__175688183261798e9aa1">
+      <div class="yb-banner-swiper__splide splide" data-speed="6">
+        <div class="splide__track yb-banner-swiper-splide__track">
+          <ul class="splide__list yb-banner-swiper-splide__list">
+            <style>
+              body {
+                overflow-x: hidden !important;
+              }
+
+              .yb-banner-swiper .subscribe-country-list-wrapper {
+                top: -200px !important;
+              }
+
+              @media screen and (max-width: 959px) {
+                #block-1756881832620e85c08d[data-mobile_layout='style1'] .yb-banner-swiper-text-container {
+
+                  text-align: center;
+                }
+
+                #block-1756881832620e85c08d[data-mobile_layout='style1'] .yb-banner-swiper-titles {
+                  margin-bottom: auto;
+                }
+
+                #block-1756881832620e85c08d[data-mobile_layout='style1'] .yb-banner-swiper-stats,
+                #block-1756881832620e85c08d[data-mobile_layout='style1'] .yb-banner-swiper-cta,
+                #block-1756881832620e85c08d[data-mobile_layout='style1'] .yb-subscribe-klaviyo-input-wrapper {
+                  margin-left: auto;
+                  margin-right: auto;
+                }
+
+                #block-1756881832620e85c08d[data-mobile_layout='style2'] .yb-banner-swiper-titles {
+                  margin-top: auto;
+                }
+
+                #block-1756881832620e85c08d[data-mobile_layout='style2'] .yb-banner-swiper-text-container {
+                  text-align: left;
+                  margin-bottom: 12px;
+                }
+
+                #block-1756881832620e85c08d[data-text_horizontal_position='center'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-desc {
+                  text-align: center;
+                }
+              }
+
+              @media (min-width: 960px) {
+                #block-1756881832620e85c08d .yb-banner-swiper-text-container {
+                  width: 50%;
+                }
+
+                /* 居中布局 */
+                #block-1756881832620e85c08d[data-text_horizontal_position='center'] .yb-banner-swiper-titles>* {
+                  margin: 12px auto;
+                  text-align: center;
+                }
+
+                #block-1756881832620e85c08d[data-text_horizontal_position='center'] .yb-banner-swiper-cta {
+                  display: flex;
+                  justify-content: center;
+                }
+
+                /* 左侧布局 */
+                #block-1756881832620e85c08d[data-text_horizontal_position='left'] .yb-banner-swiper-titles>* {
+                  margin-right: auto;
+                  text-align: left;
+                }
+
+                #block-1756881832620e85c08d[data-text_horizontal_position='left'] .yb-banner-swiper-cta {
+                  display: flex;
+                  justify-content: flex-start;
+                }
+
+                /* 右侧布局 */
+                #block-1756881832620e85c08d[data-text_horizontal_position='right'] .yb-banner-swiper-titles>* {
+                  margin-left: auto;
+                  text-align: right;
+                }
+
+                #block-1756881832620e85c08d[data-text_horizontal_position='right'] .yb-banner-swiper-cta {
+                  display: flex;
+                  justify-content: flex-end;
+                }
+
+                /* 居中布局 - 响应式部分 */
+                #block-1756881832620e85c08d[data-text_horizontal_position='center'] .yb-banner-swiper-stats {
+                  display: flex;
+                  justify-content: center;
+                }
+
+                #block-1756881832620e85c08d[data-text_horizontal_position='center'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-desc {
+                  margin: 40px auto 12px auto;
+                  text-align: center;
+                }
+
+                #block-1756881832620e85c08d[data-text_horizontal_position='center'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-input-wrapper {
+                  margin: 0 auto;
+                }
+
+                /* 左侧布局 - 响应式部分 */
+                #block-1756881832620e85c08d[data-text_horizontal_position='left'] .yb-banner-swiper-stats {
+                  display: flex;
+                  justify-content: flex-start;
+                }
+
+                #block-1756881832620e85c08d[data-text_horizontal_position='left'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-desc {
+                  margin-right: auto;
+                  text-align: left;
+                }
+
+                #block-1756881832620e85c08d[data-text_horizontal_position='left'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-input-wrapper {
+                  margin-right: auto;
+                }
+
+                /* 右侧布局 - 响应式部分 */
+                #block-1756881832620e85c08d[data-text_horizontal_position='right'] .yb-banner-swiper-stats {
+                  display: flex;
+                  justify-content: flex-end;
+                }
+
+                #block-1756881832620e85c08d[data-text_horizontal_position='right'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-desc {
+                  margin-left: auto;
+                  text-align: right;
+                }
+
+                #block-1756881832620e85c08d[data-text_horizontal_position='right'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-input-wrapper {
+                  margin-left: auto;
+                }
+
+                .block-li-1756881832620e85c08d[data-text_vertical_position='top'] {
+                  justify-content: start;
+                }
+
+                .block-li-1756881832620e85c08d[data-text_vertical_position='center'] {
+                  justify-content: center;
+                }
+
+                .block-li-1756881832620e85c08d[data-text_vertical_position='bottom'] {
+                  justify-content: end;
+                }
+              }
+            </style>
+            <li
+              class="yb-banner-swiper-li splide__slide block-li-1756881832620e85c08d"
+              data-text_vertical_position="bottom"
+            >
+              <!-- 移动端图片容器 -->
+              <div class="yb-banner-swiper-mobile-image">
+                <img
+                  class="yb-banner-swiper-img"
+                  data-scale="hover-scale"
+                  decoding="async"
+                  fetchpriority="high"
+                  height="1296"
+                  loading="eager"
+                  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Frame-2036457750-_1.png?v=1772522432"
+                  width="750"
+                >
+              </div>
+              <!-- 桌面端图片容器 -->
+              <div class="yb-banner-swiper-desktop-image">
+                <img
+                  class="yb-banner-swiper-img"
+                  data-scale="hover-scale"
+                  decoding="async"
+                  fetchpriority="high"
+                  loading="eager"
+                  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Frame-2036457751-_1.png?v=1772522438"
+                >
+              </div>
+              <main
+                class="yb-banner-swiper-main yb-section-container yb-banner-swiper-width"
+                data-mobile_layout="style1"
+                data-text_horizontal_position="center"
+                data-text_vertical_position="bottom"
+                id="block-1756881832620e85c08d"
+              >
+                <div class="yb-banner-swiper-titles yb-banner-swiper__basic-size">
+                  <!-- 主标题 -->
+                  <h2 class="yb-banner-swiper-title yb-banner-swiper-text-container">
+                    <br>
+                    <br>
+                  </h2>
+                  <!-- 副标题 -->
+                  <div class="yb-banner-swiper-subtitle yb-banner-swiper-text-container">
+                    <br>
+                    <br>
+                  </div>
+                </div>
+                <!-- 数据统计区 -->
+                <!-- 操作按钮区 -->
+                <!-- 订阅框区 -->
+                <div class="yb-banner-swiper-subscription-wrapper">
+                  <style>
+                    @media screen and (min-width: 959px) {
+                      #yb-banner-swiper__175688183261798e9aa1 .yb-banner-swiper-titles {
+                        padding-bottom: 118px;
+                      }
+                    }
+
+                    .yb-banner-swiper .yb-banner-swiper-main {
+                      position: unset !important;
+                    }
+
+                    #yb-banner-swiper__175688183261798e9aa1 .yb-subscribe-klaviyo-absolute {
+                      position: absolute;
+                      width: calc(100% - 48px);
+                      bottom: 5px;
+                      left: 50%;
+                      transform: translate(-50%, 0);
+                    }
+                  </style>
+                  <style>
+                    /* 让 policy 文本与输入框同宽并自动换行 */
+                    .yb-subscribe-klaviyo-policy {
+                      width: 344px;
+                      word-wrap: break-word;
+                      line-height: 1.5;
+                    }
+
+                    .yb-subscribe-klaviyo-policy-text {
+                      display: inline;
+                    }
+
+                    /* 响应式宽度 */
+                    @media (min-width: 680px) and (max-width: 959px) {
+                      .yb-subscribe-klaviyo-policy {
+                        width: 381px;
+                      }
+                    }
+
+                    @media (min-width: 960px) and (max-width: 1439px) {
+                      .yb-subscribe-klaviyo-policy {
+                        width: 482px;
+                      }
+                    }
+
+                    @media (min-width: 1440px) {
+                      .yb-subscribe-klaviyo-policy {
+                        width: 482px;
+                      }
+                    }
+
+                    @media (max-width: 679px) {
+                      .yb-subscribe-klaviyo-policy {
+                        width: 100%;
+                      }
+                    }
+                  </style>
+                  <yb-subscribe-klaviyo
+                    class="yb-subscribe-klaviyo yb-subscribe-klaviyo-absolute"
+                    data-email-only="true"
+                  >
+                    <div
+                      class="yb-subscribe-klaviyo-input-wrapper yb-subscribe-klaviyo-input-email subscribe-tel-input"
+                      data-step="email"
+                    >
+                      <div class="yb-subscribe-klaviyo-prefix">
+                        <svg fill="none" height="20" viewbox="0 0 21 20" width="21" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3 2.25C2.30964 2.25 1.75 2.80964 1.75 3.5V16.5C1.75 17.1904 2.30964 17.75 3 17.75H18C18.6904 17.75 19.25 17.1904 19.25 16.5V3.5C19.25 2.80964 18.6904 2.25 18 2.25H3ZM3.25 6.89965V3.75H17.75V6.9002L17.7114 6.80762L10.4999 9.81242L3.28835 6.80762L3.25 6.89965ZM3.25 8.41664L9.97104 11.2171C10.3095 11.3581 10.6903 11.3581 11.0287 11.2171L17.75 8.41654V16.25H3.25V8.41664Z" fill="#ACACAC"></path>
+                        </svg>
+                      </div>
+                      <input class="yb-subscribe-klaviyo-input" placeholder="Email">
+                      <div class="yb-subscribe-klaviyo-suffix" data-email-type="" data-klaviyo-list-id="WC6MM5">
+                        Notify Me
+                      </div>
+
+                      {% render 'subscribe-klaviyo-country-list' %}
+                      <div class="yb-subscribe-klaviyo-errors"></div>
+                    </div>
+                    <div class="yb-subscribe-klaviyo-policy">
+                      <div class="yb-subscribe-klaviyo-checkbox-wrapper yb-subscribe-klaviyo-checkbox-checked">
+                        <input checked="" class="yb-subscribe-klaviyo-checkbox" name="subscribe" type="checkbox">
+                      </div>
+                      <span class="yb-subscribe-klaviyo-policy-text">
+                        I understand the<a class="yb-subscribe-klaviyo-link" href="/legal/privacy-policy"
+                          >Privacy Policy</a
+                        >and agree to receive personalized messages from Yarbo by email or SMS.
+                      </span>
+                    </div>
+                    <style>
+                      .subscribe-popup-features {
+                        display: flex;
+                        color: #000;
+                        font-size: 0.625rem;
+                        gap: 0.5rem;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        margin: 0.5rem 0;
+                        padding: 0 1rem;
+                      }
+
+                      .subscribe-popup-feature {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.25rem;
+                        white-space: nowrap;
+                        flex-shrink: 0;
+                      }
+
+                      .checkmark-circle {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 16px;
+                        height: 16px;
+                        background-color: #FFD700;
+                        color: #333;
+                        border-radius: 50%;
+                        font-size: 10px;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                      }
+
+                      /* 移动端适配 */
+                      @media (max-width: 768px) {
+                        .subscribe-popup-features {
+                          flex-direction: column;
+                          gap: 0.375rem;
+                          align-items: flex-start;
+                          justify-content: flex-start;
+                          font-size: 0.75rem;
+                          padding-left: 5rem;
+                          margin-left: 1rem;
+                        }
+
+                        .subscribe-popup-feature {
+                          gap: 0.375rem;
+                        }
+
+                        .checkmark-circle {
+                          width: 18px;
+                          height: 18px;
+                          font-size: 11px;
+                        }
+                      }
+
+                      @media (max-width: 480px) {
+                        .subscribe-popup-features {
+                          font-size: 0.7rem;
+                          gap: 0.25rem;
+                          padding-left: 5rem;
+                          margin-left: 0.75rem;
+                        }
+
+                        .checkmark-circle {
+                          width: 16px;
+                          height: 16px;
+                          font-size: 10px;
+                        }
+                      }
+                    </style>
+                    <div class="subscribe-popup-container">
+                      <div class="subscribe-popup-wrapper">
+                        <div class="subscribe-popup-header">
+                          <div class="subscribe-popup-close-icon">
+                            <svg
+                              fill="none"
+                              height="20"
+                              viewbox="0 0 41 41"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M22.3739 20.3879L34.4977 8.26409C34.6218 8.13997 34.6218 7.93977 34.4977 7.81565L33.2645 6.58245C33.1404 6.45832 32.9402 6.45832 32.816 6.58245L20.6922 18.7063C20.6322 18.7663 20.5281 18.7663 20.468 18.7063L8.34016 6.57844C8.21604 6.45432 8.01584 6.45432 7.89172 6.57844L6.65852 7.81165C6.5344 7.93577 6.5344 8.13596 6.65852 8.26008L18.7823 20.3839C18.8424 20.444 18.8424 20.5481 18.7823 20.6081L6.65852 32.74C6.5344 32.8641 6.5344 33.0643 6.65852 33.1884L7.89172 34.4216C8.01584 34.5457 8.21604 34.5457 8.34016 34.4216L20.464 22.2978C20.524 22.2377 20.6281 22.2377 20.6882 22.2978L32.812 34.4216C32.9362 34.5457 33.1364 34.5457 33.2605 34.4216L34.4937 33.1884C34.6178 33.0643 34.6178 32.8641 34.4937 32.74L22.3739 20.6121C22.3138 20.5521 22.3138 20.448 22.3739 20.3879Z" fill="#333333"></path>
+                            </svg>
+                          </div>
+                          <div class="subscribe-popup-header-title">Thank you for subscribing.</div>
+                          <div class="subscribe-popup-header-subtitle">
+                            Please check your email for details. <br>
+                            *Don't forget to check your spam folder.
+                          </div>
+                        </div>
+                        <div class="subscribe-popup-bottom">
+                          <div class="subscribe-popup-content">
+                            <div class="subscribe-popup-product-title">Join Our Exclusive Facebook Group</div>
+                            <div class="subscribe-popup-features">
+                              <div class="subscribe-popup-feature">
+                                <span class="checkmark-circle">✓</span>
+                                <span>Talk to Active Users</span>
+                              </div>
+                              <div class="subscribe-popup-feature">
+                                <span class="checkmark-circle">✓</span>
+                                <span>Pop-Up Giveaway Events</span>
+                              </div>
+                              <div class="subscribe-popup-feature">
+                                <span class="checkmark-circle">✓</span>
+                                <span>Chat with Team Yarbo</span>
+                              </div>
+                            </div>
+                            <div class="subscribe-popup-description2">
+                              <img
+                                class="subscribe-popup-desc-icon"
+                                src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/aa5.png?v=1772520383"
+                              >
+                              Private group · 33.0K members
+                            </div>
+                            <img
+                              class="subscribe-popup-desc-icon2"
+                              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/aa6.png?v=1772520401"
+                            >
+                          </div>
+                          <a
+                            class="subscribe-popup-join"
+                            href="https://www.facebook.com/groups/1714379818996666/"
+                            target="_blank"
+                          >
+                            <span>Join Now</span>
+                            <img
+                              alt=""
+                              class="subscribe-popup-icon4"
+                              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/hand1.png?v=1772520415"
+                            >
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="subscribe-popup-container-recheck">
+                      <div class="subscribe-popup-container-recheck-content">
+                        <div class="subscribe-popup-container-recheck-title">Email Check Needed</div>
+                        <div class="subscribe-popup-container-recheck-info">
+                          We are unable to verify your email address. <br>
+                          Please check if the email
+                          <span class="subscribe-popup-container-recheck-email">asdla23@qq.com</span> is correct.
+                        </div>
+                        <div class="subscribe-popup-container-recheck-bottom">
+                          <div class="subscribe-popup-container-recheck-clear">Re-enter my email</div>
+                          <div class="subscribe-popup-container-recheck-line"></div>
+                          <div class="subscribe-popup-container-recheck-checked">Yes, it is correct</div>
+                        </div>
+                      </div>
+                    </div>
+                  </yb-subscribe-klaviyo>
+                </div>
+              </main>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+    </style>
+    <script>
+      const video175688183261798e9aa1mobiles = document.querySelectorAll(
+        '#shopify-section-175688183261798e9aa1 video.yb-banner-swiper-mobile-video'
+      );
+      video175688183261798e9aa1mobiles.forEach((video) => {
+        const image175688183261798e9aa1mobile = video.nextElementSibling;
+        if (
+          image175688183261798e9aa1mobile &&
+          image175688183261798e9aa1mobile.classList.contains('yb-banner-swiper-mobile-image')
+        ) {
+          video.addEventListener('play', function () {
+            image175688183261798e9aa1mobile.style.display = 'none';
+          });
+        }
+      });
+      const video175688183261798e9aa1PC = document.querySelectorAll(
+        '#shopify-section-175688183261798e9aa1 video.yb-banner-swiper-desktop-video'
+      );
+      video175688183261798e9aa1PC.forEach((video) => {
+        const image175688183261798e9aa1PC = video.nextElementSibling;
+        if (
+          image175688183261798e9aa1PC &&
+          image175688183261798e9aa1PC.classList.contains('yb-banner-swiper-desktop-image')
+        ) {
+          video.addEventListener('play', function () {
+            image175688183261798e9aa1PC.style.display = 'none';
+          });
+        }
+      });
+      window.addEventListener('scroll', function () {
+        const element = document.querySelector('#yb-banner-swiper-mobile-cta-container__175688183261798e9aa1');
+        if (!element) return;
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
+        const mobileImage = document.querySelector('#yb-banner-swiper__175688183261798e9aa1 #yb-banner-mobile-image');
+        const rect = mobileImage.getBoundingClientRect(); // 获取视口内坐标
+        const topFromPage = rect.top; // 最终距离页面顶部的值
+        if (rect.bottom <= 0) {
+          // 滚动超过 100px 时触发吸顶
+          element.classList.add('yb-banner-swiper-fixed-btns__operate');
+        } else {
+          element.classList.remove('yb-banner-swiper-fixed-btns__operate');
+        }
+      });
+
+      // 锚点点击事件处理
+      function initAnchorLinks() {
+        document
+          .querySelectorAll('#yb-banner-swiper__175688183261798e9aa1 .yb-banner-swiper-anchor-link')
+          .forEach((link) => {
+            link.addEventListener('click', function (e) {
+              e.preventDefault();
+              const anchorId = this.getAttribute('data-anchor-id');
+              if (!anchorId) return;
+
+              const anchorElement = document.getElementById(`shopify-section-${anchorId}`);
+              if (anchorElement) {
+                window.scrollTo({
+                  top: anchorElement.offsetTop - 120,
+                  behavior: 'smooth',
+                });
+              } else {
+                console.warn(`[yb-banner-swiper] 未找到对应的锚点元素: shopify-section-${anchorId}`);
+              }
+            });
+          });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAnchorLinks);
+      } else {
+        initAnchorLinks();
+      }
+    </script>
+  </div>
+  <div class="shopline-section advc-section advc" id="shopify-section-17570628508827e4e6f7">
+    <style>
+      #shopify-section-17570628508827e4e6f7 {
+
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        --advc-container-padding-top: px;
+        --advc-container-padding-bottom: px;
+        --advc-container-padding-right: px;
+        --advc-container-padding-left: px;
+        --advc-container-max-width: px;
+      }
+
+      @media only screen and (max-width: 750px) {
+        #shopify-section-17570628508827e4e6f7 {
+          margin-top: 0px;
+          margin-bottom: 0px;
+
+          margin-left: 0px;
+          margin-right: 0px;
+
+          --advc-container-padding-top: px;
+          --advc-container-padding-bottom: px;
+          --advc-container-padding-right: px;
+          --advc-container-padding-left: px;
+        }
+      }
+    </style>
+    <div
+      class="advc-featured-carousel section-17570628508827e4e6f7"
+      data-section-id="17570628508827e4e6f7"
+      data-section-type="advc-featured-carousel"
+    >
+      <div
+        autoplay="true"
+        autoplay-speed="7"
+        class="splide advc-featured-carousel__swiper"
+        mobile-pagination-type="touch"
+        pagination-type="left_right_arrow"
+        parallax="false"
+      >
+        <div class="splide__track">
+          <div class="splide__list advc-featured-carousel__swiper__wrapper pc--auto mb--auto anim--dynamic_switch">
+            <div
+              class="block-1757062850883c650a6c splide__slide advc-featured-carousel__swiper__slider advc-a-nested is-active"
+              href="javascript:;"
+              index="0"
+            >
+              <style>
+                #shopify-section-17570628508827e4e6f7 .advc-title[data-block-id='1757062850883c650a6c'] {
+                  --advc-title-font-family: "Poppins";
+                  --advc-title-font-weight: 600;
+                  --advc-title-font-style: normal;
+                  --advc-title-color: #ffffff;
+                  --advc-title-font-size: 32px;
+                  --advc-title-letter-spacing: 0em;
+                  --advc-title-line-height: 1.2;
+                }
+
+                @media only screen and (max-width: 750px) {
+                  #shopify-section-17570628508827e4e6f7 .advc-title[data-block-id='1757062850883c650a6c'] {
+                    --advc-title-font-size: 36px;
+                  }
+                }
+
+                .advc-title {
+                  font-family: var(--advc-title-font-family);
+                  color: var(--advc-title-color);
+                  font-size: var(--advc-title-font-size);
+                  letter-spacing: var(--advc-title-letter-spacing);
+                  line-height: var(--advc-title-line-height);
+                  font-weight: var(--advc-title-font-weight);
+                  font-style: var(--advc-title-font-style);
+                }
+              </style>
+              <style>
+                #shopify-section-17570628508827e4e6f7 .advc-sub-title[data-block-id='1757062850883c650a6c'] {
+                  --advc-sub-title-font-family: "Montserrat";
+                  --advc-sub-title-font-weight: 400;
+                  --advc-sub-title-font-style: normal;
+                  --advc-sub-title-color: #ffffff;
+                  --advc-sub-title-font-size: 16px;
+                  --advc-sub-title-letter-spacing: 0.3em;
+                  --advc-sub-title-line-height: 1.6;
+                }
+
+                @media only screen and (max-width: 750px) {
+                  #shopify-section-17570628508827e4e6f7 .advc-sub-title[data-block-id='1757062850883c650a6c'] {
+                    --advc-sub-title-font-size: 14px;
+                  }
+                }
+
+                .advc-sub-title {
+                  font-family: var(--advc-sub-title-font-family);
+                  color: var(--advc-sub-title-color);
+                  font-size: var(--advc-sub-title-font-size);
+                  letter-spacing: var(--advc-sub-title-letter-spacing);
+                  line-height: var(--advc-sub-title-line-height);
+                  font-weight: var(--advc-sub-title-font-weight);
+                  font-style: var(--advc-sub-title-font-style);
+                }
+              </style>
+              <style>
+                #shopify-section-17570628508827e4e6f7 .advc-body[data-block-id='1757062850883c650a6c'] {
+                  --advc-body-font-family: "Montserrat";
+                  --advc-body-font-weight: 400;
+                  --advc-body-font-style: normal;
+                  --advc-body-color: #ffffff;
+                  --advc-body-font-size: 16px;
+                  --advc-body-letter-spacing: 0em;
+                  --advc-body-line-height: 1.6;
+                }
+
+                @media only screen and (max-width: 750px) {
+                  #shopify-section-17570628508827e4e6f7 .advc-body[data-block-id='1757062850883c650a6c'] {
+                    --advc-body-font-size: 14px;
+                  }
+                }
+
+                .advc-body {
+                  font-family: var(--advc-body-font-family);
+                  color: var(--advc-body-color);
+                  font-size: var(--advc-body-font-size);
+                  letter-spacing: var(--advc-body-letter-spacing);
+                  line-height: var(--advc-body-line-height);
+                  font-weight: var(--advc-body-font-weight);
+                  font-style: var(--advc-body-font-style);
+                }
+              </style>
+              <style>
+                #shopify-section-17570628508827e4e6f7 .advc-btn[data-block-id="1757062850883c650a6c"] {
+                  --advc-btn-font-family: "Montserrat";
+                  --advc-btn-font-weight: 500;
+                  --advc-btn-font-style: normal;
+                  --advc-btn-font-color: ;
+                  --advc-btn-font-size: 13px;
+                  --advc-btn-letter-spacing: 0em;
+                  --advc-btn-line-height: 1.6;
+                  --advc-btn-background: ;
+                  --advc-btn-border-thickness: 1px;
+                  --advc-btn-border-opacity: 1;
+                  --advc-btn-border-radius: 0px;
+                  --advc-btn-border-outset: 0px;
+                  --advc-btn-border-color: ;
+                  --advc-btn-shadow-color: 0, 0, 0;
+                  --advc-btn-shadow-opacity: 0;
+                  --advc-btn-shadow-offset-x: 0px;
+                  --advc-btn-shadow-offset-y: 4px;
+                  --advc-btn-shadow-blur: 5px;
+                }
+
+                @media only screen and (max-width: 750px) {
+                  #shopify-section-17570628508827e4e6f7 .advc-btn[data-block-id="1757062850883c650a6c"] {
+                    --advc-btn-font-size: 12px;
+                  }
+                }
+              </style>
+              <style>
+                .block-1757062850883c650a6c {
+                  --block-pc-mask-opacity: 0;
+                  --block-mb-mask-opacity: 0;
+                }
+
+                .block-1757062850883c650a6c .advc-featured-carousel-btn1 {
+                  --advc-btn-font-color: #1c1d1d !important;
+                  --advc-btn-background: #ffffff !important;
+                  --advc-btn-border-color: 255, 255, 255 !important;
+                }
+
+                .block-1757062850883c650a6c .advc-featured-carousel-btn2 {
+                  --advc-btn-font-color: #1c1d1d !important;
+                  --advc-btn-background: #ffffff !important;
+                  --advc-btn-border-color: 255, 255, 255 !important;
+                }
+              </style>
+              <div class="advc-featured-carousel__swiper__slider-img advc-image-position-center-desktop advc-image-position-center-tablet">
+                <img
+                  class="advc-image lazyloaded advc-parallax advc-d-none advc-d-md-block ls-is-cached"
+                  data-scale="hover-scale"
+                  decoding="async"
+                  fetchpriority="auto"
+                  loading="eager"
+                  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Frame3-_4.png?v=1772522532"
+                >
+                <img
+                  class="advc-image advc-lozad lazyloaded advc-parallax advc-d-md-none"
+                  data-scale="hover-scale"
+                  decoding="async"
+                  fetchpriority="auto"
+                  height="1130"
+                  loading="eager"
+                  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Frame-2036457784-_2.png?v=1772522442"
+                  width="750"
+                >
+              </div>
+              <div class="advc-featured-carousel__mask"></div>
+              <div class="advc-featured-carousel__content pc-content--left mb-content--left"></div>
+            </div>
+          </div>
+        </div>
+        <style>
+          .section-17570628508827e4e6f7 .advc-splide-pagination-bullet:after {
+            animation-duration: 7s !important;
+          }
+
+          .section-17570628508827e4e6f7 .active-cricle-ani {
+            animation-delay: 3.5s !important;
+          }
+
+          .section-17570628508827e4e6f7 .active-cricle-ani:after {
+            animation-duration: 3.5s !important;
+          }
+
+          .section-17570628508827e4e6f7 .active-cricle-ani:before {
+            animation-duration: 7s !important;
+          }
+        </style>
+      </div>
+    </div>
+  </div>
+  <div class="shopline-section advc-section advc" id="shopify-section-17664117386313e48c5b">
+    <style>
+      #shopify-section-17664117386313e48c5b {
+
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        --advc-container-padding-top: px;
+        --advc-container-padding-bottom: px;
+        --advc-container-padding-right: px;
+        --advc-container-padding-left: px;
+        --advc-container-max-width: px;
+      }
+
+      @media only screen and (max-width: 750px) {
+        #shopify-section-17664117386313e48c5b {
+          margin-top: 0px;
+          margin-bottom: 0px;
+
+          margin-left: 0px;
+          margin-right: 0px;
+
+          --advc-container-padding-top: px;
+          --advc-container-padding-bottom: px;
+          --advc-container-padding-right: px;
+          --advc-container-padding-left: px;
+        }
+      }
+    </style>
+    <div
+      class="advc-featured-carousel section-17664117386313e48c5b"
+      data-section-id="17664117386313e48c5b"
+      data-section-type="advc-featured-carousel"
+    >
+      <div
+        autoplay="true"
+        autoplay-speed="7"
+        class="splide advc-featured-carousel__swiper"
+        mobile-pagination-type="touch"
+        pagination-type="left_right_arrow"
+        parallax="false"
+      >
+        <div class="splide__track">
+          <div class="splide__list advc-featured-carousel__swiper__wrapper pc--auto mb--auto anim--dynamic_switch">
+            <div
+              class="block-1757062850883c650a6c splide__slide advc-featured-carousel__swiper__slider advc-a-nested is-active"
+              href="javascript:;"
+              index="0"
+            >
+              <style>
+                #shopify-section-17664117386313e48c5b .advc-title[data-block-id='1757062850883c650a6c'] {
+                  --advc-title-font-family: "Poppins";
+                  --advc-title-font-weight: 600;
+                  --advc-title-font-style: normal;
+                  --advc-title-color: #ffffff;
+                  --advc-title-font-size: 32px;
+                  --advc-title-letter-spacing: 0em;
+                  --advc-title-line-height: 1.2;
+                }
+
+                @media only screen and (max-width: 750px) {
+                  #shopify-section-17664117386313e48c5b .advc-title[data-block-id='1757062850883c650a6c'] {
+                    --advc-title-font-size: 36px;
+                  }
+                }
+
+                .advc-title {
+                  font-family: var(--advc-title-font-family);
+                  color: var(--advc-title-color);
+                  font-size: var(--advc-title-font-size);
+                  letter-spacing: var(--advc-title-letter-spacing);
+                  line-height: var(--advc-title-line-height);
+                  font-weight: var(--advc-title-font-weight);
+                  font-style: var(--advc-title-font-style);
+                }
+              </style>
+              <style>
+                #shopify-section-17664117386313e48c5b .advc-sub-title[data-block-id='1757062850883c650a6c'] {
+                  --advc-sub-title-font-family: "Montserrat";
+                  --advc-sub-title-font-weight: 400;
+                  --advc-sub-title-font-style: normal;
+                  --advc-sub-title-color: #ffffff;
+                  --advc-sub-title-font-size: 16px;
+                  --advc-sub-title-letter-spacing: 0.3em;
+                  --advc-sub-title-line-height: 1.6;
+                }
+
+                @media only screen and (max-width: 750px) {
+                  #shopify-section-17664117386313e48c5b .advc-sub-title[data-block-id='1757062850883c650a6c'] {
+                    --advc-sub-title-font-size: 14px;
+                  }
+                }
+
+                .advc-sub-title {
+                  font-family: var(--advc-sub-title-font-family);
+                  color: var(--advc-sub-title-color);
+                  font-size: var(--advc-sub-title-font-size);
+                  letter-spacing: var(--advc-sub-title-letter-spacing);
+                  line-height: var(--advc-sub-title-line-height);
+                  font-weight: var(--advc-sub-title-font-weight);
+                  font-style: var(--advc-sub-title-font-style);
+                }
+              </style>
+              <style>
+                #shopify-section-17664117386313e48c5b .advc-body[data-block-id='1757062850883c650a6c'] {
+                  --advc-body-font-family: "Montserrat";
+                  --advc-body-font-weight: 400;
+                  --advc-body-font-style: normal;
+                  --advc-body-color: #ffffff;
+                  --advc-body-font-size: 16px;
+                  --advc-body-letter-spacing: 0em;
+                  --advc-body-line-height: 1.6;
+                }
+
+                @media only screen and (max-width: 750px) {
+                  #shopify-section-17664117386313e48c5b .advc-body[data-block-id='1757062850883c650a6c'] {
+                    --advc-body-font-size: 14px;
+                  }
+                }
+
+                .advc-body {
+                  font-family: var(--advc-body-font-family);
+                  color: var(--advc-body-color);
+                  font-size: var(--advc-body-font-size);
+                  letter-spacing: var(--advc-body-letter-spacing);
+                  line-height: var(--advc-body-line-height);
+                  font-weight: var(--advc-body-font-weight);
+                  font-style: var(--advc-body-font-style);
+                }
+              </style>
+              <style>
+                #shopify-section-17664117386313e48c5b .advc-btn[data-block-id="1757062850883c650a6c"] {
+                  --advc-btn-font-family: "Montserrat";
+                  --advc-btn-font-weight: 500;
+                  --advc-btn-font-style: normal;
+                  --advc-btn-font-color: ;
+                  --advc-btn-font-size: 13px;
+                  --advc-btn-letter-spacing: 0em;
+                  --advc-btn-line-height: 1.6;
+                  --advc-btn-background: ;
+                  --advc-btn-border-thickness: 1px;
+                  --advc-btn-border-opacity: 1;
+                  --advc-btn-border-radius: 0px;
+                  --advc-btn-border-outset: 0px;
+                  --advc-btn-border-color: ;
+                  --advc-btn-shadow-color: 0, 0, 0;
+                  --advc-btn-shadow-opacity: 0;
+                  --advc-btn-shadow-offset-x: 0px;
+                  --advc-btn-shadow-offset-y: 4px;
+                  --advc-btn-shadow-blur: 5px;
+                }
+
+                @media only screen and (max-width: 750px) {
+                  #shopify-section-17664117386313e48c5b .advc-btn[data-block-id="1757062850883c650a6c"] {
+                    --advc-btn-font-size: 12px;
+                  }
+                }
+              </style>
+              <style>
+                .block-1757062850883c650a6c {
+                  --block-pc-mask-opacity: 0;
+                  --block-mb-mask-opacity: 0;
+                }
+
+                .block-1757062850883c650a6c .advc-featured-carousel-btn1 {
+                  --advc-btn-font-color: #1c1d1d !important;
+                  --advc-btn-background: #ffffff !important;
+                  --advc-btn-border-color: 255, 255, 255 !important;
+                }
+
+                .block-1757062850883c650a6c .advc-featured-carousel-btn2 {
+                  --advc-btn-font-color: #1c1d1d !important;
+                  --advc-btn-background: #ffffff !important;
+                  --advc-btn-border-color: 255, 255, 255 !important;
+                }
+              </style>
+              <div class="advc-featured-carousel__swiper__slider-img advc-image-position-center-desktop advc-image-position-center-tablet">
+                <img
+                  class="advc-image lazyloaded advc-parallax advc-d-none advc-d-md-block ls-is-cached"
+                  data-scale="hover-scale"
+                  decoding="async"
+                  fetchpriority="auto"
+                  loading="lazy"
+                  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Frame-_48.png?v=1772522009"
+                >
+                <img
+                  class="advc-image advc-lozad lazyloaded advc-parallax advc-d-md-none"
+                  data-scale="hover-scale"
+                  decoding="async"
+                  fetchpriority="auto"
+                  height="1374"
+                  loading="lazy"
+                  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/375-_679-_-_5_-1.png?v=1772521752"
+                  width="750"
+                >
+              </div>
+              <div class="advc-featured-carousel__mask"></div>
+              <div class="advc-featured-carousel__content pc-content--left mb-content--left"></div>
+            </div>
+          </div>
+        </div>
+        <style>
+          .section-17664117386313e48c5b .advc-splide-pagination-bullet:after {
+            animation-duration: 7s !important;
+          }
+
+          .section-17664117386313e48c5b .active-cricle-ani {
+            animation-delay: 3.5s !important;
+          }
+
+          .section-17664117386313e48c5b .active-cricle-ani:after {
+            animation-duration: 3.5s !important;
+          }
+
+          .section-17664117386313e48c5b .active-cricle-ani:before {
+            animation-duration: 7s !important;
+          }
+        </style>
+      </div>
+    </div>
+  </div>
+  <div class="shopline-section" id="shopify-section-1757402607259b492245">
+    <style>
+      #shopify-section-1757402607259b492245.section-padding,
+      #shopify-section-1757402607259b492245 .section-padding {
+        padding-top: 28px;
+        padding-bottom: 0px;
+      }
+
+      @media only screen and (max-width: 959px) {
+
+        #shopify-section-1757402607259b492245.section-padding,
+        #shopify-section-1757402607259b492245 .section-padding {
+          padding-top: 14px;
+          padding-bottom: 0px;
+        }
+      }
+    </style>
+    <style>
+      #shopify-section-1757402607259b492245 {
+        background-color: #000000;
+      }
+
+      .icon-list {
+        padding: 6.67% 3.34%;
+      }
+
+      .icon-list__item {
+        padding-top: calc((135 / 1120)* 100%);
+      }
+
+      h2.title4 {
+        text-align: center;
+        font-weight: 800;
+        font-size: 2.5rem;
+        margin-bottom: 3.5%;
+      }
+
+      @media (max-width: 767px) {
+        .icon-list__wrapper {
+          gap: 0.8125rem;
+          margin-bottom: 1.5625rem;
+        }
+
+        .icon-list__wrapper:last-child {
+          margin-bottom: 0;
+        }
+
+        .icon-list__item {
+          height: 5.625rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .icon-list__item {
+          height: 3.75rem;
+        }
+
+        .icon-list {
+          background-color: #000000
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .icon-list__item {
+          height: 5rem;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .icon-list__item {
+          height: 8.4375rem;
+        }
+      }
+
+      .icon-list__item img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        inset: 0px;
+        color: transparent;
+      }
+    </style>
+    <div class="page-width section-padding color-scheme-">
+      <h2 class="icon-list__title title4">
+        <div data-lark-html-role="root">
+          <span class="text-only" data-eleid="3" style="color: #ffffff;">Award-Winning Innovation</span>
+        </div>
+      </h2>
+      <div class="md:block mobile:hidden flex w-full justify-between icon-list">
+        <div class="w-full flex flex-row justify-between items-center icon-list__wrapper">
+          <div class="flex relative icon-list__item" style="aspect-ratio:412 / 311">
+            <img
+              alt="Yarbo Snow Blower"
+              data-scale="hover-scale"
+              decoding="async"
+              fetchpriority="auto"
+              height="311"
+              loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Group-1484584706-_1_-412x.webp?v=1772522563"
+              width="412"
+            >
+          </div>
+          <div class="flex relative icon-list__item" style="aspect-ratio:340 / 256">
+            <img
+              data-scale="hover-scale"
+              decoding="async"
+              fetchpriority="auto"
+              height="256"
+              loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Group-1484584705-_5.png?v=1772522549"
+              width="340"
+            >
+          </div>
+          <div class="flex relative icon-list__item" style="aspect-ratio:480 / 415">
+            <img
+              alt="Yarbo Snow Blower"
+              data-scale="hover-scale"
+              decoding="async"
+              fetchpriority="auto"
+              height="415"
+              loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/image-9293-480x.webp?v=1772524162"
+              width="480"
+            >
+          </div>
+          <div class="flex relative icon-list__item" style="aspect-ratio:430 / 324">
+            <img
+              alt="Yarbo Snow Blower"
+              data-scale="hover-scale"
+              decoding="async"
+              fetchpriority="auto"
+              height="324"
+              loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Group-2036456953.png?v=1772522958"
+              width="430"
+            >
+          </div>
+          <div class="flex relative icon-list__item" style="aspect-ratio:412 / 311">
+            <img
+              alt="Yarbo Snow Blower"
+              data-scale="hover-scale"
+              decoding="async"
+              fetchpriority="auto"
+              height="311"
+              loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Group-1484584707-_1_-412x.webp?v=1772522570"
+              width="412"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="md:hidden mobile:block flex flex-col icon-list">
+        <div class="flex flex-row icon-list__wrapper">
+          <div class="flex relative icon-list__item" style="aspect-ratio: 412 / 311;">
+            <img
+              alt="Yarbo Snow Blower"
+              data-scale="hover-scale"
+              decoding="async"
+              fetchpriority="auto"
+              height="311"
+              loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Group-1484584706-_1_-412x.webp?v=1772522563"
+              width="412"
+            >
+          </div>
+          <div class="flex relative icon-list__item" style="aspect-ratio: 340 / 256;">
+            <img
+              data-scale="hover-scale"
+              decoding="async"
+              fetchpriority="auto"
+              height="256"
+              loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Group-1484584705-_5.png?v=1772522549"
+              width="340"
+            >
+          </div>
+          <div class="flex relative icon-list__item" style="aspect-ratio: 480 / 415;">
+            <img
+              alt="Yarbo Snow Blower"
+              data-scale="hover-scale"
+              decoding="async"
+              fetchpriority="auto"
+              height="415"
+              loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/image-9293-480x.webp?v=1772524162"
+              width="480"
+            >
+          </div>
+        </div>
+        <div class="flex flex-row icon-list__wrapper">
+          <div class="flex relative icon-list__item" style="aspect-ratio: 430 / 324;">
+            <img
+              alt="Yarbo Snow Blower"
+              data-scale="hover-scale"
+              decoding="async"
+              fetchpriority="auto"
+              height="324"
+              loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Group-2036456953.png?v=1772522958"
+              width="430"
+            >
+          </div>
+          <div class="flex relative icon-list__item" style="aspect-ratio: 412 / 311;">
+            <img
+              alt="Yarbo Snow Blower"
+              data-scale="hover-scale"
+              decoding="async"
+              fetchpriority="auto"
+              height="311"
+              loading="lazy"
+              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Group-1484584707-_1_-412x.webp?v=1772522570"
+              width="412"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shopline-section" id="shopify-section-17570536747495e5a96b">
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      document.addEventListener('DOMContentLoaded', function () {
+        (function (selector, eventName, customData) {
+          if (!selector.startsWith('.') && !selector.startsWith('#')) {
+            selector = '.' + selector;
+          }
+
+          document.body.addEventListener('click', function (e) {
+            if (e.target.closest(selector)) {
+              let parsedData = {};
+              try {
+                parsedData = customData ? JSON.parse(customData) : {};
+              } catch (err) {
+                console.warn('customData JSON 解析失败:', err);
+              }
+
+              window.reportEvent({
+                event: eventName,
+                ...parsedData,
+              });
+
+              console.log('[dataLayer 上报]', {
+                event: eventName,
+                ...parsedData,
+              });
+            }
+          });
+        })(
+          '#block-1756884402429f503b27 > div.yb-banner-swiper-cta > div > button',
+          'page_campaign_click',
+          '{"title":"future-included", "type":"help_me_choose"}'
+        );
+      });
+    </script>
+  </div>
+  <div class="shopline-section section" id="shopify-section-176310692207682251cc">
+    <style>
+      #shopify-section-176310692207682251cc.section-padding,
+      #shopify-section-176310692207682251cc .section-padding {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+
+      @media only screen and (max-width: 959px) {
+
+        #shopify-section-176310692207682251cc.section-padding,
+        #shopify-section-176310692207682251cc .section-padding {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+    </style>
+    <style>
+      #shopify-section-176310692207682251cc {
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      /* 375-679px */
+      @media (max-width: 679px) {
+        #shopify-section-176310692207682251cc {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 680-959px */
+      @media (min-width: 680px) and (max-width: 959px) {
+        #shopify-section-176310692207682251cc {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 960-1439px */
+      @media (min-width: 960px) and (max-width: 1439px) {
+        #shopify-section-176310692207682251cc {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 1440-1919px */
+      @media (min-width: 1440px) and (max-width: 1919px) {
+        #shopify-section-176310692207682251cc {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+
+      /* 1920px+ */
+      @media (min-width: 1920px) {
+        #shopify-section-176310692207682251cc {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+    </style>
+    <div class="section-padding rte color-scheme-none">
+      <h1 style="display: none;">Yarbo Black Friday 2025</h1>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "ces-2026"
+
+}
+{% endschema %}

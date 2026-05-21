@@ -1,0 +1,157 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<div
+  style='
+    --bg-color: {{ section.settings.bg_color }};
+    --title-color: {{ section.settings.title_color }};
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+  '
+  class='
+    bg-(--bg-color)
+    pt-(--h5-padding-top) pb-(--h5-padding-bottom)
+    md:pt-(--padding-top) md:pb-(--padding-bottom) {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <div class='page-container'>
+    {% if section.settings.title != blank %}
+      <h2
+        class='
+          mb-24
+          text-center
+          text-[28px]
+          leading-tight
+          font-bold
+          text-(--title-color)
+          md:mb-40
+          md:text-[40px]
+        '
+      >
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    <div class='grid grid-cols-2 items-center gap-12 sm:grid-cols-3 sm:gap-16 md:grid-cols-4 md:gap-24 lg:grid-cols-5'>
+      {% for block in section.blocks %}
+        <div
+          {{ block.shopify_attributes }}
+        >
+          {% if block.settings.image != blank %}
+            <img
+              src='{{ block.settings.image | image_url: width: 400 }}'
+              alt='{{ block.settings.title | escape }}'
+              class='h-auto w-full rounded-[12px] object-contain'
+              loading='lazy'
+              width='400'
+              height='400'
+            >
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CES Grid",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Award-Winning Innovation"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "award",
+      "name": "Award",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Award Image Alt Text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Award Alt Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CES Grid",
+      "blocks": [
+        { "type": "award", "settings": { "title": "CES Innovation Awards 2025" } },
+        { "type": "award", "settings": { "title": "iF Design Award 2025" } },
+        { "type": "award", "settings": { "title": "Edison Awards Gold" } },
+        { "type": "award", "settings": { "title": "Red Dot Winner 2023" } },
+        { "type": "award", "settings": { "title": "UX Design Awards" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_rCHX64": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "yb_banner_swiper_Fxj6ME": {
+      "type": "yb-banner-swiper",
+      "blocks": {
+        "item_zBDfQi": {
+          "type": "item",
+          "settings": {
+            "text_horizontal_position": "left",
+            "text_vertical_position": "center",
+            "text_width": 100,
+            "description": "",
+            "title": "<p>Protect Your Yarbo Products<br/>with YarboCare™<br/>Extended Warranty.</p>",
+            "subTitle": "",
+            "enable_btn_group": false,
+            "enable_global_btn": false,
+            "enable_global_anchor": false,
+            "global_anchor_id": "",
+            "button_text": "",
+            "button_type": "link",
+            "button_link": "",
+            "button_class": "",
+            "button_anchor": "",
+            "button2_text": "",
+            "button2_type": "link",
+            "button2_link": "",
+            "button2_class": "",
+            "button2_anchor": "",
+            "enable_subscription": false,
+            "subscription_absolute": false,
+            "subscription_position": 24,
+            "email_type": "",
+            "klaviyo_list_id": "",
+            "subscription_title": "",
+            "subscription_button_text": "",
+            "pc_img": "shopify://shop_images/Frame-2036457014.png",
+            "pc_external_video": "",
+            "mobile_img": "shopify://shop_images/banner-_10_-2.png",
+            "mobile_external_video": "",
+            "mobile_layout": "style1"
+          }
+        }
+      },
+      "block_order": [
+        "item_zBDfQi"
+      ],
+      "name": "Yb-Banner",
+      "settings": {
+        "banner_speed": 6
+      }
+    },
+    "extended_warranty_tHMNfA": {
+      "type": "ExtendedWarranty",
+      "name": "Extended Warranty",
+      "settings": {}
+    }
+  },
+  "order": [
+    "custom_liquid_rCHX64",
+    "yb_banner_swiper_Fxj6ME",
+    "extended_warranty_tHMNfA"
+  ]
+}

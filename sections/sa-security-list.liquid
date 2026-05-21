@@ -1,0 +1,178 @@
+<div
+  style='
+    --title-color: {{ section.settings.title_color }};
+    --item-color: {{ section.settings.item_color }};
+    --title-size: {{ section.settings.title_size }}px;
+    --title-size-pc: {{ section.settings.title_size_pc }}px;
+    --item-size: {{ section.settings.item_size }}px;
+    --item-size-pc: {{ section.settings.item_size_pc }}px;
+    --margin-top: {{ section.settings.margin_top }}px;
+    --margin-bottom: {{ section.settings.margin_bottom }}px;
+    --h5-margin-top: {{ section.settings.h5_margin_top }}px;
+    --h5-margin-bottom: {{ section.settings.h5_margin_bottom }}px;
+  '
+  class='page-container mt-(--h5-margin-top) mb-(--h5-margin-bottom) md:mt-(--margin-top) md:mb-(--margin-bottom)'
+>
+  {% if section.settings.title != blank %}
+    <h2
+      class='mb-20 text-(length:--title-size) font-normal text-(--title-color) md:mb-24 md:text-(length:--title-size-pc)'
+    >
+      {{ section.settings.title }}
+    </h2>
+  {% endif %}
+  {% if section.blocks.size > 0 %}
+    <ul class='flex flex-col gap-12'>
+      {% for block in section.blocks %}
+        <li {{ block.shopify_attributes }}>
+          {% if block.settings.url != blank %}
+            <a
+              href='{{ block.settings.url }}'
+              class='cursor-pointer text-(length:--item-size) font-normal text-(--item-color) hover:underline md:text-(length:--item-size-pc)'
+            >
+              {{ block.settings.title }}
+            </a>
+          {% else %}
+            <span class='text-(length:--item-size) font-normal text-(--item-color) md:text-(length:--item-size-pc)'>
+              {{ block.settings.title }}
+            </span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Security List",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "Latest Announcements"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "标题颜色",
+      "default": "#25282A"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "标题字号（移动端）",
+      "min": 12,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "title_size_pc",
+      "label": "标题字号（PC）",
+      "min": 12,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "item_color",
+      "label": "条目颜色",
+      "default": "#515355"
+    },
+    {
+      "type": "range",
+      "id": "item_size",
+      "label": "条目字号（移动端）",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "item_size_pc",
+      "label": "条目字号（PC）",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "外部上下间距"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "上间距（PC）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "下间距（PC）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "h5_margin_top",
+      "label": "上间距（移动端）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "h5_margin_bottom",
+      "label": "下间距（移动端）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "条目",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "标题"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "链接"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Security List",
+      "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }]
+    }
+  ]
+}
+{% endschema %}

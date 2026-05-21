@@ -1,0 +1,526 @@
+<div
+  id='section-find-a-dealer'
+  class='section nsa-accesstive'
+  data-original-filter='none'
+>
+  {{ 'yb-base.css' | asset_url | stylesheet_tag }}
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.min.js'
+  ></script>
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js'
+  ></script>
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js'
+  ></script>
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.20/babel.min.js'
+  ></script>
+  <link
+    href='https://ew623.net/auth/login'
+    rel='stylesheet'
+  >
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/antd/5.11.1/antd.min.js'
+  ></script>
+
+  <link
+    href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet.css'
+    rel='stylesheet'
+    type='text/css'
+    media='all'
+  >
+  <script
+    src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet.js'
+  ></script>
+  <link
+    href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/L.Control.Locate.min.css'
+    rel='stylesheet'
+    type='text/css'
+    media='all'
+  >
+  <script
+    src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/L.Control.Locate.min.js'
+  ></script>
+  <link
+    href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Control.FullScreen.css'
+    rel='stylesheet'
+    type='text/css'
+    media='all'
+  >
+  <script
+    src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Control.FullScreen.js'
+  ></script>
+  <link
+    href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet-search.min.css'
+    rel='stylesheet'
+    type='text/css'
+    media='all'
+  >
+  <script
+    src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet-search.min.js'
+  ></script>
+  <link
+    href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/MarkerCluster.Default.css'
+    rel='stylesheet'
+    type='text/css'
+    media='all'
+  >
+  <script
+    src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet.markercluster-src.js'
+  ></script>
+  <script
+    src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet.markercluster.js'
+  ></script>
+  <link
+    href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet-gesture-handling.min.css'
+    rel='stylesheet'
+    type='text/css'
+    media='all'
+  >
+  <script
+    src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet-gesture-handling.min.js'
+  ></script>
+
+  <style>
+    .leaflet-control-attribution {
+      display: none;
+    }
+  </style>
+  <style>
+    #StateSelect .ant-select.ant-select-single.ant-select-allow-clear.ant-select-show-arrow.ant-select-show-search {
+      width: 100%;
+    }
+
+    #CountrySelect .ant-select.ant-select-single.ant-select-allow-clear.ant-select-show-arrow.ant-select-show-search {
+      width: 100%;
+    }
+  </style>
+
+  <main style='background-color: rgb(245 245 245)'>
+    <div class='w-full'>
+      <section
+        class='mobile:px-[16PX] map-container relative mx-auto w-full lg:px-[48PX]'
+      >
+        <i class='mobile:h-5 block h-[115px] w-full'></i>
+        <div class='w-full'>
+          <h2
+            class='mobile:text-xl/6 text-center text-4xl/[43px] font-extrabold text-[#02060B]'
+          >
+            Find a Dealer
+          </h2>
+          <p
+            class='mobile:text-sm/5 mb-8 text-center text-2xl/[34px] font-semibold text-[#676A6D]'
+          >
+           Find your local Yarbo dealer for demos, sales inquiries, and service support.
+          </p>
+          <div class='bg-[#02060B] p-4 md:rounded-xl'>
+            <div class='mobile:flex-col mobile:gap-[10px] flex gap-7'>
+              <div class='mobile:justify-center flex items-center gap-4'>
+                <div
+                  id='CountrySelect'
+                  class='ant-select ant-select-lg ant-select-outlined mobile:w-[200px] css-kghr11 ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search w-[343px]'
+                ></div>
+                <p
+                  class='mobile:w-20 mobile:text-sm/none text-xl font-medium text-[#E6E6E7]'
+                >
+                  Country
+                </p>
+              </div>
+              <div class='mobile:justify-center flex items-center gap-4'>
+                <div
+                  id='StateSelect'
+                  class='ant-select ant-select-lg ant-select-outlined mobile:w-[200px] css-kghr11 ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search w-[343px]'
+                ></div>
+                <p
+                  class='mobile:w-20 mobile:text-sm/none text-xl font-medium text-[#E6E6E7]'
+                >
+                  State/City
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class='mobile:flex-col-reverse mobile:gap-[10px] mobile:px-4 mt-3 flex'
+          >
+            <div
+              class='mobile:h-[380px] mobile:w-full mobile:p-3 h-[500px] rounded-xl bg-[#F5F5F5] px-4 pt-3 md:basis-2/5'
+            >
+              <ul
+                id='dealerUlList'
+                class='flex max-h-full w-full cursor-grab flex-col gap-4 overflow-y-auto'
+              ></ul>
+            </div>
+            <div
+              class='mobile:h-[343px] mobile:w-full z-0 h-[500px] md:basis-3/5 md:pl-3'
+            >
+              <div class='my-map h-full w-full overflow-hidden rounded-xl'>
+                <div
+                  class='leaflet-container leaflet-touch leaflet-fade-anim leaflet-touch-zoom h-full w-full'
+                  id='my-leafmap'
+                  tabindex='0'
+                  data-gesture-handling-touch-content='使用双指移动地图'
+                  data-gesture-handling-scroll-content='按住 ⌘ 并滚动鼠标滚轮才可缩放地图'
+                  style='position: relative'
+                >
+                  <div class='leaflet-control-container'>
+                    <div class='leaflet-top leaflet-left'>
+                      <div
+                        class='leaflet-control-zoom leaflet-bar leaflet-control'
+                      >
+                        <a
+                          class='leaflet-control-zoom-in'
+                          href='#'
+                          title='Zoom in'
+                          role='button'
+                          aria-label='Zoom in'
+                          aria-disabled='false'
+                        >
+                          <span aria-hidden='true'>+</span>
+                        </a>
+                        <a
+                          class='leaflet-control-zoom-out leaflet-disabled'
+                          href='#'
+                          title='Zoom out'
+                          role='button'
+                          aria-label='Zoom out'
+                          aria-disabled='true'
+                        >
+                          <span aria-hidden='true'>−</span>
+                        </a>
+                        <a
+                          class='leaflet-control-zoom-fullscreen fullscreen-icon'
+                          href='#'
+                          title='[object Object]'
+                          role='button'
+                          aria-label='[object Object]'
+                        ></a>
+                      </div>
+                      <div
+                        class='leaflet-control-locate leaflet-bar leaflet-control'
+                      >
+                        <a
+                          class='leaflet-bar-part leaflet-bar-part-single'
+                          title='Show me where I am'
+                          href='#'
+                          role='button'
+                        >
+                          <span
+                            class='leaflet-control-locate-location-arrow'
+                          ></span>
+                        </a>
+                      </div>
+                    </div>
+                    <div class='leaflet-top leaflet-right'></div>
+                    <div class='leaflet-bottom leaflet-left'></div>
+                    <div class='leaflet-bottom leaflet-right'>
+                      <div
+                        class='leaflet-control-attribution leaflet-control'
+                      >
+                        <a
+                          href='https://leafletjs.com'
+                          title='A JavaScript library for interactive maps'
+                        >
+                          <svg
+                            aria-hidden='true'
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='12'
+                            height='8'
+                            viewBox='0 0 12 8'
+                            class='leaflet-attribution-flag'
+                          >
+                            <path fill="#4C7BE1" d="M0 0h12v4H0z"></path>
+                            <path fill="#FFD500" d="M0 4h12v3H0z"></path>
+                            <path fill="#E0BC00" d="M0 7h12v1H0z"></path>
+                          </svg>
+                          Leaflet
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <i class='mobile:h-10 block h-[115px] w-full'></i>
+      </section>
+    </div>
+  </main>
+
+  <script
+    defer=''
+    src='https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516'
+    integrity='sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg=='
+    data-cf-beacon='{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;ebed39f252ac4c5ca3e71380923f6237&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}'
+    crossorigin='anonymous'
+  ></script>
+
+  <script type='text/babel'>
+    const map = initMap('my-leafmap');
+
+    function initMap(id) {
+      // Initialize the map with gesture handling
+      const map = L.map('my-leafmap', {
+        scrollWheelZoom: false,
+        gestureHandling: true,
+        attributionControl: false,
+      }).setView([51.505, -0.09], 3);
+
+      // Add Google Maps tile layer
+      L.tileLayer('http://mt1.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}', {
+        attribution: '© OpenStreetMap contributors',
+      }).addTo(map);
+
+      // Add fullscreen control
+      L.control
+        .fullscreen({
+          position: 'topleft',
+        })
+        .addTo(map);
+
+      // Add locate control
+      L.control
+        .locate({
+          position: 'topleft',
+          strings: {
+            title: 'Show me where I am',
+          },
+        })
+        .addTo(map);
+
+      // 跳转到指定经纬度
+      // map.setView([dealeir.latitude, dealeir.longitude], 12);
+
+      // Add markers to the map
+      // var markers = L.markerClusterGroup();
+      // dealeirs.forEach(dealeir => {
+      //     const popupContent = `
+      //             <div>
+      //                 <h3>${dealeir.company}</h3>
+      //                 <p><i class="iconfont icon-Universal18"></i>: <a href="tel:${dealeir.phone}">${dealeir.phone}</a></p>
+      //             </div>
+      //         `;
+      //     const marker = L.marker([dealeir.latitude, dealeir.longitude], {
+      //         icon: L.icon({
+      //             iconUrl: 'https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/61734817-2ccf-4fc2-4a24-5d79e6b23200/q=100',
+      //             iconSize: [25, 41],
+      //             iconAnchor: [14, 28]
+      //         })
+      //     }).bindPopup(popupContent);
+      //     markers.addLayer(marker);
+      // });
+      // map.addLayer(markers);
+
+      return map;
+    }
+
+    initPage();
+
+    let dealeirs = [];
+    async function initPage() {
+      // Fetch dealers from API
+      const response = await fetch('https://dev.yarbo.ai/backend/dealer/list', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+      });
+      await response.json().then((data) => {
+        dealeirs = data.data;
+        initMapMarkers(dealeirs);
+        initDealerList(dealeirs);
+      });
+    }
+
+    function initMapMarkers(dealeirs) {
+      // Add markers to the map
+      var markers = L.markerClusterGroup();
+      dealeirs.forEach((dealeir) => {
+        const popupContent = `
+                    <div>
+                        <h3>${dealeir.company}</h3>
+                        <p><i class="iconfont icon-Universal18"></i>: <a href="tel:${dealeir.phone}">${dealeir.phone}</a></p>
+                        ${dealeir.website ? `<p><a href="${dealeir.website.startsWith('http') ? dealeir.website : 'https://' + dealeir.website}" target="_blank" rel="noopener noreferrer" style="color: #0074CB; text-decoration: underline; font-weight: 500;">${dealeir.website}</a></p>` : ''}
+                    </div>
+                `;
+
+        const marker = L.marker([dealeir.latitude, dealeir.longitude], {
+          icon: L.icon({
+            iconUrl: 'https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/61734817-2ccf-4fc2-4a24-5d79e6b23200/q=100',
+            iconSize: [25, 41],
+            iconAnchor: [14, 28],
+          }),
+        }).bindPopup(popupContent);
+
+        marker.on('click', () => {
+          // 定位到dealerUlList中对应的经销商
+          const dealerList = document.getElementById('dealerUlList');
+          const dealerItems = dealerList.children;
+          for (let i = 0; i < dealerItems.length; i++) {
+            const dealerItem = dealerItems[i];
+            const dealerName = dealerItem.querySelector('h3').innerText;
+            if (dealerName === dealeir.company) {
+              dealerItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              break;
+            }
+          }
+        });
+
+        markers.addLayer(marker);
+      });
+      map.addLayer(markers);
+    }
+
+    // Initialize dealer list
+    function initDealerList(dealeirs) {
+      const dealerList = document.getElementById('dealerUlList');
+      dealeirs.forEach((dealeir) => {
+        const listItem = document.createElement('li');
+        listItem.className = 'rounded-xl bg-white px-6 py-4 shadow-sm mobile:px-[10px]';
+        listItem.innerHTML = `
+                <div class="flex flex-col gap-3 border-b border-[#CCCDCE] pb-6 mobile:pb-4">
+                    <h3 class="text-2xl/7 font-bold text-[#02060B] mobile:text-base/[22px]">${dealeir.company}</h3>
+                    <p><i class="iconfont icon-wodedizhi mr-2 text-xl/none text-[#B3B4B6] mobile:text-base/5"></i><span class="text-base/5 font-semibold text-[#676A6D] mobile:text-sm">${dealeir.address}</span></p>
+                </div>
+                <div class="pt-6 mobile:pt-4 flex flex-col gap-2">
+                    <a href="tel:${dealeir.phone}" class="text-[18px]/[25px] font-semibold text-[#02060B] mobile:text-sm">${dealeir.phone}</a>
+                    ${dealeir.website ? `<a href="${dealeir.website.startsWith('http') ? dealeir.website : 'https://' + dealeir.website}" target="_blank" rel="noopener noreferrer" style="color: #0074CB; text-decoration: underline; font-weight: 500; font-size: 16px; line-height: 22px;">${dealeir.website}</a>` : ''}
+                </div>
+                `;
+        listItem.addEventListener('click', () => {
+          map.setView([dealeir.latitude, dealeir.longitude], 12);
+        });
+        dealerList.appendChild(listItem);
+      });
+    }
+
+    // Initialize Ant Design Select components
+    const { Select } = antd;
+    const { Option } = Select;
+
+    const countrySelectRoot = ReactDOM.createRoot(document.getElementById('CountrySelect'));
+    countrySelectRoot.render(
+      <Select
+        showSearch
+        allowClear
+        placeholder="Search to Country"
+        optionFilterProp="children"
+        onChange={handleCountryChange}
+      ></Select>,
+    );
+
+    const stateSelectRoot = ReactDOM.createRoot(document.getElementById('StateSelect'));
+    stateSelectRoot.render(
+      <Select
+        showSearch
+        allowClear
+        placeholder="Search to state/city"
+        optionFilterProp="children"
+        onChange={handleStateChange}
+      ></Select>,
+    );
+
+    initCountrySelect();
+
+    async function initCountrySelect(dealeirs) {
+      // Fetch country from API
+      const response = await fetch('https://dev.yarbo.ai/backend/dealer/options');
+      await response.json().then((data) => {
+        const countries = data.data;
+
+        // Update the CountrySelect with countries
+        countrySelectRoot.render(
+          <Select
+            showSearch
+            allowClear
+            placeholder="Search to Country"
+            optionFilterProp="children"
+            onChange={handleCountryChange}
+            options={countries.map((country) => ({
+              value: country.name,
+              label: country.name,
+            }))}
+            filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
+          ></Select>,
+        );
+      });
+    }
+
+    let selectCountry = '';
+    function handleCountryChange(value) {
+      console.log(value);
+
+      selectCountry = value;
+
+      const dealerList = document.getElementById('dealerUlList');
+      // Clear the dealer list
+      dealerList.innerHTML = '';
+      // Filter dealers by selected country
+      let filteredDealers = dealeirs;
+      if (value !== undefined && value !== '') {
+        filteredDealers = dealeirs.filter((dealeir) => dealeir.country === value);
+      }
+      if (filteredDealers.length > 0) {
+        const dealeir = filteredDealers[0];
+        map.setView([dealeir.latitude, dealeir.longitude], 12);
+      }
+
+      // Update the dealer list with filtered dealers
+      initDealerList(filteredDealers);
+
+      // Get unique states or cities for the selected country
+      const uniqueStates = [...new Set(filteredDealers.map((dealeir) => dealeir.state || dealeir.city).filter((state) => state))];
+      // Update the StateSelect with unique states
+      stateSelectRoot.render(
+        <Select
+          showSearch
+          allowClear
+          placeholder="Search to state/city"
+          optionFilterProp="children"
+          onChange={handleStateChange}
+          options={uniqueStates.map((state) => ({
+            value: state,
+            label: state,
+          }))}
+          filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
+        ></Select>,
+      );
+    }
+
+    function handleStateChange(value) {
+      if (value == undefined || value == '') {
+        handleCountryChange(selectCountry);
+        return;
+      }
+
+      const dealerList = document.getElementById('dealerUlList');
+      // Clear the dealer list
+      dealerList.innerHTML = '';
+      // Filter dealers by selected country
+      const filteredDealers = dealeirs.filter((dealeir) => dealeir.state === value || dealeir.city === value);
+      if (filteredDealers.length > 0) {
+        const dealeir = filteredDealers[0];
+        map.setView([dealeir.latitude, dealeir.longitude], 12);
+      }
+
+      // Update the dealer list with filtered dealers
+      initDealerList(filteredDealers);
+    }
+  </script>
+</div>
+{% schema %}
+{
+  "name": "Main Find a Dealer",
+  "tag": "section",
+  "class": "css-reset migrated-page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Main Find a Dealer",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

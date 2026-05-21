@@ -1,0 +1,57 @@
+{{ 'yb_snippet_modal.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'yb_snippet_modal.js' | asset_url }}" defer></script>
+
+{% if video == blank and video_youtube_url != blank %}
+  {% if video_youtube_url.type == 'youtube' %}
+    {% assign video_url = video_youtube_url.id %}
+    {% assign video_type = video_youtube_url.type %}
+    {% assign video_thumbnail = video_youtube_url.preview_image %}
+  {% elsif video_youtube_url.type == 'vimeo' %}
+    {% assign video_url = video_youtube_url.id %}
+    {% assign video_type = video_youtube_url.type %}
+    {% assign video_thumbnail = video_youtube_url.preview_image %}
+  {% endif %}
+{% elsif video_firework_url != blank %}
+  {% assign video_url = video_firework_url %}
+  {% assign video_type = 'firework' %}
+  {% assign video_thumbnail = '' %}
+{% else %}
+  {% assign video_url = video.sources[0].url %}
+  {% assign video_type = 'file' %}
+  {% assign video_thumbnail = video.preview_image %}
+{% endif %}
+
+{% assign have_video = false %}
+{% if video_youtube_url != blank or video != blank or video_firework_url != blank %}
+  {% assign have_video = true %}
+{% endif %}
+
+{% if have_video %}
+  {% assign media_video_url = 'div' %}
+{% else %}
+  {% assign media_video_url = 'a' %}
+{% endif %}
+
+{% if picture != blank %}
+<{{ media_video_url }}
+  data-modal-title="{{ title }}"
+  data-modal-html="{{ html }}"
+  data-modal-video="{{ video_url | strip }}"
+  data-modal-video-type="{{ video_type }}"
+  data-modal-video-thumbnail="{{ video_thumbnail }}"
+  data-modal-autoplay="true"
+  class="{% if have_video %}modal-btn{% endif %} {{ class }}"
+  {% if picture_url != blank %}href="{{ picture_url }}"{% endif %}>
+
+  {{ picture | image_url: width: 800 | image_tag: class: 'comments-img', loading: 'lazy' }}
+
+  {% if have_video %}
+    <div class="conmments_open__button">
+        <svg width="1em" height="1em" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="44" cy="44" r="44" fill="white"></circle>
+            <path d="M59.312 45.6925L38.0656 59.0698C36.7338 59.9084 35 58.9512 35 57.3773V30.6227C35 29.0488 36.7338 28.0916 38.0656 28.9302L59.312 42.3075C60.5578 43.0919 60.5578 44.9081 59.312 45.6925Z" fill="black"></path>
+        </svg>
+    </div>
+  {% endif %}
+</{{ media_video_url }}>
+{% endif %}

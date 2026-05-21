@@ -1,0 +1,480 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div
+  style='
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+    --bg-color: {{ section.settings.bg_color }};
+  '
+  class='
+    bg-(--bg-color)
+    pt-(--h5-padding-top)
+    pb-(--h5-padding-bottom)
+    md:pt-(--padding-top)
+    md:pb-(--padding-bottom)
+  '
+>
+  <div class='page-container anchor-target'>
+    <div class='flex flex-col gap-80'>
+      {% for block in section.blocks %}
+        <div
+          style='--gap: {{ section.settings.gap }}px;'
+          class='
+            md:items-center48
+            flex
+            gap-(--gap)
+            md:gap-0
+            {% if block.settings.mobile_layout == 'image_top' %}
+              flex-col-reverse
+            {% else %}
+              flex-col
+            {% endif %}
+            {% if block.settings.pc_layout == 'image_left' %}
+              md:flex-row
+            {% else %}
+              md:flex-row-reverse
+            {% endif %}
+          '
+        >
+          <div class='flex flex-1 flex-col justify-center md:p-60'>
+            <div
+              {{ block.shopify_attributes }}
+              style='
+                --title-color: {{ block.settings.title_color }};
+                --title-size-pc: {{ block.settings.title_size_pc }}px;
+                --title-size-mobile: {{ block.settings.title_size_mobile }}px;
+                --desc-color: {{ block.settings.desc_color }};
+                --desc-size-pc: {{ block.settings.desc_size_pc }}px;
+                --desc-size-mobile: {{ block.settings.desc_size_mobile }}px;
+                --button-border-color: {{ block.settings.button_border_color }};
+                --button-color: {{ block.settings.button_color }};
+                --button-bg-color: {{ block.settings.button_bg_color }};
+                --button-color-hover: {{ block.settings.button_hover_color }};
+                --button-bg-hover-color: {{ block.settings.button_bg_hover_color }};
+              '
+            >
+              {% if block.settings.title != blank %}
+                <h3
+                  class='
+                    text-(length:--title-size-mobile)
+                    leading-none
+                    text-(--title-color)
+                    uppercase
+                    md:text-(length:--title-size-pc)
+                  '
+                >
+                  {{ block.settings.title }}
+                </h3>
+              {% endif %}
+
+              {% if block.settings.desc != blank %}
+                <div
+                  class='
+                    mt-12
+                    text-(length:--desc-size-mobile)
+                    leading-[1.3]
+                    text-(--desc-color)
+                    md:mt-16
+                    md:text-(length:--desc-size-pc)
+                  '
+                >
+                  {{ block.settings.desc | newline_to_br }}
+                </div>
+              {% endif %}
+              {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+                <a
+                  href='{{ block.settings.button_link | default: '#' }}'
+                  class='
+                    mt-24
+                    inline-flex h-40 items-center
+                    justify-center
+                    self-start
+                    border
+                    border-(--button-border-color) bg-(--button-bg-color)
+                    px-24
+                    text-[13px]/[1.3]
+                    tracking-[0]
+                    text-(--button-color)
+                    no-underline
+                    transition-colors
+                    duration-300
+                    hover:border-(--button-bg-hover-color)
+                    hover:bg-(--button-bg-hover-color)
+                    hover:text-(--button-color-hover)
+                    sm:h-44
+                    sm:min-w-138 sm:px-32
+                    sm:text-[14px]/[1.4]
+                    md:mt-32
+                  '
+                >
+                  {{ block.settings.button_text }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+
+          <div
+            style='--width:{{ block.settings.image_width }}%'
+            class='md:w-(--width)'
+          >
+            {%- liquid
+              assign b = block.settings
+              assign pc_w = b.pc_aspect_ratio_w | default: 16
+              assign pc_h = b.pc_aspect_ratio_h | default: 9
+              assign pc_ratio = pc_w | append: '/' | append: pc_h
+              assign h5_w = b.h5_aspect_ratio_w | default: 16
+              assign h5_h = b.h5_aspect_ratio_h | default: 9
+              assign h5_ratio = h5_w | append: '/' | append: h5_h
+            -%}
+            <div
+              style='
+                --media-aspect-pc: {{ pc_ratio }};
+                --media-aspect-h5: {{ h5_ratio }};
+              '
+              class='
+                relative aspect-(--media-aspect-h5) w-full
+                overflow-hidden md:aspect-(--media-aspect-pc)
+              '
+            >
+              {% render 'media-element',
+                class: 'absolute inset-0 w-full h-full object-cover',
+                media_class: 'object-cover w-full h-full',
+                media_type: block.settings.media_type,
+                pc_image: block.settings.pc_image,
+                h5_image: block.settings.h5_image,
+                pc_video: block.settings.pc_video,
+                h5_video: block.settings.h5_video,
+                video_url: block.settings.video_url,
+                other_url: block.settings.other_url
+              %}
+              {%- render 'sn-overlay', _settings: block.settings -%}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Common Text Media",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background Color",
+      "default": "#F2F2F2"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "H5 Gap",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 48,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "range",
+          "id": "image_width",
+          "label": "Image Width",
+          "min": 40,
+          "max": 100,
+          "step": 1,
+          "default": 54,
+          "unit": "%"
+        },
+        {
+          "type": "header",
+          "content": "Layout Settings"
+        },
+        {
+          "type": "select",
+          "id": "pc_layout",
+          "label": "PC Layout",
+          "default": "image_left",
+          "options": [
+            { "value": "image_left", "label": "Text Left, Image Right" },
+            { "value": "image_right", "label": "Image Left, Text Right" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "mobile_layout",
+          "label": "Mobile Layout",
+          "default": "image_top",
+          "options": [
+            { "value": "image_top", "label": " Text Top, Image Bottom" },
+            { "value": "text_top", "label": "Image Top, Text Bottom" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "header",
+          "content": "Media Aspect Ratio"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_w",
+          "label": "PC Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_h",
+          "label": "PC Ratio Height"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_w",
+          "label": "Mobile Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_h",
+          "label": "Mobile Ratio Height"
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#000000"
+        },
+        {
+          "type": "number",
+          "id": "title_size_pc",
+          "label": "Title Size (PC)",
+          "default": 32
+        },
+        {
+          "type": "number",
+          "id": "title_size_mobile",
+          "label": "Title Size (Mobile)",
+          "default": 26
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "Add your description text here."
+        },
+        {
+          "type": "color",
+          "id": "desc_color",
+          "label": "Description Color",
+          "default": "#515355"
+        },
+        {
+          "type": "number",
+          "id": "desc_size_pc",
+          "label": "Description Size (PC)",
+          "default": 14
+        },
+        {
+          "type": "number",
+          "id": "desc_size_mobile",
+          "label": "Description Size (Mobile)",
+          "default": 13
+        },
+        {
+          "type": "header",
+          "content": "Button Settings"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Button"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "header",
+          "content": "Button Color Settings"
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "label": "Button Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_border_color",
+          "label": "Button Border Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_color",
+          "label": "Button Background Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "button_hover_color",
+          "label": "Button Hover Color",
+          "default": "#25282a"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_hover_color",
+          "label": "Button Background Hover Color",
+          "default": "#FEDB1E"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Common Text Media",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "<p>Our Story Begins</p>",
+            "desc": "From 2015, when Yarbo was first established, to 2017 with the Snowbot prototype, our goal was clear: make yard work smarter and easier. Early testing and development laid the foundation for a modular, intelligent system that could tackle snow, grass, and more—turning a simple idea into a year-round solution."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

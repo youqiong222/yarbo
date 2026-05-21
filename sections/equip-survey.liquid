@@ -1,0 +1,738 @@
+{{ 'base.css' | asset_url | stylesheet_tag }}
+<style>
+  .qy {
+    --header-height: calc(var(--global-header-height, 50px) + var(--announcement-bar-height, 0px) + var(--announcement-bar-two-height, 0px));
+    --title-font: "Montserrat", "sans-serif";
+    --title-font-weight: 500;
+    --title-font-style: normal;
+    --title-letter-spacing: 0.00000001em;
+    --title-font-size: 30px;
+    --title-line-height: 1.2;
+    --title-text-transform: unset;
+    --body-font: "Montserrat", "sans-serif";
+    --body-font-weight: 400;
+    --body-bold-font-weight: 700;
+    --body-font-style: normal;
+    --body-letter-spacing: 0.00000001em;
+    --body-font-size: 14px;
+    --body-line-height: 1.6;
+    --color-page-background: 255, 255, 255;
+    --color-text: 0, 0, 0;
+    --color-light-text: 104, 104, 104;
+    --color-sale: 0, 0, 0;
+    --color-discount: 238, 71, 0;
+    --color-entry-line: 221, 221, 221;
+    --color-button-background: 254, 219, 30;
+    --color-button-text: 255, 255, 255;
+    --color-button-secondary-background: 255, 255, 255;
+    --color-button-secondary-text: 0, 0, 0;
+    --color-button-secondary-border: 0, 0, 0;
+    --color-discount-tag-background: 238, 71, 0;
+    --color-discount-tag-text: 255, 255, 255;
+    --color-cart-dot: 238, 71, 0;
+    --color-cart-dot-text: 0, 0, 0;
+    --color-image-background: 244, 247, 251;
+    --color-image-loading-background: 244, 247, 251;
+    --color-mask: 0, 0, 0;
+    --color-shadow: var(--color-text);
+    --color-scheme-1-bg: 243, 247, 250;
+    --color-scheme-1-text: 0, 0, 0;
+    --color-scheme-2-bg: 255, 255, 255;
+    --color-scheme-2-text: 0, 0, 0;
+    --color-scheme-3-bg: 244, 247, 251;
+    --color-scheme-3-text: 0, 0, 0;
+    --color-header-background: 255, 255, 255;
+    --color-header-text: 0, 0, 0;
+    --color-header-pc-searchbar-border: 221, 221, 221;
+    --color-header-pc-searchbar-text: 0, 0, 0;
+    --color-header-pc-searchbar-bg: 255, 255, 255;
+    --color-announcement-bar-background: 0, 0, 0;
+    --color-announcement-bar-text: 255, 255, 255;
+    --color-footer-text: 255, 255, 255;
+    --color-footer-border: 255, 255, 255;
+    --color-footer-background: 0, 0, 0;
+    --page-width: 1600px;
+    --section-vertical-gap: 0px;
+    --grid-horizontal-space: 20px;
+    --grid-vertical-space: 20px;
+    --grid-mobile-horizontal-space: 10px;
+    --grid-mobile-vertical-space: 10px;
+    --btn-border-thickness: 1px;
+    --btn-border-opacity: 100%;
+    --btn-border-radius: 4px;
+    --btn-border-radius-outset: 5px;
+    --btn-shadow-opacity: 0%;
+    --btn-shadow-offset-x: 0px;
+    --btn-shadow-offset-y: 0px;
+    --btn-shadow-blur: 0px;
+    --sku-selector-border-thickness: 1px;
+    --sku-selector-border-opacity: 20%;
+    --sku-selector-border-radius: 10px;
+    --sku-selector-border-radius-outset: 11px;
+    --input-border-thickness: 1px;
+    --input-border-opacity: 20%;
+    --input-border-radius: 4px;
+    --input-border-radius-outset: 5px;
+    --input-shadow-opacity: 0%;
+    --input-shadow-offset-x: 0px;
+    --input-shadow-offset-y: 0px;
+    --input-shadow-blur: 0px;
+    --card-border-thickness: 0px;
+    --card-border-opacity: 10%;
+    --card-border-radius: 12px;
+    --card-border-radius-outset: 12px;
+    --card-shadow-opacity: 0%;
+    --card-shadow-offset-x: 0px;
+    --card-shadow-offset-y: 0px;
+    --card-shadow-blur: 0px;
+    --product-card-border-thickness: 0px;
+    --product-card-border-opacity: 10%;
+    --product-card-border-radius: 12px;
+    --product-card-border-radius-outset: 12px;
+    --product-card-shadow-opacity: 0%;
+    --product-card-shadow-offset-x: 0px;
+    --product-card-shadow-offset-y: 0px;
+    --product-card-shadow-blur: 0px;
+    --product-card-content-align: center;
+    --collection-card-border-thickness: 0px;
+    --collection-card-border-opacity: 10%;
+    --collection-card-border-radius: 12px;
+    --collection-card-border-radius-outset: 12px;
+    --collection-card-shadow-opacity: 0%;
+    --collection-card-shadow-offset-x: 0px;
+    --collection-card-shadow-offset-y: 0px;
+    --collection-card-shadow-blur: 0px;
+    --blog-card-border-thickness: 0px;
+    --blog-card-border-opacity: 10%;
+    --blog-card-border-radius: 12px;
+    --blog-card-border-radius-outset: 12px;
+    --blog-card-shadow-opacity: 0%;
+    --blog-card-shadow-offset-x: 0px;
+    --blog-card-shadow-offset-y: 0px;
+    --blog-card-shadow-blur: 0px;
+    --content-border-thickness: 0px;
+    --content-border-opacity: 0%;
+    --content-border-radius: 12px;
+    --content-border-radius-outset: 12px;
+    --content-shadow-opacity: 0%;
+    --content-shadow-offset-x: 0px;
+    --content-shadow-offset-y: 0px;
+    --content-shadow-blur: 0px;
+    --media-border-thickness: 0px;
+    --media-border-opacity: 0%;
+    --media-border-radius: 10px;
+    --media-border-radius-outset: 10px;
+    --media-shadow-opacity: 0%;
+    --media-shadow-offset-x: 0px;
+    --media-shadow-offset-left: 0px;
+    --media-shadow-offset-right: 0px;
+    --media-shadow-offset-y: 0px;
+    --media-shadow-offset-top: 0px;
+    --media-shadow-offset-bottom: 0px;
+    --media-shadow-blur: 0px;
+    --menu-modal-border-thickness: 1px;
+    --menu-modal-border-opacity: 10%;
+    --menu-modal-border-radius: 0px;
+    --menu-modal-border-radius-outset: 0px;
+    --menu-modal-shadow-opacity: 0%;
+    --menu-modal-shadow-offset-x: 0px;
+    --menu-modal-shadow-offset-y: 4px;
+    --menu-modal-shadow-blur: 5px;
+    --drawer-border-thickness: 1px;
+    --drawer-border-opacity: 10%;
+    --drawer-shadow-opacity: 0%;
+    --drawer-shadow-offset-x: 0px;
+    --drawer-shadow-offset-y: 4px;
+    --drawer-shadow-blur: 5px;
+    --product-discount-radius: 4px;
+    --swatch-background-default-image: url(https://cdn.shopify.com/s/files/1/0604/5394/5441/files/cdd875cc34d94f5aa9269b87d5806b99.png?v=1772520641);
+    --swatch-size: 18px;
+  }
+</style>
+<div
+  class="shopline-section section nsa-accesstive qy"
+  data-original-filter="none"
+>
+  <link
+    rel="stylesheet"
+    href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-toast.css"
+  >
+  <script
+    src="/cdn/shop/prod//1737714205978/67d5433ed92b88727dcd882d/1743995621302/assets/lib-toast.js"
+    defer
+  ></script>
+
+  <div class="survey nsa-accesstive" data-original-filter="none">
+    <div class="survey__banner-wrapper nsa-accesstive" data-original-filter="none">
+      <img
+        class="survey__banner-img survey__banner-img--desktop nsa-accesstive"
+        src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/3047882d7c394497b78424fbd1f9f988.webp?v=1772520496"
+        alt=""
+        data-original-font-size="10.5px"
+        data-original-line-height="16.8px"
+        data-original-word-spacing="0px"
+        data-original-letter-spacing="1.05e-07px"
+        data-original-text-align="start"
+        data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+        data-original-zoom="1"
+        data-original-filter="none"
+      >
+      <img
+        class="survey__banner-img survey__banner-img--mobile nsa-accesstive"
+        src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/e923fa3c9d274626a1cdee753a5a731d.webp?v=1772520682"
+        alt=""
+        data-original-font-size="10.5px"
+        data-original-line-height="16.8px"
+        data-original-word-spacing="0px"
+        data-original-letter-spacing="1.05e-07px"
+        data-original-text-align="start"
+        data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+        data-original-zoom="1"
+        data-original-filter="none"
+      >
+    </div>
+
+    <div class="survey__content-wrapper nsa-accesstive" data-original-filter="none">
+      <section class="survey__main-content nsa-accesstive" data-original-filter="none">
+        <div class="survey__header nsa-accesstive" data-original-filter="none">
+          <span
+            class="survey__title nsa-accesstive"
+            data-original-font-size="36px"
+            data-original-line-height="48px"
+            data-original-word-spacing="0px"
+            data-original-letter-spacing="normal"
+            data-original-text-align="start"
+            data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+            data-original-zoom="1"
+            data-original-filter="none"
+            >Participate in our survey and stand a chance to WIN a FREE Yarbo Snow Blower!</span
+          >
+          <div class="survey__prize-image nsa-accesstive" data-original-filter="none">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/c46fc72259274ebc8f7632909c8274d3.webp?v=1772520632"
+              alt=""
+              data-original-font-size="10.5px"
+              data-original-line-height="16.8px"
+              data-original-word-spacing="0px"
+              data-original-letter-spacing="1.05e-07px"
+              data-original-text-align="start"
+              data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+              data-original-zoom="1"
+              class="nsa-accesstive"
+              data-original-filter="none"
+            >
+          </div>
+        </div>
+
+        <div class="survey__cta-button nsa-accesstive" onclick="validateAndRedirect()" data-original-filter="none">
+          <span
+            data-original-font-size="24px"
+            data-original-line-height="59px"
+            data-original-word-spacing="0px"
+            data-original-letter-spacing="1.05e-07px"
+            data-original-text-align="center"
+            data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+            data-original-zoom="1"
+            class="nsa-accesstive"
+            data-original-filter="none"
+            >Enter Now!</span
+          >
+        </div>
+
+        <div class="survey__agreement nsa-accesstive" data-original-filter="none">
+          <label
+            class="survey__checkbox-label nsa-accesstive"
+            data-original-font-size="16px"
+            data-original-line-height="19px"
+            data-original-word-spacing="0px"
+            data-original-letter-spacing="1.05e-07px"
+            data-original-text-align="start"
+            data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+            data-original-zoom="1"
+            data-original-filter="none"
+          >
+            <span
+              class="survey__checkbox-wrapper nsa-accesstive"
+              data-original-font-size="16px"
+              data-original-line-height="19px"
+              data-original-word-spacing="0px"
+              data-original-letter-spacing="1.05e-07px"
+              data-original-text-align="start"
+              data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+              data-original-zoom="1"
+              data-original-filter="none"
+            >
+              <input
+                type="checkbox"
+                id="isTermsAndPrivacy"
+                checked=""
+                data-original-font-size="13.3333px"
+                data-original-line-height="normal"
+                data-original-word-spacing="0px"
+                data-original-letter-spacing="normal"
+                data-original-text-align="start"
+                data-original-font-family="Arial"
+                data-original-zoom="1"
+                class="nsa-accesstive"
+                data-original-filter="none"
+              >
+              <span
+                class="survey__checkbox-custom nsa-accesstive"
+                data-original-font-size="16px"
+                data-original-line-height="19px"
+                data-original-word-spacing="0px"
+                data-original-letter-spacing="1.05e-07px"
+                data-original-text-align="start"
+                data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                data-original-zoom="1"
+                data-original-filter="none"
+              ></span>
+            </span>
+            <span
+              data-original-font-size="16px"
+              data-original-line-height="19px"
+              data-original-word-spacing="0px"
+              data-original-letter-spacing="1.05e-07px"
+              data-original-text-align="start"
+              data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+              data-original-zoom="1"
+              class="nsa-accesstive"
+              data-original-filter="none"
+            >
+              I agree to the
+              <a
+                href="https://www.yarbo.com/legal/terms-of-service"
+                data-original-font-size="16px"
+                data-original-line-height="19px"
+                data-original-word-spacing="0px"
+                data-original-letter-spacing="1.05e-07px"
+                data-original-text-align="start"
+                data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                data-original-zoom="1"
+                >Terms of Use</a
+              >
+              and
+              <a
+                href="https://www.yarbo.com/legal/privacy-policy"
+                data-original-font-size="16px"
+                data-original-line-height="19px"
+                data-original-word-spacing="0px"
+                data-original-letter-spacing="1.05e-07px"
+                data-original-text-align="start"
+                data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+                data-original-zoom="1"
+                >Privacy Policy</a
+              >
+            </span>
+          </label>
+
+          <label
+            class="survey__checkbox-label nsa-accesstive"
+            data-original-font-size="16px"
+            data-original-line-height="19px"
+            data-original-word-spacing="0px"
+            data-original-letter-spacing="1.05e-07px"
+            data-original-text-align="start"
+            data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+            data-original-zoom="1"
+            data-original-filter="none"
+          >
+            <span
+              class="survey__checkbox-wrapper nsa-accesstive"
+              data-original-font-size="16px"
+              data-original-line-height="19px"
+              data-original-word-spacing="0px"
+              data-original-letter-spacing="1.05e-07px"
+              data-original-text-align="start"
+              data-original-font-family="NunitoSans, ui-sans-serif, &quot;system-ui&quot;, &quot;sans-serif&quot;"
+              data-original-zoom="1"
+              data-original-filter="none"
+            >
+              <input
+                type="checkbox"
+                id="isSubscribe"
+                checked=""
+                data-original-font-size="13.3333px"
+                data-original-line-height="normal"
+                data-original-word-spacing="0px"
+                data-original-letter-spacing="normal"
+                data-original-text-align="start"
+                data-original-font-family="Arial"
+                data-original-zoom="1"
+                class="nsa-accesstive"
+                data-original-filter="none"
+              >
+              <span
+                class="survey__checkbox-custom nsa-accesstive"
+              ></span>
+            </span>
+            <span>I want to subscribe to email updates and newsletters</span>
+          </label>
+        </div>
+
+        <div class="survey__divider nsa-accesstive" data-original-filter="none"></div>
+
+        <div class="survey__social nsa-accesstive" data-original-filter="none">
+          <div class="survey__social-title nsa-accesstive" data-original-filter="none">Follow us</div>
+          <div class="survey__social-links nsa-accesstive" data-original-filter="none">
+            <div
+              class="survey__social-item nsa-accesstive"
+              onclick="window.open('https://www.facebook.com/yarboglobal', '_self')"
+              data-original-filter="none"
+            >
+              <img
+                src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/552ea70979ae47d290756d257450b5fb.webp?v=1772520565"
+                alt="Facebook"
+                class="nsa-accesstive"
+              >
+              <span>Facebook</span>
+            </div>
+            <div
+              class="survey__social-item nsa-accesstive"
+              onclick="window.open('https://www.youtube.com/channel/UCNFGr_kvWywsDGuxepxleVg', '_self')"
+              data-original-filter="none"
+            >
+              <img
+                src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/e5b798d720c146a0be6557ac2d31bf72.webp?v=1772520677"
+                alt="YouTube"
+                class="nsa-accesstive"
+              >
+              <span>YouTube</span>
+            </div>
+            <div
+              class="survey__social-item nsa-accesstive"
+              onclick="window.open('https://www.instagram.com/yarboglobal', '_self')"
+              data-original-filter="none"
+            >
+              <img
+                src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/77be6e9ff5ce40788d48e36bba0de9cf.webp?v=1772520569"
+                alt="Instagram"
+                class="nsa-accesstive"
+              >
+              <span>Instagram</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function validateAndRedirect() {
+      const isTermsAndPrivacy = document.getElementById('isTermsAndPrivacy');
+      const isSubscribe = document.getElementById('isSubscribe');
+
+      if (!isTermsAndPrivacy.checked || !isSubscribe.checked) {
+        __SL_toast__.error({ message: 'Please check the box(es) below to proceed.' });
+        return;
+      }
+
+      window.location.href = 'https://z9bxuosvp08.typeform.com/to/Xq7F87Oe?typeform-source=www.yarbo.com';
+    }
+  </script>
+
+  <style>
+    .survey {
+      width: 100%;
+      position: relative;
+    }
+
+    .survey__banner-wrapper {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      aspect-ratio: 1920 / 923;
+    }
+
+    .survey__banner-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    .survey__banner-img--mobile {
+      display: none;
+    }
+
+    .survey__content-wrapper {
+      position: relative;
+      padding: 130px 0 48px 0;
+    }
+
+    .survey__main-content {
+      position: relative;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .survey__header {
+      position: relative;
+    }
+
+    .survey__title {
+      display: block;
+      height: 147px;
+      width: 520px;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 48px;
+      letter-spacing: 0px;
+      color: white;
+    }
+
+    .survey__prize-image {
+      position: absolute;
+      right: -5px;
+      top: -15px;
+      height: 113px;
+      width: 113px;
+    }
+
+    .survey__prize-image img {
+      display: block;
+      height: 113px;
+      width: 113px;
+    }
+
+    .survey__cta-button {
+      width: 227px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 24px;
+      line-height: 59px;
+      color: black;
+      background: linear-gradient(to left, #ffd720, #fbb637);
+      border-radius: 12px;
+      font-weight: 400;
+    }
+
+    .survey__cta-button span {
+      display: block;
+      margin-top: 71px;
+      margin-bottom: 36px;
+    }
+
+    .survey__agreement {
+      margin: 23px 0 57px;
+    }
+
+    .survey__checkbox-label {
+      display: flex;
+      align-items: baseline;
+      color: white;
+      font-size: 16px;
+      line-height: 19px;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+
+    .survey__checkbox-label a {
+      color: white;
+    }
+
+    .survey__checkbox-label a:hover {
+      text-decoration: none;
+      outline: 0;
+      color: #69b1ff;
+    }
+
+    .survey__checkbox-wrapper {
+      position: relative;
+      margin-right: 8px;
+    }
+
+    .survey__checkbox-custom {
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.3s;
+      position: relative;
+      border: 1px solid rgba(2, 6, 11, 1);
+    }
+
+    .survey__checkbox-label input:checked+.survey__checkbox-custom {
+      background: rgba(38, 189, 126, 1);
+    }
+
+    .survey__checkbox-custom::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 2px;
+      width: 5px;
+      height: 9px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .survey__checkbox-label input:checked+.survey__checkbox-custom::after {
+      opacity: 1;
+    }
+
+    .survey__checkbox-label {
+      display: flex;
+      align-items: center;
+    }
+
+    .survey__checkbox-label input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .survey__divider {
+      height: 1px;
+      width: 100%;
+      background: white;
+      margin-bottom: 100px;
+    }
+
+    .survey__social-title {
+      height: 43px;
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 42px;
+      color: white;
+    }
+
+    .survey__social-links {
+      display: flex;
+      gap: 70px;
+    }
+
+    .survey__social-item {
+      display: flex;
+      padding: 40px;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid white;
+      margin-top: 34px;
+      border-radius: 17px;
+      cursor: pointer;
+    }
+
+    .survey__social-item img {
+      height: 60px;
+      width: 60px;
+    }
+
+    .survey__social-item span {
+      color: white;
+      font-size: 15px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .survey__banner-wrapper {
+        width: 100%;
+      }
+
+      .survey__banner-img--desktop {
+        display: none;
+      }
+
+      .survey__banner-img--mobile {
+        display: block;
+        object-position: 0% 40%;
+      }
+
+      .survey__content-wrapper {
+        padding: 40px 24px 20px 24px;
+      }
+
+      .survey__main-content {
+        max-width: none;
+        padding: 0;
+      }
+
+      .survey__social-links {
+        gap: 17px;
+      }
+
+      .survey__title {
+        height: 87px;
+        width: 327px;
+        font-size: 21px;
+        line-height: 25px;
+        font-weight: 700;
+      }
+
+      .survey__prize-image {
+        height: 69px;
+        width: 69px;
+        right: 5px;
+        top: 97px;
+      }
+
+      .survey__prize-image img {
+        height: 69px;
+        width: 69px;
+      }
+
+      .survey__social-item {
+        height: auto;
+        padding: 16px;
+      }
+
+      .survey__social-item img {
+        height: 42px;
+        width: 42px;
+      }
+
+      .survey__cta-button {
+        height: 35px;
+        width: 122px;
+        font-size: 17px;
+        line-height: 35px;
+      }
+
+      .survey__divider {
+        margin-bottom: 28px;
+      }
+
+      .survey__cta-button span {
+        margin-top: 225px;
+        margin-bottom: 36px;
+      }
+
+      .survey__social-title {
+        font-size: 17px;
+        font-weight: 700;
+      }
+
+      .survey__checkbox-label {
+        font-size: 11px;
+        font-weight: 400;
+      }
+    }
+  </style>
+
+  <style>
+    #shopify-section-17421367582456bfa8bf label.survey__checkbox-label a {
+      color: #69B1FF;
+    }
+  </style>
+</div>
+
+{% schema %}
+{
+  "name": "Equip Survey",
+  "settings": []
+
+}
+{% endschema %}

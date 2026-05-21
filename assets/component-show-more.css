@@ -1,0 +1,10 @@
+.button-show-more {
+  padding-left: 0;
+  justify-content: flex-start;
+  padding-bottom: 10px;
+}
+
+.button-show-more,
+.button-show-less {
+  margin-top: 14px;
+}

@@ -1,0 +1,277 @@
+<link
+  rel='stylesheet'
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/base-form.css'
+  media='all'
+>
+<link
+  rel='stylesheet'
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/custom-select.css'
+  media='all'
+>
+<link
+  rel='stylesheet'
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/uploader.css'
+  media='all'
+>
+<link
+  rel='stylesheet'
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/ugc-banner.css'
+  media='all'
+>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/ugc-banner.js'
+  defer
+></script>
+
+<script
+  src='{{ 'yb-form-field.js' | asset_url }}'
+  defer='defer'
+></script>
+<script
+  src='{{ 'yb-custom-select.js' | asset_url }}'
+  defer='defer'
+></script>
+
+<script
+  src='{{ 'yb-uploader.js' | asset_url }}'
+  defer='defer'
+></script>
+
+<style>
+  .ugcbanner-button2-wrapper {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .ugcbanner-button2 {
+    border: none;
+    border-radius: 99999px;
+    padding: 10px 60px;
+    background-color: #fedb1e;
+    line-height: 1.35;
+    font-size: 30px;
+    font-weight: 600;
+    color: #02060b;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 959px) {
+    .ugcbanner-button2-wrapper {
+      justify-content: center;
+    }
+
+    .ugcbanner-button2 {
+      font-size: 18px;
+      line-height: 1.15;
+      padding: 10px 40px;
+      white-space: nowrap;
+    }
+  }
+</style>
+<style>
+  .migrated-page .ugcbanner {
+    max-width: 1920px;
+  }
+</style>
+<ugc-banner>
+  <div class='ugcbanner page-width'>
+    {% if section.settings.common_PC_pic != blank %}
+      {{ section.settings.common_PC_pic | image_url: width: 2000 | image_tag: class: 'ugcbanner-img-pc', sizes: '100vw', alt: 'ugcbanner img pc' }}
+    {% endif %}
+
+    {% if section.settings.common_M_pic != blank %}
+      {{ section.settings.common_M_pic | image_url: width: 800 | image_tag: class: 'ugcbanner-img-mobile', sizes: '100vw', alt: 'ugcbanner img mobile' }}
+    {% endif %}
+    <div class='ugcbanner-container'>
+      <div class='ugcbanner-content'>
+        <div>
+          <h1 class='ugcbanner-title'>{{ section.settings.common_title }}</h1>
+          <div class='ugcbanner-desc'>{{ section.settings.common_small_title }}</div>
+        </div>
+        <div class='ugcbanner-more'>
+          <div class='ugcbanner-more-tips'>{{ section.settings.common_content }}</div>
+          <div class='ugcbanner-buttons'>
+            <button class='ugcbanner-buttons-share'>{{ section.settings.button_title }}</button>
+            <button class='ugcbanner-buttons-tips'>
+              ?
+              <div class='ugcbanner-tooltip'>
+                <div class='ugcbanner-tooltip-container'>
+                  <div class='ugcbanner-tooltip-content'>
+                    <h2 class='ugcbanner-tooltip-title'>Need some ideas? Here are a few prompts:</h2>
+                    <ul class='ugcbanner-tooltip-list'>
+                      <li class='ugcbanner-tooltip-item'>
+                        <div class='ugcbanner-tooltip-tag'>#Night Snow Warrior#</div>
+                        <p>Showcase Yarbo clearing snow at night in a serene scene.</p>
+                      </li>
+                      <li class='ugcbanner-tooltip-item'>
+                        <div class='ugcbanner-tooltip-tag'>#Chill Inside,Snow's Outside#</div>
+                        <p>Relaxing indoors while Yarbo clears the driveway.</p>
+                      </li>
+                      <li class='ugcbanner-tooltip-item'>
+                        <div class='ugcbanner-tooltip-tag'>#Before & After Magic#</div>
+                        <p>Dramatic yard transformation by Yarbo.</p>
+                      </li>
+                      <li class='ugcbanner-tooltip-item'>
+                        <div class='ugcbanner-tooltip-tag'>#Yarbo Fun Times#</div>
+                        <p>Any amusing incidents while Yarbo was on duty?</p>
+                      </li>
+                      <li class='ugcbanner-tooltip-item'>
+                        <div class='ugcbanner-tooltip-tag'>#Wet Snow, No Problem#</div>
+                        <p>Yarbo plows tackling heavy, wet snow effortlessly.</p>
+                      </li>
+                      <li class='ugcbanner-tooltip-item'>
+                        <div class='ugcbanner-tooltip-tag'>#Yarbo Saves the Day#</div>
+                        <p>A heartfelt story of Yarbo transforming winter chores.</p>
+                      </li>
+                      <li class='ugcbanner-tooltip-item'>
+                        <div class='ugcbanner-tooltip-tag'>#Man vs. Yarbo#</div>
+                        <p>Manual shoveling vs. Yarbo's efficiency.</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </button>
+          </div>
+          {% if section.settings.button2_text != blank %}
+            <div class='ugcbanner-button2-wrapper'>
+              {% render 'yb-button', type: section.settings.button2_type, class: 'ugcbanner-button2', tag: 'button2', config: section.settings %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='ugcbanner-modal'>
+    <div class='ugcbanner-modal-mask'></div>
+    <div class='ugcbanner-modal-body'>
+      <button class='ugcbanner-modal-close'>
+        <svg
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M4.74424 4.74404C5.06968 4.4186 5.59731 4.4186 5.92275 4.74404L19.1221 17.9434C19.4475 18.2688 19.4475 18.7964 19.1221 19.1219C18.7966 19.4473 18.269 19.4473 17.9436 19.1219L4.74424 5.92255C4.4188 5.59712 4.4188 5.06948 4.74424 4.74404Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M19.256 4.744C19.5814 5.06943 19.5814 5.59707 19.256 5.92251L6.05663 19.1218C5.7312 19.4473 5.20356 19.4473 4.87812 19.1218C4.55268 18.7964 4.55268 18.2688 4.87812 17.9433L18.0774 4.744C18.4029 4.41856 18.9305 4.41856 19.256 4.744Z" fill="black"/>
+        </svg>
+      </button>
+      <h2 class='ugcbanner-modal-title'>{{ section.settings.form_title }}</h2>
+      <div class='ugcbanner-modal-content'>
+        <div class='form-container'>
+          {% render 'image-with-text-form', form_button_title: section.settings.form_button_title %}
+        </div>
+        <div class='ugcbanner-modal-footer'>
+          {{ section.settings.form_small_title }}
+        </div>
+      </div>
+    </div>
+  </div>
+</ugc-banner>
+
+{% schema %}
+{
+  "name": "UGC Banner",
+  "class": "section migrated-page",
+  "settings": [
+    {
+      "id": "common_PC_pic",
+      "type": "image_picker",
+      "label": "pc端图片"
+    },
+    {
+      "id": "common_M_pic",
+      "type": "image_picker",
+      "label": "M端图片"
+    },
+    {
+      "id": "common_title",
+      "type": "richtext",
+      "label": "标题",
+      "default": "<p>My Yarbo Journey Keep the Stories Coming</p>"
+    },
+    {
+      "id": "common_small_title",
+      "type": "richtext",
+      "label": "副标题",
+      "default": "<p>Share your Yarbo moments now to secure your spot in the next round! Keep the stories coming—you might just be our next featured star!</p>"
+    },
+    {
+      "id": "common_content",
+      "type": "richtext",
+      "label": "正文",
+      "default": "<p>Date & prizes to be announced</p>"
+    },
+    {
+      "id": "button_title",
+      "type": "richtext",
+      "label": "按钮文案",
+      "default": "<p>Share Your Story</p>"
+    },
+    {
+      "id": "form_title",
+      "type": "richtext",
+      "label": "表单标题",
+      "default": "<p>Share Your Masterpiece</p>"
+    },
+    {
+      "id": "form_button_title",
+      "type": "richtext",
+      "label": "表单按钮文案",
+      "default": "<p>Let's get started</p>"
+    },
+    {
+      "type": "header",
+      "content": "第二个按钮配置"
+    },
+    {
+      "type": "text",
+      "id": "button2_text",
+      "label": "第二个按钮文案",
+      "info": "留空则不显示第二个按钮"
+    },
+    {
+      "type": "select",
+      "id": "button2_type",
+      "label": "第二个按钮类型",
+      "default": "link",
+      "options": [
+        {
+          "value": "link",
+          "label": "链接"
+        },
+        {
+          "value": "anchor",
+          "label": "锚点"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button2_link",
+      "label": "第二个按钮链接",
+      "info": "当类型为链接时填写"
+    },
+    {
+      "type": "checkbox",
+      "id": "button2_link_new_window",
+      "label": "新窗口打开",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "button2_anchor",
+      "label": "第二个按钮锚点ID",
+      "info": "当类型为锚点时填写"
+    },
+    {
+      "id": "form_small_title",
+      "type": "richtext",
+      "label": "表单备注"
+    }
+  ]
+}
+{% endschema %}

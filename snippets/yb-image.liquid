@@ -1,0 +1,66 @@
+{% assign final_sizes = sizes | default: "" %}
+{% if pc_size != blank or mobile_size != blank %}
+  {% assign pc_size_breakpoint = "100vw" %}
+  {% assign mobile_size_breakpoint = "100vw" %}
+
+  {% if pc_size != blank %}
+    {% if pc_size contains "px" or pc_size contains "vw" or pc_size contains "%" %}
+      {% assign pc_size_breakpoint = pc_size %}
+    {% else %}
+      {% assign pc_size_breakpoint = "calc(100vw * " | append: pc_size | append: ")" %}
+    {% endif %}
+  {% endif %}
+
+  {% if mobile_size != blank %}
+    {% if mobile_size contains "px" or mobile_size contains "vw" or mobile_size contains "%" %}
+      {% assign mobile_size_breakpoint = mobile_size %}
+    {% else %}
+      {% assign mobile_size_breakpoint = "calc(100vw * " | append: mobile_size | append: ")" %}
+    {% endif %}
+  {% endif %}
+
+  {% assign final_sizes = "(max-width: 959px) " | append: mobile_size_breakpoint | append: ",(min-width: 960px) " | append: pc_size_breakpoint %}
+{% endif %}
+
+{% assign is_first_screen = false %}
+{% if section.index != blank and section.index < 3 %}
+  {% assign is_first_screen = true %}
+{% endif %}
+
+{% assign is_first_section = false %}
+{% if section.index == 1 %}
+  {% assign is_first_section = true %}
+{% endif %}
+
+{% assign final_loading = "lazy" %}
+{% if lazy != blank %}
+  {% if lazy == true or lazy == "true" %}
+    {% assign final_loading = "lazy" %}
+  {% else %}
+    {% assign final_loading = "eager" %}
+  {% endif %}
+{% elsif is_first_screen %}
+  {% assign final_loading = "eager" %}
+{% endif %}
+
+{% assign final_fetchpriority = fetchpriority | default: "auto" %}
+{% if fetchpriority == blank and is_first_section %}
+  {% assign final_fetchpriority = "high" %}
+{% endif %}
+
+{% assign img_class = class | default: "" %}
+{% assign img_style = style | default: "" %}
+{% assign img_alt = data.alt | escape | default: "" %}
+{% assign img_widths = "375, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2160, 2660, 2960, 3260, 3860" %}
+
+{{ data | image_url: width: 3860 | image_tag:
+  class: img_class,
+  style: img_style,
+  widths: img_widths,
+  loading: final_loading,
+  sizes: final_sizes,
+  alt: img_alt,
+  decoding: "async",
+  fetchpriority: final_fetchpriority,
+  data-scale: "hover-scale"
+}}

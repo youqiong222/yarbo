@@ -1,0 +1,1167 @@
+.subscribe-tel-input {
+}
+
+.subscribe-country-list-wrapper {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: none;
+}
+
+.subscribe-country-list-wrapper.subscribe-show {
+  display: block;
+}
+
+.subscribe-tel-input .flag {
+  display: block !important;
+  width: 16px;
+  height: 11px;
+  background-image: url('https://cdn.myshopline.com/sl/slfs/sl-new/174209005075351/flags.png');
+}
+
+.subscribe-tel-input .ad {
+  background-position: -16px 0;
+}
+
+.subscribe-tel-input .ae {
+  background-position: -32px 0;
+}
+
+.subscribe-tel-input .af {
+  background-position: -48px 0;
+}
+
+.subscribe-tel-input .ag {
+  background-position: -64px 0;
+}
+
+.subscribe-tel-input .ai {
+  background-position: -80px 0;
+}
+
+.subscribe-tel-input .al {
+  background-position: -96px 0;
+}
+
+.subscribe-tel-input .am {
+  background-position: -112px 0;
+}
+
+.subscribe-tel-input .ao {
+  background-position: -128px 0;
+}
+
+.subscribe-tel-input .ar {
+  background-position: -144px 0;
+}
+
+.subscribe-tel-input .as {
+  background-position: -160px 0;
+}
+
+.subscribe-tel-input .at {
+  background-position: -176px 0;
+}
+
+.subscribe-tel-input .au {
+  background-position: -192px 0;
+}
+
+.subscribe-tel-input .aw {
+  background-position: -208px 0;
+}
+
+.subscribe-tel-input .az {
+  background-position: -224px 0;
+}
+
+.subscribe-tel-input .ba {
+  background-position: -240px 0;
+}
+
+.subscribe-tel-input .bb {
+  background-position: 0 -11px;
+}
+
+.subscribe-tel-input .bd {
+  background-position: -16px -11px;
+}
+
+.subscribe-tel-input .be {
+  background-position: -32px -11px;
+}
+
+.subscribe-tel-input .bf {
+  background-position: -48px -11px;
+}
+
+.subscribe-tel-input .bg {
+  background-position: -64px -11px;
+}
+
+.subscribe-tel-input .bh {
+  background-position: -80px -11px;
+}
+
+.subscribe-tel-input .bi {
+  background-position: -96px -11px;
+}
+
+.subscribe-tel-input .bj {
+  background-position: -112px -11px;
+}
+
+.subscribe-tel-input .bm {
+  background-position: -128px -11px;
+}
+
+.subscribe-tel-input .bn {
+  background-position: -144px -11px;
+}
+
+.subscribe-tel-input .bo {
+  background-position: -160px -11px;
+}
+
+.subscribe-tel-input .br {
+  background-position: -176px -11px;
+}
+
+.subscribe-tel-input .bs {
+  background-position: -192px -11px;
+}
+
+.subscribe-tel-input .bt {
+  background-position: -208px -11px;
+}
+
+.subscribe-tel-input .bw {
+  background-position: -224px -11px;
+}
+
+.subscribe-tel-input .by {
+  background-position: -240px -11px;
+}
+
+.subscribe-tel-input .bz {
+  background-position: 0 -22px;
+}
+
+.subscribe-tel-input .ca {
+  background-position: -16px -22px;
+}
+
+.subscribe-tel-input .cd {
+  background-position: -32px -22px;
+}
+
+.subscribe-tel-input .cf {
+  background-position: -48px -22px;
+}
+
+.subscribe-tel-input .cg {
+  background-position: -64px -22px;
+}
+
+.subscribe-tel-input .ch {
+  background-position: -80px -22px;
+}
+
+.subscribe-tel-input .ci {
+  background-position: -96px -22px;
+}
+
+.subscribe-tel-input .ck {
+  background-position: -112px -22px;
+}
+
+.subscribe-tel-input .cl {
+  background-position: -128px -22px;
+}
+
+.subscribe-tel-input .cm {
+  background-position: -144px -22px;
+}
+
+.subscribe-tel-input .cn {
+  background-position: -160px -22px;
+}
+
+.subscribe-tel-input .co {
+  background-position: -176px -22px;
+}
+
+.subscribe-tel-input .cr {
+  background-position: -192px -22px;
+}
+
+.subscribe-tel-input .cu {
+  background-position: -208px -22px;
+}
+
+.subscribe-tel-input .cv {
+  background-position: -224px -22px;
+}
+
+.subscribe-tel-input .cw {
+  background-position: -240px -22px;
+}
+
+.subscribe-tel-input .cy {
+  background-position: 0 -33px;
+}
+
+.subscribe-tel-input .cz {
+  background-position: -16px -33px;
+}
+
+.subscribe-tel-input .de {
+  background-position: -32px -33px;
+}
+
+.subscribe-tel-input .dj {
+  background-position: -48px -33px;
+}
+
+.subscribe-tel-input .dk {
+  background-position: -64px -33px;
+}
+
+.subscribe-tel-input .dm {
+  background-position: -80px -33px;
+}
+
+.subscribe-tel-input .do {
+  background-position: -96px -33px;
+}
+
+.subscribe-tel-input .dz {
+  background-position: -112px -33px;
+}
+
+.subscribe-tel-input .ec {
+  background-position: -128px -33px;
+}
+
+.subscribe-tel-input .ee {
+  background-position: -144px -33px;
+}
+
+.subscribe-tel-input .eg {
+  background-position: -160px -33px;
+}
+
+.subscribe-tel-input .er {
+  background-position: -176px -33px;
+}
+
+.subscribe-tel-input .es {
+  background-position: -192px -33px;
+}
+
+.subscribe-tel-input .et {
+  background-position: -208px -33px;
+}
+
+.subscribe-tel-input .fi {
+  background-position: -224px -33px;
+}
+
+.subscribe-tel-input .fj {
+  background-position: -240px -33px;
+}
+
+.subscribe-tel-input .fk {
+  background-position: 0 -44px;
+}
+
+.subscribe-tel-input .fm {
+  background-position: -16px -44px;
+}
+
+.subscribe-tel-input .fo {
+  background-position: -32px -44px;
+}
+
+.subscribe-tel-input .bl,
+.subscribe-tel-input .fr,
+.subscribe-tel-input .mf {
+  background-position: -48px -44px;
+}
+
+.subscribe-tel-input .ga {
+  background-position: -64px -44px;
+}
+
+.subscribe-tel-input .gb {
+  background-position: -80px -44px;
+}
+
+.subscribe-tel-input .gd {
+  background-position: -96px -44px;
+}
+
+.subscribe-tel-input .ge {
+  background-position: -112px -44px;
+}
+
+.subscribe-tel-input .gf {
+  background-position: -128px -44px;
+}
+
+.subscribe-tel-input .gh {
+  background-position: -144px -44px;
+}
+
+.subscribe-tel-input .gi {
+  background-position: -160px -44px;
+}
+
+.subscribe-tel-input .gl {
+  background-position: -176px -44px;
+}
+
+.subscribe-tel-input .gm {
+  background-position: -192px -44px;
+}
+
+.subscribe-tel-input .gn {
+  background-position: -208px -44px;
+}
+
+.subscribe-tel-input .gp {
+  background-position: -224px -44px;
+}
+
+.subscribe-tel-input .gq {
+  background-position: -240px -44px;
+}
+
+.subscribe-tel-input .gr {
+  background-position: 0 -55px;
+}
+
+.subscribe-tel-input .gt {
+  background-position: -16px -55px;
+}
+
+.subscribe-tel-input .gu {
+  background-position: -32px -55px;
+}
+
+.subscribe-tel-input .gw {
+  background-position: -48px -55px;
+}
+
+.subscribe-tel-input .gy {
+  background-position: -64px -55px;
+}
+
+.subscribe-tel-input .hk {
+  background-position: -80px -55px;
+}
+
+.subscribe-tel-input .hn {
+  background-position: -96px -55px;
+}
+
+.subscribe-tel-input .hr {
+  background-position: -112px -55px;
+}
+
+.subscribe-tel-input .ht {
+  background-position: -128px -55px;
+}
+
+.subscribe-tel-input .hu {
+  background-position: -144px -55px;
+}
+
+.subscribe-tel-input .id {
+  background-position: -160px -55px;
+}
+
+.subscribe-tel-input .ie {
+  background-position: -176px -55px;
+}
+
+.subscribe-tel-input .il {
+  background-position: -192px -55px;
+}
+
+.subscribe-tel-input .in {
+  background-position: -208px -55px;
+}
+
+.subscribe-tel-input .io {
+  background-position: -224px -55px;
+}
+
+.subscribe-tel-input .iq {
+  background-position: -240px -55px;
+}
+
+.subscribe-tel-input .ir {
+  background-position: 0 -66px;
+}
+
+.subscribe-tel-input .is {
+  background-position: -16px -66px;
+}
+
+.subscribe-tel-input .it {
+  background-position: -32px -66px;
+}
+
+.subscribe-tel-input .je {
+  background-position: -144px -154px;
+}
+
+.subscribe-tel-input .jm {
+  background-position: -48px -66px;
+}
+
+.subscribe-tel-input .jo {
+  background-position: -64px -66px;
+}
+
+.subscribe-tel-input .jp {
+  background-position: -80px -66px;
+}
+
+.subscribe-tel-input .ke {
+  background-position: -96px -66px;
+}
+
+.subscribe-tel-input .kg {
+  background-position: -112px -66px;
+}
+
+.subscribe-tel-input .kh {
+  background-position: -128px -66px;
+}
+
+.subscribe-tel-input .ki {
+  background-position: -144px -66px;
+}
+
+.subscribe-tel-input .xk {
+  background-position: -128px -154px;
+}
+
+.subscribe-tel-input .km {
+  background-position: -160px -66px;
+}
+
+.subscribe-tel-input .kn {
+  background-position: -176px -66px;
+}
+
+.subscribe-tel-input .kp {
+  background-position: -192px -66px;
+}
+
+.subscribe-tel-input .kr {
+  background-position: -208px -66px;
+}
+
+.subscribe-tel-input .kw {
+  background-position: -224px -66px;
+}
+
+.subscribe-tel-input .ky {
+  background-position: -240px -66px;
+}
+
+.subscribe-tel-input .kz {
+  background-position: 0 -77px;
+}
+
+.subscribe-tel-input .la {
+  background-position: -16px -77px;
+}
+
+.subscribe-tel-input .lb {
+  background-position: -32px -77px;
+}
+
+.subscribe-tel-input .lc {
+  background-position: -48px -77px;
+}
+
+.subscribe-tel-input .li {
+  background-position: -64px -77px;
+}
+
+.subscribe-tel-input .lk {
+  background-position: -80px -77px;
+}
+
+.subscribe-tel-input .lr {
+  background-position: -96px -77px;
+}
+
+.subscribe-tel-input .ls {
+  background-position: -112px -77px;
+}
+
+.subscribe-tel-input .lt {
+  background-position: -128px -77px;
+}
+
+.subscribe-tel-input .lu {
+  background-position: -144px -77px;
+}
+
+.subscribe-tel-input .lv {
+  background-position: -160px -77px;
+}
+
+.subscribe-tel-input .ly {
+  background-position: -176px -77px;
+}
+
+.subscribe-tel-input .ma {
+  background-position: -192px -77px;
+}
+
+.subscribe-tel-input .mc {
+  background-position: -208px -77px;
+}
+
+.subscribe-tel-input .md {
+  background-position: -224px -77px;
+}
+
+.subscribe-tel-input .me {
+  background-position: -112px -154px;
+  height: 12px;
+}
+
+.subscribe-tel-input .mg {
+  background-position: 0 -88px;
+}
+
+.subscribe-tel-input .mh {
+  background-position: -16px -88px;
+}
+
+.subscribe-tel-input .mk {
+  background-position: -32px -88px;
+}
+
+.subscribe-tel-input .ml {
+  background-position: -48px -88px;
+}
+
+.subscribe-tel-input .mm {
+  background-position: -64px -88px;
+}
+
+.subscribe-tel-input .mn {
+  background-position: -80px -88px;
+}
+
+.subscribe-tel-input .mo {
+  background-position: -96px -88px;
+}
+
+.subscribe-tel-input .mp {
+  background-position: -112px -88px;
+}
+
+.subscribe-tel-input .mq {
+  background-position: -128px -88px;
+}
+
+.subscribe-tel-input .mr {
+  background-position: -144px -88px;
+}
+
+.subscribe-tel-input .ms {
+  background-position: -160px -88px;
+}
+
+.subscribe-tel-input .mt {
+  background-position: -176px -88px;
+}
+
+.subscribe-tel-input .mu {
+  background-position: -192px -88px;
+}
+
+.subscribe-tel-input .mv {
+  background-position: -208px -88px;
+}
+
+.subscribe-tel-input .mw {
+  background-position: -224px -88px;
+}
+
+.subscribe-tel-input .mx {
+  background-position: -240px -88px;
+}
+
+.subscribe-tel-input .my {
+  background-position: 0 -99px;
+}
+
+.subscribe-tel-input .mz {
+  background-position: -16px -99px;
+}
+
+.subscribe-tel-input .na {
+  background-position: -32px -99px;
+}
+
+.subscribe-tel-input .nc {
+  background-position: -48px -99px;
+}
+
+.subscribe-tel-input .ne {
+  background-position: -64px -99px;
+}
+
+.subscribe-tel-input .nf {
+  background-position: -80px -99px;
+}
+
+.subscribe-tel-input .ng {
+  background-position: -96px -99px;
+}
+
+.subscribe-tel-input .ni {
+  background-position: -112px -99px;
+}
+
+.subscribe-tel-input .bq,
+.subscribe-tel-input .nl {
+  background-position: -128px -99px;
+}
+
+.subscribe-tel-input .no {
+  background-position: -144px -99px;
+}
+
+.subscribe-tel-input .np {
+  background-position: -160px -99px;
+}
+
+.subscribe-tel-input .nr {
+  background-position: -176px -99px;
+}
+
+.subscribe-tel-input .nu {
+  background-position: -192px -99px;
+}
+
+.subscribe-tel-input .nz {
+  background-position: -208px -99px;
+}
+
+.subscribe-tel-input .om {
+  background-position: -224px -99px;
+}
+
+.subscribe-tel-input .pa {
+  background-position: -240px -99px;
+}
+
+.subscribe-tel-input .pe {
+  background-position: 0 -110px;
+}
+
+.subscribe-tel-input .pf {
+  background-position: -16px -110px;
+}
+
+.subscribe-tel-input .pg {
+  background-position: -32px -110px;
+}
+
+.subscribe-tel-input .ph {
+  background-position: -48px -110px;
+}
+
+.subscribe-tel-input .pk {
+  background-position: -64px -110px;
+}
+
+.subscribe-tel-input .pl {
+  background-position: -80px -110px;
+}
+
+.subscribe-tel-input .pm {
+  background-position: -96px -110px;
+}
+
+.subscribe-tel-input .pr {
+  background-position: -112px -110px;
+}
+
+.subscribe-tel-input .ps {
+  background-position: -128px -110px;
+}
+
+.subscribe-tel-input .pt {
+  background-position: -144px -110px;
+}
+
+.subscribe-tel-input .pw {
+  background-position: -160px -110px;
+}
+
+.subscribe-tel-input .py {
+  background-position: -176px -110px;
+}
+
+.subscribe-tel-input .qa {
+  background-position: -192px -110px;
+}
+
+.subscribe-tel-input .re {
+  background-position: -208px -110px;
+}
+
+.subscribe-tel-input .ro {
+  background-position: -224px -110px;
+}
+
+.subscribe-tel-input .rs {
+  background-position: -240px -110px;
+}
+
+.subscribe-tel-input .ru {
+  background-position: 0 -121px;
+}
+
+.subscribe-tel-input .rw {
+  background-position: -16px -121px;
+}
+
+.subscribe-tel-input .sa {
+  background-position: -32px -121px;
+}
+
+.subscribe-tel-input .sb {
+  background-position: -48px -121px;
+}
+
+.subscribe-tel-input .sc {
+  background-position: -64px -121px;
+}
+
+.subscribe-tel-input .sd {
+  background-position: -80px -121px;
+}
+
+.subscribe-tel-input .se {
+  background-position: -96px -121px;
+}
+
+.subscribe-tel-input .sg {
+  background-position: -112px -121px;
+}
+
+.subscribe-tel-input .sh {
+  background-position: -128px -121px;
+}
+
+.subscribe-tel-input .si {
+  background-position: -144px -121px;
+}
+
+.subscribe-tel-input .sk {
+  background-position: -160px -121px;
+}
+
+.subscribe-tel-input .sl {
+  background-position: -176px -121px;
+}
+
+.subscribe-tel-input .sm {
+  background-position: -192px -121px;
+}
+
+.subscribe-tel-input .sn {
+  background-position: -208px -121px;
+}
+
+.subscribe-tel-input .so {
+  background-position: -224px -121px;
+}
+
+.subscribe-tel-input .sr {
+  background-position: -240px -121px;
+}
+
+.subscribe-tel-input .ss {
+  background-position: 0 -132px;
+}
+
+.subscribe-tel-input .st {
+  background-position: -16px -132px;
+}
+
+.subscribe-tel-input .sv {
+  background-position: -32px -132px;
+}
+
+.subscribe-tel-input .sx {
+  background-position: -48px -132px;
+}
+
+.subscribe-tel-input .sy {
+  background-position: -64px -132px;
+}
+
+.subscribe-tel-input .sz {
+  background-position: -80px -132px;
+}
+
+.subscribe-tel-input .tc {
+  background-position: -96px -132px;
+}
+
+.subscribe-tel-input .td {
+  background-position: -112px -132px;
+}
+
+.subscribe-tel-input .tg {
+  background-position: -128px -132px;
+}
+
+.subscribe-tel-input .th {
+  background-position: -144px -132px;
+}
+
+.subscribe-tel-input .tj {
+  background-position: -160px -132px;
+}
+
+.subscribe-tel-input .tk {
+  background-position: -176px -132px;
+}
+
+.subscribe-tel-input .tl {
+  background-position: -192px -132px;
+}
+
+.subscribe-tel-input .tm {
+  background-position: -208px -132px;
+}
+
+.subscribe-tel-input .tn {
+  background-position: -224px -132px;
+}
+
+.subscribe-tel-input .to {
+  background-position: -240px -132px;
+}
+
+.subscribe-tel-input .tr {
+  background-position: 0 -143px;
+}
+
+.subscribe-tel-input .tt {
+  background-position: -16px -143px;
+}
+
+.subscribe-tel-input .tv {
+  background-position: -32px -143px;
+}
+
+.subscribe-tel-input .tw {
+  background-position: -48px -143px;
+}
+
+.subscribe-tel-input .tz {
+  background-position: -64px -143px;
+}
+
+.subscribe-tel-input .ua {
+  background-position: -80px -143px;
+}
+
+.subscribe-tel-input .ug {
+  background-position: -96px -143px;
+}
+
+.subscribe-tel-input .us {
+  background-position: -112px -143px;
+}
+
+.subscribe-tel-input .uy {
+  background-position: -128px -143px;
+}
+
+.subscribe-tel-input .uz {
+  background-position: -144px -143px;
+}
+
+.subscribe-tel-input .va {
+  background-position: -160px -143px;
+}
+
+.subscribe-tel-input .vc {
+  background-position: -176px -143px;
+}
+
+.subscribe-tel-input .ve {
+  background-position: -192px -143px;
+}
+
+.subscribe-tel-input .vg {
+  background-position: -208px -143px;
+}
+
+.subscribe-tel-input .vi {
+  background-position: -224px -143px;
+}
+
+.subscribe-tel-input .vn {
+  background-position: -240px -143px;
+}
+
+.subscribe-tel-input .vu {
+  background-position: 0 -154px;
+}
+
+.subscribe-tel-input .wf {
+  background-position: -16px -154px;
+}
+
+.subscribe-tel-input .ws {
+  background-position: -32px -154px;
+}
+
+.subscribe-tel-input .ye {
+  background-position: -48px -154px;
+}
+
+.subscribe-tel-input .za {
+  background-position: -64px -154px;
+}
+
+.subscribe-tel-input .zm {
+  background-position: -80px -154px;
+}
+
+.subscribe-tel-input .zw {
+  background-position: -96px -154px;
+}
+
+.subscribe-tel-input * {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.subscribe-tel-input .hide {
+  display: none;
+}
+
+.subscribe-tel-input .v-hide {
+  visibility: hidden;
+}
+
+.subscribe-tel-input .form-control {
+  position: relative;
+  font-size: 14px;
+  letter-spacing: 0.01rem;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-left: 48px;
+  margin-left: 0;
+  background: #fff;
+  border: 1px solid #cacaca;
+  border-radius: 5px;
+  line-height: 25px;
+  height: 35px;
+  width: 300px;
+  outline: none;
+}
+
+.subscribe-tel-input .form-control.invalid-number,
+.subscribe-tel-input .form-control.invalid-number:focus {
+  background-color: #faf0f0;
+  border: 1px solid #d79f9f;
+  border-left-color: #cacaca;
+}
+
+.subscribe-tel-input .flag-dropdown {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  border: 1px solid #cacaca;
+  border-radius: 3px 0 0 3px;
+}
+
+.subscribe-tel-input .flag-dropdown:focus,
+.subscribe-tel-input .flag-dropdown:hover {
+  cursor: pointer;
+}
+
+.subscribe-tel-input .flag-dropdown.invalid-number {
+  border-color: #d79f9f;
+}
+
+.subscribe-tel-input .flag-dropdown.open {
+  z-index: 2;
+}
+
+.subscribe-tel-input .flag-dropdown.open,
+.subscribe-tel-input .flag-dropdown.open .selected-flag {
+  background: #fff;
+  border-radius: 3px 0 0 0;
+}
+
+.subscribe-tel-input input[disabled] + .flag-dropdown:hover {
+  cursor: default;
+}
+
+.subscribe-tel-input input[disabled] + .flag-dropdown:hover .selected-flag {
+  background-color: transparent;
+}
+
+.subscribe-tel-input .selected-flag {
+  outline: none;
+  position: relative;
+  width: 38px;
+  height: 100%;
+  padding: 0 0 0 8px;
+  border-radius: 3px 0 0 3px;
+}
+
+.subscribe-tel-input .selected-flag:focus,
+.subscribe-tel-input .selected-flag:hover {
+  background-color: #fff;
+}
+
+.subscribe-tel-input .selected-flag .flag {
+  position: absolute;
+  top: 50%;
+  margin-top: -5px;
+}
+
+.subscribe-tel-input .selected-flag .arrow {
+  position: relative;
+  top: 50%;
+  margin-top: -2px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 4px solid #555;
+}
+
+.subscribe-tel-input .selected-flag .arrow.up {
+  border-top: none;
+  border-bottom: 4px solid #555;
+}
+
+.subscribe-tel-input .subscribe-country-list {
+  outline: none;
+  z-index: 99;
+  list-style: none;
+  position: absolute;
+  padding: 0;
+  margin: 4px 0 10px -1px;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.35);
+  background-color: #fff;
+  width: 300px;
+  max-height: 200px;
+  overflow-y: scroll;
+  border-radius: 0 0 3px 3px;
+}
+
+.subscribe-tel-input .subscribe-country-list .flag {
+  display: inline-block;
+}
+
+.subscribe-tel-input .subscribe-country-list .divider {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.subscribe-tel-input .subscribe-country-list .country {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 7px 9px;
+  font-size: 16px;
+  white-space: normal;
+  cursor: pointer;
+}
+
+.subscribe-tel-input .subscribe-country-list .country > * {
+  pointer-events: none;
+}
+
+.subscribe-tel-input .subscribe-country-list .country .dial-code {
+  color: #6b6b6b;
+}
+
+.subscribe-tel-input .subscribe-country-list .country.highlight,
+.subscribe-tel-input .subscribe-country-list .country:hover {
+  background-color: #f1f1f1;
+}
+
+.subscribe-tel-input .subscribe-country-list .flag {
+  margin-right: 7px;
+  margin-top: 2px;
+}
+
+.subscribe-tel-input .subscribe-country-list .country-name {
+  color: rgb(2, 6, 11);
+  margin-right: 6px;
+}
+
+.subscribe-tel-input .subscribe-country-list .search {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  padding: 10px 0 6px 10px;
+}
+
+.subscribe-tel-input .subscribe-country-list .search-emoji {
+  font-size: 15px;
+}
+
+.subscribe-tel-input .subscribe-country-list .search-box {
+  border: 1px solid #cacaca;
+  border-radius: 3px;
+  font-size: 15px;
+  line-height: 15px;
+  margin-left: 6px;
+  padding: 3px 8px 5px;
+  outline: none;
+}
+
+.subscribe-tel-input .subscribe-country-list .no-entries-message {
+  padding: 7px 10px 11px;
+  opacity: 0.7;
+}
+
+.subscribe-tel-input .invalid-number-message {
+  color: #de0000;
+}
+
+.subscribe-tel-input .invalid-number-message,
+.subscribe-tel-input .special-label {
+  position: absolute;
+  z-index: 1;
+  font-size: 13px;
+  left: 46px;
+  top: -8px;
+  background: #fff;
+  padding: 0 2px;
+}
+
+.subscribe-tel-input .special-label {
+  display: none;
+  white-space: nowrap;
+}

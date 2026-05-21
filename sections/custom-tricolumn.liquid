@@ -1,0 +1,1462 @@
+{% render 'yb-section-style', section: section %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div class='padding-{{ section.id }} custom_tri_column_outter'>
+  <div class='yb-section-container'>
+    {% if section.settings.heading != blank %}
+      <div class='lcf-section_header'>
+        {% if section.settings.heading != blank %}
+          <div class='headerTitle'>
+            <h3 class='lcf-section-title'>{{ section.settings.heading }}</h3>
+            <div class='bz-body-2 lcf-section-des lcf-section-des-style'>{{ section.settings.text }}</div>
+          </div>
+        {% else %}
+          <div class='headerTitle'>
+            <h3 class='lcf-section-title'>{{ section.settings.heading }}</h3>
+            <div class='bz-body-2 lcf-section-des'>{{ section.settings.text }}</div>
+          </div>
+        {% endif %}
+        {% if section.settings.button_text != blank %}
+          <div class=' {% if section.settings.heading != blank or section.settings.text != blank %}rich-texts-button{% endif %}'>
+            {% render 'yb-button', class: 'button bz-btn-1 custom_button lcf_button', tag: 'button', config: section.settings %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class='custom_tri_column_inner'>
+      <div
+        class='custom_tri_column_wrapper'
+        blocks_count='{{ section.blocks.size }}'
+      >
+        {% for block in section.blocks %}
+          <div class='lcf_custom_tri_column-card'>
+            <div
+              class='lcf_custom_tri_column_image_wrapper'
+              {% if block.settings.image == blank %}
+                style='background: #e6e6e7;'
+              {% endif %}
+            >
+              {% render 'yb-image', style: 'width:100%;height:100%', mobile_size: '100%', data: block.settings.image %}
+            </div>
+            <h4 class='lcf_bz-head-4'>{{ block.settings.heading }}</h4>
+            <div class='lcf_yb-tri-col-body'>{{ block.settings.text }}</div>
+            {% unless forloop.last %}
+              <div class='vertical-line'></div>
+              <div class='column-arrow-separator'>
+                <svg
+                  class='icon'
+                  viewBox='298 42 470 940'
+                  version='1.1'
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='40'
+                  height='80'
+                >
+                  <path d="M298.666667 42.666667v287.744L480.298667 512 298.666667 693.76V981.333333l469.333333-469.290666L298.666667 42.666667z" fill="#FEDB1E"></path>
+                </svg>
+              </div>
+            {% endunless %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class='custom_bottom_buttons'>
+        {% if section.settings.button2_text != blank %}
+          {% render 'yb-button', class: 'bz-btn-1 custom_button lcf_button lcf_margin_bottom', tag: 'button2', config: section.settings %}
+        {% endif %}
+        {% if section.settings.button3_text != blank %}
+          {% render 'yb-button', class: 'bz-btn-1 custom_underline_button', tag: 'button3', config: section.settings %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .section-tricolumn {
+    .lcf_button:after,
+    .lcf_button:before {
+      content: unset !important;
+    }
+    .lcf-section-des:empty {
+      margin-top: 0;
+    }
+    .lcf-section-title {
+      color: #02060b;
+    }
+    .lcf_button {
+      background: #fedb1e;
+      font-family: NunitoSans, 'ui-sans-serif', 'system-ui', 'sans-serif';
+    }
+    .lcf-section-des {
+      color: #02060b;
+    }
+    .lcf_bz-head-4 {
+      color: #02060b;
+    }
+    .lcf_yb-tri-col-body {
+      color: #02060b;
+    }
+    .button,
+    .shopline-element-buy-now {
+      display: inline-flex;
+      font-family: var(--body-font);
+      font-weight: var(--body-bold-font-weight);
+      line-height: var(--body-line-height);
+      letter-spacing: var(--body-letter-spacing);
+      color: rgb(var(--color-button-text));
+      text-align: center;
+      white-space: normal;
+      vertical-align: middle;
+      cursor: pointer;
+      user-select: none;
+      background-color: rgb(var(--color-button-background));
+      transition: opacity 0.15s ease-in-out;
+      padding: calc(var(--btn-border-thickness) + 9px) calc(var(--btn-border-thickness) + 18px);
+      position: relative;
+      border-radius: var(--btn-border-radius-outset);
+      font-size: 14px;
+      border: none;
+      --border-opacity: calc(100% - var(--btn-border-opacity));
+      --alpha-button-background: 1;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button:not(.button--link),
+    .shopline-element-buy-now {
+      box-shadow: var(--btn-shadow-offset-x) var(--btn-shadow-offset-y) var(--btn-shadow-blur) rgba(var(--color-shadow), var(--btn-shadow-opacity));
+    }
+
+    .button:not(.button--link)::before,
+    .shopline-element-buy-now::before {
+      content: '';
+      position: absolute;
+      bottom: var(--btn-border-thickness);
+      left: var(--btn-border-thickness);
+      right: var(--btn-border-thickness);
+      top: var(--btn-border-thickness);
+      z-index: 1;
+      border-radius: var(--btn-border-radius);
+    }
+    /* Custom TriColumn CSS */
+    .lcf-section_header {
+      text-align: center;
+    }
+
+    .custom_tri_column_wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .custom_tri_column_image_wrapper img {
+      aspect-ratio: 220 / 200.94;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .custom_tri_column_outter .section_header {
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .custom_tri_column_image_wrapper {
+      display: flex;
+      width: 48.5%;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
+
+    .custom_tri_column-card {
+      width: calc((100% - 32px) / 3);
+      background: white;
+      border-radius: 16px;
+      padding-top: 31px;
+      border: 1px solid #d9d9d9;
+      padding-bottom: 60px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .custom_tri_column-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: inherit;
+      border-radius: 20px;
+      z-index: -1;
+      box-shadow: 80px 0px 2px -79px #fedb1e;
+    }
+
+    .yb-tri-col-body {
+      font-size: 14px;
+    }
+
+    .custom_tri_column-card .bz-head-4 {
+      margin-top: 16px;
+      margin-bottom: 12px;
+    }
+
+    .custom_tri_column-card .yb-tri-col-body,
+    .custom_tri_column-card .bz-head-4 {
+      line-height: 140%;
+      padding-left: 31px;
+      padding-right: 31px;
+    }
+
+    .yb-section-container .yb-section-des {
+      margin-bottom: 40px;
+      line-height: 140%;
+      margin-top: 16px;
+    }
+
+    .yb-section-container .yb-section-title {
+      line-height: 140%;
+    }
+
+    .custom_tri_column_wrapper .custom_tri_column-card {
+      box-shadow: 80px 0px 2px -79px #fedb1e;
+    }
+
+    .custom_tri_column_wrapper[blocks_count='3'] .custom_tri_column-card:last-child,
+    .custom_tri_column_wrapper[blocks_count='2'] .custom_tri_column-card:last-child,
+    .custom_tri_column_wrapper[blocks_count='1'] .custom_tri_column-card {
+      box-shadow: none;
+    }
+
+    .custom_button {
+      padding: 11.2px 43px;
+    }
+
+    .custom_bottom_buttons {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 40px;
+    }
+
+    .lcf_margin-bottom {
+      margin-bottom: 24px;
+    }
+
+    .custom_underline_button {
+      text-decoration: underline !important;
+      color: #636363 !important;
+      font-weight: 600;
+      height: 16px;
+      line-height: 100%;
+      font-size: 16px;
+      border: none;
+      background: #0000;
+      font-family: NunitoSans, 'ui-sans-serif', 'system-ui', 'sans-serif';
+    }
+
+    .lcf_button {
+      height: 48px;
+      line-height: 48px;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 0 40px;
+      border-radius: 30px;
+      color: #000;
+      border: 0;
+      font-family: NunitoSans, 'ui-sans-serif', 'system-ui', 'sans-serif';
+    }
+
+    .lcf_margin_bottom {
+      margin-top: 0 !important;
+      margin-bottom: 24px;
+    }
+  }
+
+  /* 375-679px */
+  @media (max-width: 679px) {
+    .section-tricolumn {
+      .custom_underline_button {
+        font-size: 14px;
+      }
+      .column-arrow-separator svg {
+        width: 21px;
+        height: 43px;
+      }
+      .vertical-line {
+        position: absolute;
+        bottom: -3px;
+        width: 264px;
+        height: 3px;
+        background: linear-gradient(to right, transparent, #fedb1e 50%, transparent);
+        border-radius: 1.5px;
+        /* 确保上下两端是椭圆形 */
+        overflow: visible;
+      }
+
+      /* 为了增强椭圆效果，可以添加伪元素 */
+      .vertical-line::before,
+      .vertical-line::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 3px;
+        height: 6px; /* 椭圆高度 */
+        background-color: transparent;
+        border-radius: 50%;
+      }
+
+      .vertical-line::before {
+        top: -3px;
+      }
+
+      .vertical-line::after {
+        bottom: -3px;
+      }
+      .custom_bottom_buttons {
+        max-width: 327px;
+        margin-top: 24px;
+      }
+      .lcf_margin_bottom {
+        margin-bottom: 16px;
+      }
+
+      .lcf-section_header {
+        text-align: -webkit-center;
+        max-width: 327px;
+        width: 100%;
+      }
+      .custom_tri_column_inner {
+        margin-top: 32px;
+      }
+      .lcf-section-title {
+        max-width: 327px;
+        width: 100%;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 120%;
+        text-align: center;
+      }
+
+      .lcf-section-des {
+        max-width: 327px;
+        width: 100%;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 140%;
+        text-align: center;
+      }
+      .lcf-section-des-style {
+        margin-top: 12px;
+      }
+      .headerTitle {
+      }
+      .lcf_button {
+        width: 100%;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .rich-texts-button {
+        margin-top: 16px;
+      }
+      .lcf_custom_tri_column-card {
+        width: 100%;
+        aspect-ratio: 343/281;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 24px;
+        border: 1px solid #d9d9d9;
+        padding: 0 24px;
+        padding-top: 16px;
+        background: #ffffff;
+        position: relative;
+        padding-bottom: 16px;
+      }
+
+      .column-arrow-separator {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+        bottom: -35px;
+        z-index: 2;
+      }
+
+      .lcf_custom_tri_column_image_wrapper {
+        width: 165px;
+        height: 150px;
+        margin-bottom: 8px;
+      }
+
+      .lcf_bz-head-4 {
+        width: 100%;
+        line-height: 140%;
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+
+      .lcf_yb-tri-col-body {
+        width: 100%;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 140%;
+      }
+
+      .custom_tri_column-card .bz-head-4 {
+        font-size: 18px;
+      }
+
+      .custom_tri_column-card {
+        width: 100%;
+      }
+
+      .custom_tri_column_wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .yb-section-des.bz-body-2 {
+        font-size: 14px;
+      }
+
+      .custom_tri_column-card {
+        padding-top: 15px;
+        padding-bottom: 36px;
+      }
+
+      .custom_tri_column-card .yb-tri-col-body,
+      .custom_tri_column-card .bz-head-4 {
+        padding-left: 23px;
+        padding-right: 23px;
+      }
+
+      .custom_tri_column_image_wrapper img {
+        aspect-ratio: 220 / 199.54;
+      }
+
+      .custom_tri_column-card .bz-head-4 {
+        margin-top: 7.1px;
+        margin-bottom: 6.55px;
+      }
+
+      .yb-section-container {
+        text-align: -webkit-center;
+        padding: 0 16px;
+      }
+
+      .yb-section-des {
+        margin-bottom: 16px;
+      }
+
+      .custom_tri_column_outter .section_header {
+        max-width: 572px;
+      }
+
+      .lcf_margin-bottom {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  /* 680-959px */
+  @media (min-width: 680px) and (max-width: 959px) {
+    .section-tricolumn {
+      .custom_underline_button {
+        font-size: 14px;
+      }
+      .column-arrow-separator svg {
+        width: 38.69px;
+        height: 79.23px;
+      }
+      .vertical-line {
+        position: absolute;
+        bottom: -4px;
+        width: 486.44px;
+        height: 5.53px;
+        background: linear-gradient(to right, transparent, #fedb1e 50%, transparent);
+        border-radius: 1.5px;
+        /* 确保上下两端是椭圆形 */
+        overflow: visible;
+      }
+
+      /* 为了增强椭圆效果，可以添加伪元素 */
+      .vertical-line::before,
+      .vertical-line::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 3px;
+        height: 6px; /* 椭圆高度 */
+        background-color: transparent;
+        border-radius: 50%;
+      }
+
+      .vertical-line::before {
+        top: -3px;
+      }
+
+      .vertical-line::after {
+        bottom: -3px;
+      }
+      .custom_bottom_buttons {
+        margin-top: 32px;
+      }
+      .lcf-section_header {
+        text-align: -webkit-center;
+        max-width: 600px;
+      }
+      .custom_tri_column_inner {
+        margin-top: 56px;
+      }
+      .lcf-section-title {
+        max-width: 600px;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 120%;
+        text-align: center;
+      }
+
+      .lcf-section-des {
+        max-width: 600px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        text-align: center;
+      }
+      .lcf-section-des-style {
+        margin-top: 16px;
+      }
+      .headerTitle {
+      }
+      .lcf_button {
+        min-width: 180px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .rich-texts-button {
+        margin-top: 24px;
+      }
+      .lcf_custom_tri_column-card {
+        width: 100%;
+        aspect-ratio: 632/518;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 44.22px;
+        border: 1.84px solid #d9d9d9;
+        padding: 0 40px;
+        padding-top: 24px;
+        background: #ffffff;
+        position: relative;
+        padding-bottom: 24px;
+      }
+
+      .column-arrow-separator {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+        bottom: -63.23px;
+        z-index: 2;
+      }
+
+      .lcf_custom_tri_column_image_wrapper {
+        width: 304px;
+        height: 276px;
+        margin-bottom: 16px;
+      }
+
+      .lcf_bz-head-4 {
+        width: 100%;
+        line-height: 120%;
+        font-weight: 700;
+        font-size: 32px;
+        margin-bottom: 16px;
+      }
+
+      .lcf_yb-tri-col-body {
+        width: 100%;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 140%;
+      }
+
+      .custom_tri_column-card .bz-head-4 {
+        font-size: 32px;
+      }
+
+      .custom_tri_column_wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .custom_tri_column-card {
+        width: 100%;
+      }
+
+      .yb-tri-col-body {
+        font-size: 24px;
+      }
+
+      .yb-section-des.bz-body-2 {
+        font-size: 16px;
+      }
+
+      .custom_tri_column_image_wrapper img {
+        aspect-ratio: 220 / 199.75;
+      }
+
+      .custom_tri_column_image_wrapper {
+        width: 48.26%;
+      }
+
+      .custom_tri_column-card {
+        padding-top: 24px;
+        border: 1.84px solid #d9d9d9;
+        padding-bottom: 76px;
+      }
+
+      .yb-section-container {
+        text-align: -webkit-center;
+        padding: 0 24px;
+      }
+
+      .yb-section-des {
+        margin-bottom: 32px;
+      }
+
+      .custom_tri_column_outter .section_header {
+        max-width: 748px;
+      }
+    }
+  }
+
+  /* 960-1439px */
+  @media (min-width: 960px) and (max-width: 1439px) {
+    .section-tricolumn {
+      .custom_underline_button {
+        font-size: 14px;
+      }
+      .column-arrow-separator svg {
+        width: 25.74px;
+        height: 51.47px;
+      }
+      .vertical-line {
+        position: absolute;
+        right: -2px;
+        width: 1.93px;
+        height: 200px;
+        background: linear-gradient(to bottom, transparent, #fedb1e 50%, transparent);
+        border-radius: 1.5px;
+        /* 确保上下两端是椭圆形 */
+        overflow: visible;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* 为了增强椭圆效果，可以添加伪元素 */
+      .vertical-line::before,
+      .vertical-line::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 3px;
+        height: 6px; /* 椭圆高度 */
+        background-color: transparent;
+        border-radius: 50%;
+      }
+
+      .vertical-line::before {
+        top: -3px;
+      }
+
+      .vertical-line::after {
+        bottom: -3px;
+      }
+      .custom_bottom_buttons {
+        margin-top: 32px;
+      }
+      .lcf-section_header {
+        max-width: 728px;
+        text-align: -webkit-center;
+      }
+      .custom_tri_column_inner {
+        margin-top: 48px;
+      }
+      .lcf-section-title {
+        width: 728px;
+        font-weight: 800;
+        font-size: 28px;
+        line-height: 120%;
+        text-align: center;
+      }
+
+      .lcf-section-des {
+        width: 728px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 140%;
+        text-align: center;
+      }
+      .lcf-section-des-style {
+        margin-top: 16px;
+      }
+      .headerTitle {
+      }
+      .lcf_button {
+        min-width: 180px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .rich-texts-button {
+        margin-top: 24px;
+      }
+      .lcf_custom_tri_column-card {
+        width: 289px;
+        min-height: 253px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15.44px;
+        border: 0.64px solid #d9d9d9;
+        padding: 0 16px;
+        padding-top: 24px;
+        background: #ffffff;
+        position: relative;
+        padding-bottom: 24px;
+      }
+
+      .column-arrow-separator {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -27.03px;
+        z-index: 2;
+      }
+
+      .lcf_custom_tri_column_image_wrapper {
+        width: 140px;
+        height: 129px;
+        margin-bottom: 8px;
+      }
+
+      .lcf_bz-head-4 {
+        max-width: 257px;
+        width: 100%;
+        line-height: 140%;
+        font-weight: 700;
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+
+      .lcf_yb-tri-col-body {
+        max-width: 257px;
+        width: 100%;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 140%;
+      }
+
+      .yb-tri-col-body {
+        font-size: 12px;
+      }
+
+      .custom_tri_column_image_wrapper {
+        width: 48.75%;
+      }
+
+      .custom_tri_column_image_wrapper img {
+        aspect-ratio: 220 / 202.7;
+      }
+
+      .custom_tri_column-card {
+        padding-top: 24px;
+        padding-bottom: 28px;
+      }
+
+      .custom_tri_column-card .yb-tri-col-body,
+      .custom_tri_column-card .bz-head-4 {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .custom_tri_column-card .bz-head-4 {
+        margin-top: 8px;
+        margin-bottom: 6px;
+      }
+
+      .yb-section-container {
+        text-align: -webkit-center;
+        width: 900px;
+      }
+
+      .yb-section-des {
+        margin-bottom: 24px;
+      }
+
+      .custom_tri_column_outter .section_header {
+        max-width: 994px;
+      }
+    }
+  }
+
+  /* 1440-1919px */
+  @media (min-width: 1440px) and (max-width: 1919px) {
+    .section-tricolumn {
+      .column-arrow-separator svg {
+        width: 34.29px;
+        height: 68.57px;
+      }
+      .vertical-line {
+        position: absolute;
+        right: -2px;
+        width: 2.57px;
+        height: 267.43px;
+        background: linear-gradient(to bottom, transparent, #fedb1e 50%, transparent);
+        border-radius: 1.5px;
+        /* 确保上下两端是椭圆形 */
+        overflow: visible;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* 为了增强椭圆效果，可以添加伪元素 */
+      .vertical-line::before,
+      .vertical-line::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 3px;
+        height: 6px; /* 椭圆高度 */
+        background-color: transparent;
+        border-radius: 50%;
+      }
+
+      .vertical-line::before {
+        top: -3px;
+      }
+
+      .vertical-line::after {
+        bottom: -3px;
+      }
+      .lcf-section_header {
+        max-width: 924px;
+        text-align: -webkit-center;
+      }
+      .custom_tri_column_inner {
+        margin-top: 56px;
+      }
+      .lcf-section-title {
+        width: 924px;
+        font-weight: 800;
+        font-size: 36px;
+        line-height: 120%;
+        text-align: center;
+      }
+
+      .lcf-section-des {
+        width: 924px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        text-align: center;
+      }
+      .lcf-section-des-style {
+        margin-top: 16px;
+      }
+      .headerTitle {
+      }
+      .lcf_button {
+        min-width: 180px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .rich-texts-button {
+        margin-top: 32px;
+      }
+      .lcf_custom_tri_column-card {
+        width: 390px;
+        min-height: 342px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20.57px;
+        border: 0.86px solid #d9d9d9;
+        padding: 0 32px;
+        padding-top: 24px;
+        background: #ffffff;
+        position: relative;
+        padding-bottom: 24px;
+      }
+
+      .column-arrow-separator {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -36px;
+        z-index: 2;
+      }
+
+      .lcf_custom_tri_column_image_wrapper {
+        width: 188px;
+        height: 172px;
+        margin-bottom: 17px;
+      }
+
+      .lcf_bz-head-4 {
+        max-width: 326px;
+        width: 100%;
+        line-height: 140%;
+        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+
+      .lcf_yb-tri-col-body {
+        max-width: 326px;
+        width: 100%;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 140%;
+      }
+
+      .yb-tri-col-body {
+        font-size: 14px;
+      }
+
+      .custom_tri_column_wrapper {
+        gap: 16px;
+      }
+
+      .custom_tri_column-card {
+        padding-top: 22.5px;
+        padding-bottom: 50px;
+      }
+
+      .custom_tri_column_image_wrapper img {
+        aspect-ratio: 220 / 201.28;
+      }
+
+      .custom_tri_column_image_wrapper {
+        width: 48.54%;
+      }
+
+      .custom_tri_column-card {
+        width: calc((100% - 30px) / 3);
+      }
+
+      .yb-section-container {
+        text-align: -webkit-center;
+        width: 1200px;
+      }
+
+      .yb-section-des {
+        margin-bottom: 32px;
+      }
+
+      .custom_tri_column_outter .section_header {
+        max-width: 994px;
+      }
+    }
+  }
+
+  /* 1920px+ */
+  @media (min-width: 1920px) {
+    .section-tricolumn {
+      .column-arrow-separator svg {
+        width: 40px;
+        height: 80px;
+      }
+
+      .yb-tri-col-body {
+        font-size: 16px;
+      }
+
+      .yb-section-container {
+        width: 1400px;
+        text-align: -webkit-center;
+      }
+
+      .lcf-section_header {
+        text-align: -webkit-center;
+
+        max-width: 1000px;
+      }
+      .custom_tri_column_inner {
+        margin-top: 64px;
+      }
+      .vertical-line {
+        position: absolute;
+        right: -3px;
+        width: 3px;
+        height: 312px;
+        background: linear-gradient(to bottom, transparent, #fedb1e 50%, transparent);
+        border-radius: 1.5px;
+        /* 确保上下两端是椭圆形 */
+        overflow: visible;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* 为了增强椭圆效果，可以添加伪元素 */
+      .vertical-line::before,
+      .vertical-line::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 3px;
+        height: 6px; /* 椭圆高度 */
+        background-color: transparent;
+        border-radius: 50%;
+      }
+
+      .vertical-line::before {
+        top: -3px;
+      }
+
+      .vertical-line::after {
+        bottom: -3px;
+      }
+      .lcf-section-title {
+        width: 1000px;
+        font-weight: 800;
+        font-size: 40px;
+        line-height: 120%;
+        text-align: center;
+      }
+
+      .lcf-section-des {
+        width: 1000px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 140%;
+        text-align: center;
+      }
+      .lcf-section-des-style {
+        margin-top: 16px;
+      }
+      .headerTitle {
+      }
+      .lcf_button {
+        min-width: 180px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .rich-texts-button {
+        margin-top: 40px;
+      }
+      .lcf_custom_tri_column-card {
+        width: 456px;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 24px;
+        border: 1px solid #d9d9d9;
+        padding: 0 32px;
+        padding-top: 32px;
+        background: #ffffff;
+        position: relative;
+        padding-bottom: 32px;
+      }
+
+      .column-arrow-separator {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -40px;
+        z-index: 2;
+      }
+
+      .lcf_custom_tri_column_image_wrapper {
+        width: 220px;
+        height: 201px;
+        margin-bottom: 16px;
+      }
+
+      .lcf_bz-head-4 {
+        max-width: 392px;
+        width: 100%;
+        line-height: 120%;
+        font-weight: 700;
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      .lcf_yb-tri-col-body {
+        max-width: 392px;
+        width: 100%;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+      }
+
+      .custom_bottom_buttons {
+        margin-top: 40px;
+      }
+    }
+  }
+  .section-tricolumn {
+    /* Arrow between cards */
+    .card-arrow-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 80px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .card-arrow-svg {
+      width: 40px;
+      height: 80px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Tricolumn",
+  "class": "section-tricolumn",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Section Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Add Text"
+    },
+    {
+      "type": "header",
+      "content": "First Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "按钮文字",
+      "default": "Shop Now"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "按钮类型",
+      "default": "link",
+      "options": [
+        {
+          "value": "link",
+          "label": "链接"
+        },
+        {
+          "value": "anchor",
+          "label": "锚点"
+        },
+        {
+          "value": "modal",
+          "label": "弹窗"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "按钮链接"
+    },
+    {
+      "type": "text",
+      "id": "button_anchor",
+      "label": "按钮锚点ID"
+    },
+    {
+      "type": "text",
+      "id": "button_modal_title",
+      "label": "按钮弹窗标题"
+    },
+    {
+      "type": "html",
+      "id": "button_modal_content",
+      "label": "按钮弹窗内容"
+    },
+    {
+      "type": "product",
+      "id": "button_add_cart_product",
+      "label": "按钮加购商品"
+    },
+    {
+      "type": "product_list",
+      "id": "button_add_cart_product_list",
+      "label": "按钮批量加购"
+    },
+    {
+      "type": "header",
+      "content": "Second Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button2_text",
+      "label": "按钮文字",
+      "default": "Shop Now"
+    },
+    {
+      "type": "select",
+      "id": "button2_type",
+      "label": "按钮类型",
+      "default": "link",
+      "options": [
+        {
+          "value": "link",
+          "label": "链接"
+        },
+        {
+          "value": "anchor",
+          "label": "锚点"
+        },
+        {
+          "value": "modal",
+          "label": "弹窗"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button2_link",
+      "label": "按钮链接"
+    },
+    {
+      "type": "text",
+      "id": "button2_anchor",
+      "label": "按钮锚点ID"
+    },
+    {
+      "type": "text",
+      "id": "button2_modal_title",
+      "label": "按钮弹窗标题"
+    },
+    {
+      "type": "html",
+      "id": "button2_modal_content",
+      "label": "按钮弹窗内容"
+    },
+    {
+      "type": "header",
+      "content": "Third Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button3_text",
+      "label": "按钮文字",
+      "default": "Shop Now"
+    },
+    {
+      "type": "select",
+      "id": "button3_type",
+      "label": "按钮类型",
+      "default": "link",
+      "options": [
+        {
+          "value": "link",
+          "label": "链接"
+        },
+        {
+          "value": "anchor",
+          "label": "锚点"
+        },
+        {
+          "value": "modal",
+          "label": "弹窗"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button3_link",
+      "label": "按钮链接"
+    },
+    {
+      "type": "text",
+      "id": "button3_anchor",
+      "label": "按钮锚点ID"
+    },
+    {
+      "type": "text",
+      "id": "button3_modal_title",
+      "label": "按钮弹窗标题"
+    },
+    {
+      "type": "html",
+      "id": "button3_modal_content",
+      "label": "按钮弹窗内容"
+    },
+    {
+      "type": "header",
+      "content": "section填充"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Add background Color",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1920",
+      "label": "1920顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1920",
+      "label": "1920底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1440",
+      "label": "1440顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1440",
+      "label": "1440底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_960",
+      "label": "960顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_960",
+      "label": "960底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_680",
+      "label": "680顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_680",
+      "label": "680底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_375",
+      "label": "375顶部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_375",
+      "label": "375底部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100,
+      "unit": "px"
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Add Image"
+        },
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Add Heading",
+          "default": "<p>Sign Up</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Add Text",
+          "default": "<p>Apply through ShareASale to get your unique affiliate links and marketing materials.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Tricolumn",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

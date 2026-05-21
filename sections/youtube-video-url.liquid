@@ -1,0 +1,173 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<style>
+  .youtube_video_main_box {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .youtube_video_title {
+      width: 100%;
+      font-family: var(--youtube_video_font_family);
+      font-weight: var(--youtube_video_font_weight);
+      font-size: var(--youtube_video_title_pc_font_size);
+      border-bottom: 1px solid rgb(51 51 51);
+      margin-bottom: 20px;
+  }
+
+  .youtube_video_title-once {
+    position: relative;
+    height: fit-content;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .youtube_video_image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .youtube_video_title-once:hover {
+    transform: translateY(-10px);
+  }
+
+  i.youtube_video_image-iconfont {
+    transform: rotate(72deg);
+  }
+
+  .youtube_video_image-iconfont {
+    padding: 27px 0 0 10px;
+    transition: 0.5s;
+  }
+
+  .youtube_video_main_box {
+    padding: 0 20px;
+  }
+
+  .youtube_video_image-iconfont-box {
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    top: 0;
+    height: 100%;
+    background: #000;
+    width: 100%;
+    transition-duration: .5s;
+    opacity: 0;
+    background: linear-gradient(to top, rgb(0 0 0 / 80%), rgb(255 255 255 / 9%));
+  }
+
+  .youtube_video_image-iconfont-box:hover {
+    opacity: 1;
+  }
+
+  @media screen and (max-width:767px) {
+    .youtube_video_title {
+      font-size: var(--youtube_video_title_m_font_size);
+      margin-bottom: 10px;
+    }
+  }
+    .youtube_video_main_box{
+      --youtube_video_font_family:{{section.settings.youtube_video_font_family.family}};
+      --youtube_video_font_weight:{{section.settings.youtube_video_font_family.weight}};
+      --youtube_video_title_pc_font_size:{{section.settings.youtube_video_title_pc_font_size}}px;
+      --youtube_video_title_m_font_size:{{section.settings.youtube_video_title_m_font_size}}px;
+    }
+</style>
+<div class="youtube_video_main_box">
+    <div class="youtube_video_title">{{section.settings.youtube_video_title}}</div>
+
+    {% if section.settings.youtube_video_link != blank %}
+        {% assign use_image_link_youtube = true %}
+        {% assign media_wrapper_tag_youtube = 'a' %}
+    {% else %}
+        {% assign use_image_link_youtube = false %}
+        {% assign media_wrapper_tag_youtube = 'div' %}
+    {% endif %}
+
+    <{{media_wrapper_tag_youtube}} {% if use_image_link_youtube %}href="{{section.settings.youtube_video_link}}"{% endif %} class="youtube_video_title-once">
+    <img src="{% if section.settings.youtube_video_image != blank %}{{section.settings.youtube_video_image | image_url}}{% else %}{{section.settings.youtube_video_image_url}}{% endif %}" class="youtube_video_image"/>
+    <div class="youtube_video_image-iconfont-box">
+      <i class="youtube_video_image-iconfont">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#fff"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M10 13l-2 2a4 4 0 0 0 0 5.657A4 4 0 0 0 13.657 18l2-2" />
+        <path d="M14 11l2-2a4 4 0 0 0 0-5.657 4 4 0 0 0-5.657 0l-2 2" />
+        <path d="M8 12h8" />
+      </svg>
+      </i>
+    </div>
+    </{{media_wrapper_tag_youtube}}>
+</div>
+
+{% schema %}
+{
+  "name": "youtube-video-url",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+        "type":"text",
+        "id":"youtube_video_title",
+        "label": "标题"
+    },
+    {
+      "id": "youtube_video_title_m_font_size",
+      "type": "range",
+      "label": "标题移动端文字大小",
+      "default": 30,
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "id": "youtube_video_title_pc_font_size",
+      "type": "range",
+      "label": "标题电脑端文字大小",
+      "default": 40,
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "id": "youtube_video_font_family",
+      "type": "font_picker",
+      "label": "标题字体",
+      "default": "sans-serif"
+    },
+    {
+          "type": "image_picker",
+          "id": "youtube_video_image",
+          "label": "展览电脑端活动图",
+          "info":"推荐比例16:9"
+        },
+    {
+          "type": "url",
+          "id": "youtube_video_image_url",
+          "label": "展览电脑端活动图链接",
+          "info":"如果已上传图片文件，则图片链接失效"
+    },
+    {
+        "type": "url",
+        "id": "youtube_video_link",
+        "label": "Youtube跳转链接"
+    }
+  ]
+
+}
+{% endschema %}

@@ -1,0 +1,608 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+{%- liquid
+  assign s = section.settings
+
+  assign pc_w = s.pc_aspect_ratio_w | default: 16
+  assign pc_h = s.pc_aspect_ratio_h | default: 9
+  assign pc_ratio = pc_w | append: '/' | append: pc_h
+
+  assign h5_w = s.h5_aspect_ratio_w | default: 16
+  assign h5_h = s.h5_aspect_ratio_h | default: 9
+  assign h5_ratio = h5_w | append: '/' | append: h5_h
+-%}
+<div
+  class='overflow-hidden {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} bg-(--bg-color) pt-(--pt-h5) pb-(--pb-h5) md:pt-(--pt-pc) md:pb-(--pb-pc)'
+  style='
+    --pt-pc: {{ s.padding_top }}px;
+    --pb-pc: {{ s.padding_bottom }}px;
+    --pt-h5: {{ s.h5_padding_top }}px;
+    --pb-h5: {{ s.h5_padding_bottom }}px;
+    --bg-color: {{ s.bg_color }};
+    --title-color: {{ s.title_color }};
+    --block-title-color: {{ s.block_title_color }};
+    --block-desc-color: {{ s.block_desc_color }};
+  '
+>
+  <div class='page-container'>
+    <header class='flex justify-between gap-24'>
+      <h2 class='text-[32px] leading-none text-(--title-color) uppercase md:text-[44px]'>
+        {{ section.settings.title }}
+      </h2>
+      {% if section.blocks.size > 3 %}
+        <div class='hidden gap-8 md:flex'>
+          <div class='swiper-button-prev  static m-0 flex h-48 w-48 items-center justify-center rounded-full border border-[#cccccc] bg-white backdrop-blur-[5px] transition-colors duration-300 after:hidden [&.swiper-button-disabled]:bg-[#ccc] [&.swiper-button-disabled]:opacity-100 [&.swiper-button-disabled_path]:stroke-[#A6A6A6] [&:hover]:bg-[#ccc]'>
+            <svg
+              width='8'
+              height='14'
+              viewBox='0 0 8 14'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d="M6.75325 12.5859L0.919923 6.7526L6.75325 0.91927" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+            </svg>
+          </div>
+
+          <div class='swiper-button-next static m-0 flex h-48 w-48 items-center justify-center rounded-full border border-[#cccccc] bg-white backdrop-blur-[5px] transition-colors duration-300 after:hidden [&.swiper-button-disabled]:bg-[#ccc] [&.swiper-button-disabled]:opacity-100 [&.swiper-button-disabled_path]:stroke-[#A6A6A6] [&:hover]:bg-[#ccc]'>
+            <svg
+              width='8'
+              height='14'
+              viewBox='0 0 8 14'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d="M0.91862 0.919434L6.75195 6.75277L0.91862 12.5861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+            </svg>
+          </div>
+        </div>
+      {% endif %}
+    </header>
+    <main class='mt-40 md:mt-40'>
+      <div class='swiper [overflow:unset]'>
+        <div class='swiper-wrapper'>
+          {%- for block in section.blocks -%}
+            <div class='swiper-slide'>
+              <div
+                {{ block.shopify_attributes }}
+                x-data='{ open: false }'
+              >
+                <div
+                  style='
+                    --media-aspect-pc: {{ pc_ratio }};
+                    --media-aspect-h5: {{ h5_ratio }};
+                  '
+                  class='
+                    relative aspect-(--media-aspect-h5) w-full
+                    overflow-hidden md:aspect-(--media-aspect-pc)
+                  '
+                >
+                  {% render 'media-element',
+                    class: 'absolute inset-0 w-full h-full',
+                    media_class: 'w-full h-full object-cover',
+                    media_type: block.settings.media_type,
+                    pc_image: block.settings.pc_image,
+                    h5_image: block.settings.h5_image,
+                    pc_video: block.settings.pc_video,
+                    h5_video: block.settings.h5_video,
+                    video_url: block.settings.video_url,
+                    other_url: block.settings.other_url
+                  %}
+                  {%- render 'sn-overlay', _settings: block.settings -%}
+                  {% if block.settings.show_modal %}
+                    <button
+                      @click='open = true'
+                      class='
+                        absolute
+                        z-99
+                        {% if block.settings.text_layout == "bottom" %}
+                        top-20 right-20
+                        {% else %}
+                        bottom-20 right-20
+                        {% endif %}
+                        z-10 flex h-40 w-40 cursor-pointer items-center justify-center border-0 bg-white md:h-45 md:w-45
+                      '
+                    >
+                      <svg
+                        width='15'
+                        height='15'
+                        viewBox='0 0 15 15'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <path d="M7.31706 0.650391L7.31706 13.9837M13.9837 7.31706L0.650391 7.31706" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+                      </svg>
+                    </button>
+
+                    <template x-teleport='body'>
+                      <div class='css-reset tailwind-layout'>
+                        <div
+                          x-cloak
+                          x-show='open'
+                          x-transition.opacity.duration.300ms
+                          class='fixed inset-0 z-50 flex items-center justify-center bg-[#25282A]/50'
+                        >
+                          <div class='relative'>
+                            <button
+                              @click='open = false'
+                              class='absolute top-12 right-12 z-10 flex h-48 w-48 cursor-pointer items-center justify-center overflow-hidden rounded-full border-0 bg-[#CCCCCC66] md:top-24 md:right-24 md:h-48 md:w-48'
+                            >
+                              <svg
+                                class='relative'
+                                width='12'
+                                height='12'
+                                viewBox='0 0 12 12'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path d="M10.918 0.919237L0.917969 10.9192M10.918 10.9192L0.917969 0.919235" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+                              </svg>
+                            </button>
+                            <div
+                              @click.outside='open = false'
+                              x-transition.scale.95.duration.300ms
+                              class='relative max-h-[80vh] w-[90vw] overflow-y-auto bg-white px-16 py-60 shadow-xl [scrollbar-width:thin] md:max-h-[90vh] md:w-650 md:px-40 md:py-60 [&::-webkit-scrollbar]:w-4 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-transparent'
+                            >
+                              {% if block.settings.modal_title != blank %}
+                                <h3 class='text-[26px] leading-[1.1] md:mr-96 md:text-[32px]'>
+                                  {{ block.settings.modal_title }}
+                                </h3>
+                              {% endif %}
+                              {% if block.settings.modal_desc != blank %}
+                                <div class='mt-12 text-[13px] leading-[1.3] text-[#515355] md:text-[14px] [&_li]:list-disc [&_p]:mb-12 [&_ul]:pl-20'>
+                                  {{ block.settings.modal_desc }}
+                                </div>
+                              {% endif %}
+                              {% if block.settings.show_modal_media %}
+                                <div
+                                  style='
+                                    --media-aspect-pc: {{ block.settings.modal_pc_aspect_ratio_w | default: 16 }}/{{ block.settings.modal_pc_aspect_ratio_h | default: 9 }};
+                                    --media-aspect-h5: {{ block.settings.modal_h5_aspect_ratio_w | default: 16 }}/{{ block.settings.modal_h5_aspect_ratio_h | default: 9 }};
+                                  '
+                                  class='relative mt-24 aspect-(--media-aspect-h5) w-full overflow-hidden md:mt-40 md:aspect-(--media-aspect-pc)'
+                                >
+                                  {% render 'media-element',
+                                    class: 'absolute inset-0 w-full h-full',
+                                    media_class: 'w-full h-full object-cover',
+                                    media_type: block.settings.modal_media_type,
+                                    pc_image: block.settings.modal_pc_image,
+                                    h5_image: block.settings.modal_h5_image,
+                                    pc_video: block.settings.modal_pc_video,
+                                    h5_video: block.settings.modal_h5_video,
+                                    video_url: block.settings.modal_video_url,
+                                    other_url: block.settings.modal_other_url
+                                  %}
+                                </div>
+                              {% endif %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </template>
+                  {% endif %}
+
+                  <div class='flex h-full w-full {% if block.settings.text_layout == "bottom" %}items-end{% endif %}'>
+                    <div class='relative z-10 w-full p-24 md:p-32'>
+                      {% if block.settings.title != blank %}
+                        <h3 class='text-[26px] leading-[1.1] text-(--block-title-color) md:text-[32px]'>
+                          {{ block.settings.title }}
+                        </h3>
+                      {% endif %}
+
+                      {% if block.settings.desc != blank %}
+                        <div class='mt-4 text-[13px] leading-[1.3] text-(--block-desc-color) md:mt-8 md:text-[14px] [&_li]:list-disc [&_ul]:pl-20'>
+                          {{ block.settings.desc }}
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+  (() => {
+    new Swiper('#shopify-section-{{ section.id }} .swiper', {
+      observer: true,
+      observeParents: true,
+      spaceBetween: 12,
+      slidesPerView: 1.1,
+      breakpoints: {
+        768: {
+          spaceBetween: 24,
+          slidesPerView: 2.5,
+        },
+        {% if section.blocks.size == 2 %}
+        1000: {
+          spaceBetween: 24,
+          slidesPerView: 2,
+        }
+        {% elsif section.blocks.size == 3 %}
+        1000: {
+          spaceBetween: 24,
+          slidesPerView: 3,
+        }
+        {% elsif section.blocks.size > 3 %}
+        1000: {
+          spaceBetween: 24,
+          slidesPerView: 3.3,
+        }
+        {% endif %}
+      },
+      navigation: {
+        nextEl: '#shopify-section-{{ section.id }} .swiper-button-next',
+        prevEl: '#shopify-section-{{ section.id }} .swiper-button-prev',
+      },
+    });
+  })();
+</script>
+{% schema %}
+{
+  "name": "Product Img Swiper Modal",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Bg Color",
+      "default": "#0D0D0D"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "block_title_color",
+      "label": "Block Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "block_desc_color",
+      "label": "Block Desc Color",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Media Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "block",
+      "type": "Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "select",
+          "id": "text_layout",
+          "label": "Text Layout",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ],
+          "default": "bottom"
+        },
+        {
+          "type": "header",
+          "content": "Modal Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_modal",
+          "label": "Show Modal",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_modal_media",
+          "label": "Show Modal Media",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "modal_title",
+          "label": "Modal Title"
+        },
+        {
+          "type": "richtext",
+          "id": "modal_desc",
+          "label": "Modal Description"
+        },
+        {
+          "type": "header",
+          "content": "Modal Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "modal_media_type",
+          "label": "Modal Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "modal_pc_image",
+          "label": "Modal PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "modal_h5_image",
+          "label": "Modal H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "modal_pc_video",
+          "label": "Modal PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "modal_h5_video",
+          "label": "Modal H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "modal_video_url",
+          "label": "Modal Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "text",
+          "id": "modal_other_url",
+          "label": "Modal Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "header",
+          "content": "Media Aspect Ratio"
+        },
+        {
+          "type": "number",
+          "id": "modal_pc_aspect_ratio_w",
+          "label": "Modal Media PC Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "modal_pc_aspect_ratio_h",
+          "label": "Modal Media PC Ratio Height"
+        },
+        {
+          "type": "number",
+          "id": "modal_h5_aspect_ratio_w",
+          "label": "Modal Media Mobile Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "modal_h5_aspect_ratio_h",
+          "label": "Modal Media Mobile Ratio Height"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Img Swiper Modal",
+      "blocks": [
+        {
+          "type": "Block",
+          "settings": {
+            "title": "<p>Custom Schedules</p>",
+            "desc": "<p>Snow Clearing, On Your Schedule</p>"
+          }
+        },
+        {
+          "type": "Block",
+          "settings": {
+            "title": "<p>Custom Schedules</p>",
+            "desc": "<p>Snow Clearing, On Your Schedule</p>"
+          }
+        },
+        {
+          "type": "Block",
+          "settings": {
+            "title": "<p>Custom Schedules</p>",
+            "desc": "<p>Snow Clearing, On Your Schedule</p>"
+          }
+        },
+        {
+          "type": "Block",
+          "settings": {
+            "title": "<p>Custom Schedules</p>",
+            "desc": "<p>Snow Clearing, On Your Schedule</p>"
+          }
+        }
+      ],
+      "settings": {
+        "title": "<p>Partners for a Cleaner Planet</p>"
+      }
+    }
+  ]
+}
+{% endschema %}

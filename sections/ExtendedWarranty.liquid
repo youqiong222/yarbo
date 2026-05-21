@@ -1,0 +1,330 @@
+{{ 'extended-warranty.css' | asset_url | stylesheet_tag }}
+
+<div class='extended-warranty-section'>
+  <h2 class='warranty-title'>Not sure yet? See plans & pricing.</h2>
+
+  <div class='upload-section'>
+    <h3>
+      <span class='required-asterisk'>*</span>
+      Upload files
+    </h3>
+    <div style='font-size: 12px; color: #666; margin-left: 12px'>If not purchased, any image will suffice for the quote.</div>
+    <div class='file-upload-row'></div>
+    <div class='upload-area'>
+      <div class='upload-icon'>
+        <svg
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 18V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 15L12 12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span>Upload your receipt or invoice</span>
+      <input
+        type='file'
+        id='file-upload'
+        accept='.jpg,.jpeg,.png'
+        hidden
+      >
+    </div>
+  </div>
+
+  <div class='product-section'>
+    <h3>
+      <span class='required-asterisk'>*</span>
+      Please add your purchased product details
+    </h3>
+    <div style='font-size: 12px; color: #666; margin-bottom: 20px; margin-left: 12px'>Please provide the Serial Number. (If not purchased, use '1'.)</div>
+    <div class='products-container'>
+      <div class='product-item'>
+        <label>
+          <span class='required-asterisk'>*</span>
+          Product 1
+        </label>
+        <div class='product-row'>
+          <select
+            class='product-select'
+            id='initial-product-select'
+            required
+          ></select>
+          <input
+            type='text'
+            class='serial-input'
+            placeholder='Enter your product SN'
+            required
+          >
+          <div class='remove-product-placeholder'></div>
+        </div>
+      </div>
+      <button class='add-product-btn'>
+        <span>+</span>
+        Add another product
+      </button>
+    </div>
+  </div>
+
+  <div class='form-section'>
+    <div class='form-row'>
+      <div class='form-group'>
+        <label>
+          <span class='required-asterisk'>*</span>
+          Invoice Number
+          <span style='font-size: 12px; color: #666;'>(If not purchased, use '1')</span>
+        </label>
+        <input
+          type='text'
+          class='form-input'
+          placeholder='Enter your invoice number'
+          required
+        >
+      </div>
+      <div class='form-group'>
+        <label>
+          <span class='required-asterisk'>*</span>
+          Email Address
+        </label>
+        <input
+          type='email'
+          class='form-input'
+          placeholder='Enter your email to receive the quote'
+          required
+        >
+      </div>
+    </div>
+
+    <div class='form-row'>
+      <div class='form-group'>
+        <label>
+          <span class='required-asterisk'>*</span>
+          Country
+        </label>
+        <div
+          class='searchable-select'
+          data-field='country'
+        >
+          <input
+            type='text'
+            class='searchable-input'
+            placeholder='Search and select a country'
+            readonly
+          >
+          <div class='searchable-dropdown'>
+            <div class='search-box'>
+              <input
+                type='text'
+                class='search-input'
+                placeholder='Type to search countries...'
+              >
+            </div>
+            <div class='options-container'></div>
+          </div>
+        </div>
+      </div>
+      <div class='form-group'>
+        <label>State/Province</label>
+        <input
+          type='text'
+          class='form-input'
+          id='state-province-input'
+          placeholder='Enter your state/province (optional)'
+        >
+      </div>
+    </div>
+
+    <div class='form-row'>
+      <div class='form-group'>
+        <label>City</label>
+        <input
+          type='text'
+          class='form-input'
+          id='city-input'
+          placeholder='Enter your city (optional)'
+        >
+      </div>
+    </div>
+
+    <div class='form-row'>
+      <div class='form-group'>
+        <label>
+          <span class='required-asterisk'>*</span>
+          Purchase Date
+          <span style='font-size: 12px; color: #666;'>(If not purchased, enter today's date.)</span>
+        </label>
+        <div class='date-picker-container'></div>
+      </div>
+      <div class='form-group'>
+        <label>
+          <span class='required-asterisk'>*</span>
+          Add a YarboCare™ Plan
+        </label>
+        <select
+          class='form-select'
+          id='yarbocare-plan-select'
+          required
+        >
+          <option value=''>Select a plan</option>
+          <option value='1_Year'>3 Years EW</option>
+          <option value='3_Years'>1 Year AD + 3 Years EW</option>
+          <option value='5_Years'>3 Years AD + 3 Years EW</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class='submit-section'>
+    <button
+      class='estimate-btn'
+      id='get-estimate-btn'
+    >
+      Get Price Estimate
+    </button>
+  </div>
+
+  <div
+    class='warranty-quote-section'
+    id='warranty-quote'
+  >
+    <div class='coverage-summary'>
+      <h4>Coverage Summary by Plan:</h4>
+
+      <div
+        class='plan-details'
+        id='plan-details'
+      >
+        <div
+          class='plan-title'
+          id='plan-title'
+        >
+          3 Years EW
+        </div>
+        <ul class='plan-features'>
+          <li>Extended warranty: 3 additional years after the standard 2-year warranty, extending all original warranty coverage.</li>
+          <li>Covers malfunctions during normal use.</li>
+          <li>Waiver of repair, labor, and service charges.</li>
+          <li>Free two-way shipping and official technical support.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class='eligible-products'>
+      <h4>Eligible Products:</h4>
+      <p class='products-list'>
+        Yarbo Core, Lawn Mower Module, Lawn Mower Pro Module, Blower Module, Snow Blower Module, Yarbo Lawn Mower, Yarbo Lawn Mower Pro, Yarbo Blower, Yarbo
+        Snow Blower, Yarbo Trimmer, Yarbo Trimmer Package
+      </p>
+    </div>
+
+    <div class='important-info'>
+      <h4>Important:</h4>
+      <ul class='important-list'>
+        <li>
+          Extended Warranty can be purchased within
+          <strong>60 days</strong>
+          of the product purchase date.
+        </li>
+        <li>The maximum claim amount is limited to the original purchase price of the product.</li>
+        <li>Coverage is provided through XCotton (underwritten by AIG). Yarbo acts as an intermediary.</li>
+        <li>
+          For full terms and conditions, please refer to the
+          <strong>
+            <a
+              href='/pages/policy-product-protection-plan'
+              style='text-decoration: underline;'
+            >
+              YarboCare™ Protection Plan Policy
+            </a>
+          </strong>
+          .
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div
+    class='price-modal-overlay'
+    id='price-modal-overlay'
+  >
+    <div class='price-modal'>
+      <div class='price-modal-header'>
+        <h3 class='price-modal-title'>YarboCare™ Extended Warranty Quote</h3>
+        <button
+          class='price-modal-close'
+          id='price-modal-close'
+        >
+          &times;
+        </button>
+      </div>
+      <div class='price-modal-content'>
+        <div style='font-size: 12px; color: #666; margin-bottom: 10px; margin-left: 12px'>
+          Estimate only. Final Warranty Price is based on the receipt or invoice amount.
+        </div>
+        <div class='price-details'>
+          <div class='price-row'>
+            <span class='price-label'>Your Product:</span>
+            <span
+              class='price-value'
+              id='modal-selected-product'
+            >
+              -
+            </span>
+          </div>
+          <div class='price-row'>
+            <span class='price-label'>Total Product Price:</span>
+            <span
+              class='price-value'
+              id='modal-total-product-price'
+            >
+              $0.00
+            </span>
+          </div>
+          <div class='price-row'>
+            <span class='price-label'>Coverage Period:</span>
+            <span
+              class='price-value'
+              id='modal-coverage-period'
+            >
+              -
+            </span>
+          </div>
+          <div class='price-row'>
+            <span class='price-label'>Warranty Price:</span>
+            <span
+              class='price-value'
+              id='modal-warranty-price'
+            >
+              $0.00
+            </span>
+          </div>
+        </div>
+
+        <div class='price-modal-actions'>
+          <button
+            class='modal-submit-btn'
+            id='modal-submit-btn'
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script
+  src='{{ 'extended-warranty.js' | asset_url }}'
+  defer
+></script>
+
+{% schema %}
+{
+  "name": "Extended Warranty",
+  "settings": [],
+  "blocks": []
+}
+{% endschema %}

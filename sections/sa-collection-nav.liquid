@@ -1,0 +1,248 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+
+<style>
+  #shopify-section-{{ section.id }} .swiper-slide {
+    width: auto !important;
+  }
+</style>
+
+{% assign current_url = request.path %}
+
+<div
+  x-data='tabsPro()'
+  x-init='init()'
+  class='anchor-views-section'
+>
+  <div class='page-container'>
+    <div class='anchor-views-action-container'>
+      <!-- Swiper -->
+      <div class='swiper relative'>
+        <!-- 灰线 -->
+        <span
+          class='absolute bottom-0 left-0 z-1 h-4 w-full bg-[#cccccc]'
+        ></span>
+
+        <!-- Tabs -->
+        <div
+          class='swiper-wrapper anchor-views-action relative'
+          x-ref='container'
+        >
+          {% for block in section.blocks %}
+            {%- if block.settings.link != blank -%}
+              {% assign is_active = false %}
+              {% if block.settings.link == current_url %}
+                {% assign is_active = true %}
+              {% endif %}
+
+              <a
+                href='{{ block.settings.link }}'
+                class='swiper-slide cursor-pointer px-2 pb-12 text-[18px] font-bold uppercase transition-colors duration-300'
+
+                :class="isActive($el) ? 'text-black' : 'text-[#a6a6a6] hover:text-black'"
+                @click.prevent='select($el)'
+
+                x-init='if({{ is_active | json }}) setInitial($el)'
+              >
+                {{ block.settings.title }}
+              </a>
+            {%- endif -%}
+          {% endfor %}
+
+          <!-- underline -->
+          <span
+            class='
+              absolute bottom-0 z-20 h-4 rounded bg-[#25282a]
+              transition-[transform,width] duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]
+            '
+            :style='style'
+          ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function tabsPro() {
+    return {
+      activeEl: null,
+      hoverEl: null,
+      style: '',
+      swiper: null,
+
+      init() {
+        this.swiper = new Swiper('#shopify-section-{{ section.id }} .swiper', {
+          slidesPerView: 'auto',
+          spaceBetween: 32,
+          freeMode: true,
+          {%- if section.settings.auto_rotate %}
+          autoplay: { delay: {{ section.settings.change_slides_speed | times: 1000 }}, disableOnInteraction: false },
+          {% endif -%}
+        });
+
+        this.$nextTick(() => {
+          // fallback：用 URL 找 active
+          if (!this.activeEl) {
+            const path = window.location.pathname;
+            const tabs = this.$refs.container.querySelectorAll('a');
+
+            tabs.forEach((el) => {
+              if (el.getAttribute('href') === path) {
+                this.activeEl = el;
+              }
+            });
+          }
+
+          // fallback：第一个
+          if (!this.activeEl) {
+            this.activeEl = this.$refs.container.querySelector('a');
+          }
+
+          this.update();
+          this.scrollIntoView(this.activeEl);
+        });
+
+        window.addEventListener('resize', () => {
+          this.update();
+        });
+      },
+
+      setInitial(el) {
+        this.activeEl = el;
+      },
+
+      isActive(el) {
+        return this.activeEl === el;
+      },
+
+      hover(el) {
+        this.hoverEl = el;
+        this.update(el);
+      },
+
+      leave() {
+        this.hoverEl = null;
+        this.update();
+      },
+
+      select(el) {
+        this.activeEl = el;
+        this.update();
+        this.scrollIntoView(el);
+
+        window.location.href = el.getAttribute('href');
+      },
+
+      update(targetEl = null) {
+        const el = targetEl || this.hoverEl || this.activeEl;
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+        const parent = this.$refs.container.getBoundingClientRect();
+
+        const x = rect.left - parent.left;
+
+        this.style = `
+        width: ${rect.width}px;
+        transform: translateX(${x}px);
+      `;
+      },
+
+      scrollIntoView(el) {
+        if (!this.swiper || !el) return;
+
+        const swiper = this.swiper;
+        const elRect = el.getBoundingClientRect();
+        const containerRect = swiper.el.getBoundingClientRect();
+
+        const padding = 40;
+
+        const isOutLeft = elRect.left < containerRect.left + padding;
+        const isOutRight = elRect.right > containerRect.right - padding;
+
+        if (!isOutLeft && !isOutRight) return;
+
+        let offset = 0;
+
+        if (isOutLeft) {
+          offset = elRect.left - containerRect.left - padding;
+        } else if (isOutRight) {
+          offset = elRect.right - containerRect.right + padding;
+        }
+
+        let current = swiper.getTranslate();
+        let target = current - offset;
+
+        const max = swiper.maxTranslate();
+        const min = swiper.minTranslate();
+
+        if (target > min) target = min;
+        if (target < max) target = max;
+
+        swiper.setTransition(350);
+        swiper.setTranslate(target);
+      },
+    };
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Collection Nav",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    { "type": "header", "content": "Spacing Settings" },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "block",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Collection Nav" }]
+}
+{% endschema %}

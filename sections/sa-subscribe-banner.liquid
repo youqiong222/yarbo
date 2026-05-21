@@ -1,0 +1,139 @@
+<div
+  style='
+    --margin-top: {{ section.settings.margin_top }}px;
+    --margin-bottom: {{ section.settings.margin_bottom }}px;
+    --h5-margin-top: {{ section.settings.h5_margin_top }}px;
+    --h5-margin-bottom: {{ section.settings.h5_margin_bottom }}px;
+  '
+  class='mt-(--h5-margin-top) mb-(--h5-margin-bottom) md:mt-(--margin-top) md:mb-(--margin-bottom)'
+>
+  <div class='page-container'>
+    <div class='flex justify-between gap-32 bg-[#E6E6E6] px-16 py-48 pb-32 max-md:flex-col sm:px-80 sm:py-60 md:gap-60 lg:gap-80'>
+      <h2 class='max-w-540 leading-[1.1] md:text-[32px]'>{{ section.settings.title }}</h2>
+      <div class='max-w-540'>
+        {% render 'sn-subscribe-klaviyo',
+          policy_class: 'text-[#515355]',
+          emailType: section.settings.email_type,
+          klaviyoListId: section.settings.klaviyo_list_id,
+          step1: section.settings.step1,
+          step1Placeholder: section.settings.step1_placeholder,
+          step2: section.settings.step2,
+          step2Placeholder: section.settings.step2_placeholder,
+          step3: section.settings.step3,
+          step3Placeholder: section.settings.step3_placeholder
+        %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "common subscribe banner",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "header",
+      "content": "Subscribe Settings"
+    },
+    {
+      "type": "text",
+      "id": "email_type",
+      "label": "Email Type"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo List ID"
+    },
+    {
+      "type": "text",
+      "id": "step1",
+      "label": "Step 1 Button Text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "step1_placeholder",
+      "label": "Step 1 Placeholder",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "step2",
+      "label": "Step 2 Button Text"
+    },
+    {
+      "type": "text",
+      "id": "step2_placeholder",
+      "label": "Step 2 Placeholder"
+    },
+    {
+      "type": "text",
+      "id": "step3",
+      "label": "Step 3 Button Text"
+    },
+    {
+      "type": "text",
+      "id": "step3_placeholder",
+      "label": "Step 3 Placeholder"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "h5_margin_top",
+      "label": "Margin Top (Mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "h5_margin_bottom",
+      "label": "Margin Bottom (Mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "common subscribe banner",
+      "settings": {
+        "title": "Subscribe to receive latest product updates and exclusive offer!"
+      }
+    }
+  ]
+}
+{% endschema %}

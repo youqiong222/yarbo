@@ -1,0 +1,106 @@
+{% comment %}
+  Renders a cart discount code input component.
+
+  Usage:
+  {% render 'sn-cart-discount' %}
+{% endcomment %}
+
+{% liquid
+  assign discount_codes = cart.cart_level_discount_applications | where: 'type', 'discount_code' | map: 'title'
+  for item in cart.items
+    for allocation in item.line_level_discount_allocations
+      if allocation.discount_application.type == 'discount_code'
+        assign discount_codes = item.line_level_discount_allocations | slice: forloop.index0 | map: 'discount_application' | map: 'title' | concat: discount_codes
+      endif
+    endfor
+  endfor
+  assign discount_codes = discount_codes | uniq
+%}
+
+<cart-discount class='block' data-section-id='cart-drawer'>
+  <div class='cart-discount__wrapper'>
+    <form
+      class='cart-discount__form flex border border-[#CCCCCC] p-6 md:p-8'
+      onsubmit='return false;'
+    >
+      <input
+        type='text'
+        name='discount'
+        class='cart-discount__input max-w-[80%] flex-1 border-0 px-16 text-[14px] placeholder:text-[#999] focus:border-[#25282A] focus:outline-none'
+        placeholder='Enter promo code'
+        autocomplete='off'
+      >
+      <button
+        type='submit'
+        class='cart-discount__apply relative flex h-38 min-w-80 cursor-pointer items-center justify-center border-0 bg-[#25282A] px-12 text-[14px] text-white transition-colors duration-300 hover:bg-[#FEDB1E] hover:text-[#25282A] md:min-w-120'
+      >
+        <span class='cart-discount__apply-text'>Apply</span>
+        <span class='cart-discount__apply-spinner hidden'>
+          <svg
+            class='h-18 w-18 animate-spin'
+            viewBox='0 0 24 24'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <circle cx='12' cy='12' r='10' stroke='currentColor' stroke-width='2.5' stroke-dasharray='31.4 31.4' stroke-linecap='round'/>
+          </svg>
+        </span>
+      </button>
+    </form>
+    <div
+      class='cart-discount__error mt-8 hidden items-center gap-4 text-[13px] text-red-600'
+      role='alert'
+    >
+      <svg
+        class='h-14 w-14 shrink-0'
+        viewBox='0 0 14 14'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <circle cx='7' cy='7' r='6' stroke='currentColor' stroke-width='1.2'/>
+        <path d='M7 4V8' stroke='currentColor' stroke-width='1.2' stroke-linecap='round'/>
+        <circle cx='7' cy='10.5' r='0.75' fill='currentColor'/>
+      </svg>
+      <span class='cart-discount__error-text'></span>
+    </div>
+
+    <ul class='cart-discount__codes mt-8 flex list-none flex-wrap gap-6 p-0'>
+      {% for code in discount_codes %}
+        <li
+          class='cart-discount__pill flex items-center gap-6 rounded-full bg-[#F2F2F2] px-12 py-4 text-[13px]'
+          data-discount-code='{{ code }}'
+        >
+          <span class='uppercase'>{{ code }}</span>
+          <button
+            type='button'
+            class='cart-discount__remove flex h-16 w-16 cursor-pointer items-center justify-center border-0 bg-transparent p-0 text-[#515355] transition-colors hover:text-[#25282A]'
+            aria-label='Remove discount {{ code }}'
+          >
+            <svg
+              class='h-10 w-10'
+              viewBox='0 0 10 10'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d='M7.5 2.5L2.5 7.5M7.5 7.5L2.5 2.5' stroke='currentColor' stroke-width='1.2' stroke-linecap='round'/>
+            </svg>
+          </button>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</cart-discount>
+
+<style>
+  cart-discount {
+    display: block;
+  }
+
+  .cart-discount__codes:empty {
+    display: none;
+  }
+
+  .cart-discount__apply-spinner.hidden {
+    display: none;
+  }
+</style>

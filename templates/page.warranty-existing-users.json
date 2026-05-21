@@ -1,0 +1,197 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_B7VL9h": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "yb_banner_swiper_66CHbV": {
+      "type": "yb-banner-swiper",
+      "blocks": {
+        "item_tnjwLQ": {
+          "type": "item",
+          "settings": {
+            "text_horizontal_position": "left",
+            "text_vertical_position": "center",
+            "text_width": 50,
+            "description": "",
+            "title": "<p> Get YarboCare™ 3-Year Extended Warranty for Your Yarbo Products.   </p>",
+            "subTitle": "",
+            "enable_btn_group": false,
+            "enable_global_btn": false,
+            "enable_global_anchor": false,
+            "global_anchor_id": "",
+            "button_text": "",
+            "button_type": "link",
+            "button_link": "",
+            "button_class": "",
+            "button_anchor": "",
+            "button2_text": "",
+            "button2_type": "link",
+            "button2_link": "",
+            "button2_class": "",
+            "button2_anchor": "",
+            "enable_subscription": false,
+            "subscription_absolute": false,
+            "subscription_position": 24,
+            "email_type": "",
+            "klaviyo_list_id": "",
+            "subscription_title": "",
+            "subscription_button_text": "",
+            "pc_img": "shopify://shop_images/20251017-171443_900x_39dc2bf5-0a7e-4f10-92ce-484a610cc41c.png",
+            "pc_external_video": "",
+            "mobile_img": "shopify://shop_images/20251017-171449_750x_01ec9ce0-1916-42e6-b624-dfa84a6ad745.png",
+            "mobile_external_video": "",
+            "mobile_layout": "style1"
+          }
+        }
+      },
+      "block_order": [
+        "item_tnjwLQ"
+      ],
+      "name": "Yb-Banner",
+      "settings": {
+        "banner_speed": 6
+      }
+    },
+    "yb_faq_categories_gWc7NK": {
+      "type": "yb-faq-categories",
+      "blocks": {
+        "category_4UwNLf": {
+          "type": "category",
+          "settings": {
+            "title": "Coverage & Eligibility",
+            "bg_color": "#e5e5e5"
+          }
+        },
+        "faq_AUkiFp": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the YarboCare™ 3-Year Extended Warranty?",
+            "answer": "<p>The YarboCare™ 3-Year Extended Warranty is an optional protection plan for existing Yarbo users. It extends your standard 2-year comprehensive warranty by an additional 3 years, providing continued coverage for manufacturing defects and performance issues.</p>"
+          }
+        },
+        "faq_tWJnRy": {
+          "type": "faq",
+          "settings": {
+            "question": "Who is eligible to purchase this Extended Warranty?",
+            "answer": "<p>This plan is available exclusively to Yarbo customers who:</p><ul><li>Purchased their Yarbo product directly from Yarbo’s official website (<a href=\"http://www.yarbo.com\">www.yarbo.com</a>).<br/></li><li>Have not previously purchased any Extended Warranty plan.<br/></li><li>Are still within the first 18 months of their standard 2-year warranty period. Orders from third-party platforms (e.g., Amazon, other retailers) are not eligible.</li></ul>"
+          }
+        },
+        "faq_EpQLeN": {
+          "type": "faq",
+          "settings": {
+            "question": "Which Yarbo products are eligible for the 3-Year Extended Warranty?",
+            "answer": "<p>All Yarbo products that include a Yarbo Core are eligible, including the Yarbo Lawn Mower, Snow Blower, Blower, Trimmer, and combination packages (e.g., 4-in-1, 5-in-1 Yard Robots). Accessories and standalone modules are excluded.</p>"
+          }
+        },
+        "faq_jEz8bU": {
+          "type": "faq",
+          "settings": {
+            "question": "When should I purchase the 3-Year Extended Warranty?",
+            "answer": "<p>You must purchase the Extended Warranty <strong>within the first 18 months</strong> of your standard 2-year warranty period (i.e., at least 6 months before it expires). Orders that have exceeded 18 months of use are not eligible.</p>"
+          }
+        },
+        "category_jpUEra": {
+          "type": "category",
+          "settings": {
+            "title": "Purchase & Activation",
+            "bg_color": "#e5e5e5"
+          }
+        },
+        "faq_beXWWE": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I purchase the Extended Warranty?",
+            "answer": "<ol><li>Visit the Extended Warranty page on Yarbo’s official website.<br/></li><li>Enter your order number and email address for verification.<br/></li><li>If eligible, you’ll be redirected to the purchase page ($599).<br/></li><li>Once payment is completed, XCotton (our authorized service provider) will activate your coverage and send you a confirmation email with your policy details.<br/></li></ol>"
+          }
+        },
+        "faq_dwWkht": {
+          "type": "faq",
+          "settings": {
+            "question": "What if my order cannot be verified?",
+            "answer": "<p>If the system cannot verify your order, one of the following messages may appear:</p><ul><li>“No order found.” – Incorrect order number or not purchased from Yarbo.com.<br/></li><li>“This order already has an Extended Warranty.” – Your product already includes an active extended plan.<br/></li><li>“This order is not covered by the 2-year standard warranty or has exceeded the 18-month usage window.” – Your product is not eligible for this plan. You may correct your information and retry the verification process.</li></ul>"
+          }
+        },
+        "category_hGjrM3": {
+          "type": "category",
+          "settings": {
+            "title": "Coverage & Claims",
+            "bg_color": "#e5e5e5"
+          }
+        },
+        "faq_3Jf3fF": {
+          "type": "faq",
+          "settings": {
+            "question": "What does the YarboCare™ 3-Year Extended Warranty cover?",
+            "answer": "<p>This plan covers:</p><ul><li>Manufacturing defects<br/></li><li>Performance failures<br/></li><li>Other product quality issues as defined in Yarbo’s official warranty policy</li></ul><p>It does <strong>not</strong> cover accidental damage, weather-related damage, cosmetic issues, or normal wear and tear.</p>"
+          }
+        },
+        "faq_iT4VDm": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the maximum claim amount?",
+            "answer": "<p>The total reimbursement or compensation under this plan is based on the original purchase price of your product, <strong>up to a maximum of USD $5,000 per covered product</strong>, regardless of the product’s retail or replacement value.</p>"
+          }
+        },
+        "faq_L4imbg": {
+          "type": "faq",
+          "settings": {
+            "question": "Can the Extended Warranty be combined with other promotions?",
+            "answer": "<p>No. This Extended Warranty cannot be combined with other discounts, promotions, or campaigns unless explicitly stated.</p>"
+          }
+        },
+        "faq_rx6pkN": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I report a covered issue?",
+            "answer": "<p>If your covered product is damaged or malfunctions, please report the issue through the <a href=\"https://sp.xcottons.com/parcel#/productProtection/protection-login\" target=\"_blank\">Xcotton Resolution Center</a>.<br/>Email: <a>support@xcottons.com</a></p><p>For more details, please refer to the <a href=\"https://www.yarbo.com/policy/product-protection-plan\" target=\"_blank\">YarboCare™ Product Protection Policy | Powered by Xcotton</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_4UwNLf",
+        "faq_AUkiFp",
+        "faq_tWJnRy",
+        "faq_EpQLeN",
+        "faq_jEz8bU",
+        "category_jpUEra",
+        "faq_beXWWE",
+        "faq_dwWkht",
+        "category_hGjrM3",
+        "faq_3Jf3fF",
+        "faq_iT4VDm",
+        "faq_L4imbg",
+        "faq_rx6pkN"
+      ],
+      "name": "Advanced FAQ (Nav)",
+      "settings": {
+        "title": "FAQs",
+        "bg_color": "#ffffff",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 60,
+        "padding_top_m": 40,
+        "padding_bottom_m": 40
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_B7VL9h",
+    "yb_banner_swiper_66CHbV",
+    "yb_faq_categories_gWc7NK"
+  ]
+}

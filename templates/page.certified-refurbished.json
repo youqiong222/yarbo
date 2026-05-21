@@ -1,0 +1,651 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_common_banner_bNhy9z": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_nAPA4X": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame-2036457849-_2__1944x_62d80192-4512-4de1-a588-2320b7932225.webp",
+            "h5_image": "shopify://shop_images/3d8299e7-1e12-4a28-b2a1-d1c6f3d4ddbd.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "top-center",
+            "sub_title": "<p>Smarter Spend.Same Performance.</p>",
+            "sub_title_color": "#ffffff",
+            "title": "<p>Yarbo Certified Refurbished</p>",
+            "title_color": "#ffffff",
+            "desc": "<p>Certified by Yarbo. Backed by 2-Year Warranty. Limited Stocks Only.</p>",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_nAPA4X"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 700,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_common_banner_HBAaRg": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_QAzgP9": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/2f027e98-81d5-4d17-be19-6282e277d722.png",
+            "h5_image": "shopify://shop_images/b41b81ae-d0f9-4917-be6f-1831a8c4efb8.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-center",
+            "content_position_h5": "middle-center",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_QAzgP9"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 700,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_refurbished_grid_gBx9Ly": {
+      "type": "sa-refurbished-grid",
+      "blocks": {
+        "card_tzPcU8": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Group-1960930449-_1.webp",
+            "title": "Same Performance",
+            "desc": "All units tested by Yarbo officials to meet original performance standards.",
+            "title_color": "#ffffff",
+            "desc_color": "#ffffff"
+          }
+        },
+        "card_87EWWR": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Group-1960930450-1.webp",
+            "title": "2-Year Warranty",
+            "desc": "Full protection, use with confidence.",
+            "title_color": "#ffffff",
+            "desc_color": "#ffffff"
+          }
+        },
+        "card_ctwMbB": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Group-1960930443-1.webp",
+            "title": "Smarter & Sustainable",
+            "desc": "Save your budget, save the planet.",
+            "title_color": "#ffffff",
+            "desc_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "card_tzPcU8",
+        "card_87EWWR",
+        "card_ctwMbB"
+      ],
+      "name": "Refurbished Grid",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#f5f5f5",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "Why Certified Refurbished?",
+        "title_color": "#25282a"
+      }
+    },
+    "sa_product_img_swiper_with_modal_MUX8kB": {
+      "type": "sa-product-img-swiper-with-modal",
+      "blocks": {
+        "block_iL6JVD": {
+          "type": "Block",
+          "settings": {
+            "title": "<p>Initial Inspection</p>",
+            "desc": "<ul><li>Verified</li><li>Approved</li><li>Quality-checked</li></ul>",
+            "text_layout": "top",
+            "show_modal": true,
+            "show_modal_media": false,
+            "modal_title": "<p>Initial Inspection</p>",
+            "modal_desc": "<p>Upon arrival, each unit is verified, approved, and quality-checked by official technicians to catalog its condition and identify any issues.</p>",
+            "modal_media_type": "image",
+            "modal_video_url": "",
+            "modal_other_url": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Group-1960930422.webp",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_az7gpy": {
+          "type": "Block",
+          "settings": {
+            "title": "<p>Deep Industrial Cleaning</p>",
+            "desc": "<ul><li>Stripped</li><li>Industrial-washed</li></ul>",
+            "text_layout": "top",
+            "show_modal": true,
+            "show_modal_media": false,
+            "modal_title": "<p>Deep Industrial Cleaning</p>",
+            "modal_desc": "<p>The machine is then fully disassembled and industrial-washed to remove all dirt, debris, or residue. Every track, casing, and crevice is cleaned to restore a like-new level of cleanliness.</p>",
+            "modal_media_type": "image",
+            "modal_video_url": "",
+            "modal_other_url": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/dc4c3159-2c7b-411b-b438-c46264e581f7.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_UkhkgR": {
+          "type": "Block",
+          "settings": {
+            "title": "<p>Component Repair or Replacement</p>",
+            "desc": "<ul><li>Rebuilt </li><li>Certified Yarbo Components</li></ul>",
+            "text_layout": "top",
+            "show_modal": true,
+            "show_modal_media": false,
+            "modal_title": "<p>Component Repair or Replacement</p>",
+            "modal_desc": "<p>Next, any worn or damaged parts are repaired or replaced using genuine Yarbo components. This step addresses mechanical, electrical, and structural parts to ensure the core is in peak working order.</p>",
+            "modal_media_type": "image",
+            "modal_video_url": "",
+            "modal_other_url": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/189eeb28-b380-494c-969a-f82338cc03ce.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_C8CP4F": {
+          "type": "Block",
+          "settings": {
+            "title": "<p>Performance Testing & Serial Registration</p>",
+            "desc": "<ul><li>Performance Testing</li><li>Serial Registration</li></ul>",
+            "text_layout": "top",
+            "show_modal": true,
+            "show_modal_media": false,
+            "modal_title": "<p>Performance Testing & Serial Registration</p>",
+            "modal_desc": "<p>After reassembly, each unit undergoes a full performance and cosmetic inspection, with all systems tested to confirm it meets original factory specifications. Once approved, the product is professionally repackaged using protective materials and registered by serial number in Yarbo’s system for tracking and warranty activation, before being officially cleared and prepared for shipment.</p>",
+            "modal_media_type": "image",
+            "modal_video_url": "",
+            "modal_other_url": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/9ea6baf1-3882-4ff9-94b1-2354874367a5.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "block_iL6JVD",
+        "block_az7gpy",
+        "block_UkhkgR",
+        "block_C8CP4F"
+      ],
+      "name": "Product Img Swiper Modal",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "<p>Partners for a Cleaner Planet</p>",
+        "bg_color": "#ffffff",
+        "title_color": "#121212",
+        "block_title_color": "#ffffff",
+        "block_desc_color": "#e6e6e6",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "pc_aspect_ratio_w": 340,
+        "pc_aspect_ratio_h": 530,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500
+      }
+    },
+    "sa_feature_product_blocks_GndAMq": {
+      "type": "sa-feature-product-blocks",
+      "blocks": {
+        "product_pUDqFx": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Group_1321318249.png",
+            "pc_layout": "image_left",
+            "title": "<p>Yarbo Snow Blower (Include a <strong>New Module </strong>with Refurbished Grade B+ Core)</p>",
+            "desc": "<ul><li>These products are Class B refurbished units.</li><li>The product includes the <strong>2-Year</strong> standard coverage warranty.</li><li>The products are not eligible for the YarboCare™ extended warranty plan.</li><li><strong>BRAND NEW ORIGINAL BATTERY.</strong></li></ul>",
+            "card_bg_color": "#ffffff",
+            "title_color": "#25282a",
+            "title_strong_color": "#fedb1f",
+            "desc_color": "#515355",
+            "price_color": "#25282a",
+            "button_text": "Currently Unavailable",
+            "button_link": "#",
+            "button_color": "#25282a",
+            "button_bg_color": "#fedb1e",
+            "button_hover_color": "#ffffff",
+            "button_bg_hover_color": "#25282a"
+          }
+        },
+        "product_rwqcEY": {
+          "type": "product",
+          "settings": {
+            "product": "dev",
+            "image": "shopify://shop_images/Group_1321318252_1.png",
+            "pc_layout": "image_right",
+            "title": "<p>Yarbo Lawn Mower (Include a <strong>New Module </strong>with Refurbished Grade B+ Core)</p>",
+            "desc": "<ul><li>These products are Class B refurbished units.</li><li>The product includes the <strong>2-Year</strong> standard coverage warranty.</li><li>The products are not eligible for the YarboCare™ extended warranty plan.</li><li><strong>BRAND NEW ORIGINAL BATTERY.</strong></li></ul>",
+            "card_bg_color": "#ffffff",
+            "title_color": "#25282a",
+            "title_strong_color": "#fedb1f",
+            "desc_color": "#515355",
+            "price_color": "#25282a",
+            "button_text": "Currently Unavailable",
+            "button_link": "#",
+            "button_color": "#25282a",
+            "button_bg_color": "#fedb1e",
+            "button_hover_color": "#ffffff",
+            "button_bg_hover_color": "#25282a"
+          }
+        },
+        "product_MDF9KX": {
+          "type": "product",
+          "settings": {
+            "product": "dev",
+            "image": "shopify://shop_images/Group_1321318251.png",
+            "pc_layout": "image_left",
+            "title": "<p>Yarbo Snow Blower + Lawn Mower Module  (Includes <strong>New Modules </strong>with Refurbished Grade B+ Core)</p>",
+            "desc": "<ul><li>These products are Class B refurbished units.</li><li>The product includes the <strong>2-Year</strong> standard coverage warranty.</li><li>The products are not eligible for the YarboCare™ extended warranty plan.</li><li><strong>BRAND NEW ORIGINAL BATTERY.</strong></li></ul>",
+            "card_bg_color": "#ffffff",
+            "title_color": "#25282a",
+            "title_strong_color": "#fedb1f",
+            "desc_color": "#515355",
+            "price_color": "#25282a",
+            "button_text": "Currently Unavailable",
+            "button_link": "#",
+            "button_color": "#25282a",
+            "button_bg_color": "#fedb1e",
+            "button_hover_color": "#ffffff",
+            "button_bg_hover_color": "#25282a"
+          }
+        },
+        "product_3tHTNg": {
+          "type": "product",
+          "settings": {
+            "product": "dev",
+            "image": "shopify://shop_images/Group_1321318250.png",
+            "pc_layout": "image_right",
+            "title": "<p>Refurbished Grade B+ Yarbo Core</p>",
+            "desc": "<ul><li>These products are Class B refurbished Yarbo Core (Not Include Modules).</li><li>The product includes the <strong>2-Year</strong> standard coverage warranty.</li><li>The products are not eligible for the YarboCare™ extended warranty plan.</li><li><strong>BRAND NEW ORIGINAL BATTERY.</strong></li></ul>",
+            "card_bg_color": "#ffffff",
+            "title_color": "#25282a",
+            "title_strong_color": "#fedb1f",
+            "desc_color": "#515355",
+            "price_color": "#25282a",
+            "button_text": "Currently Unavailable",
+            "button_link": "#",
+            "button_color": "#25282a",
+            "button_bg_color": "#fedb1e",
+            "button_hover_color": "#ffffff",
+            "button_bg_hover_color": "#25282a"
+          }
+        }
+      },
+      "block_order": [
+        "product_pUDqFx",
+        "product_rwqcEY",
+        "product_MDF9KX",
+        "product_3tHTNg"
+      ],
+      "name": "Feature Product Blocks",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#f5f5f5",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "Refurbished Products",
+        "title_color": "#000000",
+        "desc": "<p>Completely new module, barely new core.<br/>Act now to secure your <strong>Grade B+ </strong>certified unit before it’s gone!</p>",
+        "desc_color": "#000000"
+      }
+    },
+    "sa_why_shop_with_yarbo_EBRMxM": {
+      "type": "sa-why-shop-with-yarbo",
+      "blocks": {
+        "feature_item_eWUpjW": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame-_1_-5.webp",
+            "title": "Free & Fast Delivery",
+            "desc": "For the Yarbo robots in stock, you will easily get them in 3-8 business days. Act now — our stock is very limited!",
+            "title_color": "#25282a",
+            "desc_color": "#515355"
+          }
+        },
+        "feature_item_UNVY8m": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame-_2_-1.webp",
+            "title": "7/24 Customer Support",
+            "desc": "Reach us anytime via email, phone, or ticket. Team Yarbo is always ready to deliver fast, reliable answers.",
+            "title_color": "#25282a",
+            "desc_color": "#515355"
+          }
+        },
+        "feature_item_h3YBmL": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame-_3_-1.webp",
+            "title": "Up to 2-Year Total Warranty",
+            "desc": "Same warranty coverage as a new machine for 2 years.",
+            "title_color": "#25282a",
+            "desc_color": "#515355"
+          }
+        },
+        "feature_item_tWiinJ": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "shopify://shop_images/11e37c876e574e49886050e1b05ab10a.webp",
+            "title": "14-Day Trial",
+            "desc": "14-day free refund for quality issues.",
+            "title_color": "#25282a",
+            "desc_color": "#515355"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_eWUpjW",
+        "feature_item_UNVY8m",
+        "feature_item_h3YBmL",
+        "feature_item_tWiinJ"
+      ],
+      "name": "Why Shop With Yarbo",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "Why Shop with Yarbo",
+        "title_color": "#25282a"
+      }
+    },
+    "sa_common_banner_Cc7JMN": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_FpEUpQ": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/b77aad7b-f9c0-42e0-a1cf-300849cc8acd.png",
+            "h5_image": "shopify://shop_images/16e76e08-4a10-40d5-ad66-4b2187ae995b.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-center",
+            "content_position_h5": "middle-center",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_FpEUpQ"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 700,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_faq_yxcKwx": {
+      "type": "sa-faq",
+      "blocks": {
+        "qa_M7jY3F": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>WHAT IS A YARBO CERTIFIED REFURBISHED PRODUCT?</p>",
+            "answer": "<p>A Yarbo Certified Refurbished product is a pre-owned unit that has undergone our rigorous, factory-authorized refurbishment process. These units are thoroughly inspected, cleaned, and tested to ensure they meet the same functional performance standards as a new Yarbo. While they offer the same cutting-edge technology and intelligence, they come at a significantly more accessible price point.</p>"
+          }
+        },
+        "qa_X8MNTP": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>WHAT DOES \"GRADE B\" CONDITION MEAN FOR A REFURBISHED YARBO?</p>",
+            "answer": "<p>Grade B refers to the cosmetic condition of the unit. While 100% functionally equivalent to a new machine, Grade B units may show minor signs of previous use, such as superficial scratches, light scuffs, or minor surface discoloration on the outer shell. These imperfections are strictly cosmetic and do not affect the robot’s performance, durability, or autonomous capabilities.</p>"
+          }
+        },
+        "qa_N9L7eC": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>WHAT IS INCLUDED IN THE BOX WITH A REFURBISHED YARBO?</p>",
+            "answer": "<p>Your refurbished package will include all the essential components required for operation, mirroring a new set. This typically includes the Yarbo Core, your selected module (Snow Blower or Lawn Mower), the Docking Station, the Battery, and the Accessory Kit. All items have been cleaned and verified for complete functionality.</p>"
+          }
+        },
+        "qa_qi3Awa": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>CAN I RETURN MY REFURBISHED YARBO IF I CHANGE MY MIND?</p>",
+            "answer": "<p>Customers may request a return within 14 days of receiving the product.However, returns based on non-defective reasons (e.g., no longer wanting the product) will not be accepted.</p>"
+          }
+        },
+        "qa_LjqYHT": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>CAN I EXCHANGE MY REFURBISHED UNIT FOR A NEW ONE?</p>",
+            "answer": "<p>No. All exchanges for certified refurbished products are limited to refurbished replacement units only, not new units.</p><p>If you wish to request an exchange, it must be submitted within 20 days of delivery and is subject to Yarbo’s review and approval. </p>"
+          }
+        },
+        "qa_XQKjPX": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>HOW DO I INITIATE A RETURN OR AN EXCHANGE FOR A REFURBISHED UNIT?</p>",
+            "answer": "<p>To request a return, please email our support team at <a href=\"mailto:support@yarbo.com\" target=\"_blank\"><strong>support@yarbo.com </strong></a>within 14 days of receipt. Include your order number and the reason for the return. Our team will conduct an initial assessment and provide you with a return shipping label and detailed instructions if the request is approved.</p>"
+          }
+        },
+        "qa_6infmm": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>I PARTICIPATED IN THE PRODUCT DEMO PROGRAM. CAN I USE MY DISCOUNT ON A REFURBISHED UNIT?</p>",
+            "answer": "<p>Absolutely! As a participant in the Yarbo Product Demo Program, you are eligible for a fixed $200 discount voucher. This voucher can be applied toward the purchase of a Certified Refurbished unit, allowing you to enjoy even greater savings on your journey toward autonomous yard care.   </p>"
+          }
+        },
+        "qa_pAEK9Q": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>DOES THE REFURBISHED YARBO COME WITH A WARRANTY?</p>",
+            "answer": "<p>Yes. Every Yarbo Certified Refurbished product includes a 2-year official warranty. This warranty covers manufacturing defects, electronic malfunctions, and motor/sensor issues. The coverage begins on the date of activation or three (3) days after delivery, whichever occurs first.</p>"
+          }
+        },
+        "qa_XrLKcA": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>IS IT POSSIBLE TO PURCHASE AN EXTENDED WARRANTY (YARBOCARE™) FOR A REFURBISHED PRODUCT?</p>",
+            "answer": "<p>At this time, refurbished products are not eligible for extended warranty plans or YarboCare™ protection packages. The 2-year official warranty provides comprehensive coverage for your initial two years of ownership.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "qa_M7jY3F",
+        "qa_X8MNTP",
+        "qa_N9L7eC",
+        "qa_qi3Awa",
+        "qa_LjqYHT",
+        "qa_XQKjPX",
+        "qa_6infmm",
+        "qa_pAEK9Q",
+        "qa_XrLKcA"
+      ],
+      "name": "Faq",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p><strong>What You’re Getting</strong></p>",
+        "see_all_text": "",
+        "see_all_url": "",
+        "enable_tabs": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_common_banner_bNhy9z",
+    "sa_common_banner_HBAaRg",
+    "sa_refurbished_grid_gBx9Ly",
+    "sa_product_img_swiper_with_modal_MUX8kB",
+    "sa_feature_product_blocks_GndAMq",
+    "sa_why_shop_with_yarbo_EBRMxM",
+    "sa_common_banner_Cc7JMN",
+    "sa_faq_yxcKwx"
+  ]
+}

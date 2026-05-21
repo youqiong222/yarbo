@@ -1,0 +1,478 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_common_banner_wwkDP4": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_xCGYkb": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036456896_1.jpg",
+            "h5_image": "shopify://shop_images/Frame_2036456897.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "bottom-center",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "<p>Wondering if yarbo <br/>fits in your yard?</p>",
+            "title_color": "#ffffff",
+            "desc": "<p>Pick a Yarbo product and scenario that match your yard <br/>— and watch it performs in real user footage.</p>",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_xCGYkb"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_reviews_video_QTmfXB": {
+      "type": "sa-reviews-video",
+      "name": "Reviews Video",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "",
+        "load_more_text": "Load More",
+        "api_base": "https://yarbo-backend-api.yarbo.ai/backend/v3/ugc/page",
+        "limit": 6,
+        "product_placeholder": "Choose a Product",
+        "product_options": "Yarbo Lawn Mower\nYarbo Snow Blower\nYarbo Core\nYarbo Blower",
+        "tag_placeholder": "Match It to Your Yard",
+        "tag_options": "Wet Grass\nThick Grass\nLifestyle\nTurnaround\nPet & Yarbo\nDownhill\nSlopy Lawn\nUneven Lawn\nTowing\nNight Work\nLarge Lawn\nMultiple Yarbos\nNoise Level\nLawn Care\nObstacles\nMowing Stripes\nOvergrown Grass\nTrees\nMowing Along Edges\nMaintenence\nWild Grass\nDitch\nMulti-zone Management\nWet Snow\nLarge Yard\nHeavy Snow\nThick Snow\nSnow Pile\nAPP\nRoute Planning\nEnd of Driveway\nBlowing Power"
+      }
+    },
+    "sa_yarbo_real_deal_review_wARbc8": {
+      "type": "sa-yarbo-real-deal-review",
+      "blocks": {
+        "block_WXgqqj": {
+          "type": "Block",
+          "settings": {
+            "larger_image": "shopify://shop_images/Frame_2036456900.jpg",
+            "title": "<p>This Snow-Plowing Robot Automates Yard Work While You Relax</p>",
+            "text": "When I was a wee lad growing up in rural Illinois, I dreaded snowstorms because they meant I'd have to bundle up and shovel the driveway for my mom the next morning. I dreamt of a utopian future in which robots could do this work for me. At CES 2024, that dream became reality.",
+            "button_text": "Read Article",
+            "link": "https://www.cnet.com/home/yard-and-outdoors/everyone-hates-plowing-snow-the-updated-yarbo-robot-cleans-up-while-youre-inside/",
+            "image": "shopify://shop_images/image_1035610924.jpg"
+          }
+        },
+        "block_3PGAjQ": {
+          "type": "Block",
+          "settings": {
+            "larger_image": "shopify://shop_images/Frame_2036456899.jpg",
+            "title": "<p>CES 2024: 17 EXCITING PRODUCTS THAT ARE INTRIGUING TECH EXPERTS</p>",
+            "text": "This winter has been full of heavy snowstorms for millions of people in North America, and with snowstorms comes lots of shoveling—unless you’re fortunate to have the automated Yarbo Snow Blower S1 Plus, announced at CES 2024. Imagine it as a kind of outdoor Roomba.",
+            "button_text": "Read Article",
+            "link": "https://www.forbes.com/councils/forbestechcouncil/2024/03/04/ces-2024-17-exciting-products-that-are-intriguing-tech-experts/",
+            "image": "shopify://shop_images/image_1035610923.jpg"
+          }
+        },
+        "block_GNdiD4": {
+          "type": "Block",
+          "settings": {
+            "larger_image": "shopify://shop_images/Image_11.png",
+            "title": "<p>The 15 best Robots and ai tech we saw at ces 2024</p>",
+            "text": "Taking care of your yard can be a hassle, with the grass alone requiring cutting, fertilizing, and watering. The Yarbo multi-purpose yard robot system has a family of products designed to take care of nearly all your backyard tasks, including a snow blower, lawn mower, granular spreader, liquid spreader, and more.",
+            "button_text": "Read Article",
+            "link": "https://www.zdnet.com/article/the-14-best-robots-and-ai-tech-weve-seen-at-ces-2024-so-far/",
+            "image": "shopify://shop_images/ZDNET_Official_Logo_1.jpg"
+          }
+        },
+        "block_NcBBFj": {
+          "type": "Block",
+          "settings": {
+            "larger_image": "shopify://shop_images/Frame_2036456902.jpg",
+            "title": "<p>9 More of the Bizarre and Wonderful Things We’ve Seen at CES 2024</p>",
+            "text": "Yarbo uses its own computer vision system and other AI smarts to navigate around your yard like an outdoor Roomba, complete with obstacle identification, virtual boundaries, and no-go zones. It will also return to its dock to auto-recharge when necessary.",
+            "button_text": "Read Article",
+            "link": "https://www.wired.com/gallery/ces-2024-photo-gallery-day-2/",
+            "image": "shopify://shop_images/image_1035610925_2.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_WXgqqj",
+        "block_3PGAjQ",
+        "block_GNdiD4",
+        "block_NcBBFj"
+      ],
+      "name": "Real Deal or Not",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "title": "<p>Still Not Sure If Yarbo’s the Real Deal?</p>",
+        "padding_top": 44,
+        "padding_bottom": 40,
+        "h5_padding_top": 32,
+        "h5_padding_bottom": 80,
+        "show_overlay": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_expert_reviews_QL9wtg": {
+      "type": "sa-expert-reviews",
+      "blocks": {
+        "block_KFPNrd": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>Yarbo has truly allowed me to become my laziest selfand I don't think you can<br/>put a price on that. Strong winds call for moving paticfurniture.</p>",
+            "avatar": "shopify://shop_images/Frame_2036456911.jpg",
+            "name": "@Joey",
+            "rating": 5
+          }
+        },
+        "block_zywhNG": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>$65.00 saved today, in the spring it'll be $170.00 saved percut! This thing is<br/>great!</p>",
+            "avatar": "shopify://shop_images/Frame_2036456912.jpg",
+            "name": "@Steve",
+            "rating": 5
+          }
+        },
+        "block_WActLB": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>I am speechless!<br/>Yarbo delivers one of the best products on the market. I got theleaf blower today and this thing is insanely strong. The quality is at Gerrmans product level(if<br/>you know what I mean) I have a $600 blower and Yarbo is 5x-10x stronger.</p>",
+            "avatar": "shopify://shop_images/Frame_2036456913.jpg",
+            "name": "@Victor",
+            "rating": 5
+          }
+        },
+        "block_YaAPCi": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>I was talking to my wife about the benefits of, and justifications for buying the YARBO. I really appreciate that I am not risking a fall or other injury while shoveling or snowblowing. Also, I am not out in the cold, uncomfortable or worse, miserable.</p>",
+            "avatar": "shopify://shop_images/Frame_2036456916.jpg",
+            "name": "@Andrew",
+            "rating": 5
+          }
+        },
+        "block_am4rVf": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>The Yarbo has allowed me to spend more time doingthe things I love to do and<br/>not so much time mowing the yard.</p>",
+            "avatar": "shopify://shop_images/Frame_2036456914.jpg",
+            "name": "@Travis",
+            "rating": 5
+          }
+        },
+        "block_gNtm8b": {
+          "type": "Block",
+          "settings": {
+            "content": "<p>Happy Mother's Day to all mothers out there. spend rmore time with families<br/>because Yarbo helps around the house!</p>",
+            "avatar": "shopify://shop_images/Frame_2036456915.jpg",
+            "name": "@Adam",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "block_KFPNrd",
+        "block_zywhNG",
+        "block_WActLB",
+        "block_YaAPCi",
+        "block_am4rVf",
+        "block_gNtm8b"
+      ],
+      "name": "Expert Say",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "title": "<p>See what trusted industry experts are saying</p>",
+        "button": "Calculate My Savings",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_image": "shopify://shop_images/Image_10.png",
+        "show_overlay": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_product_img_text_blocks_U7f9Cz": {
+      "type": "sa-product-img-text-blocks",
+      "blocks": {
+        "block_n7Rtn9": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036456905.jpg",
+            "h5_image": "shopify://shop_images/Frame_2036456907.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "content_width_pc": 1320,
+            "title": "<p>Product Demo Program</p>",
+            "desc": "",
+            "button_text": "Book a Demo",
+            "button2_link": "shopify://pages/product-demo-program",
+            "btn_anchor_id": "",
+            "button_color": "#25282a",
+            "button_bg_color": "#ffffff",
+            "button_hover_color": "#25282a",
+            "button_bg_hover_color": "#fedb1e"
+          }
+        },
+        "block_mYaMxr": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036456906.jpg",
+            "h5_image": "shopify://shop_images/Frame_2036456908.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "content_width_pc": 1320,
+            "title": "<p>Yarbo Protection Plan</p>",
+            "desc": "",
+            "button_text": "Find Out More",
+            "button2_link": "shopify://pages/policy-product-protection-plan",
+            "btn_anchor_id": "",
+            "button_color": "#25282a",
+            "button_bg_color": "#ffffff",
+            "button_hover_color": "#25282a",
+            "button_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "block_n7Rtn9",
+        "block_mYaMxr"
+      ],
+      "name": "Product Img Text Blocks",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "",
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "h5_padding_top": 48,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 652,
+        "pc_aspect_ratio_h": 450,
+        "h5_aspect_ratio_w": 343,
+        "h5_aspect_ratio_h": 300
+      }
+    },
+    "sa_index_awards_drQRiF": {
+      "type": "sa-index-awards",
+      "blocks": {
+        "block_NThD7A": {
+          "type": "block",
+          "settings": {
+            "text": "2024 Edison Awards",
+            "award_img": "shopify://shop_images/Frame_2036457807_6ded0d61-99b1-4de0-867b-3b755e9a155a.png"
+          }
+        },
+        "block_YR33i8": {
+          "type": "block",
+          "settings": {
+            "text": "iF Design Award 2026",
+            "award_img": "shopify://shop_images/Frame_2036457811.png"
+          }
+        },
+        "block_RnMqcJ": {
+          "type": "block",
+          "settings": {
+            "text": "CES Innovation Awards 2025",
+            "award_img": "shopify://shop_images/Frame_2036457812.png"
+          }
+        },
+        "block_wTjMMk": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award 2023",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_WGmg8Y": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_7MdPa6": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_NThD7A",
+        "block_YR33i8",
+        "block_RnMqcJ",
+        "block_wTjMMk",
+        "block_WGmg8Y",
+        "block_7MdPa6"
+      ],
+      "name": "Index Awards",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "h5_padding_top": 48,
+        "h5_padding_bottom": 56
+      }
+    },
+    "line_njqwd7": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_why_shop_with_hover_aJmXMm": {
+      "type": "sa-why-shop-with-hover",
+      "blocks": {
+        "item_3Lwai7": {
+          "type": "item",
+          "settings": {
+            "title": "FREE SHIPPING",
+            "desc": "Delivered in 3-8 business days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_1.svg"
+          }
+        },
+        "item_RiEJLL": {
+          "type": "item",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Help anytime you need",
+            "icon": "shopify://shop_images/Icon_-_Chunky_2.svg"
+          }
+        },
+        "item_Q3LkB3": {
+          "type": "item",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Pay now or over time using affirm or splitit",
+            "icon": "shopify://shop_images/Icon_-_Chunky_5.svg"
+          }
+        },
+        "item_DRrjEz": {
+          "type": "item",
+          "settings": {
+            "title": "30-Day Free Returns",
+            "desc": "Full refund, no hassle",
+            "icon": "shopify://shop_images/Icon_-_Chunky_3.svg"
+          }
+        },
+        "item_T8iYpi": {
+          "type": "item",
+          "settings": {
+            "title": "up to 5-year Warranty",
+            "desc": "Protection you can trust",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4.svg"
+          }
+        },
+        "item_qeHPCk": {
+          "type": "item",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Safe and protected checkout",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_3Lwai7",
+        "item_RiEJLL",
+        "item_Q3LkB3",
+        "item_DRrjEz",
+        "item_T8iYpi",
+        "item_qeHPCk"
+      ],
+      "name": "Why Shop Hover",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "pc_aspect_ratio_w": 250,
+        "pc_aspect_ratio_h": 300,
+        "title": "WHY SHOP WITH US",
+        "auto_rotate": true,
+        "change_slides_speed": 5
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_common_banner_wwkDP4",
+    "sa_reviews_video_QTmfXB",
+    "sa_yarbo_real_deal_review_wARbc8",
+    "sa_expert_reviews_QL9wtg",
+    "sa_product_img_text_blocks_U7f9Cz",
+    "sa_index_awards_drQRiF",
+    "line_njqwd7",
+    "sa_why_shop_with_hover_aJmXMm"
+  ]
+}

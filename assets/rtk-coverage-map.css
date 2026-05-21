@@ -1,0 +1,340 @@
+/* RTK Coverage Map Section Styles */
+.rtk-coverage-map-container {
+    text-align: center;
+}
+
+.rtk-coverage-map-heading {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.rtk-coverage-map-subheading {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.rtk-coverage-map {
+    width: 100%;
+    height: 700px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* PC 端地图宽度限制 - 80% */
+@media screen and (min-width: 1000px) {
+    .rtk-coverage-map {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* 地图占位符样式 */
+.map-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: #f8f9fa;
+    color: #666;
+    font-size: 16px;
+}
+
+/* 地图加载状态样式 */
+.map-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: #f8f9fa;
+    color: #666;
+}
+
+.map-loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #FF8C5A;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 搜索面板 */
+.search-panel {
+    position: absolute;
+    top: 10px;
+    right: 70px;
+    z-index: 100;
+    width: 350px;
+}
+
+.search-panel input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    outline: none;
+    transition: all 0.3s;
+}
+
+.search-panel input:focus {
+    box-shadow: 0 4px 16px rgba(255, 107, 53, 0.3);
+}
+
+/* Google Places 自动补全下拉框样式 */
+.pac-container {
+    border-radius: 8px;
+    margin-top: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+/* 信息面板 */
+.info-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 300px;
+    z-index: 10;
+}
+
+.info-panel h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.info-panel p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.legend {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.legend-color {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.legend-text {
+    font-size: 13px;
+    color: #555;
+}
+
+/* 统计面板 */
+.stats {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.stats-item {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.stats-item:last-child {
+    margin-bottom: 0;
+}
+
+.stats-value {
+    font-weight: bold;
+    color: #FF8C5A;
+}
+
+/* Loading 遮罩 - 只在地图组件内显示 */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 12px;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-text {
+    font-size: 16px;
+    color: #666;
+}
+
+/* 响应式设计 - 移动端优化 */
+@media (max-width: 768px) {
+    .rtk-coverage-map {
+        height: 500px;
+        padding-bottom: 60px;
+    }
+
+    /* 搜索框：放在最顶部，全宽，确保不被遮挡 */
+    .search-panel {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        z-index: 100;
+    }
+
+    .search-panel input {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    /* 信息面板：移动端隐藏 */
+    .info-panel {
+        display: none;
+    }
+
+    /* 统计面板：移动端隐藏 */
+    .stats {
+        display: none;
+    }
+
+    /* 标题和副标题调整 */
+    .rtk-coverage-map-heading {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .rtk-coverage-map-subheading {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 480px) {
+    .rtk-coverage-map {
+        height: 450px;
+    }
+}
+
+/* Toast 提示样式 */
+.rtk-toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.rtk-toast-show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.rtk-toast-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    max-width: 90vw;
+}
+
+.rtk-toast-error .rtk-toast-content {
+    background: #FFF5F5;
+    border-left: 4px solid #F44336;
+}
+
+.rtk-toast-success .rtk-toast-content {
+    background: #F0FFF4;
+    border-left: 4px solid #4CAF50;
+}
+
+.rtk-toast-info .rtk-toast-content {
+    background: #F0F9FF;
+    border-left: 4px solid #2196F3;
+}
+
+.rtk-toast-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.rtk-toast-icon svg {
+    display: block;
+}
+
+.rtk-toast-message {
+    font-weight: 500;
+}
+
+/* 移动端 Toast 优化 */
+@media (max-width: 768px) {
+    .rtk-toast {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        transform: translateY(-100px);
+    }
+
+    .rtk-toast-show {
+        transform: translateY(0);
+    }
+
+    .rtk-toast-content {
+        padding: 12px 16px;
+        font-size: 13px;
+        white-space: normal;
+        max-width: 100%;
+    }
+}

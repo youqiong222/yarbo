@@ -1,0 +1,15 @@
+{% if card_product.metafields.custom.badge_img != blank %}
+  <div
+    class='absolute top-0 z-1 {% if card_product.metafields.custom.badge_position == 'top-left' %}left-0{% elsif card_product.metafields.custom.badge_position == 'top-right' %}right-0{% endif %}'
+  >
+    {% if card_product.metafields.custom.badge_img != blank %}
+      <img
+        src='{{ card_product.metafields.custom.badge_img | image_url }}'
+        alt='{{ card_product.metafields.custom.badge_img.alt }}'
+        class='h-auto max-w-80 object-contain md:max-w-120'
+        width='auto'
+        height='auto'
+      >
+    {% endif %}
+  </div>
+{% endif %}

@@ -1,0 +1,203 @@
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/new-showcases.css'
+  rel='stylesheet'
+>
+<script
+  src='{{ 'new-showcases.js' | asset_url }}'
+  defer='defer'
+></script>
+<script
+  src='{{ 'google-map.js' | asset_url }}'
+  defer='defer'
+></script>
+
+<div class='new-showcases-search-box'>
+  <div class='new-showcases-search-box-header'>
+    <ul class='new-showcases-search-box-header-list'>
+      <li>All Products</li>
+      <li>Yarbo Lawn Mower Pro</li>
+      <li>Yarbo Lawn Mower</li>
+      <li>Trimmer</li>
+      <li>Yarbo Snow Blower</li>
+      <li>Yarbo Blower</li>
+    </ul>
+  </div>
+  <div class='new-showcases-search-box-content'>
+    <!-- 左侧内容列表 -->
+    <div class='content-left-box'>
+      <!-- 可滚动的网格容器 -->
+      <div class='showcases-grid-container'>
+        <div
+          class='skeleton-grid initial-loading'
+          id='showcasesGrid'
+        >
+          <!-- 初始骨架屏 - 桌面端12个项目 -->
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+          <div class='skeleton-item'>
+            <div class='skeleton-image'>
+              <div class='skeleton-avatar'></div>
+            </div>
+            <div class='skeleton-content'>
+              <div class='skeleton-location'></div>
+              <div class='skeleton-title'></div>
+              <div class='skeleton-title-second'></div>
+              <div class='skeleton-button'></div>
+            </div>
+          </div>
+        </div>
+        <div
+          class='loading'
+          id='loading'
+          style='display: none;'
+        >
+          <div class='loading-spinner'></div>
+          <p>Loading...</p>
+        </div>
+        <!-- 分页在滚动容器内，跟随内容一起滚动 -->
+        <div
+          class='pagination'
+          id='pagination'
+        >
+          <!-- 分页将通过JavaScript动态生成 -->
+        </div>
+      </div>
+    </div>
+    <!-- 右侧地图 -->
+    <div class='content-right-box'>
+      <div
+        class='map-container'
+        id='mapContainer'
+      >
+        <div class='map-placeholder'>
+          <p>Loading Map Area...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "demo-program-search"
+}
+{% endschema %}

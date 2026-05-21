@@ -1,0 +1,641 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+<style>
+  #shopify-section-{{ section.id }} {
+    background: #F2F2F2;
+  }
+</style>
+{%- liquid
+  assign target_blog = section.settings.blog
+  assign source_blog = blog | default: target_blog
+  assign articles = source_blog.articles
+-%}
+{%- liquid
+  assign custom_all_enabled = section.settings.custom_all_enabled
+  assign custom_article1 = section.settings.article1
+  assign custom_article2 = section.settings.article2
+  assign custom_article3 = section.settings.article3
+  assign custom_article4 = section.settings.article4
+-%}
+{%- capture all_link -%}
+  {% if target_blog != blank %}
+    <a
+      href='{{ target_blog.url }}'
+      class='group flex items-center gap-8 text-[14px] text-[#25282A] no-underline'
+    >
+      {{ 'blogs.article.all_article' | t }}
+      <svg
+        class='transition-transform duration-300 group-hover:translate-x-6'
+        width='9'
+        height='9'
+        viewBox='0 0 9 9'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path d="M1.77014 0.657715L7.51885 0.725021M7.51885 0.725021L7.58528 6.39198M7.51885 0.725021L0.919189 7.32468" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+      </svg>
+    </a>
+  {% endif %}
+{%- endcapture -%}
+
+<div
+  x-data='blogTagsSection()'
+  data-section-id='{{ section.id }}'
+  data-blog-url='{{ target_blog.url }}'
+  data-initial-tag='{{ current_tags | first | handleize }}'
+>
+  <div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+    <div class='mb-32'>
+      {% if section.settings.sub_title != blank %}
+        <span class='mb-12 block text-[14px]/[1.4] text-[#515355] md:mb-16'>
+          {{- section.settings.sub_title -}}
+        </span>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class='text-[26px]/[1.1] text-[#25282A] uppercase md:text-[32px]/[1.1]'>
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+    </div>
+
+    {%- if target_blog == blank -%}
+      <p class='py-40 text-center text-[14px] text-[#8C8C8C]'>Please select a blog in section settings.</p>
+    {%- else -%}
+      {%- if target_blog.all_tags.size > 0 -%}
+        <div class='relative mb-32 flex w-full items-end justify-between'>
+          <div class='absolute bottom-0 left-0 z-0 block! h-4 w-full bg-[#CCCCCC]'></div>
+
+          <div class='no-scrollbar theme-title relative z-10 flex w-full gap-24 overflow-x-auto pb-12 md:pb-16'>
+            <div
+              data-tag-handle=''
+              @click="switchTag('')"
+              class='shrink-0 cursor-pointer text-[16px]/[1.1] font-bold uppercase transition-colors md:text-[20px]/[1.2] md:hover:text-[#25282A]'
+              :class="activeTag === '' ? 'text-[#25282A]' : 'text-[#A6A6A6]'"
+            >
+              All
+            </div>
+            {%- for tag in target_blog.all_tags -%}
+              <div
+                data-tag-handle='{{ tag | handleize }}'
+                @click="switchTag('{{ tag | handleize }}')"
+                class='shrink-0 cursor-pointer text-[16px]/[1.1] font-bold uppercase transition-colors md:text-[20px]/[1.2] md:hover:text-[#25282A]'
+                :class="activeTag === '{{ tag | handleize }}' ? 'text-[#25282A]' : 'text-[#A6A6A6]'"
+              >
+                {{ tag }}
+              </div>
+            {%- endfor -%}
+            <div
+              class='absolute bottom-0 left-0 block! h-4 bg-[#25282A] transition-all duration-300 ease-out'
+              :style='`width: ${sliderWidth}px; transform: translateX(${sliderOffset}px);`'
+            ></div>
+          </div>
+
+          <div class='relative z-10 hidden pb-12 pl-8 whitespace-nowrap md:block md:pb-16'>
+            {{ all_link }}
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div
+        x-show='loading'
+        class='flex justify-center py-60'
+      >
+        <svg
+          class='h-28 w-28 animate-spin text-[#25282A]'
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 24 24'
+        >
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+      </div>
+
+      {%- if custom_all_enabled and custom_article1 != blank -%}
+        <!-- Custom All tab: always in DOM, shown by Alpine when activeTag === '' -->
+        <div
+          x-show="!loading && activeTag === ''"
+          data-custom-all-grid
+        >
+          <div class='grid grid-cols-1 gap-24 md:grid-cols-12'>
+            <div class='flex h-full flex-col bg-white md:col-span-7'>
+              <a
+                href='{{ custom_article1.url }}'
+                class='group relative block w-full overflow-hidden pt-[55%]'
+              >
+                <div class='absolute inset-0 h-full w-full object-cover'>
+                  {%- assign _ca1_img = custom_article1.metafields.custom.cover_bac | default: custom_article1.image -%}
+                  {% render 'media-element',
+                    media_type: 'image',
+                    class: 'aspect-[765/438] overflow-hidden',
+                    media_class: 'h-full w-full object-cover transition-transform duration-300 group-hover:scale-110',
+                    pc_image: _ca1_img,
+                    h5_image: _ca1_img
+                  %}
+                </div>
+              </a>
+              <div class='flex flex-1 flex-col p-20 md:p-24'>
+                <span class='mb-8 block text-[12px]/[1.4] text-[#515355]'>
+                  {% for tag in custom_article1.tags %}
+                    <span>
+                      {{ tag }}
+                      {% unless forloop.last %}、{% endunless %}
+                    </span>
+                  {% endfor %}
+                </span>
+                <a
+                  href='{{ custom_article1.url }}'
+                  class='theme-title block text-[24px] font-bold text-[#1a1a1a] uppercase no-underline hover:underline md:mb-16 md:text-[32px]/[1.2]'
+                >
+                  {{ custom_article1.title }}
+                </a>
+                <a
+                  href='{{ custom_article1.url }}'
+                  class='group mt-auto hidden items-center gap-9 text-[14px]/[1.4] font-medium text-[#1a1a1a] no-underline md:flex'
+                >
+                  {{ 'blogs.article.read_more' | t }}
+                  <svg
+                    class='transition-transform duration-300 group-hover:translate-x-6'
+                    width='6'
+                    height='10'
+                    viewBox='0 0 6 10'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path d="M0.919597 0.919434L5.00293 5.00277L0.919596 9.0861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class='flex flex-col gap-24 md:col-span-5'>
+              {% for i in (2..4) %}
+                {%- case i -%}
+                  {%- when 2 -%}
+                    {%- assign sub_article = custom_article2 -%}
+                  {%- when 3 -%}
+                    {%- assign sub_article = custom_article3 -%}
+                  {%- when 4 -%}
+                    {%- assign sub_article = custom_article4 -%}
+                {%- endcase -%}
+                {% if sub_article != blank %}
+                  <div class='flex min-h-0 w-full flex-1 flex-row bg-white'>
+                    <div class='flex w-[55%] flex-1 flex-col justify-center px-20 py-12 md:px-24 md:py-16'>
+                      <span class='mb-8 block text-[12px]/[1.2] text-[#515355]'>
+                        {% for tag in sub_article.tags %}
+                          <span>
+                            {{ tag }}
+                            {% unless forloop.last %},{% endunless %}
+                          </span>
+                        {% endfor %}
+                      </span>
+                      <a
+                        href='{{ sub_article.url }}'
+                        class='theme-title text-[17px][1.1] line-clamp-3 font-bold text-[#25282A] uppercase no-underline hover:underline md:mb-16 md:text-[22px]/[1.2]'
+                      >
+                        {{ sub_article.title }}
+                      </a>
+                      <a
+                        href='{{ sub_article.url }}'
+                        class='group mt-auto hidden items-center gap-9 text-[14px]/[1.2] text-[#25282A] no-underline md:flex'
+                      >
+                        {{ 'blogs.article.read_more' | t }}
+                        <svg
+                          class='transition-transform duration-300 group-hover:translate-x-6'
+                          width='6'
+                          height='10'
+                          viewBox='0 0 6 10'
+                          fill='none'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path d="M0.919597 0.919434L5.00293 5.00277L0.919596 9.0861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"></path>
+                        </svg>
+                      </a>
+                    </div>
+                    <a
+                      href='{{ sub_article.url }}'
+                      class='group relative block aspect-[1] h-full w-[45%] shrink-0 overflow-hidden md:aspect-258/190'
+                    >
+                      <div class='absolute inset-0 h-full w-full object-cover'>
+                        {%- assign _sub_img = sub_article.metafields.custom.cover_bac | default: sub_article.image -%}
+                        {% render 'media-element',
+                          media_type: 'image',
+                          class: 'h-full w-full overflow-hidden',
+                          media_class: 'w-full h-full object-cover transition-transform duration-300 group-hover:scale-110',
+                          pc_image: _sub_img,
+                          h5_image: _sub_img
+                        %}
+                      </div>
+                    </a>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Fetched tag grid: only shown when a specific tag is active -->
+        <div
+          x-show="!loading && activeTag !== ''"
+          data-blog-article-grid
+        >
+          {%- if articles.size > 0 -%}
+            <div class='grid grid-cols-1 gap-24 md:grid-cols-12'>
+              {%- assign main_article = articles | first -%}
+              <div class='flex h-full flex-col bg-white md:col-span-7'>
+                <a
+                  href='{{ main_article.url }}'
+                  class='group relative block w-full overflow-hidden pt-[55%]'
+                >
+                  <div class='absolute inset-0 h-full w-full object-cover'>
+                    {%- assign _main_img = main_article.metafields.custom.cover_bac | default: main_article.image -%}
+                    {% render 'media-element',
+                      media_type: 'image',
+                      class: 'aspect-[765/438] overflow-hidden',
+                      media_class: 'h-full w-full object-cover transition-transform duration-300 group-hover:scale-110',
+                      pc_image: _main_img,
+                      h5_image: _main_img
+                    %}
+                  </div>
+                </a>
+                <div class='flex flex-1 flex-col p-20 md:p-24'>
+                  <span class='mb-8 block text-[12px]/[1.4] text-[#515355]'>
+                    {% for tag in main_article.tags %}
+                      <span>
+                        {{ tag }}
+                        {% unless forloop.last %}、{% endunless %}
+                      </span>
+                    {% endfor %}
+                  </span>
+                  <a
+                    href='{{ main_article.url }}'
+                    class='theme-title block text-[24px] font-bold text-[#1a1a1a] uppercase no-underline hover:underline md:mb-16 md:text-[32px]/[1.2]'
+                  >
+                    {{ main_article.title }}
+                  </a>
+                  <a
+                    href='{{ main_article.url }}'
+                    class='group mt-auto hidden items-center gap-9 text-[14px]/[1.4] font-medium text-[#1a1a1a] no-underline md:flex'
+                  >
+                    {{ 'blogs.article.read_more' | t }}
+                    <svg
+                      class='transition-transform duration-300 group-hover:translate-x-6'
+                      width='6'
+                      height='10'
+                      viewBox='0 0 6 10'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path d="M0.919597 0.919434L5.00293 5.00277L0.919596 9.0861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class='flex flex-col gap-24 md:col-span-5'>
+                {%- for article in articles offset: 1 limit: 3 -%}
+                  <div class='flex min-h-0 w-full flex-1 flex-row bg-white'>
+                    <div class='flex w-[55%] flex-1 flex-col justify-center px-20 py-12 md:px-24 md:py-16'>
+                      <span class='mb-8 block text-[12px]/[1.2] text-[#515355]'>
+                        {% for tag in article.tags %}
+                          <span>
+                            {{ tag }}
+                            {% unless forloop.last %},{% endunless %}
+                          </span>
+                        {% endfor %}
+                      </span>
+                      <a
+                        href='{{ article.url }}'
+                        class='theme-title text-[17px][1.1] line-clamp-3 font-bold text-[#25282A] uppercase no-underline hover:underline md:mb-16 md:text-[22px]/[1.2]'
+                      >
+                        {{ article.title }}
+                      </a>
+                      <a
+                        href='{{ article.url }}'
+                        class='group mt-auto hidden items-center gap-9 text-[14px]/[1.2] text-[#25282A] no-underline md:flex'
+                      >
+                        {{ 'blogs.article.read_more' | t }}
+                        <svg
+                          class='transition-transform duration-300 group-hover:translate-x-6'
+                          width='6'
+                          height='10'
+                          viewBox='0 0 6 10'
+                          fill='none'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path d="M0.919597 0.919434L5.00293 5.00277L0.919596 9.0861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"></path>
+                        </svg>
+                      </a>
+                    </div>
+                    <a
+                      href='{{ article.url }}'
+                      class='group relative block aspect-[1] h-full w-[45%] shrink-0 overflow-hidden md:aspect-258/190'
+                    >
+                      <div class='absolute inset-0 h-full w-full object-cover'>
+                        {%- assign _art_img = article.metafields.custom.cover_bac | default: article.image -%}
+                        {% render 'media-element',
+                          media_type: 'image',
+                          class: 'h-full w-full overflow-hidden',
+                          media_class: 'w-full h-full object-cover transition-transform duration-300 group-hover:scale-110',
+                          pc_image: _art_img,
+                          h5_image: _art_img
+                        %}
+                      </div>
+                    </a>
+                  </div>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- else -%}
+            <p class='py-40 text-center text-[14px] text-[#8C8C8C]'>No articles found.</p>
+          {%- endif -%}
+        </div>
+
+      {%- else -%}
+        <!-- Regular grid (no custom All) -->
+        <div
+          x-show='!loading'
+          data-blog-article-grid
+        >
+          {%- if articles.size > 0 -%}
+            <div class='grid grid-cols-1 gap-24 md:grid-cols-12'>
+              {%- assign main_article = articles | first -%}
+              <div class='flex h-full flex-col bg-white md:col-span-7'>
+                <a
+                  href='{{ main_article.url }}'
+                  class='group relative block w-full overflow-hidden pt-[55%]'
+                >
+                  <div class='absolute inset-0 h-full w-full object-cover'>
+                    {%- assign _main_img = main_article.metafields.custom.cover_bac | default: main_article.image -%}
+                    {% render 'media-element',
+                      media_type: 'image',
+                      class: 'aspect-[765/438] overflow-hidden',
+                      media_class: 'h-full w-full object-cover transition-transform duration-300 group-hover:scale-105',
+                      pc_image: _main_img,
+                      h5_image: _main_img
+                    %}
+                  </div>
+                </a>
+                <div class='flex flex-1 flex-col p-20 md:p-24'>
+                  <span class='mb-8 block text-[12px]/[1.4] text-[#515355]'>
+                    {% for tag in main_article.tags %}
+                      <span>
+                        {{ tag }}
+                        {% unless forloop.last %}、{% endunless %}
+                      </span>
+                    {% endfor %}
+                  </span>
+                  <a
+                    href='{{ main_article.url }}'
+                    class='theme-title block text-[24px] font-bold text-[#1a1a1a] uppercase no-underline hover:underline md:mb-16 md:text-[32px]/[1.2]'
+                  >
+                    {{ main_article.title }}
+                  </a>
+                  <a
+                    href='{{ main_article.url }}'
+                    class='group mt-auto hidden items-center gap-9 text-[14px]/[1.4] font-medium text-[#1a1a1a] no-underline md:flex'
+                  >
+                    {{ 'blogs.article.read_more' | t }}
+                    <svg
+                      class='transition-transform duration-300 group-hover:translate-x-6'
+                      width='6'
+                      height='10'
+                      viewBox='0 0 6 10'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path d="M0.919597 0.919434L5.00293 5.00277L0.919596 9.0861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class='flex flex-col gap-24 md:col-span-5'>
+                {%- for article in articles offset: 1 limit: 3 -%}
+                  <div class='flex min-h-0 w-full flex-1 flex-row bg-white'>
+                    <div class='flex w-[55%] flex-1 flex-col justify-center px-20 py-12 md:px-24 md:py-16'>
+                      <span class='mb-8 block text-[12px]/[1.2] text-[#515355]'>
+                        {% for tag in article.tags %}
+                          <span>
+                            {{ tag }}
+                            {% unless forloop.last %},{% endunless %}
+                          </span>
+                        {% endfor %}
+                      </span>
+                      <a
+                        href='{{ article.url }}'
+                        class='theme-title text-[17px][1.1] line-clamp-3 font-bold text-[#25282A] uppercase no-underline hover:underline md:mb-16 md:text-[22px]/[1.2]'
+                      >
+                        {{ article.title }}
+                      </a>
+                      <a
+                        href='{{ article.url }}'
+                        class='group mt-auto hidden items-center gap-9 text-[14px]/[1.2] text-[#25282A] no-underline md:flex'
+                      >
+                        {{ 'blogs.article.read_more' | t }}
+                        <svg
+                          class='transition-transform duration-300 group-hover:translate-x-6'
+                          width='6'
+                          height='10'
+                          viewBox='0 0 6 10'
+                          fill='none'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path d="M0.919597 0.919434L5.00293 5.00277L0.919596 9.0861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"></path>
+                        </svg>
+                      </a>
+                    </div>
+                    <a
+                      href='{{ article.url }}'
+                      class='group relative block aspect-[1] h-full w-[45%] shrink-0 overflow-hidden md:aspect-258/190'
+                    >
+                      <div class='absolute inset-0 h-full w-full object-cover'>
+                        {%- assign _art_img = article.metafields.custom.cover_bac | default: article.image -%}
+                        {% render 'media-element',
+                          media_type: 'image',
+                          class: 'h-full w-full overflow-hidden',
+                          media_class: 'w-full h-full object-cover transition-transform duration-300 group-hover:scale-110',
+                          pc_image: _art_img,
+                          h5_image: _art_img
+                        %}
+                      </div>
+                    </a>
+                  </div>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- else -%}
+            <p class='py-40 text-center text-[14px] text-[#8C8C8C]'>No articles found.</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class='mt-32 block md:hidden'>
+        {{ all_link }}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('blogTagsSection', () => ({
+      activeTag: '',
+      loading: false,
+      sliderWidth: 0,
+      sliderOffset: 0,
+      controller: null,
+      sectionId: '',
+      blogUrl: '',
+      init() {
+        this.sectionId = this.$root.dataset.sectionId;
+        this.blogUrl = this.$root.dataset.blogUrl;
+        this.activeTag = this.$root.dataset.initialTag || '';
+        this.$nextTick(() => this.updateSlider());
+        window.addEventListener('resize', () => this.updateSlider());
+      },
+
+      updateSlider() {
+        this.$nextTick(() => {
+          const el = this.$root.querySelector(`[data-tag-handle="${this.activeTag}"]`);
+          if (!el) return;
+          this.sliderWidth = el.offsetWidth;
+          this.sliderOffset = el.offsetLeft;
+          const container = el.parentElement;
+          container.scrollTo({
+            left: el.offsetLeft - container.offsetWidth / 2 + el.offsetWidth / 2,
+            behavior: 'smooth',
+          });
+        });
+      },
+
+      switchTag(tag) {
+        if (this.activeTag === tag) return;
+        this.activeTag = tag;
+        this.updateSlider();
+        this.fetchArticles();
+      },
+
+      async fetchArticles() {
+        if (!this.blogUrl) return;
+        // custom All 模式下，切回 All 不需要 fetch
+        if (!this.activeTag && this.$root.querySelector('[data-custom-all-grid]')) return;
+
+        if (this.controller) this.controller.abort();
+        this.controller = new AbortController();
+        this.loading = true;
+
+        let url = this.blogUrl;
+        if (this.activeTag) url += `/tagged/${this.activeTag}`;
+        const targetHref = `${url}?section_id=${this.sectionId}`;
+
+        try {
+          const res = await fetch(targetHref, { signal: this.controller.signal });
+          if (!res.ok) throw new Error(res.status);
+          const html = await res.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          const grid = doc.querySelector('[data-blog-article-grid]');
+          const existing = this.$root.querySelector('[data-blog-article-grid]');
+          if (grid && existing) existing.innerHTML = grid.innerHTML;
+          this.loading = false;
+        } catch (err) {
+          if (err.name === 'AbortError') return;
+          console.error('Blog tags fetch error:', err);
+          this.loading = false;
+        }
+      },
+    }));
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Blogs with Tabs",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "header",
+      "content": "Custom Articles for All Tab"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_all_enabled",
+      "label": "Enable custom articles for All tab",
+      "default": false
+    },
+    {
+      "type": "article",
+      "id": "article1",
+      "label": "Article 1 (main)"
+    },
+    {
+      "type": "article",
+      "id": "article2",
+      "label": "Article 2"
+    },
+    {
+      "type": "article",
+      "id": "article3",
+      "label": "Article 3"
+    },
+    {
+      "type": "article",
+      "id": "article4",
+      "label": "Article 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 56
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blogs with Tabs"
+    }
+  ]
+}
+{% endschema %}

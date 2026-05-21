@@ -1,0 +1,434 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+{%- liquid
+  assign s = section.settings
+
+  assign pc_w = s.pc_aspect_ratio_w | default: 16
+  assign pc_h = s.pc_aspect_ratio_h | default: 9
+  assign pc_ratio = pc_w | append: '/' | append: pc_h
+
+  assign h5_w = s.h5_aspect_ratio_w | default: 16
+  assign h5_h = s.h5_aspect_ratio_h | default: 9
+  assign h5_ratio = h5_w | append: '/' | append: h5_h
+-%}
+<div
+  class='overflow-hidden {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} pt-(--pt-h5) pb-(--pb-h5) md:pt-(--pt-pc) md:pb-(--pb-pc)'
+  style='
+    --pt-pc: {{ s.padding_top }}px;
+    --pb-pc: {{ s.padding_bottom }}px;
+    --pt-h5: {{ s.h5_padding_top }}px;
+    --pb-h5: {{ s.h5_padding_bottom }}px;
+  '
+>
+  <div class='page-container'>
+    {% if section.settings.title != blank or section.settings.description != blank %}
+      <header class='mb-56 text-center md:mb-80'>
+        <h2 class='text-[26px] leading-[1.1] uppercase md:text-[52px]'>
+          {{ section.settings.title }}
+        </h2>
+        {% if section.settings.description != blank %}
+          <div class='mt-16 text-[15px] leading-[1.3] text-[#515355] md:text-[18px]'>
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+      </header>
+    {% endif %}
+    <main>
+      {%- if section.blocks.size == 2 -%}
+        {%- comment -%} 2 blocks: PC col-2, H5 stacked {%- endcomment -%}
+        <div class='grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-24'>
+          {%- for block in section.blocks -%}
+            <div
+              class='flex h-full flex-col gap-12 md:gap-16 {% if section.settings.text_position == "top" %}flex-col-reverse justify-between{% endif %}'
+              {{ block.shopify_attributes }}
+            >
+              <div
+                style='--media-aspect-pc: {{ pc_ratio }}; --media-aspect-h5: {{ h5_ratio }};'
+                class='relative aspect-(--media-aspect-h5) w-full overflow-hidden md:aspect-(--media-aspect-pc)'
+              >
+                {% render 'media-element',
+                  class: 'absolute inset-0 w-full h-full',
+                  media_class: 'w-full h-full object-cover',
+                  media_type: block.settings.media_type,
+                  pc_image: block.settings.pc_image,
+                  h5_image: block.settings.h5_image,
+                  pc_video: block.settings.pc_video,
+                  h5_video: block.settings.h5_video,
+                  video_url: block.settings.video_url,
+                  other_url: block.settings.other_url
+                %}
+                {%- render 'sn-overlay', _settings: block.settings -%}
+              </div>
+              <div class='text-[14px] leading-[1.3] text-[#515355] [&_strong]:font-bold [&_strong]:text-[#25282A]'>
+                {{ block.settings.desc }}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+      {%- elsif section.blocks.size == 3 -%}
+        {%- comment -%} 3 blocks: PC static col-3, H5 swiper 1.15 {%- endcomment -%}
+        <div class='hidden md:grid md:grid-cols-3 md:gap-24'>
+          {%- for block in section.blocks -%}
+            <div
+              class='flex h-full flex-col gap-12 md:gap-16 {% if section.settings.text_position == "top" %}flex-col-reverse justify-between{% endif %}'
+              {{ block.shopify_attributes }}
+            >
+              <div
+                style='--media-aspect-pc: {{ pc_ratio }}; --media-aspect-h5: {{ h5_ratio }};'
+                class='relative aspect-(--media-aspect-h5) w-full overflow-hidden md:aspect-(--media-aspect-pc)'
+              >
+                {% render 'media-element',
+                  class: 'absolute inset-0 w-full h-full',
+                  media_class: 'w-full h-full object-cover',
+                  media_type: block.settings.media_type,
+                  pc_image: block.settings.pc_image,
+                  h5_image: block.settings.h5_image,
+                  pc_video: block.settings.pc_video,
+                  h5_video: block.settings.h5_video,
+                  video_url: block.settings.video_url,
+                  other_url: block.settings.other_url
+                %}
+                {%- render 'sn-overlay', _settings: block.settings -%}
+              </div>
+              <div class='text-[14px] leading-[1.3] text-[#515355] [&_strong]:font-bold [&_strong]:text-[#25282A]'>
+                {{ block.settings.desc }}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class='swiper [overflow:unset] md:hidden'>
+          <div class='swiper-wrapper'>
+            {%- for block in section.blocks -%}
+              <div class='swiper-slide h-auto!'>
+                <div
+                  class='flex h-full flex-col gap-12 {% if section.settings.text_position == "top" %}flex-col-reverse justify-between{% endif %}'
+                  {{ block.shopify_attributes }}
+                >
+                  <div
+                    style='--media-aspect-pc: {{ pc_ratio }}; --media-aspect-h5: {{ h5_ratio }};'
+                    class='relative aspect-(--media-aspect-h5) w-full overflow-hidden'
+                  >
+                    {% render 'media-element',
+                      class: 'absolute inset-0 w-full h-full',
+                      media_class: 'w-full h-full object-cover',
+                      media_type: block.settings.media_type,
+                      pc_image: block.settings.pc_image,
+                      h5_image: block.settings.h5_image,
+                      pc_video: block.settings.pc_video,
+                      h5_video: block.settings.h5_video,
+                      video_url: block.settings.video_url,
+                      other_url: block.settings.other_url
+                    %}
+                    {%- render 'sn-overlay', _settings: block.settings -%}
+                  </div>
+                  <div class='text-[14px] leading-[1.3] text-[#515355] [&_strong]:font-bold [&_strong]:text-[#25282A]'>
+                    {{ block.settings.desc }}
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+      {%- else -%}
+        {%- comment -%} 4+ blocks: swiper PC 2.5, H5 1.15 {%- endcomment -%}
+        <div class='swiper [overflow:unset]'>
+          <div class='swiper-wrapper'>
+            {%- for block in section.blocks -%}
+              <div class='swiper-slide h-auto!'>
+                <div
+                  class='flex h-full flex-col gap-12 md:gap-16 {% if section.settings.text_position == "top" %}flex-col-reverse justify-between{% endif %}'
+                  {{ block.shopify_attributes }}
+                >
+                  <div
+                    style='--media-aspect-pc: {{ pc_ratio }}; --media-aspect-h5: {{ h5_ratio }};'
+                    class='relative aspect-(--media-aspect-h5) w-full overflow-hidden md:aspect-(--media-aspect-pc)'
+                  >
+                    {% render 'media-element',
+                      class: 'absolute inset-0 w-full h-full',
+                      media_class: 'w-full h-full object-cover',
+                      media_type: block.settings.media_type,
+                      pc_image: block.settings.pc_image,
+                      h5_image: block.settings.h5_image,
+                      pc_video: block.settings.pc_video,
+                      h5_video: block.settings.h5_video,
+                      video_url: block.settings.video_url,
+                      other_url: block.settings.other_url
+                    %}
+                    {%- render 'sn-overlay', _settings: block.settings -%}
+                  </div>
+                  <div class='text-[14px] leading-[1.3] text-[#515355] [&_strong]:font-bold [&_strong]:text-[#25282A]'>
+                    {{ block.settings.desc }}
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+    </main>
+  </div>
+</div>
+
+<script>
+  (() => {
+    {%- if section.blocks.size == 3 -%}
+    new Swiper('#shopify-section-{{ section.id }} .swiper', {
+      observer: true,
+      observeParents: true,
+      spaceBetween: 12,
+      slidesPerView: 1.15,
+      {%- if section.settings.auto_rotate %}
+      autoplay: { delay: {{ section.settings.change_slides_speed | times: 1000 }}, disableOnInteraction: false },
+      {% endif -%}
+    });
+    {%- elsif section.blocks.size > 3 -%}
+    new Swiper('#shopify-section-{{ section.id }} .swiper', {
+      observer: true,
+      observeParents: true,
+      spaceBetween: 12,
+      slidesPerView: 1.15,
+      breakpoints: {
+        768: {
+          spaceBetween: 24,
+          slidesPerView: 2.5,
+        },
+      },
+      {%- if section.settings.auto_rotate %}
+      autoplay: { delay: {{ section.settings.change_slides_speed | times: 1000 }}, disableOnInteraction: false },
+      {% endif -%}
+    });
+    {%- endif -%}
+  })();
+</script>
+{% schema %}
+{
+  "name": "Product Img Swiper Type 2",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Media Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height"
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    },
+    {
+      "type": "radio",
+      "id": "text_position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "bottom",
+      "label": "Text Position"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "block",
+      "type": "Block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Desc"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Img Swiper Type 2",
+      "blocks": [
+        {
+          "type": "Block",
+          "settings": {
+            "desc": "<p><strong>Clear more, stress less.</strong> Cover wide driveways and large areas in one pass with up to a maximum of 40ft throwing distance— that means less time shoveling, more time enjoying your day.</p>"
+          }
+        },
+        {
+          "type": "Block",
+          "settings": {
+            "desc": "<p><strong>Control the snow’s height. </strong>Adjust the deflector angle from -5° to 50 to manage how high snow is thrown. Keep it low for nearby areas or higher to clear deeper piles.</p>"
+          }
+        },
+        {
+          "type": "Block",
+          "settings": {
+            "desc": "<p><strong>Aim exactly where you want. </strong>Rotate the chute from -10° to 190° across a wide range to direct snow with precision. Clear paths without piling snow where you don’t want it.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

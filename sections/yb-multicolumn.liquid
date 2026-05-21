@@ -1,0 +1,823 @@
+{% render 'yb-section-style', section: section %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div
+  class='multicolumn-image-with-text {% if section.settings.dark_mode %}is-dark-mode{% endif %}'
+  {% if section.settings.dark_mode %}
+    data-dark-mode='true'
+  {% endif %}
+>
+  <div class='multicolumn-image-with-text-wrapper'>
+    {% if section.settings.title != blank or section.settings.description != blank %}
+      <div class='multicolumn-heading'>
+        {% if section.settings.title != blank %}
+          <div class='heading yb-section-title'>{{ section.settings.title }}</div>
+          {% if section.settings.description != blank %}
+            <div class='margin-top-description-style'>
+              <div class='rich-text-description yb-body-3 lcf-section-des'>{{ section.settings.description }}</div>
+            </div>
+          {% endif %}
+        {% else %}
+          {% if section.settings.description != blank %}
+            <div class='rich-text-description yb-body-3 lcf-section-des'>{{ section.settings.description }}</div>
+          {% endif %}
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <div class='{% if section.settings.title != blank or section.settings.description != blank %}rich-text-button{% endif %}'>
+            {% assign btn_class = section.settings.common_button_class | append: ' yb-single-video-btn' %}
+            {% render 'yb-button', type: section.settings.button_type, class: btn_class, tag: 'button', config: section.settings %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class='multicolumn-items'>
+      <div
+        class='multicolumn-items-wrapper grid-column-{{ section.settings.pc_grid_columns }}'
+        style='grid-template-columns: repeat({{ section.settings.pc_grid_columns }}, 1fr);'
+      >
+        {% for block in section.blocks %}
+          {% if block.type == 'image_item' %}
+            <div
+              class='multicolumn-item-inner {% if section.settings.dark_mode %}is-dark-mode{% endif %}'
+              {% if section.settings.dark_mode %}
+                data-dark-mode='true'
+              {% endif %}
+              {{ block.shopify_attributes }}
+            >
+              <div class='multicolumn-contents'>
+                {% if block.settings.block_image != blank %}
+                  <div class='multicolumn-image'>
+                    {{ block.settings.block_image | image_url: width: 400 | image_tag: class: 'image', loading: 'lazy' }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.block_title != blank or block.settings.block_description != blank %}
+                  <div class='multicolumn-image-content'>
+                    {% if block.settings.block_title != blank %}
+                      <div class='block-title'>{{ block.settings.block_title }}</div>
+                      {% if section.settings.show_rating %}
+                        <div class='block-rating'>
+                          {% for i in (1..5) %}
+                            {% assign half_star = i | minus: 0.5 %}
+                            {% if block.settings.block_rating >= i %}
+                              <svg
+                                class='icon star-svg'
+                                viewBox='0 0 1024 1024'
+                                width='20'
+                                height='20'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path d="M905.216 446.58688c28.672-24.576 16.384-69.632-24.576-73.728l-208.896-24.576c-12.288 0-24.576-12.288-36.864-24.576l-90.112-192.512c-16.384-36.864-61.44-36.864-77.824 0l-81.92 188.416c-12.288 12.288-24.576 20.48-36.864 20.48l-208.896 32.768c-36.864 4.096-53.248 49.152-24.576 73.728l151.552 143.36c8.192 8.192 16.384 24.576 12.288 40.96l-40.96 204.8c-8.192 36.864 32.768 65.536 65.536 49.152l180.224-102.4c12.288-8.192 32.768-8.192 45.056 0l180.224 102.4c32.768 16.384 69.632-8.192 65.536-49.152l-36.864-204.8c-4.096-12.288 0-32.768 12.288-40.96l155.648-143.36z" fill="#FFB21C"></path>
+                              </svg>
+                            {% elsif block.settings.block_rating >= half_star %}
+                              <svg
+                                class='icon star-svg'
+                                viewBox='0 0 1024 1024'
+                                width='20'
+                                height='20'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path d="M512 147.57888c-16.384 0-28.672 8.192-40.96 24.576l-77.824 176.128c-8.192 12.288-20.48 20.48-32.768 20.48l-192.512 28.672c-32.768 4.096-49.152 45.056-24.576 69.632l139.264 131.072c8.192 8.192 16.384 24.576 12.288 36.864l-36.864 188.416c-8.192 32.768 28.672 61.44 61.44 45.056l167.936-94.208c8.192-4.096 16.384-8.192 24.576-4.096v-622.592z" fill="#FFB21C"></path>
+                              </svg>
+                            {% else %}
+                              <svg
+                                class='icon star-svg'
+                                viewBox='0 0 1024 1024'
+                                width='20'
+                                height='20'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path d="M905.216 446.58688c28.672-24.576 16.384-69.632-24.576-73.728l-208.896-24.576c-12.288 0-24.576-12.288-36.864-24.576l-90.112-192.512c-16.384-36.864-61.44-36.864-77.824 0l-81.92 188.416c-12.288 12.288-24.576 20.48-36.864 20.48l-208.896 32.768c-36.864 4.096-53.248 49.152-24.576 73.728l151.552 143.36c8.192 8.192 16.384 24.576 12.288 40.96l-40.96 204.8c-8.192 36.864 32.768 65.536 65.536 49.152l180.224-102.4c12.288-8.192 32.768-8.192 45.056 0l180.224 102.4c32.768 16.384 69.632-8.192 65.536-49.152l-36.864-204.8c-4.096-12.288 0-32.768 12.288-40.96l155.648-143.36z" fill="#E0E0E0"></path>
+                              </svg>
+                            {% endif %}
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+                      {% if block.settings.block_description != blank %}
+                        <div class='block-description'>{{ block.settings.block_description }}</div>
+                      {% endif %}
+                    {% else %}
+                      {% if block.settings.block_description != blank %}
+                        <div class='block-description'>{{ block.settings.block_description }}</div>
+                      {% endif %}
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} .multicolumn-item-inner strong {
+      color: {{ section.settings.highlight_color }};
+  }
+  #shopify-section-{{ section.id }} .multicolumn-heading {
+      margin: 0px auto;
+      text-align: center;
+  }
+  #shopify-section-{{ section.id }} .multicolumn-image img {
+      width: 100%;
+      height: 100%;
+  }
+  #shopify-section-{{ section.id }} .multicolumn-contents {
+      display: flex;
+      text-align: left;
+      gap: 16px;
+      flex: 1;
+  }
+  #shopify-section-{{ section.id }} .block-description {
+      color: #6E6E73;
+      font-size: 14px;
+      line-height: 140%;
+      font-weight: 400;
+      word-wrap: break-word;
+  }
+  #shopify-section-{{ section.id }} .multicolumn-item-inner {
+      background: #fff;
+      padding: 16px;
+      border-radius: 16px;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .multicolumn-items-wrapper {
+      display: grid;
+      gap: 16px;
+  }
+  #shopify-section-{{ section.id }} .multicolumn-items {
+      margin: 0px auto;
+      text-align: center;
+  }
+  #shopify-section-{{ section.id }} .multicolumn-items-wrapper.grid-column-2 .multicolumn-item-inner{
+      height: 100%;
+  }
+
+  /*== 1920px+ ==*/
+  @media (min-width: 1920px){
+      #shopify-section-{{ section.id }} .multicolumn-image-with-text{
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-heading {
+          max-width: 1000px;
+          margin-bottom: 64px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-heading .description {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 140%;
+          text-align: center;
+          color: #02060B;
+      }
+      .margin-top-description-style{
+          margin-top: 16px;
+      }
+      #shopify-section-{{ section.id }} .rich-text-button{
+          margin-top: 40px;
+      }
+      #shopify-section-{{ section.id }} .yb-single-video-btn{
+          padding: 0px 40px;
+          min-width: 180px;
+          text-align: center;
+          height: 48px;
+          line-height: 48px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-button {
+          margin-top: 40px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-image{
+          max-width: 108px;
+          height: 108px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-items {
+          max-width: 1400px;
+      }
+      #shopify-section-{{ section.id }} .block-description {
+          margin-top: 12px;
+      }
+      #shopify-section-{{ section.id }} .block-title {
+         font-size: 18px;
+         font-weight: 700;
+         line-height: 140%;
+         color: #25282A;
+      }
+  }
+
+  /*=== 1440-1919px ===*/
+  @media (min-width: 1440px) and (max-width: 1919px){
+      #shopify-section-{{ section.id }} .multicolumn-image-with-text{
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-heading {
+          max-width: 924px;
+          margin-bottom: 56px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-heading .description {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 140%;
+          text-align: center;
+          color: #02060B;
+      }
+      .margin-top-description-style{
+          margin-top: 16px;
+      }
+      #shopify-section-{{ section.id }} .rich-text-button{
+          margin-top: 32px;
+      }
+      #shopify-section-{{ section.id }} .yb-single-video-btn{
+          padding: 13px 40px;
+          min-width: 180px;
+          text-align: center;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-contents {
+          gap: 12px;
+      }
+      #shopify-section-{{ section.id }} .yb-body-2{
+          font-size: 18px;
+          line-height: 140%
+      }
+      #shopify-section-{{ section.id }} .block-title {
+          font-size: 14px;
+          line-height: 140%;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-button {
+          margin-top: 32px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-image {
+          max-width: 90px;
+          height: 90px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-items {
+          max-width: 1200px;
+      }
+      #shopify-section-{{ section.id }} .block-description {
+          margin-top: 8px;
+          font-size: 12px;
+      }
+      #shopify-section-{{ section.id }} .block-title {
+         font-size: 14px;
+         font-weight: 700;
+         line-height: 140%;
+         color: #25282A;
+      }
+  }
+
+  /*== 960-1439px ==*/
+  @media (min-width: 960px) and (max-width: 1439px){
+      #shopify-section-{{ section.id }} .multicolumn-image-with-text{
+          max-width: 900px;
+          margin: 0 auto;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-contents{
+          gap: 12px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-heading {
+          max-width: 728px;
+          margin-bottom: 48px;
+          text-align: -webkit-center;
+          width: 100%;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-items-wrapper{
+          gap: 12px !important;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-heading .description {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 140%;
+          text-align: center;
+          color: #02060B;
+      }
+      .margin-top-description-style{
+          margin-top: 16px;
+      }
+      #shopify-section-{{ section.id }} .rich-text-button{
+          margin-top: 24px;
+      }
+       #shopify-section-{{ section.id }} .heading{
+          font-size: 28px;
+          font-weight: 800;
+          line-height: 120%
+       }
+      #shopify-section-{{ section.id }} .yb-single-video-btn{
+          padding: 13px 40px;
+          min-width: 180px;
+          text-align: center;
+      }
+       #shopify-section-{{ section.id }} .multicolumn-item-inner {
+          width: 100%;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-button {
+          margin-top: 24px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-image  {
+          max-width: 56px;
+          height: 56px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-items {
+          max-width: 900px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-item-inner {
+          padding: 12px;
+      }
+      #shopify-section-{{ section.id }} .block-title {
+          font-size: 14px;
+          line-height: 140%;
+      }
+      #shopify-section-{{ section.id }} .block-description {
+          margin-top: 7px;
+          font-size: 12px;
+      }
+      #shopify-section-{{ section.id }} .block-title {
+         font-size: 14px;
+         font-weight: 700;
+         line-height: 140%;
+         color: #25282A;
+      }
+  }
+
+  /*=== 680-959px ===*/
+  @media (min-width: 680px) and (max-width: 959px){
+      #shopify-section-{{ section.id }} .multicolumn-image-with-text{
+          padding: 0 24px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-heading {
+          max-width: 600px;
+          margin-bottom: 56px;
+          text-align: -webkit-center;
+          width: 100%;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-heading .description {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 140%;
+          text-align: center;
+          color: #02060B;
+      }
+      .margin-top-description-style{
+          margin-top: 16px;
+      }
+      #shopify-section-{{ section.id }} .rich-text-button{
+          margin-top: 24px;
+      }
+      #shopify-section-{{ section.id }} .heading{
+          font-size: 32px;
+          font-weight: 800;
+          line-height: 120%
+       }
+       #shopify-section-{{ section.id }} .yb-single-video-btn{
+          padding: 13px 40px;
+          min-width: 180px;
+          text-align: center;
+      }
+      #shopify-section-{{ section.id }} .yb-body-2{
+          width: 572px;
+          font-size: 16px;
+          line-height: 140%
+      }
+      #shopify-section-{{ section.id }} .multicolumn-button {
+          margin-top: 24px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-image  {
+          max-width: 140px;
+          height: 140px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-item-inner {
+          padding: 24px;
+          width: 100%;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-items-wrapper{
+          grid-template-columns: repeat(1, 1fr) !important;
+      }
+      #shopify-section-{{ section.id }} .block-description {
+          margin-top: 17.88px;
+          font-size: 18px;
+          width: 100%;
+      }
+      #shopify-section-{{ section.id }} .block-title {
+         font-size: 20px;
+         font-weight: 700;
+         line-height: 140%;
+         color: #25282A;
+         width: 100%;
+      }
+  }
+
+  /*== 679px ==*/
+  @media (max-width: 679px){
+      #shopify-section-{{ section.id }} .multicolumn-image-with-text{
+          padding: 0 16px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-heading {
+          max-width: 327px;
+          margin-bottom: 27px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-heading .description {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 140%;
+          text-align: center;
+          color: #02060B;
+      }
+      .margin-top-description-style{
+          margin-top: 12px;
+      }
+      #shopify-section-{{ section.id }} .rich-text-button{
+          margin-top: 16px;
+      }
+      #shopify-section-{{ section.id }} .heading {
+          margin-bottom: 12px;
+      }
+      #shopify-section-{{ section.id }} .yb-single-video-btn{
+          padding: 13px 40px;
+          min-width: 180px;
+          text-align: center;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-item-inner {
+          padding: 16px;
+          width: 100%;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-button {
+          margin-top: 16px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-image {
+          max-width: 64px;
+          height: 64px;
+      }
+      #shopify-section-{{ section.id }} .multicolumn-items-wrapper{
+          grid-template-columns: repeat(1, 1fr) !important;
+      }
+      #shopify-section-{{ section.id }} .block-description {
+          margin-top: 12px;
+          width: 100%;
+      }
+      #shopify-section-{{ section.id }} .block-title {
+         font-size: 14px;
+         font-weight: 700;
+         line-height: 140%;
+         color: #25282A;
+         width: 100%;
+      }
+  }
+
+  #shopify-section-{{ section.id }} .multicolumn-image-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+  }
+
+  #shopify-section-{{ section.id }} .block-rating {
+    display: flex;
+    gap: 1px;
+    z-index: 2;
+    padding: 2px 0;
+    font-weight: bold;
+  }
+  #shopify-section-{{ section.id }} .star-svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  /* 默认文字颜色（关闭深色模式时） */
+  #shopify-section-{{ section.id }} .heading.yb-section-title {
+    color: #25282A;
+  }
+  #shopify-section-{{ section.id }} .rich-text-description {
+    color: #25282A;
+  }
+  #shopify-section-{{ section.id }} .block-title {
+    color: #25282A;
+  }
+  #shopify-section-{{ section.id }} .block-description {
+    color: #6E6E73;
+  }
+
+  /* 深色模式样式 */
+  #shopify-section-{{ section.id }}.is-dark-mode .heading.yb-section-title,
+  #shopify-section-{{ section.id }}[data-dark-mode="true"] .heading.yb-section-title,
+  #shopify-section-{{ section.id }} .is-dark-mode .heading.yb-section-title,
+  #shopify-section-{{ section.id }} [data-dark-mode="true"] .heading.yb-section-title {
+    color: #fff !important;
+  }
+  #shopify-section-{{ section.id }}.is-dark-mode .rich-text-description,
+  #shopify-section-{{ section.id }}[data-dark-mode="true"] .rich-text-description,
+  #shopify-section-{{ section.id }} .is-dark-mode .rich-text-description,
+  #shopify-section-{{ section.id }} [data-dark-mode="true"] .rich-text-description {
+    color: #fff !important;
+  }
+
+  /* 卡片背景色 */
+  #shopify-section-{{ section.id }} .multicolumn-item-inner.is-dark-mode,
+  #shopify-section-{{ section.id }} .multicolumn-item-inner[data-dark-mode="true"] {
+    background-color: #1F1F1F !important;
+    background: #1F1F1F !important;
+  }
+
+  /* 卡片文字颜色 */
+  #shopify-section-{{ section.id }} .multicolumn-item-inner.is-dark-mode .block-title,
+  #shopify-section-{{ section.id }} .multicolumn-item-inner[data-dark-mode="true"] .block-title {
+    color: #fff !important;
+  }
+  #shopify-section-{{ section.id }} .multicolumn-item-inner.is-dark-mode .block-description,
+  #shopify-section-{{ section.id }} .multicolumn-item-inner[data-dark-mode="true"] .block-description {
+    color: #E6E6E7 !important;
+  }
+</style>
+
+{% if section.settings.dark_mode %}
+  <script>
+    (function () {
+      const sectionId = '{{ section.id | remove: "-" }}';
+      const section = document.querySelector('#shopify-section-{{ section.id }}');
+      if (!section) return;
+
+      function applyDarkModeStyles() {
+        const darkModeItems = section.querySelectorAll('.multicolumn-item-inner.is-dark-mode, .multicolumn-item-inner[data-dark-mode="true"]');
+        darkModeItems.forEach(function (item) {
+          item.style.backgroundColor = '#1F1F1F';
+          item.style.background = '#1F1F1F';
+
+          const titles = item.querySelectorAll('.block-title');
+          titles.forEach(function (title) {
+            title.style.color = '#fff';
+          });
+
+          const descriptions = item.querySelectorAll('.block-description');
+          descriptions.forEach(function (desc) {
+            desc.style.color = '#E6E6E7';
+          });
+        });
+
+        const headings = section.querySelectorAll('.heading.yb-section-title');
+        headings.forEach(function (heading) {
+          heading.style.color = '#fff';
+        });
+
+        const descriptions = section.querySelectorAll('.rich-text-description');
+        descriptions.forEach(function (desc) {
+          desc.style.color = '#fff';
+        });
+      }
+
+      applyDarkModeStyles();
+
+      setTimeout(applyDarkModeStyles, 100);
+      setTimeout(applyDarkModeStyles, 500);
+      setTimeout(applyDarkModeStyles, 1000);
+
+      if (window.MutationObserver) {
+        const observer = new MutationObserver(function (mutations) {
+          applyDarkModeStyles();
+        });
+        observer.observe(section, { childList: true, subtree: true });
+      }
+    })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Yb Multicolumn",
+  "class": "migrated-page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "标题"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "描述"
+    },
+    {
+      "type": "range",
+      "id": "pc_grid_columns",
+      "label": "PC end columns",
+      "default": 1,
+      "min": 1,
+      "max": 3,
+      "step": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "是否显示评分",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "common_button_class",
+      "label": "按钮类名"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "按钮文字"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "按钮类型",
+      "default": "link",
+      "options": [
+        { "value": "link", "label": "链接" },
+        { "value": "anchor", "label": "锚点" },
+        {
+          "value": "modal",
+          "label": "弹窗"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "按钮链接"
+    },
+    {
+      "type": "text",
+      "id": "button_anchor",
+      "label": "按钮锚点ID"
+    },
+    {
+      "type": "text",
+      "id": "button_modal_title",
+      "label": "按钮弹窗标题"
+    },
+    {
+      "type": "html",
+      "id": "button_modal_content",
+      "label": "按钮弹窗内容"
+    },
+    {
+      "type": "checkbox",
+      "id": "dark_mode",
+      "label": "深色模式",
+      "info": "默认白色模式",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "section填充"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景颜色",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "高亮文字颜色",
+      "default": "#f1c40f"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1920",
+      "label": "1920顶部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1920",
+      "label": "1920底部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1440",
+      "label": "1440顶部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1440",
+      "label": "1440底部填充",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_960",
+      "label": "960顶部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_960",
+      "label": "960底部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_680",
+      "label": "680顶部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_680",
+      "label": "680底部填充",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_375",
+      "label": "375顶部填充",
+      "default": 48,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_375",
+      "label": "375底部填充",
+      "default": 48,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_item",
+      "name": "Image item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_title",
+          "label": "标题"
+        },
+        {
+          "type": "richtext",
+          "id": "block_description",
+          "label": "描述"
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "block_rating",
+          "label": "评分",
+          "min": 0,
+          "max": 5,
+          "step": 0.5,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Yb Multicolumn",
+      "blocks": [
+        {
+          "type": "image_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,235 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<div
+  style='
+    --bg-color: {{ section.settings.bg_color }};
+    --title-color: {{ section.settings.title_color }};
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+  '
+  class='
+    bg-(--bg-color)
+    pt-(--h5-padding-top) pb-(--h5-padding-bottom)
+    md:py-(--padding-top) md:pb-(--padding-bottom)
+    {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <div class='page-container'>
+    {% if section.settings.title != blank %}
+      <h2
+        class='
+          mb-24
+          text-center
+          text-[28px]
+          text-(--title-color)
+          md:mb-48
+          md:text-[40px]
+        '
+      >
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    <div class='grid grid-cols-1 gap-24 sm:grid-cols-2 sm:gap-32 md:gap-48'>
+      {% for block in section.blocks %}
+        <div
+          style='
+            --item-title-color: {{ block.settings.title_color }};
+            --item-desc-color: {{ block.settings.desc_color }};
+          '
+          class='flex items-start gap-16 md:gap-20'
+          {{ block.shopify_attributes }}
+        >
+          {% if block.settings.icon != blank %}
+            <div class='shrink-0'>
+              <img
+                src='{{ block.settings.icon | image_url: width: 200 }}'
+                alt='{{ block.settings.title }}'
+                class='h-auto w-56 object-contain md:w-80'
+                loading='lazy'
+                width='80'
+                height='80'
+              >
+            </div>
+          {% endif %}
+
+          <div class='flex flex-col'>
+            {% if block.settings.title != blank %}
+              <h3
+                class='
+                  text-[16px]
+                  leading-tight
+                  text-(--item-title-color)
+                  md:text-[18px]
+                '
+              >
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.desc != blank %}
+              <p
+                class='
+                  mt-8
+                  text-[13px]
+                  leading-[1.4]
+                  text-(--item-desc-color)
+                  md:mt-10
+                  md:text-[15px]
+                '
+              >
+                {{ block.settings.desc }}
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Shop With Yarbo",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Why Shop with Yarbo"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Section Title Color",
+      "default": "#25282A"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_item",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Free & Fast Delivery"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "For the Yarbo robots in stock, you will easily get them in 3-8 business days."
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "desc_color",
+          "label": "Description Color",
+          "default": "#515355"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Shop With Yarbo",
+      "blocks": [
+        {
+          "type": "feature_item",
+          "settings": {
+            "title": "Free & Fast Delivery",
+            "desc": "For the Yarbo robots in stock, you will easily get them in 3-8 business days. Act now — our stock is very limited!"
+          }
+        },
+        {
+          "type": "feature_item",
+          "settings": {
+            "title": "7/24 Customer Support",
+            "desc": "Reach us anytime via email, phone, or ticket. Team Yarbo is always ready to deliver fast, reliable answers."
+          }
+        },
+        {
+          "type": "feature_item",
+          "settings": {
+            "title": "Up to 2-Year Total Warranty",
+            "desc": "Same warranty coverage as a new machine for 2 years."
+          }
+        },
+        {
+          "type": "feature_item",
+          "settings": {
+            "title": "14-Day Trial",
+            "desc": "14-day free refund for quality issues."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

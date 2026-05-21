@@ -1,0 +1,117 @@
+{{ 'yb-subscribe-klaviyo.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'yb-subscribe-klaviyo.js' | asset_url }}" defer></script>
+
+{% if section.settings.subscription_absolute %}
+<style>
+   @media screen and (min-width: 959px) {
+    #yb-banner-swiper__{{ section.id }} .yb-banner-swiper-titles{
+      padding-bottom: 118px;
+    }
+   }
+   .yb-banner-swiper .yb-banner-swiper-main{
+    position: unset !important;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-absolute {
+    position: absolute;
+    width: calc(100% - 48px);
+    bottom: {{ section.settings.subscription_position }}px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+</style>
+{% endif %}
+
+<style>
+  /* 让 policy 文本与输入框同宽并自动换行 */
+  .yb-subscribe-klaviyo-policy {
+    width: 344px;
+    word-wrap: break-word;
+    line-height: 1.5;
+  }
+
+  .yb-subscribe-klaviyo-policy-text {
+    display: inline;
+  }
+
+  /* 响应式宽度 */
+  @media (min-width: 680px) and (max-width: 959px) {
+    .yb-subscribe-klaviyo-policy {
+      width: 381px;
+    }
+  }
+
+  @media (min-width: 960px) and (max-width: 1439px) {
+    .yb-subscribe-klaviyo-policy {
+      width: 482px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .yb-subscribe-klaviyo-policy {
+      width: 482px;
+    }
+  }
+
+  @media (max-width: 679px) {
+    .yb-subscribe-klaviyo-policy {
+      width: 100%;
+    }
+  }
+</style>
+
+<yb-subscribe-klaviyo
+  class="yb-subscribe-klaviyo {{ class }} {% if section.settings.subscription_absolute %}yb-subscribe-klaviyo-absolute{% endif %}"
+  data-email-only="true"
+  {% if step2 %}data-step2="{{ step2 }}"{% endif %}
+  {% if step3 %}data-step3="{{ step3 }}"{% endif %}
+  {% if step2Placeholder %}data-step2Placeholder="{{ step2Placeholder }}"{% endif %}
+  {% if step3Placeholder %}data-step3Placeholder="{{ step3Placeholder }}"{% endif %}
+  {% if country == "AU" %}data-country="{{ country }}"{% endif %}
+>
+  {% if desc %}
+    <div class="yb-subscribe-klaviyo-desc text-container">{{ desc }}</div>
+  {% elsif section.settings.subscription_title %}
+    <div class="yb-subscribe-klaviyo-desc text-container">{{ section.settings.subscription_title }}</div>
+  {% endif %}
+
+  <div class="yb-subscribe-klaviyo-input-wrapper yb-subscribe-klaviyo-input-email subscribe-tel-input" data-step="email">
+    <div class="yb-subscribe-klaviyo-prefix">
+      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M3 2.25C2.30964 2.25 1.75 2.80964 1.75 3.5V16.5C1.75 17.1904 2.30964 17.75 3 17.75H18C18.6904 17.75 19.25 17.1904 19.25 16.5V3.5C19.25 2.80964 18.6904 2.25 18 2.25H3ZM3.25 6.89965V3.75H17.75V6.9002L17.7114 6.80762L10.4999 9.81242L3.28835 6.80762L3.25 6.89965ZM3.25 8.41664L9.97104 11.2171C10.3095 11.3581 10.6903 11.3581 11.0287 11.2171L17.75 8.41654V16.25H3.25V8.41664Z"
+          fill="#ACACAC" />
+      </svg>
+    </div>
+    <input class="yb-subscribe-klaviyo-input" placeholder="{% if step1Placeholder %}{{ step1Placeholder }}{% else %}Email{% endif %}" />
+    <div class="yb-subscribe-klaviyo-suffix" data-email-type="{{ emailType }}" data-klaviyo-list-id="{{ klaviyoListId }}" {% if emailType == 'footer' %}data-dataLayer="footer_EmailSubscribe" data-btn-name="footer_EmailSubscribe"{% endif %}>
+      {% if step1 %}
+        {{ step1 }}
+      {% elsif section.settings.subscription_button_text %}
+        {{ section.settings.subscription_button_text }}
+      {% else %}
+        Subscribe
+      {% endif %}
+    </div>
+
+    {% render 'subscribe-klaviyo-country-list' %}
+
+    <div class="yb-subscribe-klaviyo-errors"></div>
+  </div>
+
+  <div class="yb-subscribe-klaviyo-policy">
+    <div class="yb-subscribe-klaviyo-checkbox-wrapper yb-subscribe-klaviyo-checkbox-checked">
+      <input checked class="yb-subscribe-klaviyo-checkbox" type="checkbox" name="subscribe" />
+    </div>
+    {% if policy %}
+      <div class="yb-subscribe-klaviyo-policy-text">
+        {{ policy }}
+      </div>
+    {% else %}
+      <span class="yb-subscribe-klaviyo-policy-text">
+        I understand the&nbsp;<a class="yb-subscribe-klaviyo-link" href="/legal/privacy-policy">Privacy Policy</a>&nbsp;and agree to receive personalized messages from Yarbo by email or SMS.
+      </span>
+    {% endif %}
+  </div>
+
+  {% render 'subscribe-popup' %}
+</yb-subscribe-klaviyo>

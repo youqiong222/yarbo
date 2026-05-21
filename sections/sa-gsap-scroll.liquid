@@ -1,0 +1,653 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+{%- liquid
+  assign s = section.settings
+
+  assign pc_w = s.pc_aspect_ratio_w | default: 16
+  assign pc_h = s.pc_aspect_ratio_h | default: 9
+  assign pc_ratio = pc_w | append: '/' | append: pc_h
+
+  assign h5_w = s.h5_aspect_ratio_w | default: 16
+  assign h5_h = s.h5_aspect_ratio_h | default: 9
+  assign h5_ratio = h5_w | append: '/' | append: h5_h
+-%}
+<style>
+  #shopify-section-{{ section.id }}{
+    background: {{ section.settings.bac }};
+    color: {{ section.settings.text_color }};
+  }
+</style>
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} relative flex w-full touch-pan-y flex-col justify-center overflow-hidden py-40 md:h-dvh md:[overflow:unset] md:py-0'>
+  <div class='swiper-content md:[overflow:unset] '>
+    <div class='swiper min-w-0 md:[overflow:unset]'>
+      <div class='swiper-wrapper flex-col gap-48 md:flex-row md:gap-0'>
+        {% for block in section.blocks %}
+          <div class='swiper-slide flex flex-col gap-20 md:gap-40'>
+            <div class='flex flex-col gap-12 md:gap-16'>
+              <h3 class='text-[32px] uppercase md:text-[44px]'>{{ block.settings.title }}</h3>
+              <div class='text-[16px] md:text-[18px]'>{{ block.settings.desc }}</div>
+            </div>
+            <div
+              style='
+                --media-aspect-pc: {{ pc_ratio }};
+                --media-aspect-h5: {{ h5_ratio }};
+              '
+              class='
+                grid    overflow-hidden md:aspect-(--media-aspect-pc)  {% if block.settings.layout_mode == 'single' %}
+                  grid-cols-1
+                {% else %}
+                md:grid-cols-2  grid-cols-1
+                {% endif %} gap-12
+              '
+            >
+              <div
+                class='relative aspect-(--media-aspect-h5)  h-full w-full overflow-hidden'
+              >
+                {% render 'media-element',
+                  class: 'absolute inset-0 w-full h-full object-cover',
+                  media_class: 'w-full h-full object-cover',
+                  media_type: block.settings.media_type_1,
+                  pc_image: block.settings.pc_image_1,
+                  h5_image: block.settings.h5_image_1,
+                  pc_video: block.settings.pc_video_1,
+                  h5_video: block.settings.h5_video_1,
+                  video_url: block.settings.video_url_1,
+                  other_url: block.settings.other_url_1
+                %}
+                {%
+                  render 'sn-overlay',
+                  _settings: {
+                  show_overlay: block.settings.show_overlay_1,
+                  overlay_color: block.settings.overlay_color_1,
+                  overlay_opacity: block.settings.overlay_opacity_1
+                  }
+                %}
+                {% if block.settings.title_1_1 != blank or block.settings.title_1_2 != blank %}
+                  <div class='absolute inset-0 flex flex-col justify-end p-16 text-white md:px-28 md:py-24'>
+                    <div class='flex gap-12 md:gap-16'>
+                      {% if block.settings.title_1_1 != blank or block.settings.text_1_1 != blank %}
+                        <div class='relative flex min-w-147 flex-col gap-4 pl-12 before:absolute before:left-0 before:h-full before:w-4 before:bg-[#fedb1e]'>
+                          <div class='text-[26px] font-bold uppercase md:text-[32px] [&_strong]:text-[20px] md:[&_strong]:text-[22px]'>
+                            {{ block.settings.title_1_1 }}
+                          </div>
+                          <div class='text-[12px]'>
+                            {{ block.settings.text_1_1 }}
+                          </div>
+                        </div>
+                      {% endif %}
+
+                      {% if block.settings.title_1_2 != blank or block.settings.text_1_2 != blank %}
+                        <div class='relative flex min-w-147 flex-col gap-4 pl-12 before:absolute before:left-0 before:h-full before:w-4 before:bg-[#fedb1e]'>
+                          <div class='text-[26px] font-bold uppercase md:text-[32px] [&_strong]:text-[20px] md:[&_strong]:text-[22px]'>
+                            {{ block.settings.title_1_2 }}
+                          </div>
+                          <div class='text-[12px]'>
+                            {{ block.settings.text_1_2 }}
+                          </div>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+              {% unless block.settings.layout_mode == 'single' %}
+                <div
+                  class='relative aspect-(--media-aspect-h5) h-full w-full overflow-hidden'
+                >
+                  {% render 'media-element',
+                    class: 'absolute inset-0 w-full h-full object-cover',
+                    media_class: 'w-full h-full object-cover',
+                    media_type: block.settings.media_type_2,
+                    pc_image: block.settings.pc_image_2,
+                    h5_image: block.settings.h5_image_2,
+                    pc_video: block.settings.pc_video_2,
+                    h5_video: block.settings.h5_video_2,
+                    video_url: block.settings.video_url_2,
+                    other_url: block.settings.other_url_2
+                  %}
+                  {%
+                    render 'sn-overlay',
+                    _settings: {
+                    show_overlay: block.settings.show_overlay_2,
+                    overlay_color: block.settings.overlay_color_2,
+                    overlay_opacity: block.settings.overlay_opacity_2
+                    }
+                  %}
+                  {% if block.settings.title_2_1 != blank or block.settings.title_2_2 != blank %}
+                    <div class='absolute inset-0 flex flex-col justify-end p-16 text-white md:px-28 md:py-24'>
+                      <div class='flex gap-12 md:gap-16'>
+                        {% if block.settings.title_2_1 != blank or block.settings.text_2_1 != blank %}
+                          <div class='relative flex min-w-147 flex-col gap-4 pl-12 before:absolute before:left-0 before:h-full before:w-4 before:bg-[#fedb1e]'>
+                            <div class='text-[26px] font-bold uppercase md:text-[32px] [&_strong]:text-[20px] md:[&_strong]:text-[22px]'>
+                              {{ block.settings.title_2_1 }}
+                            </div>
+                            <div class='text-[12px]'>
+                              {{ block.settings.text_2_1 }}
+                            </div>
+                          </div>
+                        {% endif %}
+
+                        {% if block.settings.title_2_2 != blank or block.settings.text_2_2 != blank %}
+                          <div class='relative flex min-w-147 flex-col gap-4 pl-12 before:absolute before:left-0 before:h-full before:w-4 before:bg-[#fedb1e]'>
+                            <div class='text-[26px] font-bold uppercase md:text-[32px] [&_strong]:text-[20px] md:[&_strong]:text-[22px]'>
+                              {{ block.settings.title_2_2 }}
+                            </div>
+                            <div class='text-[12px]'>
+                              {{ block.settings.text_2_2 }}
+                            </div>
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endunless %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<script
+  defer
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/gsap.min.js?v=1776244928'
+></script>
+<script
+  defer
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/scrollTrigger.min.js?v=1776244928'
+></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sectionElement = document.querySelector('#shopify-section-{{ section.id }}');
+    if (!sectionElement) return;
+
+    const swiperElement = sectionElement.querySelector('.swiper');
+    if (!swiperElement) return;
+
+    let mySwiper = null;
+    let scrollTriggerInstance = null;
+
+    const mediaQuery = window.matchMedia('(min-width: 1000px)');
+
+    const slides = () =>
+      sectionElement.querySelectorAll('.swiper-slide');
+
+    // =========================
+    // Swiper 初始化（Mobile）
+    // =========================
+    const initSwiper = () => {
+      mySwiper = new Swiper(swiperElement, {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        allowTouchMove: true,
+
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          }
+        },
+
+        {% if section.settings.auto_rotate %}
+        autoplay: {
+          delay: {{ section.settings.change_slides_speed | times: 1000 }},
+          disableOnInteraction: false,
+        },
+        {% endif %}
+      });
+    };
+
+    // =========================
+    // GSAP Scroll 控制（PC）
+    // =========================
+    const initGSAPScroll = () => {
+      if (!window.gsap || !window.ScrollTrigger) {
+        console.warn('GSAP or ScrollTrigger not found');
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const totalSlides = slides().length;
+
+      mySwiper = new Swiper(swiperElement, {
+        slidesPerView: 1,
+        spaceBetween: 60,
+        allowTouchMove: false,
+        speed: 800,
+      });
+
+      let currentIndex = 0;
+
+      scrollTriggerInstance = ScrollTrigger.create({
+        trigger: sectionElement.querySelector('.page-container'),
+        start: "top top",
+        end: () => "+=" + window.innerHeight * (totalSlides - 1),
+
+        pin: true,
+        scrub: 1,
+
+        onUpdate: (self) => {
+          const index = Math.round(self.progress * (totalSlides - 1));
+
+          if (index !== currentIndex) {
+            currentIndex = index;
+            mySwiper.slideTo(index);
+          }
+        }
+      });
+    };
+
+    // =========================
+    // destroy
+    // =========================
+    const destroyAll = () => {
+      if (scrollTriggerInstance) {
+        scrollTriggerInstance.kill();
+        scrollTriggerInstance = null;
+      }
+
+      if (mySwiper) {
+        mySwiper.destroy(true, true);
+        mySwiper = null;
+      }
+    };
+
+    // =========================
+    // 切换逻辑
+    // =========================
+    const handle = (e) => {
+      destroyAll();
+
+      if (e.matches) {
+        initGSAPScroll(); // PC
+      } else {
+        initSwiper(); // Mobile
+      }
+    };
+
+    // init
+    handle(mediaQuery);
+
+    // listen
+    mediaQuery.addEventListener('change', handle);
+  });
+</script>
+{% schema %}
+{
+  "name": "Scroll",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Block Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height"
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    },
+    {
+      "type": "color",
+      "id": "bac",
+      "label": "Background color",
+      "default": "#0d0d0d"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#fff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Desc"
+        },
+        {
+          "type": "select",
+          "id": "layout_mode",
+          "label": "Layout Mode",
+          "options": [
+            { "value": "single", "label": "Single" },
+            { "value": "static", "label": "Split (Static)" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Media Settings 1"
+        },
+        {
+          "type": "select",
+          "id": "media_type_1",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image_1",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image_1",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video_1",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video_1",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url_1",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url_1",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Content Settings 1"
+        },
+        {
+          "type": "richtext",
+          "id": "title_1_1",
+          "label": "Title 1 (Top)"
+        },
+        {
+          "type": "richtext",
+          "id": "text_1_1",
+          "label": "Text 1 (Top)"
+        },
+        {
+          "type": "richtext",
+          "id": "title_1_2",
+          "label": "Title 2 (Bottom)"
+        },
+        {
+          "type": "richtext",
+          "id": "text_1_2",
+          "label": "Text 2 (Bottom)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings 1"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay_1",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color_1",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity_1",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "header",
+          "content": "Media Settings 2"
+        },
+        {
+          "type": "select",
+          "id": "media_type_2",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image_2",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image_2",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video_2",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video_2",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url_2",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url_2",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Content Settings 2"
+        },
+        {
+          "type": "richtext",
+          "id": "title_2_1",
+          "label": "Title 1 (Top)"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2_1",
+          "label": "Text 1 (Top)"
+        },
+        {
+          "type": "richtext",
+          "id": "title_2_2",
+          "label": "Title 2 (Bottom)"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2_2",
+          "label": "Text 2 (Bottom)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings 2"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay_2",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color_2",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity_2",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scroll",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      },
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>Smart Control</p>",
+            "desc": "<p>Seamless control with intelligent system.</p>",
+            "layout_mode": "single"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>Smart Control</p>",
+            "desc": "<p>Seamless control with intelligent system.</p>",
+            "layout_mode": "single",
+
+            "title_1_1": "<p>300 <strong>W</strong></p>",
+            "text_1_1": "<p>Dual Drive Motors</p>",
+            "title_1_2": "<p>300 <strong>W</strong></p>",
+            "text_1_2": "<p>Dual Drive Motors</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

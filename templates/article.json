@@ -1,0 +1,206 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sa_article_banner_GxmzK3": {
+      "type": "sa-article-banner",
+      "name": "Article banner",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "h5_padding_top": 24,
+        "h5_padding_bottom": 48
+      }
+    },
+    "main": {
+      "type": "sa-main-article",
+      "blocks": {
+        "tab_bdJWBU": {
+          "type": "tab",
+          "settings": {
+            "tab": "Why Snow Blower Storage Matters After Winter",
+            "id": ""
+          }
+        },
+        "tab_NVpYbN": {
+          "type": "tab",
+          "settings": {
+            "tab": "When Is the Right Time for Snowblower Storage",
+            "id": ""
+          }
+        },
+        "tab_UKqy6E": {
+          "type": "tab",
+          "settings": {
+            "tab": "Preparing Your Yarbo: Clean & Dry Thoroughly",
+            "id": ""
+          }
+        },
+        "tab_HUrQj9": {
+          "type": "tab",
+          "settings": {
+            "tab": "Choosing the Right Snowblower Shed or Storage Space",
+            "id": ""
+          }
+        },
+        "tab_xei494": {
+          "type": "tab",
+          "settings": {
+            "tab": "Why Storing Yarbo Properly Saves Time and Money",
+            "id": ""
+          }
+        },
+        "tab_Wfhd6x": {
+          "type": "tab",
+          "settings": {
+            "tab": "Conclusion",
+            "id": ""
+          }
+        },
+        "tab_WtJiyH": {
+          "type": "tab",
+          "settings": {
+            "tab": "FAQs",
+            "id": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share article"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "tab_bdJWBU",
+        "tab_NVpYbN",
+        "tab_UKqy6E",
+        "tab_HUrQj9",
+        "tab_xei494",
+        "tab_Wfhd6x",
+        "tab_WtJiyH",
+        "share",
+        "content"
+      ],
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "tab_title": "Table Of Contents"
+      }
+    },
+    "line_nwmytE": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_index_collections_kRinJK": {
+      "type": "sa-index-collections",
+      "blocks": {
+        "block_dqFGVh": {
+          "type": "block",
+          "settings": {
+            "label": "",
+            "product_list": [
+              "yarbo-lawn-mower-pro",
+              "yarbo-lawn-mower-pro-snow-blower",
+              "yarbo-4-in-1-yard-robot-with-lawn-mower-pro-module",
+              "yarbo-snow-blower-lawn-mower"
+            ],
+            "shop_all_text": "",
+            "shop_all_url": ""
+          }
+        },
+        "block_pMbc8a": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "label": "Label",
+            "product_list": [],
+            "shop_all_text": "",
+            "shop_all_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_dqFGVh",
+        "block_pMbc8a"
+      ],
+      "name": "Index Collections",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Featured in Article</p>",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_rating": false,
+        "quick_add": "standard"
+      }
+    },
+    "line_qFx8fM": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_articles_block_yFV949": {
+      "type": "sa-articles-block",
+      "blocks": {
+        "blog_AmLYd9": {
+          "type": "blog",
+          "settings": {
+            "article": "blog-news/which-is-better-wired-or-wireless-robot-mowers-a-complete-guide"
+          }
+        },
+        "blog_b4dpt6": {
+          "type": "blog",
+          "settings": {
+            "article": "blog-news/does-automatic-lawn-cutter-work-discover-the-truth-about-robot-lawn-edgers"
+          }
+        },
+        "blog_WLNqB4": {
+          "type": "blog",
+          "settings": {
+            "article": "blog-news/riding-lawn-mower-cost-whats-the-price-tag-for-your-perfect-fit"
+          }
+        }
+      },
+      "block_order": [
+        "blog_AmLYd9",
+        "blog_b4dpt6",
+        "blog_WLNqB4"
+      ],
+      "name": "Articles Block",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Related Blog posts</p>"
+      }
+    }
+  },
+  "order": [
+    "sa_article_banner_GxmzK3",
+    "main",
+    "line_nwmytE",
+    "sa_index_collections_kRinJK",
+    "line_qFx8fM",
+    "sa_articles_block_yFV949"
+  ]
+}

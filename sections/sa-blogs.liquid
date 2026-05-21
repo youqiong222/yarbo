@@ -1,0 +1,375 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+<style>
+  #shopify-section-{{ section.id }} {
+    background: #F2F2F2;
+  }
+</style>
+{%- capture all_link -%}
+  {% assign first_block = section.blocks.first %}
+  {% if first_block.settings.all_link != blank %}
+    <a
+      href='{{ first_block.settings.all_link }}'
+      class='group flex items-center gap-8 text-[14px] text-[#25282A] no-underline'
+    >
+      {{ 'blogs.article.all_article' | t }}
+      <svg
+        class='transition-transform duration-300 group-hover:translate-x-6'
+        width='9'
+        height='9'
+        viewBox='0 0 9 9'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path d="M1.77014 0.657715L7.51885 0.725021M7.51885 0.725021L7.58528 6.39198M7.51885 0.725021L0.919189 7.32468" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+      </svg>
+    </a>
+  {% endif %}
+{%- endcapture -%}
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <div class='mb-32'>
+    {% if section.settings.sub_title != blank %}
+      <span class='mb-12 block text-[14px]/[1.4] text-[#515355] md:mb-16'>
+        {{- section.settings.sub_title -}}
+      </span>
+    {% endif %}
+    {% if section.settings.title != blank %}
+      <h2 class='text-[26px]/[1.1] text-[#25282A] uppercase md:text-[32px]/[1.1]'>
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+  </div>
+
+  <div
+    x-data="tabsComponent('tab_0')"
+    x-init='updateSlider()'
+    @resize.window='updateSlider()'
+    class='w-full'
+  >
+    <div class='{% if section.blocks.size == 1 %}hidden{% endif %} relative mb-32 flex w-full items-end justify-between'>
+      <div
+        class='absolute bottom-0 left-0 z-0 block! h-4 w-full bg-[#CCCCCC]'
+      ></div>
+
+      <div class='no-scrollbar theme-title relative z-10 flex w-full gap-24 overflow-x-auto pb-12 md:pb-16'>
+        {% for block in section.blocks %}
+          <div
+            x-ref='tab_{{ forloop.index0 }}'
+            x-bind="tabButton('tab_{{ forloop.index0 }}')"
+            class='shrink-0 cursor-pointer text-[16px]/[1.1] font-bold uppercase transition-colors md:text-[20px]/[1.2] md:hover:text-[#25282A]'
+            :class='activeTab === "tab_{{ forloop.index0 }}" ? "text-[#25282A]" : "text-[#A6A6A6]"'
+            data-tab-index='{{ forloop.index0 }}'
+          >
+            {{ block.settings.blog_label }}
+          </div>
+        {% endfor %}
+
+        <div
+          class='absolute bottom-0 left-0 block! h-4 bg-[#25282A] transition-all duration-300 ease-out'
+          :style='`width: ${sliderWidth}px; transform: translateX(${sliderOffset}px);`'
+        ></div>
+      </div>
+
+      <div class='relative z-10 hidden pb-12 pl-8 whitespace-nowrap md:block md:pb-16'>
+        {{ all_link }}
+      </div>
+    </div>
+
+    <div class='tab-contents grid'>
+      {% for block in section.blocks %}
+        <div
+          x-show="activeTab === 'tab_{{ forloop.index0 }}'"
+          x-cloak
+          x-transition.opacity.duration.300ms
+          class='tab-pane col-start-1 row-start-1 w-full'
+          data-pane-index='{{ forloop.index0 }}'
+        >
+          <div class='grid grid-cols-1 gap-24 md:grid-cols-12'>
+            {% assign article1 = block.settings.article1 %}
+            {% if article1 != blank %}
+              <div class='flex h-full flex-col bg-white md:col-span-7'>
+                <a
+                  href='{{ article1.url }}'
+                  class='group relative block w-full overflow-hidden pt-[55%]'
+                >
+                  <div class='absolute inset-0 h-full w-full object-cover'>
+                    {%- assign _a1_pc = block.settings.article1_pc_img | default: article1.metafields.custom.cover_bac | default: article1.image -%}
+                    {%- assign _a1_h5 = block.settings.article1_h5_img | default: article1.metafields.custom.cover_bac | default: article1.image -%}
+                    {% render 'media-element',
+                      media_type: 'image',
+                      class: 'aspect-[765/438] overflow-hidden',
+                      media_class: 'h-full w-full object-cover transition-transform duration-300 group-hover:scale-105',
+                      pc_image: _a1_pc,
+                      h5_image: _a1_h5
+                    %}
+                  </div>
+                </a>
+                <div class='flex flex-1 flex-col p-20 md:p-24'>
+                  <div class='mb-8 flex text-[12px]/[1.4] text-[#515355]'>
+                    {% for tag in article1.tags %}
+                      <span>
+                        {{ tag }}
+                        {% unless forloop.last %}、{% endunless %}
+                      </span>
+                    {% endfor %}
+                  </div>
+                  <a
+                    href='{{ article1.url }}'
+                    class='theme-title block text-[24px] font-bold text-[#1a1a1a] uppercase no-underline hover:underline md:mb-16 md:text-[32px]/[1.2]'
+                  >
+                    {{ article1.title }}
+                  </a>
+                  <a
+                    href='{{ article1.url }}'
+                    class='group mt-auto hidden items-center gap-9 text-[14px]/[1.4] font-medium text-[#1a1a1a] no-underline md:flex'
+                  >
+                    {{ 'blogs.article.read_more' | t }}
+
+                    <svg
+                      class='transition-transform duration-300 group-hover:translate-x-6'
+                      width='6'
+                      height='10'
+                      viewBox='0 0 6 10'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path d="M0.919597 0.919434L5.00293 5.00277L0.919596 9.0861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            {% endif %}
+
+            <div class='flex flex-col gap-24 md:col-span-5'>
+              {% for i in (2..4) %}
+                {% case i %}
+                  {% when 2 -%}
+                    {%- assign sub_article = block.settings.article2 -%}
+                    {%- assign _sub_pc_img = block.settings.article2_pc_img -%}
+                    {%- assign _sub_h5_img = block.settings.article2_h5_img %}
+                  {% when 3 -%}
+                    {%- assign sub_article = block.settings.article3 -%}
+                    {%- assign _sub_pc_img = block.settings.article3_pc_img -%}
+                    {%- assign _sub_h5_img = block.settings.article3_h5_img %}
+                  {% when 4 -%}
+                    {%- assign sub_article = block.settings.article4 -%}
+                    {%- assign _sub_pc_img = block.settings.article4_pc_img -%}
+                    {%- assign _sub_h5_img = block.settings.article4_h5_img %}
+                {% endcase %}
+
+                {% if sub_article != blank %}
+                  <div class='flex min-h-0 w-full flex-1 flex-row bg-white'>
+                    <div class='flex w-[55%] flex-1 flex-col justify-center px-20 py-12 md:px-24 md:py-16'>
+                      <div class='mb-8 flex flex-wrap text-[12px]/[1.2] text-[#515355]'>
+                        {% for tag in sub_article.tags %}
+                          <span>
+                            {{ tag }}
+                            {% unless forloop.last %},{% endunless %}
+                          </span>
+                        {% endfor %}
+                      </div>
+                      <a
+                        href='{{ sub_article.url }}'
+                        class='theme-title text-[17px][1.1] line-clamp-3 font-bold text-[#25282A] uppercase no-underline hover:underline md:mb-16 md:text-[22px]/[1.2]'
+                      >
+                        {{ sub_article.title }}
+                      </a>
+                      <a
+                        href='{{ sub_article.url }}'
+                        class='group mt-auto hidden items-center gap-9 text-[14px]/[1.2] text-[#25282A] no-underline md:flex'
+                      >
+                        {{ 'blogs.article.read_more' | t }}
+                        <svg
+                          class='transition-transform duration-300 group-hover:translate-x-6'
+                          width='6'
+                          height='10'
+                          viewBox='0 0 6 10'
+                          fill='none'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path d="M0.919597 0.919434L5.00293 5.00277L0.919596 9.0861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"></path>
+                        </svg>
+                      </a>
+                    </div>
+                    <a
+                      href='{{ sub_article.url }}'
+                      class='group relative block aspect-[1] h-full w-[45%] shrink-0 overflow-hidden md:aspect-258/190'
+                    >
+                      <div class='absolute inset-0 h-full w-full object-cover'>
+                        {%- assign _sub_pc = _sub_pc_img | default: sub_article.metafields.custom.cover_bac | default: sub_article.image -%}
+                        {%- assign _sub_h5 = _sub_h5_img | default: sub_article.metafields.custom.cover_bac | default: sub_article.image -%}
+                        {% render 'media-element',
+                          media_type: 'image',
+                          class: 'h-full w-full overflow-hidden',
+                          media_class: 'w-full h-full object-cover transition-transform duration-300 group-hover:scale-110',
+                          pc_image: _sub_pc,
+                          h5_image: _sub_h5
+                        %}
+                      </div>
+                    </a>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {%- unless template.name == 'search' -%}
+    <div class='mt-32 block md:hidden'>
+      {{ all_link }}
+    </div>
+  {%- endunless -%}
+</div>
+
+{% schema %}
+{
+  "name": "Index Blogs",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "block",
+      "type": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "blog_label",
+          "label": "Blog Label"
+        },
+        {
+          "type": "url",
+          "id": "all_link",
+          "label": "All Articles Link"
+        },
+        {
+          "type": "header",
+          "content": "Article1 settings"
+        },
+        {
+          "type": "article",
+          "id": "article1",
+          "label": "Article1"
+        },
+        {
+          "type": "image_picker",
+          "id": "article1_pc_img",
+          "label": "Article1 Pc Img"
+        },
+        {
+          "type": "image_picker",
+          "id": "article1_h5_img",
+          "label": "Article1 H5 Img"
+        },
+        {
+          "type": "header",
+          "content": "Article2 settings"
+        },
+        {
+          "type": "article",
+          "id": "article2",
+          "label": "Article2"
+        },
+        {
+          "type": "image_picker",
+          "id": "article2_pc_img",
+          "label": "Article2 Pc Img"
+        },
+        {
+          "type": "image_picker",
+          "id": "article2_h5_img",
+          "label": "Article2 H5 Img"
+        },
+        {
+          "type": "header",
+          "content": "Article3 settings"
+        },
+        {
+          "type": "article",
+          "id": "article3",
+          "label": "Article3"
+        },
+        {
+          "type": "image_picker",
+          "id": "article3_pc_img",
+          "label": "Article3 Pc Img"
+        },
+        {
+          "type": "image_picker",
+          "id": "article3_h5_img",
+          "label": "Article3 H5 Img"
+        },
+        {
+          "type": "header",
+          "content": "Article4 settings"
+        },
+        {
+          "type": "article",
+          "id": "article4",
+          "label": "Article4"
+        },
+        {
+          "type": "image_picker",
+          "id": "article4_pc_img",
+          "label": "Article4 Pc Img"
+        },
+        {
+          "type": "image_picker",
+          "id": "article4_h5_img",
+          "label": "Article4 H5 Img"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Index Blogs"
+    }
+  ]
+}
+{% endschema %}

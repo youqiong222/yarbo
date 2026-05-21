@@ -1,0 +1,169 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_gzmmnx": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "yb_ugcbanner_Qz9ccD": {
+      "type": "yb-ugcbanner",
+      "name": "ugc banner",
+      "settings": {
+        "common_PC_pic": "shopify://shop_images/Frame-2036457196.png",
+        "common_M_pic": "shopify://shop_images/banner-_6_-1.png",
+        "common_title": "<p>My Yarbo Journey:<br/>Winter in Motion</p>",
+        "common_small_title": "<p>This chapter has closed, but your Yarbo story continues. </p><p>Stay tuned for the next My Yarbo Journey campaign.</p><p>Be ready. Be creative. Be part of what’s next.</p>",
+        "common_content": "",
+        "button_title": "<p>Share Your Story</p>",
+        "form_title": "<p>Share Your Masterpiece</p>",
+        "form_button_title": "<p>Let's get started</p>",
+        "button2_text": "Watch Now",
+        "button2_type": "link",
+        "button2_link": "https://cdn4.fireworktv.com/medias/2026/2/11/1770806017-mvkzryxn/watermarked/720/20260211-183039.mp4",
+        "button2_link_new_window": false,
+        "button2_anchor": "",
+        "form_small_title": ""
+      }
+    },
+    "yb_hall_of_fame_3MRMMp": {
+      "type": "yb-hall-of-fame",
+      "name": "Yarbo Hall of Fame",
+      "settings": {
+        "anchor_id": "",
+        "heading": "Yarbo Hall of Fame",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "h5_margin_top": 0,
+        "h5_margin_bottom": 0
+      }
+    },
+    "advc_carousel_images_6LXFaV": {
+      "type": "advc-carousel-images",
+      "blocks": {
+        "image_slide_hqcQbx": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/WechatIMG541.jpg",
+            "text": "<p>Be <strong>featured</strong> in Yarbo's Hall of Fame</p>"
+          }
+        },
+        "image_slide_a46fhT": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/2.jpg",
+            "text": "<p>Receive<strong> exclusive recognition</strong>  from the Team Yarbo</p>"
+          }
+        },
+        "image_slide_tCwG3F": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/3.jpg",
+            "text": "<p>Win  <strong>exciting rewards & surprises</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_slide_hqcQbx",
+        "image_slide_a46fhT",
+        "image_slide_tCwG3F"
+      ],
+      "name": "ADVC Image Carousel",
+      "settings": {
+        "title": "Epic Rewards Await!",
+        "description": "<p>Submit now to secure your spot in the next #MyYarboJourney campaign (date to be announced)! By entering, you'll have the chance to:</p>",
+        "bg_color": "#ffffff",
+        "text_color": "#000000",
+        "desktop_cols": 3,
+        "mobile_cols": 1,
+        "autoplay": false,
+        "autoplay_speed": 3,
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 60,
+        "padding_top_m": 40,
+        "padding_bottom_m": 40
+      }
+    },
+    "yb_faq_new_wFMjfQ": {
+      "type": "yb-faq-new",
+      "blocks": {
+        "item_3LDcgT": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Campaign Overview</p>",
+            "description": "<p><strong>Campaign Name: </strong>YarboJourney 2026</p><p><strong>Theme: </strong>Share Your Best Moments with Yarbo</p><p><strong>UGC Direction: </strong>Winter in Motion</p><p><strong>Objective: </strong>To invite users to capture authentic moments of Yarbo working during the winter, highlighting its smart sensing and continuous snow removal capabilities.</p>"
+          }
+        },
+        "item_b6aeGN": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Campaign Timeline</p>",
+            "description": "<p><strong>Submission & Voting Period:</strong> The campaign will run from <strong>November 19, 2025, to January 4, 2026</strong>. Specific details and deadlines will be announced on the official campaign page and social media channels.</p><p><strong>Winner Announcement:</strong> Winners will be announced approximately one week after the submission period ends.</p>"
+          }
+        },
+        "item_khMwn3": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Eligibility and How to Participate</p>",
+            "description": "<p><strong>Eligibility:</strong> Open to all users of Yarbo products, specifically those utilizing the <strong>Snow Blower</strong> module.<strong>Submission Content:</strong> Content must focus on Yarbo's \"action/working status\" during winter. Recommended shooting ideas include:</p><ul><li>The moment Yarbo automatically starts (e.g., paired with \"lights turning on\" shots)</li><li>\"Before and After\" shots: Snow-covered driveway → Cleaned completion</li><li>Time-lapse footage showcasing the entire snow removal process<br/></li></ul><p><strong>Minimum Submission Requirements (Threshold for Review):</strong><em>Video:</em></p><ul><li>Duration: ≥ 30 seconds</li><li>Quality: ≥ 720p (1080p+ recommended)</li><li>Content: Must include shots of Yarbo in \"action/working status\" such as operating, driving, or changing modules</li><li>Stability: Avoid obvious shaking<br/></li></ul><p><em>Photo:</em></p><ul><li>Quantity: ≥ 5 images</li><li>Content: Must include Yarbo interacting with people/pets or clear before-and-after scenes</li><li>Clarity: High resolution, good composition<br/></li></ul><p><strong>How to Submit:</strong> Participants must submit their content through the <strong>official website</strong>. Submission via social media is optional.</p><ul><li><strong>Social Media:</strong> Post on Instagram, Facebook, YouTube, or TikTok<br/>Use the Hashtag: <strong>#MyYarboJourney</strong><br/>Tag the official Yarbo account: <strong>@Yarbo</strong></li><li><strong>Official Website:</strong> Visit the dedicated event page and submit the form, which requires:<br/>Name/Email<br/>Region (for the Yarbo snow-clearing map)<br/>Uploading the submission (video or image)<br/>Social media post link</li></ul>"
+          }
+        },
+        "item_rYJVna": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Prizes and Selection Process</p>",
+            "description": "<p><strong>Prizes:</strong></p><ul><li><strong>Third Place:</strong> $50 USD Gift Card/person (Total 200 winners)</li><li><strong>Second Place:</strong> $500 USD Gift Card/person (Total 10 winners)</li><li><strong>First Place:</strong> $1,000 USD Gift Card/person (Total 5 winners)</li><li>Note: Prizes will be awarded to the top submissions based on quality, creativity, and public voting. The number of winners for each prize tier will correspond to the actual number of qualifying top submissions.<br/></li></ul><p><strong>Selection & Voting:</strong></p><ul><li><strong>Review:</strong> The team will select high-quality content for the online gallery</li><li><strong>Public Voting:</strong> Voting begins once submission is successfully uploaded to the website. Each person can cast one vote per day</li><li><strong>Final Decision:</strong> Winners determined based on content quality, creativity, and public voting results<br/></li></ul>"
+          }
+        },
+        "item_7iQExf": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Content Rights and Authorization</p>",
+            "description": "<p><strong>Content Authorization:</strong> By submitting content, participants grant Yarbo and its affiliates a worldwide, perpetual, non-exclusive, royalty-free, sub-licensable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, perform, and display the submitted UGC (videos, images, text, etc.) and any information contained therein (including your name, likeness, and social media handle) for marketing, advertising, promotional, and other commercial purposes across all media and platforms.</p><p><strong>Consent Requirement:</strong> Participants must check the option on the website submission form to agree to authorize the content for brand promotion. Participation is deemed as default authorization.</p><p><strong>Warranty:</strong> Participants must ensure their submissions are original and do not infringe upon any third party's intellectual property, copyright, privacy, or other legal rights. Participants are solely responsible for any legal disputes arising from their content.</p>"
+          }
+        },
+        "item_ara833": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Disclaimer and Risk Management</p>",
+            "description": "<p><strong>Force Majeure:</strong> The organizer reserves the right to adjust the campaign rules, timeline, or scope due to circumstances beyond its reasonable control.</p><p><strong>Compliance:</strong> Submissions must meet minimum quality requirements. Attempts at manipulation (e.g., voting fraud) will result in immediate disqualification.</p><p><strong>Technical Issues:</strong> If a user is unable to upload content due to a website error, they can email the staff for follow-up and manual processing.</p><p><strong>Dispute Resolution:</strong> In the event of negative public opinion regarding selection results, the organizer reserves the right to review the issue and maintain campaign integrity.</p><p><strong>Final Decision:</strong> The campaign organizer reserves the right of final interpretation of these terms, the selection process, and the determination of winners.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_3LDcgT",
+        "item_b6aeGN",
+        "item_khMwn3",
+        "item_rYJVna",
+        "item_7iQExf",
+        "item_ara833"
+      ],
+      "name": " Yb FAQ New",
+      "settings": {
+        "anchor_id": "",
+        "title": "<p>Terms & Conditions</p>",
+        "color_background": "#f5f5f5"
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_gzmmnx",
+    "yb_ugcbanner_Qz9ccD",
+    "yb_hall_of_fame_3MRMMp",
+    "advc_carousel_images_6LXFaV",
+    "yb_faq_new_wFMjfQ"
+  ]
+}

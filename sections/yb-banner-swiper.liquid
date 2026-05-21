@@ -1,0 +1,783 @@
+{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}
+{% if section.blocks.size > 1 %}
+  <script
+    defer
+    src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide.min.js'
+  ></script>
+  <script
+    defer
+    src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide-extension-video.min.js'
+  ></script>
+  <script
+    defer
+    src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-banner-swiper.js?v=1772678619'
+  ></script>
+{% endif %}
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-banner-swiper.css'
+  media='all'
+  rel='stylesheet'
+  type='text/css'
+>
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide.min.css'
+  media='all'
+  rel='stylesheet'
+  type='text/css'
+>
+<style>
+  body {
+    overflow-x: hidden !important;
+  }
+  .yb-banner-swiper .subscribe-country-list-wrapper {
+    top: -200px !important;
+  }
+  #yb-banner-swiper__{{ section.id }} .splide {
+    --fill-duration: {{ section.settings.banner_speed }}s;
+    visibility: visible !important;
+  }
+
+  #yb-banner-swiper__{{ section.id }} .yb-banner-swiper-cta>.yb-banner-swiper-cta_content {
+    display: flex;
+    width: auto;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-banner-swiper-button-primary,
+  #yb-banner-swiper__{{ section.id }} .yb-banner-swiper-button-secondary {
+    flex: unset;
+    width: auto;
+    padding: 0 24px;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-banner-swiper-button-secondary {
+    background: transparent;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-banner-swiper-splide__track {
+    z-index: unset;
+  }
+  #yb-banner-swiper__{{ section.id }} .subscribe-popup-container.subscribe-popup-new {
+    position: absolute;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-policy-text {
+    position: relative;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-input {
+    color: rgb(var(--color-text, inherit));
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-banner-swiper-subscription-wrapper {
+    width: 100%;
+    max-width: 600px;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo {
+    width: 100%;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-input-wrapper {
+    width: 100%;
+    max-width: 600px;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-desc {
+    margin-bottom: 12px;
+    color: rgb(var(--color-text, inherit));
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-policy {
+    margin-top: 12px;
+    width: 100%;
+    max-width: 482px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-policy-text {
+    flex: 1;
+    min-width: 0;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.5;
+    font-size: 12px;
+    color: #fff !important;
+    display: inline;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-checkbox-wrapper {
+    flex-shrink: 0;
+    margin-right: 8px;
+    margin-top: 2px;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-link {
+    color: #fff !important;
+    text-decoration: underline !important;
+  }
+  #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-absolute {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  @media (max-width: 959px) {
+    #yb-banner-swiper__{{ section.id }} .yb-banner-swiper-subscription-wrapper {
+      max-width: 100%;
+    }
+    #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-input-wrapper {
+      max-width: 100%;
+    }
+    #yb-banner-swiper__{{ section.id }} .yb-subscribe-klaviyo-policy {
+      max-width: 100%;
+    }
+    #yb-banner-swiper__{{ section.id }} .yb-banner-swiper-cta_content {
+      flex-direction: column;
+    }
+    #yb-banner-swiper__{{ section.id }} .yb-banner-swiper-button-primary,
+    #yb-banner-swiper__{{ section.id }} .yb-banner-swiper-button-secondary {
+      padding: 0 12px;
+    }
+  }
+</style>
+
+<div
+  id='yb-banner-swiper__{{ section.id }}'
+  class='yb-banner-swiper yb-banner-swiper__basic-size'
+>
+  <div
+    class='yb-banner-swiper__splide splide'
+    data-speed='{{ section.settings.banner_speed }}'
+  >
+    <div class='splide__track yb-banner-swiper-splide__track'>
+      <ul class='splide__list yb-banner-swiper-splide__list'>
+        {% for block in section.blocks %}
+          <style>
+            @media screen and (max-width: 959px) {
+              #block-{{ block.id }}[data-mobile_layout='style1'] .yb-banner-swiper-text-container {
+                text-align: center;
+              }
+              #block-{{ block.id }}[data-mobile_layout='style1'] .yb-banner-swiper-titles {
+                margin-bottom: auto;
+              }
+              #block-{{ block.id }}[data-mobile_layout='style1'] .yb-subscribe-klaviyo-input-wrapper {
+                margin-left: auto;
+                margin-right: auto;
+              }
+              #block-{{ block.id }}[data-mobile_layout='style2'] .yb-banner-swiper-titles {
+                margin-top: auto;
+              }
+              #block-{{ block.id }}[data-mobile_layout='style2'] .yb-banner-swiper-text-container {
+                text-align: left;
+                margin-bottom: 12px;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='center'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-desc {
+                text-align: center;
+              }
+            }
+            @media (min-width: 960px) {
+              #block-{{ block.id }} .yb-banner-swiper-text-container {
+                width: {{ block.settings.text_width }}%;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='center'] .yb-banner-swiper-titles > * {
+                margin: 12px auto;
+                text-align: center;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='left'] .yb-banner-swiper-titles > * {
+                margin-right: auto;
+                text-align: left;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='right'] .yb-banner-swiper-titles > * {
+                margin-left: auto;
+                text-align: right;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='center'] .yb-banner-swiper-cta_content {
+                justify-content: center;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='left'] .yb-banner-swiper-cta_content {
+                justify-content: flex-start;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='right'] .yb-banner-swiper-cta_content {
+                justify-content: flex-end;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='center'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-desc {
+                margin: 40px auto 12px auto;
+                text-align: center;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='center'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-input-wrapper {
+                margin: 0 auto;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='left'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-desc {
+                margin-right: auto;
+                text-align: left;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='left'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-input-wrapper {
+                margin-right: auto;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='right'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-desc {
+                margin-left: auto;
+                text-align: right;
+              }
+              #block-{{ block.id }}[data-text_horizontal_position='right'] .yb-subscribe-klaviyo .yb-subscribe-klaviyo-input-wrapper {
+                margin-left: auto;
+              }
+              .block-li-{{ block.id }}[data-text_vertical_position='top'] {
+                justify-content: start;
+              }
+              .block-li-{{ block.id }}[data-text_vertical_position='center'] {
+                justify-content: center;
+              }
+              .block-li-{{ block.id }}[data-text_vertical_position='bottom'] {
+                justify-content: end;
+              }
+            }
+          </style>
+          <li
+            class='yb-banner-swiper-li splide__slide block-li-{{ block.id }}'
+            data-text_vertical_position='{{ block.settings.text_vertical_position }}'
+          >
+            {% if block.settings.enable_global_btn
+              and block.settings.button_link != blank
+            %}
+              <a href='{{ block.settings.button_link }}'>
+            {% elsif block.settings.enable_global_anchor
+              and block.settings.global_anchor_id != blank
+            %}
+              <a
+                href='#'
+                class='yb-banner-swiper-anchor-link'
+                data-anchor-id='{{ block.settings.global_anchor_id }}'
+                style='display: block; text-decoration: none;'
+              >
+            {% endif %}
+            {% if block.settings.mobile_local_video != blank %}
+              <div class='yb-banner-swiper-mobile-video'>
+                {{
+                  block.settings.mobile_local_video
+                  | video_tag:
+                    autoplay: true,
+                    controls: false,
+                    preload: 'auto',
+                    muted: true,
+                    loop: true,
+                    playsinline: true
+                }}
+              </div>
+            {% elsif block.settings.mobile_external_video != blank %}
+              <div class='yb-banner-swiper-mobile-video'>
+                <iframe
+                  data-lazyframe
+                  src='{{ block.settings.mobile_external_video }}'
+                  frameborder='0'
+                  allowfullscreen
+                  loading='lazy'
+                ></iframe>
+              </div>
+            {% endif %}
+            {% if block.settings.mobile_img != blank %}
+              <div
+                class='yb-banner-swiper-mobile-image'
+                {% if block.settings.mobile_external_video != blank %}
+                  style='display:none'
+                {% endif %}
+              >
+                {% render 'yb-image',
+                  class: 'yb-banner-swiper-img',
+                  data: block.settings.mobile_img,
+                  sizes: '100vw',
+                  lazy: false
+                %}
+              </div>
+            {% endif %}
+
+            {% if block.settings.pc_local_video != blank %}
+              <video
+                class='yb-banner-swiper-desktop-video'
+                src='{{ block.settings.pc_local_video.url }}'
+                preload='auto'
+                autoplay
+                loop
+                muted
+                playsinline
+                tabindex='-1'
+              ></video>
+            {% elsif block.settings.pc_external_video != blank %}
+              <div class='yb-banner-swiper-desktop-video'>
+                <iframe
+                  data-lazyframe
+                  src='{{ block.settings.pc_external_video }}'
+                  frameborder='0'
+                  allowfullscreen
+                  loading='lazy'
+                ></iframe>
+              </div>
+            {% endif %}
+            {% if block.settings.pc_img != blank %}
+              <div
+                class='yb-banner-swiper-desktop-image'
+                {% if block.settings.pc_external_video != blank %}
+                  style='display:none'
+                {% endif %}
+              >
+                {% render 'yb-image',
+                  class: 'yb-banner-swiper-img',
+                  data: block.settings.pc_img,
+                  sizes: '100vw',
+                  lazy: false
+                %}
+              </div>
+            {% endif %}
+            <main
+              class='yb-banner-swiper-main yb-section-container yb-banner-swiper-width'
+              id='block-{{ block.id }}'
+              data-text_horizontal_position='{{ block.settings.text_horizontal_position }}'
+              data-text_vertical_position='{{ block.settings.text_vertical_position }}'
+              data-mobile_layout='{{ block.settings.mobile_layout }}'
+            >
+              <div class='yb-banner-swiper-titles yb-banner-swiper__basic-size'>
+                {% if block.settings.description != blank %}
+                  <div class='yb-banner-swiper-description yb-banner-swiper-text-container'>
+                    {{ block.settings.description }}
+                  </div>
+                {% endif %}
+                {% if block.settings.title != blank %}
+                  <h2 class='yb-banner-swiper-title yb-banner-swiper-text-container'>
+                    {{ block.settings.title }}
+                  </h2>
+                {% endif %}
+
+                {% if block.settings.subTitle != blank %}
+                  <div class='yb-banner-swiper-subtitle yb-banner-swiper-text-container'>
+                    {{ block.settings.subTitle }}
+                  </div>
+                {% endif %}
+              </div>
+
+              {% if block.settings.enable_btn_group %}
+                <div class='yb-banner-swiper-cta'>
+                  <div class='yb-banner-swiper-cta_content yb-banner-swiper__basic-size'>
+                    {% if block.settings.button_text != blank %}
+                      {% assign primary_button_class = block.settings.button_class
+                        | append: ' yb-banner-swiper-button-primary'
+                      %}
+                      {% render 'yb-button',
+                        type: block.settings.button_type,
+                        class: primary_button_class,
+                        tag: 'button',
+                        config: block.settings
+                      %}
+                    {% endif %}
+
+                    {% if block.settings.button2_text != blank %}
+                      {% assign secondary_button_class = block.settings.button2_class
+                        | append: ' yb-banner-swiper-button-secondary'
+                      %}
+                      {% render 'yb-button',
+                        type: block.settings.button2_type,
+                        class: secondary_button_class,
+                        tag: 'button2',
+                        config: block.settings
+                      %}
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if block.settings.enable_subscription %}
+                <div class='yb-banner-swiper-subscription-wrapper'>
+                  {% assign step1_text = block.settings.subscription_button_text
+                    | default: 'Subscribe'
+                  %}
+                  {% assign klaviyo_country = null %}
+                  {% if localization.country.iso_code == 'AU' %}
+                    {% assign klaviyo_country = 'AU' %}
+                  {% endif %}
+                  {% render 'yb-subscribe-klaviyo',
+                    data: block.settings,
+                    emailType: block.settings.email_type,
+                    klaviyoListId: block.settings.klaviyo_list_id,
+                    country: klaviyo_country,
+                    step1Placeholder: 'Email',
+                    step1: step1_text
+                  %}
+                </div>
+              {% endif %}
+            </main>
+            {% if block.settings.enable_global_btn
+              and block.settings.button_link != blank
+            %}
+              </a>
+            {% elsif block.settings.enable_global_anchor
+              and block.settings.global_anchor_id != blank
+            %}
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+const video{{ section.id | replace: "-", "_" }}mobiles = document.querySelectorAll('#shopify-section-{{ section.id }} video.yb-banner-swiper-mobile-video');
+video{{ section.id | replace: "-", "_" }}mobiles.forEach(video => {
+    const image{{ section.id | replace: "-", "_" }}mobile = video.nextElementSibling;
+    if (image{{ section.id | replace: "-", "_" }}mobile && image{{ section.id | replace: "-", "_" }}mobile.classList.contains('yb-banner-swiper-mobile-image')) {
+        video.addEventListener('play', function() {
+            image{{ section.id | replace: "-", "_" }}mobile.style.display = "none";
+        });
+    }
+});
+const video{{ section.id | replace: "-", "_" }}PC = document.querySelectorAll('#shopify-section-{{ section.id }} video.yb-banner-swiper-desktop-video');
+video{{ section.id | replace: "-", "_" }}PC.forEach(video => {
+    const image{{ section.id | replace: "-", "_" }}PC = video.nextElementSibling;
+    if (image{{ section.id | replace: "-", "_" }}PC && image{{ section.id | replace: "-", "_" }}PC.classList.contains('yb-banner-swiper-desktop-image')) {
+        video.addEventListener('play', function() {
+            image{{ section.id | replace: "-", "_" }}PC.style.display = "none";
+        });
+    }
+});
+{% if section.blocks.size > 1 %}
+  if (document.readyState === 'loading') {
+    document.addEventListener("DOMContentLoaded", () => window.__yb_initBannerSwiper("{{ section.id }}"));
+  } else {
+    window.__yb_initBannerSwiper("{{ section.id }}")
+  }
+{% endif %}
+  window.addEventListener('scroll', function() {
+    const element = document.querySelector('#yb-banner-swiper-mobile-cta-container__{{ section.id }}');
+    if (!element) return;
+    const mobileImage = document.querySelector('#yb-banner-swiper__{{ section.id }} #yb-banner-mobile-image');
+    if (!mobileImage) return;
+    const rect = mobileImage.getBoundingClientRect();
+    if (rect.bottom <= 0) {
+      element.classList.add('yb-banner-swiper-fixed-btns__operate');
+    } else {
+      element.classList.remove('yb-banner-swiper-fixed-btns__operate');
+    }
+  });
+
+  const initAnchorLinks = function() {
+    document.querySelectorAll('#yb-banner-swiper__{{ section.id }} .yb-banner-swiper-anchor-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const anchorId = this.getAttribute('data-anchor-id');
+        if (!anchorId) return;
+
+        const anchorElement = document.getElementById(`shopify-section-${anchorId}`);
+        if (anchorElement) {
+          window.scrollTo({
+            top: anchorElement.offsetTop - 120,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAnchorLinks);
+  } else {
+    initAnchorLinks();
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Yb-Banner",
+  "class": "section migrated-page",
+  "settings": [
+    {
+      "type": "range",
+      "id": "banner_speed",
+      "label": "自动轮播速度(s)",
+      "default": 6,
+      "step": 1,
+      "min": 1,
+      "max": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "banner",
+      "limit": 5,
+      "settings": [
+        {
+          "id": "text_horizontal_position",
+          "type": "select",
+          "label": "PC端文字部分左右定位",
+          "options": [
+            { "value": "left", "label": "左侧" },
+            { "value": "center", "label": "居中" },
+            { "value": "right", "label": "右侧" }
+          ],
+          "default": "left"
+        },
+        {
+          "id": "text_vertical_position",
+          "type": "select",
+          "label": "PC端文字部分上下定位",
+          "options": [
+            { "value": "top", "label": "上方" },
+            { "value": "center", "label": "居中" },
+            { "value": "bottom", "label": "下方" }
+          ],
+          "default": "center"
+        },
+        {
+          "id": "text_width",
+          "type": "range",
+          "label": "PC端文字部分宽度",
+          "min": 10,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "id": "description",
+          "type": "richtext",
+          "label": "文字描述1"
+        },
+        {
+          "id": "title",
+          "type": "richtext",
+          "label": "标题"
+        },
+        {
+          "id": "subTitle",
+          "type": "richtext",
+          "label": "文字描述2"
+        },
+        {
+          "id": "enable_btn_group",
+          "type": "checkbox",
+          "label": "按钮组是否开启",
+          "default": false
+        },
+        {
+          "id": "enable_global_btn",
+          "type": "checkbox",
+          "label": "全局按钮是否开启",
+          "info": "如果开启，第一个按钮的链接会覆盖整张图片/Video",
+          "default": false
+        },
+        {
+          "id": "enable_global_anchor",
+          "type": "checkbox",
+          "label": "全局锚点是否开启",
+          "info": "如果开启且未开启全局按钮，点击图片会跳转到指定锚点位置",
+          "default": false
+        },
+        {
+          "id": "global_anchor_id",
+          "type": "text",
+          "label": "全局锚点ID",
+          "info": "输入目标section的ID（不需要包含shopify-section-前缀）"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "按钮文字"
+        },
+        {
+          "type": "select",
+          "id": "button_type",
+          "label": "按钮类型",
+          "default": "link",
+          "options": [
+            {
+              "value": "link",
+              "label": "链接"
+            },
+            {
+              "value": "anchor",
+              "label": "锚点"
+            },
+            {
+              "value": "modal",
+              "label": "弹窗"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "button_link",
+          "label": "按钮链接"
+        },
+        {
+          "type": "text",
+          "id": "button_class",
+          "label": "按钮类名"
+        },
+        {
+          "type": "text",
+          "id": "button_anchor",
+          "label": "按钮锚点ID"
+        },
+        {
+          "type": "text",
+          "id": "button_modal_title",
+          "label": "按钮弹窗标题"
+        },
+        {
+          "type": "html",
+          "id": "button_modal_content",
+          "label": "按钮弹窗内容"
+        },
+        {
+          "type": "text",
+          "id": "button2_text",
+          "label": "第二个按钮文字"
+        },
+        {
+          "type": "select",
+          "id": "button2_type",
+          "label": "第二个按钮类型",
+          "default": "link",
+          "options": [
+            {
+              "value": "link",
+              "label": "链接"
+            },
+            {
+              "value": "anchor",
+              "label": "锚点"
+            },
+            {
+              "value": "modal",
+              "label": "弹窗"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "button2_link",
+          "label": "第二个按钮链接"
+        },
+        {
+          "type": "text",
+          "id": "button2_class",
+          "label": "第二个按钮类名"
+        },
+        {
+          "type": "text",
+          "id": "button2_anchor",
+          "label": "第二个按钮锚点ID"
+        },
+        {
+          "type": "text",
+          "id": "button2_modal_title",
+          "label": "按钮2弹窗标题"
+        },
+        {
+          "type": "html",
+          "id": "button2_modal_content",
+          "label": "按钮2弹窗内容"
+        },
+        {
+          "id": "enable_subscription",
+          "type": "checkbox",
+          "label": "订阅框是否开启",
+          "default": false
+        },
+        {
+          "id": "subscription_absolute",
+          "type": "checkbox",
+          "label": "订阅框是否绝对定位",
+          "default": false
+        },
+        {
+          "id": "subscription_position",
+          "type": "range",
+          "label": "订阅框距离底部位置",
+          "default": 24,
+          "step": 1,
+          "min": 0,
+          "max": 100
+        },
+        {
+          "id": "email_type",
+          "type": "text",
+          "label": "订阅入口"
+        },
+        {
+          "id": "klaviyo_list_id",
+          "type": "text",
+          "label": "Klaviyo列表ID"
+        },
+        {
+          "id": "subscription_title",
+          "type": "richtext",
+          "label": "订阅框标题"
+        },
+        {
+          "id": "subscription_button_text",
+          "type": "text",
+          "label": "订阅框按钮文案"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_img",
+          "label": "PC端封面图"
+        },
+        {
+          "id": "pc_local_video",
+          "type": "video",
+          "label": "PC端本地视频"
+        },
+        {
+          "id": "pc_external_video",
+          "type": "text",
+          "label": "PC端外部视频链接",
+          "info": "支持YouTube、Firework"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_img",
+          "label": "M端封面图"
+        },
+        {
+          "id": "mobile_local_video",
+          "type": "video",
+          "label": "M端本地视频"
+        },
+        {
+          "id": "mobile_external_video",
+          "type": "text",
+          "label": "M端外部视频链接",
+          "info": "支持YouTube、Firework"
+        },
+        {
+          "id": "mobile_layout",
+          "type": "select",
+          "label": "手机端布局",
+          "options": [
+            { "value": "style1", "label": "样式1" },
+            { "value": "style2", "label": "样式2" }
+          ],
+          "default": "style1",
+          "info": "样式1文字自动居中，样式2文字居左"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Yb-Banner",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "description": "<p>Built for scale. Designed for all terrains. Fully autonomous.</p>",
+            "title": "<h2>The Last Blower You’ll Ever Need</h2>",
+            "subTitle": "<p>Smart. Powerful. Fully Effortless.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "description": "<p>Built for scale. Designed for all terrains. Fully autonomous.</p>",
+            "title": "<h2>The Last Blower You’ll Ever Need</h2>",
+            "subTitle": "<p>Smart. Powerful. Fully Effortless.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

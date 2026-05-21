@@ -1,0 +1,561 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<style>
+  #shopify-section-{{ section.id }}{
+    overflow: visible;
+  }
+</style>
+
+<div class='overflow-hidden md:overflow-clip {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <div class='flex flex-col items-start md:flex-row'>
+    <div class='w-[100%] md:sticky  md:top-0 md:w-[46%]'>
+      <div class='relative'>
+        {% render 'media-element',
+          media_type: 'image',
+          media_class: 'w-full h-auto md:h-[100vh] md:object-cover',
+          pc_image: section.settings.image,
+          h5_image: section.settings.h5_image
+        %}
+        <div class='absolute top-0 left-0 flex h-full w-full flex-col justify-between px-24 py-48  md:p-60'>
+          <a class='flex items-center gap-4 text-[14px]/[1.4] text-[#ffffff]'>
+            <svg
+              width='14'
+              height='14'
+              viewBox='0 0 14 14'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d="M6.22239 11.0833L2.3335 7.00001M2.3335 7.00001L6.22238 2.91667M2.3335 7.00001L11.6668 7" stroke="white" stroke-width="1.5" stroke-linecap="square"/>
+            </svg>
+
+            {{ 'navigation.return_home' | t }}
+          </a>
+          <h1 class=' text-[32px] font-bold text-[#ffffff] uppercase md:text-[52px]'>
+            {{ section.settings.title }}
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div class='right_wrapper grid w-full flex-1 gap-32 px-16  pt-48 md:gap-40 md:px-60 md:pt-80 md:pr-40  lg:pr-[calc(50%-660px)]'>
+      {%- assign text_blocks = section.blocks | where: 'type', 'text' -%}
+      {%- assign block_blocks = section.blocks | where: 'type', 'block' -%}
+      {%- assign image_blocks = section.blocks | where: 'type', 'image' -%}
+      {%- assign policy_blocks = section.blocks | where: 'type', 'policy' -%}
+      {%- assign payment_blocks = section.blocks | where: 'type', 'payment' -%}
+      {%- assign explore_blocks = section.blocks | where: 'type', 'explore' -%}
+      {% for block in text_blocks %}
+        <div
+          class=''
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.title != blank -%}
+            <h2 class='text-[26px] font-bold text-[#1a1a1a] uppercase md:text-[32px]'>
+              {{ block.settings.title }}
+            </h2>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <div class='mt-12 text-[18px]/[1.4] font-medium text-[#515355]'>
+              {{ block.settings.text }}
+            </div>
+          {%- endif -%}
+        </div>
+      {% endfor %}
+      {% for block in block_blocks %}
+        <div
+          class='scenario-card'
+          {{ block.shopify_attributes }}
+        >
+          <div class='relative'>
+            {% render 'media-element', media_type: 'image', media_class: 'w-full h-auto', pc_image: block.settings.image, h5_image: block.settings.h5_image %}
+
+            <div class='absolute top-0 left-0 flex h-full w-full flex-col justify-between bg-[linear-gradient(360deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0)_100%)] p-24 md:p-32'>
+              {%- if block.settings.sort != blank -%}
+                <div class='w-fit bg-[#FEDB1E] px-8 py-4.5 text-[14px] leading-[1.4] font-bold text-[#25282a]'>
+                  {{ block.settings.sort }}
+                </div>
+              {%- endif -%}
+              <div>
+                {%- if block.settings.title != blank -%}
+                  <h3 class='text-[26px] font-bold text-[#ffffff] uppercase md:text-[32px]'>
+                    {{ block.settings.title }}
+                  </h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class='mt-8 text-[14px] font-medium text-[#ffffff]'>
+                    {{ block.settings.text }}
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+          {% comment %} 产品 {% endcomment %}
+          {% if block.settings.product != blank %}
+            <div class='mt-16 grid grid-cols-1 gap-12  md:mt-16  md:grid-cols-2 md:items-center md:gap-16'>
+              {% render 'media-element', media_type: 'image', class: ' w-full', media_class: 'w-full h-auto', pc_image: block.settings.product_image %}
+              <div class=' md:px-0 md:pt-0 '>
+                <h3 class='line-clamp-1 text-[20px] font-bold uppercase md:text-[22px]'>
+                  {{ block.settings.product.title }}
+                </h3>
+                {%- if block.settings.product_desc != blank -%}
+                  <div class='mt-4 text-[12px]/[1.4] font-medium text-[#515355]'>
+                    {{ block.settings.product_desc }}
+                  </div>
+                {%- endif -%}
+                <div class='mt-8 flex flex-row items-center justify-between gap-24 md:mt-16 md:flex-col md:items-start md:gap-10'>
+                  <div class='text-[14px]/[1.4] font-medium'>
+                    {{ block.settings.product.price | money }}
+                  </div>
+                  {% render 'sn-yarbo-pay', product: block.settings.product %}
+                  {%- assign product_form_id = 'scenario-add-' | append: block.id -%}
+                  {%- render 'sn-buy-buttons-new',
+                    add_text: block.settings.product_button,
+                    btn_class: '!w-fit px-16 py-8 md:py-6 text-[12px] font-medium bg-[#25282a]! text-[#ffffff]! border-0! hover:bg-[#FEDB1E]! hover:text-[#25282a]!',
+                    product: block.settings.product,
+                    product_form_id: product_form_id,
+                    section_id: section.id
+                  -%}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <div class='flex h-1 w-full bg-[#CCCCCC]'></div>
+      <div class='mb-0 grid gap-24'>
+        <div>
+          {% for block in image_blocks %}
+            {% if block.settings.link != blank and block.settings.use_link %}
+              <a
+                href='{{ block.settings.link }}'
+                class='block'
+              >
+            {% endif %}
+            <div
+              class='relative'
+              {{ block.shopify_attributes }}
+            >
+              {% render 'media-element', media_type: 'image', media_class: 'w-full h-auto', pc_image: block.settings.image, h5_image: block.settings.h5_image %}
+              {%- if block.settings.title != blank -%}
+                <div class='theme-title absolute top-0 left-0 flex h-full w-full items-center justify-between bg-[linear-gradient(90deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0)_50%)] p-24 text-[26px] font-bold text-[#ffffff] uppercase md:p-32 md:text-[32px]'>
+                  {{ block.settings.title }}
+                  <svg
+                    width='14'
+                    height='14'
+                    viewBox='0 0 14 14'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path d="M2.51931 0.758789L12.3743 0.874172M12.3743 0.874172L12.4881 10.589M12.3743 0.874172L1.06055 12.1879" stroke="white" stroke-width="1.5" stroke-linecap="square"/>
+                  </svg>
+                </div>
+              {%- endif -%}
+            </div>
+            {% if block.settings.link != blank and block.settings.use_link %}
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {%- assign policy_count = policy_blocks | size -%}
+        {%- assign remainder = policy_count | modulo: 2 -%}
+
+        <!-- 偶数部分：两列布局 -->
+        <div class='mb-0 grid gap-12'>
+          <div class='mb-0 grid gap-12 md:grid-cols-2'>
+            {% for block in policy_blocks %}
+              {%- if forloop.last and remainder != 0 -%}
+                <!-- 如果是最后一个且总数是奇数，跳过，稍后单独处理 -->
+              {%- else -%}
+                <div
+                  class='mdpx-24 mb-0 flex items-center gap-12 bg-[#F2F2F2] px-20 py-16'
+                  {{ block.shopify_attributes }}
+                >
+                  {% render 'media-element', media_type: 'image', media_class: 'w-28 h-28 flex', pc_image: block.settings.image %}
+                  <div class='theme-title text-[20px] font-bold text-[#25282a] uppercase md:text-[22px]'>
+                    {{ block.settings.title }}
+                  </div>
+                </div>
+              {%- endif -%}
+            {% endfor %}
+          </div>
+
+          <!-- 奇数部分：最后一个单独占一行 -->
+          {%- if remainder != 0 -%}
+            <div class=' mb-0 grid grid-cols-1 gap-12'>
+              {%- assign last_block = policy_blocks | last -%}
+              <div class='mdpx-24 mb-0 flex items-center gap-12 bg-[#F2F2F2] px-20 py-16'>
+                {% render 'media-element', media_type: 'image', media_class: 'w-28 h-28 flex', pc_image: last_block.settings.image %}
+                <div class='theme-title text-[20px] font-bold text-[#25282a] uppercase md:text-[22px]'>
+                  {{ last_block.settings.title }}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+
+        {% comment %}
+          <div class='mb-0 grid gap-12 md:grid-cols-2'>
+            {% for block in policy_blocks %}
+              <div class='mb-0 flex items-center gap-12 bg-[#F2F2F2] px-20 py-16 md:px-24 '>
+                {% render 'media-element',
+                  media_type: 'image',
+                  media_class: 'w-28 h-28 flex',
+                  pc_image: block.settings.image
+                %}
+                <div class='theme-title text-[20px] font-bold text-[#25282a] uppercase md:text-[22px]'>
+                  {{ block.settings.title }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endcomment %}
+        <div>
+          {% for block in payment_blocks %}
+            <div
+              class='mb-0 flex flex-col items-center justify-between gap-8 md:flex-row md:gap-12'
+              {{ block.shopify_attributes }}
+            >
+              <div class='theme-title text-center text-[20px] font-bold text-[#25282a] uppercase md:text-left md:text-[22px]'>
+                {{ block.settings.title }}
+              </div>
+              <div class='flex items-center gap-8'>
+                {% render 'media-element', media_type: 'image', media_class: 'w-full md:h-65 h-50 flex', pc_image: block.settings.splitit_image %}
+                {% render 'media-element', media_type: 'image', media_class: 'w-full  md:h-65 h-50 flex', pc_image: block.settings.affirm_image %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class='flex h-1 w-full bg-[#CCCCCC]'></div>
+
+      {% comment %}
+        <div class='mb-0 grid grid-cols-3 gap-12'>
+          {% for block in explore_blocks %}
+            <a href='{{ block.settings.link }}' class='relative'>
+              {% render 'media-element',
+                media_type: 'image',
+                media_class: 'w-full h-auto',
+                pc_image: block.settings.image
+              %}
+              <div class='absolute top-0 left-0 flex h-full w-full items-start justify-between p-20 text-[26px] font-bold text-[#ffffff] uppercase md:p-24 md:text-[32px]'>
+                <div class='flex w-full items-center justify-between'>
+                  {{ block.settings.title }}
+                  <svg
+                    width='24'
+                    height='24'
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path d="M7.45877 6L17.3137 6.11538M17.3137 6.11538L17.4276 15.8302M17.3137 6.11538L6 17.4291" stroke="white" stroke-width="1.5" stroke-linecap="square"/>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      {% endcomment %}
+      <div class='min-w-0'>
+        <h2 class='theme-title mb-20 text-[20px] font-bold text-[#25282a] uppercase md:mb-24 md:text-[22px]'>
+          {{ section.settings.explore_title }}
+        </h2>
+        <div
+          class='swiper exploreSwiper mb-0 w-full  overflow-visible'
+          style='none'
+        >
+          <div class='swiper-wrapper'>
+            {% for block in explore_blocks %}
+              <div
+                class='swiper-slide'
+                {{ block.shopify_attributes }}
+              >
+                <a
+                  href='{{ block.settings.link }}'
+                  class=''
+                >
+                  {% render 'media-element', media_type: 'image', media_class: 'w-full h-auto', pc_image: block.settings.image %}
+                  {%- if block.settings.title != blank -%}
+                    <div class='absolute top-0 left-0 flex h-full w-full items-start justify-between bg-[linear-gradient(360deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.5)_89.91%)] p-20 text-[26px] font-bold text-[#ffffff] uppercase md:p-24 md:text-[32px]'>
+                      <div class='theme-title flex w-full items-center justify-between'>
+                        {{ block.settings.title }}
+                        <svg
+                          width='24'
+                          height='24'
+                          viewBox='0 0 24 24'
+                          fill='none'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path d="M7.45877 6L17.3137 6.11538M17.3137 6.11538L17.4276 15.8302M17.3137 6.11538L6 17.4291" stroke="white" stroke-width="1.5" stroke-linecap="square"/>
+                        </svg>
+                      </div>
+                    </div>
+                  {%- endif -%}
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.exploreSwiper', {
+      observer: true,
+      observeParents: true,
+      slidesPerView: 1.8,
+      spaceBetween: 12,
+      breakpoints: {
+        768: {
+          slidesPerView: 1.8,
+          spaceBetween: 12,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 12,
+        },
+      },
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Shop by scenario",
+  "class": "tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_image",
+      "label": "H5 Image"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "explore_title",
+      "label": "Explore title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "name": "Block",
+      "type": "block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "sort",
+          "label": "Sort"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "richtext",
+          "id": "product_desc",
+          "label": "Product desc"
+        },
+        {
+          "type": "text",
+          "id": "product_button",
+          "label": "Button text",
+          "default": "Shop now"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_link",
+          "label": "Use Link",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "policy",
+      "name": "Policy",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "payment",
+      "name": "Payment",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "splitit_image",
+          "label": "Splitit image"
+        },
+        {
+          "type": "image_picker",
+          "id": "affirm_image",
+          "label": "Affirm image"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "name": "Explore",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "name": "Line"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by scenario"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,486 @@
+{{ 'yb-base.css' | asset_url | stylesheet_tag }}
+<link
+  rel="stylesheet"
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/base-form.css"
+  media="all"
+>
+<link
+  rel="stylesheet"
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/custom-select.css"
+  media="all"
+>
+<style>
+  #shopify-section-{{ section.id }} .back-top img {
+    height: auto;
+  }
+  .career-form {
+    display: block;
+    border-radius: 12px;
+    background-color: white;
+  }
+  .career-form__header {
+    display: flex;
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #000;
+  }
+
+  .career-form__header img {
+    width: 30px;
+    height: auto;
+  }
+
+  .career-form__header .career-form__header-title {
+    font-size: 24px;
+    margin: 0 0 0 12px;
+  }
+
+  .career-form .form-row-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
+  .form-row__education .form-item .form-field[name="school"],
+  .form-row__education .form-item .form-field[name="degree"],
+  .form-row__position-experience .form-field[name="positionApply"],
+  .form-row__position-experience .form-field[name="experience"]{
+    margin-bottom: 10px;
+  }
+
+  .form-row__position-experience .form-field[name="textareaExperience"] textarea {
+    height: 300px;
+  }
+
+  .form-field[name="skills"] textarea,
+  .form-field[name="rcognition"] textarea {
+    height: 100px;
+  }
+
+  .form-row__policy {
+    padding-top: 5px;
+    padding-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .career-form__contact-us {
+    border-top: 1px solid #000;
+    padding-top: 20px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .form-row__policy a,
+  .career-form__contact-us a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 959px) {
+    .career-form {
+      width: 100%;
+      border-radius: 0px;
+      padding: 16px;
+    }
+
+    .career-form__header img {
+      width: 18px;
+    }
+
+    .career-form__header .career-form__header-title {
+      font-size: 12px;
+    }
+
+    .career-form .form-row-title {
+      padding-top: 15px;
+    }
+
+    .career-form .form-row-title:first-child {
+      padding-top: 0px;
+    }
+  }
+  @media screen and (min-width: 767px) {
+    .career-form {
+      width: 1200px;
+    }
+  }
+</style>
+<script src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/form-field.js" defer></script>
+<script src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/custom-select.js" defer></script>
+<script defer>
+  (() => {
+    if (!customElements.get('career-form')) {
+      class CareerForm extends HTMLElement {
+        static SUBMIT_URL = 'https://d8axrdmygk.execute-api.us-east-1.amazonaws.com/dev/job'
+
+        connectedCallback() {
+          requestAnimationFrame(() => {
+            this.addEventListener('submit', this.#handleSubmit)
+          });
+        }
+
+        disconnectedCallback() {
+          this.removeEventListener('submit', this.#handleSubmit)
+        }
+
+        get fields() {
+          const collection = this.querySelectorAll('form-field')
+          return Array.from(collection)
+        }
+
+        get formData() {
+          const entries = this.fields.map((field) => field.entry)
+          const formData = new FormData();
+
+          entries.forEach(([key, value]) => {
+            formData.append(key, value);
+          });
+
+          return formData
+        }
+
+        checkValidity() {
+          return !this.fields.map((field) => field.validate()).includes(false)
+        }
+
+        reset() {
+          this.fields.forEach((field) => field.reset())
+        }
+
+        async #handleSubmit(event) {
+          event.preventDefault()
+          event.stopPropagation()
+
+          if (!this.checkValidity()) {
+            return
+          }
+
+          const form = event.target.closest('form')
+
+          if (!form) {
+            return
+          }
+
+          await this.#submit(this.formData)
+        }
+
+        async #submit(payload) {
+          const response = await fetch(CareerForm.SUBMIT_URL, {
+            method: 'POST',
+            body: payload
+          })
+
+          if (!response.ok) {
+            window.__SL_toast__.show({ type: 'error', message: 'Something went wrong' })
+            return
+          }
+
+          const data = await response.json()
+
+          this.reset();
+
+          window.location.href = '/career-feedback'
+
+          window.__SL_toast__.show({ type: 'success', message: data })
+        }
+      }
+
+      customElements.define('career-form', CareerForm);
+    }
+  })();
+</script>
+<div class=" relative overflow-x-hidden">
+    <div class="">
+      {% if section.settings.pc_img != blank %}
+        <img alt="{{ section.settings.pc_img.alt }}" loading="eager" decoding="async" data-nimg="1" class="block w-full mobile:hidden" src="{{ section.settings.pc_img |  image_url }}" style="color: transparent;">
+      {% else %}
+        <img alt="Yarbo snow blower blowing snow" loading="eager" decoding="async" data-nimg="1" class="block w-full mobile:hidden" src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/1979e11bfedd4b9f8ec5a961464082ab.png" style="color: transparent;">
+      {% endif %}
+
+      {% if section.settings.mobile_img != blank %}
+        <img alt="{{ section.settings.mobile_img.alt }}" loading="eager" decoding="async" data-nimg="1" class="hidden mobile:block" src="{{ section.settings.mobile_img | image_url }}" style="color: transparent;">
+      {% else %}
+        <img alt="Yarbo snow blower blowing snow" loading="eager" decoding="async" data-nimg="1" class="hidden mobile:block" src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/34abc58b3ca7457a9abc00a23cd87a3d.png" style="color: transparent;">
+      {% endif %}
+    </div>
+    <div class=" absolute bottom-[48px] left-0 w-full mobile:bottom-[18px] mobile:left-[16px] mobile:right-[20px]">
+        <div class="mx-auto w-[1200px] text-white mobile:m-0 mobile:w-[367px]">
+            <h1 class="mb-[48px] block h-[34px] w-[305px] text-[45px] font-black leading-[54px] mobile:mb-[20px] mobile:h-[18px] mobile:w-[161px] mobile:text-[25px] mobile:leading-[38px]">{{ section.settings.title }}</h1>
+            <span class="text-lg font-normal leading-[24px] mobile:block mobile:h-[26px] mobile:w-[339px] mobile:text-[11px] mobile:leading-[15px]">
+                {{ section.settings.description }}
+            </span>
+        </div>
+    </div>
+</div>
+<div style="background: url('https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/af27e532-acda-46d1-93a5-f1efa0d40a00/q=100') 0% 0% / 100% 100%;padding-bottom: 110px;margin-top:-5px;">
+<div class="page-width" style="padding-top: 110px;">
+<div class="flex items-baseline justify-center mobile:justify-between">
+    <div class="text-[30px] font-semibold leading-[54px] text-white mobile:h-[11px] mobile:w-[272px] mobile:text-[15px] mobile:leading-[17px]">MAKE A CAREER OUT OF YOUR PASSION!</div>
+    <div class="block flex-1 mobile:h-[8px] mobile:w-[65px] mobile:flex-none"></div>
+</div>
+<div class="mx-auto my-[20px] max-w-[1200px] text-base font-normal leading-[24px] text-white mobile:mx-0 mobile:my-[20px] mobile:h-[67px] mobile:w-[323px] mobile:text-[11px] mobile:leading-[15px]">At Yarbo, we believe in fostering talent, nurturing innovation, and celebrating achievements together as a team. Discover exciting career opportunities and become part of a community dedicated to redefining the boundaries of our industry.</div>
+<career-form class="career-form form-container" style="margin-top: 40px">
+  <div class="career-form__header">
+    <img src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/9c9ea7792a4e4a579f89ab8c9425af8e.webp" alt="hand" />
+    <h2 class="career-form__header-title">SUBMIT YOUR RESUME & JOIN THE EVOLUTION</h2>
+  </div>
+
+  <form>
+    <div class="form-row-title">1. Personal Details</div>
+    <div class="form-row">
+      <div class="form-item">
+        <form-field class="form-field" name="username" label="Name" required>
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              <input placeholder="Name*" maxlength="35" class="form-input" type="text" value="" />
+              <div class="form-item-explain-error" data-role="errorMessage"></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+      <div class="form-item">
+        <form-field
+          class="form-field"
+          name="email"
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          label="Email"
+          required
+        >
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              <input placeholder="Email*" maxlength="35" class="form-input" type="email" value="" />
+              <div class="form-item-explain-error" data-role="errorMessage"></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+      <div class="form-item">
+        <form-field class="form-field" name="contactNumber" label="ContactNumber">
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              <input placeholder="Contact Number" maxlength="35" class="form-input" type="text" value="" />
+            </div>
+          </div>
+        </form-field>
+      </div>
+    </div>
+
+    <div class="form-row-title">2. Education</div>
+    <div class="form-row form-row__education form-row--wrap">
+      <div class="form-item">
+        <form-field class="form-field" name="school" label="School" required>
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              <input placeholder="Name of Your School*" maxlength="35" class="form-input" type="text" value="" />
+              <div class="form-item-explain-error" data-role="errorMessage"></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+      <div class="form-item">
+        <form-field class="form-field" name="degree" label="Degree" required>
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              <input placeholder="Degree*" maxlength="35" class="form-input" type="text" value="" />
+              <div class="form-item-explain-error" data-role="errorMessage"></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+      <div class="form-item form-item__study">
+        <form-field class="form-field" name="study" label="Field of Study" required>
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              <input placeholder="Field of Study*" maxlength="35" class="form-input" type="text" value="" />
+              <div class="form-item-explain-error" data-role="errorMessage"></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+      <div class="form-item form-item__graduation-year">
+        <form-field class="form-field" name="graduationYear" label="GraduationYear">
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              <input placeholder="Graduation Year" maxlength="35" class="form-input" type="text" value="" />
+            </div>
+          </div>
+        </form-field>
+      </div>
+    </div>
+
+    <div class="form-row-title">3. Position & Experience</div>
+    <div class="form-row form-row__position-experience form-row--wrap">
+      <div class="form-item">
+        <form-field class="form-field" name="positionApply" label="Position Apply For" required>
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              {% capture position_apply_options %}
+                <div class="select-option" data-value="Markteting & Sales">Markteting & Sales</div>
+                <div class="select-option" data-value="Technical">Technical</div>
+                <div class="select-option" data-value="Product">Product</div>
+                <div class="select-option" data-value="Human Resources">Human Resources</div>
+                <div class="select-option" data-value="Supply Chain">Supply Chain</div>
+                <div class="select-option" data-value="Design">Design</div>
+                <div class="select-option" data-value="Legal">Legal</div>
+                <div class="select-option" data-value="Project Management">Project Management</div>
+                <div class="select-option" data-value="Internship">Internship</div>
+                <div class="select-option" data-value="Other...">Other...</div>
+              {% endcapture %}
+              {% render 'yb-custom-select', options_content: position_apply_options, placeholder: 'Position Apply For*' %}
+              <div class="form-item-explain-error" data-role="errorMessage"></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+      <div class="form-item">
+        <form-field class="form-field" name="experience" label="Years of Experience" required>
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              {% capture experience_options %}
+                <div class="select-option" data-value="Less than 1 year">Less than 1 year</div>
+                <div class="select-option" data-value="1-5 Years">1-5 Years</div>
+                <div class="select-option" data-value="6-10 Years">6-10 Years</div>
+                <div class="select-option" data-value="11-20 Years">11-20 Years</div>
+                <div class="select-option" data-value="More than 20 Years">More than 20 Years</div>
+              {% endcapture %}
+              {% render 'yb-custom-select', options_content: experience_options, placeholder: 'Years of Experience*' %}
+              <div class="form-item-explain-error" data-role="errorMessage"></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+      <div class="form-item form-item--full-width">
+        <form-field class="form-field" name="textareaExperience" label="Experience and project history" required>
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              <textarea
+                name="textareaExperience"
+                placeholder="Please provide details of your work experience and project history*"
+                maxlength="500"
+                aria-required="true"
+                class="form-textarea"
+              ></textarea>
+              <div class="form-item-explain-error" data-role="errorMessage"></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+    </div>
+
+    <div class="form-row-title">4. Skills</div>
+    <div class="form-row">
+      <div class="form-item form-item--full-width">
+        <form-field class="form-field" name="skills" label="Skills" required>
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              <textarea
+                name="skills"
+                placeholder="Please outline your relevant job-specific skills*"
+                maxlength="500"
+                aria-required="true"
+                class="form-textarea"
+              ></textarea>
+              <div class="form-item-explain-error" data-role="errorMessage"></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+    </div>
+
+    <div class="form-row-title">5. Awards and Recognition</div>
+    <div class="form-row">
+      <div class="form-item form-item--full-width">
+        <form-field class="form-field" name="rcognition" label="rcognition">
+          <div class="form-input-wrapper">
+            <div class="form-input-content">
+              <textarea
+                name="rcognition"
+                placeholder="Have you been recognized with any awards or honors?"
+                maxlength="300"
+                class="form-textarea"
+              ></textarea>
+            </div>
+          </div>
+        </form-field>
+      </div>
+    </div>
+
+    <div class="form-field form-submit form-submit--full-width">
+      <div class="form-input-wrapper">
+        <div class="form-input-content">
+          <button type="submit" class="submit-button submit-button--black">
+            APPLY NOW
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row form-row__policy">
+      <div class="form-field">
+        <label class="form-input-wrapper">
+          <div class="form-checkbox-content">
+            <input type="checkbox" class="form-checkbox" required="true" checked />
+            <span class="form-checkbox-icon"></span>
+          </div>
+          <span class="checkbox-text">
+            I hereby give my consent for Yarbo to store and process my personal data as described in the
+            <a href="https://www.yarbo.com/legal/privacy-policy" target="_blank">Privacy Policy</a>
+            .
+          </span>
+        </label>
+      </div>
+    </div>
+  </form>
+
+  <div class="career-form__contact-us">You're welcome to forward your resume via
+    <a href="mailto: career@yarbo.com">career@yarbo.com</a></div>
+</career-form>
+</div>
+<div>
+  <div class="back-top m-auto mb-12 mt-24 flex  cursor-pointer flex-col items-center justify-center mobile:my-12 mobile:w-5"><img alt="" loading="lazy" width="56" height="55" decoding="async" data-nimg="1" class="w-8" srcset="https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/43d00c5f-af75-4015-2cc5-9f34e803ec00/q=100,w=64,q=75" style="color: transparent;"><h2 class="mt-4 whitespace-nowrap text-xl font-normal leading-5 mobile:mt-[6px] mobile:w-[74px] mobile:text-[12px] text-[undefined]">Back To Top</h2></div></div>
+</div>
+
+<script>
+  document.querySelector('#shopify-section-{{ section.id }} .back-top').addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Career 提交表单",
+  "class": "migrated-page",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "pc_img",
+      "label": "Pc Img"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_img",
+      "label": "Mobile Img"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "JOIN YARBO"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Dive into a world of innovation and excellence. Shape the future of yard robot technology with us."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Career 提交表单"
+    }
+  ]
+}
+{% endschema %}

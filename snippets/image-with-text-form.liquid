@@ -1,0 +1,655 @@
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/preview-grid_51dee542-bd8f-4dad-9c30-ca4bb0a7b2b2.css?v=1776669603'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+<script
+  src='{{ 'yb-preview-grid.js' | asset_url }}'
+  defer='defer'
+></script>
+<!-- 使用 searchable-select 组件 -->
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/searchable-select_e7a985a3-519d-4fb6-ac03-1316b21f0038.css?v=1776669603'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+<script
+  src='{{ 'yb-searchable-select.js' | asset_url }}'
+  defer='defer'
+></script>
+<script
+  src='{{ 'yb-image-with-text-form.js' | asset_url }}'
+  defer='defer'
+></script>
+<image-with-text-form>
+  <form
+    autocomplete='off'
+    class='contest-form'
+  >
+    <div class='form-row'>
+      <!-- name -->
+      <div class='form-item'>
+        <label
+          for='name'
+          class='form-label required'
+        >
+          Name
+          <span style='color: #ff4d4f; margin-left: 4px;'>*</span>
+        </label>
+        <form-field
+          class='form-field'
+          name='name'
+          label='Name'
+          required
+        >
+          <div class='form-input-wrapper'>
+            <div class='form-input-content'>
+              <input
+                placeholder='Name'
+                name='Name'
+                aria-required='true'
+                class='form-input'
+                type='text'
+              >
+              <div
+                class='form-item-explain-error'
+                data-role='errorMessage'
+              ></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+
+      <!-- email -->
+      <div class='form-item'>
+        <label
+          for='email'
+          class='form-label required'
+        >
+          Email
+          <span style='color: #ff4d4f; margin-left: 4px;'>*</span>
+        </label>
+        <form-field
+          class='form-field'
+          name='email'
+          label='Email'
+          required
+          pattern='^[^@\s]+@[^@\s]+\.[^@\s]+$'
+        >
+          <div class='form-input-wrapper'>
+            <div class='form-input-content'>
+              <input
+                placeholder='Email Address'
+                aria-required='true'
+                class='form-input'
+                type='text'
+              >
+              <div
+                class='form-item-explain-error'
+                data-role='errorMessage'
+              ></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+    </div>
+
+    <!-- location inputs -->
+    <div class='form-row'>
+      <!-- country -->
+      <div class='form-item'>
+        <label
+          for='country'
+          class='form-label required'
+        >
+          Country
+          <span style='color: #ff4d4f; margin-left: 4px;'>*</span>
+        </label>
+        <form-field
+          class='form-field'
+          name='country'
+          label='Country'
+          required
+        >
+          <div class='form-input-wrapper'>
+            <div class='form-input-content'>
+              <searchable-select
+                name='country'
+                placeholder='Select Country'
+                data-role='country-select'
+                aria-required='true'
+              >
+                <div class='select-container'>
+                  <div class='select-trigger placeholder'>
+                    <span>Select Country</span>
+                    <span class='arrow'>
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        width='24'
+                        height='24'
+                        viewBox='0 0 24 24'
+                        fill='none'
+                        stroke='currentColor'
+                        stroke-width='2'
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        class='feather feather-chevron-down'
+                      >
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class='select-options'>
+                    <!-- 选项将通过 JS 动态添加 -->
+                  </div>
+                </div>
+              </searchable-select>
+              <div
+                class='form-item-explain-error'
+                data-role='errorMessage'
+              ></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+
+      <!-- state -->
+      <div class='form-item'>
+        <label
+          for='state'
+          class='form-label required'
+        >
+          State / Province
+          <span style='color: #ff4d4f; margin-left: 4px;'>*</span>
+        </label>
+        <form-field
+          class='form-field'
+          name='state'
+          label='State / Province'
+          required
+        >
+          <div class='form-input-wrapper'>
+            <div class='form-input-content'>
+              <searchable-select
+                name='state'
+                placeholder='Select State / Province'
+                data-role='state-select'
+                disabled
+                aria-required='true'
+              >
+                <div class='select-container'>
+                  <div class='select-trigger placeholder'>
+                    <span>Select State / Province</span>
+                    <span class='arrow'>
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        width='24'
+                        height='24'
+                        viewBox='0 0 24 24'
+                        fill='none'
+                        stroke='currentColor'
+                        stroke-width='2'
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        class='feather feather-chevron-down'
+                      >
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class='select-options'>
+                    <!-- 选项将通过 JS 动态添加 -->
+                  </div>
+                </div>
+              </searchable-select>
+              <div
+                class='form-item-explain-error'
+                data-role='errorMessage'
+              ></div>
+            </div>
+          </div>
+        </form-field>
+      </div>
+    </div>
+
+    <!-- city -->
+    <label
+      for='city'
+      class='form-label required'
+    >
+      City
+      <span style='color: #ff4d4f; margin-left: 4px;'>*</span>
+    </label>
+    <form-field
+      class='form-field'
+      name='city'
+      label='City'
+      required
+    >
+      <div class='form-input-wrapper'>
+        <div class='form-input-content'>
+          <searchable-select
+            name='city'
+            placeholder='Select City'
+            data-role='city-select'
+            disabled
+            aria-required='true'
+          >
+            <div class='select-container'>
+              <div class='select-trigger placeholder'>
+                <span>Select City</span>
+                <span class='arrow'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='24'
+                    height='24'
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='2'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    class='feather feather-chevron-down'
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </div>
+              <div class='select-options'>
+                <!-- 选项将通过 JS 动态添加 -->
+              </div>
+            </div>
+          </searchable-select>
+          <div
+            class='form-item-explain-error'
+            data-role='errorMessage'
+          ></div>
+        </div>
+      </div>
+    </form-field>
+
+    <label
+      for='originalPostLink'
+      class='form-label'
+    >
+      Social Media Post Link
+    </label>
+    <form-field
+      class='form-field'
+      name='originalPostLink'
+      label='Social Media Post Link'
+    >
+      <div class='form-input-wrapper'>
+        <div class='form-input-content'>
+          <input
+            placeholder='Social Media Post Link'
+            name='originalPostLink'
+            class='form-input'
+            type='text'
+          >
+          <div
+            class='form-item-explain-error'
+            data-role='errorMessage'
+          ></div>
+        </div>
+      </div>
+    </form-field>
+
+    <!-- upload -->
+    <label
+      for='name'
+      class='form-label required'
+    >
+      Upload
+      <span style='color: #ff4d4f; margin-left: 4px;'>*</span>
+    </label>
+    <file-uploader>
+      <div class='media-type-selector'>
+        <!-- photo -->
+        <div
+          class='media-type-option'
+          data-role='control'
+          data-show='photo'
+        >
+          <div class='media-type-option-content'>
+            <span class='form-icon'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                stroke-width='2'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                class='feather feather-image'
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+            </span>
+            <p>Photo</p>
+          </div>
+        </div>
+
+        <!-- video -->
+        <div
+          class='media-type-option'
+          data-role='control'
+          data-show='video'
+        >
+          <div class='media-type-option-content'>
+            <span class='form-icon'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                stroke-width='2'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                class='feather feather-play-circle'
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+            </span>
+            <p>Video</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- photo form -->
+      <div
+        class='uploader-container'
+        data-role='photo'
+        aria-required='true'
+      >
+        <div
+          class='uploader-close'
+          data-role='close'
+        >
+          <span class='form-icon'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              stroke-width='2'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              class='feather feather-x'
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </span>
+        </div>
+
+        <div class='uploader-header'>
+          <span class='form-icon'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              stroke-width='2'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              class='feather feather-image'
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+          </span>
+          <p class='uploader-title'>Upload a Photo</p>
+        </div>
+
+        <label class='uploader-input-label'>
+          <input
+            accept='image/*'
+            multiple
+            class='uploader-input'
+            type='file'
+            name='file'
+          >
+          <span class='uploader-button'>Choose File</span>
+        </label>
+
+        <preview-grid data-role='photo' />
+      </div>
+
+      <div
+        class='uploader-container'
+        data-role='video'
+        aria-required='true'
+      >
+        <div
+          class='uploader-close'
+          data-role='close'
+        >
+          <span class='form-icon'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              stroke-width='2'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              class='feather feather-x'
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </span>
+        </div>
+
+        <div class='uploader-header'>
+          <span class='form-icon'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              stroke-width='2'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              class='feather feather-play-circle'
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="10 8 16 12 10 16 10 8"></polygon>
+            </svg>
+          </span>
+          <p class='uploader-title'>Upload Video</p>
+          <div class='video-upload-button'>
+            <label
+              for='fileVideoInput'
+              class='uploader-input-label'
+            >
+              <input
+                accept='video/*'
+                id='fileVideoInput'
+                class='uploader-input'
+                type='file'
+                name='file'
+              >
+              <span class='uploader-button'>Choose Video</span>
+            </label>
+            or
+            <div class='video-url-button'>Upload Video Url</div>
+          </div>
+        </div>
+        <div class='video-preview'>
+          <preview-grid data-role='video' />
+        </div>
+        <div class='video-form'>
+          <!-- platform -->
+          <label
+            for='platform'
+            class='form-label required'
+          >
+            Platform
+            <span style='color: #ff4d4f; margin-left: 4px;'>*</span>
+          </label>
+          <form-field
+            class='video-platform-select'
+            name='platform'
+            required
+          >
+            {% capture platform_options %}
+            <div
+              class='select-option'
+              data-value='facebook'
+            >
+              Facebook
+            </div>
+            <div
+              class='select-option'
+              data-value='instagram'
+            >
+              Instagram
+            </div>
+            <div
+              class='select-option'
+              data-value='youtube'
+            >
+              YouTube
+            </div>
+            <div
+              class='select-option'
+              data-value='vimeo'
+            >
+              Vimeo
+            </div>
+           {% endcapture %}
+            {% render 'custom-select', options_content: platform_options, placeholder: 'Select platform', selected: 'facebook', name: 'platform' %}
+          </form-field>
+
+          <!-- video url -->
+          <label
+            for='videoUrl'
+            class='form-label required'
+          >
+            Video URL
+            <span style='color: #ff4d4f; margin-left: 4px;'>*</span>
+          </label>
+          <form-field
+            class='form-field'
+            label='Video Url'
+            name='videoUrl'
+            required
+            pattern
+          >
+            <div class='form-input-wrapper'>
+              <div class='form-input-content'>
+                <input
+                  placeholder='Video URL'
+                  aria-required='true'
+                  class='form-input'
+                  type='text'
+                >
+                <div
+                  class='form-item-explain-error'
+                  data-role='errorMessage'
+                ></div>
+              </div>
+            </div>
+          </form-field>
+        </div>
+      </div>
+    </file-uploader>
+
+    <!-- caption -->
+    <label
+      for='name'
+      class='form-label'
+    >
+      Caption
+    </label>
+    <form-field
+      class='form-field'
+      name='description'
+      label='caption'
+    >
+      <div class='form-input-wrapper'>
+        <div class='form-input-content'>
+          <textarea
+            placeholder='Enter a caption'
+            class='form-textarea'
+          ></textarea>
+          <div
+            class='form-item-explain-error'
+            data-role='errorMessage'
+          ></div>
+        </div>
+      </div>
+    </form-field>
+
+    <!-- agreement checkbox -->
+    <div class='form-field form-agreement'>
+      <div class='form-input-wrapper'>
+        <div class='form-input-content'>
+          <form-field
+            class='form-field'
+            name='agreement'
+            label='Agreement'
+            required
+          >
+            <label
+              class='form-checkbox-label'
+              style='display: flex !important; align-items: center !important; flex-direction: row !important; gap: 12px;'
+            >
+              <div
+                class='form-checkbox-content'
+                style='display: inline-flex !important; flex-shrink: 0;'
+              >
+                <input
+                  type='checkbox'
+                  name='agreement'
+                  checked
+                  aria-required='true'
+                  class='form-checkbox'
+                >
+                <span class='form-checkbox-icon'></span>
+              </div>
+              <span class='form-checkbox-text'>I agree to allow my submitted content to be used for Yarbo's brand promotion.</span>
+            </label>
+            <div
+              class='form-item-explain-error'
+              data-role='errorMessage'
+            ></div>
+          </form-field>
+        </div>
+      </div>
+    </div>
+
+    <!-- button -->
+    <div class='form-field form-submit'>
+      <div class='form-input-wrapper'>
+        <div class='form-input-content'>
+          <button
+            data-role='submit'
+            type='button'
+            class='submit-button'
+          >
+            {{ form_button_title }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</image-with-text-form>

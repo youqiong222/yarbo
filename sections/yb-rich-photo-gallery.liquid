@@ -1,0 +1,551 @@
+{{ 'yb-rich-photo-gallery.css' | asset_url | stylesheet_tag }}
+{% render 'yb-section-style', section: section %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div class='photo-gallery-section'>
+  <div class='photo-gallery-container'>
+    {% if section.settings.title != blank or section.settings.subtitle != blank or section.settings.button_text != blank %}
+      <div class='yb-section-header'>
+        {% if section.settings.title != blank %}
+          <div class='yb-section-title'>{{ section.settings.title }}</div>
+        {% endif %}
+        {% if section.settings.subtitle != blank %}
+          <div class='yb-section-description'>{{ section.settings.subtitle }}</div>
+        {% endif %}
+        {% if section.settings.button_text != blank %}
+          <div class='yb-section-button'>
+            {% render 'yb-button', type: section.settings.button_type, class: 'yb-single-video-btn', tag: 'button', config: section.settings %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class='photo-gallery-inner-section'>
+      {% for block in section.blocks %}
+        <div
+          class='photo-row photo-gallery-slider'
+          id='row{{ forloop.index0 }}'
+          {{ block.shopify_attributes }}
+        >
+          <div class='photo-gallery-wrapper'>
+            <div class='photo-gallery-slider swiper'>
+              <div class='swiper-wrapper'>
+                {% for i in (1..10) %}
+                  {% assign img_key = 'image_' | append: i %}
+                  {% assign current_image = block.settings[img_key] %}
+
+                  {% if current_image != blank %}
+                    <div class='photo-item swiper-slide'>
+                      {{ current_image | image_url: width: 800 | image_tag: class: 'photo-thumbnail', loading: 'lazy' }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} .photo-gallery-section {
+    margin: 0 auto;
+  }
+  #shopify-section-{{ section.id }} .photo-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #shopify-section-{{ section.id }} .photo-row {
+    margin-bottom: 16px;
+  }
+  #shopify-section-{{ section.id }} .photo-row img {
+    pointer-events: none;
+  }
+  #shopify-section-{{ section.id }} {
+    overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.05s linear;
+    user-select: none;
+    will-change: transform;
+    gap: 16px;
+  }
+  #shopify-section-{{ section.id }} .photo-item {
+    width: {{ section.settings.picture_width }}px !important;
+    height: auto !important;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #shopify-section-{{ section.id }} .photo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (min-width: 960px) and (max-width: 1439px) {
+    #shopify-section-{{ section.id }} .photo-item {
+      width: {{ section.settings.picture_width }}px !important;
+    }
+  }
+  @media (min-width: 680px) and (max-width: 959px) {
+    #shopify-section-{{ section.id }} .photo-item {
+      width: {{ section.settings.picture_width_m }}px !important;
+    }
+    #shopify-section-{{ section.id }} .swiper-wrapper {
+      gap: 8px;
+    }
+    #shopify-section-{{ section.id }} .photo-row {
+      margin-bottom: 8px;
+    }
+  }
+  @media (max-width: 679px) {
+    #shopify-section-{{ section.id }} .photo-item {
+      width: {{ section.settings.picture_width_m_small }}px !important;
+    }
+    #shopify-section-{{ section.id }} .swiper-wrapper {
+      gap: 8px;
+    }
+    #shopify-section-{{ section.id }} .photo-row {
+      margin-bottom: 8px;
+    }
+    #shopify-section-{{ section.id }} .yb-section-title,
+    #shopify-section-{{ section.id }} .yb-section-description,
+    #shopify-section-{{ section.id }} .yb-section-button {
+      padding: 0 16px;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    #shopify-section-{{ section.id }} div[id^="row"]:nth-child(even) .photo-item:first-child {
+      width: calc({{ section.settings.picture_width }}px / 2) !important;
+    }
+  }
+  @media (min-width: 1440px) and (max-width: 1919px) {
+    #shopify-section-{{ section.id }} div[id^="row"]:nth-child(even) .photo-item:first-child {
+      width: calc({{ section.settings.picture_width }}px / 2) !important;
+    }
+  }
+  @media (min-width: 960px) and (max-width: 1439px) {
+    #shopify-section-{{ section.id }} div[id^="row"]:nth-child(even) .photo-item:first-child {
+      width: calc({{ section.settings.picture_width }}px / 2) !important;
+    }
+  }
+  @media (min-width: 680px) and (max-width: 959px) {
+    #shopify-section-{{ section.id }} div[id^="row"]:nth-child(even) .photo-item:first-child {
+      width: calc({{ section.settings.picture_width_m }}px / 2) !important;
+    }
+  }
+  @media (max-width: 679px) {
+    #shopify-section-{{ section.id }} div[id^="row"]:nth-child(even) .photo-item:first-child {
+      width: calc({{ section.settings.picture_width_m_small }}px / 2) !important;
+    }
+  }
+</style>
+
+{% if section.settings.switch_scroll %}
+  <script>
+    (function continuousScrollNoReset() {
+      document.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('.photo-gallery-inner-section');
+        if (!container) return;
+
+        const perf = {
+          lastFrame: Date.now(),
+          frameCount: 0,
+          log: () => {
+            if (Date.now() - perf.lastFrame > 1000) {
+              perf.frameCount = 0;
+              perf.lastFrame = Date.now();
+            }
+            perf.frameCount++;
+          },
+        };
+
+        const wrappers = container.querySelectorAll('.swiper-wrapper');
+        const carousels = Array.from(wrappers).map((wrapper) => ({
+          element: wrapper,
+          state: {
+            position: 0,
+            originalSlides: [],
+            totalSlides: 0,
+            slideWidth: 0,
+            cloneCount: 0,
+          },
+        }));
+
+        if (!wrappers.length) return;
+
+        const state = {
+          position: 0,
+          speed: 0.8,
+          paused: false,
+          isDragging: false,
+          startX: 0,
+          dragOffset: 0,
+          totalSlides: 0,
+          slideWidth: 0,
+          viewportWidth: container.offsetWidth,
+          originalSlides: [],
+          cloneThreshold: 20,
+        };
+
+        const initClones = () => {
+          wrappers.forEach((wrapper) => {
+            state.originalSlides = Array.from(wrapper.children);
+            state.totalSlides = state.originalSlides.length;
+
+            const cloneTimes = 6;
+            for (let i = 0; i < cloneTimes; i++) {
+              state.originalSlides.forEach((slide) => {
+                const clone = slide.cloneNode(true);
+                clone.classList.add('swiper-clone');
+                wrapper.appendChild(clone);
+              });
+
+              state.originalSlides
+                .slice()
+                .reverse()
+                .forEach((slide) => {
+                  const clone = slide.cloneNode(true);
+                  clone.classList.add('swiper-clone');
+                  wrapper.insertBefore(clone, wrapper.firstChild);
+                });
+            }
+
+            state.totalSlides = wrapper.children.length;
+          });
+
+          requestAnimationFrame(() => {
+            state.slideWidth = wrappers[0].children[0].offsetWidth + 16;
+            state.viewportWidth = container.offsetWidth;
+            state.position = -((state.slideWidth * state.totalSlides) / 2 - state.viewportWidth / 2);
+            updatePosition();
+          });
+        };
+
+        const dynamicClone = () => {
+          const currentScroll = -state.position;
+          const totalWidth = state.slideWidth * state.totalSlides;
+          const remaining = totalWidth - currentScroll - state.viewportWidth;
+
+          if (remaining < totalWidth * 0.2) {
+            wrappers.forEach((wrapper) => {
+              const originalSlide1 = Array.from(wrapper.children);
+              originalSlide1.forEach((slide) => {
+                const clone = slide.cloneNode(true);
+                clone.classList.add('swiper-clone');
+                wrapper.appendChild(clone);
+              });
+            });
+            state.totalSlides += state.originalSlides.length;
+          }
+        };
+
+        const updatePosition = () => {
+          const maxPosition = -(state.slideWidth * state.totalSlides - state.viewportWidth);
+          state.position = Math.max(maxPosition, state.position);
+
+          wrappers.forEach((wrapper) => {
+            wrapper.style.transform = `translate3d(${state.position}px, 0, 0)`;
+          });
+        };
+
+        const animate = () => {
+          if (!state.paused && !state.isDragging) {
+            state.position -= state.speed;
+            dynamicClone();
+            updatePosition();
+          }
+          requestAnimationFrame(animate);
+          perf.log();
+        };
+
+        const handleDrag = (pageX) => {
+          const delta = pageX - state.startX;
+          state.position = state.dragOffset + delta * 0.6;
+          updatePosition();
+        };
+
+        const dragStart = (pageX) => {
+          state.isDragging = true;
+          state.startX = pageX;
+          state.dragOffset = state.position;
+          state.paused = true;
+        };
+
+        const dragEnd = () => {
+          state.isDragging = false;
+          state.paused = false;
+        };
+
+        container.addEventListener('mouseenter', () => (state.paused = true));
+        container.addEventListener('mouseleave', () => (state.paused = false));
+        container.addEventListener('mousedown', (e) => dragStart(e.pageX));
+        document.addEventListener(
+          'mousemove',
+          throttle((e) => {
+            if (state.isDragging) handleDrag(e.pageX);
+          }, 16),
+        );
+        document.addEventListener('mouseup', dragEnd);
+
+        container.addEventListener('touchstart', (e) => dragStart(e.touches[0].pageX));
+        container.addEventListener(
+          'touchmove',
+          throttle((e) => {
+            if (state.isDragging) handleDrag(e.touches[0].pageX);
+          }, 16),
+        );
+        container.addEventListener('touchend', dragEnd);
+
+        initClones();
+        animate();
+
+        window.addEventListener('resize', () => {
+          state.viewportWidth = container.offsetWidth;
+          state.slideWidth = wrappers[0].children[0].offsetWidth + 16;
+          updatePosition();
+        });
+      });
+
+      function throttle(fn, limit = 16) {
+        let lastCall;
+        return function (...args) {
+          const now = Date.now();
+          if (!lastCall || now - lastCall >= limit) {
+            fn.apply(this, args);
+            lastCall = now;
+          }
+        };
+      }
+    })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Yb Rich Photo Gallery",
+  "class": "migrated-page",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "switch_scroll",
+      "label": "启动无限循环",
+      "info": "注意💡:每个block最少配一张图,禁止空白",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>Yarbo Lawn Mower Mow Smarter, Not Harder</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>Yarbo Lawn Mower keeps your lawn in perfect shape 24/7, gives you a relaxing start of your day instead of sweating behind a mower</p>"
+    },
+    {
+      "type": "number",
+      "id": "picture_width",
+      "label": "PC端图片宽度",
+      "info": "960以上",
+      "default": 338
+    },
+    {
+      "type": "number",
+      "id": "picture_width_m",
+      "label": "M端图片宽度",
+      "info": "680-960",
+      "default": 312
+    },
+    {
+      "type": "number",
+      "id": "picture_width_m_small",
+      "label": "M端图片宽度",
+      "info": "680以下",
+      "default": 176
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "按钮文字"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "按钮类型",
+      "default": "link",
+      "options": [
+        { "value": "link", "label": "链接" },
+        { "value": "anchor", "label": "锚点" },
+        {
+          "value": "modal",
+          "label": "弹窗"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "按钮链接"
+    },
+    {
+      "type": "text",
+      "id": "button_anchor",
+      "label": "按钮锚点ID"
+    },
+    {
+      "type": "text",
+      "id": "button_modal_title",
+      "label": "按钮弹窗标题"
+    },
+    {
+      "type": "html",
+      "id": "button_modal_content",
+      "label": "按钮弹窗内容"
+    },
+    {
+      "type": "header",
+      "content": "section填充"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Add background Color",
+      "default": "#e6e6e7"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1920",
+      "label": "1920顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1920",
+      "label": "1920底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1440",
+      "label": "1440顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1440",
+      "label": "1440底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_960",
+      "label": "960顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_960",
+      "label": "960底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_680",
+      "label": "680顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_680",
+      "label": "680底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_375",
+      "label": "375顶部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_375",
+      "label": "375底部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "photo_row",
+      "name": "Photo Row",
+      "settings": [
+        { "type": "image_picker", "id": "image_1", "label": "Photo 1" },
+        { "type": "image_picker", "id": "image_2", "label": "Photo 2" },
+        { "type": "image_picker", "id": "image_3", "label": "Photo 3" },
+        { "type": "image_picker", "id": "image_4", "label": "Photo 4" },
+        { "type": "image_picker", "id": "image_5", "label": "Photo 5" },
+        { "type": "image_picker", "id": "image_6", "label": "Photo 6" },
+        { "type": "image_picker", "id": "image_7", "label": "Photo 7" },
+        { "type": "image_picker", "id": "image_8", "label": "Photo 8" },
+        { "type": "image_picker", "id": "image_9", "label": "Photo 9" },
+        { "type": "image_picker", "id": "image_10", "label": "Photo 10" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Yb Rich Photo Gallery",
+      "blocks": [
+        {
+          "type": "photo_row"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

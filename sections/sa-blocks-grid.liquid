@@ -1,0 +1,213 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<div
+  style='
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+    --bg-color: {{ section.settings.bg_color }};
+  '
+  class='
+    bg-(--bg-color)
+    pt-(--h5-padding-top)
+    pb-(--h5-padding-bottom)
+    md:pt-(--padding-top)
+    md:pb-(--padding-bottom) {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <div class='page-container flex flex-col items-center'>
+    {% if section.settings.title != blank %}
+      <h2 class='mb-24 text-center text-[32px] leading-none uppercase md:mb-40 md:text-[44px]'>
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    {%- liquid
+      assign size = section.blocks.size
+      assign pc_cols = 'repeat(' | append: size | append: ', minmax(0, 1fr))'
+    -%}
+
+    <div
+      style='--pc-cols: {{ pc_cols }};'
+      class='grid w-full grid-cols-2 gap-12 md:grid-cols-(--pc-cols)'
+    >
+      {% for block in section.blocks %}
+        <div
+          class='flex h-full flex-col bg-[#F2F2F2] p-16 transition-colors md:p-32 {% if section.blocks.size == 3 or section.blocks.size == 5 and forloop.last %}col-span-2 md:col-span-1{% endif %}'
+          {{ block.shopify_attributes }}
+        >
+          {% if block.settings.number != blank %}
+            <span class='mb-20 flex h-28 w-28 items-center justify-center bg-[#25282A] text-[14px] text-white md:mb-24 md:text-[14px]'>
+              {{ block.settings.number }}
+            </span>
+          {% endif %}
+
+          {% if block.settings.title != blank %}
+            <h3 class='mb-8 text-[18px] uppercase md:text-[20px]'>
+              {{ block.settings.title }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.description != blank %}
+            <div class='mb-24 flex-1 text-[13px] leading-[1.3] text-[#515355] md:mb-58 md:text-[14px]'>
+              {{ block.settings.description | newline_to_br }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.icon != blank %}
+            <div class='mt-auto'>
+              <img
+                width='auto'
+                height='auto'
+                src='{{ block.settings.icon | image_url: width: 100 }}'
+                alt='{{ block.settings.title }}'
+                class='h-auto w-32 object-contain md:w-40'
+                loading='lazy'
+              >
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blocks Text Grid",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "HOW IT WORKS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step_item",
+      "name": "Step Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Step Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "REGISTER"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Submit required information through our form."
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blocks Text Grid",
+      "blocks": [
+        {
+          "type": "step_item",
+          "settings": {
+            "number": "01",
+            "title": "REGISTER",
+            "description": "Submit required information through our form."
+          }
+        },
+        {
+          "type": "step_item",
+          "settings": {
+            "number": "02",
+            "title": "REVIEW",
+            "description": "Our team will review your submission and contact you within 3 business days."
+          }
+        },
+        {
+          "type": "step_item",
+          "settings": {
+            "number": "03",
+            "title": "CONFIRMATION",
+            "description": "Engage in strategic discussions and execute partnership agreements."
+          }
+        },
+        {
+          "type": "step_item",
+          "settings": {
+            "number": "04",
+            "title": "BECOME A DEALER",
+            "description": "Work together and start growing the business together in your region."
+          }
+        }
+      ],
+      "settings": {
+        "title": "HOW IT WORKS"
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,594 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sa_collection_banner_gdUNdt": {
+      "type": "sa-collection-banner",
+      "blocks": {
+        "block_Xgh7we": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_393.png",
+            "text": "Fast Delivery"
+          }
+        },
+        "block_rxYzYi": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/3.png",
+            "text": "2-Year Warranty"
+          }
+        },
+        "block_nd4rft": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/2.png",
+            "text": "30 Days Free Returns"
+          }
+        },
+        "block_PWdGU9": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/1.png",
+            "text": "24/7 Support"
+          }
+        }
+      },
+      "block_order": [
+        "block_Xgh7we",
+        "block_rxYzYi",
+        "block_nd4rft",
+        "block_PWdGU9"
+      ],
+      "name": "Collection banner",
+      "settings": {
+        "title": "<p>SHOP ALL Leaf Modules</p>",
+        "text": "<p>Effortlessly blow away leaves, debris, and buildup with a powerful, automated leaf blower designed for quick, everyday cleanup. Light cleanup, done in minutes—not hours.</p>",
+        "media_type": "image",
+        "pc_image": "shopify://shop_images/Frame_2036458257.jpg",
+        "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+        "other_url": "",
+        "show_overlay": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "sa_collection_nav_QX7y4f": {
+      "type": "sa-collection-nav",
+      "blocks": {
+        "block_QccNt9": {
+          "type": "block",
+          "settings": {
+            "title": "all",
+            "link": "shopify://collections/all-products"
+          }
+        },
+        "block_HmVKpf": {
+          "type": "block",
+          "settings": {
+            "title": "Y Series",
+            "link": "shopify://collections/y-series"
+          }
+        },
+        "block_VK4tqA": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "title": "M Series",
+            "link": "shopify://collections/m-series"
+          }
+        },
+        "block_7UtDYQ": {
+          "type": "block",
+          "settings": {
+            "title": "Modules",
+            "link": "shopify://collections/modules"
+          }
+        },
+        "block_wWQGqm": {
+          "type": "block",
+          "settings": {
+            "title": "Bundles",
+            "link": "shopify://collections/bundles"
+          }
+        },
+        "block_fmRhXc": {
+          "type": "block",
+          "settings": {
+            "title": "Accessories",
+            "link": "shopify://collections/accessories"
+          }
+        }
+      },
+      "block_order": [
+        "block_QccNt9",
+        "block_HmVKpf",
+        "block_VK4tqA",
+        "block_7UtDYQ",
+        "block_wWQGqm",
+        "block_fmRhXc"
+      ],
+      "disabled": true,
+      "name": "Collection Nav",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 84,
+        "h5_padding_top": 32,
+        "h5_padding_bottom": 60,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "product-grid": {
+      "type": "sa-main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "title": "<p>Find your <br/>perfect yarbo</p>",
+        "link": "",
+        "padding_top": 52,
+        "padding_bottom": 36
+      }
+    },
+    "sa_index_scrolljacking_PTzEWe": {
+      "type": "sa-index-scrolljacking",
+      "blocks": {
+        "item_MbGEGq": {
+          "type": "item",
+          "settings": {
+            "icon": "<svg width=\"19\" height=\"22\" viewbox=\"0 0 19 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M9.33334 0L18.6667 5.33333V16L9.33334 21.3333L0 16V5.33333L9.33334 0Z\" fill=\"white\"></path>\n</svg>",
+            "title": "<p>WORLD’S FIRST 1+N MODULAR ARCHITECTURE</p>",
+            "desc": "<p>One intelligent core powers multiple attachments with seamless hot-swapping—transforming Yarbo into a year-round yard system.</p>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_473.png",
+            "h5_image": "shopify://shop_images/Frame_474.png",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "item_xjrX36": {
+          "type": "item",
+          "settings": {
+            "icon": "<svg width=\"19\" height=\"22\" viewbox=\"0 0 19 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M9.33334 0L18.6667 5.33333V16L9.33334 21.3333L0 16V5.33333L9.33334 0Z\" fill=\"white\"></path>\n</svg>",
+            "title": "<p>PPVS FUSION NAVIGATION SYSTEM</p>",
+            "desc": "<p>Combining RTK-GPS, vision, and onboard sensors, Yarbo maintains precise positioning—even without satellite signal.</p>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_477.png",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "item_Qjy3U3": {
+          "type": "item",
+          "settings": {
+            "icon": "<svg width=\"19\" height=\"22\" viewbox=\"0 0 19 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M9.33334 0L18.6667 5.33333V16L9.33334 21.3333L0 16V5.33333L9.33334 0Z\" fill=\"white\"></path>\n</svg>",
+            "title": "<p>ALL-TERRAIN TRACKED PERFORMANCE</p>",
+            "desc": "<p>Engineered with tracked mobility and real-time traction control, Yarbo handles steep slopes, heavy loads, and extreme conditions with confidence.</p>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_478.png",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_MbGEGq",
+        "item_xjrX36",
+        "item_Qjy3U3"
+      ],
+      "name": "Index Scrolljacking",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "<p><strong>ENGINEERED FOR EVERY SEASON. BUILT TO OUTPERFORM.</strong></p>",
+        "pc_layout": "image_left",
+        "mobile_layout": "image_top"
+      }
+    },
+    "sa_richtext_6QtRpy": {
+      "type": "sa-richtext",
+      "name": "Richtext",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p><strong>WHICH YARBO ROBOT IS RIGHT FOR YOU?</strong></p>",
+        "text": "<p>Looking for a robot lawn mower, robot snow blower, or an all-season yard robot?<br/> Yarbo offers powerful solutions for lawn mowing, snow removal, leaf cleanup, and yard maintenance—all designed for large yards, driveways, and complex terrain.<br/>From wire-free robotic lawn mowers to autonomous snow blowers for heavy snow, Yarbo robots combine smart navigation, high traction, and automated operation to handle outdoor tasks with ease.<br/>Whether you need a robot mower for 3+ acres, a snow blower for long driveways, or a multi-functional yard robot, Yarbo helps you save time and effort year-round.</p>"
+      }
+    },
+    "line_MYeiqN": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_articles_block_dnDzAY": {
+      "type": "sa-articles-block",
+      "blocks": {
+        "blog_3U4yah": {
+          "type": "blog",
+          "settings": {
+            "article": "blog-news/which-is-better-wired-or-wireless-robot-mowers-a-complete-guide"
+          }
+        },
+        "blog_cFtnyp": {
+          "type": "blog",
+          "settings": {
+            "article": "blog-news/does-automatic-lawn-cutter-work-discover-the-truth-about-robot-lawn-edgers"
+          }
+        },
+        "blog_MnBm33": {
+          "type": "blog",
+          "settings": {
+            "article": "blog-news/riding-lawn-mower-cost-whats-the-price-tag-for-your-perfect-fit"
+          }
+        }
+      },
+      "block_order": [
+        "blog_3U4yah",
+        "blog_cFtnyp",
+        "blog_MnBm33"
+      ],
+      "name": "Articles Block",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Learn More About Our PRODUCTS</p>"
+      }
+    },
+    "sa_faq_7iCLfA": {
+      "type": "sa-faq",
+      "blocks": {
+        "tab_6cPciB": {
+          "type": "tab",
+          "settings": {
+            "label": "Products Features"
+          }
+        },
+        "qa_zEMTTM": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>What can Yarbo handle in real-world use?</p>",
+            "answer": "<p>Yarbo is designed for a wide range of outdoor tasks and environments, delivering stable and reliable performance across large areas, complex layouts, and varying terrain conditions. It is built to adapt to different working scenarios while maintaining consistent results over time.</p>"
+          }
+        },
+        "qa_3xQzyj": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>How does Yarbo operate autonomously?</p>",
+            "answer": "<p>After initial setup, Yarbo can operate automatically based on high-precision positioning, multi-sensor systems, and intelligent path planning. It is capable of navigating with accuracy, optimizing its working routes, and completing tasks efficiently with minimal manual intervention required.</p>"
+          }
+        },
+        "qa_zbYUB4": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>How efficient is Yarbo over time?</p>",
+            "answer": "<p>With automatic recharging and continuous work cycles, Yarbo is designed to maintain long-term operational efficiency. It can repeatedly resume tasks throughout the day, allowing it to progressively cover large outdoor areas without requiring constant supervision.</p>"
+          }
+        },
+        "qa_Ye3qeR": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>How does Yarbo handle obstacles and uneven terrain?</p>",
+            "answer": "<p>Yarbo uses multi-sensor detection combined with adaptive mobility systems to identify and respond to obstacles in real time. It can navigate around objects, adjust to uneven surfaces, and maintain stable performance on slopes, irregular terrain, and complex outdoor environments.</p>"
+          }
+        },
+        "qa_pnjRQJ": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>How easy is Yarbo to set up and use?</p>",
+            "answer": "<p>Yarbo is designed with a guided setup process and intuitive control system, making installation and daily operation straightforward. Once the initial configuration is completed, users can manage tasks easily through the system without requiring complex adjustments.</p>"
+          }
+        },
+        "qa_qeVN3m": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Can Yarbo expand or adapt over time?</p>",
+            "answer": "<p>Yes. Yarbo features a modular design that allows different functional units to be attached based on seasonal or task-specific needs. It is also designed with forward compatibility in mind, supporting future upgrades and expanded capabilities over time.</p>"
+          }
+        },
+        "tab_hfHCyy": {
+          "type": "tab",
+          "settings": {
+            "label": "Support & Care"
+          }
+        },
+        "qa_gVwjtw": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>How long does Yarbo shipping take?</p>",
+            "answer": "<p>Yarbo orders typically ship within <strong>3–8 business days</strong> for in-stock products in the United States.<br/> For <strong>pre-order items</strong>, delivery timelines are shown on the product page.For <strong>Canada and Europe</strong>:</p><ul><li> Core & Modules: 3–8 business days </li><li> Accessories: 10–15 business days </li></ul>"
+          }
+        },
+        "qa_qEkpVq": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>What is Yarbo’s return policy?</p>",
+            "answer": "<p>Yarbo offers a <strong>30-day return policy</strong> for eligible products.To qualify for a return:</p><ul><li> The product must be in <strong>original packaging</strong></li><li> All accessories and documentation must be included </li><li> The item must be in <strong>resalable condition</strong></li></ul><p>Return shipping fees and packaging costs may be deducted if applicable.</p>"
+          }
+        },
+        "qa_3BYwK4": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>What warranty does Yarbo offer?</p>",
+            "answer": "<p>Yarbo products include a <strong>2-year limited warranty</strong>.You can also choose an <strong>optional 3-year extended warranty</strong>, providing up to <strong>5 years of total coverage</strong> (available in select regions).</p>"
+          }
+        },
+        "qa_PG66cn": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>Can I cancel my order after placing it?</p>",
+            "answer": "<p>Yes—orders can be canceled before shipment.<br/>If the order has already shipped, it will be treated as a return and subject to the return policy.</p>"
+          }
+        },
+        "qa_tdFawY": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>What if my delivery is delayed?</p>",
+            "answer": "<p>While Yarbo aims for fast delivery, delays may occur due to:</p><ul><li> Weather conditions </li><li> Carrier issues </li><li> High seasonal demand </li></ul><p>Yarbo will keep you updated with tracking and support assistance.</p>"
+          }
+        },
+        "qa_hVrnRt": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>How can I contact Yarbo support?</p>",
+            "answer": "<p>You can reach Yarbo through:</p><ul><li> Email: <strong>support@yarbo.com</strong></li><li> Phone: <strong>+1 (631) 818-1850</strong></li><li> Yarbo App support system </li></ul><p>Support is available <strong>24/7</strong>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_6cPciB",
+        "qa_zEMTTM",
+        "qa_3xQzyj",
+        "qa_zbYUB4",
+        "qa_Ye3qeR",
+        "qa_pnjRQJ",
+        "qa_qeVN3m",
+        "tab_hfHCyy",
+        "qa_gVwjtw",
+        "qa_qEkpVq",
+        "qa_3BYwK4",
+        "qa_PG66cn",
+        "qa_tdFawY",
+        "qa_hVrnRt"
+      ],
+      "name": "Faq",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 40,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Frequently Asked Questions</p>",
+        "see_all_text": "",
+        "see_all_url": "",
+        "enable_tabs": true
+      }
+    },
+    "sa_index_img_text_banner_X3PWUE": {
+      "type": "sa-index-img-text-banner",
+      "blocks": {
+        "block_FLTrNt": {
+          "type": "block",
+          "settings": {
+            "text": "Split your payment using your existing credit card with zero interest.",
+            "icon": "shopify://shop_images/Splitit-Primary-Logo-1_1.png"
+          }
+        },
+        "block_JPY69B": {
+          "type": "block",
+          "settings": {
+            "text": "Enjoy flexible monthly payments with clear terms.",
+            "icon": "shopify://shop_images/black_logo-transparent_bg_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_FLTrNt",
+        "block_JPY69B"
+      ],
+      "name": "Index Img Text Banner",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 56,
+        "title": "<p>Own Your Yarbo Sooner </p><p>with 0% Financing and </p><p>flexible payment plans</p>"
+      }
+    },
+    "line_QeGtHh": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_recently_viewed_products_ajLdh6": {
+      "type": "sa-recently-viewed-products",
+      "name": "Recently viewed products",
+      "settings": {
+        "anchor_id": "",
+        "title": "recently viewed",
+        "products_count": 8,
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 0,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_rating": false,
+        "quick_add": "standard"
+      }
+    },
+    "sa_recently_viewed_zGP74p": {
+      "type": "sa-recently-viewed",
+      "disabled": true,
+      "name": "Recently Viewed",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 0,
+        "title": "<p>Recently Viewed</p>",
+        "products": [
+          "yarbo-core",
+          "yarbo-lawn-mower-blower",
+          "yarbo-snow-blower-blower",
+          "yarbo-lawn-mower-pro-snow-blower-blower-trimmer-package"
+        ],
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_rating": true,
+        "quick_add": "standard"
+      }
+    },
+    "sa_why_shop_with_hover_tWtcXy": {
+      "type": "sa-why-shop-with-hover",
+      "blocks": {
+        "item_F4wrF3": {
+          "type": "item",
+          "settings": {
+            "title": "Fast DELIVERY",
+            "desc": "Delivered in 3-8 business days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_1.svg"
+          }
+        },
+        "item_6k4WBk": {
+          "type": "item",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Help anytime you need",
+            "icon": "shopify://shop_images/Icon_-_Chunky_2.svg"
+          }
+        },
+        "item_PM7UqX": {
+          "type": "item",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Pay now or over time with Affirm, Splitit, and more",
+            "icon": "shopify://shop_images/Icon_-_Chunky_5.svg"
+          }
+        },
+        "item_q46X3x": {
+          "type": "item",
+          "settings": {
+            "title": "30-Day Free Returns",
+            "desc": "Full refund, no hassle",
+            "icon": "shopify://shop_images/Icon_-_Chunky_3.svg"
+          }
+        },
+        "item_VNdBUM": {
+          "type": "item",
+          "settings": {
+            "title": "up to 5-year Warranty",
+            "desc": "Protection you can trust",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4.svg"
+          }
+        },
+        "item_6J6ycr": {
+          "type": "item",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Safe and protected checkout",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_F4wrF3",
+        "item_6k4WBk",
+        "item_PM7UqX",
+        "item_q46X3x",
+        "item_VNdBUM",
+        "item_6J6ycr"
+      ],
+      "name": "Why Shop Hover",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "pc_aspect_ratio_w": 250,
+        "pc_aspect_ratio_h": 300,
+        "title": "WHY SHOP WITH US",
+        "auto_rotate": true,
+        "change_slides_speed": 5
+      }
+    }
+  },
+  "order": [
+    "sa_collection_banner_gdUNdt",
+    "banner",
+    "sa_collection_nav_QX7y4f",
+    "product-grid",
+    "sa_index_scrolljacking_PTzEWe",
+    "sa_richtext_6QtRpy",
+    "line_MYeiqN",
+    "sa_articles_block_dnDzAY",
+    "sa_faq_7iCLfA",
+    "sa_index_img_text_banner_X3PWUE",
+    "line_QeGtHh",
+    "sa_recently_viewed_products_ajLdh6",
+    "sa_recently_viewed_zGP74p",
+    "sa_why_shop_with_hover_tWtcXy"
+  ]
+}

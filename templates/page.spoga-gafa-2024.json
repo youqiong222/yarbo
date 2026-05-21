@@ -1,0 +1,642 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_banner_full_screen_mz6ALw": {
+      "type": "sa-banner-full-screen",
+      "blocks": {
+        "slide_YakbBi": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/WechatIMG25.webp",
+            "h5_image": "shopify://shop_images/WX20250311-114706-2x.webp",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "middle-left",
+            "mobile_bg_color": "#000000",
+            "title": "",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "button1_text": "",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e",
+            "featured_product": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_YakbBi"
+      ],
+      "name": "Banner Full Screen",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "use_aspect_ratio": "yes",
+        "pc_aspect_ratio_w": 1920,
+        "pc_aspect_ratio_h": 900,
+        "h5_aspect_ratio_w": 400,
+        "h5_aspect_ratio_h": 755,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_media_text_vertical_khYq9q": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "button_4mnEmh": {
+          "type": "button",
+          "name": "button block",
+          "settings": {
+            "anchor_id": "",
+            "button_text": "Yarbo@spoga+gafa 2024",
+            "button_link": "",
+            "btn_anchor_id": "",
+            "open_in_new_tab": false,
+            "content_width_pc": 1320,
+            "align_pc": "center",
+            "align_h5": "center",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "font_weight": "400",
+            "line_height": "1.2",
+            "letter_spacing": 0,
+            "text_transform": "none",
+            "height_pc": 44,
+            "height_h5": 44,
+            "padding_x_pc": 32,
+            "padding_x_h5": 24,
+            "padding_y_pc": 10,
+            "padding_y_h5": 10,
+            "radius_pc": 24,
+            "radius_unit_pc": "px",
+            "radius_h5": 24,
+            "radius_unit_h5": "px",
+            "border_width": 1,
+            "text_color": "#25282a",
+            "bg_color": "#fedb1e",
+            "border_color": "#fedb1e",
+            "hover_text_color": "#ffffff",
+            "hover_bg_color": "#121212",
+            "hover_border_color": "#121212",
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_nhwVgF": {
+          "type": "text",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Meet Us at spoga+gafa for a Chance to Win a Yarbo Lawn Mower</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 32,
+            "font_size_h5": 24,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#333333",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 24,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "button_4mnEmh",
+        "text_nhwVgF"
+      ],
+      "name": "Media Text Vertical Builder",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_image_with_text_qy_ctMLL7": {
+      "type": "sa-image-with-text-qy",
+      "name": "Image With Text QY",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_image": "shopify://shop_images/1111.webp",
+        "h5_image": "shopify://shop_images/222.webp",
+        "intro_text": "<p><em><strong>Visit our booth and leave your business card for a chance to win a Yarbo Lawn Mower!</strong></em></p>",
+        "body_text": "<p>Make an appointment with us via <a href=\"mailto:dealer@yarbo.com\">dealer@yarbo.com</a></p>"
+      }
+    },
+    "sa_media_text_vertical_Laq3Jr": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "button_94mn6J": {
+          "type": "button",
+          "name": "button block",
+          "settings": {
+            "anchor_id": "",
+            "button_text": "Yarbo@spoga+gafa 2024",
+            "button_link": "",
+            "btn_anchor_id": "",
+            "open_in_new_tab": false,
+            "content_width_pc": 1320,
+            "align_pc": "center",
+            "align_h5": "center",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "font_weight": "400",
+            "line_height": "1.2",
+            "letter_spacing": 0,
+            "text_transform": "none",
+            "height_pc": 44,
+            "height_h5": 44,
+            "padding_x_pc": 32,
+            "padding_x_h5": 24,
+            "padding_y_pc": 10,
+            "padding_y_h5": 10,
+            "radius_pc": 24,
+            "radius_unit_pc": "px",
+            "radius_h5": 24,
+            "radius_unit_h5": "px",
+            "border_width": 1,
+            "text_color": "#25282a",
+            "bg_color": "#fedb1e",
+            "border_color": "#fedb1e",
+            "hover_text_color": "#ffffff",
+            "hover_bg_color": "#121212",
+            "hover_border_color": "#121212",
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_yKwDiq": {
+          "type": "text",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "h2",
+            "text": "<p>Get Your Free Ticket to spoga+gafa</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 32,
+            "font_size_h5": 24,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#333333",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 24,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_xReB9x": {
+          "type": "text",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Leave your info and our sales team will contact you soon</p>",
+            "text_transform": "none",
+            "font_weight": "400",
+            "line_height": "1.3",
+            "font_size_pc": 16,
+            "font_size_h5": 14,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#333333",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 12,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "button_94mn6J",
+        "text_yKwDiq",
+        "text_xReB9x"
+      ],
+      "name": "Media Text Vertical Builder",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "blocks_URc4j3": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b9562f0_WJ93fe": {
+          "type": "ai_gen_block_b9562f0",
+          "settings": {
+            "anchor_id": "form",
+            "custom_code": "<iframe\nid=\"spgagafa\"\nsrc=\"https://forms.zohopublic.com/yarbo/form/EarnFreeSpogaGafaTicketsfromYarbo/formperma/6J5_ypgAyRIZUWR--IiXzk2FWjKNIPxuShDCq1c5AV0?utm_source=rvtxwbb0sc.feishu.cn&utm_medium=referral\"\nwidth=\"100%\"\nheight=\"1000px\"\ntitle=\"Yarbo Dealer Application Form\"\nstyle=\"width: 100%\"\n></iframe>",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_horizontal": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0,
+            "padding_horizontal_mobile": 0,
+            "desktop_width_percent": 100,
+            "background_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b9562f0_WJ93fe"
+      ],
+      "name": "自定义Html",
+      "settings": {}
+    },
+    "sa_media_text_vertical_Krhq39": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "button_3FTgXJ": {
+          "type": "button",
+          "name": "button block",
+          "settings": {
+            "anchor_id": "",
+            "button_text": "Yarbo@spoga+gafa 2024",
+            "button_link": "",
+            "btn_anchor_id": "",
+            "open_in_new_tab": false,
+            "content_width_pc": 1320,
+            "align_pc": "center",
+            "align_h5": "center",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "font_weight": "400",
+            "line_height": "1.2",
+            "letter_spacing": 0,
+            "text_transform": "none",
+            "height_pc": 44,
+            "height_h5": 44,
+            "padding_x_pc": 32,
+            "padding_x_h5": 24,
+            "padding_y_pc": 10,
+            "padding_y_h5": 10,
+            "radius_pc": 24,
+            "radius_unit_pc": "px",
+            "radius_h5": 24,
+            "radius_unit_h5": "px",
+            "border_width": 1,
+            "text_color": "#25282a",
+            "bg_color": "#fedb1e",
+            "border_color": "#fedb1e",
+            "hover_text_color": "#ffffff",
+            "hover_bg_color": "#121212",
+            "hover_border_color": "#121212",
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_yCVXEx": {
+          "type": "text",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "h2",
+            "text": "<p>How to Find Yarbo at spoga+gafa？</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 32,
+            "font_size_h5": 24,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#333333",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 24,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_n9FHGx": {
+          "type": "text",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Venue: Cologne Fair, Messepl. 1, 50679 Köln, Germany</p>",
+            "text_transform": "none",
+            "font_weight": "400",
+            "line_height": "1.3",
+            "font_size_pc": 16,
+            "font_size_h5": 14,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#333333",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 12,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "button_3FTgXJ",
+        "text_yCVXEx",
+        "text_n9FHGx"
+      ],
+      "name": "Media Text Vertical Builder",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "bac": "#f3f3f3",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_product_single_banner_xcDKeW": {
+      "type": "sa-product-single-banner",
+      "blocks": {
+        "slide_ffJaXK": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/3333.webp",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "middle-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "",
+            "title_m": "",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "show_button1": false,
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "show_button2": false,
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e",
+            "show_add_button": false,
+            "add_text": "",
+            "add_color": "#25282a",
+            "add_border_color": "#fedb1e",
+            "add_bg_color": "#fedb1e",
+            "add_hover_color": "#ffffff",
+            "add_bg_hover_color": "#25282a",
+            "featured_product": "",
+            "show_product_card": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_ffJaXK"
+      ],
+      "name": "Product Single Banner",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1400,
+        "pc_aspect_ratio_h": 880,
+        "h5_aspect_ratio_w": 4,
+        "h5_aspect_ratio_h": 5,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_contact_section_Wx7UQV": {
+      "type": "sa-contact-section",
+      "blocks": {
+        "contact_item_zmxHmT": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/icon.webp",
+            "title": "REACH OUT TO OUR PR TEAM",
+            "primary_text": "media@yarbo.com",
+            "primary_link": "https://mseries.yarbo.com/media-kits",
+            "secondary_text": "Download Media Kit",
+            "secondary_link": "https://mseries.yarbo.com/media-kits"
+          }
+        },
+        "contact_item_kkNCXU": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/icon2.webp",
+            "title": "REACH OUT TO OUR SALES TEAM",
+            "primary_text": "dealer@yarbo.com",
+            "primary_link": "",
+            "secondary_text": "+1 (631) 818 1850",
+            "secondary_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "contact_item_zmxHmT",
+        "contact_item_kkNCXU"
+      ],
+      "name": "Contact Section",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "Contact Us",
+        "bg_color": "#ffffff",
+        "title_color": "#000000",
+        "card_title_color": "#000000",
+        "text_color": "#25282a"
+      }
+    },
+    "sa_spoga_gafa_banner_QVj8bm": {
+      "type": "sa-spoga-gafa-banner",
+      "name": "SA Spoga Gafa Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "desktop_image": "shopify://shop_images/33333_9e5db371-c0ff-4f87-acbf-e18dce822636.webp",
+        "desktop_image_url": "",
+        "mobile_image": "shopify://shop_images/image-_33.webp",
+        "mobile_image_url": "",
+        "image_alt": "2024 Product Catalog",
+        "background_color": "#1c1c1c",
+        "overlay_opacity": 0,
+        "content_max_width": 1440,
+        "desktop_height": 420,
+        "mobile_height": 520,
+        "desktop_padding_top": 48,
+        "desktop_padding_bottom": 48,
+        "desktop_padding_horizontal": 40,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 32,
+        "mobile_padding_horizontal": 20,
+        "desktop_vertical_alignment": "flex-end",
+        "desktop_horizontal_alignment": "flex-end",
+        "mobile_vertical_alignment": "flex-end",
+        "mobile_horizontal_alignment": "center",
+        "content_alignment": "right",
+        "button_text": "Get Our Digital Catalog",
+        "button_link": "shopify://pages/brochure",
+        "open_new_tab": false,
+        "button_font_size": 13,
+        "button_font_size_mobile": 12,
+        "button_border_width": 1,
+        "button_radius": 7,
+        "button_text_color": "#ffffff",
+        "button_background": "rgba(0,0,0,0)",
+        "button_border_color": "#ffffff",
+        "button_hover_text_color": "#1c1c1c",
+        "button_hover_background": "#ffffff",
+        "button_hover_border_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_banner_full_screen_mz6ALw",
+    "sa_media_text_vertical_khYq9q",
+    "sa_image_with_text_qy_ctMLL7",
+    "sa_media_text_vertical_Laq3Jr",
+    "blocks_URc4j3",
+    "sa_media_text_vertical_Krhq39",
+    "sa_product_single_banner_xcDKeW",
+    "sa_contact_section_Wx7UQV",
+    "sa_spoga_gafa_banner_QVj8bm"
+  ]
+}

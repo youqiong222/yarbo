@@ -1,0 +1,254 @@
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/extendedwarranty-c.css'
+  rel='stylesheet'
+>
+<script
+  src='{{ 'extendedwarranty.js' | asset_url }}'
+  defer='defer'
+></script>
+<div class='migrated-page'>
+  <div class='c-warranty-section'>
+    <h2 class='warranty-title'>{{ section.settings.title }}</h2>
+
+    <!-- Form Fields Section -->
+    <div class='form-section'>
+      <div class='form-row'>
+        <div class='form-group'>
+          <label>
+            <span class='required-asterisk'>*</span>
+            Order Number
+          </label>
+          <input
+            type='text'
+            class='form-input'
+            id='c-order-number'
+            placeholder='Enter your order number'
+            required
+          >
+        </div>
+        <div class='form-group'>
+          <label>
+            <span class='required-asterisk'>*</span>
+            Email Address
+          </label>
+          <input
+            type='email'
+            class='form-input'
+            id='c-email-address'
+            placeholder='Enter your email address'
+            required
+          >
+        </div>
+      </div>
+
+      <!-- Warranty Plan Selection (Initially Hidden) -->
+      <div
+        class='form-row warranty-plan-row'
+        id='warranty-plan-row'
+        style='display: none;'
+      >
+        <div class='form-group'>
+          <label>
+            <span class='required-asterisk'>*</span>
+            Add a YarboCare™ Plan
+          </label>
+          <select
+            class='form-select'
+            id='c-yarbocare-plan-select'
+            required
+          >
+            <option value=''>Select a plan</option>
+            <option value='1_Year'>3 Years EW</option>
+            <option value='3_Years'>1 Year AD + 3 Years EW</option>
+            <option value='5_Years'>3 Years AD + 3 Years EW</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class='submit-section'>
+      <button
+        class='query-btn'
+        id='c-query-btn'
+      >
+        Query Order
+      </button>
+      <button
+        class='submit-btn'
+        id='c-submit-btn'
+        disabled
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+
+  <!-- Query Loading Modal -->
+  <div
+    class='query-loading-modal-overlay'
+    id='c-query-loading-modal-overlay'
+  >
+    <div class='query-loading-modal'>
+      <div class='query-loading-content'>
+        <div class='query-loading-spinner'></div>
+        <p class='query-loading-text'>Querying order...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Price Estimate Modal -->
+  <div
+    class='price-modal-overlay'
+    id='c-price-modal-overlay'
+  >
+    <div class='price-modal'>
+      <div class='price-modal-header'>
+        <h3 class='price-modal-title'>YarboCare™ Extended Warranty Quote</h3>
+        <button
+          class='price-modal-close'
+          id='c-price-modal-close'
+        >
+          &times;
+        </button>
+      </div>
+      <div class='price-modal-content'>
+        <div class='price-details'>
+          <div class='price-row'>
+            <span class='price-label'>Your Product:</span>
+            <span
+              class='price-value'
+              id='c-modal-selected-product'
+            >
+              -
+            </span>
+          </div>
+          <div class='price-row'>
+            <span class='price-label'>Total Product Price:</span>
+            <span
+              class='price-value'
+              id='c-modal-total-product-price'
+            >
+              $0.00
+            </span>
+          </div>
+          <div class='price-row'>
+            <span class='price-label'>Coverage Period:</span>
+            <span
+              class='price-value'
+              id='c-modal-coverage-period'
+            >
+              -
+            </span>
+          </div>
+          <div class='price-row'>
+            <span class='price-label'>Warranty Price:</span>
+            <span
+              class='price-value'
+              id='c-modal-warranty-price'
+            >
+              $0.00
+            </span>
+          </div>
+        </div>
+
+        <div class='price-modal-actions'>
+          <button
+            class='modal-submit-btn'
+            id='c-modal-submit-btn'
+          >
+            Confirm & Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeout Notification Modal -->
+  <div
+    class='timeout-modal-overlay'
+    id='c-timeout-modal-overlay'
+  >
+    <div
+      class='timeout-modal'
+      style='position:relative;'
+    >
+      <button
+        class='price-modal-close'
+        id='c-timeout-modal-close'
+        style='position:absolute;top:12px;right:12px;'
+      >
+        &times;
+      </button>
+      <div class='timeout-modal-content'>
+        <div class='timeout-icon'>⚠️</div>
+        <h3>60-Day Purchase Window Expired</h3>
+        <p>
+          The extended warranty must be purchased within
+          <strong>60 days</strong>
+          of the product purchase date. Your order has exceeded this time limit.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div
+    class='success-modal-overlay'
+    id='c-success-modal-overlay'
+  >
+    <div class='success-modal'>
+      <button
+        class='price-modal-close'
+        id='c-success-modal-close'
+        style='position:absolute;top:12px;right:12px;z-index:1;'
+      >
+        &times;
+      </button>
+      <div class='success-modal-background'></div>
+
+      <div class='success-modal-icon'>
+        <svg
+          width='40'
+          height='40'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke='white'
+          stroke-width='4'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        >
+          <polyline points="20,6 9,17 4,12"></polyline>
+        </svg>
+      </div>
+
+      <h2 class='success-modal-title'>Order Submitted Successfully!</h2>
+
+      <p class='success-modal-message'>Your extended warranty order has been confirmed. You will be redirected to the payment page shortly.</p>
+
+      <div
+        class='success-modal-countdown'
+        id='success-countdown'
+      >
+        Redirecting to payment page in 3 seconds...
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>Extend Your Warranty</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "C-end Extended Warranty"
+    }
+  ]
+}
+{% endschema %}

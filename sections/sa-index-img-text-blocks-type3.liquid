@@ -1,0 +1,443 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+{%- liquid
+  assign s = section.settings
+  assign pc_w = s.pc_aspect_ratio_w | default: 16
+  assign pc_h = s.pc_aspect_ratio_h | default: 9
+  assign pc_ratio = pc_w | append: '/' | append: pc_h
+  assign h5_w = s.h5_aspect_ratio_w | default: 16
+  assign h5_h = s.h5_aspect_ratio_h | default: 9
+  assign h5_ratio = h5_w | append: '/' | append: h5_h
+-%}
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  {% if section.settings.sub_title != blank or section.settings.title != blank %}
+    <div class='mb-32 {% if section.settings.heading_alignment == "center" %}text-center{% elsif section.settings.heading_alignment == "right" %}text-right{% else %}text-left{% endif %}'>
+      {% if section.settings.sub_title != blank %}
+        <span class='mb-12 block text-[14px]/[1.4] font-medium text-[#515355] md:mb-16'>
+          {{- section.settings.sub_title -}}
+        </span>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class='text-[26px]/[1.1] font-bold text-[#25282A] uppercase md:text-[32px]'>
+          <div class='hidden md:block'>
+            {{ section.settings.title }}
+          </div>
+          <div class='md:hidden'>
+            {{ section.settings.title | strip_html }}
+          </div>
+        </h2>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class='grid grid-cols-1 gap-12 md:grid-cols-2'>
+    {% for block in section.blocks %}
+      <div
+        style='
+          --media-aspect-pc: {{ pc_ratio }};
+          --media-aspect-h5: {{ h5_ratio }};
+        '
+        class='
+          group
+          relative
+          aspect-(--media-aspect-h5) overflow-hidden md:aspect-(--media-aspect-pc)
+        '
+      >
+        {% render 'media-element',
+          class: 'absolute inset-0 w-full h-full',
+          media_class: 'w-full h-full object-cover',
+          media_type: block.settings.media_type,
+          pc_image: block.settings.pc_image,
+          h5_image: block.settings.h5_image,
+          pc_video: block.settings.pc_video,
+          h5_video: block.settings.h5_video,
+          video_url: block.settings.video_url,
+          other_url: block.settings.other_url
+        %}
+        {%- render 'sn-overlay', _settings: block.settings -%}
+
+        {%- if block.settings.badge != blank -%}
+          <div
+            style='--badge-pc-width: {{ block.settings.badge_pc_width | default: 160 }}px; --badge-h5-width: {{ block.settings.badge_h5_width | default: 100 }}px;'
+            class='pointer-events-none absolute top-12 z-20 {% if block.settings.badge_position == 'right' %}right-12{% else %}left-12{% endif %}'
+          >
+            <img
+              src='{{ block.settings.badge | image_url }}'
+              alt='{{ block.settings.badge.alt | escape }}'
+              loading='lazy'
+              width='{{ block.settings.badge.width }}'
+              height='{{ block.settings.badge.height }}'
+              class='block h-auto w-auto max-w-(--badge-h5-width) md:max-w-(--badge-pc-width)'
+            >
+          </div>
+        {%- endif -%}
+
+        <div class='relative z-10 flex h-full flex-col justify-end p-24 md:p-40'>
+          <div>
+            {% if block.settings.label != blank %}
+              <div
+                class='mb-12 inline-block px-12 py-4 text-[12px] leading-none font-bold'
+                style='color: {{ block.settings.label_color }}; background-color: {{ block.settings.label_bg }};'
+              >
+                {{ block.settings.label }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              <div class=' theme-title text-white drop-shadow-md [&_*]:text-[26px] [&_*]:leading-[1.1] [&_*]:font-black [&_*]:uppercase md:[&_*]:text-[42px] [&_p]:m-0'>
+                {{ block.settings.title }}
+              </div>
+            {% else %}
+              {%- if block.settings.product != blank -%}
+                <div class=' theme-title text-white drop-shadow-md [&_*]:text-[26px] [&_*]:leading-[1.1] [&_*]:font-black [&_*]:uppercase md:[&_*]:text-[42px] [&_p]:m-0'>
+                  <p>{{ block.settings.product.title }}</p>
+                </div>
+              {%- endif -%}
+            {% endif %}
+
+            {% if block.settings.desc != blank %}
+              <div class='mt-8 max-w-[90%] text-[14px] leading-relaxed text-white/90 drop-shadow-md md:text-[16px] [&_*]:font-medium [&_p]:m-0'>
+                {{ block.settings.desc }}
+              </div>
+            {% endif %}
+          </div>
+          {%- if block.settings.product != blank or block.settings.shop_now_link != blank -%}
+            <div class='pointer-events-auto mt-16 flex flex-wrap justify-between gap-12 md:mt-20'>
+              {%- if block.settings.product != blank -%}
+                <div>
+                  <div class='leading-1.1 flex items-center gap-4 text-[20px] md:text-[22px]'>
+                    <span class='font-bold text-[#ffffff]'>
+                      {{- block.settings.product.price | money -}}
+                    </span>
+                    {% if block.settings.product.compare_at_price > block.settings.product.price %}
+                      <s class='text-[18px] font-normal text-[#a6a6a6] line-through decoration-1 md:text-[20px]'>
+                        {{- block.settings.product.compare_at_price | money -}}
+                      </s>
+                    {% endif %}
+                  </div>
+                  {% render 'sn-yarbo-pay', product: block.settings.product, pay_class: 'text-[#ffffff] mt-10' %}
+                </div>
+              {%- endif -%}
+              {% if block.settings.product != blank %}
+                {%- assign product_form_id = 'quick-add-type3-' | append: section.id | append: '-' | append: forloop.index -%}
+                {%- render 'sn-buy-buttons-new',
+                  add_text: block.settings.shop_now,
+                  btn_class: 'h-44 px-24 md:px-32 text-[14px] font-medium bg-[#FCE300]! text-[#25282A]! border-0! hover:bg-[#25282A]! hover:text-[#ffffff]!',
+                  product: block.settings.product,
+                  product_form_id: product_form_id,
+                  section_id: section.id
+                -%}
+              {% elsif block.settings.shop_now_link != blank %}
+                <a
+                  href='{{ block.settings.shop_now_link }}'
+                  {% if block.settings.btn_anchor_id != blank %}
+                    data-anchor-id='{{ block.settings.btn_anchor_id }}'
+                  {% endif %}
+                  class='inline-flex h-44 items-center justify-center  bg-[#FCE300] px-24 text-[14px] font-medium text-[#25282A] no-underline transition-colors duration-300 hover:bg-[#25282A] hover:text-[#ffffff] md:px-32'
+                >
+                  {{ block.settings.shop_now }}
+                </a>
+              {% endif %}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Index Img Text Blocks3",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Block Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        },
+        {
+          "type": "header",
+          "content": "Badge"
+        },
+        {
+          "type": "image_picker",
+          "id": "badge",
+          "label": "Badge Image"
+        },
+        {
+          "type": "select",
+          "id": "badge_position",
+          "label": "Badge Position",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "number",
+          "id": "badge_pc_width",
+          "label": "Badge Max Width (PC)",
+          "default": 160
+        },
+        {
+          "type": "number",
+          "id": "badge_h5_width",
+          "label": "Badge Max Width (Mobile)",
+          "default": 100
+        },
+        {
+          "type": "color",
+          "id": "label_color",
+          "label": "Label Color"
+        },
+        {
+          "type": "color",
+          "id": "label_bg",
+          "label": "Label Background"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Desc"
+        },
+        {
+          "type": "text",
+          "id": "shop_now",
+          "label": "Shop Now",
+          "default": "Shop now"
+        },
+        {
+          "type": "header",
+          "content": "Link Settings"
+        },
+        {
+          "type": "url",
+          "id": "shop_now_link",
+          "label": "Shop Now Link"
+        },
+        {
+          "type": "text",
+          "id": "btn_anchor_id",
+          "label": "Button Anchor Id"
+        },
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Index Img Text Blocks3",
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "label": "Spring Preparation",
+            "label_color": "#25282a",
+            "label_bg": "#fedb1e",
+            "title": "<p>Yarbo Y Series  4-in-1 Yard Robot (Lawn MOWER PRO)</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "product": "lawn-mower-module",
+            "label": "Summer Lawn Care",
+            "label_color": "#25282a",
+            "label_bg": "#fedb1e",
+            "title": "<p>Yarbo Y Core + Lawn mower</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,200 @@
+{% comment %}
+  Product Zoom Modal (PC only)
+  - 左侧缩略图列表（带上下箭头）+ 右侧大图 Swiper
+  - 点击产品图片打开，记录点击的图片索引
+  - x-show 控制显示隐藏
+  Usage:
+    {% render 'sn-product-zoom', product: product %}
+{% endcomment %}
+
+<div
+  x-data='productZoom()'
+  x-show='open'
+  x-cloak
+  x-transition:enter='transition duration-200 ease-out'
+  x-transition:enter-start='opacity-0'
+  x-transition:enter-end='opacity-100'
+  x-transition:leave='transition duration-150 ease-in'
+  x-transition:leave-start='opacity-100'
+  x-transition:leave-end='opacity-0'
+  @open-product-zoom.window='openZoom($event.detail.index)'
+  @keydown.escape.window='close()'
+  class='fixed inset-0 z-[9999999999999999] flex items-center justify-center bg-white'
+  style='display: none;'
+>
+  <!-- 关闭按钮 -->
+  <button
+    @click='close()'
+    class='absolute top-40 right-40 z-10  flex h-40 w-40 cursor-pointer items-center justify-center rounded-full border-0 bg-[#CCCCCC66] md:top-40 md:right-40'
+  >
+    <svg
+      width='12'
+      height='12'
+      viewBox='0 0 12 12'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path d="M3.40482 5.76184L0 2.35702L2.35702 0L5.76184 3.40482L9.16667 0L11.5237 2.35702L8.11887 5.76184L11.5237 9.16667L9.16667 11.5237L5.76184 8.11887L2.35702 11.5237L0 9.16667L3.40482 5.76184Z" fill="#25282A"/>
+    </svg>
+  </button>
+
+  <div class='flex h-full w-full items-stretch'>
+    <!-- 左侧缩略图 -->
+    <div class='hidden w-168 shrink-0 flex-col items-center justify-center py-24 md:flex md:w-168'>
+      <!-- 上箭头 -->
+      <button
+        @click='scrollThumbs(-1)'
+        class='mb-8 flex h-24 w-24 cursor-pointer items-center justify-center border-0 bg-transparent'
+      >
+        <svg
+          width='16'
+          height='9'
+          viewBox='0 0 16 9'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path d="M0.919922 7.91924L7.92106 0.919235L14.9199 7.91924" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+        </svg>
+      </button>
+
+      <!-- 缩略图列表 -->
+      <div
+        x-ref='thumbList'
+        class='no-scrollbar flex flex-col gap-8 overflow-y-auto'
+      >
+        {%- for media in product.media -%}
+          <button
+            @click='goToSlide({{ forloop.index0 }})'
+            class='block h-64 w-64 shrink-0 cursor-pointer overflow-hidden border p-0 transition-colors'
+            :class='activeIndex === {{ forloop.index0 }} ? "border-[#25282A]" : "border-transparent opacity-50"'
+          >
+            <img
+              src='{{ media.preview_image | image_url: width: 150 }}'
+              alt='{{ media.alt | escape }}'
+              width='64'
+              height='64'
+              loading='lazy'
+              class='h-full w-full object-cover'
+            >
+          </button>
+        {%- endfor -%}
+      </div>
+
+      <!-- 下箭头 -->
+      <button
+        @click='scrollThumbs(1)'
+        class='bg-0 mt-8 flex h-24 w-24 cursor-pointer items-center justify-center border-0 bg-transparent'
+      >
+        <svg
+          width='16'
+          height='9'
+          viewBox='0 0 16 9'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path d="M0.919922 0.91925L7.92106 7.91925L14.9199 0.91925" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- 右侧大图 Swiper -->
+    <div class='relative w-full flex-1 md:w-[calc(100%-168px)]'>
+      <div
+        x-ref='zoomSwiper'
+        class='swiper h-full w-full'
+      >
+        <div class='swiper-wrapper'>
+          {%- for media in product.media -%}
+            <div class='swiper-slide flex items-center justify-center'>
+              <img
+                src='{{ media.preview_image | image_url: width: 2048 }}'
+                alt='{{ media.alt | escape }}'
+                loading='lazy'
+                class='h-full w-full object-contain'
+                width='auto'
+                height='auto'
+              >
+            </div>
+          {%- endfor -%}
+        </div>
+        <div
+          class='hero-pagination absolute right-0 bottom-40 left-0 z-10 flex items-center justify-center gap-12 md:hidden'
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('productZoom', () => ({
+      open: false,
+      swiperInstance: null,
+      activeIndex: 0,
+
+      openZoom(index) {
+        this.open = true;
+        document.body.style.overflow = 'hidden';
+        this.$nextTick(() => {
+          if (!this.swiperInstance) {
+            this.swiperInstance = new Swiper(this.$refs.zoomSwiper, {
+              slidesPerView: 1,
+              spaceBetween: 0,
+              pagination: {
+                el: this.$refs.zoomSwiper.querySelector('.hero-pagination'),
+                clickable: true,
+                renderBullet: function (index, className) {
+                  const bulletClasses = `
+                    ${className}
+                    rounded-none opacity-100
+                    w-8 h-8 bg-[#CCCCCC] transition-all duration-300 block cursor-pointer m-0
+                    hover:bg-white
+                    [&.swiper-pagination-bullet-active]:w-50 [&.swiper-pagination-bullet-active]:h-8 [&.swiper-pagination-bullet-active]:bg-[#25282a]
+                  `;
+                  return `<span class="${bulletClasses.trim().replace(/\s+/g, ' ')}"></span>`;
+                },
+              },
+              on: {
+                slideChange: (swiper) => {
+                  this.activeIndex = swiper.activeIndex;
+                  this.scrollThumbIntoView(swiper.activeIndex);
+                },
+              },
+            });
+          }
+          this.swiperInstance.slideTo(index || 0, 0);
+          this.activeIndex = index || 0;
+          this.scrollThumbIntoView(this.activeIndex);
+        });
+      },
+
+      close() {
+        this.open = false;
+        document.body.style.overflow = '';
+      },
+
+      goToSlide(index) {
+        if (this.swiperInstance) {
+          this.swiperInstance.slideTo(index);
+        }
+        this.activeIndex = index;
+      },
+
+      scrollThumbs(direction) {
+        const list = this.$refs.thumbList;
+        if (list) {
+          list.scrollBy({ top: direction * 80, behavior: 'smooth' });
+        }
+      },
+
+      scrollThumbIntoView(index) {
+        const list = this.$refs.thumbList;
+        if (!list) return;
+        const thumb = list.children[index];
+        if (thumb) {
+          thumb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+      },
+    }));
+  });
+</script>

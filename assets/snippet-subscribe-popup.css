@@ -1,0 +1,378 @@
+/* 容器层 */
+.subscribe-popup-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  white-space: normal;
+  font-size: 0.8333333333vw;
+  /* 1920下 1em = 16px */
+}
+
+.subscribe-popup-container.subscribe-popup-show {
+  display: flex;
+}
+
+.subscribe-popup-wrapper {
+  width: 37.5em;
+  background-color: #fff;
+  border-radius: 0.5em;
+}
+
+.subscribe-popup-new-wrapper {
+  width: 37.5em;
+  background-color: #fff;
+  border-radius: 1em !important;
+  -webkit-border-radius: 1em !important;
+  -moz-border-radius: 1em !important;
+  -ms-border-radius: 1em !important;
+  -o-border-radius: 1em !important;
+}
+
+/* 头部区域 */
+.subscribe-popup-header {
+  width: 100%;
+  height: 11.25em;
+  background-image: url('https://cdn.myshopline.com/sl/slfs/sl-new/174210307219831/bg-yellow.png');
+  background-size: cover;
+  position: relative;
+  padding: 2.5em 0;
+  text-align: center;
+}
+
+.subscribe-popup-header-new {
+  background-image: url('https://img-va.myshopline.com/image/store/1737714205978/yarbo-subscri-yellow.png?w=3840&h=2160') !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  aspect-ratio: 3840 / 2160;
+  height: auto;
+  min-height: 11.25em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscribe-popup-close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.subscribe-popup-close-icon-new {
+  position: absolute;
+  top: 5px !important;
+  right: 7px !important;
+  cursor: pointer;
+}
+
+.subscribe-popup-header-title {
+  font-size: 2em;
+  font-weight: 800;
+  line-height: 1.75em;
+  color: rgb(4, 9, 33);
+}
+
+.subscribe-popup-header-subtitle {
+  width: 25.75em;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.375em;
+  color: rgb(125, 81, 18);
+}
+
+.subscribe-popup-bottom {
+  padding: 2em;
+}
+
+/* 内容区域 */
+.subscribe-popup-content {
+}
+
+.subscribe-popup-higlight {
+  padding: 0 0.2em;
+  color: rgb(11, 11, 11);
+  background-color: rgb(254, 219, 30);
+  border-radius: 0.2em;
+}
+
+.subscribe-popup-image {
+  width: 100%;
+  height: 12.5em;
+  background-color: #f5f5f5;
+}
+
+.subscribe-popup-product-title {
+  text-align: center;
+  font-size: 2.5em;
+  line-height: 1.3;
+  font-weight: 900;
+  color: rgb(11, 11, 11);
+}
+
+.subscribe-popup-product-description {
+  text-align: center;
+  color: rgb(11, 11, 11);
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 1.33333;
+}
+
+.subscribe-popup-description2 {
+  text-align: center;
+  color: rgb(12, 13, 16);
+  font-size: 0.9375em;
+  line-height: 1;
+  margin-top: 1.0666em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscribe-popup-desc-icon {
+  display: block;
+  width: 1.4375em;
+  height: 1.4375em;
+  margin-right: 0.5em;
+}
+
+.subscribe-popup-desc-icon2 {
+  width: 100px;
+  margin: 0.5em auto 1.25em;
+  display: block;
+}
+
+/* 分隔线 */
+.subscribe-popup-join {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 2.8em;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(254, 219, 30);
+  color: #000;
+  font-size: 1.25em;
+  font-weight: 700;
+  border-radius: 1.4em;
+  margin-top: 1.25rem;
+}
+
+.subscribe-popup-icon3 {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.subscribe-popup-icon4 {
+  width: 3.65em;
+  position: absolute;
+  right: 0.9em;
+  bottom: -1.9em;
+}
+
+/* 操作区域 */
+.subscribe-popup-actions {
+  margin-top: 1.75rem;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.subscribe-popup-action-group {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 1rem;
+  background-color: rgba(255, 246, 206);
+  padding: 0.5rem 1rem;
+}
+
+.subscribe-popup-action-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subscribe-popup-action-item-title {
+  border-radius: 624.9375rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1.125rem;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 700;
+  color: white;
+}
+
+.subscribe-popup-action-item-name {
+  font-size: 1rem;
+  line-height: 1;
+  color: black;
+}
+
+.subscribe-popup-action-item-img {
+  position: absolute;
+  top: -0.625rem;
+  right: 0;
+  aspect-ratio: 114/52;
+  width: 7.125rem;
+}
+
+.subscribe-popup-action-icon {
+  width: 2.8571em;
+  height: 2.8571em;
+}
+
+.subscribe-popup-action-icon > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.subscribe-popup-action-text {
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 959px) {
+  .subscribe-popup-actions {
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .subscribe-popup-action-item-img {
+    width: 4.5rem;
+    top: -0.25rem;
+  }
+
+  .subscribe-popup-action-item-name {
+    font-size: 0.625rem;
+  }
+
+  .subscribe-popup-action-item-title {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.625rem;
+    line-height: 1;
+  }
+
+  .subscribe-popup-wrapper {
+    font-size: 4.2666666vw;
+    /* 375下 1em = 16px */
+    width: calc(100% - 1.875em);
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .subscribe-popup-header {
+    padding: 2.5em 0 1.4375em;
+    height: auto;
+    border-radius: 0.5em 0.5em 0 0;
+  }
+
+  .subscribe-popup-header-title {
+    font-size: 1.25em;
+    line-height: 1.4;
+  }
+
+  .subscribe-popup-header-subtitle {
+    font-size: 0.75em;
+    line-height: 1.33333333;
+    width: 100%;
+  }
+
+  .subscribe-popup-bottom {
+    padding: 1.25em 1em;
+  }
+
+  .subscribe-popup-product-title {
+    font-size: 1.25em;
+    line-height: 1.416666;
+  }
+
+  .subscribe-popup-higlight {
+    padding: 0 0.333333333em;
+    border-radius: 0.333333333em;
+  }
+
+  .subscribe-popup-product-description {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .subscribe-popup-product-link {
+    text-decoration: none;
+  }
+
+  .subscribe-popup-description2 {
+    font-size: 0.75em;
+    line-height: 1.8333333;
+    margin-top: 0.75em;
+  }
+
+  .subscribe-popup-desc-icon {
+    width: 1.91666667em;
+    height: 1.91666667em;
+    margin-right: 0.6666667em;
+  }
+
+  .subscribe-popup-desc-icon2 {
+    width: 15em;
+  }
+
+  .subscribe-popup-join {
+    margin-top: 1.125rem;
+    font-size: 1.125em;
+    height: 3.111111em;
+    line-height: 3.111111em;
+    border-radius: 1.5555556em;
+  }
+
+  .subscribe-popup-icon3 {
+    width: 1.3333333em;
+    height: 1.3333333em;
+  }
+
+  .subscribe-popup-icon4 {
+    width: 2.7222222em;
+    height: 2.3888889em;
+    right: 1px;
+    bottom: -1.444444em;
+  }
+
+  .subscribe-popup-action-group {
+    padding: 1em 1.5em;
+    margin-top: 0.75em;
+    row-gap: 1em;
+    line-height: 1.05em;
+    text-align: left;
+  }
+
+  .subscribe-popup-action-item {
+    gap: 0.5rem;
+  }
+
+  .subscribe-popup-action-icon {
+    width: 2.333333em;
+    height: 2.333333em;
+  }
+
+  .subscribe-popup-action-text {
+  }
+}
+
+@media screen and (max-width: 959px) and (min-width: 768px) {
+  .subscribe-popup-wrapper {
+    font-size: 3.6vw;
+  }
+}

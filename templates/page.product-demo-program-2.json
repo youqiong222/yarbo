@@ -1,0 +1,401 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "yb_banner_swiper_wTyxUK": {
+      "type": "yb-banner-swiper",
+      "blocks": {
+        "item_tXnqGm": {
+          "type": "item",
+          "settings": {
+            "text_horizontal_position": "left",
+            "text_vertical_position": "center",
+            "text_width": 50,
+            "description": "",
+            "title": "<p>Try Yarbo in Action through Product Demo Program</p>",
+            "subTitle": "<p>Talk with Real Users from Yarbo, and Listen to Their True Thoughts about Yarbo's Robots.</p>",
+            "enable_btn_group": true,
+            "enable_global_btn": true,
+            "enable_global_anchor": true,
+            "global_anchor_id": "",
+            "button_text": "Book Now",
+            "button_type": "anchor",
+            "button_link": "",
+            "button_class": "",
+            "button_anchor": "form",
+            "button_modal_title": "",
+            "button_modal_content": "",
+            "button2_text": "",
+            "button2_type": "link",
+            "button2_link": "",
+            "button2_class": "",
+            "button2_anchor": "",
+            "button2_modal_title": "",
+            "button2_modal_content": "",
+            "enable_subscription": false,
+            "subscription_absolute": false,
+            "subscription_position": 24,
+            "email_type": "",
+            "klaviyo_list_id": "",
+            "subscription_title": "",
+            "subscription_button_text": "",
+            "pc_img": "shopify://shop_images/250113-neighbor-case-pc.webp",
+            "pc_external_video": "",
+            "mobile_img": "shopify://shop_images/250113-neighbor-case-m.webp",
+            "mobile_external_video": "",
+            "mobile_layout": "style2"
+          }
+        }
+      },
+      "block_order": [
+        "item_tXnqGm"
+      ],
+      "name": "Yb-Banner",
+      "settings": {
+        "banner_speed": 6
+      }
+    },
+    "sa_media_text_vertical_egmpM8": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "media_VGB8Kq": {
+          "type": "media",
+          "settings": {
+            "layout": "full",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame-3-Spring.webp",
+            "h5_image": "shopify://shop_images/Yarbo-Showcase-250821-0.webp",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_height": 500,
+            "h5_height": 500,
+            "use_aspect_ratio": true,
+            "pc_aspect_ratio_w": 16,
+            "pc_aspect_ratio_h": 9,
+            "h5_aspect_ratio_w": 1,
+            "h5_aspect_ratio_h": 2.5,
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "title": "",
+            "text": "",
+            "color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "media_VGB8Kq"
+      ],
+      "name": "Media Text Vertical Builder",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "bac": "#0d0d0d",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "blocks_9YQMjt": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b9562f0_xhPhcg": {
+          "type": "ai_gen_block_b9562f0",
+          "settings": {
+            "anchor_id": "form",
+            "custom_code": "<iframe\nid=\"DearlerForm\"\nsrc=\"https://forms.zohopublic.com/yarbo/form/ShowcaseCustomerBookingFormWebsiteEmbedded/formperma/P3AY1EqsYaD6Q6ffgqcwKPMXxU8bERRa1G-iynfaR8A?utm_source=rvtxwbb0sc.feishu.cn&utm_medium=referral\"\nwidth=\"100%\"\nheight=\"1300px\"\ntitle=\"Yarbo Dealer Application Form\"\nstyle=\"width: 100%\"\n></iframe>",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_horizontal": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0,
+            "padding_horizontal_mobile": 0,
+            "desktop_width_percent": 100,
+            "background_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b9562f0_xhPhcg"
+      ],
+      "name": "自定义Html",
+      "settings": {}
+    },
+    "yb_single_video_qYmXqw": {
+      "type": "yb-single-video",
+      "name": "YB Single Video",
+      "settings": {
+        "anchor_id": "",
+        "layout": "text-above-and-picture-below",
+        "title": "<p>See It for Real, Right Nearby</p>",
+        "description": "<p>Visit a Yarbo host near you. Feel the robot, try the app — just like it’s already yours.</p>",
+        "textarea_bg_color": "",
+        "button_text": "Find a Nearby Host",
+        "button_type": "link",
+        "button_link": "shopify://pages/product-program-search",
+        "button_link_new_window": false,
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "pc_internal_video": "shopify://files/videos/20250714-E794A8E688B7E5AEB6E4BAA7E59381E4BD93E9AA8CE6B4BBE58AA8-Linhxin.mp4",
+        "pc_external_video": "",
+        "pc_firework_video": "",
+        "m_external_video": "",
+        "m_firework_video": "",
+        "show_controls": false,
+        "mobile_image_width": "full-screen",
+        "bg_color": "#ffffff",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yarbo_comments_display_FagDqA": {
+      "type": "yarbo-comments-display",
+      "blocks": {
+        "image_text_block_ArNzCm": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Bryan</p>",
+            "comments_small_title": "<p>VA, US</p>",
+            "comments_text": "<p>\"There is no other machine quite like it on the market. The company truly cares about its customer and is passionate about their product. I enjoy watching mine run its work plans automated. I can’t wait to see what new modules they come up with.\"<br/></p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/pic-20250220-cap.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_zUEM9m": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Scott</p>",
+            "comments_small_title": "<p>MN, US</p>",
+            "comments_text": "<p>\"My mission is to demo my Yarbo family and the incredible capabilities of the current Yarbo model by sharing my positive experiences with potential customers.\"</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/Frame-2036456262-_1_-0_45dcc56a-1607-4555-87da-63a61425e0c1.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_i9fLyT": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Kent</p>",
+            "comments_small_title": "<p>NY, US</p>",
+            "comments_text": "<p>\"Today as a PPP member (tester) I get to work closer with Yarbo staff on both the 2023 and 2024 systems. I have lots of experience with the Lawn Mower, Snow Blower, and Plow Blade as well.\"</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/Frame-2036456260-0_08746bcc-3a0b-47c8-a63c-b36adff93429.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_Vri9pX": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Sean</p>",
+            "comments_small_title": "<p>Dartmouth, CA</p>",
+            "comments_text": "<p>“You need to have a bit of technical skill, and be willing to do some problem solving, but I can certainly help to get you over most humps, if they come up.”</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/ff-9f6d2f3583d1edac3d6f89a8e019b4b9-ff-20240618-213047_1.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_JDagDt": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Will</p>",
+            "comments_small_title": "<p>PA, US</p>",
+            "comments_text": "<p>“I love gadgets! I like to talk about them and show them off. If you're interested in coming by to see it then I will show you what I have learned.”</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/ff-341307d580de30f791a08481bfd805eb-ff-20241007-173904_1.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_TGdkUU": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Robert</p>",
+            "comments_small_title": "<p>Vilnius, LT</p>",
+            "comments_text": "<p>\"I'm an RC hobbyist and I'm up for any challenge.\"</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/ff-688dd8e2fc83c0f0a0dea591793891cc-ff-1000011815_1.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_ArNzCm",
+        "image_text_block_zUEM9m",
+        "image_text_block_i9fLyT",
+        "image_text_block_Vri9pX",
+        "image_text_block_JDagDt",
+        "image_text_block_TGdkUU"
+      ],
+      "name": "Yarbo Comments display",
+      "settings": {
+        "anchor_id": "",
+        "bg_color": "#f5f5f5",
+        "common_title": "<p>Featured Hosts</p>",
+        "common_content": "<p>Real Yarbo users who’ve seen it all — and are glad to help you decide.</p>",
+        "common_button_text": "Book Product Demo",
+        "M-swiper-show": false,
+        "common_button_type": "link",
+        "common_button_link": "https://forms.zohopublic.com/yarbo/form/HostRegistrationFormforShowcase/formperma/qWWpqoMD4CG6gLH21ohb23XqkWPCzZ03IuHiQL4dRnc",
+        "common_button_anchor": "",
+        "common_button_modal_title": "",
+        "common_button_modal_content": "",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 71,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 48,
+        "padding_top_960": 64,
+        "padding_bottom_960": 26,
+        "padding_top_680": 64,
+        "padding_bottom_680": 29,
+        "padding_top_375": 48,
+        "padding_bottom_375": 34
+      }
+    },
+    "custom_rich_text_component_UnTMdC": {
+      "type": "custom-rich-text-component",
+      "custom_css": [
+        ".yb-single-video-btn {color: #02060b !important; text-decoration: none;}"
+      ],
+      "name": "Rich text component",
+      "settings": {
+        "text_align": "center",
+        "title": "",
+        "description": "",
+        "button_text": "Become a Host",
+        "button_type": "link",
+        "button_link": "https://www.yarbo.com/pages/become-a-product-demo-host",
+        "button_class": "",
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "bg_color": "#f5f5f5",
+        "padding_top_1920": 0,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 0,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 0,
+        "padding_bottom_960": 64,
+        "padding_top_680": 0,
+        "padding_bottom_680": 64,
+        "padding_top_375": 0,
+        "padding_bottom_375": 48
+      }
+    },
+    "yb_faq_new_pbiDLC": {
+      "type": "yb-faq-new",
+      "blocks": {
+        "item_ydjkQp": {
+          "type": "item",
+          "settings": {
+            "title": "<p>What happens after I submit my registration form?</p>",
+            "description": "<p>After you submit your form, our Yarbo team will work to match you with a real customer (Host) whose setup and experience best fit what you're looking for.</p><p></p><p>Once matched, we'll send both you and your Host an email introduction. This will allow you to connect directly and agree on a mutually convenient time for your Showcase.</p><p></p><p>The final step is to simply join your scheduled session and, afterwards, complete a brief feedback questionnaire. Your insights are invaluable in helping us improve the experience for future customers.</p>"
+          }
+        },
+        "item_VbWCq7": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Are there any costs or rewards for attending a Product Demo?</p>",
+            "description": "<p>There is <strong>no cost </strong>to attend a</p><p>Product Demo—only fantastic rewards! To earn <strong>5,000 Yarbo Points each</strong>, both you and your Host simply need to complete a quick feedback form after the session.</p><p>For an extra bonus, use your <strong>Host's referral code </strong>when you register on our website to get a <strong>$200 voucher immediately</strong>.</p>"
+          }
+        },
+        "item_AC3P4B": {
+          "type": "item",
+          "settings": {
+            "title": "<p>What platform do you use for the online Product Demo?</p>",
+            "description": "<p>For the online product demo, you and your host will coordinate a time for the event. Once a time is decided, Yarbo will email both of you a calendar invitation containing a Google Meet link.<strong>Google Meet </strong>requires no software downloads and runs directly in your web browser for easy access.</p>"
+          }
+        },
+        "item_rVjBV8": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Is it safe to visit the host’s home for an in-person Product Demo?</p>",
+            "description": "<p>Your safety is our priority. All our hosts are<strong>verified Yarbo owners</strong>, and product demo is typically held in their homes located in public residential areas. Furthermore, every host must sign a comprehensive Terms & Agreement (T&A) document before being approved to participate in the program.</p><p></p><p>For your safety and to ensure a positive experience for everyone, we kindly ask that you take standard personal precautions during your visit and be respectful of the host's property.</p>"
+          }
+        },
+        "item_6L67LG": {
+          "type": "item",
+          "settings": {
+            "title": "<p>Can I reschedule or cancel my booking?</p>",
+            "description": "<p>Yes, absolutely. Once you are matched with a host, you may contact them via email to arrange a suitable time—please ensure you keep showcase@yarbo.com in CC on all correspondence.</p><p></p><p>Once a time is confirmed, both you and the host must notify the Yarbo team. This allows us to provide any necessary support and ensure a smooth experience for everyone involved.</p>"
+          }
+        },
+        "item_kcnWWJ": {
+          "type": "item",
+          "settings": {
+            "title": "<p>What should I expected during the product demo?</p>",
+            "description": "<p>During the offlineproduct demo, you are encouraged to interact with the Yarbo products with the host's guidance. For online sessions, you can ask the host to operate the unit and demonstrate its various features in real-time.</p><p></p><p>This is a unique opportunity to get honest, firsthand feedback from a real customer. Feel free to ask them about their experience—how they use Yarbo in their daily routine, how it has benefited them, and whether they find it to be a worthwhile investment.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_ydjkQp",
+        "item_VbWCq7",
+        "item_AC3P4B",
+        "item_rVjBV8",
+        "item_6L67LG",
+        "item_kcnWWJ"
+      ],
+      "name": " Yb FAQ New",
+      "settings": {
+        "anchor_id": "",
+        "title": "<p>FAQs</p>",
+        "color_background": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "yb_banner_swiper_wTyxUK",
+    "sa_media_text_vertical_egmpM8",
+    "blocks_9YQMjt",
+    "yb_single_video_qYmXqw",
+    "yarbo_comments_display_FagDqA",
+    "custom_rich_text_component_UnTMdC",
+    "yb_faq_new_pbiDLC"
+  ]
+}

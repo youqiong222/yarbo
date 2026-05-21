@@ -1,0 +1,207 @@
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  document.addEventListener('DOMContentLoaded', function () {
+    {% for block in section.blocks %}
+      {% if block.settings.selector != blank and block.settings.event_name != blank %}
+
+        (function(config) {
+          const {
+            selector,
+            eventName,
+            eventType,
+            customData,
+            delay
+          } = config;
+
+          // 解析自定义数据
+          let parsedData = {};
+          if (customData) {
+            if (typeof customData === 'string' && customData.trim()) {
+              try {
+                parsedData = JSON.parse(customData);
+              } catch (err) {
+                console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                console.error('❌ [GTM Datalayer] JSON 格式错误');
+                console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                console.error('事件名:', eventName);
+                console.error('配置内容:', customData);
+                console.error('错误信息:', err.message);
+                console.error('');
+                console.error('✅ 正确格式示例:');
+                console.error('   {}');
+                console.error('   {"key": "value"}');
+                console.error('   {"product_id": "123", "price": 299.99}');
+                console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                return;
+              }
+            } else if (typeof customData === 'object') {
+              // 如果已经是对象（使用了 JSON 过滤器），直接使用
+              parsedData = customData;
+            }
+          }
+
+          // 防抖/延迟函数
+          const debounce = (func, wait) => {
+            let timeout;
+            return function executedFunction(...args) {
+              const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+              };
+              clearTimeout(timeout);
+              timeout = setTimeout(later, wait);
+            };
+          };
+
+          // 上报事件
+          const report = debounce(() => {
+            if (window.reportEvent) {
+              window.reportEvent({
+                event: eventName,
+                ...parsedData
+              });
+            }
+            
+            // 同时推送到 dataLayer
+            window.dataLayer.push({
+              event: eventName,
+              ...parsedData
+            });
+
+            console.log('[GTM Datalayer 上报]', {
+              event: eventName,
+              ...parsedData
+            });
+          }, delay || 0);
+
+          // 根据事件类型绑定监听器
+          switch (eventType) {
+            case 'click':
+              console.log('[GTM Datalayer] 已注册点击监听 -', {
+                事件名: eventName,
+                选择器: selector,
+                自定义数据: parsedData
+              });
+              
+              document.body.addEventListener('click', function (e) {
+                const clickedElement = e.target.closest(selector);
+                
+                if (clickedElement) {
+                  console.log('[GTM Datalayer] 检测到点击 -', {
+                    事件名: eventName,
+                    点击元素: clickedElement,
+                    元素文本: clickedElement.textContent?.trim().substring(0, 50),
+                    元素类名: clickedElement.className
+                  });
+                  
+                  report();
+                }
+              });
+              break;
+
+            case 'submit':
+              const forms = document.querySelectorAll(selector);
+              console.log('[GTM Datalayer] 已注册表单提交监听 -', {
+                事件名: eventName,
+                选择器: selector,
+                找到表单数量: forms.length,
+                自定义数据: parsedData
+              });
+              
+              forms.forEach(form => {
+                form.addEventListener('submit', function (e) {
+                  console.log('[GTM Datalayer] 检测到表单提交 -', {
+                    事件名: eventName,
+                    表单元素: form,
+                    表单ID: form.id,
+                    表单类名: form.className
+                  });
+                  
+                  report();
+                });
+              });
+              break;
+
+            default:
+              console.warn('[GTM Datalayer] 不支持的事件类型:', eventType);
+          }
+        })({
+          selector: '{{ block.settings.selector }}',
+          eventName: '{{ block.settings.event_name }}',
+          eventType: '{{ block.settings.event_type | default: "click" }}',
+          customData: '{{ block.settings.custom_data }}',
+          delay: {{ block.settings.delay | default: 0 }}
+        });
+
+      {% endif %}
+    {% endfor %}
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Yarbo Datalayer",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "custom_datalayer",
+      "name": "数据层事件配置",
+      "settings": [
+        {
+          "type": "text",
+          "id": "selector",
+          "label": "元素选择器",
+          "info": "支持 CSS 选择器，如：.btn-add-cart、#product-form、button[type='submit']",
+          "placeholder": ".btn-add-cart 或 #product-form"
+        },
+        {
+          "type": "select",
+          "id": "event_type",
+          "label": "触发事件类型",
+          "default": "click",
+          "options": [
+            {
+              "value": "click",
+              "label": "点击 (click)"
+            },
+            {
+              "value": "submit",
+              "label": "表单提交 (submit)"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "event_name",
+          "label": "上报的事件名",
+          "info": "对应 GTM 中设置的触发器/事件名",
+          "placeholder": "例如：add_to_cart、product_view"
+        },
+        {
+          "type": "textarea",
+          "id": "custom_data",
+          "label": "自定义数据 (可选)",
+          "info": "JSON 格式，必须用双引号。示例：{\"product_id\": \"123\", \"price\": 299.99}。不需要请留空或填 {}",
+          "placeholder": "{}"
+        },
+        {
+          "type": "range",
+          "id": "delay",
+          "label": "延迟时间 (毫秒)",
+          "min": 0,
+          "max": 1000,
+          "step": 100,
+          "default": 0,
+          "info": "事件触发后的延迟上报时间，用于防抖"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Yarbo Datalayer"
+    }
+  ]
+}
+{% endschema %}

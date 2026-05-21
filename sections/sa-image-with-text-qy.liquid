@@ -1,0 +1,267 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<style>
+   #shopify-section-{{ section.id }} {
+  background-color: #FFFFFF;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy {
+   	padding-top: {{ section.settings.padding_top }}px;
+   	padding-bottom: {{ section.settings.padding_bottom }}px;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__page-width {
+   max-width: 100rem;
+   	margin: 0 auto;
+   	padding: 0 20px;
+   	box-sizing: border-box;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__card {
+   	position: relative;
+   	overflow: visible;
+   border-radius: 24px;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__image-box-desktop,
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__image-box-mobile {
+   	line-height: 0;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__image-box-mobile {
+   	display: none;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__image {
+   	display: block;
+   	width: 100%;
+   	height: auto;
+   border-radius: 24px;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__content {
+   	position: absolute;
+   top: 15rem;
+   right: 0;
+   width: 50rem;
+   	max-width: calc(100% - 40px);
+   	box-sizing: border-box;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__intro,
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__body {
+   	margin: 0;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__intro {
+   font-size: 1.375rem;
+   line-height: 1.75rem;
+   color: #FEDB1E;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__intro p,
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__body p {
+   	margin: 0;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__intro em,
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__intro strong {
+   	font-style: italic;
+   	font-weight: 700;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__divider {
+   width: 7.5rem;
+   height: 0.125rem;
+   margin: 1.5rem 0;
+   background-color: #FFFFFF;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__body {
+   font-size: 1.375rem;
+   line-height: 1.75rem;
+   color: #FFFFFF;
+   }
+
+   #shopify-section-{{ section.id }} .sa-image-with-text-qy__body a {
+   color: #FEDB1E;
+   	text-decoration: underline;
+   	text-decoration-thickness: 1px;
+   	text-underline-offset: 4px;
+   }
+
+   @media only screen and (max-width: 959px) {
+   	#shopify-section-{{ section.id }} .sa-image-with-text-qy {
+   		padding-top: {{ section.settings.h5_padding_top }}px;
+   		padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+   	}
+
+   	#shopify-section-{{ section.id }} .sa-image-with-text-qy__page-width {
+   		padding: 0 16px;
+   	}
+
+   	#shopify-section-{{ section.id }} .sa-image-with-text-qy__image-box-desktop {
+   		display: none;
+   	}
+
+   	#shopify-section-{{ section.id }} .sa-image-with-text-qy__image-box-mobile {
+   		display: block;
+   	}
+
+   	#shopify-section-{{ section.id }} .sa-image-with-text-qy__content {
+     top: 52%;
+   		right: auto;
+     left: 0;
+     width: 100%;
+   		max-width: none;
+   	}
+
+   	#shopify-section-{{ section.id }} .sa-image-with-text-qy__intro {
+     font-size: 1.1rem;
+     line-height: 1.5rem;
+   	}
+
+   	#shopify-section-{{ section.id }} .sa-image-with-text-qy__divider {
+     width: 7.5rem;
+     margin-top: 1.5rem;
+     margin-bottom: 1.5rem;
+   	}
+
+   	#shopify-section-{{ section.id }} .sa-image-with-text-qy__body {
+     font-size: 1rem;
+     line-height: 1.4rem;
+   	}
+   }
+</style>
+
+<div class='sa-image-with-text-qy {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <div class='sa-image-with-text-qy__page-width'>
+    <div class='sa-image-with-text-qy__card'>
+      <div class='sa-image-with-text-qy__image-box-desktop'>
+        {% if section.settings.pc_image != blank %}
+          {{
+            section.settings.pc_image
+            | image_url: width: 2400
+            | image_tag: class: 'sa-image-with-text-qy__image', widths: '375, 540, 720, 900, 1080, 1296, 1512, 1728, 1920, 2400', loading: 'lazy'
+          }}
+        {% endif %}
+      </div>
+
+      <div class='sa-image-with-text-qy__image-box-mobile'>
+        {% if section.settings.h5_image != blank %}
+          {{
+            section.settings.h5_image
+            | image_url: width: 1200
+            | image_tag: class: 'sa-image-with-text-qy__image', widths: '375, 540, 687, 828, 1080, 1200', loading: 'lazy'
+          }}
+        {% elsif section.settings.pc_image != blank %}
+          {{
+            section.settings.pc_image
+            | image_url: width: 1200
+            | image_tag: class: 'sa-image-with-text-qy__image', widths: '375, 540, 687, 828, 1080, 1200', loading: 'lazy'
+          }}
+        {% endif %}
+      </div>
+
+      <div class='sa-image-with-text-qy__content'>
+        {% if section.settings.intro_text != blank %}
+          <div class='sa-image-with-text-qy__intro'>
+            {{ section.settings.intro_text }}
+          </div>
+        {% endif %}
+
+        <div class='sa-image-with-text-qy__divider'></div>
+
+        {% if section.settings.body_text != blank %}
+          <div class='sa-image-with-text-qy__body'>
+            {{ section.settings.body_text }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image With Text QY",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "<p><em><strong>Visit our booth and leave your business card for a chance to win a Yarbo Lawn Mower!</strong></em></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "Body Text",
+      "default": "<p>Make an appointment with us via <a href=\"mailto:dealer@yarbo.com\">dealer@yarbo.com</a></p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image With Text QY"
+    }
+  ]
+}
+{% endschema %}

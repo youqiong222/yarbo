@@ -1,0 +1,421 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script
+    src='{{ 'product-form.js' | asset_url }}'
+    defer='defer'
+  ></script>
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script
+    src='{{ 'quick-add.js' | asset_url }}'
+    defer='defer'
+  ></script>
+{%- endif -%}
+
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script
+    src='{{ 'quick-add-bulk.js' | asset_url }}'
+    defer='defer'
+  ></script>
+  <script
+    src='{{ 'quantity-popover.js' | asset_url }}'
+    defer='defer'
+  ></script>
+  <script
+    src='{{ 'price-per-item.js' | asset_url }}'
+    defer='defer'
+  ></script>
+  <script
+    src='{{ 'quick-order-list.js' | asset_url }}'
+    defer='defer'
+  ></script>
+{%- endif -%}
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    overflow: visible;
+  }
+</style>
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <div
+    x-data="tabsComponent('tab_0')"
+    x-init='updateSlider()'
+    @resize.window='updateSlider()'
+    class='w-full'
+  >
+    <div class='md:flex md:w-full'>
+      <div class='h-fit md:sticky md:top-60 md:flex  md:w-[34%] md:flex-col'>
+        <div class='mb-32 flex flex-col justify-center gap-16 text-left md:mb-80 md:gap-12'>
+          <h2 class=' text-[36px]  leading-none uppercase  md:text-[44px] '>
+            {{ section.settings.title }}
+          </h2>
+          <div class='text-[14px] leading-[1.3] text-[#515355]'>
+            {{ section.settings.text }}
+          </div>
+        </div>
+        <div class='relative mb-24 flex w-full items-end justify-between md:flex-col md:items-start'>
+          <div
+            class='absolute bottom-0 left-0 z-0 block! h-4 w-full bg-[#CCCCCC] md:opacity-0'
+          ></div>
+
+          <div class='no-scrollbar relative z-10 flex w-full gap-24 overflow-x-auto pb-12 md:mb-0 md:flex-col md:items-start md:border-none md:pb-0'>
+            {% for block in section.blocks %}
+              <div
+                x-ref='tab_{{ forloop.index0 }}'
+                x-bind="tabButton('tab_{{ forloop.index0 }}')"
+                class='theme-title shrink-0 cursor-pointer text-[16px]/[1.1] font-bold uppercase transition-colors before:absolute before:left-0 before:h-10 before:bg-amber-300 before:transition-transform before:duration-300 md:flex md:items-center md:text-[32px] md:hover:text-[#25282A]'
+                :class='activeTab === "tab_{{ forloop.index0 }}" ? "text-[#25282A] md:text-amber-300 md:pl-22 md:before:w-10" : "text-[#A6A6A6]"'
+                data-tab-index='{{ forloop.index0 }}'
+              >
+                {{ block.settings.label }}
+              </div>
+            {% endfor %}
+
+            <div
+              class='absolute bottom-0 left-0 block! h-4 bg-[#25282A] transition-all duration-300 ease-out md:opacity-0'
+              :style='`width: ${sliderWidth}px; transform: translateX(${sliderOffset}px);`'
+            ></div>
+          </div>
+
+          {% if section.blocks.size > 0 %}
+            <a
+              :href='activeTab === "tab_0" ? "{{ section.blocks.first.settings.shop_all_url | default: '#' }}" : (activeTab === "tab_1" ? "{{ section.blocks[1].settings.shop_all_url | default: '#' }}" : "{{ section.blocks[2].settings.shop_all_url | default: '#' }}")'
+              class='hidden-phone mt-40 flex h-44 items-center bg-[#25282a] px-32 text-[14px]/[1.3] text-white uppercase no-underline transition-colors hover:bg-[#fedb1e] hover:text-[#25282a]  {% if section.blocks.first.settings.shop_all_url == blank %}hidden{% endif %}'
+              :class='activeTab === "tab_0" ? "{% if section.blocks.first.settings.shop_all_url == blank %}hidden{% endif %}" : (activeTab === "tab_1" ? "{% if section.blocks[1].settings.shop_all_url == blank %}hidden{% endif %}" : "{% if section.blocks[2].settings.shop_all_url == blank %}hidden{% endif %}")'
+              id='shop-all-{{ section.id }}'
+            >
+              <span
+                class='shop_all_text'
+                x-text='activeTab === "tab_0" ? "{{ section.blocks.first.settings.shop_all_text }}" : (activeTab === "tab_1" ? "{{ section.blocks[1].settings.shop_all_text }}" : "{{ section.blocks[2].settings.shop_all_text }}")'
+              >
+                {{- section.blocks.first.settings.shop_all_text -}}
+              </span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class='right_container md:w-[66%] md:pl-60'>
+        {% for block in section.blocks %}
+          {% assign product_list = block.settings.product_list %}
+          <div
+            class='tab-pane tab-content transition-opacity duration-300 '
+            id='tab-content-{{ section.id }}-{{ forloop.index }}'
+            x-bind:class="
+              activeTab === 'tab_{{ forloop.index0 }}'
+              ? 'opacity-100 visible relative'
+              : 'opacity-0 invisible h-0 overflow-hidden'
+            "
+            x-cloak
+            x-transition.opacity.duration.300ms
+            data-pane-index='{{ forloop.index0 }}'
+          >
+            {% assign skip_card_product_styles = false %}
+            <div class='swiper  product-swiper-{{ section.id }} overflow-hidden '>
+              <div class='swiper-wrapper  md:grid md:grid-cols-3 md:gap-x-12 md:gap-y-60'>
+                {% for product in product_list limit: 8 %}
+                  <div class='swiper-slide h-auto'>
+                    {% render 'sn-card-product',
+                      card_product: product,
+                      media_aspect_ratio: section.settings.image_ratio,
+                      image_shape: section.settings.image_shape,
+                      show_rating: section.settings.show_rating,
+                      show_secondary_image: section.settings.show_secondary_image,
+                      skip_styles: skip_card_product_styles,
+                      quick_add: section.settings.quick_add
+                    %}
+                    {%- assign skip_card_product_styles = true -%}
+                  </div>
+                {% else %}
+                  {% for i in (1..4) %}
+                    <div class='swiper-slide h-auto'>
+                      <div class='flex h-[300px] items-center justify-center rounded-md bg-gray-100 text-gray-400'>Product Placeholder</div>
+                    </div>
+                  {% endfor %}
+                {% endfor %}
+              </div>
+              <div class='hidden-lap-and-up '>
+                <div class='mt-24 flex items-center justify-between'>
+                  <div
+                    class='hero-pagination flex w-fit items-center space-x-3'
+                  ></div>
+                  {% if section.blocks.size > 0 %}
+                    <a
+                      :href='activeTab === "tab_0" ? "{{ section.blocks.first.settings.shop_all_url | default: '#' }}" : (activeTab === "tab_1" ? "{{ section.blocks[1].settings.shop_all_url | default: '#' }}" : "{{ section.blocks[2].settings.shop_all_url | default: '#' }}")'
+                      class='  flex items-center gap-4 text-[14px]/[1.3] text-gray-600 no-underline transition-colors hover:bg-[#fedb1e] hover:text-black {% if section.blocks.first.settings.shop_all_url == blank %}hidden{% endif %}'
+                      id='shop-all-{{ section.id }}'
+                    >
+                      <span
+                        class='shop_all_text'
+                        x-text='activeTab === "tab_0" ? "{{ section.blocks.first.settings.shop_all_text }}" : (activeTab === "tab_1" ? "{{ section.blocks[1].settings.shop_all_text }}" : "{{ section.blocks[2].settings.shop_all_text }}")'
+                      >
+                        {{- section.blocks.first.settings.shop_all_text -}}
+                      </span>
+                      <span
+                        aria-hidden='true'
+                        class='flex'
+                      >
+                        <svg
+                          width='14'
+                          height='16'
+                          viewBox='0 0 14 16'
+                          fill='none'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path d="M4.35095 5.5L10.0997 5.56731M10.0997 5.56731L10.1661 11.2343M10.0997 5.56731L3.5 12.167" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+                        </svg>
+                      </span>
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. 初始化 Swiper 轮播图
+    const swiperSelector = '.product-swiper-{{ section.id }}';
+    if (window.innerWidth < 1000) {
+      const swiperElements = document.querySelectorAll(swiperSelector);
+
+      swiperElements.forEach((element) => {
+        const swiperInstance = new Swiper(element, {
+          slidesPerView: 2,
+          spaceBetween: 12,
+          watchOverflow: true,
+          breakpoints: {
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 12,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 24,
+              allowTouchMove: false,
+            },
+          },
+          pagination: {
+            el: element.querySelector('.hero-pagination'),
+            clickable: true,
+            renderBullet: function (index, className) {
+              const bulletClasses = `
+                ${className}
+                rounded-none opacity-100
+                w-8 h-8 bg-[#CCCCCC] transition-all duration-300 block cursor-pointer m-0
+                hover:bg-white
+                [&.swiper-pagination-bullet-active]:w-50 [&.swiper-pagination-bullet-active]:h-8 [&.swiper-pagination-bullet-active]:bg-[#25282a]
+              `;
+              return `<span class="${bulletClasses.trim().replace(/\s+/g, ' ')}"></span>`;
+            },
+          },
+        });
+      });
+    }
+  });
+</script>
+{% schema %}
+{
+  "name": "Choose Accessories",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.featured-collection.settings.image_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.all.image_shape.options__1.label"
+        },
+        {
+          "value": "arch",
+          "label": "t:sections.all.image_shape.options__2.label"
+        },
+        {
+          "value": "blob",
+          "label": "t:sections.all.image_shape.options__3.label"
+        },
+        {
+          "value": "chevronleft",
+          "label": "t:sections.all.image_shape.options__4.label"
+        },
+        {
+          "value": "chevronright",
+          "label": "t:sections.all.image_shape.options__5.label"
+        },
+        {
+          "value": "diamond",
+          "label": "t:sections.all.image_shape.options__6.label"
+        },
+        {
+          "value": "parallelogram",
+          "label": "t:sections.all.image_shape.options__7.label"
+        },
+        {
+          "value": "round",
+          "label": "t:sections.all.image_shape.options__8.label"
+        }
+      ],
+      "default": "default",
+      "label": "t:sections.all.image_shape.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_rating.label",
+      "info": "t:sections.featured-collection.settings.show_rating.info"
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+        },
+        {
+          "value": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+        },
+        {
+          "value": "bulk",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Product List",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tab Label",
+          "default": "Label"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Products"
+        },
+        {
+          "type": "text",
+          "id": "shop_all_text",
+          "label": "Shop All Text"
+        },
+        {
+          "type": "url",
+          "id": "shop_all_url",
+          "label": "Shop All Link",
+          "info": "Optional URL for the 'Shop All' button when this tab is active."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Choose Accessories"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,61 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_volunteer_installer_3ghL7U": {
+      "type": "sa-volunteer-installer",
+      "name": "Volunteer Installer",
+      "settings": {
+        "login_required_title": "Members Only",
+        "login_required_text": "Please sign in to access the Yarbo.",
+        "login_button_text": "Sign in",
+        "home_button_text": "Back to home",
+        "title": "Yarbo Volunteer Installer Program",
+        "title_color": "#1a1a1a",
+        "title_size_pc": 44,
+        "title_size_h5": 32,
+        "sub_title": "A Letter From Team Yarbo",
+        "sub_title_color": "#1a1a1a",
+        "sub_title_size_pc": 28,
+        "sub_title_size_h5": 20,
+        "show_divider": true,
+        "divider_color": "#1a1a1a",
+        "content": "<p>Hey there, future Yarbo helper!</p><p>Welcome aboard the Yarbo Volunteer Installer Program! Some members of the Yarbo community, whether due to age or physical limitations, may need extra help with installing their Yarbo. Your support makes a huge difference and truly helps them get the most out of their experience.</p><p>Here's the quick rundown to get you started as a Volunteer Installer:</p><ol><li>Dive into our handy materials to get the scoop on Yarbo installation.</li><li>Take an online quiz to show off your installation knowledge.</li><li>(Optional) Record a video to help Team Yarbo know you better.<br/>(Note:You don't need to complete all steps at once)</li></ol><p>We can't wait to see you ace these steps and become a Volunteer Installer!</p><p>Cheers,<br/>Team Yarbo</p>",
+        "content_color": "#25282a",
+        "content_size_pc": 18,
+        "content_size_h5": 14,
+        "paragraph_gap_pc": 24,
+        "paragraph_gap_h5": 16,
+        "body_bg_color": "#f3f3f3",
+        "card_bg_color": "#ffffff",
+        "card_padding_top_pc": 60,
+        "card_padding_bottom_pc": 60,
+        "card_padding_top_h5": 32,
+        "card_padding_bottom_h5": 32,
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 60,
+        "padding_top_h5": 40,
+        "padding_bottom_h5": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_volunteer_installer_3ghL7U"
+  ]
+}

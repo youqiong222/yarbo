@@ -1,0 +1,1398 @@
+
+<script type="text/babel">
+
+    const countries = {
+        US: {
+            localeName: "United States",
+            disable:!1
+        },
+        GB: {
+            localeName: "United Kingdom",
+            disable: !1
+        },
+        HU: {
+            localeName: "Hungary",
+            disable: !1
+        },
+        HR: {
+            localeName: "Croatia",
+            disable: !1
+        },
+        DK: {
+            localeName: "Denmark",
+            disable: !1
+        },
+        SE: {
+            localeName: "Sweden",
+            disable: !1
+        },
+        NO: {
+            localeName: "Norway",
+            disable: !1
+        },
+        GR: {
+            localeName: "Greece",
+            disable: !1
+        },
+        FI: {
+            localeName: "Finland",
+            disable: !1
+        },
+        PL: {
+            localeName: "Poland",
+            disable: !1
+        },
+        PT: {
+            localeName: "Portugal",
+            disable: !1
+        },
+        IE: {
+            localeName: "Ireland",
+            disable: !1
+        },
+        SI: {
+            localeName: "Slovenia",
+            disable: !1
+        },
+        IT: {
+            localeName: "Italy",
+            disable: !1
+        },
+        CZ: {
+            localeName: "Czech Republic",
+            disable: !1
+        },
+        ES: {
+            localeName: "Spain",
+            disable: !1
+        },
+        LV: {
+            localeName: "Latvia",
+            disable: !1
+        },
+        LT: {
+            localeName: "Lithuania",
+            disable: !1
+        },
+        NL: {
+            localeName: "Netherlands",
+            disable: !1
+        },
+        BE: {
+            localeName: "Belgium",
+            disable: !1
+        },
+        BG: {
+            localeName: "Bulgaria",
+            disable: !1
+        },
+        EE: {
+            localeName: "Estonia",
+            disable: !1
+        },
+        FR: {
+            localeName: "France",
+            disable: !1
+        },
+        AT: {
+            localeName: "Austria",
+            disable: !1
+        },
+        RS: {
+            localeName: "Serbia",
+            disable: !1
+        },
+        SK: {
+            localeName: "Slovakia",
+            disable: !1
+        },
+        DE: {
+            localeName: "Germany",
+            disable: !1
+        },
+        CY: {
+            localeName: "Cyprus",
+            disable: !1
+        },
+        RO: {
+            localeName: "Romania",
+            disable: !1
+        },
+        MT: {
+            localeName: "Malta",
+            disable: !1
+        },
+        LU: {
+            localeName: "Luxembourg",
+            disable: !1
+        },
+        CA:{
+            localeName: "Canada",
+            disable: !1
+        },
+        DK: {
+            localeName: "Denmark",
+            disable: !1
+        },
+        DK: {
+            localeName: "Denmark",
+            disable: !1
+        },
+        FI: {
+            localeName: "Finland",
+            disable: !1
+        },
+        FI: {
+            localeName: "Finland",
+            disable: !1
+        },
+        GE: {
+            localeName: "Georgia",
+            disable: !1
+        }
+    };
+
+    const t_shirt_size = [
+        {
+        value: "small",
+        label: "Small"
+        }, {
+        value: "medium",
+        label: "Medium"
+        }, {
+        value: "large",
+        label: "Large"
+        }, {
+        value: "extra",
+        label: "Extra Large"
+        }, {
+        value: "xxl",
+        label: "XXL"
+        }, {
+        value: "xxxl",
+        label: "XXXL"
+        }
+    ];
+
+    const Yarbo_owned = [
+        {
+        value: "yarbo_core_2024",
+        label: "Yarbo Core 2024"
+        }, {
+        value: "yarbo_core_2023",
+        label: "Universal Body 2023"
+        }, {
+        value: "lawn_mower",
+        label: "Lawn Mower"
+        }, {
+        value: "snow_blower",
+        label: "Snow Blower"
+        }, {
+        value: "blower",
+        label: "Blower"
+        }
+    ]
+    document.getElementById('mainContentInstallerRegister').style.display = 'block'; //注册
+
+    const email = '{{ customer.email }}';
+    const authorization = btoa(email+'.yarbo');
+    var installer_state = 0;
+
+    // Call the function to fetch installer state when page loads
+    fetchInstallerState();
+
+    // Modify fetchInstallerState to call updateUIForInstallerState after completion
+    function fetchInstallerState() {
+        fetch('https://dev.yarbo.ai/backend/v2/install/installer/state', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + authorization
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(data => {
+            console.log('Installer state:', data);
+            if (data && typeof data.data === 'number') {
+                installer_state = data.data;
+            }
+            if(installer_state === 0){
+                return;
+            }
+            updateInstallerForm();
+        })
+        .catch(error => {
+            console.error('Error fetching installer state:', error);
+        });
+    }
+
+    // Initialize Ant Design Select components
+    const { Input, Select} = antd;
+    const { Option } = Select;
+
+    const countrySelectRoot = ReactDOM.createRoot(
+        document.getElementById("CountrySelect")
+    );
+    countrySelectRoot.render(
+        <Select
+            options={Object.keys(countries).map((key) => ({
+                value: countries[key].localeName,
+                label: countries[key].localeName,
+            })).sort((a, b) => a.label.localeCompare(b.label))}
+        ></Select>
+    );
+
+    const tshirtInputRoot = ReactDOM.createRoot(
+        document.getElementById("tshirtInput")
+    );
+    tshirtInputRoot.render(
+        <Select
+            options={t_shirt_size}
+        ></Select>
+    );
+
+    const yarboOwnedInputRoot = ReactDOM.createRoot(
+        document.getElementById("YarboownedInput")
+    );
+    yarboOwnedInputRoot.render(
+        <Select
+            mode="multiple"
+            options={Yarbo_owned}
+        ></Select>
+    );
+
+    // First, transform the countryPhones array into a format suitable for Select options
+    const countryPhones = [["Afghanistan", ["asia"], "af", "93"], ["Albania", ["europe"], "al", "355"], ["Algeria", ["africa", "north-africa"], "dz", "213"], ["Andorra", ["europe"], "ad", "376"], ["Angola", ["africa"], "ao", "244"], ["Antigua and Barbuda", ["america", "carribean"], "ag", "1268"], ["Argentina", ["america", "south-america"], "ar", "54", "(..) ........", 0, ["11", "221", "223", "261", "264", "2652", "280", "2905", "291", "2920", "2966", "299", "341", "342", "343", "351", "376", "379", "381", "3833", "385", "387", "388"]], ["Armenia", ["asia", "ex-ussr"], "am", "374", ".. ......"], ["Aruba", ["america", "carribean"], "aw", "297"], ["Australia", ["oceania"], "au", "61", "(..) .... ....", 0, ["2", "3", "4", "7", "8", "02", "03", "04", "07", "08"]], ["Austria", ["europe", "eu-union"], "at", "43"], ["Azerbaijan", ["asia", "ex-ussr"], "az", "994", "(..) ... .. .."], ["Bahamas", ["america", "carribean"], "bs", "1242"], ["Bahrain", ["middle-east"], "bh", "973"], ["Bangladesh", ["asia"], "bd", "880"], ["Barbados", ["america", "carribean"], "bb", "1246"], ["Belarus", ["europe", "ex-ussr"], "by", "375", "(..) ... .. .."], ["Belgium", ["europe", "eu-union"], "be", "32", "... .. .. .."], ["Belize", ["america", "central-america"], "bz", "501"], ["Benin", ["africa"], "bj", "229"], ["Bhutan", ["asia"], "bt", "975"], ["Bolivia", ["america", "south-america"], "bo", "591"], ["Bosnia and Herzegovina", ["europe", "ex-yugos"], "ba", "387"], ["Botswana", ["africa"], "bw", "267"], ["Brazil", ["america", "south-america"], "br", "55", "(..) ........."], ["British Indian Ocean Territory", ["asia"], "io", "246"], ["Brunei", ["asia"], "bn", "673"], ["Bulgaria", ["europe", "eu-union"], "bg", "359"], ["Burkina Faso", ["africa"], "bf", "226"], ["Burundi", ["africa"], "bi", "257"], ["Cambodia", ["asia"], "kh", "855"], ["Cameroon", ["africa"], "cm", "237"], ["Canada", ["america", "north-america"], "ca", "1", "(...) ...-....", 1, ["204", "226", "236", "249", "250", "289", "306", "343", "365", "387", "403", "416", "418", "431", "437", "438", "450", "506", "514", "519", "548", "579", "581", "587", "604", "613", "639", "647", "672", "705", "709", "742", "778", "780", "782", "807", "819", "825", "867", "873", "902", "905"]], ["Cape Verde", ["africa"], "cv", "238"], ["Caribbean Netherlands", ["america", "carribean"], "bq", "599", "", 1], ["Central African Republic", ["africa"], "cf", "236"], ["Chad", ["africa"], "td", "235"], ["Chile", ["america", "south-america"], "cl", "56"], ["China", ["asia"], "cn", "86", "..-........."], ["Colombia", ["america", "south-america"], "co", "57", "... ... ...."], ["Comoros", ["africa"], "km", "269"], ["Congo", ["africa"], "cd", "243"], ["Congo", ["africa"], "cg", "242"], ["Costa Rica", ["america", "central-america"], "cr", "506", "....-...."], ["C\xf4te d’Ivoire", ["africa"], "ci", "225", ".. .. .. .."], ["Croatia", ["europe", "eu-union", "ex-yugos"], "hr", "385"], ["Cuba", ["america", "carribean"], "cu", "53"], ["Cura\xe7ao", ["america", "carribean"], "cw", "599", "", 0], ["Cyprus", ["europe", "eu-union"], "cy", "357", ".. ......"], ["Czech Republic", ["europe", "eu-union"], "cz", "420", "... ... ..."], ["Denmark", ["europe", "eu-union", "baltic"], "dk", "45", ".. .. .. .."], ["Djibouti", ["africa"], "dj", "253"], ["Dominica", ["america", "carribean"], "dm", "1767"], ["Dominican Republic", ["america", "carribean"], "do", "1", "", 2, ["809", "829", "849"]], ["Ecuador", ["america", "south-america"], "ec", "593"], ["Egypt", ["africa", "north-africa"], "eg", "20"], ["El Salvador", ["america", "central-america"], "sv", "503", "....-...."], ["Equatorial Guinea", ["africa"], "gq", "240"], ["Eritrea", ["africa"], "er", "291"], ["Estonia", ["europe", "eu-union", "ex-ussr", "baltic"], "ee", "372", ".... ......"], ["Ethiopia", ["africa"], "et", "251"], ["Fiji", ["oceania"], "fj", "679"], ["Finland", ["europe", "eu-union", "baltic"], "fi", "358", ".. ... .. .."], ["France", ["europe", "eu-union"], "fr", "33", ". .. .. .. .."], ["French Guiana", ["america", "south-america"], "gf", "594"], ["French Polynesia", ["oceania"], "pf", "689"], ["Gabon", ["africa"], "ga", "241"], ["Gambia", ["africa"], "gm", "220"], ["Georgia", ["asia", "ex-ussr"], "ge", "995"], ["Germany", ["europe", "eu-union", "baltic"], "de", "49", ".... ........"], ["Ghana", ["africa"], "gh", "233"], ["Greece", ["europe", "eu-union"], "gr", "30"], ["Grenada", ["america", "carribean"], "gd", "1473"], ["Guadeloupe", ["america", "carribean"], "gp", "590", "", 0], ["Guam", ["oceania"], "gu", "1671"], ["Guatemala", ["america", "central-america"], "gt", "502", "....-...."], ["Guinea", ["africa"], "gn", "224"], ["Guinea-Bissau", ["africa"], "gw", "245"], ["Guyana", ["america", "south-america"], "gy", "592"], ["Haiti", ["america", "carribean"], "ht", "509", "....-...."], ["Honduras", ["america", "central-america"], "hn", "504"], ["Hong Kong", ["asia"], "hk", "852", ".... ...."], ["Hungary", ["europe", "eu-union"], "hu", "36"], ["Iceland", ["europe"], "is", "354", "... ...."], ["India", ["asia"], "in", "91", ".....-....."], ["Indonesia", ["asia"], "id", "62"], ["Iran", ["middle-east"], "ir", "98", "... ... ...."], ["Iraq", ["middle-east"], "iq", "964"], ["Ireland", ["europe", "eu-union"], "ie", "353", ".. ......."], ["Israel", ["middle-east"], "il", "972", "... ... ...."], ["Italy", ["europe", "eu-union"], "it", "39", "... .......", 0], ["Jamaica", ["america", "carribean"], "jm", "1876"], ["Japan", ["asia"], "jp", "81", ".. .... ...."], ["Jordan", ["middle-east"], "jo", "962"], ["Kazakhstan", ["asia", "ex-ussr"], "kz", "7", "... ...-..-..", 1, ["310", "311", "312", "313", "315", "318", "321", "324", "325", "326", "327", "336", "7172", "73622"]], ["Kenya", ["africa"], "ke", "254"], ["Kiribati", ["oceania"], "ki", "686"], ["Kosovo", ["europe", "ex-yugos"], "xk", "383"], ["Kuwait", ["middle-east"], "kw", "965"], ["Kyrgyzstan", ["asia", "ex-ussr"], "kg", "996", "... ... ..."], ["Laos", ["asia"], "la", "856"], ["Latvia", ["europe", "eu-union", "ex-ussr", "baltic"], "lv", "371", ".. ... ..."], ["Lebanon", ["middle-east"], "lb", "961"], ["Lesotho", ["africa"], "ls", "266"], ["Liberia", ["africa"], "lr", "231"], ["Libya", ["africa", "north-africa"], "ly", "218"], ["Liechtenstein", ["europe"], "li", "423"], ["Lithuania", ["europe", "eu-union", "ex-ussr", "baltic"], "lt", "370"], ["Luxembourg", ["europe", "eu-union"], "lu", "352"], ["Macau", ["asia"], "mo", "853"], ["Macedonia", ["europe", "ex-yugos"], "mk", "389"], ["Madagascar", ["africa"], "mg", "261"], ["Malawi", ["africa"], "mw", "265"], ["Malaysia", ["asia"], "my", "60", "..-....-...."], ["Maldives", ["asia"], "mv", "960"], ["Mali", ["africa"], "ml", "223"], ["Malta", ["europe", "eu-union"], "mt", "356"], ["Marshall Islands", ["oceania"], "mh", "692"], ["Martinique", ["america", "carribean"], "mq", "596"], ["Mauritania", ["africa"], "mr", "222"], ["Mauritius", ["africa"], "mu", "230"], ["Mexico", ["america", "central-america"], "mx", "52", "... ... ....", 0, ["55", "81", "33", "656", "664", "998", "774", "229"]], ["Micronesia", ["oceania"], "fm", "691"], ["Moldova", ["europe"], "md", "373", "(..) ..-..-.."], ["Monaco", ["europe"], "mc", "377"], ["Mongolia", ["asia"], "mn", "976"], ["Montenegro", ["europe", "ex-yugos"], "me", "382"], ["Morocco", ["africa", "north-africa"], "ma", "212"], ["Mozambique", ["africa"], "mz", "258"], ["Myanmar", ["asia"], "mm", "95"], ["Namibia", ["africa"], "na", "264"], ["Nauru", ["africa"], "nr", "674"], ["Nepal", ["asia"], "np", "977"], ["Netherlands", ["europe", "eu-union"], "nl", "31", ".. ........"], ["New Caledonia", ["oceania"], "nc", "687"], ["New Zealand", ["oceania"], "nz", "64", "...-...-...."], ["Nicaragua", ["america", "central-america"], "ni", "505"], ["Niger", ["africa"], "ne", "227"], ["Nigeria", ["africa"], "ng", "234"], ["North Korea", ["asia"], "kp", "850"], ["Norway", ["europe", "baltic"], "no", "47", "... .. ..."], ["Oman", ["middle-east"], "om", "968"], ["Pakistan", ["asia"], "pk", "92", "...-......."], ["Palau", ["oceania"], "pw", "680"], ["Palestine", ["middle-east"], "ps", "970"], ["Panama", ["america", "central-america"], "pa", "507"], ["Papua New Guinea", ["oceania"], "pg", "675"], ["Paraguay", ["america", "south-america"], "py", "595"], ["Peru", ["america", "south-america"], "pe", "51"], ["Philippines", ["asia"], "ph", "63", ".... ......."], ["Poland", ["europe", "eu-union", "baltic"], "pl", "48", "...-...-..."], ["Portugal", ["europe", "eu-union"], "pt", "351"], ["Puerto Rico", ["america", "carribean"], "pr", "1", "", 3, ["787", "939"]], ["Qatar", ["middle-east"], "qa", "974"], ["R\xe9union", ["africa"], "re", "262"], ["Romania", ["europe", "eu-union"], "ro", "40"], ["Russia", ["europe", "asia", "ex-ussr", "baltic"], "ru", "7", "(...) ...-..-..", 0], ["Rwanda", ["africa"], "rw", "250"], ["Saint Kitts and Nevis", ["america", "carribean"], "kn", "1869"], ["Saint Lucia", ["america", "carribean"], "lc", "1758"], ["Saint Vincent and the Grenadines", ["america", "carribean"], "vc", "1784"], ["Samoa", ["oceania"], "ws", "685"], ["San Marino", ["europe"], "sm", "378"], ["S\xe3o Tom\xe9 and Pr\xedncipe", ["africa"], "st", "239"], ["Saudi Arabia", ["middle-east"], "sa", "966"], ["Senegal", ["africa"], "sn", "221"], ["Serbia", ["europe", "ex-yugos"], "rs", "381"], ["Seychelles", ["africa"], "sc", "248"], ["Sierra Leone", ["africa"], "sl", "232"], ["Singapore", ["asia"], "sg", "65", "....-...."], ["Slovakia", ["europe", "eu-union"], "sk", "421"], ["Slovenia", ["europe", "eu-union", "ex-yugos"], "si", "386"], ["Solomon Islands", ["oceania"], "sb", "677"], ["Somalia", ["africa"], "so", "252"], ["South Africa", ["africa"], "za", "27"], ["South Korea", ["asia"], "kr", "82", "... .... ...."], ["South Sudan", ["africa", "north-africa"], "ss", "211"], ["Spain", ["europe", "eu-union"], "es", "34", "... ... ..."], ["Sri Lanka", ["asia"], "lk", "94"], ["Sudan", ["africa"], "sd", "249"], ["Suriname", ["america", "south-america"], "sr", "597"], ["Swaziland", ["africa"], "sz", "268"], ["Sweden", ["europe", "eu-union", "baltic"], "se", "46", "(...) ...-..."], ["Switzerland", ["europe"], "ch", "41", ".. ... .. .."], ["Syria", ["middle-east"], "sy", "963"], ["Taiwan", ["asia"], "tw", "886"], ["Tajikistan", ["asia", "ex-ussr"], "tj", "992"], ["Tanzania", ["africa"], "tz", "255"], ["Thailand", ["asia"], "th", "66"], ["Timor-Leste", ["asia"], "tl", "670"], ["Togo", ["africa"], "tg", "228"], ["Tonga", ["oceania"], "to", "676"], ["Trinidad and Tobago", ["america", "carribean"], "tt", "1868"], ["Tunisia", ["africa", "north-africa"], "tn", "216"], ["Turkey", ["europe"], "tr", "90", "... ... .. .."], ["Turkmenistan", ["asia", "ex-ussr"], "tm", "993"], ["Tuvalu", ["asia"], "tv", "688"], ["Uganda", ["africa"], "ug", "256"], ["Ukraine", ["europe", "ex-ussr"], "ua", "380", "(..) ... .. .."], ["United Arab Emirates", ["middle-east"], "ae", "971"], ["United Kingdom", ["europe", "eu-union"], "gb", "44", ".... ......"], ["United States", ["america", "north-america"], "us", "1", "(...) ...-....", 0, ["907", "205", "251", "256", "334", "479", "501", "870", "480", "520", "602", "623", "928", "209", "213", "310", "323", "408", "415", "510", "530", "559", "562", "619", "626", "650", "661", "707", "714", "760", "805", "818", "831", "858", "909", "916", "925", "949", "951", "303", "719", "970", "203", "860", "202", "302", "239", "305", "321", "352", "386", "407", "561", "727", "772", "813", "850", "863", "904", "941", "954", "229", "404", "478", "706", "770", "912", "808", "319", "515", "563", "641", "712", "208", "217", "309", "312", "618", "630", "708", "773", "815", "847", "219", "260", "317", "574", "765", "812", "316", "620", "785", "913", "270", "502", "606", "859", "225", "318", "337", "504", "985", "413", "508", "617", "781", "978", "301", "410", "207", "231", "248", "269", "313", "517", "586", "616", "734", "810", "906", "989", "218", "320", "507", "612", "651", "763", "952", "314", "417", "573", "636", "660", "816", "228", "601", "662", "406", "252", "336", "704", "828", "910", "919", "701", "308", "402", "603", "201", "609", "732", "856", "908", "973", "505", "575", "702", "775", "212", "315", "516", "518", "585", "607", "631", "716", "718", "845", "914", "216", "330", "419", "440", "513", "614", "740", "937", "405", "580", "918", "503", "541", "215", "412", "570", "610", "717", "724", "814", "401", "803", "843", "864", "605", "423", "615", "731", "865", "901", "931", "210", "214", "254", "281", "325", "361", "409", "432", "512", "713", "806", "817", "830", "903", "915", "936", "940", "956", "972", "979", "435", "801", "276", "434", "540", "703", "757", "804", "802", "206", "253", "360", "425", "509", "262", "414", "608", "715", "920", "304", "307"]], ["Uruguay", ["america", "south-america"], "uy", "598"], ["Uzbekistan", ["asia", "ex-ussr"], "uz", "998", ".. ... .. .."], ["Vanuatu", ["oceania"], "vu", "678"], ["Vatican City", ["europe"], "va", "39", ".. .... ....", 1], ["Venezuela", ["america", "south-america"], "ve", "58"], ["Vietnam", ["asia"], "vn", "84"], ["Yemen", ["middle-east"], "ye", "967"], ["Zambia", ["africa"], "zm", "260"], ["Zimbabwe", ["africa"], "zw", "263"]]
+    // 创建国家选项数组
+    const countryOptions = countryPhones.map(country => {
+        const countryName = country[0];
+        const countryCode = country[3];
+        const countryIsoCode = country[2];
+        return {
+            value: countryCode,
+            label: `${countryName} (+${countryCode})`,
+            countryCode: countryIsoCode,
+            fullInfo: `${countryName} +${countryCode}`
+        };
+    });
+    // Then create the Select component with these options
+    const defaultValue = "1";
+    const selectCountry = (
+        <Select
+            defaultValue={defaultValue}
+            showSearch
+            options={countryOptions}
+            optionFilterProp="children"
+            filterOption={(input, option) =>
+                option.props.fullInfo.toLowerCase().indexOf(input.toLowerCase()) >= 0
+            }
+        >
+        </Select>
+    );
+    const installer_contact_numberInputRoot = ReactDOM.createRoot(
+        document.getElementById("installer_contact_number")
+    );
+    installer_contact_numberInputRoot.render(
+        <Input addonBefore={selectCountry} />
+    )
+
+    // This function gets called when installer_state is 1
+    async function updateInstallerForm() {
+
+        // Fetch installer data from API
+        fetch('https://dev.yarbo.ai/backend/v2/install/installer/me', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + authorization
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(data => {
+            console.log('Installer data:', data);
+            if (data && data.code === 0 && data.data) {
+                populateFormWithData(data.data);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching installer data:', error);
+        });
+    }
+
+    const uploadedFiles = [];
+
+    // This function populates the form fields with the retrieved data
+    function populateFormWithData(data) {
+        // Populate text inputs
+        document.getElementById('installer_first_name').value = data.first_name || '';
+        document.getElementById('installer_last_name').value = data.last_name || '';
+        document.getElementById('installer_address_line_1').value = data.address_line_1 || '';
+        document.getElementById('installer_address_line_2').value = data.address_line_2 || '';
+        document.getElementById('installer_city_or_town').value = data.city_or_town || '';
+        document.getElementById('installer_state_or_province').value = data.state_or_province || '';
+        document.getElementById('installer_zip_or_postal_code').value = data.zip_or_postal_code || '';
+        document.getElementById('installer_facebook_account').value = data.facebook_account || '';
+        document.getElementById('installer_comments').value = data.comments || '';
+        document.getElementById('installer_public_name').value = data.public_name || '';
+        document.getElementById('installer_public_comments').value = data.public_comments || '';
+
+        // Set country in select
+        if (data.country) {
+            countrySelectRoot.render(
+                <Select
+                    defaultValue={data.country}
+                    key={data.country}
+                    options={Object.keys(countries).map((key) => ({
+                        value: countries[key].localeName,
+                        label: countries[key].localeName,
+                    })).sort((a, b) => a.label.localeCompare(b.label))}
+                ></Select>
+            );
+        }
+
+        // Set t-shirt size in select
+        if (data.t_shirt_size) {
+            tshirtInputRoot.render(
+                <Select
+                    defaultValue={data.t_shirt_size}
+                    key={data.t_shirt_size}
+                    options={t_shirt_size}
+                ></Select>
+            );
+        }
+
+        // Set Yarbo owned units in multi-select
+        if (data.public_yarbo_owned && data.public_yarbo_owned.length > 0) {
+            yarboOwnedInputRoot.render(
+                <Select
+                    mode="multiple"
+                    defaultValue={Array.from(new Set(data.public_yarbo_owned))}
+                    key={JSON.stringify(data.public_yarbo_owned)}
+                    options={Yarbo_owned}
+                ></Select>
+            );
+        }
+
+        // Set the agreement checkbox to checked
+        document.getElementById('agreeContractCheck').style.display = 'flex';
+        document.getElementById('agreeContract').style.display = 'none';
+
+        // If the phone number exists, parse and set it
+        if (data.contact_number) {
+            const phoneInput = document.querySelector('#installer_contact_number .ant-input');
+            if (phoneInput) {
+                // Remove the country code from the phone number
+                const phoneMatch = data.contact_number.match(/^\+(\d+)(.*)$/);
+                if (phoneMatch && phoneMatch.length >= 3) {
+                    const countryCode = phoneMatch[1];
+                    const phoneNumber = phoneMatch[2];
+
+                    // Set the phone number without country code
+                    phoneInput.value = phoneNumber;
+
+                    // Find and select the country code in dropdown
+                    const countryCodeSelect = document.querySelector('#installer_contact_number .ant-select-selection-item');
+                    if (countryCodeSelect) {
+                        // Find and select the matching country code option
+                        const countryOptions = document.querySelectorAll('#installer_contact_number .ant-select-item');
+                        countryOptions.forEach(option => {
+                            if (option.textContent.includes(`+${countryCode}`)) {
+                                // Simulate a click to select this option
+                                option.click();
+                            }
+                        });
+                    }
+                } else {
+                    // If we can't parse the format, just set the whole value
+                    phoneInput.value = data.contact_number;
+                }
+            }
+        }
+
+        // If video has been uploaded, update the video preview
+        if (data.video_url) {
+            const videoPreviewBox = document.getElementById('videoPreviewBox');
+            if (videoPreviewBox) {
+                videoPreviewBox.innerHTML = ''; // Clear previous content
+
+                const videoElement = document.createElement('video');
+                videoElement.controls = true;
+                videoElement.autoplay = false;
+                videoElement.style.width = '100%';
+                videoElement.style.height = '100%';
+                videoElement.style.objectFit = 'cover';
+                videoElement.style.borderRadius = '16px';
+                videoElement.src = data.video_url;
+
+                videoPreviewBox.appendChild(videoElement);
+            }
+        }
+
+        // If pictures exist, update the pictures preview
+        if (data.public_picture_urls && data.public_picture_urls.length > 0 && data.public_picture_urls[0] !== '') {
+            updatePictureUploader(data.public_picture_urls);
+        }
+         if (data.public_pictures && data.public_pictures.length > 0 && data.public_pictures[0] !== '') {
+            uploadedFiles.push(data.public_pictures);
+        }
+
+        if(data.score){
+            updateBoxByScore(Number(data.score));
+        }
+        
+    }
+
+    window.existingPictures = [];
+    const root = ReactDOM.createRoot(document.getElementById("installer_public_pictures"));
+    root.render(React.createElement(InstallerPublicPictures));
+
+    function updatePictureUploader(pictures) {
+        if (!pictures || !Array.isArray(pictures) || pictures.length === 0) return;
+        
+        // Store the pictures in the global variable
+        window.existingPictures = pictures.map((url, index) => {
+            return {
+                uid: `existing-${index}`,
+                name: `Image ${index + 1}`,
+                status: 'done',
+                url: url,
+                thumbUrl: url,
+            };
+        });
+        
+        // Force a re-render of the uploader component
+        const uploaderElement = document.getElementById("installer_public_pictures");
+        if (uploaderElement) {
+            const root = ReactDOM.createRoot(uploaderElement);
+            root.render(React.createElement(InstallerPublicPictures));
+        }
+    }
+
+    // Initialize notification system (assuming you're using Ant Design's standalone version)
+    const notification = antd.notification;
+
+    // Define a reusable function to check installer state and scroll
+    function handleInstallerStateCheck() {
+        if (installer_state === 0) { // Use === for comparison
+            // Show notification
+            notification.info({
+                message: 'Please submit basic information first!',
+                closeIcon: false,
+                duration: 3,
+                placement: 'top' // Use placement property instead of just top
+            });
+            // Scroll to form
+            const formElement = document.getElementById('installer-form');
+            if (formElement) {
+                const offset = formElement.getBoundingClientRect().top + window.scrollY - 87;
+                window.scrollTo({ top: offset, behavior: 'smooth' });
+            }
+            return false;
+        }
+        return true;
+    }
+
+    const { Upload, Modal, message, Button, Space, Tooltip } = antd;
+    const { useState } = React;
+
+    function InstallerPublicPictures() {
+        const [previewVisible, setPreviewVisible] = useState(false);
+        const [previewImage, setPreviewImage] = useState('');
+        const [previewTitle, setPreviewTitle] = useState('');
+
+        const [fileList, setFileList] = useState(window.existingPictures || []);
+        // Use useEffect to update fileList when existingPictures changes
+        React.useEffect(() => {
+            if (window.existingPictures && window.existingPictures.length > 0) {
+                setFileList(window.existingPictures);
+            }
+        }, []);
+
+        const beforeUpload = (file) => {
+            const isLt20M = file.size / 1024 / 1024 < 20;
+            if (!isLt20M) {
+                notification.info({
+                    message: 'Max size 20mb!',
+                    closeIcon: false,
+                    duration: 3,
+                    placement: 'top' // Use placement property instead of just top
+                });
+                return false;
+            }
+            return true;
+        };
+
+        const handleChange = (info) => {
+            setFileList(info.fileList);
+        };
+
+        const handlePreview = async (file) => {
+            if (!file.url && !file.preview) {
+                file.preview = await getBase64(file.originFileObj);
+            }
+            setPreviewImage(file.url || file.preview);
+            setPreviewVisible(true);
+            setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf('/') + 1));
+        };
+
+        const getBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = (error) => reject(error);
+        });
+        };
+
+        const uploadButton = (
+          <div>
+            <div>
+              <span role="img" aria-label="plus" className="anticon anticon-plus">
+            <svg viewBox="64 64 896 896" focusable="false" data-icon="plus" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"></path>
+              <path d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"></path>
+            </svg>
+              </span>
+            </div>
+            <div>Upload</div>
+          </div>
+        );
+
+        const handleCancel = () => setPreviewVisible(false);
+
+        return (
+          <div>
+            <Upload
+              listType="picture-card"
+              accept="image/*"
+              fileList={fileList}
+              onPreview={handlePreview}
+              onChange={handleChange}
+              beforeUpload={beforeUpload}
+              customRequest={({ file, onSuccess, onProgress }) => {
+                const objectKey = uploadImg(file);
+                console.log('File uploaded to S3, object key:', objectKey);
+                uploadedFiles.push(objectKey);
+                // Simulate progress updates with progress bar
+                let progress = 0;
+                const progressInterval = setInterval(() => {
+                    progress += 10;
+                    // Report progress to Ant Design Upload component
+                    onProgress({ percent: progress });
+                    // When upload completes
+                    if (progress >= 100) {
+                        clearInterval(progressInterval);
+                        onSuccess('ok');
+                    }
+                }, 300);
+              }}
+            >
+              {fileList.length >= 8 ? null : uploadButton}
+            </Upload>
+            <Modal
+              visible={previewVisible}
+              title={previewTitle}
+              footer={null}
+              onCancel={handleCancel}
+            >
+              <img alt="Preview" src={previewImage} />
+            </Modal>
+          </div>
+        );
+    }
+
+    document.getElementById('installer').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Get regular inputs
+        // Get form values
+        const firstName = document.getElementById('installer_first_name').value.trim();
+        const lastName = document.getElementById('installer_last_name').value.trim();
+        const addressLine1 = document.getElementById('installer_address_line_1').value.trim();
+        const addressLine2 = document.getElementById('installer_address_line_2').value.trim();
+        const city = document.getElementById('installer_city_or_town').value.trim();
+        const state = document.getElementById('installer_state_or_province').value.trim();
+        const zip = document.getElementById('installer_zip_or_postal_code').value.trim();
+        const facebook = document.getElementById('installer_facebook_account').value.trim();
+        const comments = document.getElementById('installer_comments').value.trim();
+        const publicName = document.getElementById('installer_public_name').value.trim();
+        const publicComments = document.getElementById('installer_public_comments').value.trim();
+
+        // Get the agreement checkbox state
+        const isAgreed = document.getElementById('agreeContractCheck').style.display !== 'none';
+
+        // Get select values from Ant Design components
+        let countryValue = '';
+        let tshirtValue = '';
+        let yarboOwnedValues = [];
+
+        try {
+            // For country select
+            const countrySelect = document.querySelector('#CountrySelect .ant-select-selection-item');
+            countryValue = countrySelect ? countrySelect.textContent : '';
+
+            // For t-shirt size select
+            const tshirtSelect = document.querySelector('#tshirtInput .ant-select-selection-item');
+            tshirtValue = tshirtSelect ? tshirtSelect.textContent : '';
+
+            // For Yarbo owned select (multiple selection)
+            const yarboOwnedItems = document.querySelectorAll('#YarboownedInput .ant-select-selection-item');
+            yarboOwnedValues = Array.from(yarboOwnedItems).map(item => item.textContent);
+        } catch (error) {
+            console.error('Error getting select values:', error);
+        }
+
+        // Function to show field errors
+        function showFieldError(fieldId, errorMessage) {
+            const field = document.getElementById(fieldId);
+            const fieldParent = field.closest('.ant-form-item');
+
+            // Add red border to the input field
+            if (field.classList.contains('ant-select')) {
+                field.querySelector('.ant-select-selector').style.borderColor = '#ff4d4f';
+            } else if (field.classList.contains('ant-input')) {
+                field.style.borderColor = '#ff4d4f';
+            } else {
+            // Handle special cases like multi-select or other components
+            const inputElement = fieldParent.querySelector('.ant-input') ||
+                         fieldParent.querySelector('.ant-select-selector');
+            if (inputElement) inputElement.style.borderColor = '#ff4d4f';
+            }
+
+            // Create error message if it doesn't exist
+            let errorElement = fieldParent.querySelector('.ant-form-item-explain');
+            if (!errorElement) {
+                errorElement = document.createElement('div');
+                errorElement.className = 'ant-form-item-explain ant-form-item-explain-error';
+                fieldParent.querySelector('.ant-form-item-control').appendChild(errorElement);
+            }
+
+            // Set error message
+            errorElement.innerHTML = `<div class="ant-form-item-explain-error" style="color: #ff4d4f;">${errorMessage}</div>`;
+
+            // Add event listeners to clear error on focus/hover
+            // Different handling for regular inputs vs select components
+            if (field.tagName === 'INPUT' || field.tagName === 'TEXTAREA') {
+                field.addEventListener('focus', () => clearFieldError(fieldId), { once: true });
+                field.addEventListener('blur', () => {
+                    // Revalidate on blur
+                    if (!field.value.trim()) {
+                        showFieldError(fieldId, `Please input your ${field.getAttribute('placeholder') || 'value'}!`);
+                    }
+                });
+                field.addEventListener('mouseenter', () => {
+                    field.style.borderColor = '#40a9ff';
+                });
+                field.addEventListener('mouseleave', () => {
+                    const errorElement = fieldParent.querySelector('.ant-form-item-explain-error');
+                    if (errorElement) {
+                        field.style.borderColor = '#ff4d4f';
+                    }
+                });
+            } else {
+                // For select components like CountrySelect
+                const selectContainer = fieldParent.querySelector('.ant-select');
+                const selector = fieldParent.querySelector('.ant-select-selector');
+
+                if (selectContainer && selector) {
+                    // Add click event to the selector to clear error when clicked
+                    selector.addEventListener('click', () => {
+                        clearFieldError(fieldId);
+                        selector.style.borderColor = '#40a9ff';
+                    });
+
+                    // Add mutation observer to detect when selection changes
+                    const observer = new MutationObserver((mutations) => {
+                        mutations.forEach((mutation) => {
+                            if (mutation.type === 'childList' || mutation.type === 'attributes') {
+                                const hasSelection = selector.querySelector('.ant-select-selection-item');
+                                if (hasSelection) {
+                                    clearFieldError(fieldId);
+                                }
+                            }
+                        });
+                    });
+
+                    observer.observe(selector, { childList: true, subtree: true, attributes: true });
+
+                    selectContainer.addEventListener('mouseenter', () => {
+                        selector.style.borderColor = '#40a9ff';
+                    });
+
+                    selectContainer.addEventListener('mouseleave', () => {
+                        const errorElement = fieldParent.querySelector('.ant-form-item-explain-error');
+                        if (errorElement) {
+                            selector.style.borderColor = '#ff4d4f';
+                        }
+                    });
+                }
+            }
+        }
+
+        // Function to clear field errors
+        function clearFieldError(fieldId) {
+            const field = document.getElementById(fieldId);
+            const fieldParent = field.closest('.ant-form-item');
+
+            // Remove red border
+            if (field.classList.contains('ant-select')) {
+            field.querySelector('.ant-select-selector').style.borderColor = '';
+            } else if (field.classList.contains('ant-input')) {
+            field.style.borderColor = '';
+            } else {
+            // Handle special cases
+            const inputElement = fieldParent.querySelector('.ant-input') ||
+                         fieldParent.querySelector('.ant-select-selector');
+            if (inputElement) inputElement.style.borderColor = '';
+            }
+
+            // Remove error message
+            const errorElement = fieldParent.querySelector('.ant-form-item-explain');
+            if (errorElement) {
+            errorElement.remove();
+            }
+        }
+
+        // Clear all previous errors
+        document.querySelectorAll('.ant-form-item-explain').forEach(el => el.remove());
+        document.querySelectorAll('.ant-input, .ant-select-selector').forEach(el => {
+            el.style.borderColor = '';
+        });
+
+        // Validate each field individually
+        let hasErrors = false;
+
+        if (!firstName) {
+            showFieldError('installer_first_name', 'Please input your First Name!');
+            hasErrors = true;
+        }
+
+        if (!lastName) {
+            showFieldError('installer_last_name', 'Please input your Last Name!');
+            hasErrors = true;
+        }
+
+        if (!addressLine1) {
+            showFieldError('installer_address_line_1', 'Please input your Address Line 1!');
+            hasErrors = true;
+        }
+
+        if (!city) {
+            showFieldError('installer_city_or_town', 'Please input your City/Town!');
+            hasErrors = true;
+        }
+
+        if (!zip) {
+            showFieldError('installer_zip_or_postal_code', 'Please input your Zip/Postal Code!');
+            hasErrors = true;
+        }
+
+        if (!comments) {
+            showFieldError('installer_comments', 'Please input your Comments!');
+            hasErrors = true;
+        }
+
+        if (!publicName) {
+            showFieldError('installer_public_name', 'Please input your Name!');
+            hasErrors = true;
+        }
+
+        if (!publicComments) {
+            showFieldError('installer_public_comments', 'Please input your Comments!');
+            hasErrors = true;
+        }
+
+        // Check if country is selected
+        if (!countryValue) {
+            showFieldError('CountrySelect', 'Please select your Country!');
+            hasErrors = true;
+        }
+
+        // Check if t-shirt size is selected
+        if (!tshirtValue) {
+            showFieldError('tshirtInput', 'Please select your T-shirt Size!');
+            hasErrors = true;
+        }
+
+        // Check if Yarbo owned units are selected
+        if (!yarboOwnedValues || yarboOwnedValues.length === 0) {
+            showFieldError('YarboownedInput', 'Please select your Yarbo owned units!');
+            hasErrors = true;
+        }
+
+        if (hasErrors) {
+            // Scroll to the first error
+            const firstError = document.querySelector('.ant-form-item-explain-error');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return false;
+        }
+
+        // Check agreement checkbox
+        if (!isAgreed) {
+            notification.info({
+                message: 'Please agree to the agreement before proceeding to the next step!',
+                closeIcon: false,
+                duration: 3,
+                placement: 'top'
+            });
+            return false;
+        }
+
+        // Get phone input with country code
+        const phoneInput = document.querySelector('#installer_contact_number .ant-input');
+        const phoneValue = phoneInput ? phoneInput.value : '';
+        const countryCodeSelect = document.querySelector('#installer_contact_number .ant-select-selection-item');
+        const countryCode = countryCodeSelect ? countryCodeSelect.textContent.match(/\(\+(\d+)\)/)[1] : '';
+
+        // Create the API request body according to specified parameters
+        const requestBody = {
+            first_name: firstName,
+            last_name: lastName,
+            address_line_1: addressLine1,
+            city_or_town: city,
+            state_or_province: state,
+            zip_or_postal_code: zip,
+            country: countryValue,
+            contact_number: countryCode + phoneValue,
+            facebook_account: facebook,
+            comments: comments,
+            t_shirt_size: tshirtValue,
+            public_name: publicName,
+            public_comments: publicComments,
+            public_yarbo_owned: yarboOwnedValues,
+            public_pictures: uploadedFiles
+        };
+
+        // Log submission status
+        console.log('Form submitted with data:', requestBody);
+
+        // Send POST request to the specified API endpoint
+        fetch('https://dev.yarbo.ai/backend/v2/install/installer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + authorization
+            },
+            body: JSON.stringify(requestBody)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data);
+            notification.success({
+                message: 'Submit Success!',
+                duration: 3,
+                placement: 'top'
+            });
+            installer_state = 1; // Update installer state to indicate form was submitted
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            notification.error({
+                message: 'Failed to submit form. Please try again.',
+                duration: 3,
+                placement: 'top'
+            });
+        });
+    });
+
+    function uploadImg(file){
+
+        // Get a unique object key based on file name and timestamp
+        const timestamp = new Date().getTime();
+        const fileName = file.name;
+        const objectKey = `installer-photos/${timestamp}-${fileName}`;
+
+        // Set up request parameters for getting presigned URL
+        const requestParams = {
+            bucket: "yarbo-market",
+            items: [
+                {
+                    objectKey: objectKey,
+                    contentType: file.type
+                }
+            ]
+        };
+
+        // Make request to get presigned URL
+        fetch('https://4zx17x5q7l.execute-api.us-east-1.amazonaws.com/Stage/yarbo/common/presignedUrlMultiple' , {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestParams)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success && data.data && data.data[objectKey]) {
+                const presignedData = data.data[objectKey];
+                const formData = new FormData();
+                Object.keys(presignedData.fields).forEach(key => {
+                    formData.append(key, presignedData.fields[key]);
+                });
+                formData.append('file', file);
+                try{
+                    fetch(presignedData.url, {
+                        method: 'POST',
+                        body: formData
+                    })
+                } catch (error) {
+                    console.error('Error uploading image:', error);
+                }
+            } else {
+                console.error('Error uploading image');
+            }
+        });
+
+        console.log('Uploading file:', file, 'to object key:', objectKey);
+
+        return objectKey;
+
+    }
+
+    // Declare quizSwiper in a broader scope so it can be accessed by other functions
+    let quizSwiper;
+
+    // Add event listeners when DOM is ready
+    const startButton = document.getElementById('startButton');
+
+    if (startButton) {
+        startButton.addEventListener('click', function() {
+            if (!handleInstallerStateCheck()) return;
+            // Hide current view (the start screen)
+            document.getElementById('quizBox').style.display = 'none';
+            // Show the quiz section
+            // Initialize Swiper for quiz
+            quizSwiper = new Swiper("#YarbosectionBox .swiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                allowTouchMove: true, // Prevent swiping to ensure quiz order
+                on: {
+                    slideChange: function() {
+                        // Update progress bar
+                        const progressBar = document.querySelector('#YarbosectionBox .bg-\\[\\#00C441\\]');
+                        if (progressBar) {
+                            const progress = ((this.activeIndex + 1) / this.slides.length) * 100;
+                            progressBar.style.width = progress + '%';
+                        }
+
+                        // Enable/disable prev button based on slide index
+                        const prevButton = document.getElementById('PreviousButton')
+                        if (prevButton) {
+                            if (this.activeIndex === 0) {
+                                prevButton.disabled = true;
+                                prevButton.classList.add('cursor-not-allowed');
+                            } else {
+                                prevButton.disabled = false;
+                                prevButton.classList.remove('cursor-not-allowed');
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Add event listeners to the next and previous buttons
+            const nextButton = document.getElementById('NextButton');
+            const prevButton = document.getElementById('PreviousButton')
+
+            // Function to update the section title based on the current slide index
+            function updateSectionTitle(index) {
+                const titleElement = document.querySelector('#YarbosectionBox p:first-child');
+                if (!titleElement) return;
+
+                if (index < 7) {
+                    titleElement.textContent = 'Yarbo section';
+                } else if (index < 12) {
+                    titleElement.textContent = 'Data center section';
+                } else {
+                    titleElement.textContent = 'Docking station section';
+                }
+            }
+
+            // Set initial section title
+            updateSectionTitle(0);
+
+            // Add event to update section title when slides change
+            quizSwiper.on('slideChange', function() {
+                updateSectionTitle(this.activeIndex);
+            });
+
+            if (nextButton) {
+                nextButton.addEventListener('click', function() {
+                    if (quizSwiper.isEnd) {
+                        // We're at the last slide, submit the quiz
+                        const answers = [];
+                        document.querySelectorAll('#YarbosectionBox .swiper-slide').forEach((slide, index) => {
+                            const selectedOption = slide.querySelector('.border-\\[\\#00C441\\]');
+                            if (selectedOption) {
+                                answers.push({
+                                    questionIndex: index,
+                                    selectedOption: Array.from(slide.querySelectorAll('.border')).indexOf(selectedOption)
+                                });
+                            }
+                        });
+
+                        console.log('Quiz answers:', answers);
+
+                        // Correct answers (0-indexed, so subtract 1 from each value in the correct answer sequence)
+                        const correctAnswers = [1, 0, 2, 2, 1, 2, 2, 0, 0, 1, 1, 2, 2, 2, 1, 2];
+
+                        // Calculate score (6.25 points per correct answer)
+                        const answerScore = answers.reduce((score, answer) => {
+                            const questionIndex = answer.questionIndex;
+                            const selectedOption = answer.selectedOption;
+                            
+                            // Check if the selected option matches the correct answer
+                            if (questionIndex < correctAnswers.length && selectedOption === correctAnswers[questionIndex]) {
+                                return score + 6.25;
+                            }
+                            return score;
+                        }, 0);
+
+                        // the answerScore and submit it to the API
+                        updateBoxByScore(answerScore);
+
+                        // Submit quiz answers
+                        fetch("https://dev.yarbo.ai/backend/v2/install/installer/complete/question/" + answerScore, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Bearer ' + authorization
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Quiz submitted:', data);
+                        })
+                        .catch(error => {
+                            console.error('Error submitting quiz:', error);
+                        });
+
+                    } else {
+                        // Not at the last slide, just go to next slide
+                        quizSwiper.slideNext();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', function() {
+                    quizSwiper.slidePrev();
+                });
+            }
+
+            // Add click handlers for question answers
+            document.querySelectorAll('#YarbosectionBox .swiper-slide .border').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options in this slide
+                    const currentSlide = this.closest('.swiper-slide');
+                    const options = currentSlide.querySelectorAll('.border');
+                    options.forEach(opt => {
+                        opt.classList.remove('border-[#00C441]', 'bg-[rgba(0,196,65,0.05)]');
+                        const icon = opt.querySelector('.iconfont');
+                        if (icon) {
+                            icon.classList.remove('icon-A7');
+                            icon.classList.remove('text-[#00C441]');
+                            icon.classList.add('icon-A8');
+                        }
+                    });
+
+                    // Add selected class to clicked option
+                    this.classList.add('border-[#00C441]', 'bg-[rgba(0,196,65,0.05)]');
+                    const icon = this.querySelector('.iconfont');
+                    if (icon) {
+                        icon.classList.remove('icon-A8');
+                        icon.classList.add('icon-A7');
+                        icon.classList.add('text-[#00C441]');
+                    }
+                });
+            });
+            document.getElementById('YarbosectionBox').style.display = 'flex';
+
+
+        });
+    }
+
+    function updateBoxByScore(answerScore){
+        // Hide quiz section
+        document.getElementById('quizBox').style.display = 'none';
+        document.getElementById('YarbosectionBox').style.display = 'none';
+
+        // Determine which result screen to show based on score
+        const isPass = answerScore >= 60;
+        const resultSection = document.getElementById(isPass ? 'endSuccessSection' : 'endErrorSection');
+        resultSection.style.display = 'flex';
+
+        // Update score display
+        const scoreElement = resultSection.querySelector('p:nth-child(4)');
+        if (scoreElement) {
+            scoreElement.textContent = `Your score: ${answerScore}`;
+        }
+
+        // Add event listener for Try Again button
+        const tryAgainButton = resultSection.querySelector('button');
+        if (tryAgainButton) {
+            tryAgainButton.addEventListener('click', function() {
+                // Hide result section
+                resultSection.style.display = 'none';
+
+                if (!quizSwiper) {
+                    startButton.click();
+                    return;
+                }
+                
+                // Reset all selected answers
+                document.querySelectorAll('#YarbosectionBox .swiper-slide .border-\\[\\#00C441\\]').forEach(option => {
+                    option.classList.remove('border-[#00C441]', 'bg-[rgba(0,196,65,0.05)]');
+                    const icon = option.querySelector('.iconfont');
+                    if (icon) {
+                        icon.classList.remove('icon-A7', 'text-[#00C441]');
+                        icon.classList.add('icon-A8');
+                    }
+                });
+                
+                // Reset to first slide and update progress
+                quizSwiper.slideTo(0);
+                
+                // Update progress bar to beginning
+                const progressBar = document.querySelector('#YarbosectionBox .bg-\\[\\#00C441\\]');
+                if (progressBar) {
+                    progressBar.style.width = '6.25%';
+                }
+                
+                // Disable previous button 
+                const prevButton = document.getElementById('PreviousButton');
+                if (prevButton) {
+                    prevButton.disabled = true;
+                    prevButton.classList.add('cursor-not-allowed');
+                }
+                
+                // Show quiz section again to restart
+                document.getElementById('YarbosectionBox').style.display = 'flex';
+            });
+        }
+    }
+</script>
+
+<script>
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement("script");
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player("YouTubevideoplayer", {
+            videoId: "",
+            height: "100%",
+            width: "100%",
+            playerVars: {
+                playsinline: 1,
+                controls: "aspect-[16/9]",
+                loop: 1,
+                start: 0,
+                cc_load_policy: 0,
+                modestbranding: 1,
+                autoplay: 1,
+                rel: 0,
+                showinfo: 1,
+                fs: 0,
+            },
+        });
+    }
+
+    function stopVideo() {
+        player.stopVideo();
+    }
+
+    document.querySelectorAll(".yarbo_video_image").forEach((element) => {
+        element.addEventListener("click", () => {
+            document.getElementById("showVideo").style.display = "flex";
+            const videoId = element.querySelector("img").alt;
+            player.loadVideoById(videoId);
+        });
+    });
+
+    document.getElementById("closeVideo").addEventListener("click", () => {
+        document.getElementById("showVideo").style.display = "none";
+        player.stopVideo();
+    });
+
+    // Add video upload and preview functionality
+    document.addEventListener("DOMContentLoaded", function () {
+        // Create a hidden file input element for video uploads
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.id = "videoFile";
+        fileInput.accept = "video/*";
+        fileInput.style.display = "none";
+        document.body.appendChild(fileInput);
+
+        // Add click event to the upload video button
+        const uploadBtn = document.getElementById("uploadvideoFile");
+        if (uploadBtn) {
+            uploadBtn.addEventListener("click", function () {
+                // First check installer state before allowing upload
+                if (!handleInstallerStateCheck()) return;
+
+                // Trigger file input click
+                fileInput.click();
+            });
+        }
+
+        // Handle file selection
+        fileInput.addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            // Validate file type is video
+            if (!file.type.startsWith("video/")) {
+                notification.error({
+                    message: "Please upload a video file",
+                    closeIcon: false,
+                    duration: 3,
+                    placement: "top",
+                });
+                return;
+            }
+
+            // Create video element to display the preview
+            const videoPreviewBox = document.getElementById("videoPreviewBox");
+            videoPreviewBox.innerHTML = ""; // Clear previous content
+
+            const videoElement = document.createElement("video");
+            videoElement.controls = true;
+            videoElement.autoplay = false;
+            videoElement.style.width = "100%";
+            videoElement.style.height = "100%";
+            videoElement.style.objectFit = "cover";
+            videoElement.style.borderRadius = "16px";
+
+            // Create URL for the video file
+            const videoURL = URL.createObjectURL(file);
+            videoElement.src = videoURL;
+
+            // Add video to the preview box
+            videoPreviewBox.appendChild(videoElement);
+
+            // Optional: Add file name and size display
+            const fileInfo = document.createElement("div");
+            fileInfo.className = "file-info";
+            fileInfo.style.position = "absolute";
+            fileInfo.style.bottom = "10px";
+            fileInfo.style.left = "10px";
+            fileInfo.style.color = "white";
+            fileInfo.style.backgroundColor = "rgba(0,0,0,0.5)";
+            fileInfo.style.padding = "5px 10px";
+            fileInfo.style.borderRadius = "4px";
+            fileInfo.style.fontSize = "12px";
+            fileInfo.innerHTML = `${file.name} (${(
+                file.size /
+                (1024 * 1024)
+            ).toFixed(2)} MB)`;
+            videoPreviewBox.appendChild(fileInfo);
+
+            // In a real implementation, you would upload to your server here
+            console.log("Video selected for upload:", file);
+
+            // Update installer state to indicate video upload
+            submitVideoToAPI(file);
+        });
+    });
+
+    // Once the video is processed, submit to the installer API
+    async function submitVideoToAPI(file) {
+        const objectKey = uploadVideo(file);
+
+        console.log("Video uploaded to S3, object key:", objectKey);
+
+        const response = await fetch(
+            "https://dev.yarbo.ai/backend/v2/install/installer/complete/upload/video",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Bearer " + authorization,
+                },
+                body: JSON.stringify({
+                    video_key: objectKey,
+                }),
+            }
+        );
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log("Video submission successful:", data);
+        } else {
+            throw new Error("Video submission failed");
+        }
+    }
+
+    // Upload video using presignedUrlPut endpoint
+    function uploadVideo(file) {
+        // Get a unique object key based on file name and timestamp
+        const timestamp = new Date().getTime();
+        const fileName = file.name;
+        const objectKey = `installer-videos/${timestamp}-${fileName}`;
+
+        // Request parameters for getting presigned URL
+        const requestParams = {
+            bucket: "yarbo-market",
+            contentType: file.type,
+            objectKey: objectKey,
+        };
+
+        // Make request to get presigned URL
+        fetch(
+            "https://4zx17x5q7l.execute-api.us-east-1.amazonaws.com/Stage/yarbo/common/presignedUrlPut",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(requestParams),
+            }
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success && data.data) {
+                    const presignedData = data.data;
+                    const formData = new FormData();
+                    Object.keys(presignedData.fields).forEach((key) => {
+                        formData.append(key, presignedData.fields[key]);
+                    });
+                    formData.append("file", file);
+                    try {
+                        fetch(presignedData.url, {
+                            method: "POST",
+                            body: formData,
+                        });
+                    } catch (error) {
+                        console.error("Error uploading image:", error);
+                    }
+                } else {
+                    throw new Error("Failed to get presigned URL");
+                }
+            });
+
+        return objectKey;
+    }
+</script>

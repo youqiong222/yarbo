@@ -1,0 +1,296 @@
+{%- liquid
+  assign b = block.settings
+  assign tag = b.html_tag | default: 'div'
+-%}
+<div class='page-container'>
+  <{{ tag }}
+    class='block-{{ block.id }} w-full text-{{ b.align_h5 }} md:text-{{ b.align_pc }} pt-(--pt-h5) pr-(--pr-h5) pb-(--pb-h5) pl-(--pl-h5) md:pt-(--pt-pc) md:pr-(--pr-pc) md:pb-(--pb-pc) md:pl-(--pl-pc)'
+    style='
+      --content_width_pc: {{ b.content_width_pc }}px;
+      --pt-pc: {{ b.pt_pc }}px;
+      --pb-pc: {{ b.pb_pc }}px;
+      --pl-pc: {{ b.pl_pc }}px;
+      --pr-pc: {{ b.pr_pc }}px;
+      --pt-h5: {{ b.pt_h5 }}px;
+      --pb-h5: {{ b.pb_h5 }}px;
+      --pl-h5: {{ b.pl_h5 }}px;
+      --pr-h5: {{ b.pr_h5 }}px;
+      --line-height: {{ b.line_height }};
+      --font-size-pc: {{ b.font_size_pc }}px;
+      --font-size-h5: {{ b.font_size_h5 }}px;
+      --font-weight: {{ b.font_weight }};
+      --text-color: {{ b.text_color }};
+      --strong-color: {{ b.strong_color }};
+      --link-color: {{ b.link_color }};
+      --bg-color: {{ b.bg_color }};
+    '
+  >
+    <div
+      {{ block.shopify_attributes }}
+      class='
+        md:max-w-(--content_width_pc)
+        {% if b.align_h5 == 'left' %}
+        max-[999px]:mr-auto
+        {% elsif b.align_h5 == 'center' %}
+        max-[999px]:mx-auto
+        {% elsif b.align_h5 == 'right' %}
+        max-[999px]:ml-auto
+        {% endif %}
+        {% if b.align_pc == 'left' %}
+        md:mr-auto
+        {% elsif b.align_pc == 'center' %}
+        md:mx-auto
+        {% elsif b.align_pc == 'right' %}
+        md:ml-auto
+        {% endif %}
+        {{ b.text_transform }}
+        bg-(--bg-color)
+        text-(length:--font-size-h5) leading-(--line-height) font-(--font-weight) text-(--text-color) md:text-(length:--font-size-pc) [&_a]:text-(--link-color) [&_a]:underline [&_a]:transition-colors hover:[&_a]:opacity-80 [&_p]:mb-4 last:[&_p]:mb-0 [&_strong]:font-bold [&_strong]:text-(--strong-color)
+      '
+    >
+      {%- if b.text != blank -%}
+        <div>{{ b.text }}</div>
+      {%- endif -%}
+    </div>
+  </{{ tag }}>
+</div>
+
+{% schema %}
+{
+  "name": "Text Block",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "header",
+      "content": "HTML Tag & Content"
+    },
+    {
+      "type": "range",
+      "id": "content_width_pc",
+      "label": "Content Width (PC)",
+      "default": 1320,
+      "min": 400,
+      "max": 1320,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "html_tag",
+      "label": "Wrapper HTML Tag",
+      "options": [
+        { "value": "div", "label": "DIV" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "div"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text Content",
+      "default": "<p>Your text content here</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Text Transform",
+      "options": [
+        { "value": "none", "label": "Normal Case" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Typography & Alignment"
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font Weight",
+      "options": [
+        { "value": "400", "label": "Normal (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semi Bold (600)" },
+        { "value": "700", "label": "Bold (700)" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "select",
+      "id": "line_height",
+      "label": "Line Height",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "1.1", "label": "1.1" },
+        { "value": "1.2", "label": "1.2" },
+        { "value": "1.3", "label": "1.3" },
+        { "value": "1.4", "label": "1.4" }
+      ],
+      "default": "1.3"
+    },
+    {
+      "type": "range",
+      "id": "font_size_pc",
+      "label": "Font Size (PC)",
+      "min": 12,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "font_size_h5",
+      "label": "Font Size (Mobile)",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "align_pc",
+      "label": "Text Alignment (PC)",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "align_h5",
+      "label": "Text Alignment (Mobile)",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Normal Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "strong_color",
+      "label": "Strong (Bold) Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color",
+      "default": "#0056b3"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Spacing (PC)"
+    },
+    {
+      "type": "range",
+      "id": "pt_pc",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb_pc",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pl_pc",
+      "label": "Padding Left",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pr_pc",
+      "label": "Padding Right",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "pt_h5",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb_h5",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pl_h5",
+      "label": "Padding Left",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pr_h5",
+      "label": "Padding Right",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "text block"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,142 @@
+@media screen and (max-width: 749px) {
+  .articles-wrapper .article {
+    width: 100%;
+  }
+}
+
+.article {
+  display: flex;
+  align-items: center;
+}
+
+.article.grid__item {
+  padding: 0;
+}
+
+.grid--peek .article-card {
+  box-sizing: border-box;
+}
+
+.article-card__image-wrapper > a {
+  display: block;
+}
+
+.article-card__title {
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.article-card__title a:after {
+  bottom: 0;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.article-card__link.link {
+  padding: 0;
+}
+
+.article-card__link {
+  text-underline-offset: 2px;
+}
+
+.article-card .card__heading {
+  margin-bottom: 6px;
+}
+
+.blog-articles .article-card .card__information,
+.blog__posts .article-card .card__information {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.article-card__info {
+  padding-top: 4px;
+}
+
+.article-card__footer {
+  letter-spacing: 0px;
+  font-size: 14px;
+}
+
+.article-card__footer:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.article-card__footer:last-child {
+  margin-top: auto;
+}
+
+.article-card__excerpt {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.article-card__link:not(:only-child) {
+  margin-right: 30px;
+}
+
+@media screen and (min-width: 990px) {
+  .article-card__link:not(:only-child) {
+    margin-right: 40px;
+  }
+}
+
+.article-card__image--small .ratio::before {
+  padding-bottom: 110px;
+}
+
+.article-card__image--medium .ratio::before {
+  padding-bottom: 220px;
+}
+
+.article-card__image--large .ratio::before {
+  padding-bottom: 330px;
+}
+
+@media screen and (min-width: 750px) {
+  .article-card__image--small .ratio::before {
+    padding-bottom: 142px;
+  }
+
+  .article-card__image--medium .ratio::before {
+    padding-bottom: 218px;
+  }
+
+  .article-card__image--large .ratio::before {
+    padding-bottom: 274px;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .article-card__image--small .ratio::before {
+    padding-bottom: 176px;
+  }
+
+  .article-card__image--medium .ratio::before {
+    padding-bottom: 306px;
+  }
+
+  .article-card__image--large .ratio::before {
+    padding-bottom: 406px;
+  }
+}
+
+/* check for flexbox gap in older Safari versions */
+@supports not (inset: 10px) {
+  .articles-wrapper.grid {
+    margin: 0 0 50px 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .articles-wrapper.grid {
+      margin-bottom: 70px;
+    }
+  }
+}

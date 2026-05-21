@@ -1,0 +1,390 @@
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-image-text-block.css'
+  media='all'
+  rel='stylesheet'
+  type='text/css'
+>
+<style>
+  #shopify-section-{{ section.id }}  img {
+    object-fit: contain;
+  }
+</style>
+{% render 'yb-section-style', section: section %}
+<style>
+  #shopline-section-{{ section.id }} .text-container {
+    text-align: left;
+  }
+</style>
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div class='image-text-section yb-section-container'>
+  {% if section.settings.section_title != blank %}
+    <h2 class='yb-section-title image-text-section_title'>{{ section.settings.section_title }}</h2>
+  {% endif %}
+
+  {% for block in section.blocks %}
+    <div
+      class='image-text-container'
+      id='block-{{ block.id }}'
+      {{ block.shopify_attributes }}
+    >
+      <style>
+        @media (min-width: 960px) {
+          #block-{{ block.id }} .text-container {
+            width: {{ block.settings.text_width }}%;
+            padding-left: {{ block.settings.text_padding }}px;
+            padding-right: {{ block.settings.text_padding }}px;
+          }
+          #block-{{ block.id }} .image-container {
+            width: {{ block.settings.image_width }}%;
+          }
+        }
+      </style>
+
+      <div class='image-text-inner layout-image-{{ block.settings.layout }}'>
+        <div class='text-container'>
+          {% if block.settings.block_title != blank %}
+            <h3 class='yb-block-title'>{{ block.settings.block_title }}</h3>
+          {% endif %}
+
+          {% if block.settings.block_description != blank %}
+            <div class='yb-block-description'>{{ block.settings.block_description }}</div>
+          {% endif %}
+        </div>
+
+        <div class='image-container'>
+          {% if block.settings.pc_local_video != blank %}
+            <video
+              preload='auto'
+              autoplay
+              loop
+              muted
+              playsinline
+              tabindex='-1'
+              class='hidden-mobile'
+            >
+              {% for source in block.settings.pc_local_video.sources %}
+                <source
+                  src='{{ source.url }}'
+                  type='{{ source.mime_type }}'
+                >
+              {% endfor %}
+            </video>
+          {% elsif block.settings.pc_external_video != blank %}
+            <iframe
+              src='{{ block.settings.pc_external_video }}'
+              frameborder='0'
+              allowfullscreen
+              class='hidden-mobile'
+              loading='lazy'
+            ></iframe>
+          {% elsif block.settings.pc_image != blank %}
+            {{ block.settings.pc_image | image_url: width: 1500 | image_tag: class: 'hidden-mobile', loading: 'lazy' }}
+          {% else %}
+            <div class='fallback-placeholder hidden-mobile'></div>
+          {% endif %}
+
+          {% if block.settings.mobile_local_video != blank %}
+            <video
+              data-full-width='{{ block.settings.mobile_full_width }}'
+              preload='auto'
+              autoplay
+              loop
+              muted
+              playsinline
+              tabindex='-1'
+              class='hidden-desktop'
+            >
+              {% for source in block.settings.mobile_local_video.sources %}
+                <source
+                  src='{{ source.url }}'
+                  type='{{ source.mime_type }}'
+                >
+              {% endfor %}
+            </video>
+          {% elsif block.settings.mobile_external_video != blank %}
+            <iframe
+              data-full-width='{{ block.settings.mobile_full_width }}'
+              src='{{ block.settings.mobile_external_video }}'
+              frameborder='0'
+              allowfullscreen
+              class='hidden-desktop'
+              loading='lazy'
+            ></iframe>
+          {% elsif block.settings.mobile_image != blank %}
+            {{
+              block.settings.mobile_image
+              | image_url: width: 800
+              | image_tag:
+                class: 'hidden-desktop',
+                loading: 'lazy',
+                decoding: 'async',
+                style: 'aspect-ratio: initial;',
+                data-full-width: block.settings.mobile_full_width
+            }}
+          {% else %}
+            <div class='fallback-placeholder hidden-desktop'></div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "yb image text block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "richtext",
+      "id": "section_title",
+      "label": "标题",
+      "default": "<p>Unmatched Precision, Hands-Free Operation</p>"
+    },
+    {
+      "type": "header",
+      "content": "section填充"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景颜色",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1920",
+      "label": "1920顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1920",
+      "label": "1920底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1440",
+      "label": "1440顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1440",
+      "label": "1440底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_960",
+      "label": "960顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_960",
+      "label": "960底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_680",
+      "label": "680顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_680",
+      "label": "680底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_375",
+      "label": "375顶部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_375",
+      "label": "375底部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_text_block",
+      "name": "图文块",
+      "settings": [
+        {
+          "type": "header",
+          "content": "布局设置"
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "布局",
+          "options": [
+            {
+              "value": "right",
+              "label": "左文右图"
+            },
+            {
+              "value": "left",
+              "label": "左图右文"
+            }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "label": "图片区域宽度",
+          "min": 30,
+          "max": 70,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "text_width",
+          "label": "文字区域宽度",
+          "min": 30,
+          "max": 70,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "text_padding",
+          "label": "文字区域左右padding",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 20
+        },
+        {
+          "type": "header",
+          "content": "文字内容"
+        },
+        {
+          "type": "richtext",
+          "id": "block_title",
+          "label": "文字标题",
+          "default": "<p>Mow with Reliable Navigation</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "block_description",
+          "label": "描述",
+          "default": "<p>Experience smooth, uninterrupted navigation with Yarbo’s reliable network...</p>"
+        },
+        {
+          "type": "header",
+          "content": "PC端媒体"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC端封面图"
+        },
+        {
+          "type": "video",
+          "id": "pc_local_video",
+          "label": "PC端本地视频"
+        },
+        {
+          "type": "text",
+          "id": "pc_external_video",
+          "label": "PC端外部视频链接",
+          "info": "支持youtube，firework"
+        },
+        {
+          "type": "header",
+          "content": "移动端媒体"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "M端封面图"
+        },
+        {
+          "type": "video",
+          "id": "mobile_local_video",
+          "label": "M端本地视频"
+        },
+        {
+          "type": "text",
+          "id": "mobile_external_video",
+          "label": "M端外部视频链接",
+          "info": "支持youtube，firework"
+        },
+        {
+          "type": "select",
+          "id": "mobile_full_width",
+          "label": "M端图片视频宽度",
+          "options": [
+            {
+              "value": "true",
+              "label": "全屏"
+            },
+            {
+              "value": "false",
+              "label": "留边"
+            }
+          ],
+          "default": "false"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "yb image text block",
+      "blocks": [
+        {
+          "type": "image_text_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

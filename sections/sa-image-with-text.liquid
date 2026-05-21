@@ -1,0 +1,364 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  {% if section.settings.sub_title != blank or section.settings.section_heading != blank %}
+    <div class='mb-32 {% if section.settings.heading_alignment == "center" %}text-center{% elsif section.settings.heading_alignment == "right" %}text-right{% else %}text-left{% endif %}'>
+      {% if section.settings.sub_title != blank %}
+        <span class='mb-12 block text-[14px]/[1.4] font-medium text-[#515355] md:mb-16'>
+          {{- section.settings.sub_title -}}
+        </span>
+      {% endif %}
+      {% if section.settings.section_heading != blank %}
+        <h2 class='text-[26px]/[1.1] font-bold text-[#25282A] uppercase md:text-[32px]'>
+          <div class='hidden md:block'>
+            {{ section.settings.section_heading }}
+          </div>
+          <div class='md:hidden'>
+            {{ section.settings.section_heading | strip_html }}
+          </div>
+        </h2>
+      {% endif %}
+    </div>
+  {% endif %}
+  <div
+    class='
+      flex bg-[#f2f2f2] md:items-center {% if section.settings.mobile_layout == 'image_top' %}
+        flex-col
+      {% else %}
+        flex-col-reverse
+      {% endif %}
+      {% if section.settings.pc_layout == 'image_left' %}
+        md:flex-row
+      {% else %}
+        md:flex-row-reverse
+      {% endif %}
+    '
+  >
+    <div
+      style='--width:{{ section.settings.image_width }}%'
+      class='md:w-(--width)'
+    >
+      {%- liquid
+        assign b = section.settings
+        assign pc_w = b.pc_aspect_ratio_w | default: 16
+        assign pc_h = b.pc_aspect_ratio_h | default: 9
+        assign pc_ratio = pc_w | append: '/' | append: pc_h
+        assign h5_w = b.h5_aspect_ratio_w | default: 16
+        assign h5_h = b.h5_aspect_ratio_h | default: 9
+        assign h5_ratio = h5_w | append: '/' | append: h5_h
+      -%}
+      <div
+        style='
+          --media-aspect-pc: {{ pc_ratio }};
+          --media-aspect-h5: {{ h5_ratio }};
+        '
+        class='
+          relative aspect-(--media-aspect-h5) w-full
+          overflow-hidden md:aspect-(--media-aspect-pc)
+        '
+      >
+        {% render 'media-element',
+          class: 'absolute inset-0 w-full h-full object-cover',
+          media_class: 'w-full h-full object-cover',
+          media_type: section.settings.media_type,
+          pc_image: section.settings.pc_image,
+          h5_image: section.settings.h5_image,
+          pc_video: section.settings.pc_video,
+          h5_video: section.settings.h5_video,
+          video_url: section.settings.video_url,
+          other_url: section.settings.other_url
+        %}
+      </div>
+    </div>
+    <div class='flex-1 p-24  md:px-60 md:py-40'>
+      <div class='mb-16 w-fit bg-[#fedb1e] px-12 py-4 text-[12px]/[1.4] font-bold text-[#25282a]'>
+        {{ section.settings.label }}
+      </div>
+      <h1 class='text-[32px]/[1.1] font-bold text-[#25282a] uppercase md:text-[44px]/[1.1]'>
+        {%- if section.settings.product != blank -%}
+          {{ section.settings.product.title }}
+        {% else %}
+          {{ section.settings.title }}
+        {%- endif -%}
+      </h1>
+      {%- if section.settings.text != blank -%}
+        <div class='mt-12 text-[14px]/[1.4] font-medium text-[#515355]'>
+          {{ section.settings.text }}
+        </div>
+      {%- endif -%}
+      <div class='leading-1.1 mt-20 flex items-center gap-4 text-[20px] md:mt-24 md:text-[22px]'>
+        <span class='font-bold text-[#25282a]'>
+          {{- section.settings.product.price | money -}}
+        </span>
+        {% if section.settings.product.compare_at_price > section.settings.product.price %}
+          <span class='text-[18px] font-normal text-[#a6a6a6] line-through decoration-1 md:text-[20px]'>
+            {{- section.settings.product.compare_at_price | money -}}
+          </span>
+        {% endif %}
+      </div>
+      {% render 'sn-yarbo-pay', product: section.settings.product, pay_class: ' mt-10' %}
+      {%- if section.settings.product != blank -%}
+        <div class='mt-24 flex h-45 items-center gap-8 md:mt-32'>
+          {% if section.settings.learn_more != blank %}
+            <a
+              href='{{ section.settings.learn_more_link }}'
+              {% if section.settings.btn_anchor_id != blank %}
+                data-anchor-id='{{ section.settings.btn_anchor_id }}'
+              {% endif %}
+              class='flex h-44 items-center justify-center bg-[#ffffff] px-24 text-[14px]/[1.4] font-medium text-[#25282a] no-underline transition duration-300 hover:bg-[#FEDB1E] md:px-32'
+            >
+              {{ section.settings.learn_more }}
+            </a>
+          {% endif %}
+          {%- assign product_form_id = 'iw-add-' | append: section.id -%}
+          {%- render 'sn-buy-buttons-new',
+            add_text: section.settings.shop_now,
+            btn_class: 'h-44 px-24 md:px-32 text-[14px] font-medium bg-[#fedb1e]! text-[#25282a]! border-0! hover:bg-[#25282a]! hover:text-[#ffffff]!',
+            product: section.settings.product,
+            product_form_id: product_form_id,
+            section_id: section.id
+          -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Image With Text",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "richtext",
+      "id": "section_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image Width",
+      "min": 40,
+      "max": 100,
+      "step": 1,
+      "default": 58,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Shopify Video"
+        },
+        {
+          "value": "video_url",
+          "label": "External Video URL"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "PC Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_image",
+      "label": "H5 Image"
+    },
+    {
+      "type": "video",
+      "id": "pc_video",
+      "label": "PC Shopify Video"
+    },
+    {
+      "type": "video",
+      "id": "h5_video",
+      "label": "H5 Shopify Video(Optional)"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Platform Video URL (YouTube/Vimeo)",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+    },
+    {
+      "type": "text",
+      "id": "other_url",
+      "label": "Other Video URL",
+      "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+    },
+
+    {
+      "type": "header",
+      "content": "Media Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "product"
+    },
+    {
+      "type": "text",
+      "id": "shop_now",
+      "label": "Shop Now",
+      "default": "Shop now"
+    },
+    {
+      "type": "text",
+      "id": "learn_more",
+      "label": "Learn more",
+      "default": "Learn more"
+    },
+    {
+      "type": "header",
+      "content": "Learn More Link"
+    },
+    {
+      "type": "url",
+      "id": "learn_more_link",
+      "label": "Learn More Link"
+    },
+    {
+      "type": "text",
+      "id": "btn_anchor_id",
+      "label": "Button Anchor Id"
+    },
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "select",
+      "id": "pc_layout",
+      "label": "PC Layout",
+      "default": "image_left",
+      "options": [
+        { "value": "image_right", "label": "Text Left, Image Right" },
+        { "value": "image_left", "label": "Image Left, Text Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile Layout",
+      "default": "image_top",
+      "options": [
+        { "value": "text_top", "label": " Text Top, Image Bottom" },
+        { "value": "image_top", "label": "Image Top, Text Bottom" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image With Text"
+    }
+  ]
+}
+{% endschema %}

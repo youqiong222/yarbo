@@ -1,0 +1,40 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color | default: 'rgba(0, 0, 0, 0)' }};
+  }
+
+  @media (max-width: 679px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_375 | default: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom_375 | default: 0 }}px;
+    }
+  }
+
+  @media (min-width: 680px) and (max-width: 959px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_680 | default: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom_680 | default: 0 }}px;
+    }
+  }
+
+  @media (min-width: 960px) and (max-width: 1439px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_960 | default: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom_960 | default: 0 }}px;
+    }
+  }
+
+  @media (min-width: 1440px) and (max-width: 1919px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_1440 | default: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom_1440 | default: 0 }}px;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_1920 | default: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom_1920 | default: 0 }}px;
+    }
+  }
+</style>

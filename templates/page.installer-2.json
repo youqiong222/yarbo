@@ -1,0 +1,591 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_fLtaMm": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "yb_banner_swiper_MDKzPA": {
+      "type": "yb-banner-swiper",
+      "blocks": {
+        "item_zDFrHt": {
+          "type": "item",
+          "settings": {
+            "text_horizontal_position": "left",
+            "text_vertical_position": "center",
+            "text_width": 50,
+            "description": "",
+            "title": "<p>Installer Program</p>",
+            "subTitle": "<p>Share your expertise, bring joy by helping others, and earn fantastic rewards in the process!</p>",
+            "enable_btn_group": true,
+            "enable_global_btn": false,
+            "enable_global_anchor": false,
+            "global_anchor_id": "",
+            "button_text": "Installer Map >",
+            "button_type": "anchor",
+            "button_link": "",
+            "button_class": "",
+            "button_anchor": "map",
+            "button_modal_title": "",
+            "button_modal_content": "",
+            "button2_text": "Become an Installer",
+            "button2_type": "link",
+            "button2_link": "https://mseries.yarbo.com/pages/installer-register",
+            "button2_class": "",
+            "button2_anchor": "",
+            "button2_modal_title": "",
+            "button2_modal_content": "",
+            "enable_subscription": false,
+            "subscription_absolute": false,
+            "subscription_position": 24,
+            "email_type": "",
+            "klaviyo_list_id": "",
+            "subscription_title": "",
+            "subscription_button_text": "",
+            "pc_img": "shopify://shop_images/Frame-1948756624.webp",
+            "pc_external_video": "",
+            "mobile_img": "shopify://shop_images/Frame-1948756623.webp",
+            "mobile_external_video": "",
+            "mobile_layout": "style1"
+          }
+        }
+      },
+      "block_order": [
+        "item_zDFrHt"
+      ],
+      "name": "Yb-Banner",
+      "settings": {
+        "banner_speed": 6
+      }
+    },
+    "yb_image_text_block_rFYTRf": {
+      "type": "yb-image-text-block",
+      "blocks": {
+        "image_text_block_rTdmJF": {
+          "type": "image_text_block",
+          "settings": {
+            "layout": "left",
+            "image_width": 50,
+            "text_width": 50,
+            "text_padding": 20,
+            "block_title": "",
+            "block_description": "<p><strong>Get Installation Help</strong><br/>Some users find Yarbo setup challenging. Our community of skilled, helpful members is ready to assist — making your installation smoother and easier.</p><p><strong>Share Your Skills & Earn</strong><br/>Become a Volunteer Installer to help others, gain recognition, and earn rewards like Yarbo points and free gifts.</p>",
+            "pc_image": "shopify://shop_images/DSC-4674-1.webp",
+            "pc_external_video": "",
+            "mobile_image": "shopify://shop_images/DSC-4674-1-_1.webp",
+            "mobile_external_video": "",
+            "mobile_full_width": "false"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_rTdmJF"
+      ],
+      "name": "yb image text block",
+      "settings": {
+        "anchor_id": "",
+        "section_title": "<p>Unmatched Precision, Hands-Free Operation</p>",
+        "bg_color": "#ffffff",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 60,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 50,
+        "padding_top_960": 64,
+        "padding_bottom_960": 32,
+        "padding_top_680": 64,
+        "padding_bottom_680": 32,
+        "padding_top_375": 48,
+        "padding_bottom_375": 24
+      }
+    },
+    "yarbo_picture_card_display_tCDceF": {
+      "type": "yarbo-picture-card-display",
+      "blocks": {
+        "image_text_block_yfQ6WN": {
+          "type": "image_text_block",
+          "settings": {
+            "title": "<p>Locate</p>",
+            "text": "<p>Use the map to locate nearby Yarbo Volunteer Installers.</p>",
+            "image": "shopify://shop_images/Frame-1948756629-0.webp"
+          }
+        },
+        "image_text_block_dXMc8c": {
+          "type": "image_text_block",
+          "settings": {
+            "title": "<p>Contact</p>",
+            "text": "<p>Contact a Volunteer Installer by using their provided details.</p>",
+            "image": "shopify://shop_images/Frame-1948756631-0.webp"
+          }
+        },
+        "image_text_block_ynKPHf": {
+          "type": "image_text_block",
+          "settings": {
+            "title": "<p>Meet</p>",
+            "text": "<p>Prepare your Yarbo and<br/>arrange a meetup.</p>",
+            "image": "shopify://shop_images/Frame-1948756631-_1_-0.webp"
+          }
+        },
+        "image_text_block_m9pXFk": {
+          "type": "image_text_block",
+          "settings": {
+            "title": "<p>Share</p>",
+            "text": "<p>Finish the installation process and then evaluate the service provided.</p>",
+            "image": "shopify://shop_images/Frame-1948756633-0.webp"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_yfQ6WN",
+        "image_text_block_dXMc8c",
+        "image_text_block_ynKPHf",
+        "image_text_block_m9pXFk"
+      ],
+      "name": "Yarbo Picture card display",
+      "settings": {
+        "anchor_id": "",
+        "bg_color": "#ffffff",
+        "common_title": "<p>Locate, Contact, Meet & Share</p>",
+        "common_content": "",
+        "common_button_text": "",
+        "M-swiper-show": false,
+        "PC-number-show": 4,
+        "common_button_type": "link",
+        "common_button_link": "",
+        "common_button_anchor": "",
+        "common_button_modal_title": "",
+        "common_button_modal_content": "",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 60,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 50,
+        "padding_top_960": 64,
+        "padding_bottom_960": 32,
+        "padding_top_680": 64,
+        "padding_bottom_680": 32,
+        "padding_top_375": 48,
+        "padding_bottom_375": 24
+      }
+    },
+    "yb_rich_photo_gallery_EQJ3rB": {
+      "type": "yb-rich-photo-gallery",
+      "blocks": {
+        "photo_row_axbd97": {
+          "type": "photo_row",
+          "settings": {
+            "image_1": "shopify://shop_images/IMG-9205.webp",
+            "image_2": "shopify://shop_images/Frame-1960929779.webp",
+            "image_3": "shopify://shop_images/Frame-1960929777.webp",
+            "image_4": "shopify://shop_images/Frame-1960929767.webp",
+            "image_5": "shopify://shop_images/Frame-1960929776.webp",
+            "image_6": "shopify://shop_images/ERK-8321.webp",
+            "image_7": "shopify://shop_images/IMG-0056.webp"
+          }
+        },
+        "photo_row_e8nYTK": {
+          "type": "photo_row",
+          "settings": {
+            "image_1": "shopify://shop_images/ERK-8280.webp",
+            "image_2": "shopify://shop_images/IMG-9946.webp",
+            "image_3": "shopify://shop_images/ERK-0453.webp",
+            "image_4": "shopify://shop_images/ERK-8111.webp",
+            "image_5": "shopify://shop_images/ERK-7900.webp",
+            "image_6": "shopify://shop_images/ERK-6544_1.webp",
+            "image_7": "shopify://shop_images/ERK-8321.webp"
+          }
+        }
+      },
+      "block_order": [
+        "photo_row_axbd97",
+        "photo_row_e8nYTK"
+      ],
+      "name": "Yb Rich Photo Gallery",
+      "settings": {
+        "anchor_id": "",
+        "switch_scroll": true,
+        "title": "<p>Highlights</p>",
+        "subtitle": "",
+        "picture_width": 338,
+        "picture_width_m": 312,
+        "picture_width_m_small": 176,
+        "button_text": "",
+        "button_type": "link",
+        "button_link": "",
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "bg_color": "#ffffff",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "installer_new_map_7KVdJC": {
+      "type": "installer-new-map",
+      "name": "installer-new-map",
+      "settings": {
+        "anchor_id": "map",
+        "common_title": "<p>Use Map to Find a Volunteer Installer</p>"
+      }
+    },
+    "custom_rich_text_component_gfLLbn": {
+      "type": "custom-rich-text-component",
+      "name": "Rich text component",
+      "settings": {
+        "text_align": "center",
+        "title": "<p>Want to become a Volunteer Installer?</p>",
+        "description": "<p>Are you proficient in technology and confident in your installation skills? This is an opportunity to showcase your expertise by assisting others. Become a Volunteer Installer with us and enjoy exclusive benefits such as significant Yarbo Points, a dedicated tech support line, a distinctive status symbol within our community, and more.</p>",
+        "button_text": "Click Here",
+        "button_type": "link",
+        "button_link": "https://www.yarbo.com/pages/installer-register",
+        "button_class": "",
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "bg_color": "#f5f5f5",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yb_multicolumn_Jp9w7e": {
+      "type": "yb-multicolumn",
+      "blocks": {
+        "image_item_mCtDad": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Substantial Yarbo Points",
+            "block_description": "<p>For every successful installation you assist with, you'll get <strong>7,500 Yarbo Points.</strong></p>",
+            "block_image": "shopify://shop_images/Frame-1948756635-_1__480x_ee26fb82-7fe9-478c-85ca-3245e705952f.webp",
+            "block_rating": 5
+          }
+        },
+        "image_item_qRkXAF": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Immense Rewards",
+            "block_description": "<p>Receive <strong>10,000 Yarbo Points</strong> once you become a Volunteer Installer, and <strong>special offers periodically.</strong></p>",
+            "block_image": "shopify://shop_images/Frame-1948756636_480x_006d8f4b-b133-4064-bfa6-11724f849134.webp",
+            "block_rating": 5
+          }
+        },
+        "image_item_WQ7Ep3": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Free Gifts",
+            "block_description": "<p>A customized <strong>Yarbo t-shirt</strong> sent directly to you as a token of our appreciation, with <strong>more gifts to come.</strong></p>",
+            "block_image": "shopify://shop_images/Frame-1948756637.webp",
+            "block_rating": 5
+          }
+        },
+        "image_item_p4jnVi": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Exclusive Technical Support",
+            "block_description": "<p>You will have exclusive access to Yarbo's technical support team, enabling you to resolve any issues more efficiently.</p>",
+            "block_image": "shopify://shop_images/Frame-1948756638.webp",
+            "block_rating": 5
+          }
+        },
+        "image_item_NW4cFJ": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Community Collaboration",
+            "block_description": "<p>Gain access to the Installer Community, where you'll rub shoulders with Yarbo's R&D engineers.</p>",
+            "block_image": "shopify://shop_images/Universal33.webp",
+            "block_rating": 5
+          }
+        },
+        "image_item_FmwQKN": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Special Identification",
+            "block_description": "<p>Earn the prestigious Official Yarbo Installer Certificate, a badge of honor to display in our community, signifying your expertise and status as a Yarbo family leader.</p>",
+            "block_image": "shopify://shop_images/golden-star-icon-symbol-ranking-rating-review-sign-illustration-3d-rendering-1.webp",
+            "block_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "image_item_mCtDad",
+        "image_item_qRkXAF",
+        "image_item_WQ7Ep3",
+        "image_item_p4jnVi",
+        "image_item_NW4cFJ",
+        "image_item_FmwQKN"
+      ],
+      "name": "Yb Multicolumn",
+      "settings": {
+        "anchor_id": "",
+        "title": "<p>What You'll Get</p>",
+        "description": "<p>Become a part of the Yarbo Volunteer Installer Program and contribute significantly to fostering a collaborative community.</p>",
+        "pc_grid_columns": 3,
+        "show_rating": false,
+        "common_button_class": "",
+        "button_text": "",
+        "button_type": "link",
+        "button_link": "",
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "dark_mode": false,
+        "bg_color": "#ffffff",
+        "highlight_color": "#f1c40f",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yb_banner_swiper_gJ4KBM": {
+      "type": "yb-banner-swiper",
+      "blocks": {
+        "item_J7UBH8": {
+          "type": "item",
+          "settings": {
+            "text_horizontal_position": "right",
+            "text_vertical_position": "center",
+            "text_width": 50,
+            "description": "",
+            "title": "<p>Any concerns? </p><p>Team Yarbo has your back!</p>",
+            "subTitle": "",
+            "enable_btn_group": false,
+            "enable_global_btn": false,
+            "enable_global_anchor": false,
+            "global_anchor_id": "",
+            "button_text": "",
+            "button_type": "link",
+            "button_link": "",
+            "button_class": "",
+            "button_anchor": "",
+            "button_modal_title": "",
+            "button_modal_content": "",
+            "button2_text": "",
+            "button2_type": "link",
+            "button2_link": "",
+            "button2_class": "",
+            "button2_anchor": "",
+            "button2_modal_title": "",
+            "button2_modal_content": "",
+            "enable_subscription": false,
+            "subscription_absolute": false,
+            "subscription_position": 24,
+            "email_type": "",
+            "klaviyo_list_id": "",
+            "subscription_title": "",
+            "subscription_button_text": "",
+            "pc_img": "shopify://shop_images/Frame-1948756647.webp",
+            "pc_external_video": "",
+            "mobile_img": "shopify://shop_images/IMG-7702-3.webp",
+            "mobile_external_video": "",
+            "mobile_layout": "style1"
+          }
+        }
+      },
+      "block_order": [
+        "item_J7UBH8"
+      ],
+      "name": "Yb-Banner",
+      "settings": {
+        "banner_speed": 6
+      }
+    },
+    "yb_multicolumn_tFMEjf": {
+      "type": "yb-multicolumn",
+      "blocks": {
+        "image_item_C88BPH": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Flexible hours",
+            "block_description": "<p>No set workload or schedule, you're in control.</p>",
+            "block_rating": 5
+          }
+        },
+        "image_item_LezFRy": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Liability",
+            "block_description": "<p>For any post-installation concerns, Team Yarbo will take care of them.</p>",
+            "block_rating": 5
+          }
+        },
+        "image_item_GpH8aR": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "Limited Duties",
+            "block_description": "<p>As a volunteer installer, your role is confined to straightforward tasks, with the option to opt out of any that seems unsafe or unsuitable.</p>",
+            "block_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "image_item_C88BPH",
+        "image_item_LezFRy",
+        "image_item_GpH8aR"
+      ],
+      "name": "Yb Multicolumn",
+      "settings": {
+        "anchor_id": "",
+        "title": "",
+        "description": "",
+        "pc_grid_columns": 3,
+        "show_rating": false,
+        "common_button_class": "",
+        "button_text": "",
+        "button_type": "link",
+        "button_link": "",
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "dark_mode": false,
+        "bg_color": "#ffffff",
+        "highlight_color": "#f1c40f",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yb_faq_categories_ajFtcA": {
+      "type": "yb-faq-categories",
+      "blocks": {
+        "category_N4QYHk": {
+          "type": "category",
+          "settings": {
+            "title": "Volunteer Installer",
+            "bg_color": "#e5e5e5"
+          }
+        },
+        "faq_NiwE7H": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I get payment from the user I help?",
+            "answer": "<p>Yes, this is possible and is a matter to be agreed upon between you and the user; Yarbo does not intervene in these transactions.</p>"
+          }
+        },
+        "faq_DKwMR8": {
+          "type": "faq",
+          "settings": {
+            "question": "What details must I share publicly as a Yarbo Volunteer Installer?",
+            "answer": "<p>Yarbo collects your name, contact email, phone number, and address for verification, but only your name and edited comments will be visible on the Installer map. Your contact details may be used for notifications, and your address helps determine your location on the map (Your approximate location will be shown, while your precise address will remain undisclosed.)</p>"
+          }
+        },
+        "faq_7zCnRT": {
+          "type": "faq",
+          "settings": {
+            "question": "What's the responsibility of becoming a Volunteer Installer?",
+            "answer": "<p>You need to complete the official training, pass the required tasks, and keep your installation skills up to date. You are only responsible for basic installations and have the right to decline any work that you consider hazardous.</p>"
+          }
+        },
+        "category_MdmUkN": {
+          "type": "category",
+          "settings": {
+            "title": "Helped Person",
+            "bg_color": "#e5e5e5"
+          }
+        },
+        "faq_cQNxdM": {
+          "type": "faq",
+          "settings": {
+            "question": "What's the process if I want to get help from a Volunteer Installer?",
+            "answer": "<p>Research and contact the installer, coordinate meetup details, and carry out the meetup at the agreed time and place for an installation service.</p>"
+          }
+        },
+        "faq_gfzGYJ": {
+          "type": "faq",
+          "settings": {
+            "question": "How can I ensure I get good service from a Volunteer Installer?",
+            "answer": "<p>You can rate the installer's service through Yarbo Support Center</p>"
+          }
+        },
+        "faq_iEdnU8": {
+          "type": "faq",
+          "settings": {
+            "question": "What if I encounter problems after the installation?",
+            "answer": "<p>Volunteer installers are responsible for basic installation only. For other issues, please reach out to Yarbo Support Center.</p>"
+          }
+        },
+        "faq_bGbDgW": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I compensate the installer for their assistance?",
+            "answer": "<p>Yes, it's up to you, but Yarbo won't be involved in these transactions.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_N4QYHk",
+        "faq_NiwE7H",
+        "faq_DKwMR8",
+        "faq_7zCnRT",
+        "category_MdmUkN",
+        "faq_cQNxdM",
+        "faq_gfzGYJ",
+        "faq_iEdnU8",
+        "faq_bGbDgW"
+      ],
+      "name": "Advanced FAQ (Nav)",
+      "settings": {
+        "anchor_id": "",
+        "title": "FAQs",
+        "bg_color": "#ededed",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 60,
+        "padding_top_m": 40,
+        "padding_bottom_m": 40
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_fLtaMm",
+    "yb_banner_swiper_MDKzPA",
+    "yb_image_text_block_rFYTRf",
+    "yarbo_picture_card_display_tCDceF",
+    "yb_rich_photo_gallery_EQJ3rB",
+    "installer_new_map_7KVdJC",
+    "custom_rich_text_component_gfLLbn",
+    "yb_multicolumn_Jp9w7e",
+    "yb_banner_swiper_gJ4KBM",
+    "yb_multicolumn_tFMEjf",
+    "yb_faq_categories_ajFtcA"
+  ]
+}

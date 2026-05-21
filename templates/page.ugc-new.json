@@ -1,0 +1,471 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_common_banner_C9P47h": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_VyGUz8": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457803.png",
+            "h5_image": "shopify://shop_images/Frame_2036457804.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "bottom-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "<p>Your Yard. Your Story. <br/>Your Rewards.</p>",
+            "title_color": "#ffffff",
+            "desc": "<p>Show how Yarbo works for you and get rewarded for </p><p>every story you share.</p>",
+            "desc_color": "#ffffff",
+            "button1_text": "Start Now",
+            "button1_link": "/",
+            "button1_anchor_id": "table",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_VyGUz8"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_img_text_swiper_medium_UkCq8B": {
+      "type": "sa-img-text-swiper-medium",
+      "blocks": {
+        "block_839Uka": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/-20250812-155511-(1).mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>@Randy - Winner of Rare Quest</p>",
+            "desc": "<p>\"This is my submission for the Angles and Obstacles challenge. Being able to cut the ditches was my biggest concern about purchasing the Yarbo. After a month of trial and error with adjusting the settings and work areas, I finally have it dialed in to the point where I can let it run on its own with confidence. I am not a film maker, but please enjoy the video.\"</p>"
+          }
+        },
+        "block_NjLmxk": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/-20250812-161132.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>@Megan - Winner of Advanced Quest</p>",
+            "desc": "<p>\"Yarbo casually tackles a hill running from ground level to the second floor of a walk-in barn.\"</p>"
+          }
+        },
+        "block_M76DqQ": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=MVIlTPjkc3A",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>@Bryan - Winner of Standard Quest</p>",
+            "desc": "<p>\"Yarbo Always goes around this tree even with it being on a slope. 2024 Yarbo M1 Mower on a slope with moderate bypass.\"</p>"
+          }
+        },
+        "block_nTHMAc": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=lio_yTITSHo",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>@Will - Winner of Standard Quest</p>",
+            "desc": "<p>\"Yarbo Conquers 38° Hill with Obstacles: Precision Mowing.\"</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_839Uka",
+        "block_NjLmxk",
+        "block_M76DqQ",
+        "block_nTHMAc"
+      ],
+      "name": "Img Text Swiper Medium",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#ffffff",
+        "title": "<p>Moments with yarbo</p>",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 80,
+        "pc_aspect_ratio_w": 876,
+        "pc_aspect_ratio_h": 492,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_img_text_features_JwVGyi": {
+      "type": "sa-img-text-features",
+      "blocks": {
+        "accordion_item_GF9fAA": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "01",
+            "title": "Epic Quests",
+            "description": "Share longer, high-quality videos of Yarbo taking on big challenges — complex yards, extreme conditions, or a thorough review of your experience."
+          }
+        },
+        "accordion_item_MkzWqd": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "02",
+            "title": "Inclusive Design",
+            "description": "The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in -13°F to 113°F, and carries an IPX5 waterproof rating for reliable performance."
+          }
+        },
+        "accordion_item_9MBGcV": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "03",
+            "title": "Lower Carbon Footprint",
+            "description": "The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in -13°F to 113°F, and carries an IPX5 waterproof rating for reliable performance."
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_GF9fAA",
+        "accordion_item_MkzWqd",
+        "accordion_item_9MBGcV"
+      ],
+      "disabled": true,
+      "name": "Features Accordion",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "title": "Weekly Quests & Awards",
+        "description": "",
+        "image_width": 50,
+        "pc_layout": "image_left",
+        "mobile_layout": "image_top",
+        "pc_aspect_ratio_w": 1,
+        "pc_aspect_ratio_h": 1,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1
+      }
+    },
+    "sa_ugc_block_text_9c93XP": {
+      "type": "sa-ugc-block-text",
+      "blocks": {
+        "block_JYrtAW": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Group_2036456652.png",
+            "title": "Epic Quests",
+            "description": "Share longer, high-quality videos of Yarbo taking on big challenges — complex yards, extreme conditions, or a thorough review of your experience."
+          }
+        },
+        "block_khzYgf": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Mask_group_-_2026-04-17T145215.909.png",
+            "title": "Rare Quests",
+            "description": "Show Yarbo in action with a creative twist, cool angle, or standout moment that makes your clip unique."
+          }
+        },
+        "block_PetcmB": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Mask_group_-_2026-04-17T145218.838.png",
+            "title": "Advanced Quests",
+            "description": "Show Yarbo in action with a creative twist, cool angle, or standout moment that makes your clip unique."
+          }
+        },
+        "block_UJjX9Y": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Mask_group_-_2026-04-17T145221.500.png",
+            "title": "Standard Quests",
+            "description": "Post simple, everyday footage of Yarbo doing its job — mowing, blowing, or snow clearing in action."
+          }
+        }
+      },
+      "block_order": [
+        "block_JYrtAW",
+        "block_khzYgf",
+        "block_PetcmB",
+        "block_UJjX9Y"
+      ],
+      "name": "Ugc Block Text",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Weekly Quests & Awards</p>",
+        "description": "",
+        "button_text": "Join in Now",
+        "button_link": "/",
+        "btn_anchor_id": "table"
+      }
+    },
+    "sa_blocks_grid_kGi4na": {
+      "type": "sa-blocks-grid",
+      "blocks": {
+        "step_item_4k383e": {
+          "type": "step_item",
+          "settings": {
+            "number": "01",
+            "title": "create",
+            "description": "Capture videos based on the weekly topics we release.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_53e6d7f1-fc56-4dd2-9101-8d8d23a012ba.svg"
+          }
+        },
+        "step_item_PQD6LW": {
+          "type": "step_item",
+          "settings": {
+            "number": "02",
+            "title": "Upload",
+            "description": "Submit your video on this page – only entries here will count.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_9c10bbdc-cec2-439b-8e5a-33b409fc564c.svg"
+          }
+        },
+        "step_item_ELLV4e": {
+          "type": "step_item",
+          "settings": {
+            "number": "03",
+            "title": "Results",
+            "description": "We’ll review submissions and announce winners \non this page.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_73704a96-982d-4d83-a23a-bfa99db6021c.svg"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_4k383e",
+        "step_item_PQD6LW",
+        "step_item_ELLV4e"
+      ],
+      "name": "Blocks Text Grid",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "HOW to join the contest"
+      }
+    },
+    "sa_ugc_form_EYpyBr": {
+      "type": "sa-ugc-form",
+      "name": "Ugc Form",
+      "settings": {
+        "anchor_id": "table",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0
+      }
+    },
+    "sa_faq_nE76Lp": {
+      "type": "sa-faq",
+      "blocks": {
+        "qa_iaPU49": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Contest Overview</p>",
+            "answer": "<p>The \"Your Yarbo Journey Wanted\" Contest (“Contest”) invites Yarbo owners to submit original video content showcasing their Yarbo units in real-world scenarios. The Contest is conducted on an ongoing, weekly basis starting from August 4, 2025.</p>"
+          }
+        },
+        "qa_Q3Jgwm": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Eligibility</p>",
+            "answer": "<p>Participants must be verified Yarbo product owners. Submissions will only be accepted when made using the email address linked to the participant’s Yarbo unit. Unauthorized submissions by non-owners or unverifiable accounts will be disqualified.</p>"
+          }
+        },
+        "qa_Q7egaQ": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Submission Guidelines</p>",
+            "answer": "<p>Submissions must be made through the designated form on this page. Participants may either:</p><ul><li>Upload raw video files (within 200M) directly through the form, or</li><li>Submit links to their video posts on social media platforms.</li><li>Only submissions made through this official page will be considered valid.</li></ul>"
+          }
+        },
+        "qa_7gaGFt": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p><strong>Content Requirements</strong></p>",
+            "answer": "<p>All submitted videos must meet the following shooting specifications:</p><ul><li>Orientation: Landscape (16:9) or Portrait (9:16)</li><li>Duration: Between 30 seconds and 3 minutes</li><li>Video Quality: High-definition, unfiltered, and authentically shot</li><li>Audio: Natural sound or objective voiceover preferred</li><li>Lighting: Use natural lighting; avoid poor visibility</li><li>Focus: Show Yarbo in performance, especially in challenging scenarios (e.g., steep slopes, muddy terrain, snow, or complex environments)</li><li>Optional: Videos may include lifestyle elements such as people, pets, or home settings to enhance storytelling</li></ul>"
+          }
+        },
+        "qa_UErq3T": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p><strong>Submission Categories & Rewards</strong></p>",
+            "answer": "<p>While weekly themes may vary, the quest level definitions remain consistent:</p><ul><li>Epic Quests – In-depth, high-quality videos showing Yarbo taking on complex tasks or a full user review</li><li>Rare Quests – Creative or uniquely captured footage of Yarbo in action</li><li>Advanced Quests – Videos of Yarbo performing under demanding or challenging conditions</li><li>Standard Quests – Footage of Yarbo completing routine daily tasks</li></ul><p><strong>Weekly Prizes:</strong></p><ul><li>1 winner each from Epic, Rare, and Advanced Quests</li><li>2 winners from Standard Quests</li><li>Prizes may include cash rewards, gift cards, Yarbo products, account credits, or discount codes. Details for each week’s rewards and themes will be posted on Yarbo’s official social media accounts and the <a href=\"https://www.yarbo.com/boost/yarbo-official-community\" target=\"_blank\">Yarbo Facebook Group</a>.</li></ul>"
+          }
+        },
+        "qa_izRFxp": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p><strong>Judging Criteria</strong></p>",
+            "answer": "<p>Submissions will be reviewed by Team Yarbo based on the following:</p><ul><li>Creativity and originality</li><li>Visual and audio quality</li><li>Relevance to weekly theme</li><li>Accuracy and clarity in showcasing Yarbo’s performance</li><li>Compliance with shooting guidelines</li></ul>"
+          }
+        },
+        "qa_hwYahr": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p><strong>Winner Notification</strong></p>",
+            "answer": "<p>Winning entries will be announced weekly on the Contest page. Winners will also be contacted via the email address used for submission.</p>"
+          }
+        },
+        "qa_9KBRDb": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Intellectual Property & Usage Rights</p>",
+            "answer": "<p>By submitting content, participants grant Yarbo the non-exclusive, royalty-free right to use, reproduce, modify, adapt, publish, and distribute the content for marketing, promotional, and commercial purposes across digital and print channels. All rights must be cleared before submission; no third-party materials or copyrighted content may be included without proper authorization.</p>"
+          }
+        },
+        "qa_VCyyXz": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Prohibited Content</p>",
+            "answer": "<p>Submissions must not include:</p><ul><li>Third-party or copyrighted content without permission</li><li>Misleading claims or inaccurate representations of Yarbo</li><li>Inappropriate, offensive, or sensitive content</li><li>Excessive use of filters, AI-generated visuals, or overly edited footage</li><li>Any content that infringes on privacy, safety, or intellectual property rights</li></ul>"
+          }
+        },
+        "qa_thYw7L": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Disqualification and Disputes</p>",
+            "answer": "<p>Yarbo reserves the right to reject or remove any submission that violates these Terms and Conditions. All decisions made by Yarbo regarding eligibility, judging, and awarding are final and binding.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "qa_iaPU49",
+        "qa_Q3Jgwm",
+        "qa_Q7egaQ",
+        "qa_7gaGFt",
+        "qa_UErq3T",
+        "qa_izRFxp",
+        "qa_hwYahr",
+        "qa_9KBRDb",
+        "qa_VCyyXz",
+        "qa_thYw7L"
+      ],
+      "name": "Faq",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 40,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Terms & Conditions</p>",
+        "see_all_text": "",
+        "see_all_url": "",
+        "enable_tabs": false
+      }
+    },
+    "sa_text_loadmore_wdPAzA": {
+      "type": "sa-text-loadmore",
+      "disabled": true,
+      "name": "Load More Text",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "content_width_pc": 640,
+        "title": "Terms & Conditions",
+        "content": "<p>1. Contest Overview<br/>The \"Your Yarbo Journey Wanted\" Contest (“Contest”) invites Yarbo owners to submit original video content showcasing their Yarbo units in real-world scenarios. The Contest is conducted on an ongoing, weekly basis starting from August 4, 2025.</p><p>1. Contest Overview<br/>The \"Your Yarbo Journey Wanted\" Contest (“Contest”) invites Yarbo owners to submit original video content showcasing their Yarbo units in real-world scenarios. The Contest is conducted on an ongoing, weekly basis starting from August 4, 2025.</p><p></p><p></p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_common_banner_C9P47h",
+    "sa_img_text_swiper_medium_UkCq8B",
+    "sa_img_text_features_JwVGyi",
+    "sa_ugc_block_text_9c93XP",
+    "sa_blocks_grid_kGi4na",
+    "sa_ugc_form_EYpyBr",
+    "sa_faq_nE76Lp",
+    "sa_text_loadmore_wdPAzA"
+  ]
+}

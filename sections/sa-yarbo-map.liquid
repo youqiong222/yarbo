@@ -1,0 +1,501 @@
+<div
+  style='
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+    --bg-color: {{ section.settings.bg_color }};
+    --title-color: {{ section.settings.title_color }};
+    --title-size-pc: {{ section.settings.title_size_pc }}px;
+    --title-size-mobile: {{ section.settings.title_size_mobile }}px;
+    --desc-color: {{ section.settings.desc_color }};
+    --desc-size-pc: {{ section.settings.desc_size_pc }}px;
+    --desc-size-mobile: {{ section.settings.desc_size_mobile }}px;
+    --stat-count-color: {{ section.settings.stat_count_color }};
+    --stat-count-pc: {{ section.settings.stat_count_pc }}px;
+    --stat-count-mobile: {{ section.settings.stat_count_mobile }}px;
+    --stat-desc-color: {{ section.settings.stat_desc_color }};
+    --stat-desc-pc: {{ section.settings.stat_desc_pc }}px;
+    --stat-desc-mobile: {{ section.settings.stat_desc_mobile }}px;
+  '
+  class='
+    bg-(--bg-color)
+    pt-(--h5-padding-top)
+    pb-(--h5-padding-bottom)
+    md:pt-(--padding-top)
+    md:pb-(--padding-bottom) {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <div class='page-container anchor-target'>
+    <div
+      class='
+        flex
+        items-start
+        gap-32
+        md:gap-60
+        {% if section.settings.mobile_layout == 'image_top' %}
+          flex-col-reverse
+        {% else %}
+          flex-col
+        {% endif %}
+        {% if section.settings.pc_layout == 'image_left' %}
+          md:flex-row
+        {% else %}
+          md:flex-row-reverse
+        {% endif %}
+      '
+    >
+      <div
+        class='flex flex-1 flex-col md:py-60'
+      >
+        {% if section.settings.title != blank %}
+          <h3
+            class='
+              text-(length:--title-size-mobile)
+              leading-none
+              text-(--title-color)
+              uppercase
+              md:text-(length:--title-size-pc)
+            '
+          >
+            {{ section.settings.title }}
+          </h3>
+        {% endif %}
+
+        {% if section.settings.desc != blank %}
+          <div
+            class='
+              mt-16
+              text-(length:--desc-size-mobile)
+              leading-[1.3]
+              text-(--desc-color)
+              md:mt-16
+              md:text-(length:--desc-size-pc)
+            '
+          >
+            {{ section.settings.desc | newline_to_br }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div
+        style='--width:{{ section.settings.image_width }}%'
+        class='md:w-(--width)'
+      >
+        {%- liquid
+          assign s = section.settings
+          assign pc_w = s.pc_aspect_ratio_w | default: 16
+          assign pc_h = s.pc_aspect_ratio_h | default: 9
+          assign pc_ratio = pc_w | append: '/' | append: pc_h
+          assign h5_w = s.h5_aspect_ratio_w | default: 16
+          assign h5_h = s.h5_aspect_ratio_h | default: 9
+          assign h5_ratio = h5_w | append: '/' | append: h5_h
+        -%}
+        <div
+          style='
+            --media-aspect-pc: {{ pc_ratio }};
+            --media-aspect-h5: {{ h5_ratio }};
+          '
+          class='
+            relative
+            aspect-(--media-aspect-h5)
+            w-full
+            overflow-hidden
+            md:aspect-(--media-aspect-pc)
+          '
+        >
+          {% render 'media-element',
+            class: 'absolute inset-0 w-full h-full object-cover',
+            media_class: 'w-full h-full object-cover',
+            media_type: section.settings.media_type,
+            pc_image: section.settings.pc_image,
+            h5_image: section.settings.h5_image,
+            pc_video: section.settings.pc_video,
+            h5_video: section.settings.h5_video,
+            video_url: section.settings.video_url,
+            other_url: section.settings.other_url
+          %}
+          {%- render 'sn-overlay', _settings: section.settings -%}
+        </div>
+        {% if section.blocks.size > 0 %}
+          <div class='border-t border-[#515355] md:mt-40'>
+            <div class='mt-48 grid grid-cols-2 gap-16 md:mt-24'>
+              {% for block in section.blocks %}
+                <div
+                  class='flex flex-col'
+                  {{ block.shopify_attributes }}
+                >
+                  {% if block.settings.count != blank %}
+                    <h3 class='text-(length:--stat-count-mobile) leading-none font-bold text-(--stat-count-color) md:text-(length:--stat-count-pc)'>
+                      {{ block.settings.count -}}
+                      {{- block.settings.unit }}
+                    </h3>
+                    {% if block.settings.description != blank %}
+                      <p class='mt-8 text-(length:--stat-desc-mobile) leading-[1.3] text-(--stat-desc-color) md:text-(length:--stat-desc-pc)'>
+                        {{ block.settings.description }}
+                      </p>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Yarbo Map Count up",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background Color",
+      "default": "#0D0D0D"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image Width",
+      "min": 40,
+      "max": 100,
+      "step": 1,
+      "default": 62,
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "pc_layout",
+      "label": "PC Layout",
+      "default": "image_right",
+      "options": [
+        { "value": "image_left", "label": "Text Left, Image Right" },
+        { "value": "image_right", "label": "Image Left, Text Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile Layout",
+      "default": "image_top",
+      "options": [
+        { "value": "image_top", "label": " Text Top, Image Bottom" },
+        { "value": "text_top", "label": "Image Top, Text Bottom" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text Content Settings"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Main Title",
+      "default": "Innovating the Future"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "number",
+      "id": "title_size_pc",
+      "label": "Title Size (PC)",
+      "default": 42
+    },
+    {
+      "type": "number",
+      "id": "title_size_mobile",
+      "label": "Title Size (Mobile)",
+      "default": 32
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Main Description",
+      "default": "Describe your products, features or brand values here in detail."
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Description Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "number",
+      "id": "desc_size_pc",
+      "label": "Description Size (PC)",
+      "default": 16
+    },
+    {
+      "type": "number",
+      "id": "desc_size_mobile",
+      "label": "Description Size (Mobile)",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Stats Grid Styling (Blocks)"
+    },
+    {
+      "type": "color",
+      "id": "stat_count_color",
+      "label": "Count Number Color",
+      "default": "#FEDB1E"
+    },
+    {
+      "type": "number",
+      "id": "stat_count_pc",
+      "label": "Count Size (PC)",
+      "default": 44
+    },
+    {
+      "type": "number",
+      "id": "stat_count_mobile",
+      "label": "Count Size (Mobile)",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "stat_desc_color",
+      "label": "Stats Description Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "number",
+      "id": "stat_desc_pc",
+      "label": "Stats Description Size (PC)",
+      "default": 14
+    },
+    {
+      "type": "number",
+      "id": "stat_desc_mobile",
+      "label": "Stats Description Size (Mobile)",
+      "default": 13
+    },
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Shopify Video"
+        },
+        {
+          "value": "video_url",
+          "label": "External Video URL"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "PC Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_image",
+      "label": "H5 Image"
+    },
+    {
+      "type": "video",
+      "id": "pc_video",
+      "label": "PC Shopify Video"
+    },
+    {
+      "type": "video",
+      "id": "h5_video",
+      "label": "H5 Shopify Video(Optional)"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Platform Video URL (YouTube/Vimeo)",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+    },
+    {
+      "type": "text",
+      "id": "other_url",
+      "label": "Other Video URL",
+      "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+    },
+    {
+      "type": "header",
+      "content": "Overlay Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show Media Overlay",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Media Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width",
+      "default": 16
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height",
+      "default": 9
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width",
+      "default": 16
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height",
+      "default": 9
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat_item",
+      "name": "Stat Box",
+      "settings": [
+        {
+          "type": "number",
+          "id": "count",
+          "label": "Count Number"
+        },
+        {
+          "type": "text",
+          "id": "unit",
+          "label": "Unit"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Stat Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Yarbo Map Count up",
+      "blocks": [
+        {
+          "type": "stat_item",
+          "settings": {
+            "count": 30,
+            "unit": "+",
+            "description": "Countries and regions"
+          }
+        },
+        {
+          "type": "stat_item",
+          "settings": {
+            "count": 5000,
+            "unit": "+",
+            "description": "Units sold globally"
+          }
+        },
+        {
+          "type": "stat_item",
+          "settings": {
+            "count": 100000,
+            "unit": "+",
+            "description": "Trusted users"
+          }
+        },
+        {
+          "type": "stat_item",
+          "settings": {
+            "count": 10,
+            "unit": "+",
+            "description": "Years of industry experience"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

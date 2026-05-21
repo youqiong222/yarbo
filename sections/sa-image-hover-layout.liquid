@@ -1,0 +1,635 @@
+<style>
+  #shopify-section-{{ section.id }}{
+    background: {{ section.settings.bac }}
+  }
+</style>
+
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<style>
+  #shopify-section-{{ section.id }}{
+    background: {{ section.settings.bac }}
+  }
+</style>
+
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<div class='page-container '>
+  {% for block in section.blocks %}
+    <div
+      style='
+        --pc-pt: {{ block.settings.padding_top }}px;
+        --pc-pb: {{ block.settings.padding_bottom }}px;
+        --h5-pt: {{ block.settings.h5_padding_top }}px;
+        --h5-pb: {{ block.settings.h5_padding_bottom }}px;
+      '
+      class='pt-(--h5-pt) pb-(--h5-pb) md:pt-(--pc-pt) md:pb-(--pc-pb) {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+    >
+      <!-- TITLE -->
+      <div class='mb-24 grid grid-cols-1 gap-12 md:mb-40 md:grid-cols-[2.5fr_1fr]'>
+        {% if block.settings.title != blank %}
+          <h3 class='text-[32px] leading-[1.1] uppercase md:text-[44px]'>
+            {{ block.settings.title }}
+          </h3>
+        {% endif %}
+
+        {% if block.settings.desc != blank %}
+          <div class='text-[14px] text-[#515355] md:text-[15px]'>
+            {{ block.settings.desc }}
+          </div>
+        {% endif %}
+      </div>
+
+      {%- liquid
+        assign pc_w = block.settings.pc_aspect_ratio_w | default: 16
+        assign pc_h = block.settings.pc_aspect_ratio_h | default: 9
+        assign pc_ratio = pc_w | append: '/' | append: pc_h
+
+        assign h5_w = block.settings.h5_aspect_ratio_w | default: 16
+        assign h5_h = block.settings.h5_aspect_ratio_h | default: 9
+        assign h5_ratio = h5_w | append: '/' | append: h5_h
+      -%}
+
+      <!-- GRID -->
+      <div
+        x-data='{ active: null, entered: false }'
+        @mouseenter="
+          if ('{{ block.settings.layout_mode }}' === 'split') {
+            entered = true;
+            active = 'center';
+          }
+        "
+        @mouseleave="
+          const to = $event.relatedTarget;
+          if (!to || !to.closest('.media-box')) {
+            active = null;
+            entered = false;
+          }
+        "
+        class='
+          grid grid-cols-1 gap-12
+          transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]
+          md:h-496
+          {% if block.settings.layout_mode == 'single' %}
+            md:grid-cols-1
+          {% else %}
+            md:grid-cols-2
+          {% endif %}
+        '
+        :class="
+          {
+            'md:grid-cols-[1.2fr_1fr]': active === 'center',
+            'md:grid-cols-[2.5fr_1fr]': active === 'left' && '{{ block.settings.layout_mode }}' === 'split',
+            'md:grid-cols-[1fr_2.5fr]': active === 'right' && '{{ block.settings.layout_mode }}' === 'split'
+          }
+        "
+      >
+        <!-- MEDIA 1 -->
+        <div
+          @mouseenter="setTimeout(() => { if (entered) active = 'left' }, 60)"
+          style='
+            --media-aspect-pc: {{ pc_ratio }};
+            --media-aspect-h5: {{ h5_ratio }};
+          '
+          class='media-box group rounded-4 relative aspect-(--media-aspect-h5) w-full overflow-hidden md:aspect-(--media-aspect-pc) md:h-496'
+          {{ block.shopify_attributes }}
+        >
+          <div
+            x-data="
+              {
+                video: null,
+                videoVisible: false,
+                init() {
+                  this.video = this.$el.querySelector('video')
+
+                  // PC hover逻辑保留
+                  if (window.innerWidth >= 768) return
+
+                  this.observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                      if (!this.video) return
+
+                      if (entry.isIntersecting) {
+                        this.videoVisible = true
+                        this.video.play().catch(() => {})
+                      } else {
+                        this.video.pause()
+                        this.video.currentTime = 0
+                        this.videoVisible = false
+                      }
+                    })
+                  }, {
+                    threshold: 0.6   // 60%进入视口才播放
+                  })
+
+                  this.observer.observe(this.$el)
+                },
+                playVideo() {
+                  if (!this.video) return
+                  this.videoVisible = true
+                  this.video.play()
+                },
+                resetVideo() {
+                  if (!this.video) return
+                  this.video.pause()
+                  this.video.currentTime = 0
+                  this.videoVisible = false
+                }
+              }
+            "
+            x-init='init()'
+            @mouseenter='playVideo()'
+            @mouseleave='resetVideo()'
+            class='absolute inset-0 h-full w-full'
+          >
+            {% if block.settings.pc_image_1 %}
+              <img
+                src='{{ block.settings.pc_image_1 | image_url: width: 1600 }}'
+                class='absolute inset-0 h-full w-full object-cover'
+                width='auto'
+                height='auto'
+                alt=''
+              >
+            {% endif %}
+
+            {% if block.settings.pc_video_1 %}
+              <div
+                class='absolute inset-0 h-full w-full transition-opacity duration-500'
+                :class="videoVisible ? 'opacity-100' : 'opacity-0'"
+              >
+                {{
+                  block.settings.pc_video_1
+                  | video_tag:
+                    class: 'w-full h-full object-cover',
+                    autoplay: false,
+                    loop: true,
+                    muted: true,
+                    controls: false,
+                    playsinline: true,
+                    preload: 'metadata'
+                }}
+              </div>
+            {% endif %}
+          </div>
+
+          <!-- OVERLAY -->
+          {%- render 'sn-overlay',
+            show_overlay: block.settings.show_overlay_1,
+            overlay_color: block.settings.overlay_color_1,
+            overlay_opacity: block.settings.overlay_opacity_1
+          -%}
+
+          <!-- TEXT -->
+          {% if block.settings.title_1_1 != blank or block.settings.title_1_2 != blank %}
+            <div class='absolute bottom-0   p-16 text-white md:px-28 md:py-24 '>
+              <div class='flex gap-12 md:gap-16'>
+                {% if block.settings.title_1_1 != blank or block.settings.text_1_1 != blank %}
+                  <div class='relative flex min-w-147 flex-col gap-4 pl-12 before:absolute before:left-0 before:h-full before:w-4 before:bg-[#fedb1e]'>
+                    <div class='text-[26px] font-bold uppercase md:text-[32px] [&_strong]:text-[20px] md:[&_strong]:text-[22px]'>
+                      {{ block.settings.title_1_1 }}
+                    </div>
+                    <div class='text-[12px]'>
+                      {{ block.settings.text_1_1 }}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if block.settings.title_1_2 != blank or block.settings.text_1_2 != blank %}
+                  <div class='relative flex min-w-147 flex-col gap-4 pl-12 before:absolute before:left-0 before:h-full before:w-4 before:bg-[#fedb1e]'>
+                    <div class='text-[26px] font-bold uppercase md:text-[32px] [&_strong]:text-[20px] md:[&_strong]:text-[22px]'>
+                      {{ block.settings.title_1_2 }}
+                    </div>
+                    <div class='text-[12px]'>
+                      {{ block.settings.text_1_2 }}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- MEDIA 2 -->
+        {% unless block.settings.layout_mode == 'single' %}
+          <div
+            @mouseenter="setTimeout(() => { if (entered) active = 'right' }, 60)"
+            style='
+              --media-aspect-pc: {{ pc_ratio }};
+              --media-aspect-h5: {{ h5_ratio }};
+            '
+            class='media-box group rounded-4 relative aspect-(--media-aspect-h5) w-full overflow-hidden md:aspect-(--media-aspect-pc) md:h-496'
+          >
+            <div
+              x-data="
+                {
+                  video: null,
+                  videoVisible: false,
+                  init() {
+                    this.video = this.$el.querySelector('video')
+
+                    if (window.innerWidth >= 768) return
+
+                    this.observer = new IntersectionObserver((entries) => {
+                      entries.forEach(entry => {
+                        if (!this.video) return
+
+                        if (entry.isIntersecting) {
+                          this.videoVisible = true
+                          this.video.play().catch(() => {})
+                        } else {
+                          this.video.pause()
+                          this.video.currentTime = 0
+                          this.videoVisible = false
+                        }
+                      })
+                    }, {
+                      threshold: 0.6   // 60%进入视口才播放
+                    })
+
+                    this.observer.observe(this.$el)
+                  },
+                  playVideo() {
+                    if (!this.video) return
+                    this.videoVisible = true
+                    this.video.play()
+                  },
+                  resetVideo() {
+                    if (!this.video) return
+                    this.video.pause()
+                    this.video.currentTime = 0
+                    this.videoVisible = false
+                  }
+                }
+              "
+              x-init='init()'
+              @mouseenter='playVideo()'
+              @mouseleave='resetVideo()'
+              class='absolute inset-0 h-full w-full'
+            >
+              {% if block.settings.pc_image_2 %}
+                <img
+                  src='{{ block.settings.pc_image_2 | image_url: width: 1600 }}'
+                  class='absolute inset-0 h-full w-full object-cover'
+                  width='auto'
+                  height='auto'
+                  alt=''
+                >
+              {% endif %}
+
+              {% if block.settings.pc_video_2 %}
+                <div
+                  class='absolute inset-0 h-full w-full transition-opacity duration-500'
+                  :class="videoVisible ? 'opacity-100' : 'opacity-0'"
+                >
+                  {{
+                    block.settings.pc_video_2
+                    | video_tag:
+                      class: 'w-full h-full object-cover',
+                      autoplay: false,
+                      loop: true,
+                      muted: true,
+                      controls: false,
+                      playsinline: true,
+                      preload: 'metadata'
+                  }}
+                </div>
+              {% endif %}
+            </div>
+            <!-- OVERLAY -->
+            {%- render 'sn-overlay',
+              show_overlay: block.settings.show_overlay_2,
+              overlay_color: block.settings.overlay_color_2,
+              overlay_opacity: block.settings.overlay_opacity_2
+            -%}
+
+            <!-- TEXT -->
+            {% if block.settings.title_2_1 != blank or block.settings.title_2_2 != blank %}
+              <div class='absolute bottom-0 p-16 text-white md:px-28 md:py-24'>
+                <div class='flex gap-12 md:gap-16'>
+                  {% if block.settings.title_2_1 != blank or block.settings.text_2_1 != blank %}
+                    <div class='relative flex min-w-147 flex-col gap-4 pl-12 before:absolute before:left-0 before:h-full before:w-4 before:bg-[#fedb1e]'>
+                      <div class='text-[26px] font-bold uppercase md:text-[32px] [&_strong]:text-[20px] md:[&_strong]:text-[22px]'>
+                        {{ block.settings.title_2_1 }}
+                      </div>
+                      <div class='text-[12px]'>
+                        {{ block.settings.text_2_1 }}
+                      </div>
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.title_2_2 != blank or block.settings.text_2_2 != blank %}
+                    <div class='relative flex min-w-147 flex-col gap-4 pl-12 before:absolute before:left-0 before:h-full before:w-4 before:bg-[#fedb1e]'>
+                      <div class='text-[26px] font-bold uppercase md:text-[32px] [&_strong]:text-[20px] md:[&_strong]:text-[22px]'>
+                        {{ block.settings.title_2_2 }}
+                      </div>
+                      <div class='text-[12px]'>
+                        {{ block.settings.text_2_2 }}
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        {% endunless %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% schema %}
+{
+  "name": "Image Hover Layout",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bac",
+      "label": "Bac"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        { "type": "richtext", "id": "title", "label": "Title" },
+        { "type": "richtext", "id": "desc", "label": "Desc" },
+        {
+          "type": "header",
+          "content": "Spacing Settings"
+        },
+        {
+          "type": "number",
+          "id": "padding_top",
+          "label": "Padding Top",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "id": "padding_bottom",
+          "label": "Padding Bottom",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "id": "h5_padding_top",
+          "label": "H5 Padding Top",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "id": "h5_padding_bottom",
+          "label": "H5 Padding Bottom",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Media Aspect Ratio"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_w",
+          "label": "PC Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_h",
+          "label": "PC Ratio Height"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_w",
+          "label": "Mobile Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_h",
+          "label": "Mobile Ratio Height"
+        },
+        {
+          "type": "select",
+          "id": "layout_mode",
+          "label": "Layout Mode",
+          "options": [
+            { "value": "single", "label": "Single" },
+            { "value": "split", "label": "Split (Hover)" },
+            { "value": "static", "label": "Split (Static)" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Media Settings 1"
+        },
+        {
+          "type": "select",
+          "id": "media_type_1",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image_1",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image_1",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video_1",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video_1",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "header",
+          "content": "Content Settings 1"
+        },
+        {
+          "type": "richtext",
+          "id": "title_1_1",
+          "label": "Title 1 (Top)"
+        },
+        {
+          "type": "richtext",
+          "id": "text_1_1",
+          "label": "Text 1 (Top)"
+        },
+        {
+          "type": "richtext",
+          "id": "title_1_2",
+          "label": "Title 2 (Bottom)"
+        },
+        {
+          "type": "richtext",
+          "id": "text_1_2",
+          "label": "Text 2 (Bottom)"
+        },
+
+        {
+          "type": "header",
+          "content": "Overlay Settings 1"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay_1",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color_1",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity_1",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "header",
+          "content": "Media Settings 2"
+        },
+        {
+          "type": "select",
+          "id": "media_type_2",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image_2",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image_2",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video_2",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video_2",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "header",
+          "content": "Content Settings 2"
+        },
+        {
+          "type": "richtext",
+          "id": "title_2_1",
+          "label": "Title 1 (Top)"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2_1",
+          "label": "Text 1 (Top)"
+        },
+        {
+          "type": "richtext",
+          "id": "title_2_2",
+          "label": "Title 2 (Bottom)"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2_2",
+          "label": "Text 2 (Bottom)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings 2"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay_2",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color_2",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity_2",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Hover Layout",
+      "settings": {
+        "bac": "#ffffff"
+      },
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "<p>Power Meets Precision</p>",
+            "desc": "<p>Designed for performance across all terrains.</p>",
+            "layout_mode": "split",
+
+            "title_1_1": "<p>2000W</p>",
+            "text_1_1": "<p>High Power Output</p>",
+            "title_1_2": "<p>4WD</p>",
+            "text_1_2": "<p>All Terrain Drive</p>",
+
+            "title_2_1": "<p>Smart Control</p>",
+            "text_2_1": "<p>Effortless operation with intelligent system</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

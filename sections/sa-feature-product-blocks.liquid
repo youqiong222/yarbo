@@ -1,0 +1,396 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<div
+  style='
+    --bg-color: {{ section.settings.bg_color }};
+    --title-color: {{ section.settings.title_color }};
+    --desc-color: {{ section.settings.desc_color }};
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+  '
+  class='
+    bg-(--bg-color)
+    pt-(--h5-padding-top) pb-(--h5-padding-bottom)
+    md:py-(--padding-top) md:pb-(--padding-bottom) {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <div class='page-container'>
+    {% if section.settings.title != blank %}
+      <h2
+        class='
+          text-center
+          text-[28px]
+          leading-tight
+          text-(--title-color)
+          md:text-[40px]
+        '
+      >
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.desc != blank %}
+      <div
+        class='
+          mx-auto
+          mt-8
+          max-w-600
+          text-center
+          text-[16px]
+          leading-[1.4]
+          text-(--desc-color)
+          md:mt-12
+          md:text-[20px]
+        '
+      >
+        {{ section.settings.desc }}
+      </div>
+    {% endif %}
+
+    <div class='mt-24 flex flex-col gap-20 md:mt-48 md:gap-24'>
+      {% for block in section.blocks %}
+        {%- assign card_product = block.settings.product -%}
+        <div
+          style='
+            --card-bg: {{ block.settings.card_bg_color }};
+            --card-title-color: {{ block.settings.title_color }};
+            --card-title-strong-color: {{ block.settings.title_strong_color }};
+            --card-desc-color: {{ block.settings.desc_color }};
+            --card-price-color: {{ block.settings.price_color }};
+            --btn-color: {{ block.settings.button_color }};
+            --btn-bg: {{ block.settings.button_bg_color }};
+            --btn-hover-color: {{ block.settings.button_hover_color }};
+            --btn-hover-bg: {{ block.settings.button_bg_hover_color }};
+          '
+          class='
+            flex
+            flex-col
+            overflow-hidden
+            bg-(--card-bg)
+            {% if block.settings.pc_layout == "image_left" %}
+              sm:flex-row
+            {% else %}
+              sm:flex-row-reverse
+            {% endif %}
+          '
+          {{ block.shopify_attributes }}
+        >
+          {%- comment -%} Image {%- endcomment -%}
+          <div class='sm:w-1/2'>
+            <div class='h-full w-full overflow-hidden rounded-[16px]'>
+              {% if block.settings.image != blank %}
+                <img
+                  src='{{ block.settings.image | image_url: width: 900 }}'
+                  alt='{{ block.settings.title | escape }}'
+                  class='h-full w-full object-cover'
+                  loading='lazy'
+                  width='720'
+                  height='500'
+                >
+              {% elsif card_product.featured_image != blank %}
+                <img
+                  src='{{ card_product.featured_image | image_url: width: 900 }}'
+                  alt='{{ card_product.title | escape }}'
+                  class='h-full w-full object-cover'
+                  loading='lazy'
+                  width='720'
+                  height='500'
+                >
+              {% endif %}
+            </div>
+          </div>
+
+          {%- comment -%} Info {%- endcomment -%}
+          <div class='flex flex-1 flex-col justify-center p-20 sm:p-48'>
+            {% if block.settings.title != blank %}
+              <h3
+                class='
+                  text-[20px]
+                  leading-tight
+                  text-(--card-title-color)
+                  md:text-[28px]
+                  [&_strong]:text-(--card-title-strong-color)
+                '
+              >
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.desc != blank %}
+              <div
+                class='
+                  mt-12
+                  text-[13px]
+                  leading-[1.5]
+                  text-(--card-desc-color)
+                  md:mt-16
+                  md:text-[15px]
+                  [&_li]:list-disc
+                  [&_li+li]:mt-4
+                  [&_ul]:mt-8
+                  [&_ul]:pl-18
+                '
+              >
+                {{ block.settings.desc }}
+              </div>
+            {% endif %}
+
+            {% if card_product != blank %}
+              <div class='mt-16 text-(--card-price-color) md:mt-24'>
+                {% render 'sn-main-price', product: card_product, use_variant: true %}
+              </div>
+            {% endif %}
+
+            {% if block.settings.button_text != blank %}
+              <a
+                href='{{ block.settings.button_link | default: card_product.url }}'
+                class='
+                  mt-20
+                  flex
+                  h-44
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-(--btn-bg)
+                  text-[14px]
+                  text-(--btn-color)
+                  no-underline
+                  transition-colors
+                  duration-300
+                  hover:bg-(--btn-hover-bg)
+                  hover:text-(--btn-hover-color)
+                  md:mt-32
+                  md:h-48
+                  md:text-[16px]
+                '
+              >
+                {{ block.settings.button_text }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Feature Product Blocks",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Refurbished Products"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Section Title Color",
+      "default": "#25282A"
+    },
+    {
+      "type": "richtext",
+      "id": "desc",
+      "label": "Section Description"
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Section Desc Color",
+      "default": "#515355"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Image"
+        },
+        {
+          "type": "select",
+          "id": "pc_layout",
+          "label": "PC Layout",
+          "default": "image_left",
+          "options": [
+            { "value": "image_left", "label": "Image Left" },
+            { "value": "image_right", "label": "Image Right" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Text Settings"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Color Settings"
+        },
+        {
+          "type": "color",
+          "id": "card_bg_color",
+          "label": "Card Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "title_strong_color",
+          "label": "Title Strong Color",
+          "default": "#FEDB1F"
+        },
+        {
+          "type": "color",
+          "id": "desc_color",
+          "label": "Description Color",
+          "default": "#515355"
+        },
+        {
+          "type": "color",
+          "id": "price_color",
+          "label": "Price Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "header",
+          "content": "Button Settings"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "label": "Button Text Color",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_color",
+          "label": "Button Background",
+          "default": "#FEDB1E"
+        },
+        {
+          "type": "color",
+          "id": "button_hover_color",
+          "label": "Button Hover Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_hover_color",
+          "label": "Button Hover Background",
+          "default": "#25282A"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Product Blocks",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "pc_layout": "image_left",
+            "button_text": "Shop Now"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "pc_layout": "image_right",
+            "button_text": "Shop Now"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,117 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "sa-footer",
+      "blocks": {
+        "link_list_ELYLtd": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Products",
+            "menu": "products"
+          }
+        },
+        "link_list_AiiVKh": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": "company"
+          }
+        },
+        "link_list_EpQYP8": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Engage",
+            "menu": "engage"
+          }
+        },
+        "link_list_WytFPU": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Support",
+            "menu": "support"
+          }
+        },
+        "service_zbn74G": {
+          "type": "service",
+          "settings": {
+            "title": "Sales Consultation",
+            "email": "service@yarbo.com",
+            "phone": "+1 (512) 960-1326",
+            "bottom_text": ""
+          }
+        },
+        "service_VyYQ4w": {
+          "type": "service",
+          "settings": {
+            "title": "Customer Service",
+            "email": "support@yarbo.com",
+            "phone": "+1 (631) 818-1850",
+            "bottom_text": "*24/7 Available"
+          }
+        },
+        "image_WHUVdx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Vector_0dcbe4b0-81d3-4b1e-bea5-712456982ea2.png",
+            "image_width": 150,
+            "alignment": ""
+          }
+        },
+        "brand_information_PgBzch": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
+          }
+        },
+        "footer_link_7e8jby": {
+          "type": "footer_link",
+          "settings": {
+            "text": "<p><a href=\"/pages/do-not-sell-my-personal-information\" title=\"Do Not Sell My Personal Information\">Do Not Sell My Personal Information</a>      <a href=\"/pages/legal-privarcy-policy\" title=\"Privacy Notice\">Privacy Notice</a> <a href=\"/pages/legal-cookie-notice\" title=\"Cookie Notice\">Cookie Notice</a> <a href=\"/pages/legal-terms-of-service\" title=\"Term of Service\">Terms of Service</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_ELYLtd",
+        "link_list_AiiVKh",
+        "link_list_EpQYP8",
+        "link_list_WytFPU",
+        "service_zbn74G",
+        "service_VyYQ4w",
+        "image_WHUVdx",
+        "brand_information_PgBzch",
+        "footer_link_7e8jby"
+      ],
+      "settings": {
+        "email_type": "footer",
+        "klaviyo_list_id": "",
+        "color_scheme": "scheme-3",
+        "title": "<p>The Future of Yard <br/>Care Starts Here.</p>",
+        "newsletter_enable": true,
+        "newsletter_heading": "",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": true,
+        "show_policy": false,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

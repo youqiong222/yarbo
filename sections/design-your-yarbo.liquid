@@ -1,0 +1,2346 @@
+<style>
+  /* 整体容器 */
+  .design-your-yarbo {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    background-color: #fff;
+  }
+
+  /* PC端左侧轮播 */
+  .design-your-yarbo__pc-left-image-slideshow {
+    position: sticky;
+    top: 38px;
+    height: 833px;
+    left: 0;
+    width: calc(100% - 456px);
+  }
+
+
+  .dyy-slideshow {
+    height: 100%;
+  }
+  .dyy-slideshow__slide {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dyy-slideshow__slide.is-active {
+    opacity: 1;
+    position: relative;
+  }
+
+  .dyy-slideshow__slide img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    outline: none;
+  }
+
+  /* 右侧产品选择区域 */
+  .dyy-product-selector {
+    width: 100%;
+  }
+
+  @media (min-width: 992px) {
+    .dyy-product-selector {
+      width: 456px;
+      display: flex;
+      flex-direction: column;
+      gap: 280px;
+      padding: 152px 48px 80px;
+    }
+  }
+
+  /* 产品块样式 */
+
+  .dyy-product__image {
+    width: 100%;
+    margin-bottom: 20px;
+    display: none;
+  }
+
+  @media (max-width: 991px) {
+    .dyy-product__image {
+      display: block;
+    }
+  }
+
+  .dyy-product__image img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+  }
+
+  .dyy-product__title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #000;
+    margin: 0;
+  }
+
+  .dyy-product__title--big {
+    font-size: 40px;
+  }
+
+  .dyy-product__desc {
+    font-size: 16px;
+    line-height: 1.25;
+    margin: 0;
+    margin-top: calc(16px - 48px);
+    color: #676a6d;
+  }
+  .dyy-product__content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  /* 特色功能 */
+  .dyy-product__main-body-desc {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dyy-product__featured {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .dyy-product__featured-icon {
+    display: block;
+    width: 48px;
+    height: 48px;
+  }
+
+  .dyy-product__featured-name {
+    font-size: 12px;
+    line-height: 16px;
+    color: #02060b;
+  }
+
+  /* 产品选项 */
+  .dyy-product__group {
+    border: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+  }
+
+  .dyy-product__item {
+    margin-bottom: 16px;
+  }
+
+  .dyy-product__option {
+    cursor: pointer;
+  }
+
+  #shopify-section-{{section.id }} .dyy-product__option-input {
+    display: none;
+  }
+
+  .dyy-product__option-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid #cccdce;
+    color: #676a6d;
+    transition: all 0.3s;
+    border-radius: 4px;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 20px;
+    user-select: none;
+  }
+
+  .dyy-product__option-input:checked + .dyy-product__option-label {
+    border-color: #000;
+    background-color: #f9f9f9;
+  }
+
+  .dyy-product__option-icon {
+    position: relative;
+    color: #02060b;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 1px solid currentColor;
+    background-color: #fff;
+    transition: all 0.3s;
+  }
+
+  .dyy-product__option-icon svg {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .dyy-product__option-input:checked + .dyy-product__option-label .dyy-product__option-icon {
+    background-color: #000;
+  }
+
+  .dyy-product__option-title {
+    flex: 1 0 0;
+  }
+
+  /* 提示文本 */
+  .dyy-product__hint {
+    font-size: 12px;
+    line-height: 16px;
+    color: #676a6d;
+    padding: 14px 16px;
+    background-color: #f4f4f4;
+    margin: 0;
+    border-radius: 4px;
+  }
+
+  /* 按钮 */
+  .dyy-product__more-button {
+    margin-top: 12px;
+    background-color: #f4f4f4;
+    color: #02060b;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1;
+    outline: none;
+    border: 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  #shopify-section-{{section.id }} .dyy-product__more-button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  /* 弹出窗口 */
+  .dyy-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dyy-modal.is-visible {
+    display: flex;
+  }
+
+  .dyy-modal__container {
+    background-color: #fff;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .dyy-modal__header {
+    padding: 24px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dyy-modal__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  .dyy-modal__close {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  .dyy-modal__close svg {
+    width: 24px;
+    height: 24px;
+    color: #000;
+  }
+
+  .dyy-modal__content {
+    padding: 24px;
+    overflow-y: auto;
+    max-height: calc(90vh - 80px);
+  }
+
+  .dyy-modal-slide__main {
+    flex: 1;
+    min-width: 0;
+  }
+
+
+  /* 隐藏类 */
+  .dyy-hidden-md {
+    display: none;
+  }
+  .design-your-yarbo-includes {
+    position: sticky;
+    top: 100%;
+    z-index: 9;
+    display: block;
+    width: calc(100% - 456px);
+  }
+  .design-your-yarbo-includes .floating-button {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    width: fit-content;
+    max-width: 100%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: #f4f4f4;
+    padding: 20px 32px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+  }
+  .design-your-yarbo-includes .floating-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .design-your-yarbo-includes .floating-button-toggle {
+    display: flex;
+    height: 32px;
+    width: 32px;
+    flex-shrink: 0;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: white;
+    box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.1);
+  }
+  .design-your-yarbo-includes .floating-button-toggle svg {
+    display: block;
+    transform: rotate(-180deg);
+    font-size: 16px;
+  }
+  .design-your-yarbo-includes .floating-button-divider {
+    display: inline-block;
+    height: 32px;
+    width: 1px;
+    border-radius: 9999px;
+    background-color: #cccdce;
+  }
+  .design-your-yarbo-includes .floating-button-price-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .design-your-yarbo-includes .floating-button-total-price {
+    font-size: 20px;
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  .design-your-yarbo-includes .floating-button-total-price::before {
+    content: 'Total Price: ';
+  }
+  .design-your-yarbo-includes .floating-button-buy {
+    display: flex;
+    gap: 6px;
+    height: 42px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: #ffd700;
+    padding: 0 32px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+  }
+  .loading-overlay__spinner {
+    display: none;
+  }
+  .design-your-yarbo-includes .modal-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: sans-serif;
+    backdrop-filter: blur(4px);
+    z-index: 1010;
+  }
+  .design-your-yarbo-includes .modal-overlay.active {
+    display: flex;
+    animation: design-your-yarbo-includes-fadeIn 0.26s ease-in-out;
+  }
+  .design-your-yarbo-includes .modal-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: white;
+    padding: 20px 24px 24px;
+  }
+  .design-your-yarbo-includes .modal-header {
+    margin-bottom: 16px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .design-your-yarbo-includes .modal-content {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .design-your-yarbo-includes .modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #02060b;
+  }
+  .design-your-yarbo-includes .modal-close {
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+    border-radius: 9999px;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .design-your-yarbo-includes .modal-close svg {
+    font-size: 20px;
+    line-height: 36px;
+  }
+  .design-your-yarbo-includes.empty .empty-cart-container {
+    display: flex;
+  }
+  .design-your-yarbo-includes .empty-cart-container {
+    display: none;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+  }
+  .design-your-yarbo-includes .empty-cart-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .design-your-yarbo-includes .empty-cart-image {
+    position: relative;
+    margin-bottom: 8px;
+    height: 149px;
+    width: 200px;
+  }
+  .design-your-yarbo-includes .empty-cart-image img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    color: transparent;
+  }
+  .design-your-yarbo-includes .empty-cart-message {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1;
+    color: #676a6d;
+  }
+  .design-your-yarbo-includes .empty-cart-button {
+    cursor: pointer;
+    border-radius: 9999px;
+    border: 1px solid #000;
+    padding: 16px 40px;
+    font-size: 16px;
+    line-height: 1;
+  }
+  .design-your-yarbo-includes .modal-product-list {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+  .design-your-yarbo-includes .modal-product-item {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .design-your-yarbo-includes .modal-product-image {
+    position: relative;
+    margin-right: 16px;
+    height: 88px;
+    width: 88px;
+  }
+  .design-your-yarbo-includes .modal-product-image img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    object-fit: cover;
+  }
+  .design-your-yarbo-includes .modal-product-info {
+    flex: 1;
+    padding-top: 12px;
+  }
+  .design-your-yarbo-includes .modal-product-price-row {
+    margin-bottom: 16px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 16px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .design-your-yarbo-includes .modal-product-action-row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #676a6d;
+  }
+  .design-your-yarbo-includes .modal-product-remove {
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .design-your-yarbo-includes .modal-product-original-price {
+    font-size: 14px;
+    text-decoration: line-through;
+  }
+  .design-your-yarbo-includes .modal-summary {
+    height: fit-content;
+    border-color: #eee;
+    padding-top: 24px;
+  }
+  .design-your-yarbo-includes .modal-summary-total {
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.25;
+    font-weight: 500;
+  }
+  .design-your-yarbo-includes .modal-summary-total span:first-child {
+    margin-right: 28px;
+  }
+  .design-your-yarbo-includes.empty .modal-product-list,
+  .design-your-yarbo-includes.empty .modal-summary {
+    display: none;
+  }
+  /* 弹出窗口幻灯片 */
+  .feature_details_popup {
+    display: none;
+  }
+
+  .feature_details_popup.active {
+    display: block;
+  }
+
+  .feature_details_popup{
+    position: fixed;
+    inset: 0;
+    z-index: 1031;
+    width: 60vw;
+    height: fit-content;
+    margin: auto;
+    background-color: transparent;
+    animation-duration: 0.2s;
+    animation-timing-function: ease;
+  }
+  .feature_details_popup .swiper{
+    overflow: unset;
+    max-width: 996px;
+  }
+  .feature_details_popup .swiper-slide{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #fff;
+  }
+
+  .dyy-modal-slide__title {
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 600;
+    color: #000;
+    margin: 0
+  }
+  #shopify-section-{{ section.id }} p{
+    margin: 0;
+  }
+  .dyy-modal-slide__desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 16px;
+    flex: 1 0 0;
+  }
+
+  .dyy-modal-slide__hint {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+    margin-top: 16px;
+  }
+
+  .dyy-modal-slide__close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .dyy-modal-slide__close-btn svg {
+    width: 24px;
+    height: 24px;
+    color: #000;
+  }
+
+  #shopify-section-{{ section.id }} .media-container {
+    position: relative;
+    overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .media-container video-intersection-insert,
+  #shopify-section-{{ section.id }} .media-container img,
+  #shopify-section-{{ section.id }} .media-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .feature_details_popup .left_image .media-container{
+    flex: unset;
+    border-radius: 0;
+  }
+  .feature_details_popup .left_image .dyy-modal-slide__main{
+    flex: 1 0 0;
+    text-align: left;
+  }
+  .feature_details_popup .media-container{
+    height: 50vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  .feature_details_popup .bottom_image .dyy-modal-slide__main{
+    flex: 1 0 0;
+    text-align: center;
+  }
+  .feature_details_popup .dyy-modal-slide__main{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #040921;
+  }
+  .feature_details_popup .swiper-btn.swiper-button-prev{
+    left: 10%;
+  }
+  .feature_details_popup .swiper-btn.swiper-button-next{
+    right: 10%;}
+  .feature_details_popup .swiper-btn:after{
+    content: unset;
+  }
+  .feature_details_popup .swiper-btn svg{
+    width: 70%;
+    height: 70%;
+  }
+  .feature_details_popup .swiper-pagination {
+    bottom: 30px;
+  }
+  .feature_details_popup .swiper-pagination .swiper-pagination-bullet-active {
+    background: #fff;
+  }
+  .feature_details_popup .swiper-btn {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    outline: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    color: #fff;
+    z-index: 10;
+    position: fixed;
+  }
+  .feature_details_popup .popup-overlay{
+    height: 100%;
+    width: 100%;
+    background: #00000061;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .feature_details_popup .popup-close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background .3s;
+    border: 0;
+    outline: none;
+    margin: 0;
+    cursor: pointer;
+  }
+  .design-your-yarbo-includes.empty .floating-button-buy{
+    cursor: no-drop;
+    opacity: 0.8;
+  }
+  #shopify-section-{{ section.id }} div:empty {
+    display: block!important;
+  }
+  @media (max-width: 958px) {
+    .dyy-hidden-md {
+      display: block !important;
+    }
+    .dyy-hidden-pc {
+      display: none !important;
+    }
+    .design-your-yarbo__pc-left-image-slideshow{
+      display: none;
+    }
+    .dyy-product__content {
+      padding: 0 20px;
+      gap: 48px;
+    }
+    .dyy-product__title{
+      font-size: 28px;
+      line-height: 34px;
+    }
+    .dyy-product__desc {
+        margin-top: calc(16px - 32px);
+    }
+    .dyy-product__image img{
+      aspect-ratio: 375 / 230;
+      object-fit: contain;
+    }
+    .feature_details_popup{
+      width: 86vw;
+    }
+    .feature_details_popup .swiper-slide{
+      flex-direction: column;
+      padding: 0;
+      gap: 0;
+      overflow: hidden;
+      overflow-y: auto;
+      display: block;
+    }
+    .feature_details_popup .dyy-modal-slide__main{
+      padding: 24px 20px;
+    }
+    .dyy-modal-slide__title{
+      text-align: center;
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .dyy-modal-slide__desc{
+      margin-top: 8px;
+        text-align: center;
+        word-spacing: -1px;
+    }
+    .feature_details_popup .media-container{
+      aspect-ratio: 1 / 1;
+      height: auto;
+    }
+    .feature_details_popup .swiper-pagination{
+      bottom: -15%;
+    }
+    .feature_details_popup .popup-close{
+      top: 16px;
+        right: 16px;
+        width: 32px;
+        height: 32px;
+        background-color: rgb(242 242 242 / 0.5);
+        z-index: 10;
+    }
+    .design-your-yarbo-includes{
+      top: 0;
+    }
+    .design-your-yarbo-includes .floating-button{
+      top: 0;
+      bottom: unset;
+      left: 0;
+      transform: unset;
+      padding: 18px 16px;
+      font-size: 16px;
+      max-width: unset;
+      width: 100%;
+    }
+    .design-your-yarbo-includes .floating-button-divider{
+      display: none;
+    }
+    .design-your-yarbo-includes .floating-button-container{
+      gap: 8px;
+      justify-content: flex-start;
+    }
+    .design-your-yarbo-includes .floating-button-toggle{
+      width: 18px;
+      height: 18px;
+    }
+    .design-your-yarbo-includes .floating-button-content{
+      flex: 1;
+    }
+    .design-your-yarbo-includes{
+      width: 100%
+    }
+    .design-your-yarbo-includes .floating-button-buy{
+      height: 26px;
+      font-size: 12px;
+      padding: 8px;
+    }
+    .design-your-yarbo-includes .modal-summary{
+      width: 100%;
+      border-top-width: 1px;
+      border-top-style: solid;
+    }
+    .design-your-yarbo-includes .modal-product-price-row{
+      gap: 8px;
+    }
+    .feature_details_popup .swiper{
+      height: 490px;
+    }
+  }
+  @media (min-width: 959px) {
+    .dyy-hidden-md {
+      display: none !important;
+    }
+    .dyy-hidden-pc {
+      display: block !important;
+    }
+    .design-your-yarbo-includes .modal-container {
+      height: 624px;
+      width: 932px;
+      border-radius: 8px;
+      padding: 24px 32px;
+      padding-top: 24px;
+    }
+    .design-your-yarbo-includes .modal-header {
+      margin-bottom: 30px;
+    }
+    .design-your-yarbo-includes .modal-content {
+      flex-direction: row;
+      gap: 40px;
+    }
+    .design-your-yarbo-includes .modal-title {
+      font-size: 28px;
+    }
+    .design-your-yarbo-includes .empty-cart-message {
+      margin-bottom: 32px;
+      font-size: 16px;
+    }
+    .design-your-yarbo-includes .modal-product-list {
+      width: 50%;
+    }
+    .design-your-yarbo-includes .modal-summary {
+      flex: 1;
+      border-radius: 8px;
+      background-color: #f8f8f8;
+      padding: 20px 24px;
+    }
+    .feature_details_popup .swiper-slide.left_image{
+      flex-direction: row;
+    }
+    .feature_details_popup .swiper-slide.bottom_image{
+      padding: 40px 24px 24px;
+      gap: 28px;
+      flex-direction: column-reverse;
+    }
+    .feature_details_popup .left_image .media-container{
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      width: 62%;
+    }
+    .feature_details_popup .left_image .dyy-modal-slide__main{
+      padding: 72px 24px 24px;
+    }
+  }
+  @keyframes design-your-yarbo-includes-fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  #shopify-section-{{ section.id }}{
+    overflow: visible;
+  }
+</style>
+<div class="design-your-yarbo-includes">
+  <div class="floating-button">
+    <div class="floating-button-container">
+      <div class="floating-button-toggle" data-role="toggle" data-modal-open="modal-1-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-chevron-down"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+
+      <span class="floating-button-divider"></span>
+      <div class="floating-button-content">
+        <div class="floating-button-price-row">
+          <div class="floating-button-total-price"><span data-role="total-price">$6,199.00</span></div>
+          <button class="floating-button-buy" data-role="add-to-cart">
+            BUY NOW
+            <div class="loading-overlay__spinner">
+              <svg
+                class="icon icon-loading "
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M18.3337 9.99984C18.3337 14.6022 14.6027 18.3332 10.0003 18.3332C5.39795 18.3332 1.66699 14.6022 1.66699 9.99984C1.66699 5.39746 5.39795 1.6665 10.0003 1.6665" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal-overlay product_cart_info"
+    data-modal-id="modal-1-1"
+    data-role="modal"
+  >
+    <div class="modal-container">
+      <div class="modal-header">
+        <span class="modal-title">Your Yarbo Includes</span>
+        <div
+          class="modal-close dyy-modal__close"
+          data-modal-close
+          data-role="close"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-x"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </div>
+      </div>
+
+      <div class="modal-content" data-role="content">
+        <div class="empty-cart-container">
+          <div class="empty-cart-content">
+            <div class="empty-cart-image">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/36474203fb42409b85e632743b87eb33.webp?v=1770364810"
+                loading="lazy"
+                decoding="async"
+                data-nimg="fill"
+                sizes="100vw"
+                alt="No data"
+                width="auto"
+                height="auto"
+              >
+            </div>
+
+            <span class="empty-cart-message">Your shopping cart is empty</span>
+            <div class="empty-cart-button" data-role="close" data-modal-close>Continue Shopping</div>
+          </div>
+        </div>
+
+        <script type="text/html" data-role="product-item-template">
+          <div class="modal-product-item">
+            <div class="modal-product-image">
+              <img src="<%= image %>" loading="lazy" decoding="async" data-nimg="fill" sizes="100vw">
+            </div>
+
+            <div class="modal-product-info">
+              <div class="modal-product-price-row">
+                <span><%= title %></span>
+                <span><%= price %></span>
+              </div>
+
+              <div class="modal-product-action-row">
+                <span class="modal-product-remove" data-role="remove" data-handle="<%= handle %>">Remove</span>
+                <span class="modal-product-original-price"><%= compare_at_price %></span>
+              </div>
+            </div>
+          </div>
+        </script>
+
+        <div class="modal-product-list" data-role="product-list">
+          <div class="modal-product-item">
+            <div class="modal-product-image">
+              <img
+                src=""
+                loading="lazy"
+                decoding="async"
+                data-nimg="fill"
+                sizes="100vw"
+                width="auto"
+                height="auto"
+              >
+            </div>
+
+            <div class="modal-product-info">
+              <div class="modal-product-price-row">
+                <span></span>
+                <span></span>
+              </div>
+
+              <div class="modal-product-action-row">
+                <span class="modal-product-remove" data-role="remove" data-handle="yarbo-core">Remove</span>
+                <span class="modal-product-original-price"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-summary">
+          <div class="modal-summary-total">
+            <span>Total Price</span>
+            <span data-role="total-price">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="design-your-yarbo">
+  {% comment %} PC端左侧轮播 {% endcomment %}
+  <div class="design-your-yarbo__pc-left-image-slideshow">
+    <div class="dyy-slideshow swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% assign diagram_lines = block.settings.combination_diagram | newline_to_br | split: '<br />' %}
+          {% assign diagram_json = diagram_lines | json %}
+          {% assign escaped_json = diagram_json | replace: '"', '&quot;' %}
+          <div
+            class="dyy-slideshow__slide swiper-slide {% if forloop.first %}is-active{% endif %}"
+            data-block-index="{{ forloop.index0 }}"
+            data-combination-diagram="{{ escaped_json }}"
+            data-main-image="{{ block.settings.min_image | image_url: width: 1200 }}"
+          >
+            {% if block.settings.min_image %}
+              <img
+                src="{{ block.settings.min_image |  image_url: width: 1000 }}"
+                alt="{{ block.settings.min_image.alt }}"
+                width="auto"
+                height="auto"
+                loading="lazy"
+              >
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {% comment %} 右侧产品选择区域 {% endcomment %}
+  <form class="dyy-product-selector" data-role="product-selector">
+    {% for block in section.blocks %}
+      <div
+        class="dyy-product-block"
+        data-block-index="{{ forloop.index0 }}"
+        {{ block.shopify_attributes }}
+      >
+        {% comment %} 移动端头图 {% endcomment %}
+        {% assign diagram_lines = block.settings.combination_diagram | newline_to_br | split: '<br />' %}
+        {% assign diagram_json = diagram_lines | json %}
+        {% assign escaped_json = diagram_json | replace: '"', '&quot;' %}
+        <div
+          class="dyy-product__image"
+          data-role="mobile-product-image-{{ forloop.index }}"
+          data-combination-diagram="{{ escaped_json }}"
+          data-main-image="{{ block.settings.min_image | image_url: width: 1200 }}"
+        >
+          {% if block.settings.min_image != blank %}
+            <img
+              src="{{ block.settings.min_image |  image_url: width: 800 }}"
+              alt="{{ block.settings.min_image.alt }}"
+              loading="lazy"
+              width="auto"
+              height="auto"
+            >
+          {% endif %}
+        </div>
+
+        <div class="dyy-product__content">
+          <h2 class="dyy-product__title {% if forloop.first %}dyy-product__title--big{% endif %}">
+            {{ block.settings.title | default: 'Design Your Yarbo' }}
+          </h2>
+
+          <p class="dyy-product__desc">
+            {{ block.settings.text | default: 'Multiple options apply' }}
+          </p>
+
+          {% comment %} 特色功能展示（仅第一个block显示） {% endcomment %}
+          {% if forloop.first %}
+            <div class="dyy-product__main-body-desc">
+              <div class="dyy-product__featured">
+                <img
+                  class="dyy-product__featured-icon"
+                  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/663a329f42754dfb91246fb8d6c839dc.webp?v=1770368070"
+                  alt="Modular Design"
+                  width="auto"
+                  height="auto"
+                >
+                <span class="dyy-product__featured-name"
+                  >Modular<br>
+                  Design</span
+                >
+              </div>
+              <div class="dyy-product__featured">
+                <img
+                  class="dyy-product__featured-icon"
+                  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/ad2a351fcda8452a96a26cb9812ca52d.webp?v=1770368070"
+                  alt="Versatile"
+                  width="auto"
+                  height="auto"
+                >
+                <span class="dyy-product__featured-name"
+                  >Versatile Across<br>
+                  All Seasons</span
+                >
+              </div>
+              <div class="dyy-product__featured">
+                <img
+                  class="dyy-product__featured-icon"
+                  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/2b5f4ea10a7e496fa8105e7b5b9d9ca6.webp?v=1770368070"
+                  alt="Adaptive"
+                  width="auto"
+                  height="auto"
+                >
+                <span class="dyy-product__featured-name"
+                  >Adaptive<br>
+                  Technology</span
+                >
+              </div>
+            </div>
+          {% endif %}
+
+          <fieldset class="dyy-product__group" data-product-group="{{ forloop.index0 }}">
+            {% comment %} 使用循环生成3个产品选项 {% endcomment %}
+            {% for i in (1..3) %}
+              {% comment %} 动态获取产品设置 {% endcomment %}
+              {% capture product_key %}product_{{ i }}{% endcapture %}
+              {% capture product_description_key %}product_description_{{ i }}{% endcapture %}
+              {% capture button_key %}button_{{ i }}{% endcapture %}
+              {% capture button_type_key %}button_type_{{ i }}{% endcapture %}
+              {% capture link_key %}link_{{ i }}{% endcapture %}
+              {% capture media_layout_key %}media_layout_{{ i }}{% endcapture %}
+
+              {% assign product_handle = block.settings[product_key] %}
+
+              {% if product_handle != blank %}
+                {% assign product = all_products[product_handle] %}
+
+                <div class="dyy-product__item">
+                  <label class="dyy-product__option">
+                    {% assign product = all_products[product_handle] %}
+                    {% assign first_variant = product.variants.first %}
+                    <input
+                      class="dyy-product__option-input"
+                      type="checkbox"
+                      name="product-{{ forloop.parentloop.index }}-{{ i }}"
+                      value="{{ first_variant.id }}"
+                      data-product="{{ product.handle }}"
+                      data-title="{{ product.title }}"
+                      data-price="{{ product.price }}"
+                      data-compare="{{ product.compare_at_price }}"
+                      data-image="{{ product.featured_image | image_url: width: 400 }}"
+                      data-product-type="product"
+                      data-block-index="{{ forloop.parentloop.index0 }}"
+                      data-product-index="{{ i }}"
+                    >
+                    <div class="dyy-product__option-label">
+                      <div class="dyy-product__option-icon">
+                        <svg
+                          class="icon"
+                          width="20"
+                          height="21"
+                          viewBox="0 0 20 21"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M1.66634 9.66797L7.49967 15.5013L18.333 4.66797" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
+                        </svg>
+                      </div>
+                      <span class="dyy-product__option-title">{{ product.title }}</span>
+                      <span>{{ product.price | money }}</span>
+                    </div>
+                  </label>
+
+                  {% comment %} 产品描述 {% endcomment %}
+                  {% assign product_description = block.settings[product_description_key] %}
+                  {% if product_description != blank %}
+                    <div class="dyy-product__hint">{{ product_description }}</div>
+                  {% endif %}
+
+                  {% comment %} 按钮处理 {% endcomment %}
+                  {% assign button_text = block.settings[button_key] %}
+                  {% assign button_type = block.settings[button_type_key] %}
+                  {% assign button_link = block.settings[link_key] %}
+
+                  {% if button_text != blank %}
+                    {% if button_type == 'link' and button_link != blank %}
+                      <a href="{{ button_link }}" target="_blank" class="dyy-product__more-button">
+                        {{ button_text }}
+                      </a>
+                    {% elsif button_type == 'popup' %}
+                      <button
+                        type="button"
+                        class="dyy-product__more-button"
+                        data-modal-trigger="modal-{{ forloop.parentloop.index }}-{{ i }}"
+                      >
+                        {{ button_text }}
+                      </button>
+                      {% comment %} 弹出框内容 {% endcomment %}
+                      <div class="feature_details_popup">
+                        {% assign slide_count = 0 %}
+                        <div class="popup-overlay"></div>
+                        <div class="swiper">
+                          <div class="swiper-wrapper">
+                            {% comment %} 媒体轮播内容 (最多3个) {% endcomment %}
+                            {% assign slide_count = 0 %}
+                            {% for media_i in (1..3) %}
+                              {% capture image_key %}image_{{ i }}_{{ media_i }}{% endcapture %}
+                              {% capture h5_image_key %}h5_image_{{ i }}_{{ media_i }}{% endcapture %}
+                              {% capture video_key %}video_{{ i }}_{{ media_i }}{% endcapture %}
+                              {% capture video_url_key %}video_url_{{ i }}_{{ media_i }}{% endcapture %}
+                              {% capture title_key %}media_title_{{ i }}_{{ media_i }}{% endcapture %}
+                              {% capture text_key %}media_text_{{ i }}_{{ media_i }}{% endcapture %}
+                              {% capture hint_key %}media_hint_{{ i }}_{{ media_i }}{% endcapture %}
+                              {% capture type_key %}media_type_{{ i }}_{{ media_i }}{% endcapture %}
+
+                              {% assign image = block.settings[image_key] %}
+                              {% assign h5_image = block.settings[h5_image_key] %}
+                              {% assign video = block.settings[video_key] %}
+                              {% assign video_url = block.settings[video_url_key] %}
+                              {% assign title = block.settings[title_key] %}
+                              {% assign text = block.settings[text_key] %}
+                              {% assign hint = block.settings[hint_key] %}
+                              {% assign media_type = block.settings[type_key] %}
+
+                              {% if image != blank or video != blank or video_url != blank %}
+                                {% assign slide_count = slide_count | plus: 1 %}
+                                <div class="swiper-slide {{ block.settings[media_layout_key] }}">
+                                  <div class="popup-close">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      class="feather feather-x"
+                                    >
+                                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
+                                  </div>
+
+                                  <div class="media-container block-{{ block.id }}">
+                                    {% if media_type == 'img' and image != blank %}
+                                      <img
+                                        width="auto"
+                                        height="auto"
+                                        {% if h5_image != blank %}
+                                          class="dyy-hidden-pc"
+                                        {% endif %}
+                                        loading="lazy"
+                                        src="{{ image | image_url }}"
+                                      >
+                                      {% if h5_image != blank %}
+                                        <img
+                                          width="auto"
+                                          height="auto"
+                                          class="dyy-hidden-md"
+                                          loading="lazy"
+                                          src="{{ h5_image | image_url }}"
+                                        >
+                                      {% endif %}
+                                    {% elsif media_type == 'video' and video != blank %}
+                                      {% assign video_tag = video
+                                        | video_tag:
+                                          autoplay: true,
+                                          controls: false,
+                                          loop: true,
+                                          width: '100%',
+                                          muted: true
+                                      %}
+                                      <video-intersection-insert data-src="{{ video_tag | escape }}">
+                                        <img
+                                          width="auto"
+                                          height="auto"
+                                          loading="lazy"
+                                          src="{{ video.preview_image | image_url }}"
+                                          alt="{{ video.alt }}"
+                                        >
+                                      </video-intersection-insert>
+                                    {% elsif media_type == 'video_url' and video_url != blank %}
+                                      {% capture video_html %}
+                            <video autoplay muted loop playsinline preload="metadata" src="{{ video_url | escape }}"></video>
+                            {% endcapture %}
+                                      <video-intersection-insert data-src="{{ video_html | escape }}">
+                                        {% if image != blank %}
+                                          <img
+                                            width="auto"
+                                            height="auto"
+                                            loading="lazy"
+                                            src="{{ image | image_url }}"
+                                          >
+                                        {% endif %}
+                                      </video-intersection-insert>
+                                    {% endif %}
+                                  </div>
+
+                                  <div class="dyy-modal-slide__main">
+                                    {% if title != blank %}
+                                      <h4 class="dyy-modal-slide__title">{{ title }}</h4>
+                                    {% endif %}
+
+                                    {% if text != blank %}
+                                      <div class="dyy-modal-slide__desc">{{ text }}</div>
+                                    {% endif %}
+
+                                    {% if hint != blank %}
+                                      <div class="dyy-modal-slide__hint">{{ hint }}</div>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                              {% endif %}
+                            {% endfor %}
+                          </div>
+                          {% if slide_count > 1 %}
+                            <div class="swiper-pagination"></div>
+                          {% endif %}
+                        </div>
+                        {% if slide_count > 1 %}
+                          <div class="dyy-hidden-pc">
+                            <div class="swiper-button-next swiper-btn ">
+                              <svg
+                                width="12"
+                                height="16"
+                                viewBox="0 0 12 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M8.0926 8.37997L4.50999 11.9626L3.75 11.2026L6.95262 7.99998L3.75 4.79736L4.50999 4.03737L8.0926 7.61998C8.30247 7.82985 8.30247 8.17011 8.0926 8.37997Z" fill="currentColor"></path>
+                              </svg>
+                            </div>
+                            <div class="swiper-button-prev swiper-btn">
+                              <svg
+                                width="12"
+                                height="16"
+                                viewBox="0 0 12 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M3.9074 7.62003L7.49001 4.03742L8.25 4.7974L5.04738 8.00002L8.25 11.2026L7.49001 11.9626L3.9074 8.38002C3.69753 8.17015 3.69753 7.82989 3.9074 7.62003Z" fill="currentColor"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </fieldset>
+        </div>
+      </div>
+    {% endfor %}
+  </form>
+</div>
+<script>
+  const dyySwiper = new Swiper('.dyy-slideshow', {
+    slidesPerView: 1,
+    speed: 500,
+    allowTouchMove: false,
+  });
+  const blocks = document.querySelectorAll('.dyy-product-block');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = entry.target.dataset.blockIndex;
+
+          if (typeof dyySwiper !== 'undefined') {
+            dyySwiper.slideTo(index);
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.7, // block 70% 出现才触发
+    }
+  );
+
+  blocks.forEach((block) => observer.observe(block));
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const inputs = document.querySelectorAll('.dyy-product__option-input');
+    const productList = document.querySelector('[data-role="product-list"]');
+    const template = document.querySelector('[data-role="product-item-template"]').innerHTML;
+    const totalPriceEls = document.querySelectorAll('[data-role="total-price"]');
+    const emptyContainer = document.querySelector('.empty-cart-container');
+    function moneyFormat(cents) {
+      return (
+        '$' +
+        (cents / 100).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+        })
+      );
+    }
+
+    function renderProducts() {
+      let total = 0;
+      let html = '';
+
+      const checkedInputs = document.querySelectorAll('.dyy-product__option-input:checked');
+
+      checkedInputs.forEach((input) => {
+        const price = parseInt(input.dataset.price || 0);
+        const compare = parseInt(input.dataset.compare || 0);
+
+        total += price;
+
+        const itemHtml = template
+          .replace('<%= image %>', input.dataset.image)
+          .replace('<%= title %>', input.dataset.title)
+          .replace('<%= price %>', moneyFormat(price))
+          .replace('<%= compare_at_price %>', compare ? moneyFormat(compare) : '')
+          .replace('<%= handle %>', input.dataset.product);
+
+        html += itemHtml;
+      });
+
+      productList.innerHTML = html;
+
+      // 更新总价
+      totalPriceEls.forEach((el) => {
+        el.textContent = moneyFormat(total);
+      });
+
+      // 空状态控制
+      if (checkedInputs.length === 0) {
+        document.querySelector('.design-your-yarbo-includes').classList.add('empty');
+      } else {
+        document.querySelector('.design-your-yarbo-includes').classList.remove('empty');
+      }
+    }
+    function parseDiagram(arr) {
+      const map = {};
+      arr.forEach((line) => {
+        if (!line) return;
+        const index = line.indexOf(':');
+        if (index === -1) return;
+        const key = line.slice(0, index).trim();
+        const url = line.slice(index + 1).trim();
+        map[key] = url;
+      });
+
+      return map;
+    }
+
+    function getCurrentCombination(block) {
+      const checked = block.querySelectorAll('.dyy-product__option-input:checked');
+
+      const indexArr = [];
+
+      checked.forEach((input) => {
+        indexArr.push(input.dataset.productIndex);
+      });
+
+      return indexArr.sort().join('~');
+    }
+    function updateSlideImage(block) {
+      const blockIndex = block.dataset.blockIndex;
+
+      const dataEl = block.querySelector('[data-combination-diagram]');
+      if (!dataEl) return;
+
+      const mainImage = dataEl.dataset.mainImage;
+      const diagramData = dataEl.dataset.combinationDiagram;
+
+      let diagramMap = {};
+
+      if (diagramData) {
+        const diagramArr = JSON.parse(diagramData);
+        diagramMap = parseDiagram(diagramArr);
+      }
+
+      const key = getCurrentCombination(block);
+
+      /* ===== 计算最终图片 ===== */
+      let finalUrl = mainImage;
+
+      if (key && diagramMap[key]) {
+        finalUrl = diagramMap[key];
+      }
+
+      /* ===== PC swiper 更新 ===== */
+      const pcSlide = document.querySelector(`.dyy-slideshow__slide[data-block-index="${blockIndex}"]`);
+
+      if (pcSlide) {
+        const pcImg = pcSlide.querySelector('img');
+
+        if (pcImg && pcImg.src !== finalUrl) {
+          pcImg.src = finalUrl;
+        }
+      }
+
+      /* ===== Mobile block 图片更新 ===== */
+      const mobileImg = block.querySelector('[data-role^="mobile-product-image"] img');
+
+      if (mobileImg && mobileImg.src !== finalUrl) {
+        mobileImg.src = finalUrl;
+      }
+    }
+
+    // 监听 checkbox
+    inputs.forEach((input) => {
+      input.addEventListener('change', () => {
+        renderProducts();
+
+        const block = input.closest('.dyy-product-block');
+        updateSlideImage(block);
+      });
+    });
+
+    renderProducts();
+  });
+  document.addEventListener('click', (e) => {
+    /* ===== REMOVE ===== */
+    const removeBtn = e.target.closest('[data-role="remove"]');
+    if (removeBtn) {
+      const handle = removeBtn.dataset.handle;
+
+      const input = document.querySelector(`.dyy-product__option-input[data-product="${handle}"]`);
+      if (input) {
+        input.checked = false;
+        input.dispatchEvent(new Event('change'));
+      }
+
+      return;
+    }
+
+    /* ===== 打开 modal ===== */
+    const openBtn = e.target.closest('[data-modal-open]');
+    if (openBtn) {
+      const id = openBtn.dataset.modalOpen;
+      const modal = document.querySelector(`[data-modal-id="${id}"]`);
+
+      if (modal) {
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        modal.classList.add('active');
+      }
+
+      return;
+    }
+
+    /* ===== 关闭 modal ===== */
+    const closeBtn = e.target.closest('[data-modal-close]');
+    if (closeBtn) {
+      const modal = closeBtn.closest('[data-modal-id]');
+
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+      }
+    }
+    /* ===== 打开 popup ===== */
+    const moreBtn = e.target.closest('.dyy-product__more-button');
+
+    if (moreBtn) {
+      const item = moreBtn.closest('.dyy-product__item');
+      if (!item) return;
+
+      const popup = item.querySelector('.feature_details_popup');
+      if (!popup) return;
+
+      popup.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      /* 初始化 swiper（避免重复初始化） */
+      const swiperEl = popup.querySelector('.swiper');
+
+      if (swiperEl && !swiperEl.swiper) {
+        new Swiper(swiperEl, {
+          slidesPerView: 1,
+          spaceBetween: 64,
+          pagination: {
+            el: popup.querySelector('.swiper-pagination'),
+            clickable: true,
+          },
+          navigation: {
+            nextEl: popup.querySelector('.swiper-button-next'),
+            prevEl: popup.querySelector('.swiper-button-prev'),
+          },
+        });
+      }
+
+      return;
+    }
+
+    /* ===== 点击 popup 背景关闭 ===== */
+    const popup = e.target.closest('.feature_details_popup');
+
+    if (popup && e.target === popup) {
+      popup.classList.remove('active');
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+    if (e.target.closest('.popup-close')) {
+      popup.classList.remove('active');
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+    if (e.target.classList.contains('popup-overlay')) {
+      popup.classList.remove('active');
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+  });
+  const addToCartBtn = document.querySelector('[data-role="add-to-cart"]');
+
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      // 显示加载状态
+      const btn = e.currentTarget;
+      btn.classList.add('loading');
+
+      try {
+        // 获取已选中的产品
+        const checkedInputs = document.querySelectorAll('.dyy-product__option-input:checked');
+
+        if (checkedInputs.length === 0) {
+          alert('Please select at least one product before purchasing.');
+          btn.classList.remove('loading');
+          return;
+        }
+
+        // 准备购物车数据
+        const items = Array.from(checkedInputs).map((input) => {
+          return {
+            id: parseInt(input.value), // Shopify产品ID
+            quantity: 1,
+          };
+        });
+
+        // 调用Shopify购物车API
+        const response = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ items: items }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+
+          // 可选：重定向到购物车页面
+          window.location.href = '/cart';
+        } else {
+          throw new Error('Failed to add to cart');
+        }
+      } catch (error) {
+        console.error('Error adding to cart:', error);
+        alert('An error occurred while adding products to cart. Please try again.');
+      } finally {
+        btn.classList.remove('loading');
+      }
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Design your yarbo",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Section Title",
+          "default": "Design Your Yarbo"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Section Text",
+          "default": "Multiple options apply"
+        },
+        {
+          "type": "image_picker",
+          "id": "min_image",
+          "label": "Main image"
+        },
+        {
+          "type": "textarea",
+          "id": "combination_diagram",
+          "label": "Combination diagram",
+          "info": "Format example:\n1:https://xxx.png\n1~2:https://xxx.png\n1~2~3:https://xxx.png\n1~3:https://xxx.png\n2:https://xxx.png\n2~3:https://xxx.png\n3:https://xxx.png"
+        },
+        {
+          "type": "header",
+          "content": "product 1"
+        },
+        {
+          "type": "product",
+          "id": "product_1",
+          "label": "Product 1"
+        },
+        {
+          "type": "richtext",
+          "id": "product_description_1",
+          "label": "Product Description"
+        },
+        {
+          "type": "text",
+          "id": "button_1",
+          "label": "Button"
+        },
+        {
+          "type": "url",
+          "id": "link_1",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "button_type_1",
+          "label": "Button Type",
+          "options": [
+            {
+              "label": "link",
+              "value": "link"
+            },
+            {
+              "label": "popup",
+              "value": "popup"
+            }
+          ],
+          "default": "link"
+        },
+        {
+          "type": "header",
+          "content": "popup"
+        },
+        {
+          "type": "select",
+          "id": "media_layout_1",
+          "label": "Media layout",
+          "options": [
+            {
+              "label": "bottom",
+              "value": "bottom_image"
+            },
+            {
+              "label": "left",
+              "value": "left_image"
+            }
+          ],
+          "default": "bottom_image"
+        },
+        {
+          "type": "header",
+          "content": "slide 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1_1",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image_1_1",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "video_1_1",
+          "label": "Video"
+        },
+        {
+          "type": "url",
+          "id": "video_url_1_1",
+          "label": "Video Url"
+        },
+        {
+          "type": "richtext",
+          "id": "media_title_1_1",
+          "label": "Media Title"
+        },
+        {
+          "type": "richtext",
+          "id": "media_text_1_1",
+          "label": "Media Text"
+        },
+        {
+          "type": "richtext",
+          "id": "media_hint_1_1",
+          "label": "Media Hint"
+        },
+        {
+          "type": "radio",
+          "id": "media_type_1_1",
+          "label": "Media Show Type",
+          "options": [
+            {
+              "value": "img",
+              "label": "Img"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "video_url",
+              "label": "Video Url"
+            }
+          ],
+          "default": "img"
+        },
+        {
+          "type": "header",
+          "content": "slide 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1_2",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image_1_2",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "video_1_2",
+          "label": "Video"
+        },
+        {
+          "type": "url",
+          "id": "video_url_1_2",
+          "label": "Video Url"
+        },
+        {
+          "type": "richtext",
+          "id": "media_title_1_2",
+          "label": "Media Title"
+        },
+        {
+          "type": "richtext",
+          "id": "media_text_1_2",
+          "label": "Media Text"
+        },
+        {
+          "type": "richtext",
+          "id": "media_hint_1_2",
+          "label": "Media Hint"
+        },
+        {
+          "type": "radio",
+          "id": "media_type_1_2",
+          "label": "Media Show Type",
+          "options": [
+            {
+              "value": "img",
+              "label": "Img"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "video_url",
+              "label": "Video Url"
+            }
+          ],
+          "default": "img"
+        },
+        {
+          "type": "select",
+          "id": "media_layout_1_1",
+          "label": "Media layout",
+          "options": [
+            {
+              "label": "bottom",
+              "value": "bottom_image"
+            },
+            {
+              "label": "left",
+              "value": "left_image"
+            }
+          ],
+          "default": "bottom_image"
+        },
+        {
+          "type": "header",
+          "content": "slide 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1_3",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image_1_3",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "video_1_3",
+          "label": "Video"
+        },
+        {
+          "type": "url",
+          "id": "video_url_1_3",
+          "label": "Video Url"
+        },
+        {
+          "type": "richtext",
+          "id": "media_title_1_3",
+          "label": "Media Title"
+        },
+        {
+          "type": "richtext",
+          "id": "media_text_1_3",
+          "label": "Media Text"
+        },
+        {
+          "type": "richtext",
+          "id": "media_hint_1_3",
+          "label": "Media Hint"
+        },
+        {
+          "type": "radio",
+          "id": "media_type_1_3",
+          "label": "Media Show Type",
+          "options": [
+            {
+              "value": "img",
+              "label": "Img"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "video_url",
+              "label": "Video Url"
+            }
+          ],
+          "default": "img"
+        },
+        {
+          "type": "header",
+          "content": "product 2"
+        },
+        {
+          "type": "product",
+          "id": "product_2",
+          "label": "Product 2"
+        },
+        {
+          "type": "richtext",
+          "id": "product_description_2",
+          "label": "Product Description"
+        },
+        {
+          "type": "text",
+          "id": "button_2",
+          "label": "Button"
+        },
+        {
+          "type": "url",
+          "id": "link_2",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "button_type_2",
+          "label": "Button Type",
+          "options": [
+            { "label": "link", "value": "link" },
+            { "label": "popup", "value": "popup" }
+          ],
+          "default": "link"
+        },
+        {
+          "type": "select",
+          "id": "media_layout_2",
+          "label": "Media layout",
+          "options": [
+            {
+              "label": "bottom",
+              "value": "bottom_image"
+            },
+            {
+              "label": "left",
+              "value": "left_image"
+            }
+          ],
+          "default": "bottom_image"
+        },
+        {
+          "type": "header",
+          "content": "popup"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "image_2_1",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image_2_1",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "video_2_1",
+          "label": "Video"
+        },
+        {
+          "type": "url",
+          "id": "video_url_2_1",
+          "label": "Video Url"
+        },
+        {
+          "type": "richtext",
+          "id": "media_title_2_1",
+          "label": "Media Title"
+        },
+        {
+          "type": "richtext",
+          "id": "media_text_2_1",
+          "label": "Media Text"
+        },
+        {
+          "type": "richtext",
+          "id": "media_hint_2_1",
+          "label": "Media Hint"
+        },
+        {
+          "type": "radio",
+          "id": "media_type_2_1",
+          "label": "Media Show Type",
+          "options": [
+            { "value": "img", "label": "Img" },
+            { "value": "video", "label": "Video" },
+            { "value": "video_url", "label": "Video Url" }
+          ],
+          "default": "img"
+        },
+
+        {
+          "type": "header",
+          "content": "product 3"
+        },
+        {
+          "type": "product",
+          "id": "product_3",
+          "label": "Product 3"
+        },
+        {
+          "type": "richtext",
+          "id": "product_description_3",
+          "label": "Product Description"
+        },
+        {
+          "type": "text",
+          "id": "button_3",
+          "label": "Button"
+        },
+        {
+          "type": "url",
+          "id": "link_3",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "button_type_3",
+          "label": "Button Type",
+          "options": [
+            { "label": "link", "value": "link" },
+            { "label": "popup", "value": "popup" }
+          ],
+          "default": "link"
+        },
+        {
+          "type": "select",
+          "id": "media_layout_3",
+          "label": "Media layout",
+          "options": [
+            {
+              "label": "bottom",
+              "value": "bottom_image"
+            },
+            {
+              "label": "left",
+              "value": "left_image"
+            }
+          ],
+          "default": "bottom_image"
+        },
+        {
+          "type": "header",
+          "content": "popup"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3_1",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image_3_1",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "video_3_1",
+          "label": "Video"
+        },
+        {
+          "type": "url",
+          "id": "video_url_3_1",
+          "label": "Video Url"
+        },
+        {
+          "type": "richtext",
+          "id": "media_title_3_1",
+          "label": "Media Title"
+        },
+        {
+          "type": "richtext",
+          "id": "media_text_3_1",
+          "label": "Media Text"
+        },
+        {
+          "type": "richtext",
+          "id": "media_hint_3_1",
+          "label": "Media Hint"
+        },
+        {
+          "type": "radio",
+          "id": "media_type_3_1",
+          "label": "Media Show Type",
+          "options": [
+            { "value": "img", "label": "Img" },
+            { "value": "video", "label": "Video" },
+            { "value": "video_url", "label": "Video Url" }
+          ],
+          "default": "img"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "image_3_2",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image_3_2",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "video_3_2",
+          "label": "Video"
+        },
+        {
+          "type": "url",
+          "id": "video_url_3_2",
+          "label": "Video Url"
+        },
+        {
+          "type": "richtext",
+          "id": "media_title_3_2",
+          "label": "Media Title"
+        },
+        {
+          "type": "richtext",
+          "id": "media_text_3_2",
+          "label": "Media Text"
+        },
+        {
+          "type": "richtext",
+          "id": "media_hint_3_2",
+          "label": "Media Hint"
+        },
+        {
+          "type": "radio",
+          "id": "media_type_3_2",
+          "label": "Media Show Type",
+          "options": [
+            { "value": "img", "label": "Img" },
+            { "value": "video", "label": "Video" },
+            { "value": "video_url", "label": "Video Url" }
+          ],
+          "default": "img"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3_3",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image_3_3",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "video_3_3",
+          "label": "Video"
+        },
+        {
+          "type": "url",
+          "id": "video_url_3_3",
+          "label": "Video Url"
+        },
+        {
+          "type": "richtext",
+          "id": "media_title_3_3",
+          "label": "Media Title"
+        },
+        {
+          "type": "richtext",
+          "id": "media_text_3_3",
+          "label": "Media Text"
+        },
+        {
+          "type": "richtext",
+          "id": "media_hint_3_3",
+          "label": "Media Hint"
+        },
+        {
+          "type": "radio",
+          "id": "media_type_3_3",
+          "label": "Media Show Type",
+          "options": [
+            { "value": "img", "label": "Img" },
+            { "value": "video", "label": "Video" },
+            { "value": "video_url", "label": "Video Url" }
+          ],
+          "default": "img"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Design your yarbo",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

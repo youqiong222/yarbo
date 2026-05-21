@@ -1,0 +1,282 @@
+{% comment %}
+  Key Differences Section
+  - Schema product_list 选择对比产品
+  - 从每个产品的元字段 custom.compare_specs (JSON) 中提取 highlight: true 的项
+  - 第一个产品显示 "Currently Viewing"，其余显示 "Learn More"
+  - 扁平表格，左侧参数名，右侧每个产品的值
+{% endcomment %}
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div
+  x-data='specCompare()'
+  x-init='init()'
+  data-highlight-color='{{ section.settings.highlight_color }}'
+  class='spec-compare-section {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+>
+  <div class='mx-auto w-full max-w-1180 px-16 sm:px-40'>
+    <!-- 标题 -->
+    {% if section.settings.heading != blank %}
+      <h2 class='mb-24 text-center text-[36px] leading-none uppercase md:mb-40 md:text-[44px]'>
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <!-- 产品头部卡片 -->
+    {%- assign products = section.settings.product_list -%}
+    {%- if products.size > 0 -%}
+      <div class='mb-20 grid grid-cols-2 gap-16 sm:mb-48 sm:grid-cols-[200px_repeat(2,1fr)]'>
+        <div class='hidden sm:block'></div>
+        {%- for product in products -%}
+          <div class='flex flex-col gap-8 sm:flex-row sm:items-center sm:gap-20'>
+            {% if product.featured_image != blank %}
+              <div class='aspect-square w-full overflow-hidden bg-[#F2F2F2] sm:h-120 sm:w-120 sm:shrink-0'>
+                <img
+                  src='{{ product.featured_image | image_url }}'
+                  alt='{{ product.featured_image.alt | escape }}'
+                  width='120'
+                  height='120'
+                  loading='lazy'
+                  class='h-full w-full bg-[#F2F2F2] object-contain'
+                >
+              </div>
+            {% endif %}
+            <div class='flex flex-col'>
+              <h3 class='text-[20px] leading-tight font-extrabold uppercase sm:text-[22px]'>
+                {{ product.title }}
+              </h3>
+              {% if forloop.first %}
+                <span class='mt-12 block text-[12px] text-[#8C8C8C] sm:text-[12px]'>Currently Viewing</span>
+              {% else %}
+                <a
+                  href='{{ product.url }}'
+                  class='mt-12 inline-block w-fit border border-[#CCCCCC] px-16 py-8 text-[12px] transition-colors duration-300 hover:bg-[#02060B] hover:text-white sm:text-[12px]'
+                >
+                  {{ 'button.learn_more' | t }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <!-- 对比表格 (仅 highlight 项) -->
+    <div>
+      <!-- Price 行：与参数行同款 -->
+      {%- if products.size > 0 -%}
+        <div class='border-t border-b border-[#E6E6E6] py-16 md:py-24'>
+          <!-- H5 -->
+          <div class='sm:hidden'>
+            <h4 class='mb-8 text-[14px] uppercase'>Price</h4>
+            <div class='grid grid-cols-2 gap-16'>
+              {%- for product in products -%}
+                <span class='text-[14px]'>
+                  {{ product.price | money }}
+                </span>
+              {%- endfor -%}
+            </div>
+          </div>
+          <!-- PC -->
+          <div class='hidden grid-cols-[200px_repeat(2,1fr)] items-start gap-16 sm:grid'>
+            <span class='text-[16px] font-bold uppercase md:text-[16px]'>{{ 'sections.cart.headings.price' | t }}</span>
+            {%- for product in products -%}
+              <span class='text-[16px] font-bold text-[#333] md:text-[16px]'>
+                {{ product.price | money }}
+              </span>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      <template
+        x-for='(item, idx) in allItems'
+        :key='item.key'
+      >
+        <div
+          class='border-b border-[#E6E6E6] py-16 md:py-24'
+        >
+          <!-- H5: 参数名独占一行 + 值分列 -->
+          <div class='sm:hidden'>
+            <h4
+              class='mb-8 text-[14px] uppercase'
+              x-text='item.label'
+            ></h4>
+            <div class='grid grid-cols-2 gap-16'>
+              {%- for product in products -%}
+                <span
+                  class='text-[14px] whitespace-pre-line'
+                  :style="item.highlight ? `color: ${highlightColor}` : ''"
+                  x-text="getProductValue('{{ product.handle }}', item.key)"
+                ></span>
+              {%- endfor -%}
+            </div>
+          </div>
+          <!-- PC: 左侧参数名 + 右侧值列 -->
+          <div
+            class='hidden grid-cols-[200px_repeat(2,1fr)] items-start gap-16 sm:grid'
+          >
+            <span
+              class='theme-title text-[16px] font-bold uppercase md:text-[16px]'
+              x-text='item.label'
+            ></span>
+            {%- for product in products -%}
+              <span
+                class='text-[16px] whitespace-pre-line text-[#333] md:text-[16px]'
+                :style="item.highlight ? `color: ${highlightColor}` : ''"
+                x-text="getProductValue('{{ product.handle }}', item.key)"
+              ></span>
+            {%- endfor -%}
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('specCompare', () => ({
+      productsSpecs: {},
+      allItems: [],
+      highlightColor: '',
+
+      init() {
+        this.highlightColor = this.$root.dataset.highlightColor || '#25282A';
+        {%- for product in products -%}
+          {%- assign spec_raw = product.metafields.custom.compare_specs.value -%}
+          {%- if spec_raw != blank -%}
+            try {
+              this.productsSpecs['{{ product.handle }}'] = this.normalizeSpec({{ spec_raw | json }});
+            } catch(e) {
+              console.error('Failed to parse specs for {{ product.handle }}', e);
+            }
+          {%- endif -%}
+        {%- endfor -%}
+
+        this.buildAllItems();
+      },
+
+      normalizeSpec(raw) {
+        if (!raw) return [];
+        if (typeof raw === 'string') {
+          try {
+            raw = JSON.parse(raw);
+          } catch (e) {
+            return [];
+          }
+        }
+
+        // 你当前元字段结构：[{name, items}]
+        if (Array.isArray(raw)) return raw;
+
+        // 兼容旧结构
+        if (Array.isArray(raw.categories)) return raw.categories;
+        if (Array.isArray(raw.value)) return raw.value;
+        if (raw.value && Array.isArray(raw.value.categories)) return raw.value.categories;
+
+        return [];
+      },
+
+      getSpecGroups(spec) {
+        return this.normalizeSpec(spec);
+      },
+
+      buildAllItems() {
+        const keyMap = new Map();
+        Object.values(this.productsSpecs).forEach(spec => {
+          this.getSpecGroups(spec).forEach(cat => {
+            if (!cat.items) return;
+            cat.items.forEach(item => {
+              if (!keyMap.has(item.key)) {
+                keyMap.set(item.key, { key: item.key, label: item.label, highlight: !!item.highlight });
+              } else if (item.highlight) {
+                keyMap.get(item.key).highlight = true;
+              }
+            });
+          });
+        });
+        const handles = Object.keys(this.productsSpecs);
+        this.allItems = [...keyMap.values()].filter(item => {
+          const isBlank = v => !v || v === '-' || v.trim().toUpperCase() === 'N/A';
+          return handles.some(handle => !isBlank(this.getProductValue(handle, item.key)));
+        });
+      },
+
+      getProductValue(handle, key) {
+        const spec = this.productsSpecs[handle];
+        for (const cat of this.getSpecGroups(spec)) {
+          if (!cat.items) continue;
+          const found = cat.items.find(i => i.key === key);
+          if (found) return found.value || '-';
+        }
+        return '-';
+      }
+    }));
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Spec Compare",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 56
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 56
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Title",
+      "default": "KEY DIFFERENCES"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Color",
+      "default": "#FCE300"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "product List"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Spec Compare"
+    }
+  ]
+}
+{% endschema %}

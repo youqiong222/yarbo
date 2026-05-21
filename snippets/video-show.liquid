@@ -1,0 +1,54 @@
+{% assign muted = 1 %}
+{% assign autoplay = false %}
+{% assign controlsList = "nodownload" %}
+{% assign controls = false %}
+
+{% if video == blank and external_video != blank %}
+  {% if external_video.type == 'youtube' %}
+    {% assign controls = 0 %}
+    <iframe
+      src="https://www.youtube.com/embed/{{ external_video.id }}?enablejsapi=1&autoplay=1&mute=1&playsinline=1&playlist={{ external_video.id }}&rel=0&loop={{ loop }}&controls={{ controls }}"
+      class=""
+      allow="autoplay; encrypted-media"
+      title="{{ video_alt | escape }}"
+      style="display: block !important;"
+    ></iframe>
+  {% elsif external_video.type == 'vimeo' %}
+    <iframe
+      src="https://player.vimeo.com/video/{{ external_video.id }}?autoplay=1&muted=1"
+      class="js-vimeo"
+      allow="autoplay; encrypted-media"
+      title="{{ video_alt | escape }}"
+    ></iframe>
+  {% endif %}
+
+{% elsif firework_video != blank %}
+  <video
+    playsinline
+    loop
+    controlslist="{{ controlsList }}"
+    {% if muted == 1 %}muted{% endif %}
+    {% if autoplay %}autoplay{% endif %}
+    {% if controls %}controls{% endif %}
+    src="{{ firework_video }}"
+    poster="{{ poster | image_url: width: 800 }}"
+  ></video>
+
+{% else %}
+  {%- liquid
+    # Shopify video_tag 过滤器需要布尔值
+    assign is_muted = false
+    if muted == 1
+      assign is_muted = true
+    endif
+  -%}
+  {{ video | video_tag:
+    autoplay: autoplay,
+    preload: 'auto',
+    muted: is_muted,
+    controls: controls,
+    controlslist: controlsList,
+    loop: true,
+    playsinline: true
+  }}
+{% endif %}

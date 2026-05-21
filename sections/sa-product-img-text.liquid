@@ -1,0 +1,391 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+
+<div class='page-container  anchor-target max-w-lg {{ section.settings.anchor_id }}'>
+  <div class='flex flex-col gap-80'>
+    {% for block in section.blocks %}
+      <div
+        class='
+          flex
+          gap-24
+          md:items-center
+          md:gap-0
+          {% if block.settings.mobile_layout == 'image_top' %}
+            flex-col-reverse
+          {% else %}
+            flex-col
+          {% endif %}
+          {% if block.settings.pc_layout == 'image_left' %}
+            md:flex-row
+          {% else %}
+            md:flex-row-reverse
+          {% endif %}  {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+        '
+      >
+        <div class='flex flex-1 flex-col md:p-60'>
+          <div {{ block.shopify_attributes }}>
+            {% if block.settings.title != blank %}
+              <h3
+                class='
+                  text-[26px]
+                  leading-[1.1]
+                  uppercase
+                  md:text-[32px]
+                '
+              >
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.desc != blank %}
+              <div
+                class='mt-8 text-[14px] leading-[1.3] text-[#515355] md:mt-12 '
+              >
+                {{ block.settings.desc }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.block_title1 != blank %}
+              {%- assign block_nums = 1 -%}
+              {%- if block.settings.block_title2 != blank -%}
+                {%- assign block_nums = 2 -%}
+              {%- endif -%}
+              {%- if block.settings.block_title3 != blank -%}
+                {%- assign block_nums = 3 -%}
+              {%- endif -%}
+              <div
+                class='mt-24 flex justify-between gap-16 md:mt-40'
+              >
+                {%- for item in (1..block_nums) -%}
+                  {% assign title_key = 'block_title' | append: item %}
+                  {% assign text_key = 'block_text' | append: item %}
+                  <div class='relative flex-1 pl-12 before:absolute before:top-0 before:left-0 before:h-full before:w-4 before:bg-[#FEDB1E] before:content-[""]'>
+                    <h4 class='text-[17px] leading-[1.1] text-[#515355] md:text-[20px] [&_strong]:text-[26px] md:[&_strong]:text-[32px]'>
+                      {{ block.settings[title_key] }}
+                    </h4>
+                    <div class='mt-4 text-[12px]/[1.3] text-[#515355]'>
+                      {{ block.settings[text_key] }}
+                    </div>
+                  </div>
+                {%- endfor -%}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div
+          style='--width:{{ block.settings.image_width }}%'
+          class='md:w-(--width)'
+        >
+          {%- liquid
+            assign b = block.settings
+            assign pc_w = b.pc_aspect_ratio_w | default: 16
+            assign pc_h = b.pc_aspect_ratio_h | default: 9
+            assign pc_ratio = pc_w | append: '/' | append: pc_h
+            assign h5_w = b.h5_aspect_ratio_w | default: 16
+            assign h5_h = b.h5_aspect_ratio_h | default: 9
+            assign h5_ratio = h5_w | append: '/' | append: h5_h
+          -%}
+          <div
+            style='
+              --media-aspect-pc: {{ pc_ratio }};
+              --media-aspect-h5: {{ h5_ratio }};
+            '
+            class='
+              relative aspect-(--media-aspect-h5) w-full
+              overflow-hidden md:aspect-(--media-aspect-pc)
+            '
+          >
+            {% render 'media-element',
+              class: 'absolute inset-0 w-full h-full object-cover',
+              media_class: 'w-full h-full object-cover',
+              media_type: block.settings.media_type,
+              pc_image: block.settings.pc_image,
+              h5_image: block.settings.h5_image,
+              pc_video: block.settings.pc_video,
+              h5_video: block.settings.h5_video,
+              video_url: block.settings.video_url,
+              other_url: block.settings.other_url
+            %}
+            {%- render 'sn-overlay', _settings: block.settings -%}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  /* 确保伪元素显示 */
+  .before\:content-\[\"\"\]::before {
+    content: '';
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product Text Media",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "range",
+          "id": "image_width",
+          "label": "Image Width",
+          "min": 40,
+          "max": 100,
+          "step": 1,
+          "default": 54,
+          "unit": "%"
+        },
+        {
+          "type": "header",
+          "content": "Layout Settings"
+        },
+        {
+          "type": "select",
+          "id": "pc_layout",
+          "label": "PC Layout",
+          "default": "image_left",
+          "options": [
+            { "value": "image_left", "label": "Text Left, Image Right" },
+            { "value": "image_right", "label": "Image Left, Text Right" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "mobile_layout",
+          "label": "Mobile Layout",
+          "default": "image_top",
+          "options": [
+            { "value": "image_top", "label": " Text Top, Image Bottom" },
+            { "value": "text_top", "label": "Image Top, Text Bottom" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "header",
+          "content": "Media Aspect Ratio"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_w",
+          "label": "PC Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_h",
+          "label": "PC Ratio Height"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_w",
+          "label": "Mobile Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_h",
+          "label": "Mobile Ratio Height"
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Features Blocks (Optional)"
+        },
+        {
+          "type": "richtext",
+          "id": "block_title1",
+          "label": "Block Title1"
+        },
+        {
+          "type": "richtext",
+          "id": "block_text1",
+          "label": "Block Text1"
+        },
+        {
+          "type": "richtext",
+          "id": "block_title2",
+          "label": "Block Title2"
+        },
+        {
+          "type": "richtext",
+          "id": "block_text2",
+          "label": "Block Text2"
+        },
+        {
+          "type": "richtext",
+          "id": "block_title3",
+          "label": "Block Title3"
+        },
+        {
+          "type": "richtext",
+          "id": "block_text3",
+          "label": "Block Text3"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Text Media",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "<p>One Setup. <br/>Season-Long Autonomy.</p>",
+            "desc": "<p>Yarbo monitors battery levels, docks itself to recharge at 20%, and resumes clearing exactly where it left off.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "<p>Performs in Extreme Cold</p>",
+            "desc": "<p>Designed to run smoothly in various temperatures, so your yard stays clear no matter how harsh the winter.</p>",
+            "block_title1": "<p><strong>-13°F TO 113°F</strong></p>",
+            "block_text1": "<p>Operating Temperature</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

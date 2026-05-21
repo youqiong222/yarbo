@@ -1,0 +1,97 @@
+{% comment %}
+  Renders a set of links for paginated results. Must be used within paginate tags.
+
+  Usage:
+  {% paginate results by 2 %}
+    {% render 'pagination', paginate: paginate, anchor: '#yourID' %}
+  {% endpaginate %}
+
+  Accepts:
+  - paginate: {Object}
+  - anchor: {String} (optional) This can be added so that on page reload it takes you to wherever you've placed your anchor tag.
+{% endcomment %}
+
+{{ 'component-pagination.css' | asset_url | stylesheet_tag }}
+
+{%- if paginate.parts.size > 0 -%}
+  <div
+    class='pagination-wrapper mt-56 md:mt-80'
+    data-page='{{ paginate.current_page }}'
+  >
+    <nav
+      class='pagination'
+      role='navigation'
+      aria-label='{{ 'general.pagination.label' | t }}'
+    >
+      <ul class='pagination__list list-unstyled' role='list'>
+        <li class='{% unless paginate.previous %} opacity-50 {% endunless %} pagination__item-arrow-next mr-30! md:mr-40!'>
+          <a
+            href='{{ paginate.previous.url }}{{ anchor }}'
+            class='pagination__item pagination__item--next pagination__item-arrow link motion-reduce '
+            aria-label='{{ 'general.pagination.previous' | t }}'
+          >
+            <span class='svg-wrapper'>
+              <svg
+                width='7'
+                height='12'
+                viewBox='0 0 7 12'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path d="M5.58561 10.2527L0.918946 5.58602L5.58561 0.919352" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+              </svg>
+            </span>
+          </a>
+        </li>
+
+        {%- for part in paginate.parts -%}
+          <li>
+            {%- if part.is_link -%}
+              <a
+                href='{{ part.url }}{{ anchor }}'
+                class='pagination__item link'
+                aria-label='{{ 'general.pagination.page' | t: number: part.title }}'
+              >
+                {{- part.title -}}
+              </a>
+            {%- else -%}
+              {%- if part.title == paginate.current_page -%}
+                <a
+                  role='link'
+                  aria-disabled='true'
+                  class='pagination__item pagination__item--current light'
+                  aria-current='page'
+                  aria-label='{{ 'general.pagination.page' | t: number: part.title }}'
+                >
+                  {{- part.title -}}
+                </a>
+              {%- else -%}
+                <span class='pagination__item'>{{ part.title }}</span>
+              {%- endif -%}
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+
+        <li class='ml-30 md:ml-40! {% unless paginate.next %} opacity-50 {% endunless %}'>
+          <a
+            href='{{ paginate.next.url }}{{ anchor }}'
+            class='pagination__item pagination__item--prev pagination__item-arrow link motion-reduce '
+            aria-label='{{ 'general.pagination.next' | t }}'
+          >
+            <span class='svg-wrapper'>
+              <svg
+                width='7'
+                height='12'
+                viewBox='0 0 7 12'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path d="M0.919271 0.919189L5.58594 5.58586L0.919271 10.2525" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+              </svg>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+{%- endif -%}

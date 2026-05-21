@@ -1,0 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main_brochure_JTaXmj": {
+      "type": "main-brochure",
+      "name": "产品图册",
+      "settings": {
+        "downloadUrl": "https://drive.google.com/file/d/1wsTkhrPn8dSOwEdG7yC9w3DTm8GNZGLn/view?usp=sharing",
+        "images": "https://cdn.shopify.com/s/files/1/0604/5394/5441/files/1_ac573b43-d715-439b-984f-5898832bd98c.png?v=1779344647, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/2_a2b2a46e-a7e1-49cb-b554-6a952006342b.png?v=1779344641, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/3_873abf06-a0ce-4d4f-88c3-ea3485362f8a.png?v=1779344640, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/4.png?v=1779344647, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/5.png?v=1779344642, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/6_7cc1518e-f461-4c4a-b08a-cb270ed9c350.png?v=1779344647, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/7.png?v=1779344640, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/8.png?v=1779344647, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/9.png?v=1779344642, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/10.png?v=1779344648, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/11.png?v=1779344642, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/12.png?v=1779344644, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/13.png?v=1779344642, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/14.png?v=1779344643, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/15.png?v=1779344648, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/16.png?v=1779344647, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/17.png?v=1779344647, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/18.png?v=1779344647, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/19.png?v=1779344647, https://cdn.shopify.com/s/files/1/0604/5394/5441/files/20.png?v=1779344637",
+        "hiddenHeader": "hidden",
+        "hiddenFooter": "hidden",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main_brochure_JTaXmj"
+  ]
+}

@@ -1,0 +1,564 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} .why-shop-with-content {
+    background: transparent;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  @media screen and (max-width: 768px) {
+    #shopify-section-{{ section.id }} .why-shop-with-content {
+      padding-top: {{ section.settings.h5_padding_top }}px;
+      padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+    }
+  }
+  #shopify-section-{{ section.id }} .why-shop-with-content {
+    background: transparent;
+  }
+  #shopify-section-{{ section.id }} .why-item--fullscreen .why-item-content {
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .why-item--fullscreen .why-item-content-wrap div:first-child {
+      font-size: 32px !important;
+    }
+  }
+  @media (min-width: 1000px) and (max-width: 1440px) {
+    #shopify-section-{{ section.id }} .why-item--fullscreen .why-item-content {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+  @media (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .why-item--fullscreen .why-item-content {
+      padding-bottom: 40px;
+    }
+  }
+{%- endstyle -%}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<section
+  class='why-shop-with relative flex w-full items-start justify-center bg-white'
+  id='why-shop-{{ section.id }}'
+>
+  <div class='page-container'>
+    <div class='why-shop-with-content mx-auto flex w-full max-w-1100 flex-col'>
+      {% if section.settings.title != blank %}
+        <h2 class='why-title mb-24 text-[26px]/[1.1] text-[#25282A] uppercase md:mb-32 md:text-[32px]/[1.1]'>
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+
+      <div class='why-grid hidden grid-cols-4 gap-12 md:grid [&>*:nth-child(1)]:[grid-area:1/1/2/2] [&>*:nth-child(2)]:[grid-area:1/2/2/4] [&>*:nth-child(3)]:[grid-area:1/4/2/5] [&>*:nth-child(4)]:[grid-area:2/1/3/2] [&>*:nth-child(5)]:[grid-area:2/2/3/3] [&>*:nth-child(6)]:[grid-area:2/3/3/4] [&>*:nth-child(7)]:[grid-area:2/4/3/5]'>
+        {% for block in section.blocks %}
+          {% assign is_center = false %}
+          {% if forloop.index == 2 %}
+            {% assign is_center = true %}
+          {% endif %}
+
+          <div
+            class='why-item {% if is_center %}why-item--fullscreen{% else %}why-item--normal{% endif %} relative flex min-h-[300px] flex-col overflow-hidden bg-[#f4f4f4]'
+            {{ block.shopify_attributes }}
+          >
+            {% case block.type %}
+              {% when 'media_text' %}
+                {% if block.settings.img != blank or block.settings.h5_img != blank %}
+                  {% render 'media-element',
+                    media_type: 'image',
+                    class: 'absolute inset-0 z-0 h-full w-full',
+                    media_class: 'why-item-bg h-full w-full object-cover object-top',
+                    pc_image: block.settings.img,
+                    h5_image: block.settings.h5_img
+                  %}
+                {% endif %}
+
+                <div class='why-item-content absolute inset-0 z-2 flex flex-col justify-start text-white md:p-32'>
+                  <div class='why-item-content-wrap flex flex-col justify-start gap-2'>
+                    <h4 class='uppercase md:text-[22px]'>
+                      {{ block.settings.title }}
+                    </h4>
+                    {% if block.settings.desc != blank %}
+                      <div class='mt-4 md:text-[14px]/[1.4]'>
+                        {{ block.settings.desc }}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% when 'media_text1' %}
+                {% if block.settings.img != blank or block.settings.h5_img != blank %}
+                  {% render 'media-element',
+                    media_type: 'image',
+                    class: 'absolute inset-0 z-0 h-full w-full',
+                    media_class: 'why-item-bg h-full w-full object-cover object-top',
+                    pc_image: block.settings.img,
+                    h5_image: block.settings.h5_img
+                  %}
+                {% endif %}
+
+                <div class='why-item-content absolute inset-0 z-2 flex flex-col justify-start md:px-32 md:pb-32'>
+                  <div class='why-item-content-wrap flex flex-col justify-start gap-2'>
+                    <h3 class='max-w-380 text-center text-white uppercase md:text-[32px]/[1.1]'>
+                      {{ block.settings.title }}
+                    </h3>
+                  </div>
+                </div>
+              {% when 'media_text3' %}
+                <div class='why-item-content relative z-2 flex h-full min-h-[300px] flex-col justify-between bg-[#F2F2F2] p-16 md:p-32'>
+                  <div class='why-item-content-wrap flex flex-col justify-start gap-2'>
+                    <h4 class=' text-[#25282A] uppercase md:text-[22px]'>
+                      {{ block.settings.title }}
+                    </h4>
+                    {% if block.settings.desc != blank %}
+                      <div class='md:text-[14px][1.4] mt-4  text-[#515355]'>
+                        {{ block.settings.desc }}
+                      </div>
+                    {% endif %}
+                  </div>
+                  {% if block.settings.icon != blank or block.settings.h5_icon != blank %}
+                    {% render 'media-element',
+                      media_type: 'image',
+                      class: 'mt-auto md:p-10 self-start',
+                      media_class: 'h-full w-full object-contain',
+                      pc_image: block.settings.icon,
+                      h5_image: block.settings.h5_icon
+                    %}
+                  {% endif %}
+                </div>
+            {% endcase %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class='grid gap-12 md:hidden'>
+        {% for block in section.blocks %}
+          {% if forloop.index == 2 %}
+            <div
+              class='relative flex aspect-343/202 flex-col overflow-hidden bg-[#f4f4f4]'
+              {{ block.shopify_attributes }}
+            >
+              {% if block.settings.img != blank or block.settings.h5_img != blank %}
+                {% render 'media-element',
+                  media_type: 'image',
+                  class: 'absolute inset-0 z-0 h-full w-full',
+                  media_class: 'h-full w-full object-cover',
+                  pc_image: block.settings.img,
+                  h5_image: block.settings.h5_img
+                %}
+              {% endif %}
+              <div class='absolute inset-0 z-2 flex flex-col items-center justify-end pb-24'>
+                <h3 class='text-center text-[17px]/[1.1] text-white uppercase'>
+                  {{ block.settings.title }}
+                </h3>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        <div class='grid grid-cols-2 gap-12'>
+          <div class='flex flex-col gap-12'>
+            {% for block in section.blocks %}
+              {% if forloop.index == 1 or forloop.index == 4 or forloop.index == 5 %}
+                <div
+                  class='relative flex min-h-200 flex-col bg-[#f4f4f4] p-16'
+                  {{ block.shopify_attributes }}
+                >
+                  <h4 class='text-[17px][1.1] mb-4 text-[#25282A] uppercase'>
+                    {{ block.settings.title }}
+                  </h4>
+                  <div class='text-[13px]/[1.3] text-[#515355]'>
+                    {{ block.settings.desc }}
+                  </div>
+                  {% if block.settings.h5_icon != blank or block.settings.icon != blank %}
+                    {% render 'media-element',
+                      media_type: 'image',
+                      class: 'mt-auto h-32 w-32',
+                      media_class: 'h-full w-full object-contain',
+                      pc_image: block.settings.icon,
+                      h5_image: block.settings.h5_icon
+                    %}
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class='flex flex-col gap-12'>
+            {% for block in section.blocks %}
+              {% if forloop.index == 3 or forloop.index == 6 or forloop.index == 7 %}
+                <div
+                  class='why-item relative flex min-h-200 flex-col bg-[#f4f4f4] p-16'
+                  {{ block.shopify_attributes }}
+                >
+                  <h4 class='text-[17px][1.1] mb-4 text-[#25282A] uppercase'>
+                    {{ block.settings.title }}
+                  </h4>
+                  <div class='text-[13px]/[1.3] text-[#515355]'>
+                    {{ block.settings.desc }}
+                  </div>
+                  {% if block.settings.h5_icon != blank or block.settings.icon != blank %}
+                    {% render 'media-element',
+                      media_type: 'image',
+                      class: 'mt-auto h-32 w-32',
+                      media_class: 'h-full w-full object-contain',
+                      pc_image: block.settings.icon,
+                      h5_image: block.settings.h5_icon
+                    %}
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/gsap.min.js?v=1776244928'
+  defer
+></script>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/scrollTrigger.min.js?v=1776244928'
+  defer
+></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const mq = window.matchMedia('(min-width: 1000px)');
+    const section = document.querySelector('#why-shop-{{ section.id }}');
+    if (!section) return;
+
+    const sectionTitle = section.querySelector('.why-title');
+    const cards = section.querySelectorAll('.why-item--normal');
+    const centerCard = section.querySelector('.why-item--fullscreen');
+    const centerCardContent = centerCard?.querySelector('.why-item-content');
+    const centerCardContentWrap = centerCard?.querySelector('.why-item-content-wrap');
+    const centerTitle = centerCard?.querySelector('h3');
+    let tl = null;
+    let finalRect, sectionRect, sX, sY;
+    let resizeTimer = null;
+    let lastWidth = window.innerWidth;
+
+    const measureFinal = () => {
+      if (!centerCard) return;
+      const state = centerCard.getAttribute('style');
+      centerCard.style.cssText = 'position: static; transform: none; visibility: hidden;';
+
+      finalRect = centerCard.getBoundingClientRect();
+      sectionRect = section.getBoundingClientRect();
+
+      sX = finalRect.width / window.innerWidth;
+      sY = finalRect.height / window.innerHeight;
+
+      if (state) centerCard.style.cssText = state;
+      else centerCard.removeAttribute('style');
+    };
+
+    const initAnimation = () => {
+      if (!section || !centerCard) return;
+
+      measureFinal();
+
+      gsap.set(centerCard, {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100vh',
+        zIndex: 30,
+        x: 0,
+        y: 0,
+        scale: 1,
+      });
+
+      if (cards.length) gsap.set(cards, { autoAlpha: 0 });
+      if (sectionTitle) gsap.set(sectionTitle, { autoAlpha: 0 });
+
+      tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=200%',
+          pin: true,
+          scrub: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      tl.to(centerCard, {
+        x: () => finalRect.left - sectionRect.left,
+        y: () => finalRect.top - sectionRect.top,
+        scaleX: () => sX,
+        scaleY: () => sY,
+        transformOrigin: 'top left',
+        ease: 'power2.inOut',
+        duration: 1,
+      })
+        .to(
+          centerCardContentWrap,
+          {
+            scaleX: () => 1 / sX,
+            scaleY: () => 1 / sY,
+            transformOrigin: 'center bottom',
+            ease: 'power2.inOut',
+            duration: 1,
+          },
+          '<',
+        )
+        .to(
+          centerTitle, // 👇 只针对这个 H3 动手
+          {
+            scaleX: 1, // X 轴跟随父容器（卡片）的自然缩放 sX
+            scaleY: () => sX / sY, // Y 轴进行反向补偿：抵消父级 sY 的形变，强行让它的视觉缩放与 X 轴（sX）保持一致
+            transformOrigin: 'center center', // 居中缩放保持文字位置稳定
+            ease: 'power2.inOut',
+            duration: 1,
+          },
+          '<',
+        )
+        .to(
+          [cards, sectionTitle],
+          {
+            autoAlpha: 1,
+            duration: 0.3,
+          },
+          '-=0.2',
+        );
+    };
+
+    const killAnimation = () => {
+      if (tl) {
+        tl.scrollTrigger?.kill();
+        tl.kill();
+        tl = null;
+      }
+      gsap.set([section, centerCard, centerCardContent, centerCardContentWrap, cards, sectionTitle], {
+        clearProps: 'all',
+      });
+    };
+
+    const handleRefresh = () => {
+      if (mq.matches) {
+        killAnimation();
+        initAnimation();
+      } else {
+        killAnimation();
+      }
+    };
+
+    mq.addEventListener('change', handleRefresh);
+
+    window.addEventListener('resize', () => {
+      const currentWidth = window.innerWidth;
+      if (currentWidth !== lastWidth) {
+        lastWidth = currentWidth;
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          if (mq.matches) {
+            killAnimation();
+            initAnimation();
+          } else {
+            killAnimation();
+          }
+        }, 200);
+      }
+    });
+
+    if (mq.matches) initAnimation();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Why Yarbo",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Why Shop With Us"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "media_text",
+      "name": "Media Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image (PC)"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_img",
+          "label": "Image (Mobile)"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (PC)"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_icon",
+          "label": "Icon (Mobile)"
+        }
+      ]
+    },
+    {
+      "type": "media_text1",
+      "name": "Media Text1",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image (PC)"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_img",
+          "label": "Image (Mobile)"
+        }
+      ]
+    },
+    {
+      "type": "media_text3",
+      "name": "Media Text3",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (PC)"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_icon",
+          "label": "Icon (Mobile)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Yarbo",
+      "settings": {
+        "title": "Why Shop With Yarbo"
+      },
+      "blocks": [
+        {
+          "type": "media_text",
+          "settings": {
+            "title": "Free & Fast Shipping",
+            "desc": "Delivered in 3–7 days"
+          }
+        },
+        {
+          "type": "media_text1",
+          "settings": {
+            "title": "The Future of Yard Care Starts Here"
+          }
+        },
+        {
+          "type": "media_text3",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Help anytime you need"
+          }
+        },
+        {
+          "type": "media_text3",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Pay now or over time using affirm or splitit"
+          }
+        },
+        {
+          "type": "media_text3",
+          "settings": {
+            "title": "30-Day Free Returns",
+            "desc": "Full refund, no hassle"
+          }
+        },
+        {
+          "type": "media_text3",
+          "settings": {
+            "title": "Comprehensive Warranty",
+            "desc": "Protection you can trust"
+          }
+        },
+        {
+          "type": "media_text3",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Safe and protected checkout"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

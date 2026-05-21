@@ -1,0 +1,341 @@
+<div class='page-container'>
+  <div
+    style='
+      --bg-color: {{ section.settings.bg_color }};
+      --time-color: {{ section.settings.time_color }};
+      --card-color: {{ section.settings.card_color }};
+      --card-title-color: {{ section.settings.card_title_color }};
+      --title-color: {{ section.settings.title_color }};
+      --content-color: {{ section.settings.content_color }};
+      --margin-top: {{ section.settings.margin_top }}px;
+      --margin-bottom: {{ section.settings.margin_bottom }}px;
+      --h5-margin-top: {{ section.settings.h5_margin_top }}px;
+      --h5-margin-bottom: {{ section.settings.h5_margin_bottom }}px;
+      --padding-top: {{ section.settings.padding_top }}px;
+      --padding-bottom: {{ section.settings.padding_bottom }}px;
+      --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+      --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+    '
+    class='yb-countdown-container mt-(--h5-margin-top) mb-(--h5-margin-bottom) w-full bg-(--bg-color) px-16 pt-(--h5-padding-top) pb-(--h5-padding-bottom) text-center md:mt-(--margin-top) md:mb-(--margin-bottom) md:pt-(--padding-top) md:pb-(--padding-bottom)'
+  >
+    {% if section.settings.title != blank %}
+      <h2 class='mx-auto max-w-660 text-center text-[36px] leading-none text-(--title-color) sm:text-[52px]'>
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+    {% if section.settings.content != blank %}
+      <div class='mt-12 text-[16px] leading-[1.3] text-(--content-color) sm:mt-16 sm:text-[18px]'>
+        {{ section.settings.content }}
+      </div>
+    {% endif %}
+
+    <div
+      class='yb-countdown-content mt-32 flex items-end justify-center gap-8 sm:mt-40 sm:gap-12'
+      data-year='{{ section.settings.year }}'
+      data-time='{{ section.settings.time }}'
+      data-date='{{ section.settings.date }}'
+      data-timezone='{{ section.settings.timezone }}'
+    >
+      <div class='flex flex-col items-center'>
+        <div
+          class='countdown-item theme-title  countdown-item-days flex h-52 w-60 items-center justify-center rounded-sm bg-(--card-color) text-[24px] font-bold text-(--time-color) tabular-nums sm:h-64 sm:w-80 sm:text-[40px]'
+        >
+          00
+        </div>
+        <div class='mt-4 text-[12px] leading-[1.3] text-(--card-title-color) sm:text-[12px]'>Days</div>
+      </div>
+
+      <div class='flex flex-col items-center'>
+        <div
+          class='countdown-item theme-title  countdown-item-hours flex h-52 w-60 items-center justify-center rounded-sm bg-(--card-color) text-[24px] font-bold text-(--time-color) tabular-nums sm:h-64 sm:w-80 sm:text-[40px]'
+        >
+          00
+        </div>
+        <div class='mt-4 text-[12px] leading-[1.3] text-(--card-title-color) sm:text-[12px]'>Hours</div>
+      </div>
+
+      <div class='flex flex-col items-center'>
+        <div
+          class='countdown-item theme-title  countdown-item-minutes flex h-52 w-60 items-center justify-center rounded-sm bg-(--card-color) text-[24px] font-bold text-(--time-color) tabular-nums sm:h-64 sm:w-80 sm:text-[40px]'
+        >
+          00
+        </div>
+        <div class='mt-4 text-[12px] leading-[1.3] text-(--card-title-color) sm:text-[12px]'>Mins</div>
+      </div>
+
+      <div class='flex flex-col items-center'>
+        <div
+          class='countdown-item theme-title  countdown-item-second flex h-52 w-60 items-center justify-center rounded-sm bg-(--card-color) text-[24px] font-bold text-(--time-color) tabular-nums sm:h-64 sm:w-80 sm:text-[40px]'
+        >
+          00
+        </div>
+        <div class='mt-4 text-[12px] leading-[1.3] text-(--card-title-color) sm:text-[12px]'>Secs</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  (() => {
+    const ybCountdownContainers = document.querySelectorAll('.yb-countdown-container');
+    ybCountdownContainers.forEach((container) => {
+      initYbCountdownTime(container);
+    });
+  })();
+
+  async function initYbCountdownTime(container) {
+    const ybCountdownContent = container.querySelector('.yb-countdown-content');
+    const year = ybCountdownContent.dataset.year;
+    const time = ybCountdownContent.dataset.time;
+    const date = ybCountdownContent.dataset.date;
+    const timezone = ybCountdownContent.dataset.timezone;
+
+    const dateStr = `${year}-${date.replace('.', '-')}`;
+    const timeStr = time.replace(/(\d{2}):(\d{2})(AM|PM)/, (match, h, m, meridiem) => {
+      let hour = parseInt(h);
+      if (meridiem === 'PM' && hour !== 12) hour += 12;
+      if (meridiem === 'AM' && hour === 12) hour = 0;
+      return `${hour.toString().padStart(2, '0')}:${m}`;
+    });
+
+    const eventDate = new Date(`${dateStr} ${timeStr}`);
+
+    // 获取本地时区偏移（包含夏令时）
+    const localOffset = new Date().getTimezoneOffset();
+
+    // 计算目标时区偏移
+    const targetOffset = (() => {
+      const match = timezone.match(/^GMT([+-])(\d+)$/);
+      if (!match) return 0;
+      const [_, sign, hours] = match;
+      let offset = sign === '+' ? parseInt(hours) * 60 * -1 : parseInt(hours) * 60;
+
+      // 检查是否为美国时区
+      const isUSTimezone = timezone.match(/^GMT[-](?:4|5|6|7|8|9|10)$/);
+      if (isUSTimezone) {
+        // 如果是美国时区，检查夏令时
+        const targetDate = new Date(eventDate);
+        const dstStart = new Date(targetDate.getFullYear(), 2, 14 - ((targetDate.getDay() + 6) % 7)); // 3月第二个周日
+        const dstEnd = new Date(targetDate.getFullYear(), 10, 7 - ((targetDate.getDay() + 6) % 7)); // 11月第一个周日
+        dstStart.setHours(2, 0, 0, 0);
+        dstEnd.setHours(2, 0, 0, 0);
+        const isDST = targetDate >= dstStart && targetDate < dstEnd;
+        // 如果目标时区处于夏令时，额外调整一小时
+        offset -= isDST ? 60 : 0;
+      }
+
+      return offset;
+    })();
+
+    // 计算时区差并调整事件时间
+    const offsetDiff = targetOffset - localOffset;
+    eventDate.setMinutes(eventDate.getMinutes() + offsetDiff);
+
+    const daysElement = ybCountdownContent.querySelector('.countdown-item-days');
+    const hoursElement = ybCountdownContent.querySelector('.countdown-item-hours');
+    const minutesElement = ybCountdownContent.querySelector('.countdown-item-minutes');
+    const secondElement = ybCountdownContent.querySelector('.countdown-item-second');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        daysElement.textContent = '00';
+        hoursElement.textContent = '00';
+        minutesElement.textContent = '00';
+        secondElement.textContent = '00';
+        clearInterval(updateCountdown);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      daysElement.textContent = String(days).padStart(2, '0');
+      hoursElement.textContent = String(hours).padStart(2, '0');
+      minutesElement.textContent = String(minutes).padStart(2, '0');
+      secondElement.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+</script>
+{% schema %}
+{
+  "name": "sa countdown",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "id": "title",
+      "type": "richtext",
+      "label": "Title"
+    },
+    {
+      "id": "content",
+      "type": "richtext",
+      "label": "Content"
+    },
+    {
+      "type": "text",
+      "id": "year",
+      "label": "年份",
+      "info": "格式为: 2026",
+      "default": "2026"
+    },
+
+    {
+      "type": "text",
+      "id": "date",
+      "label": "日期",
+      "info": "格式为: 05.15",
+      "default": "05.15"
+    },
+    {
+      "type": "text",
+      "id": "time",
+      "label": "时间",
+      "info": "格式为: 02:00PM",
+      "default": "02:00PM"
+    },
+    {
+      "type": "text",
+      "id": "timezone",
+      "label": "时区",
+      "info": "格式为: GMT-6",
+      "default": "GMT-6"
+    },
+    {
+      "type": "color",
+      "id": "time_color",
+      "label": "时间颜色",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "时间卡片颜色",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "时间标题颜色",
+      "default": "#515355"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景颜色",
+      "default": "#FEDB1E"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "标题颜色",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "描述颜色",
+      "default": "#515355"
+    },
+    {
+      "type": "header",
+      "content": "外部上下间距"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "上间距（PC）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "下间距（PC）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "h5_margin_top",
+      "label": "上间距（移动端）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "h5_margin_bottom",
+      "label": "下间距（移动端）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "header",
+      "content": "内部上下间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "上间距（PC）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "下间距（PC）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "h5_padding_top",
+      "label": "上间距（移动端）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "h5_padding_bottom",
+      "label": "下间距（移动端）",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    }
+  ],
+  "presets": [
+    {
+      "name": "sa countdown"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,167 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+{%- liquid
+  assign s = section.settings
+  assign pc_w = s.pc_aspect_ratio_w | default: 456
+  assign pc_h = s.pc_aspect_ratio_h | default: 292
+  assign pc_ratio = pc_w | append: '/' | append: pc_h
+  assign h5_w = s.h5_aspect_ratio_w | default: 16
+  assign h5_h = s.h5_aspect_ratio_h | default: 9
+  assign h5_ratio = h5_w | append: '/' | append: h5_h
+-%}
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  {% if section.settings.title != blank %}
+    <h2 class='mb-24 text-center text-[32px] font-bold md:mb-40 md:text-[44px]'>
+      {{ section.settings.title }}
+    </h2>
+  {% endif %}
+
+  <div class='grid grid-cols-1 gap-20 md:grid-cols-2'>
+    {% for block in section.blocks %}
+      {%- liquid
+        assign p = block.settings.product
+        if p != blank
+          assign card_url = p.url
+          assign card_title = block.settings.title | default: p.title
+        else
+          assign card_url = '#'
+          assign card_title = block.settings.title
+        endif
+      -%}
+      <a
+        href='{{ card_url }}'
+        style='
+          --media-aspect-pc: {{ pc_ratio }};
+          --media-aspect-h5: {{ h5_ratio }};
+        '
+        class='
+          group relative block
+          aspect-(--media-aspect-h5) overflow-hidden rounded-[4px] no-underline md:aspect-(--media-aspect-pc)
+        '
+        {{ block.shopify_attributes }}
+      >
+        {% render 'media-element',
+          class: 'absolute inset-0 w-full h-full',
+          media_class: 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-105',
+          media_type: block.settings.media_type,
+          pc_image: block.settings.pc_image,
+          h5_image: block.settings.h5_image,
+          pc_video: block.settings.pc_video,
+          h5_video: block.settings.h5_video,
+          video_url: block.settings.video_url,
+          other_url: block.settings.other_url
+        %}
+        {%- render 'sn-overlay', _settings: block.settings -%}
+
+        <div class='relative z-10 flex h-full items-end justify-between gap-16 p-24 md:p-32 lg:p-40'>
+          <div
+            class='min-w-0 flex-1'
+            style='color: {{ block.settings.text_color | default: "#FFFFFF" }};'
+          >
+            {% if card_title != blank %}
+              <h3 class='mb-8 text-[24px] leading-[1.1] font-bold md:text-[32px]'>
+                {{ card_title }}
+              </h3>
+            {% endif %}
+
+            {% if p != blank %}
+              {% render 'sn-main-price', product: p, show_compare_at_price: true, price_class: 'text-white' %}
+            {% endif %}
+          </div>
+
+          <span class='inline-flex h-44 shrink-0 items-center justify-center rounded-[44px] bg-[#FCE300] px-24 text-[14px] font-medium text-[#25282A] no-underline transition-colors duration-300 group-hover:bg-[#25282A] group-hover:text-white md:px-32'>
+            {{ block.settings.button_text | default: 'Shop Now' }}
+          </span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Flash Products Grid",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor Id" },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    { "type": "richtext", "id": "title", "label": "Title" },
+    { "type": "header", "content": "Spacing Settings" },
+    { "type": "number", "id": "padding_top", "label": "Padding Top", "default": 60 },
+    { "type": "number", "id": "padding_bottom", "label": "Padding Bottom", "default": 0 },
+    { "type": "number", "id": "h5_padding_top", "label": "H5 Padding Top", "default": 34 },
+    { "type": "number", "id": "h5_padding_bottom", "label": "H5 Padding Bottom", "default": 0 },
+    { "type": "header", "content": "Block Aspect Ratio" },
+    { "type": "number", "id": "pc_aspect_ratio_w", "label": "PC Ratio Width", "default": 456 },
+    { "type": "number", "id": "pc_aspect_ratio_h", "label": "PC Ratio Height", "default": 292 },
+    { "type": "number", "id": "h5_aspect_ratio_w", "label": "Mobile Ratio Width", "default": 16 },
+    { "type": "number", "id": "h5_aspect_ratio_h", "label": "Mobile Ratio Height", "default": 9 }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "header", "content": "Content" },
+        { "type": "text", "id": "title", "label": "Title (override, default: product title)" },
+        { "type": "color", "id": "text_color", "label": "Text Color", "default": "#FFFFFF" },
+        { "type": "text", "id": "button_text", "label": "Button Text", "default": "Shop Now" },
+        { "type": "header", "content": "Media Settings" },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            { "value": "image", "label": "Image" },
+            { "value": "video", "label": "Shopify Video" },
+            { "value": "video_url", "label": "External Video URL" }
+          ],
+          "default": "image"
+        },
+        { "type": "image_picker", "id": "pc_image", "label": "PC Image" },
+        { "type": "image_picker", "id": "h5_image", "label": "H5 Image" },
+        { "type": "video", "id": "pc_video", "label": "PC Shopify Video" },
+        { "type": "video", "id": "h5_video", "label": "H5 Shopify Video (Optional)" },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        { "type": "header", "content": "Overlay Settings" },
+        { "type": "checkbox", "id": "show_overlay", "label": "Show Media Overlay", "default": false },
+        { "type": "color", "id": "overlay_color", "label": "Overlay Color", "default": "#000000" },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flash Products Grid",
+      "settings": { "title": "<p>Power Up Your Yard</p>" },
+      "blocks": [{ "type": "block" }, { "type": "block" }]
+    }
+  ]
+}
+{% endschema %}

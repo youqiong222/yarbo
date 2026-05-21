@@ -1,0 +1,98 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <div class='flex flex-col justify-between gap-48 bg-black px-24 py-40 md:flex-row md:items-center md:gap-80 md:px-60'>
+    <h2 class='flex-1 text-[26px] leading-[1.1] text-white uppercase md:text-[32px]'>
+      {{ section.settings.title }}
+    </h2>
+    <div class='flex flex-1 items-center justify-center gap-16 bg-white p-24 max-sm:flex-col md:gap-60 md:px-24 md:pt-32 md:pb-24'>
+      {% render 'media-element', media_type: 'image', class: 'w-auto h-auto', media_class: 'w-auto max-h-90 md:max-h-150', pc_image: section.settings.img %}
+      {% if section.settings.btn_text != blank %}
+        <a
+          class='flex h-40 items-center justify-center bg-[#25282A] px-24 text-[14px] leading-[1.3] text-white no-underline md:px-32'
+          href='{{ section.settings.btn_link }}'
+          {% if section.settings.btn_anchor_id != blank %}
+            data-anchor-id='{{ section.settings.btn_anchor_id }}'
+          {% endif %}
+        >
+          {{- section.settings.btn_text -}}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Img Text Banner With Btn",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "btn_anchor_id",
+      "label": "Button Anchor Id"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "img",
+      "label": "img"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Img Text Banner With Btn",
+      "settings": {
+        "title": "<p>Partner with Yarbo for a <br/>Win-Win Opportunity</p>",
+        "btn_text": "Join Now"
+      }
+    }
+  ]
+}
+{% endschema %}

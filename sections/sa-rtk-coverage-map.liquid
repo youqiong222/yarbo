@@ -1,0 +1,339 @@
+{{ 'rtk-coverage-map.css' | asset_url | stylesheet_tag }}
+
+<style>
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.h5_padding_top }}px;
+      padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+    }
+  }
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.bg_color }};
+  }
+  #shopify-section-{{ section.id }} .rtk-coverage-map-heading {
+    color: {{ section.settings.title_color }};
+    {% if section.settings.heading_font_size != blank and section.settings.heading_font_size != 0 %}
+    font-size: {{ section.settings.heading_font_size }}px;
+    {% endif %}
+    {% if section.settings.heading_font_weight != blank and section.settings.heading_font_weight != 0 %}
+    font-weight: {{ section.settings.heading_font_weight }};
+    {% endif %}
+  }
+  #shopify-section-{{ section.id }} .rtk-coverage-map-subheading {
+    color: {{ section.settings.sub_title_color }};
+    line-height: 32px;
+    {% if section.settings.subheading_font_size != blank and section.settings.subheading_font_size != 0 %}
+    font-size: {{ section.settings.subheading_font_size }}px;
+    {% endif %}
+    {% if section.settings.subheading_font_weight != blank and section.settings.subheading_font_weight != 0 %}
+    font-weight: {{ section.settings.subheading_font_weight }};
+    {% endif %}
+  }
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section.id }} .rtk-coverage-map-subheading {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+  }
+  @media screen and (min-width: 1000px) and (max-width: 1200px) {
+    #shopify-section-{{ section.id }} .rtk-coverage-map-subheading {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+</style>
+
+<div class="rtk-coverage-map-section anchor-target {{ section.settings.anchor_id }}">
+  <div class="rtk-coverage-map-container page-container">
+    <h2 class="rtk-coverage-map-heading  uppercase ">{{ section.settings.heading }}</h2>
+    <p class="rtk-coverage-map-subheading">{{ section.settings.subheading }}</p>
+    <div id="rtk-coverage-map" class="rtk-coverage-map">
+      <div class="map-placeholder">
+        <p>Loading Coverage Map...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js" defer></script>
+<script src="https://unpkg.com/@turf/turf@6/turf.min.js" defer></script>
+<script src="{{ 'rtk-coverage-map.js' | asset_url }}" defer></script>
+
+<script>
+  // 统一的 Google Maps API 加载机制 - 参考 proof-map.html
+  function loadGoogleMapsAPIForRTKMap() {
+    // 检查是否已经加载
+    if (window.google && window.google.maps) {
+      console.log('Google Maps API 已加载，直接初始化 RTK Coverage Map');
+      if (typeof initRTKCoverageMap === 'function') {
+        initRTKCoverageMap();
+      }
+      return;
+    }
+
+    // 检查是否已经有Google Maps脚本在加载
+    const existingScript = document.querySelector('script[src*="maps.googleapis.com"]');
+    if (existingScript) {
+      console.log('检测到现有的 Google Maps 脚本，等待加载完成');
+      // 等待现有脚本加载完成
+      existingScript.addEventListener('load', () => {
+        console.log('现有 Google Maps 脚本加载完成，初始化 RTK Coverage Map');
+        if (typeof initRTKCoverageMap === 'function') {
+          initRTKCoverageMap();
+        }
+      });
+      existingScript.addEventListener('error', () => {
+        console.error('现有的Google Maps脚本加载失败');
+        showRTKMapError('Map loading failed, please refresh the page');
+      });
+      return;
+    }
+
+    // 创建唯一的回调函数名
+    const callbackName = 'initRTKMapCallback_' + Date.now();
+
+    // 设置全局回调函数
+    window[callbackName] = function () {
+      console.log('Google Maps API 加载完成，初始化 RTK Coverage Map');
+      // 清理回调函数
+      delete window[callbackName];
+      // 直接初始化地图
+      if (typeof initRTKCoverageMap === 'function') {
+        initRTKCoverageMap();
+      }
+    };
+
+    // 创建script标签加载API - 包含 places 库
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBhdLQnlnMzIXNiA6SDTeD7El3rAdsdgF0&libraries=places&callback=${callbackName}`;
+    script.async = true;
+    script.defer = true;
+    script.id = 'google-maps-api-rtk';
+
+    // 错误处理
+    script.onerror = (error) => {
+      console.error('Google Maps API 加载失败:', error);
+      showRTKMapError('Map loading failed, please check your network connection');
+      // 清理回调函数
+      delete window[callbackName];
+    };
+
+    document.head.appendChild(script);
+  }
+
+  // 显示地图错误
+  function showRTKMapError(message) {
+    const mapContainer = document.getElementById('rtk-coverage-map');
+    if (mapContainer) {
+      mapContainer.innerHTML = `
+        <div style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          color: #666;
+          text-align: center;
+          padding: 20px;
+          min-height: 600px;
+        ">
+          <div style="font-size: 48px; margin-bottom: 16px;">🗺️</div>
+          <h3 style="margin: 0 0 8px 0; color: #333;">Map Loading Failed</h3>
+          <p style="margin: 0 0 16px 0; font-size: 14px;">${message}</p>
+          <button onclick="loadGoogleMapsAPIForRTKMap()" style="
+            margin-top: 8px;
+            padding: 8px 16px;
+            background: #FF385C;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+          ">Reload Map</button>
+        </div>
+      `;
+    }
+  }
+
+  // 页面加载完成后初始化
+  document.addEventListener('DOMContentLoaded', function () {
+    // 检查是否在正确的页面
+    const mapContainer = document.getElementById('rtk-coverage-map');
+    if (!mapContainer) {
+      return;
+    }
+
+    // 延迟初始化，确保DOM完全加载
+    setTimeout(() => {
+      try {
+        loadGoogleMapsAPIForRTKMap();
+      } catch (error) {
+        console.error('RTK Coverage Map 初始化失败:', error);
+        showRTKMapError('Map initialization failed, please refresh the page');
+      }
+    }, 500);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "NetRTK Coverage Map",
+  "class": "section css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "RTK Coverage Map"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Search any address to check NetRTK coverage availability"
+    },
+    {
+      "type": "header",
+      "content": "color settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Bg Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#02060B"
+    },
+    {
+      "type": "color",
+      "id": "sub_title_color",
+      "label": "Sub Title Color",
+      "default": "#02060B"
+    },
+    {
+      "type": "color",
+      "id": "block_name_color",
+      "label": "Block Name Color",
+      "default": "#02060B"
+    },
+    {
+      "type": "color",
+      "id": "block_title_color",
+      "label": "Block Title Color",
+      "default": "#02060B"
+    },
+    {
+      "type": "color",
+      "id": "block_desc_color",
+      "label": "Block Desc Color",
+      "default": "#02060B99"
+    },
+    {
+      "type": "color",
+      "id": "link_border_color",
+      "label": "Link Border Color",
+      "default": "#02060B"
+    },
+    {
+      "type": "color",
+      "id": "link_text_color",
+      "label": "Link Text Color",
+      "default": "#02060B"
+    },
+    {
+      "type": "header",
+      "content": "vertical padding settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "padding Top",
+      "default": 120
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "padding Bottom",
+      "default": 120
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "font settings"
+    },
+    {
+      "type": "number",
+      "id": "heading_font_size",
+      "label": "Heading Font Size (px)",
+      "default": 32
+    },
+    {
+      "type": "number",
+      "id": "heading_font_weight",
+      "label": "Heading Font Weight",
+      "default": 700
+    },
+    {
+      "type": "number",
+      "id": "subheading_font_size",
+      "label": "Subheading Font Size (px)",
+      "default": 24
+    },
+    {
+      "type": "number",
+      "id": "subheading_font_weight",
+      "label": "Subheading Font Weight",
+      "default": 600
+    },
+    {
+      "type": "header",
+      "content": "Coverage Map Settings"
+    },
+    {
+      "type": "color",
+      "id": "coverageColor",
+      "label": "Coverage Area Color",
+      "default": "#FEDB1E"
+    },
+    {
+      "type": "color",
+      "id": "coverageBorderColor",
+      "label": "Coverage Border Color",
+      "default": "#E6BE00"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RTK Coverage Map"
+    }
+  ]
+}
+{% endschema %}

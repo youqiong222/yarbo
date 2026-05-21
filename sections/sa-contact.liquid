@@ -1,0 +1,400 @@
+<div
+  style='
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+  '
+  class='
+    pt-(--h5-padding-top)
+    pb-(--h5-padding-bottom)
+    md:pt-(--padding-top)
+    md:pb-(--padding-bottom)
+  '
+>
+  <div class='page-container flex flex-col-reverse gap-56 md:flex-row md:gap-60 {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+    <div class='flex w-full shrink-0 flex-col md:w-[42%]'>
+      {%- liquid
+        assign pc_w = section.settings.pc_aspect_ratio_w | default: 4
+        assign pc_h = section.settings.pc_aspect_ratio_h | default: 3
+        assign pc_ratio = pc_w | append: '/' | append: pc_h
+        assign h5_w = section.settings.h5_aspect_ratio_w | default: 4
+        assign h5_h = section.settings.h5_aspect_ratio_h | default: 3
+        assign h5_ratio = h5_w | append: '/' | append: h5_h
+      -%}
+      <div
+        style='
+          --media-aspect-pc: {{ pc_ratio }};
+          --media-aspect-h5: {{ h5_ratio }};
+        '
+        class='relative aspect-(--media-aspect-h5) w-full overflow-hidden bg-[#333] md:aspect-(--media-aspect-pc)'
+      >
+        {% render 'media-element',
+          class: 'absolute inset-0 w-full h-full',
+          media_class: 'w-full h-full object-cover',
+          media_type: 'image',
+          pc_image: section.settings.pc_image,
+          h5_image: section.settings.h5_image
+        %}
+      </div>
+      <div class='flex flex-col bg-[#F2F2F2] px-20 py-24 md:px-24 md:py-32'>
+        <h2 class='mb-12 text-[32px] leading-none uppercase md:text-[44px]'>
+          {{ section.settings.office_title }}
+        </h2>
+        <div class='text-[15px] leading-[1.3] text-[#515355] md:text-[18px]'>
+          {{ section.settings.office_address }}
+        </div>
+      </div>
+    </div>
+
+    <div class='flex flex-1 flex-col justify-center gap-48 leading-[1.3] md:gap-64'>
+      {% assign general_blocks = section.blocks | where: 'type', 'general_item' %}
+      {% if general_blocks.size > 0 %}
+        <div class='flex flex-col'>
+          <h3 class='mb-12 text-[26px] leading-[1.1] uppercase md:mb-16 md:text-[32px]'>
+            {{ section.settings.group1_title }}
+          </h3>
+          <hr class='m-0 border-t border-[#CCCCCC]'>
+          <div class='mt-20 grid grid-cols-2 gap-20 md:mt-32 md:gap-x-24 md:gap-y-32'>
+            {% for block in general_blocks %}
+              <div
+                class='flex flex-col gap-4'
+                {{ block.shopify_attributes }}
+              >
+                <h4 class='mb-4 font-[Barlow] text-[13px] leading-[1.3] font-bold text-[#25282A] md:text-[15px]'>
+                  {{ block.settings.title }}
+                </h4>
+
+                {% if block.settings.email != blank %}
+                  <a
+                    href='mailto:{{ block.settings.email }}'
+                    class='flex items-center gap-6 text-[13px] leading-[1.3] text-[#25282A] decoration-[#25282A] underline-offset-4 transition-colors hover:text-black hover:underline md:text-[15px]'
+                  >
+                    <svg
+                      width='18'
+                      height='18'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      stroke-width='1.5'
+                    >
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 4l10 8 10-8"></path>
+                    </svg>
+                    {{ block.settings.email }}
+                  </a>
+                {% endif %}
+
+                {% if block.settings.phone != blank %}
+                  <a
+                    href='tel:{{ block.settings.phone }}'
+                    class='flex items-center gap-6 text-[13px] leading-[1.3] text-[#25282A] decoration-[#25282A] underline-offset-4 transition-colors hover:text-black hover:underline md:text-[15px]'
+                  >
+                    <svg
+                      width='18'
+                      height='18'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      stroke-width='1.5'
+                    >
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    {{ block.settings.phone }}
+                  </a>
+                {% endif %}
+
+                {% if block.settings.bottom_text != blank %}
+                  <p class='mt-16 text-[14px] md:mt-16'>
+                    {{ block.settings.bottom_text }}
+                  </p>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% assign business_blocks = section.blocks | where: 'type', 'business_item' %}
+      {% if business_blocks.size > 0 %}
+        <div class='flex flex-col'>
+          <h3 class='mb-16 text-[26px] leading-[1.1] uppercase md:text-[32px]'>
+            {{ section.settings.group2_title }}
+          </h3>
+          <hr class='m-0 border-t border-[#CCCCCC]'>
+          <div class='mt-32 grid grid-cols-2 gap-x-24 gap-y-32 md:mt-32 md:grid-cols-3'>
+            {% for block in business_blocks %}
+              <div
+                class='flex flex-col gap-8 md:gap-10'
+                {{ block.shopify_attributes }}
+              >
+                <h4 class='mb-4 font-[Barlow] text-[13px] leading-[1.3] font-bold text-[#25282A] md:text-[15px]'>
+                  {{ block.settings.title }}
+                </h4>
+
+                {% if block.settings.email != blank %}
+                  <a
+                    href='mailto:{{ block.settings.email }}'
+                    class='flex items-center gap-8 text-[13px] text-[#25282A] decoration-[#25282A] underline-offset-4 transition-colors hover:text-black hover:underline md:text-[15px]'
+                  >
+                    <svg
+                      width='18'
+                      height='18'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      stroke-width='1.5'
+                    >
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 4l10 8 10-8"></path>
+                    </svg>
+                    {{ block.settings.email }}
+                  </a>
+                {% endif %}
+
+                {% if block.settings.link_text != blank %}
+                  <a
+                    href='{{ block.settings.link_url }}'
+                    class='mt-4 flex w-fit items-center gap-4 text-[13px] leading-[1.3] font-medium text-[#25282A] md:mt-16 md:text-[15px]'
+                  >
+                    {{ block.settings.link_text }}
+                    <svg
+                      width='14'
+                      height='14'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      stroke-width='2'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    >
+                      <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                  </a>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Contact Yarbo",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Office Info (Left Column)"
+    },
+    {
+      "type": "text",
+      "id": "office_title",
+      "label": "Office Title",
+      "default": "OUR OFFICE"
+    },
+    {
+      "type": "textarea",
+      "id": "office_address",
+      "label": "Office Address",
+      "default": "1951 Ocean Ave Unit 3, Ronkonkoma, NY 11779,\nUnited States"
+    },
+    {
+      "type": "header",
+      "content": "Media Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width",
+      "default": 4
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height",
+      "default": 3
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width",
+      "default": 4
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height",
+      "default": 3
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "PC Image (Map)"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_image",
+      "label": "Mobile Image (Optional)"
+    },
+    {
+      "type": "header",
+      "content": "Right Column Headers"
+    },
+    {
+      "type": "text",
+      "id": "group1_title",
+      "label": "Group 1 Title",
+      "default": "GENERAL ENQUIRIES"
+    },
+    {
+      "type": "text",
+      "id": "group2_title",
+      "label": "Group 2 Title",
+      "default": "BUSINESS ENQUIRIES"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "General Item",
+      "type": "general_item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Sales Consultation"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email Address",
+          "default": "service@yarbo.com"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone Number",
+          "default": "+1 (512) 960-1326"
+        },
+        {
+          "type": "text",
+          "id": "bottom_text",
+          "label": "Bottom Text",
+          "default": "*24/7 Available"
+        }
+      ]
+    },
+    {
+      "name": "Business Item",
+      "type": "business_item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Commercial Inquiries"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email Address",
+          "default": "business@yarbo.com"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Action Link Text",
+          "info": "E.g., Become a Dealer"
+        },
+        {
+          "type": "text",
+          "id": "link_url",
+          "label": "Action Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Yarbo",
+      "blocks": [
+        {
+          "type": "general_item",
+          "settings": {
+            "title": "Sales Consultation",
+            "email": "service@yarbo.com",
+            "phone": "+1 (512) 960-1326",
+            "bottom_text": "*24/7 Available"
+          }
+        },
+        {
+          "type": "general_item",
+          "settings": {
+            "title": "Customer Service",
+            "email": "support@yarbo.com",
+            "phone": "+1 (631) 818-1850",
+            "bottom_text": "*24/7 Available"
+          }
+        },
+        {
+          "type": "business_item",
+          "settings": {
+            "title": "Commercial Inquiries",
+            "email": "business@yarbo.com"
+          }
+        },
+        {
+          "type": "business_item",
+          "settings": {
+            "title": "Dealers",
+            "email": "dealer@yarbo.com",
+            "link_text": "Become a Dealer"
+          }
+        },
+        {
+          "type": "business_item",
+          "settings": {
+            "title": "Public Relations",
+            "email": "pr@yarbo.com"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

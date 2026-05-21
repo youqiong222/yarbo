@@ -1,0 +1,342 @@
+<div class='flex flex-col bg-white pt-32 md:px-24 md:pt-32'>
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when '@app' -%}
+        {% render block %}
+      {%- when 'spacing_line' -%}
+        <div
+          {{ block.shopify_attributes }}
+          style='
+            --pc-top: {{ block.settings.pc_top }}px;
+            --pc-bottom: {{ block.settings.pc_bottom }}px;
+            --h5-top: {{ block.settings.h5_top }}px;
+            --h5-bottom: {{ block.settings.h5_bottom }}px;
+          '
+          class='
+            mt-(--h5-top) mb-(--h5-bottom) block h-1
+            w-full
+            bg-[#CCCCCC]
+            md:mt-(--pc-top)
+            md:mb-(--pc-bottom)
+          '
+        ></div>
+      {%- when 'product_nav' -%}
+        {%- assign belong_collection = block.settings.belong_collection -%}
+        <div
+          {{ block.shopify_attributes }}
+          id='product-nav-{{ block.id }}'
+          style='
+            --pc-top: {{ block.settings.pc_top }}px;
+            --pc-bottom: {{ block.settings.pc_bottom }}px;
+            --h5-top: {{ block.settings.h5_top }}px;
+            --h5-bottom: {{ block.settings.h5_bottom }}px;
+          '
+          class='
+            mt-(--h5-top) mb-(--h5-bottom)
+            md:mt-(--pc-top)
+            md:mb-(--pc-bottom)
+            {%- unless belong_collection %} hidden{%- endunless %}
+          '
+        >
+          <div class='flex items-center gap-4 text-[12px] leading-none'>
+            <a
+              href='{{ belong_collection.url | default: '#' }}'
+              id='product-nav-link-{{ block.id }}'
+              class='text-[#515355] no-underline hover:underline'
+            >
+              {{ block.settings.belong_collection_title }}
+            </a>
+            <svg
+              width='8'
+              height='8'
+              viewBox='0 0 8 8'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d="M3.00065 1.66667L5.33398 4.00001L3.00065 6.33334" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+            </svg>
+            <p class='text-[#515355]'>{{ product.title }}</p>
+          </div>
+        </div>
+        <script>
+          (function () {
+            var backUrl = localStorage.getItem('yarbo_collection_back_url');
+            var nav = document.getElementById('product-nav-{{ block.id }}');
+            if (!nav) return;
+            var link = document.getElementById('product-nav-link-{{ block.id }}');
+            if (backUrl && link) {
+              link.href = backUrl;
+              link.textContent = 'Back';
+              nav.classList.remove('hidden');
+            }
+          })();
+        </script>
+      {%- when 'title' -%}
+        <div
+          {{ block.shopify_attributes }}
+          style='
+            --pc-top: {{ block.settings.pc_top }}px;
+            --pc-bottom: {{ block.settings.pc_bottom }}px;
+            --h5-top: {{ block.settings.h5_top }}px;
+            --h5-bottom: {{ block.settings.h5_bottom }}px;
+          '
+          class='
+            mt-(--h5-top) mb-(--h5-bottom)
+            md:mt-(--pc-top)
+            md:mb-(--pc-bottom)
+          '
+        >
+          <h1 class='text-[32px] leading-none md:text-[44px]'>
+            {{ product.title }}
+          </h1>
+        </div>
+      {%- when 'price' -%}
+        <div
+          {{ block.shopify_attributes }}
+          style='
+            --pc-top: {{ block.settings.pc_top }}px;
+            --pc-bottom: {{ block.settings.pc_bottom }}px;
+            --h5-top: {{ block.settings.h5_top }}px;
+            --h5-bottom: {{ block.settings.h5_bottom }}px;
+          '
+          class='
+            mt-(--h5-top) mb-(--h5-bottom)
+            md:mt-(--pc-top)
+            md:mb-(--pc-bottom)
+          '
+        >
+          {% render 'sn-main-price', product: product, use_variant: true %}
+        </div>
+        {% render 'sn-yarbo-pay', product: product, pay_class: '' %}
+      {%- when 'payment' -%}
+        <ul
+          class='list list-payment flex flex-wrap  gap-8'
+          role='list'
+        >
+          {%- for type in shop.enabled_payment_types -%}
+            <li class='list-payment__item flex'>
+              {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- when 'features_placeholder' -%}
+        {% if block.settings.features != blank %}
+          <div
+            {{ block.shopify_attributes }}
+            style='
+              --pc-top: {{ block.settings.pc_top }}px;
+              --pc-bottom: {{ block.settings.pc_bottom }}px;
+              --h5-top: {{ block.settings.h5_top }}px;
+              --h5-bottom: {{ block.settings.h5_bottom }}px;
+            '
+            class='
+              mt-(--h5-top) mb-(--h5-bottom)
+              md:mt-(--pc-top)
+              md:mb-(--pc-bottom)
+            '
+          >
+            <div class='text-[13px]! leading-[1.3] text-[#515355] md:text-[14px]! [&_li]:list-disc [&_span]:text-[13px]! md:[&_span]:text-[14px]! [&_ul]:pl-20'>
+              {{ product.description }}
+            </div>
+          </div>
+        {% endif %}
+      {%- when 'variants_placeholder' -%}
+        {% if product.variants.size > 1 or block.settings.product_variant_list != blank %}
+          <div
+            {{ block.shopify_attributes }}
+            style='
+              --pc-top: {{ block.settings.pc_top }}px;
+              --pc-bottom: {{ block.settings.pc_bottom }}px;
+              --h5-top: {{ block.settings.h5_top }}px;
+              --h5-bottom: {{ block.settings.h5_bottom }}px;
+            '
+            class='
+              mt-(--h5-top) mb-(--h5-bottom)
+              md:mt-(--pc-top)
+              md:mb-(--pc-bottom)
+            '
+          >
+            <div class='mb-16 text-[13px] font-bold uppercase md:text-[14px]'>
+              {{ block.settings.title }}
+            </div>
+            <div class='flex flex-col gap-12'>
+              {%- if block.settings.show_product_variants -%}
+                {%- for variant in product.variants -%}
+                  {%- render 'sn-product-variant', variant: variant, handle: product.handle, type: 'variant', main_product: product -%}
+                {%- endfor -%}
+              {%- else -%}
+                {%- for product_item in block.settings.product_variant_list -%}
+                  {%- assign product_variant = product_item.selected_or_first_available_variant -%}
+                  {%- render 'sn-product-variant', variant: product_variant, handle: product_item.handle, type: 'product', main_product: product -%}
+                {%- endfor -%}
+              {%- endif -%}
+            </div>
+          </div>
+        {% endif %}
+      {%- when 'includes_placeholder' -%}
+        {% assign include_blocks = section.blocks | where: 'type', 'include_block' %}
+        {%- if include_blocks.size > 0 -%}
+          <div
+            {{ block.shopify_attributes }}
+            style='
+              --pc-top: {{ block.settings.pc_top }}px;
+              --pc-bottom: {{ block.settings.pc_bottom }}px;
+              --h5-top: {{ block.settings.h5_top }}px;
+              --h5-bottom: {{ block.settings.h5_bottom }}px;
+            '
+            class='
+              mt-(--h5-top) mb-(--h5-bottom)
+              md:mt-(--pc-top)
+              md:mb-(--pc-bottom)
+            '
+          >
+            <div class='mb-18.5 text-[13px] font-bold uppercase md:text-[14px]'>
+              {{ block.settings.title }}
+            </div>
+            <div class='grid grid-cols-4 gap-x-8 gap-y-12 lg:grid-cols-5'>
+              {%- for include_block in include_blocks -%}
+                <div>
+                  {% if include_block.settings.image != blank %}
+                    <div class='bg-[#F2F2F2]'>
+                      <img
+                        width='auto'
+                        height='auto'
+                        class='aspect-[1] h-full w-full object-contain'
+                        src='{{ include_block.settings.image | image_url: width: 180 }}'
+                        alt='{{ include_block.settings.title }}'
+                      >
+                    </div>
+                  {% endif %}
+                  <p class='mt-8 text-[12px] leading-[1.3]'>
+                    {{ include_block.settings.title }}
+                  </p>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        {% endif %}
+      {%- when 'text_link' -%}
+        {% if block.settings.url != blank and block.settings.text != blank %}
+          <div
+            {{ block.shopify_attributes }}
+            style='
+              --pc-top: {{ block.settings.pc_top }}px;
+              --pc-bottom: {{ block.settings.pc_bottom }}px;
+              --h5-top: {{ block.settings.h5_top }}px;
+              --h5-bottom: {{ block.settings.h5_bottom }}px;
+            '
+            class='
+              mt-(--h5-top) mb-(--h5-bottom)
+              md:mt-(--pc-top)
+              md:mb-(--pc-bottom)
+            '
+          >
+            <a
+              class='flex items-center justify-between gap-12 bg-[#FCFAF2] p-20 text-[14px] leading-[1.3] text-[#25282A] no-underline md:p-24 md:text-[15px]'
+              href='{{ block.settings.url }}'
+            >
+              {{- block.settings.text -}}
+              <svg
+                width='20'
+                height='20'
+                viewBox='0 0 20 20'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path d="M6.21564 5L14.4281 5.09615M14.4281 5.09615L14.523 13.1918M14.4281 5.09615L5 14.5242" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+              </svg>
+            </a>
+          </div>
+        {% endif %}
+      {%- when 'recommend' -%}
+        <div
+          {{ block.shopify_attributes }}
+          style='
+            --pc-top: {{ block.settings.pc_top }}px;
+            --pc-bottom: {{ block.settings.pc_bottom }}px;
+            --h5-top: {{ block.settings.h5_top }}px;
+            --h5-bottom: {{ block.settings.h5_bottom }}px;
+          '
+          class='
+            mt-(--h5-top) mb-(--h5-bottom)
+            md:mt-(--pc-top)
+            md:mb-(--pc-bottom)
+          '
+        >
+          {%- if block.settings.title != blank -%}
+            <p class='mb-12 text-[13px] font-bold uppercase md:text-[14px]'>{{ block.settings.title }}</p>
+          {%- endif -%}
+          <cart-recommendations
+            class='block w-full min-w-0 overflow-hidden'
+            data-product-id='{{ product.id }}'
+            data-recommendations-url='{{ routes.product_recommendations_url }}'
+            data-section-id='sa-product-recommendations'
+          ></cart-recommendations>
+        </div>
+      {%- when 'policies_placeholder' -%}
+        {% assign policy_blocks = section.blocks | where: 'type', 'policy_block' %}
+        {%- if policy_blocks.size > 0 -%}
+          <div
+            {{ block.shopify_attributes }}
+            style='
+              --pc-top: {{ block.settings.pc_top }}px;
+              --pc-bottom: {{ block.settings.pc_bottom }}px;
+              --h5-top: {{ block.settings.h5_top }}px;
+              --h5-bottom: {{ block.settings.h5_bottom }}px;
+            '
+            class='
+              mt-(--h5-top) mb-(--h5-bottom)
+              md:mt-(--pc-top)
+              md:mb-(--pc-bottom)
+            '
+          >
+            <ul class='flex flex-col gap-8'>
+              {%- for policy_block in policy_blocks -%}
+                <li
+                  {{ policy_block.shopify_attributes }}
+                  class='flex items-center gap-4'
+                >
+                  {% if policy_block.settings.icon != blank %}
+                    <img
+                      width='auto'
+                      height='auto'
+                      src='{{ policy_block.settings.icon | image_url }}'
+                      alt='{{ policy_block.settings.title }}'
+                    >
+                  {% endif %}
+                  <p class='text-[13px] font-bold text-[#515355] md:text-[14px]'>
+                    {{ policy_block.settings.title }}
+                  </p>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+    {% endcase %}
+  {% endfor %}
+</div>
+<div class='md:sticky md:bottom-0 z-1'>
+  <div class='h-auto bg-white pt-16 pb-24 md:px-24 md:pt-16 md:pb-24'>
+    {% if product.metafields.custom.delivery_date_info != blank %}
+      <div class='mb-12 flex items-center gap-8'>
+        {% if product.metafields.custom.is_preorder %}
+          <span class='h-8 w-8 rounded-full bg-[#25282A]'></span>
+        {% else %}
+          <span class='h-8 w-8 rounded-full bg-[#FEDB1E]'></span>
+        {% endif %}
+        <p class='text-[14px] leading-[1.3] font-bold'>
+          {{ product.metafields.custom.delivery_date_info.value }}
+        </p>
+      </div>
+    {% endif %}
+    <div>
+      {%- assign product_form_id = 'product-form-' | append: section.id -%}
+      {%- render 'sn-buy-buttons-new',
+        btn_class: 'h-42 px-16 text-[14px] md:text-[15px]',
+        product: product,
+        product_form_id: product_form_id,
+        section_id: section.id
+      -%}
+    </div>
+  </div>
+</div>

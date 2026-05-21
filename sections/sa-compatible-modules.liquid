@@ -1,0 +1,338 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script
+    src='{{ 'product-form.js' | asset_url }}'
+    defer='defer'
+  ></script>
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script
+    src='{{ 'quick-add.js' | asset_url }}'
+    defer='defer'
+  ></script>
+{%- endif -%}
+
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script
+    src='{{ 'quick-add-bulk.js' | asset_url }}'
+    defer='defer'
+  ></script>
+  <script
+    src='{{ 'quantity-popover.js' | asset_url }}'
+    defer='defer'
+  ></script>
+  <script
+    src='{{ 'price-per-item.js' | asset_url }}'
+    defer='defer'
+  ></script>
+  <script
+    src='{{ 'quick-order-list.js' | asset_url }}'
+    defer='defer'
+  ></script>
+{%- endif -%}
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div
+  class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+  id='section-{{ section.id }}'
+>
+  <div class=' flex items-center justify-between gap-20'>
+    <h2 class=' m-0 text-[26px] leading-none uppercase md:text-[32px]'>
+      {{ section.settings.title }}
+    </h2>
+    <div class='hidden gap-8 md:flex'>
+      <div class='swiper-button-prev  static m-0 flex h-40 w-40 items-center justify-center rounded-full border border-[#cccccc] bg-white backdrop-blur-[5px] transition-colors duration-300 after:hidden [&.swiper-button-disabled]:bg-[#ccc] [&.swiper-button-disabled]:opacity-100 [&.swiper-button-disabled_path]:stroke-[#A6A6A6] [&:hover]:bg-[#ccc]'>
+        <svg
+          width='8'
+          height='14'
+          viewBox='0 0 8 14'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path d="M6.75325 12.5859L0.919923 6.7526L6.75325 0.91927" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+        </svg>
+      </div>
+
+      <div class='swiper-button-next static m-0 flex h-40 w-40 items-center justify-center rounded-full border border-[#cccccc] bg-white backdrop-blur-[5px] transition-colors duration-300 after:hidden [&.swiper-button-disabled]:bg-[#ccc] [&.swiper-button-disabled]:opacity-100 [&.swiper-button-disabled_path]:stroke-[#A6A6A6] [&:hover]:bg-[#ccc]'>
+        <svg
+          width='8'
+          height='14'
+          viewBox='0 0 8 14'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path d="M0.91862 0.919434L6.75195 6.75277L0.91862 12.5861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class='mt-24 w-full md:mt-40'
+  >
+    <div class='gird relative w-full'>
+      {% assign product_list = section.settings.product_list %}
+      <div>
+        {% assign skip_card_product_styles = false %}
+        <div class='swiper  w-full overflow-hidden pb-1'>
+          <div class='swiper-wrapper flex'>
+            {% for product in product_list limit: 8 %}
+              <div class='swiper-slide h-auto'>
+                {% render 'sn-card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  image_shape: section.settings.image_shape,
+                  show_rating: section.settings.show_rating,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  skip_styles: skip_card_product_styles,
+                  quick_add: section.settings.quick_add
+                %}
+                {%- assign skip_card_product_styles = true -%}
+              </div>
+            {% else %}
+              {% for i in (1..4) %}
+                <div class='swiper-slide h-auto'>
+                  <div class='flex h-300 items-center justify-center rounded-md bg-gray-100 text-gray-400'>Product Placeholder</div>
+                </div>
+              {% endfor %}
+            {% endfor %}
+          </div>
+          <div
+            class='hero-pagination mt-32 flex w-full items-center justify-center space-x-3 md:hidden'
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  (() => {
+    new Swiper('#shopify-section-{{ section.id }} .swiper', {
+      observer: true,
+      observeParents: true,
+      spaceBetween: 12,
+      slidesPerView: 2,
+      {% if section.settings.auto_rotate %}
+      autoplay: { delay: {{ section.settings.change_slides_speed | times: 1000 }}, disableOnInteraction: false },
+      {% endif %}
+      breakpoints: {
+        768: {
+          spaceBetween: 12,
+          slidesPerView: 4,
+        },
+      },
+      navigation: {
+        nextEl: '#shopify-section-{{ section.id }} .swiper-button-next',
+        prevEl: '#shopify-section-{{ section.id }} .swiper-button-prev',
+      },
+      pagination: {
+        el: '#shopify-section-{{ section.id }} .hero-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+          const bulletClasses = `
+                ${className}
+                rounded-none opacity-100
+                w-8 h-8 bg-[#CCCCCC] transition-all duration-300 block cursor-pointer m-0
+                hover:bg-white
+                [&.swiper-pagination-bullet-active]:w-50 [&.swiper-pagination-bullet-active]:h-8 [&.swiper-pagination-bullet-active]:bg-[#25282a]
+              `;
+          return `<span class="${bulletClasses.trim().replace(/\s+/g, ' ')}"></span>`;
+        },
+      },
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Compatible Modules",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Products"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.featured-collection.settings.image_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.all.image_shape.options__1.label"
+        },
+        {
+          "value": "arch",
+          "label": "t:sections.all.image_shape.options__2.label"
+        },
+        {
+          "value": "blob",
+          "label": "t:sections.all.image_shape.options__3.label"
+        },
+        {
+          "value": "chevronleft",
+          "label": "t:sections.all.image_shape.options__4.label"
+        },
+        {
+          "value": "chevronright",
+          "label": "t:sections.all.image_shape.options__5.label"
+        },
+        {
+          "value": "diamond",
+          "label": "t:sections.all.image_shape.options__6.label"
+        },
+        {
+          "value": "parallelogram",
+          "label": "t:sections.all.image_shape.options__7.label"
+        },
+        {
+          "value": "round",
+          "label": "t:sections.all.image_shape.options__8.label"
+        }
+      ],
+      "default": "default",
+      "label": "t:sections.all.image_shape.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_rating.label",
+      "info": "t:sections.featured-collection.settings.show_rating.info"
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+        },
+        {
+          "value": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+        },
+        {
+          "value": "bulk",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    }
+  ],
+  "presets": [
+    {
+      "name": "Compatible Modules",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Compatible MODULES</p>",
+        "product_list": ["yarbo-4-in-1-yard-robot", "yarbo-lawn-mower-blower", "yarbo-product-dev", "yarbo-snow-blower-blower", "yarbo-snow-blower-lawn-mower"]
+      }
+    }
+  ]
+}
+{% endschema %}

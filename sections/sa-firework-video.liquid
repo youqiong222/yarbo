@@ -1,0 +1,154 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+{% # theme-check-disable RemoteAsset %}
+<script
+  src='https://asset.fwcdn3.com/js/embed-feed.js'
+  async
+  type='text/javascript'
+></script>
+{% # theme-check-enable RemoteAsset %}
+
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  {% if section.settings.title != blank %}
+    <div class='mb-32'>
+      <h2 class='text-[26px]/[1.1] uppercase md:text-[32px]/[1.1]'>
+        {{ section.settings.title }}
+      </h2>
+    </div>
+  {% endif %}
+
+  <div
+    x-data="tabsComponent('tab_0')"
+    x-init='updateSlider()'
+    @resize.window='updateSlider()'
+    class='w-full'
+  >
+    <div class='{% if section.blocks.size == 1 %}hidden{% endif %} relative mb-32 flex w-full items-end justify-between'>
+      <div class='absolute bottom-0 left-0 z-0 block! h-4 w-full bg-[#CCCCCC]'></div>
+
+      <div class='no-scrollbar theme-title relative z-10 flex w-full gap-24 overflow-x-auto pb-12 md:pb-16'>
+        {% for block in section.blocks %}
+          <div
+            x-ref='tab_{{ forloop.index0 }}'
+            x-bind="tabButton('tab_{{ forloop.index0 }}')"
+            @click="document.getElementById('fw-feed-{{ section.id }}').setAttribute('playlist', '{{ block.settings.playlist }}')"
+            class='shrink-0 cursor-pointer text-[16px]/[1.1] font-bold uppercase transition-colors md:text-[20px]/[1.2] md:hover:text-[#25282A]'
+            :class='activeTab === "tab_{{ forloop.index0 }}" ? "text-[#25282A]" : "text-[#A6A6A6]"'
+            data-tab-index='{{ forloop.index0 }}'
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.label }}
+          </div>
+        {% endfor %}
+
+        <div
+          class='absolute bottom-0 left-0 block! h-4 bg-[#25282A] transition-all duration-300 ease-out'
+          :style='`width: ${sliderWidth}px; transform: translateX(${sliderOffset}px);`'
+        ></div>
+      </div>
+    </div>
+
+    <div class='w-full'>
+      <fw-embed-feed
+        id='fw-feed-{{ section.id }}'
+        autoplay='false'
+        branding='false'
+        channel='{{ section.settings.channel }}'
+        class='needsclick block w-full'
+        mode='row'
+        playlist='{{ section.blocks.first.settings.playlist }}'
+        style='--fw-thumbnail-font-size: 20px'
+      ></fw-embed-feed>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SA Firework Video",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Seasonal Live Highlights"
+    },
+    {
+      "type": "text",
+      "id": "channel",
+      "label": "Firework Channel",
+      "default": "yarbo"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "playlist",
+      "name": "Playlist Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tab Label",
+          "default": "Spring Setup"
+        },
+        {
+          "type": "text",
+          "id": "playlist",
+          "label": "Playlist ID"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA Firework Video",
+      "blocks": [{ "type": "playlist" }, { "type": "playlist" }, { "type": "playlist" }, { "type": "playlist" }]
+    }
+  ]
+}
+{% endschema %}

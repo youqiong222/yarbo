@@ -1,0 +1,70 @@
+volume-pricing {
+  display: block;
+  margin-top: 20px;
+}
+
+volume-pricing li:nth-child(odd) {
+  background: rgba(var(--color-foreground), 0.04);
+}
+
+volume-pricing ul {
+  margin-top: 12px;
+}
+
+volume-pricing li {
+  font-size: 14px;
+  letter-spacing: 0px;
+  padding: 6px 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.volume-pricing-note {
+  margin-top: -26px;
+}
+
+.product--no-media .volume-pricing-note {
+  text-align: center;
+}
+
+.product--no-media volume-pricing {
+  width: 300px;
+}
+
+.volume-pricing-note span,
+volume-pricing .label-show-more {
+  font-size: 12px;
+  letter-spacing: 0px;
+}
+
+volume-pricing show-more-button {
+  margin-top: 8px;
+}
+
+.product-form__input price-per-item,
+.price-per-item__container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-form__input .price-per-item {
+  color: rgba(var(--color-foreground));
+  font-size: 14px;
+  letter-spacing: 0px;
+}
+
+.price-per-item dl {
+  margin: 0;
+}
+
+.price-per-item dd {
+  margin-left: 0;
+}
+
+.price-per-item__container .variant-item__old-price,
+.price__regular .variant-item__old-price {
+  color: rgba(var(--color-foreground), 0.75);
+  font-size: 12px;
+  letter-spacing: 0px;
+}

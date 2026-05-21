@@ -1,0 +1,2480 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "sa-main-product",
+      "blocks": {
+        "product_nav_bPLNqt": {
+          "type": "product_nav",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 0,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "belong_collection": "robots",
+            "belong_collection_title": "Y Series"
+          }
+        },
+        "title_eAXAgB": {
+          "type": "title",
+          "settings": {
+            "pc_top": 12,
+            "pc_bottom": 16,
+            "h5_top": 12,
+            "h5_bottom": 16
+          }
+        },
+        "judge_me_reviews_preview_badge_4PLQtV": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price_mVRiPc": {
+          "type": "price",
+          "settings": {
+            "pc_top": 16,
+            "pc_bottom": 8,
+            "h5_top": 16,
+            "h5_bottom": 8
+          }
+        },
+        "features_placeholder_y3bKpN": {
+          "type": "features_placeholder",
+          "settings": {
+            "pc_top": 16,
+            "pc_bottom": 16,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "features": "<ul><li>Autonomous Snow Clearing</li><li>2-stage Design</li><li>Clears up to 12 inches of snow with a 24-inch width</li><li>Auto Recharging Ensuring 24/7 Operation</li></ul>"
+          }
+        },
+        "spacing_line_ebJKPd": {
+          "type": "spacing_line",
+          "disabled": true,
+          "settings": {
+            "pc_top": 24,
+            "pc_bottom": 24,
+            "h5_top": 24,
+            "h5_bottom": 24
+          }
+        },
+        "variants_placeholder_qNnHhk": {
+          "type": "variants_placeholder",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 0,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "title": "Select an Option:",
+            "show_product_variants": false,
+            "product_variant_list": [
+              "dev",
+              "dev1",
+              "dev2"
+            ]
+          }
+        },
+        "spacing_line_jMqyHc": {
+          "type": "spacing_line",
+          "settings": {
+            "pc_top": 24,
+            "pc_bottom": 24,
+            "h5_top": 24,
+            "h5_bottom": 24
+          }
+        },
+        "includes_placeholder_V6cAhh": {
+          "type": "includes_placeholder",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 0,
+            "h5_top": 0,
+            "h5_bottom": 0,
+            "title": "What's Included"
+          }
+        },
+        "include_block_qieaCk": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Yarbo_Core_c1e2746a-1083-4f2f-8706-687a510d2fef.png",
+            "title": "Yarbo Core x1"
+          }
+        },
+        "include_block_9KaNrx": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Lawn_Mower_Module_abda37ac-b6ac-44ac-9ef8-eecbf1032069.png",
+            "title": "Lawn Mower Module x1"
+          }
+        },
+        "include_block_ENnXkA": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Yarbo_Trimmer_Package_f575fb74-1466-4369-9c60-b0c4599842a3.png",
+            "title": "Trimmer Package x1"
+          }
+        },
+        "include_block_BzDdTY": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Docking_Station_50427415-6c68-4b48-ab08-68f9ba98dea9.png",
+            "title": "Docking Station x1"
+          }
+        },
+        "include_block_A7WGb7": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Yarbo_Battery_92def579-002b-4dbd-b649-47389b7ec8ef.png",
+            "title": "Y Series Battery x1"
+          }
+        },
+        "include_block_DaP7yY": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Wired_Charger_353b02f6-c709-4d24-80e4-9281af5c9aeb.png",
+            "title": "Wired Charger x1"
+          }
+        },
+        "include_block_nWA9w4": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Data_Center_1980c737-fcf8-4ec1-80a1-145b228dc0c5.png",
+            "title": "Data Center x1"
+          }
+        },
+        "include_block_XgXp7P": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Installation_Tool_Kit.png",
+            "title": "Installation & Tool Kit x1"
+          }
+        },
+        "include_block_Yf8xEx": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Tow_Hitch_06a1f99f-ea19-403b-b8be-bdba2babe535.png",
+            "title": "Tow Hitch x1"
+          }
+        },
+        "include_block_wpRaxx": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Cutting_Disc_Bolts_933a7bd4-a620-42b4-97c3-4e06888508d9.png",
+            "title": "Cutting Disc & Bolts x2"
+          }
+        },
+        "include_block_LRHFEt": {
+          "type": "include_block",
+          "settings": {
+            "image": "shopify://shop_images/Back_Brace_Mount_d6d47112-1408-43c3-9d27-c4ef90fc0a31.png",
+            "title": "Spare Trimmer Line Spool x1"
+          }
+        },
+        "spacing_line_j6EQQH": {
+          "type": "spacing_line",
+          "settings": {
+            "pc_top": 24,
+            "pc_bottom": 24,
+            "h5_top": 24,
+            "h5_bottom": 24
+          }
+        },
+        "text_link_kbxz3U": {
+          "type": "text_link",
+          "disabled": true,
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 24,
+            "h5_top": 0,
+            "h5_bottom": 24,
+            "text": "Have a yard under ¼ acre? Shop our M-Series instead.",
+            "url": "/"
+          }
+        },
+        "policies_placeholder_eAqKkT": {
+          "type": "policies_placeholder",
+          "settings": {
+            "pc_top": 0,
+            "pc_bottom": 24,
+            "h5_top": 0,
+            "h5_bottom": 12
+          }
+        },
+        "policy_block_Gc4zTG": {
+          "type": "policy_block",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_-_Chunky_d2d86344-fa5d-41c0-897b-8115805e8449.svg",
+            "title": "2-Year Warranty"
+          }
+        },
+        "policy_block_AJhgKh": {
+          "type": "policy_block",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_-_Chunky_b9bb95d8-0a03-4ef3-a480-d44d71bb8874.svg",
+            "title": "30-Day Hassle-Free Returns"
+          }
+        },
+        "policy_block_TL8wHG": {
+          "type": "policy_block",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_-_Chunky_286c2318-458a-4a69-8990-27758cb3e470.svg",
+            "title": "24/7 Support"
+          }
+        },
+        "payment_HLdN7J": {
+          "type": "payment",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product_nav_bPLNqt",
+        "title_eAXAgB",
+        "judge_me_reviews_preview_badge_4PLQtV",
+        "price_mVRiPc",
+        "features_placeholder_y3bKpN",
+        "spacing_line_ebJKPd",
+        "variants_placeholder_qNnHhk",
+        "spacing_line_jMqyHc",
+        "includes_placeholder_V6cAhh",
+        "include_block_qieaCk",
+        "include_block_9KaNrx",
+        "include_block_ENnXkA",
+        "include_block_BzDdTY",
+        "include_block_A7WGb7",
+        "include_block_DaP7yY",
+        "include_block_nWA9w4",
+        "include_block_XgXp7P",
+        "include_block_Yf8xEx",
+        "include_block_wpRaxx",
+        "include_block_LRHFEt",
+        "spacing_line_j6EQQH",
+        "text_link_kbxz3U",
+        "policies_placeholder_eAqKkT",
+        "policy_block_Gc4zTG",
+        "policy_block_AJhgKh",
+        "policy_block_TL8wHG",
+        "payment_HLdN7J"
+      ],
+      "settings": {}
+    },
+    "sa_product_anchors_qBywBF": {
+      "type": "sa-product-anchors",
+      "blocks": {
+        "block_gR4DCm": {
+          "type": "block",
+          "settings": {
+            "anchor_title": "Lawn Mower",
+            "btn_anchor_id": "mower"
+          }
+        },
+        "block_3btM6f": {
+          "type": "block",
+          "settings": {
+            "anchor_title": "Trimmer",
+            "btn_anchor_id": "trimmer"
+          }
+        },
+        "block_7wMB6h": {
+          "type": "block",
+          "settings": {
+            "anchor_title": "Specifications",
+            "btn_anchor_id": "spec"
+          }
+        },
+        "block_qdg9cd": {
+          "type": "block",
+          "settings": {
+            "anchor_title": "Reviews",
+            "btn_anchor_id": "review"
+          }
+        },
+        "block_Mj3K4Q": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "anchor_title": "Manuals",
+            "btn_anchor_id": "manuals"
+          }
+        }
+      },
+      "block_order": [
+        "block_gR4DCm",
+        "block_3btM6f",
+        "block_7wMB6h",
+        "block_qdg9cd",
+        "block_Mj3K4Q"
+      ],
+      "name": "Product Anchors",
+      "settings": {}
+    },
+    "sa_media_text_vertical_RbaXmB": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "text_Ckq8mK": {
+          "type": "text",
+          "settings": {
+            "content_width_pc": 860,
+            "html_tag": "h2",
+            "text": "<p>An Autonomous Mower Mowing up to 6 Acres</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 80,
+            "font_size_h5": 40,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 120,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 20,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_gj9qRL": {
+          "type": "text",
+          "name": "text block",
+          "settings": {
+            "content_width_pc": 860,
+            "html_tag": "div",
+            "text": "<p>Up to 120 minutes of runtime and dual 20-inch cutting discs let Yarbo cover lawns as large as 6 acres. The auto-charging system keeps it going until the job is done.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 24,
+            "pb_pc": 80,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 56,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "media_r9gFN7": {
+          "type": "media",
+          "name": "media block",
+          "settings": {
+            "layout": "full",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Power_in_Action.png",
+            "h5_image": "shopify://shop_images/Power_in_Action_1.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "pc_height": 500,
+            "h5_height": 500,
+            "use_aspect_ratio": true,
+            "pc_aspect_ratio_w": 1440,
+            "pc_aspect_ratio_h": 800,
+            "h5_aspect_ratio_w": 4,
+            "h5_aspect_ratio_h": 5,
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "title": "",
+            "text": "",
+            "color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_Ckq8mK",
+        "text_gj9qRL",
+        "media_r9gFN7"
+      ],
+      "name": "Relentless. Smart.  Frost-Proof Mornings.",
+      "settings": {
+        "anchor_id": "mower",
+        "animations_reveal_on_scroll": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 0,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_product_grid_TnjVWw": {
+      "type": "sa-product-grid",
+      "blocks": {
+        "block_YBpi4T": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457975.png",
+            "h5_image": "shopify://shop_images/Frame_2036457981.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 0,
+            "title": "<p>Precise Navigation</p>",
+            "description": "<p>Multi-sensor system for stable, accurate mowing.</p>",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_TbQEFm": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457978.png",
+            "h5_image": "shopify://shop_images/Frame_2036457986.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 0,
+            "title": "<p>Multi-Zone Management</p>",
+            "description": "<p>Supports up to 150 configurable zones.</p>",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_BXjrpD": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457979.png",
+            "h5_image": "shopify://shop_images/Frame_2036457985.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0) 68%, rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 68,
+            "title": "<p>Smart Route Planning</p>",
+            "description": "<p>Maximized efficiency with minimal overlap.</p>",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_FME3UU": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457980.png",
+            "h5_image": "shopify://shop_images/Frame_2036457982.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 0,
+            "title": "<p>Wire-Free Setup</p>",
+            "description": "<p>App-defined virtual boundaries.</p>",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_pMyxAx": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457976.png",
+            "h5_image": "shopify://shop_images/Frame_2036457984_2.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 0,
+            "title": "<p>Handles Slopes with Ease</p>",
+            "description": "<p>Up to 70% (35°) climbing performance.</p>",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_RHmwMb": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457977.png",
+            "h5_image": "shopify://shop_images/Frame_2036457983.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 0,
+            "title": "<p>Edge-to-Edge Cutting</p>",
+            "description": "<p>Consistent, precise edge performance.</p>",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_YBpi4T",
+        "block_TbQEFm",
+        "block_BXjrpD",
+        "block_FME3UU",
+        "block_pMyxAx",
+        "block_RHmwMb"
+      ],
+      "name": "Text Media Grid 5 Items",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": true,
+        "padding_top": 100,
+        "padding_bottom": 60,
+        "h5_padding_top": 50,
+        "h5_padding_bottom": 0
+      }
+    },
+    "sa_product_img_swiper_T3RYzc": {
+      "type": "sa-product-img-swiper",
+      "blocks": {
+        "block_QRR6WE": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=DfBuSyfQjsc",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": ""
+          }
+        },
+        "block_9gmyqB": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=ZTkAdoeYW_s",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": ""
+          }
+        },
+        "block_UAxVBi": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=b8gkOiverHY&t=1544s",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "desc": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_QRR6WE",
+        "block_9gmyqB",
+        "block_UAxVBi"
+      ],
+      "name": "Get the Highlights",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 48,
+        "h5_padding_bottom": 48,
+        "title": "<p>Trusted by Experts</p>",
+        "description": "<p>See how professionals and reviewers put it to the test</p>",
+        "button_link": "/",
+        "button_text": "",
+        "pc_aspect_ratio_w": 500,
+        "pc_aspect_ratio_h": 336,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "text_position": "bottom"
+      }
+    },
+    "sa_media_text_vertical_LwnnLh": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "text_rcYzVT": {
+          "type": "text",
+          "name": "label",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Performance</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 120,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 12,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_4xciCP": {
+          "type": "text",
+          "name": "title",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "h2",
+            "text": "<p>POWER THAT HANDLES REAL LAWNS</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 80,
+            "font_size_h5": 40,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 16,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 20,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_Et4R6g": {
+          "type": "text",
+          "name": "text",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Engineered for large, complex yards, it delivers powerful cutting performance and consistent results across various terrains.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 24,
+            "pb_pc": 120,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 56,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "media_LWfyqR": {
+          "type": "media",
+          "name": "media",
+          "settings": {
+            "layout": "container",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/POWER_THAT_HANDLES_REAL_LAWNS.png",
+            "h5_image": "shopify://shop_images/POWER_THAT_HANDLES_REAL_LAWNS_1.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "pc_height": 500,
+            "h5_height": 500,
+            "use_aspect_ratio": true,
+            "pc_aspect_ratio_w": 1320,
+            "pc_aspect_ratio_h": 600,
+            "h5_aspect_ratio_w": 4,
+            "h5_aspect_ratio_h": 5,
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "title": "",
+            "text": "",
+            "color": "#ffffff"
+          },
+          "blocks": {}
+        },
+        "text_eQBQdi": {
+          "type": "text",
+          "name": "title",
+          "disabled": true,
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "h2",
+            "text": "<p>24/7 Autonomous Cleaning</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 52,
+            "font_size_h5": 36,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 40,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 32,
+            "pb_h5": 12,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_tqU3yV": {
+          "type": "text",
+          "name": "text",
+          "disabled": true,
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Yarbo monitors weather conditions and automatically begins clearing when </p><p>snowfall starts. By working continuously throughout the storm, it prevents buildup </p><p>and keeps driveways and paths accessible without manual effort.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 16,
+            "pb_pc": 60,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_rcYzVT",
+        "text_4xciCP",
+        "text_Et4R6g",
+        "media_LWfyqR",
+        "text_eQBQdi",
+        "text_tqU3yV"
+      ],
+      "custom_css": [
+        ".block-AWWhrbUhST1dOSWRsM__text_J7KtWD,.block-AU1VkaDVRbXREcDZwU__text_xcVjdG {text-transform: uppercase;}"
+      ],
+      "name": "Power ThatClears Faster",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 48,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_gsap_scroll_KL7p4x": {
+      "type": "sa-gsap-scroll",
+      "blocks": {
+        "block_wpQWVd": {
+          "type": "block",
+          "settings": {
+            "title": "<p><strong>Industry-Leading Cutting Width</strong></p>",
+            "desc": "<p>Yarbo’s dual discs, each with five blades, deliver a 20” cutting width for fast, efficient lawn care.</p>",
+            "layout_mode": "single",
+            "media_type_1": "image",
+            "pc_image_1": "shopify://shop_images/Industry-Leading_Cutting_Width.png",
+            "video_url_1": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url_1": "",
+            "title_1_1": "",
+            "text_1_1": "",
+            "title_1_2": "",
+            "text_1_2": "",
+            "show_overlay_1": false,
+            "overlay_color_1": "#000000",
+            "overlay_opacity_1": 40,
+            "media_type_2": "image",
+            "video_url_2": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url_2": "",
+            "title_2_1": "",
+            "text_2_1": "",
+            "title_2_2": "",
+            "text_2_2": "",
+            "show_overlay_2": false,
+            "overlay_color_2": "#000000",
+            "overlay_opacity_2": 40
+          }
+        },
+        "block_ifFGbB": {
+          "type": "block",
+          "settings": {
+            "title": "<p>High-capacity Battery</p>",
+            "desc": "<p>Yarbo’s battery mows up to 1012 m² (0.25 acre) per charge—three times the industry standard.</p>",
+            "layout_mode": "single",
+            "media_type_1": "image",
+            "pc_image_1": "shopify://shop_images/High-capacity_Battery.png",
+            "video_url_1": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url_1": "",
+            "title_1_1": "",
+            "text_1_1": "",
+            "title_1_2": "",
+            "text_1_2": "",
+            "show_overlay_1": false,
+            "overlay_color_1": "#000000",
+            "overlay_opacity_1": 40,
+            "media_type_2": "image",
+            "video_url_2": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url_2": "",
+            "title_2_1": "",
+            "text_2_1": "",
+            "title_2_2": "",
+            "text_2_2": "",
+            "show_overlay_2": false,
+            "overlay_color_2": "#000000",
+            "overlay_opacity_2": 40
+          }
+        },
+        "block_YNFgEG": {
+          "type": "block",
+          "settings": {
+            "title": "<p>Auto-Recharging System</p>",
+            "desc": "<p>Yarbo returns to its charging station at 20% battery level and automatically picks up where it left off—no input required.</p>",
+            "layout_mode": "single",
+            "media_type_1": "image",
+            "pc_image_1": "shopify://shop_images/Auto-Recharging_System.png",
+            "video_url_1": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url_1": "",
+            "title_1_1": "",
+            "text_1_1": "",
+            "title_1_2": "",
+            "text_1_2": "",
+            "show_overlay_1": false,
+            "overlay_color_1": "#000000",
+            "overlay_opacity_1": 40,
+            "media_type_2": "image",
+            "video_url_2": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url_2": "",
+            "title_2_1": "",
+            "text_2_1": "",
+            "title_2_2": "",
+            "text_2_2": "",
+            "show_overlay_2": false,
+            "overlay_color_2": "#000000",
+            "overlay_opacity_2": 40
+          }
+        }
+      },
+      "block_order": [
+        "block_wpQWVd",
+        "block_ifFGbB",
+        "block_YNFgEG"
+      ],
+      "name": "Scroll",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "pc_aspect_ratio_w": 1320,
+        "pc_aspect_ratio_h": 600,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "bac": "#ffffff",
+        "text_color": "#25282a"
+      }
+    },
+    "sa_product_img_text_WViWRK": {
+      "type": "sa-product-img-text",
+      "blocks": {
+        "item_YLrU3U": {
+          "type": "item",
+          "settings": {
+            "image_width": 54,
+            "pc_layout": "image_left",
+            "mobile_layout": "image_top",
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/PC-.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "h5_aspect_ratio_w": 340,
+            "h5_aspect_ratio_h": 230,
+            "title": "<p><strong>Mow with Reliable Navigation</strong></p>",
+            "desc": "<p>Experience smooth navigation with Yarbo’s reliable network, supported by binocular cameras, side cameras, RTK-GPS, IMU, and ODOM sensors.</p>",
+            "block_title1": "",
+            "block_text1": "",
+            "block_title2": "",
+            "block_text2": "",
+            "block_title3": "",
+            "block_text3": ""
+          }
+        },
+        "item_BGTrx4": {
+          "type": "item",
+          "settings": {
+            "image_width": 54,
+            "pc_layout": "image_right",
+            "mobile_layout": "image_top",
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/-720.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "h5_aspect_ratio_w": 340,
+            "h5_aspect_ratio_h": 230,
+            "title": "<p><strong>Mow with Ultimate Safety</strong></p>",
+            "desc": "<p>Yarbo’s spatial AI system, equipped with 6 cameras, 4 ultrasonic radars, a front bumper, and an advanced AI algorithm, ensures safe mowing by efficiently identifying surrounding objects.</p>",
+            "block_title1": "",
+            "block_text1": "",
+            "block_title2": "",
+            "block_text2": "",
+            "block_title3": "",
+            "block_text3": ""
+          }
+        },
+        "item_PKeNkK": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "image_width": 54,
+            "pc_layout": "image_left",
+            "mobile_layout": "image_top",
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "h5_aspect_ratio_w": 340,
+            "h5_aspect_ratio_h": 230,
+            "title": "<p>Performs in Extreme Cold</p>",
+            "desc": "<p>Designed to run smoothly in various temperatures, so your yard stays clear no matter how harsh the winter.</p>",
+            "block_title1": "<p><strong>-13°F TO 113°F</strong></p>",
+            "block_text1": "<p>Operating Temperature</p>",
+            "block_title2": "",
+            "block_text2": "",
+            "block_title3": "",
+            "block_text3": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_YLrU3U",
+        "item_BGTrx4",
+        "item_PKeNkK"
+      ],
+      "custom_css": [
+        "@media (max-width: 999px) {.mt-24.flex.justify-between.gap-16.md\\:mt-40 {display: grid; grid-template-columns: 1fr 1fr; }}"
+      ],
+      "name": "One Setup.  Season-Long Autonomy.",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "anchor_id": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 56
+      }
+    },
+    "sa_media_text_vertical_GBdCHL": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "text_TdpQaJ": {
+          "type": "text",
+          "name": "label",
+          "disabled": true,
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 120,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 12,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_tHcCNi": {
+          "type": "text",
+          "name": "title",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "h2",
+            "text": "<p>Built for Your Lawn</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 80,
+            "font_size_h5": 40,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 16,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 20,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_mQzxkF": {
+          "type": "text",
+          "name": "text",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Across varied terrain—hills, bumps, slopes, tree roots, flower beds, and pathways—Yarbo navigates smoothly and gets the job done.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 24,
+            "pb_pc": 120,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 56,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "media_gPincx": {
+          "type": "media",
+          "name": "media",
+          "settings": {
+            "layout": "container",
+            "media_type": "video",
+            "pc_image": "shopify://shop_images/POWER_THAT_HANDLES_REAL_LAWNS.png",
+            "h5_image": "shopify://shop_images/POWER_THAT_HANDLES_REAL_LAWNS_1.png",
+            "pc_video": "shopify://files/videos/PC--0.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "pc_height": 500,
+            "h5_height": 500,
+            "use_aspect_ratio": true,
+            "pc_aspect_ratio_w": 1320,
+            "pc_aspect_ratio_h": 700,
+            "h5_aspect_ratio_w": 4,
+            "h5_aspect_ratio_h": 5,
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "title": "",
+            "text": "",
+            "color": "#ffffff"
+          },
+          "blocks": {}
+        },
+        "text_PNLYQB": {
+          "type": "text",
+          "name": "title",
+          "disabled": true,
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "h2",
+            "text": "<p>24/7 Autonomous Cleaning</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 52,
+            "font_size_h5": 36,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 40,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 32,
+            "pb_h5": 12,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_JJJ4y4": {
+          "type": "text",
+          "name": "text",
+          "disabled": true,
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Yarbo monitors weather conditions and automatically begins clearing when </p><p>snowfall starts. By working continuously throughout the storm, it prevents buildup </p><p>and keeps driveways and paths accessible without manual effort.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 16,
+            "pb_pc": 60,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_TdpQaJ",
+        "text_tHcCNi",
+        "text_mQzxkF",
+        "media_gPincx",
+        "text_PNLYQB",
+        "text_JJJ4y4"
+      ],
+      "custom_css": [
+        ".block-AWWhrbUhST1dOSWRsM__text_J7KtWD,.block-AU1VkaDVRbXREcDZwU__text_xcVjdG {text-transform: uppercase;}"
+      ],
+      "name": "Power ThatClears Faster",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 48,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_img_text_with_label_zQzP9m": {
+      "type": "sa-img-text-with-label",
+      "blocks": {
+        "block_VgP7YC": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Torsion-flex_Mower_Frame_4.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Torsion-flex Mower Frame",
+            "desc": ""
+          }
+        },
+        "block_8qbRz4": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/All-Terrain_Patented_Tracks_2.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Multi-Terrain Patented Tracks",
+            "desc": ""
+          }
+        },
+        "block_68UymK": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/All-Steel_Skid_Shoe_2.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "All-Steel Skid Shoe",
+            "desc": ""
+          }
+        },
+        "block_MdKwkg": {
+          "type": "Block",
+          "disabled": true,
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Gravel Driveway",
+            "desc": "<p>24″ clearing width with adjustable 6–40 ft throw covers wide two-car lanes.</p>"
+          }
+        },
+        "block_hkB9Dk": {
+          "type": "Block",
+          "disabled": true,
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Large Driveway",
+            "desc": "<p>24″ clearing width with adjustable 6–40 ft throw covers wide two-car lanes.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_VgP7YC",
+        "block_8qbRz4",
+        "block_68UymK",
+        "block_MdKwkg",
+        "block_hkB9Dk"
+      ],
+      "name": "Img Text With Label",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 80,
+        "pc_aspect_ratio_w": 876,
+        "pc_aspect_ratio_h": 492,
+        "h5_aspect_ratio_w": 320,
+        "h5_aspect_ratio_h": 180
+      }
+    },
+    "sa_product_img_swiper_type2_pHTeLw": {
+      "type": "sa-product-img-swiper-type2",
+      "blocks": {
+        "block_Dn77ba": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/FDownloader-net-8032733993545699-(1920p)_13ce76d9-7acc-4cdf-b66b-33d8f270f0c8.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "desc": "<p><strong>Excellent Stripes</strong></p><p>\"Preseason stripe practice is going really well! Bring on the greening!\" <strong>@Chad Albrecht</strong></p>"
+          }
+        },
+        "block_GV7VB3": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/511001778-24001219389512492-4082288792392982848-n-(1).mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "desc": "<p><strong>Wild Grass</strong></p><p>\"We have so many different kinds of wild grasses that get out of control when we don’t mow. \"<strong>@Sam Marie</strong></p>"
+          }
+        },
+        "block_xJVXTa": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/7-10-(3).mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "desc": "<p><strong>Complex Lawn</strong></p><p>\"It's great having Yarbo mow around the playset! I'm using the deadend mode to stack up the paths.\"<strong>@Will Seale</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_Dn77ba",
+        "block_GV7VB3",
+        "block_xJVXTa"
+      ],
+      "name": "Product Img Swiper Type 2",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 50,
+        "padding_bottom": 80,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "title": "<p>A Quick Look at What Yarbo Can Do</p>",
+        "description": "<p>Our users shared their lawns — and Yarbo delivered. Yours could be next.</p>",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "text_position": "bottom"
+      }
+    },
+    "sa_media_text_vertical_VjMjwF": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "text_QkzMfR": {
+          "type": "text",
+          "settings": {
+            "content_width_pc": 920,
+            "html_tag": "h4",
+            "text": "<p>The Pioneering Autonomous Lawn Trimmer</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 80,
+            "font_size_h5": 40,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 120,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 20,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_bdL8t7": {
+          "type": "text",
+          "name": "text block",
+          "settings": {
+            "content_width_pc": 860,
+            "html_tag": "div",
+            "text": "<p>We are currently conducting extended field testing and performance calibration to ensure optimal long-term reliability across diverse terrains.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 24,
+            "pb_pc": 80,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 56,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "media_gfYxeg": {
+          "type": "media",
+          "name": "media block",
+          "settings": {
+            "layout": "full",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457921.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "pc_height": 500,
+            "h5_height": 500,
+            "use_aspect_ratio": true,
+            "pc_aspect_ratio_w": 1440,
+            "pc_aspect_ratio_h": 800,
+            "h5_aspect_ratio_w": 4,
+            "h5_aspect_ratio_h": 5,
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "title": "",
+            "text": "",
+            "color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_QkzMfR",
+        "text_bdL8t7",
+        "media_gfYxeg"
+      ],
+      "name": "Relentless. Smart.  Frost-Proof Mornings.",
+      "settings": {
+        "anchor_id": "trimmer",
+        "animations_reveal_on_scroll": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 0,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_product_grid_yMJm87": {
+      "type": "sa-product-grid",
+      "blocks": {
+        "block_hfE8Dc": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457909.png",
+            "h5_image": "shopify://shop_images/Frame_2036457915.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 40,
+            "title": "<p>Customized Precision</p>",
+            "description": "",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_Pn4JB8": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457912.png",
+            "h5_image": "shopify://shop_images/Frame_2036457916.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 40,
+            "title": "<p>Automatic Line Feed</p>",
+            "description": "",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_6cPy3B": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457913_de25dda8-5856-4913-8fed-54e9bad34e32.png",
+            "h5_image": "shopify://shop_images/Frame_2036457918.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 67,
+            "title": "<p>Hands-Free Trimming</p>",
+            "description": "",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_nWiiMt": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457914.png",
+            "h5_image": "shopify://shop_images/Frame_2036457919.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 40,
+            "title": "<p>Smart Obstacle Response</p>",
+            "description": "",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_iFMzbp": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457910_792ae8d3-d568-4833-a5e7-02c3bcf3546e.png",
+            "h5_image": "shopify://shop_images/Frame_2036457920_1.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 40,
+            "title": "<p>Wireless Auto Recharging</p>",
+            "description": "",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        },
+        "block_8pQLYw": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457911_6b7e5967-a7d8-4e52-b6f0-2201d0c4906b.png",
+            "h5_image": "shopify://shop_images/Frame_2036457917.png",
+            "video_url": "",
+            "h5_video_url": "",
+            "show_overlay": true,
+            "overlay_color_background": "linear-gradient(360deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 89.91%)",
+            "overlay_opacity": 40,
+            "title": "<p>Adjustable Trimming Height</p>",
+            "description": "",
+            "bottom_text": "",
+            "icon_anchor_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_hfE8Dc",
+        "block_Pn4JB8",
+        "block_6cPy3B",
+        "block_nWiiMt",
+        "block_iFMzbp",
+        "block_8pQLYw"
+      ],
+      "name": "Text Media Grid 5 Items",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": true,
+        "padding_top": 100,
+        "padding_bottom": 60,
+        "h5_padding_top": 50,
+        "h5_padding_bottom": 0
+      }
+    },
+    "sa_img_text_with_label_pXx6ic": {
+      "type": "sa-img-text-with-label",
+      "blocks": {
+        "block_ri9akF": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457922.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "label": "Hands-Free Trimming",
+            "desc": ""
+          }
+        },
+        "block_6tRbpB": {
+          "type": "Block",
+          "settings": {
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/20251024-160808.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "What You Draw, What You Get",
+            "desc": ""
+          }
+        },
+        "block_nAeTBC": {
+          "type": "Block",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457924.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "label": "Hassle-Free Maintenance",
+            "desc": ""
+          }
+        },
+        "block_eqBx9C": {
+          "type": "Block",
+          "disabled": true,
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Gravel Driveway",
+            "desc": "<p>24″ clearing width with adjustable 6–40 ft throw covers wide two-car lanes.</p>"
+          }
+        },
+        "block_dej46e": {
+          "type": "Block",
+          "disabled": true,
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "label": "Large Driveway",
+            "desc": "<p>24″ clearing width with adjustable 6–40 ft throw covers wide two-car lanes.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_ri9akF",
+        "block_6tRbpB",
+        "block_nAeTBC",
+        "block_eqBx9C",
+        "block_dej46e"
+      ],
+      "name": "Img Text With Label",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "<p>Yarbo Trimmer Highlights</p>",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 80,
+        "pc_aspect_ratio_w": 876,
+        "pc_aspect_ratio_h": 492,
+        "h5_aspect_ratio_w": 320,
+        "h5_aspect_ratio_h": 180
+      }
+    },
+    "sa_media_text_vertical_XCyfRf": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "text_HXcqa6": {
+          "type": "text",
+          "name": "label",
+          "disabled": true,
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 120,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 12,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_GiXdYm": {
+          "type": "text",
+          "name": "title",
+          "settings": {
+            "content_width_pc": 1250,
+            "html_tag": "h2",
+            "text": "<p>Why Choose Yarbo Trimmer?</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 80,
+            "font_size_h5": 40,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 16,
+            "pb_pc": 20,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 20,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_TM7TP6": {
+          "type": "text",
+          "name": "text",
+          "disabled": true,
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Across varied terrain—hills, bumps, slopes, tree roots, flower beds, and pathways—Yarbo navigates smoothly and gets the job done.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 24,
+            "pb_pc": 120,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 56,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "media_mhqFfG": {
+          "type": "media",
+          "name": "media",
+          "settings": {
+            "layout": "container",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457926.png",
+            "h5_image": "shopify://shop_images/Frame_2036457927.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "pc_height": 500,
+            "h5_height": 500,
+            "use_aspect_ratio": true,
+            "pc_aspect_ratio_w": 1320,
+            "pc_aspect_ratio_h": 700,
+            "h5_aspect_ratio_w": 320,
+            "h5_aspect_ratio_h": 780,
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "title": "",
+            "text": "",
+            "color": "#ffffff"
+          },
+          "blocks": {}
+        },
+        "text_MKmJPj": {
+          "type": "text",
+          "name": "title",
+          "disabled": true,
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "h2",
+            "text": "<p>24/7 Autonomous Cleaning</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 52,
+            "font_size_h5": 36,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 40,
+            "pb_pc": 0,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 32,
+            "pb_h5": 12,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_8EAMf3": {
+          "type": "text",
+          "name": "text",
+          "disabled": true,
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "div",
+            "text": "<p>Yarbo monitors weather conditions and automatically begins clearing when </p><p>snowfall starts. By working continuously throughout the storm, it prevents buildup </p><p>and keeps driveways and paths accessible without manual effort.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 16,
+            "pb_pc": 60,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_HXcqa6",
+        "text_GiXdYm",
+        "text_TM7TP6",
+        "media_mhqFfG",
+        "text_MKmJPj",
+        "text_8EAMf3"
+      ],
+      "custom_css": [
+        ".block-AWWhrbUhST1dOSWRsM__text_J7KtWD,.block-AU1VkaDVRbXREcDZwU__text_xcVjdG {text-transform: uppercase;}"
+      ],
+      "name": "Power ThatClears Faster",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 48,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_media_text_vertical_6w9XkG": {
+      "type": "sa-media-text-vertical",
+      "blocks": {
+        "text_THMRLD": {
+          "type": "text",
+          "settings": {
+            "content_width_pc": 1320,
+            "html_tag": "h4",
+            "text": "<p>Breaking Down Yarbo Innovation</p>",
+            "text_transform": "none",
+            "font_weight": "700",
+            "line_height": "1",
+            "font_size_pc": 80,
+            "font_size_h5": 40,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#25282a",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 70,
+            "pb_pc": 50,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 20,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "text_TaCxkN": {
+          "type": "text",
+          "name": "text block",
+          "disabled": true,
+          "settings": {
+            "content_width_pc": 860,
+            "html_tag": "div",
+            "text": "<p>We are currently conducting extended field testing and performance calibration to ensure optimal long-term reliability across diverse terrains.</p>",
+            "text_transform": "none",
+            "font_weight": "500",
+            "line_height": "1.3",
+            "font_size_pc": 18,
+            "font_size_h5": 16,
+            "align_pc": "center",
+            "align_h5": "center",
+            "text_color": "#515355",
+            "strong_color": "#000000",
+            "link_color": "#0056b3",
+            "bg_color": "rgba(0,0,0,0)",
+            "pt_pc": 24,
+            "pb_pc": 80,
+            "pl_pc": 0,
+            "pr_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 56,
+            "pl_h5": 0,
+            "pr_h5": 0
+          },
+          "blocks": {}
+        },
+        "media_zNtQdG": {
+          "type": "media",
+          "name": "media block",
+          "disabled": true,
+          "settings": {
+            "layout": "full",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457921.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "pc_height": 500,
+            "h5_height": 500,
+            "use_aspect_ratio": true,
+            "pc_aspect_ratio_w": 1440,
+            "pc_aspect_ratio_h": 800,
+            "h5_aspect_ratio_w": 4,
+            "h5_aspect_ratio_h": 5,
+            "pt_pc": 0,
+            "pb_pc": 0,
+            "pt_h5": 0,
+            "pb_h5": 0,
+            "title": "",
+            "text": "",
+            "color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_THMRLD",
+        "text_TaCxkN",
+        "media_zNtQdG"
+      ],
+      "name": "Relentless. Smart.  Frost-Proof Mornings.",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 0,
+        "bac": "#ffffff",
+        "show_before": false,
+        "show_after": false
+      }
+    },
+    "sa_product_img_text_wBpiwd": {
+      "type": "sa-product-img-text",
+      "blocks": {
+        "item_tky7Qw": {
+          "type": "item",
+          "settings": {
+            "image_width": 54,
+            "pc_layout": "image_left",
+            "mobile_layout": "image_top",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457929.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "h5_aspect_ratio_w": 340,
+            "h5_aspect_ratio_h": 230,
+            "title": "<p><strong>Automatic Line Feed</strong></p>",
+            "desc": "<p>Enjoy uninterrupted trimming with the automatic line feed. On average, you'll only need to replace the lines once a month—maximizing efficiency and minimizing hassle.</p>",
+            "block_title1": "",
+            "block_text1": "",
+            "block_title2": "",
+            "block_text2": "",
+            "block_title3": "",
+            "block_text3": ""
+          }
+        },
+        "item_pYdbDA": {
+          "type": "item",
+          "settings": {
+            "image_width": 54,
+            "pc_layout": "image_right",
+            "mobile_layout": "image_top",
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/20251024-153511.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "h5_aspect_ratio_w": 340,
+            "h5_aspect_ratio_h": 230,
+            "title": "<p><strong>Smart Terrain Adaptation</strong></p>",
+            "desc": "<p>The spring and floating-ball suspension design ensures the trimmer bounces back from obstacles and better follows uneven terrain, protecting your lawn and delivering more consistent cuts.</p>",
+            "block_title1": "",
+            "block_text1": "",
+            "block_title2": "",
+            "block_text2": "",
+            "block_title3": "",
+            "block_text3": ""
+          }
+        },
+        "item_AHn6Fm": {
+          "type": "item",
+          "settings": {
+            "image_width": 54,
+            "pc_layout": "image_left",
+            "mobile_layout": "image_top",
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/20251024-153447.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "h5_aspect_ratio_w": 340,
+            "h5_aspect_ratio_h": 230,
+            "title": "<p><strong>Adjustable Trimming Height</strong></p>",
+            "desc": "<p>Get a reliably great trim every time with adjustable cutting heights from 2 to 4 inches. Achieve an ideal look for your lawn with impressive results, tailored to your preference.</p>",
+            "block_title1": "",
+            "block_text1": "",
+            "block_title2": "",
+            "block_text2": "",
+            "block_title3": "",
+            "block_text3": ""
+          }
+        },
+        "item_RCN6aG": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "image_width": 54,
+            "pc_layout": "image_left",
+            "mobile_layout": "image_top",
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "h5_aspect_ratio_w": 340,
+            "h5_aspect_ratio_h": 230,
+            "title": "<p>Performs in Extreme Cold</p>",
+            "desc": "<p>Designed to run smoothly in various temperatures, so your yard stays clear no matter how harsh the winter.</p>",
+            "block_title1": "<p><strong>-13°F TO 113°F</strong></p>",
+            "block_text1": "<p>Operating Temperature</p>",
+            "block_title2": "",
+            "block_text2": "",
+            "block_title3": "",
+            "block_text3": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_tky7Qw",
+        "item_pYdbDA",
+        "item_AHn6Fm",
+        "item_RCN6aG"
+      ],
+      "custom_css": [
+        "@media (max-width: 999px) {.mt-24.flex.justify-between.gap-16.md\\:mt-40 {display: grid; grid-template-columns: 1fr 1fr; }}"
+      ],
+      "name": "One Setup.  Season-Long Autonomy.",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "anchor_id": "",
+        "padding_top": 40,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 56
+      }
+    },
+    "sa_why_shop_with_hover_k7XPTy": {
+      "type": "sa-why-shop-with-hover",
+      "blocks": {
+        "item_xmtz4K": {
+          "type": "item",
+          "settings": {
+            "title": "FREE SHIPPING",
+            "desc": "Delivered in 3-8 business days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_1.svg",
+            "show_image": false
+          }
+        },
+        "item_ErnbbJ": {
+          "type": "item",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Help anytime you need",
+            "icon": "shopify://shop_images/Icon_-_Chunky_2.svg",
+            "show_image": false
+          }
+        },
+        "item_mT6WKC": {
+          "type": "item",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Pay now or over time using affirm or splitit",
+            "icon": "shopify://shop_images/Icon_-_Chunky_5.svg",
+            "show_image": false
+          }
+        },
+        "item_VReyNX": {
+          "type": "item",
+          "settings": {
+            "title": "30-Day Free Returns",
+            "desc": "Full refund, no hassle",
+            "icon": "shopify://shop_images/Icon_-_Chunky_3.svg",
+            "show_image": false
+          }
+        },
+        "item_Mz9E67": {
+          "type": "item",
+          "settings": {
+            "title": "up to 5-year Warranty",
+            "desc": "Protection you can trust",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4.svg",
+            "show_image": false
+          }
+        },
+        "item_3Uihyb": {
+          "type": "item",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Safe and protected checkout",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "item_xmtz4K",
+        "item_ErnbbJ",
+        "item_mT6WKC",
+        "item_VReyNX",
+        "item_Mz9E67",
+        "item_3Uihyb"
+      ],
+      "name": "Why Shop Hover",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "pc_aspect_ratio_w": 250,
+        "pc_aspect_ratio_h": 300,
+        "title": "WHY SHOP WITH US",
+        "auto_rotate": true,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_product_specifications_REjqRh": {
+      "type": "sa-product-specifications",
+      "name": "Product Specifications",
+      "settings": {
+        "anchor_id": "spec",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "heading": "SPECIFICATIONS"
+      }
+    },
+    "sa_product_img_text_blocks_cEgrkf": {
+      "type": "sa-product-img-text-blocks",
+      "blocks": {
+        "block_J3AXKf": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_width_pc": 1320,
+            "title": "<p>Installer Program</p>",
+            "desc": "<p>Use the map to find nearby Yarbo volunteer<br/>installers and get in touch for assistance.</p>",
+            "button_text": "Submit a Ticket",
+            "button2_link": "",
+            "btn_anchor_id": "",
+            "button_color": "#25282a",
+            "button_bg_color": "#ffffff",
+            "button_hover_color": "#25282a",
+            "button_bg_hover_color": "#fedb1e"
+          }
+        },
+        "block_QPbnzM": {
+          "type": "block",
+          "settings": {
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_width_pc": 1320,
+            "title": "<p>1 on 1 Video Instruction</p>",
+            "desc": "<p>Schedule a video meeting with our technician for<br/>guided installation assistance.</p>",
+            "button_text": "Schedule a Call",
+            "button2_link": "",
+            "btn_anchor_id": "",
+            "button_color": "#25282a",
+            "button_bg_color": "#ffffff",
+            "button_hover_color": "#25282a",
+            "button_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "block_J3AXKf",
+        "block_QPbnzM"
+      ],
+      "disabled": true,
+      "name": "Installer Program & 1 on 1 Video Instruction",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 50,
+        "h5_padding_bottom": 56,
+        "pc_aspect_ratio_w": 652,
+        "pc_aspect_ratio_h": 450,
+        "h5_aspect_ratio_w": 340,
+        "h5_aspect_ratio_h": 300
+      }
+    },
+    "sa_product_manual_YxpEM3": {
+      "type": "sa-product-manual",
+      "blocks": {
+        "manual_rypPgf": {
+          "type": "manual",
+          "settings": {
+            "link": "/",
+            "title": "2024 Yarbo Y Core + Snow Blower Quick Start Guide"
+          }
+        },
+        "manual_wyWqmc": {
+          "type": "manual",
+          "settings": {
+            "link": "/",
+            "title": "2024 Yarbo Y Core + Snow Blower User Manual"
+          }
+        },
+        "manual_CTxNmL": {
+          "type": "manual",
+          "settings": {
+            "link": "/",
+            "title": "2024 Yarbo Y Core User Manual"
+          }
+        },
+        "video_FWbEaC": {
+          "type": "video",
+          "settings": {
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=LXb3EKWsInQ",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo Installation Guide"
+          }
+        },
+        "video_MbUJEf": {
+          "type": "video",
+          "settings": {
+            "video_cover": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo Snow Blower Installation Guide"
+          }
+        },
+        "video_QDA38i": {
+          "type": "video",
+          "settings": {
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo App Setup Tutorial"
+          }
+        },
+        "video_cyw4MU": {
+          "type": "video",
+          "settings": {
+            "media_type": "video_url",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "video_title": "Yarbo Docking Installation Guide"
+          }
+        }
+      },
+      "block_order": [
+        "manual_rypPgf",
+        "manual_wyWqmc",
+        "manual_CTxNmL",
+        "video_FWbEaC",
+        "video_MbUJEf",
+        "video_QDA38i",
+        "video_cyw4MU"
+      ],
+      "disabled": true,
+      "name": "Product Manuals",
+      "settings": {
+        "anchor_id": "manuals",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "installation_title": "Setup and Installation",
+        "manuals_title": "MANUALS"
+      }
+    },
+    "17766702216e9a8a44": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_tC8BmC": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_tC8BmC"
+      ],
+      "settings": {
+        "anchor_id": "review",
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_product_anchors_qBywBF",
+    "sa_media_text_vertical_RbaXmB",
+    "sa_product_grid_TnjVWw",
+    "sa_product_img_swiper_T3RYzc",
+    "sa_media_text_vertical_LwnnLh",
+    "sa_gsap_scroll_KL7p4x",
+    "sa_product_img_text_WViWRK",
+    "sa_media_text_vertical_GBdCHL",
+    "sa_img_text_with_label_zQzP9m",
+    "sa_product_img_swiper_type2_pHTeLw",
+    "sa_media_text_vertical_VjMjwF",
+    "sa_product_grid_yMJm87",
+    "sa_img_text_with_label_pXx6ic",
+    "sa_media_text_vertical_XCyfRf",
+    "sa_media_text_vertical_6w9XkG",
+    "sa_product_img_text_wBpiwd",
+    "sa_why_shop_with_hover_k7XPTy",
+    "sa_product_specifications_REjqRh",
+    "sa_product_img_text_blocks_cEgrkf",
+    "sa_product_manual_YxpEM3",
+    "17766702216e9a8a44"
+  ]
+}

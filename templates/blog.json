@@ -1,0 +1,117 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sa_common_banner_yVyAdW": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_KxPdgD": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458035_2.png",
+            "h5_image": "shopify://shop_images/Frame_2036458037.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "middle-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "<p>Blog & Newsroom</p>",
+            "title_color": "#ffffff",
+            "desc": "<p>Get expert guidance, tips, and trends to maintain a vibrant, worry-free lawn all year round.</p>",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_KxPdgD"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_blogs_U6Y6NV": {
+      "type": "sa-blogs",
+      "blocks": {
+        "block_iifjDJ": {
+          "type": "Block",
+          "settings": {
+            "blog_label": "All",
+            "all_link": "/",
+            "article1": "blog-news/which-is-better-wired-or-wireless-robot-mowers-a-complete-guide",
+            "article2": "blog-news/riding-lawn-mower-cost-whats-the-price-tag-for-your-perfect-fit",
+            "article3": "blog-news/do-robot-mowers-work-on-tall-grass",
+            "article4": "blog-news/do-robot-lawn-mowers-avoid-dog-poop-the-truth-you-need-to-know"
+          }
+        }
+      },
+      "block_order": [
+        "block_iifjDJ"
+      ],
+      "name": "Index Blogs",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "sub_title": "Blog & Newsroom",
+        "title": "<p>Get expert guidance, tips, and trends<br/>to maintain a vibrant lawn.</p>",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 80
+      }
+    },
+    "main": {
+      "type": "sa-main-blog",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "articles_per_page": 9
+      }
+    }
+  },
+  "order": [
+    "sa_common_banner_yVyAdW",
+    "sa_blogs_U6Y6NV",
+    "main"
+  ]
+}

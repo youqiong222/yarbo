@@ -1,0 +1,843 @@
+.yb-savings-calculator-btn {
+  cursor: pointer;
+  color: #02060B;
+}
+
+.yb-savings-calculator-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #161616;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(0.3125rem);
+}
+
+.yb-savings-calculator-modal.active {
+  display: flex;
+}
+
+.yb-savings-calculator-content * {
+  font-family: "Nunito Sans";
+}
+
+.yb-savings-calculator-content {
+  max-width: 788px;
+  width: 100%;
+  position: relative;
+
+}
+
+.yb-savings-calculator-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #02060B;
+  z-index: 10;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: #E6E6E7;
+  transition: background-color 0.3s;
+  padding: 1rem;
+}
+
+.yb-savings-calculator-close:hover {
+  background-color: #f5f5f5;
+}
+
+.yb-savings-calculator-header {
+  padding-top: 2.2rem;
+  text-align: center;
+  max-width: 478px;
+  margin: 0 auto;
+}
+
+.yb-savings-calculator-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.yb-savings-calculator-subtitle {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  color: #fff;
+  margin-bottom: 2.4rem;
+}
+
+.yb-savings-calculator-progress {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-radius: 1.5rem 1.5rem 0 0;
+  overflow: hidden;
+}
+
+.yb-savings-calculator-step {
+  padding: 1.4rem 1rem;
+  font-size: 1.6rem;
+  background: #f5f5f5;
+  color: #999;
+  transition: all 0.3s;
+  width: 100%;
+  text-align: center;
+}
+
+.yb-savings-calculator-step .step-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background-color: #CCCDCE;
+  color: #6E6E73;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.yb-savings-calculator-step.active .step-icon {
+  background-color: #000000;
+  color: #FEDB1E;
+}
+
+.yb-savings-calculator-step.active {
+  background: #FFD700;
+  color: #333;
+}
+
+.yb-savings-calculator-body {
+  border-radius: 2.4rem;
+  background-color: white;
+}
+
+.yb-savings-calculator-step-content {
+  padding: 2.4rem;
+}
+
+.yb-savings-calculator-section:nth-of-type(n+2) {
+  padding: 1.25rem 1.5rem;
+  background: #F9F9F9;
+  border-radius: 1rem;
+}
+
+.yb-savings-calculator-section {
+  margin-bottom: 1.6rem;
+  max-height: 37.5rem;
+  overflow-y: auto;
+}
+
+.yb-savings-calculator-section:last-child {
+  margin-bottom: 0;
+}
+
+.yb-savings-calculator-section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.yb-savings-calculator-results-item svg,
+.yb-savings-calculator-label svg,
+.yb-savings-calculator-section-title svg {
+  height: 3.2rem;
+}
+
+.yb-savings-calculator-savings-item svg {
+  height: 2.2rem;
+}
+
+.yb-savings-calculator-section-title-center {
+  justify-content: center;
+  color: #000000;
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.yb-savings-calculator-section-title i {
+  font-size: 1.6rem;
+  color: #FFD700;
+}
+
+.yb-savings-calculator-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.yb-savings-calculator-option {
+  border: 0.125rem solid #e0e0e0;
+  border-radius: 1.6rem;
+  padding: 1.5rem 5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.yb-savings-calculator-option:hover {
+  border-color: #FFD700;
+  transform: translateY(-0.125rem);
+}
+
+.yb-savings-calculator-option.selected {
+  border-color: #FFD700;
+  background: #FFF9E6;
+}
+
+.yb-savings-calculator-option-icon {
+  height: 4rem;
+  margin-bottom: 1rem;
+}
+
+.yb-savings-calculator-option-icon svg {
+  height: 4rem;
+}
+
+.yb-savings-calculator-option-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #02060B;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+.yb-savings-calculator-option-text {
+  font-size: 1.4rem;
+  color: #000000;
+  line-height: 1.4;
+  text-align: center;
+  font-weight: 400;
+}
+
+.yb-savings-calculator-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.yb-savings-calculator-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.yb-savings-calculator-input-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.yb-savings-calculator-label {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.yb-savings-calculator-input {
+  padding: 0.9rem 1.2rem;
+  border: 1px solid #e6e6e7;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  transition: border-color 0.3s;
+}
+
+.yb-savings-calculator-input:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+.yb-savings-calculator-select {
+  height: 4rem;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #e6e6e7;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  background: white;
+  color: #02060B;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.yb-savings-calculator-select:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+.yb-savings-calculator-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 3rem 1.5rem;
+}
+
+.yb-savings-calculator-next-btn {
+  background-color: #FEDB1E;
+  border-radius: 100px;
+  padding: 0.9rem 4.5rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #02060B;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.yb-savings-calculator-next-btn:disabled {
+  background-color: #E6E6E7;
+  color: #6E6E73;
+  cursor: not-allowed;
+}
+
+.yb-savings-calculator-back-btn {
+  background-color: white;
+  border: 1px solid #02060B;
+  border-radius: 100px;
+  padding: 0.9rem 4rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #02060B;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.yb-savings-calculator-back-btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* Step 3 Results Styles */
+.yb-savings-calculator-results {
+  max-height: 37.5rem;
+  overflow: auto;
+}
+
+.yb-savings-calculator-results-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.6rem;
+}
+
+.yb-savings-calculator-results-column {
+  background: white;
+  padding: 1.125rem 1.5rem;
+  background-size: cover;
+  aspect-ratio: 360 / 376;
+}
+
+.yb-savings-calculator-results-column:first-child {
+  background-image: url('https://img-va.myshopline.com/image/store/1737714205978/current-annual-costs-1.png?w=720&h=752');
+}
+
+.yb-savings-calculator-results-column:last-child {
+  background-image: url('https://img-va.myshopline.com/image/store/1737714205978/yarbo-solution-bg-1.png?w=622&h=648');
+}
+
+.yb-savings-calculator-results-item-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #000;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  font-style: Italic;
+  line-height: 1.4;
+}
+
+.yb-savings-calculator-results-list {
+  margin-bottom: 1rem;
+}
+
+.yb-savings-calculator-results-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 0.8rem;
+  font-size: 1.6rem;
+  color: #000;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.yb-savings-calculator-results-item svg {
+  height: 1.7rem;
+}
+
+.yb-savings-calculator-results-price b {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.yb-savings-calculator-results-icon {
+  color: #999;
+  font-size: 1rem;
+}
+
+.yb-savings-calculator-results-price {
+  font-weight: 600;
+  color: #000;
+  font-size: 1.6rem;
+  text-align: center;
+  width: 100%;
+}
+
+.yb-savings-calculator-results-check {
+  color: #4CAF50;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.yb-savings-calculator-results-image {
+  margin-top: 1rem;
+}
+
+.yb-savings-calculator-savings-summary {
+  padding: 1.5rem;
+  margin-bottom: 1.6rem;
+  background-image: url('https://img-va.myshopline.com/image/store/1737714205978/total-save-bg.png?w=1480&h=370');
+  background-size: cover;
+  background-color: #F5F5F5;
+  aspect-ratio: 740 / 185;
+  border-radius: 1rem;
+  border: 1px solid #E6E6E7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.yb-savings-calculator-savings-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #000;
+}
+
+.yb-savings-calculator-savings-item b {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.yb-savings-calculator-savings-icon {
+  font-size: 1.25rem;
+}
+
+.yb-savings-calculator-payback-content {
+  max-width: 39rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.yb-savings-calculator-savings-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.yb-savings-calculator-savings-item-span {
+  display: flex;
+  align-items: center;
+  gap: 4px 8px;
+  flex-wrap: wrap;
+}
+
+.yb-savings-calculator-payback-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.4rem;
+  font-style: Italic;
+  line-height: 1.4;
+}
+
+.yb-savings-calculator-payback-note {
+  font-size: 1.2rem;
+  color: #6e6e73;
+  margin: 0;
+  font-weight: 400;
+}
+
+.yb-savings-calculator-payback-icon {
+  margin-left: 1rem;
+}
+
+.yb-savings-calculator-report {
+  background: #f5f5f5;
+  border-radius: 1rem;
+  padding: 2.4rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.yb-savings-calculator-report-input-container {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.yb-savings-calculator-error {
+  color: rgb(255, 0, 0);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  position: absolute;
+}
+
+.yb-savings-calculator-success {
+  color: rgb(0, 196, 65);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  position: absolute;
+}
+
+.yb-savings-calculator-report-title {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #02060B;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+.yb-savings-calculator-report-form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.yb-savings-calculator-report-input {
+  flex: 1;
+  padding: 0.9rem 1rem;
+  border: 1px solid #E6E6E7;
+  border-radius: .4rem;
+  font-size: 1.4rem;
+  transition: border-color 0.3s;
+  background-color: #fff;
+  width: 100%;
+}
+
+.yb-savings-calculator-report-input:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+.yb-savings-calculator-report-btn {
+  background-color: #FEDB1E;
+  border-radius: 0.4rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #02060B;
+  border: none;
+  height: 4rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.yb-savings-calculator-report-btn:hover {
+  background-color: #FFC800;
+}
+
+
+.yb-savings-calculator-step2-hire .yb-savings-calculator-section-title,
+.yb-savings-calculator-step2-self .yb-savings-calculator-section-title {
+  flex-direction: row-reverse;
+  justify-content: start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.yb-savings-calculator-step2-hire .yb-savings-calculator-inputs,
+.yb-savings-calculator-step2-self .yb-savings-calculator-inputs {
+  background: #F9F9F9;
+
+}
+
+.yb-savings-calculator-step2-hire .yb-savings-calculator-inputs {
+  padding: 24px;
+}
+
+.yb-savings-calculator-label {
+  flex-direction: row-reverse;
+  justify-content: start;
+}
+
+.yb-savings-calculator-step-content {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .yb-savings-calculator-content {
+    width: 92%;
+  }
+
+
+  .yb-savings-calculator-header {
+    padding: 5.5rem 0rem 1.6rem;
+  }
+
+  .yb-savings-calculator-title {
+    font-size: 2rem;
+  }
+
+  .yb-savings-calculator-subtitle {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .yb-savings-calculator-results-column {
+    padding: 1.25rem;
+    aspect-ratio: 311 / 324;
+  }
+
+  .yb-savings-calculator-step-content {
+    padding: 2rem 1.6 !important;
+
+  }
+
+  .yb-savings-calculator-option-title {
+    font-size: 1.4rem;
+  }
+
+  .yb-savings-calculator-option {
+    padding: 1.5rem 3rem;
+  }
+
+  .yb-savings-calculator-options {
+    gap: 0.8rem;
+  }
+
+  .yb-savings-calculator-section {
+    margin-bottom: 1.6rem;
+  }
+
+  .yb-savings-calculator-section {
+    margin-bottom: 0.8rem;
+  }
+
+  .yb-savings-calculator-section-title-center {
+    font-size: 1rem;
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .yb-savings-calculator-results-price {
+    font-size: 1.6rem;
+  }
+
+  .yb-savings-calculator-results-item-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .yb-savings-calculator-results-item {
+    font-size: 1.4rem;
+    margin-bottom: .8rem;
+  }
+
+  .yb-savings-calculator-results {
+    max-height: 60vh;
+  }
+
+  .yb-savings-calculator-report-input-container {
+    max-width: 100%;
+  }
+
+  .yb-savings-calculator-error,
+  .yb-savings-calculator-success {
+    margin: 0;
+    font-size: 0.625rem;
+  }
+
+  .yb-savings-calculator-footer {
+    padding: 0 1rem 1.5rem;
+  }
+
+
+
+  .yb-savings-calculator-options {
+    grid-template-columns: 1fr;
+    margin-top: 1.6rem;
+  }
+
+  .yb-savings-calculator-payback-title {
+    font-size: 18px;
+  }
+
+  .yb-savings-calculator-payback-content {
+    text-align: left;
+  }
+
+  .yb-savings-calculator-payback-title {
+    margin: 1rem 0 .7rem 0;
+  }
+
+  .yb-savings-calculator-inputs {
+    grid-template-columns: 1fr;
+    margin-top: 1.6rem;
+  }
+
+  .yb-savings-calculator-step {
+    padding: 1.2rem 0rem;
+    font-size: 1.2rem;
+  }
+
+  .yb-savings-calculator-step {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Step 3 Mobile Styles */
+  .yb-savings-calculator-results-columns {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .yb-savings-calculator-savings-summary {
+    flex-direction: column;
+    gap: 2.25rem;
+    aspect-ratio: 311 / 330;
+    background-image: url('https://img-va.myshopline.com/image/store/1737714205978/total-save-mobile-bg.png?w=622&h=660');
+  }
+
+  .yb-savings-calculator-payback {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .yb-savings-calculator-payback-icon {
+    margin-left: 0;
+  }
+
+  .yb-savings-calculator-report-form {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .yb-savings-calculator-step-content {
+    padding: 2rem 1.6rem 2.4rem;
+  }
+
+  .yb-savings-calculator-report-input,
+  .yb-savings-calculator-report-btn {
+    width: 100%;
+    border-radius: 2rem;
+  }
+
+  .yb-savings-calculator-savings-items {
+    gap: 7px;
+  }
+
+  .yb-savings-calculator-section-title svg {
+    height: 2.4rem;
+  }
+
+  .yb-savings-calculator-section-title {
+    margin: 0 0 16px;
+    font-size: 16px;
+  }
+
+  .yb-savings-calculator-label {
+    font-size: 1.4rem;
+    margin-bottom: 9px;
+    line-height: 1.4;
+  }
+
+  .yb-savings-calculator-label {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .yb-savings-calculator-step .step-icon {
+    font-size: 0.89rem;
+    width: 1.4rem;
+    height: 1.4rem;
+
+  }
+
+  .yb-savings-calculator-back-btn,
+  .yb-savings-calculator-next-btn {
+    padding: 0.9rem 0.2rem;
+    flex: 1;
+    height: 40px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.4;
+  }
+
+  .yb-savings-calculator-results-item svg,
+  .yb-savings-calculator-label svg,
+  .yb-savings-calculator-section-title svg {
+    height: 2rem;
+  }
+
+  .yb-savings-calculator-footer {
+    padding: 2.4rem 1.6rem 12.4rem;
+    gap: 1.5rem;
+  }
+
+  .yb-savings-calculator-step2-hire>.yb-savings-calculator-inputs {
+    padding: 1.6rem;
+  }
+
+  .yb-savings-calculator-step2-hire .yb-savings-calculator-inputs {
+    padding: 1.6rem;
+  }
+
+
+}
+
+.yb-savings-calculator-step2-hire .yb-savings-calculator-label {
+  font-weight: 700;
+}
+
+/* Input with icon styles */
+.yb-savings-calculator-input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.yb-savings-calculator-input-with-icon input {
+  padding-right: 2.5rem;
+  width: 100%;
+}
+
+.yb-savings-calculator-input-with-icon svg {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

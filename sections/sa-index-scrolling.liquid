@@ -1,0 +1,544 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  {% if section.settings.title != blank or section.settings.link != blank %}
+    <div class='mb-32 flex flex-col gap-20 md:mb-40 md:flex-row md:items-end md:justify-between'>
+      {% if section.settings.title != blank %}
+        <h2 class='text-[32px]/[1] uppercase md:text-[44px]/[1]'>
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+      {% if section.settings.link != blank %}
+        <a
+          class='group flex items-center gap-4 text-[14px] text-[#25282A] no-underline'
+          href='{{ section.settings.link }}'
+        >
+          {{ section.settings.link_text }}
+          <svg
+            class='transition-transform duration-300 group-hover:translate-x-6'
+            width='12'
+            height='11'
+            viewBox='0 0 12 11'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d="M6.19444 1.0603L10.0833 5.14364M10.0833 5.14364L6.19444 9.22697M10.0833 5.14364L0.75 5.14364" stroke="#25282A" stroke-width="1.5" stroke-linecap="square"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+
+<div class='pl-16 md:pl-0'>
+  <div class='splide'>
+    <div class='splide__track'>
+      <ul class='splide__list'>
+        {%- for block in section.blocks -%}
+          <li class='splide__slide'>
+            <div class='flex gap-12'>
+              <div class='flex flex-[1.5] flex-col  gap-12'>
+                {%- for i in (1..2) -%}
+                  {%- liquid
+                    assign suffix = ''
+                    if i == 2
+                      assign suffix = '2'
+                    endif
+                    assign img_key = 'img' | append: suffix
+                    assign h5_img_key = 'h5_img' | append: suffix
+                    assign video_key = 'video' | append: suffix
+                    assign video_url_key = 'video_url' | append: suffix
+                    assign media_type_key = 'media_type' | append: suffix
+                    assign other_url_key = 'other_url' | append: suffix
+
+                    assign current_img = block.settings[img_key]
+                    assign current_h5_img = block.settings[h5_img_key]
+                    assign current_video = block.settings[video_key]
+                    assign current_video_url = block.settings[video_url_key]
+                    assign current_media_type = block.settings[media_type_key] | default: 'video'
+                    assign current_other_url = block.settings[other_url_key]
+                    assign has_video = false
+                    if current_video != blank or current_video_url != blank or current_other_url != blank
+                      assign has_video = true
+                    endif
+                    assign is_platform_video = false
+                    if current_media_type == 'video_url' and current_other_url == blank and current_video_url != blank
+                      assign is_platform_video = true
+                    endif
+                  -%}
+                  <div
+                    class='group relative aspect-video flex-1 overflow-hidden bg-amber-50'
+                    {% if has_video %}
+                      x-data='{ isHovered: false }'
+                      {% if is_platform_video %}
+                        @mouseenter='isHovered = true; const el = $refs.hoverVideo{{ i }}; if(el) { el.resetMedia(); el.playMedia(); }'
+                        @mouseleave='isHovered = false; const el = $refs.hoverVideo{{ i }}; if(el) { el.pauseMedia(); el.resetMedia(); }'
+                      {% else %}
+                        @mouseenter='isHovered = true; if($refs.hoverVideo{{ i }}) $refs.hoverVideo{{ i }}.play()'
+                        @mouseleave='isHovered = false; if($refs.hoverVideo{{ i }}) { $refs.hoverVideo{{ i }}.pause(); $refs.hoverVideo{{ i }}.currentTime = 0; }'
+                      {% endif %}
+                    {% endif %}
+                  >
+                    <div
+                      class='h-full w-full transition-opacity duration-300'
+                      {% if has_video %}
+                        :class="isHovered ? 'opacity-0' : 'opacity-100'"
+                      {% endif %}
+                    >
+                      {% render 'media-element',
+                        media_type: 'image',
+                        class: 'w-full h-full',
+                        media_class: 'w-full h-full object-cover',
+                        pc_image: current_img,
+                        h5_image: current_h5_img
+                      %}
+                    </div>
+
+                    {% if has_video %}
+                      <div
+                        class='pointer-events-none absolute inset-0 z-0 bg-black opacity-0 transition-opacity duration-300'
+                        :class="isHovered ? 'opacity-100' : 'opacity-0'"
+                      >
+                        {% if is_platform_video %}
+                          <video-intersection-insert
+                            x-ref='hoverVideo{{ i }}'
+                            class='block h-full w-full'
+                            data-provider='{{ current_video_url.type }}'
+                            data-video-id='{{ current_video_url.id }}'
+                            data-muted='true'
+                            data-controls='false'
+                            data-paused-on-load='true'
+                          ></video-intersection-insert>
+                        {% else %}
+                          <video
+                            x-ref='hoverVideo{{ i }}'
+                            muted
+                            loop
+                            playsinline
+                            preload='none'
+                            class='h-full w-full object-cover'
+                            {% if current_video == blank and current_other_url != blank %}
+                              src='{{ current_other_url }}'
+                            {% endif %}
+                          >
+                            {% if current_video != blank %}
+                              {% for source in current_video.sources %}
+                                <source
+                                  src='{{ source.url }}'
+                                  type='{{ source.mime_type }}'
+                                >
+                              {% endfor %}
+                            {% endif %}
+                          </video>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+
+                    {% if has_video %}
+                      <div
+                        @click="$dispatch('open-video-modal', '{{ block.id }}-{{ i }}')"
+                        class='absolute inset-0 z-10 flex cursor-pointer items-center justify-center transition-opacity duration-300 group-hover:opacity-10'
+                      >
+                        <div class='relative flex h-48 w-48 items-center justify-center overflow-hidden rounded-full transition-transform duration-300 group-hover:scale-110 before:absolute before:inset-0 before:bg-[#CCCCCC66] before:backdrop-blur-[5px]'>
+                          <svg
+                            class='relative'
+                            width='11'
+                            height='13'
+                            viewBox='0 0 11 13'
+                            fill='none'
+                          >
+                            <path d="M9.1448 5.79497C10.0395 6.28853 10.0428 6.28853 9.1448 7.46741L2.20628 12.0996C1.33447 12.5602 0.742359 12.2883 0.680203 11.2917L0.650761 1.59657C0.631133 0.678614 1.39499 0.41926 2.12286 0.859376L9.1448 5.79497Z" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+                          </svg>
+                        </div>
+                      </div>
+                    {% endif %}
+                  </div>
+                {%- endfor -%}
+              </div>
+
+              {%- liquid
+                assign current_img3 = block.settings.img3
+                assign current_h5_img3 = block.settings.h5_img3
+                assign current_video3 = block.settings.video3
+                assign current_video_url3 = block.settings.video_url3
+                assign current_other_url3 = block.settings.other_url3
+                assign current_media_type3 = block.settings.media_type3 | default: 'video'
+                assign has_video3 = false
+                if current_video3 != blank or current_video_url3 != blank or current_other_url3 != blank
+                  assign has_video3 = true
+                endif
+                assign is_platform_video3 = false
+                if current_media_type3 == 'video_url' and current_other_url3 == blank and current_video_url3 != blank
+                  assign is_platform_video3 = true
+                endif
+              -%}
+              <div
+                class='group relative flex-1 overflow-hidden bg-amber-50'
+                {% if has_video3 %}
+                  x-data='{ isHovered: false }'
+                  {% if is_platform_video3 %}
+                    @mouseenter='isHovered = true; const el = $refs.hoverVideo3; if(el) { el.resetMedia(); el.playMedia(); }'
+                    @mouseleave='isHovered = false; const el = $refs.hoverVideo3; if(el) { el.pauseMedia(); el.resetMedia(); }'
+                  {% else %}
+                    @mouseenter='isHovered = true; if($refs.hoverVideo3) $refs.hoverVideo3.play()'
+                    @mouseleave='isHovered = false; if($refs.hoverVideo3) { $refs.hoverVideo3.pause(); $refs.hoverVideo3.currentTime = 0; }'
+                  {% endif %}
+                {% endif %}
+              >
+                <div
+                  class='h-full w-full transition-opacity duration-300'
+                  {% if has_video3 %}
+                    :class="isHovered ? 'opacity-0' : 'opacity-100'"
+                  {% endif %}
+                >
+                  {% render 'media-element',
+                    media_type: 'image',
+                    class: 'w-full h-full',
+                    media_class: 'w-full h-full object-cover',
+                    pc_image: current_img3,
+                    h5_image: current_h5_img3
+                  %}
+                </div>
+
+                {% if has_video3 %}
+                  <div
+                    class='pointer-events-none absolute inset-0 z-0 bg-black opacity-0 transition-opacity duration-300'
+                    :class="isHovered ? 'opacity-100' : 'opacity-0'"
+                  >
+                    {% if is_platform_video3 %}
+                      <video-intersection-insert
+                        x-ref='hoverVideo3'
+                        class='block h-full w-full'
+                        data-provider='{{ current_video_url3.type }}'
+                        data-video-id='{{ current_video_url3.id }}'
+                        data-muted='true'
+                        data-controls='false'
+                        data-paused-on-load='true'
+                      ></video-intersection-insert>
+                    {% else %}
+                      <video
+                        x-ref='hoverVideo3'
+                        muted
+                        loop
+                        playsinline
+                        preload='none'
+                        class='h-full w-full object-cover'
+                        {% if current_video3 == blank and current_other_url3 != blank %}
+                          src='{{ current_other_url3 }}'
+                        {% endif %}
+                      >
+                        {% if current_video3 != blank %}
+                          {% for source in current_video3.sources %}
+                            <source
+                              src='{{ source.url }}'
+                              type='{{ source.mime_type }}'
+                            >
+                          {% endfor %}
+                        {% endif %}
+                      </video>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                {% if has_video3 %}
+                  <div
+                    @click="$dispatch('open-video-modal', '{{ block.id }}-3')"
+                    class='absolute inset-0 z-10 flex cursor-pointer items-center justify-center transition-opacity duration-300 group-hover:opacity-10'
+                  >
+                    <div class='relative flex h-48 w-48 items-center justify-center overflow-hidden rounded-full transition-transform duration-300 group-hover:scale-110 before:absolute before:inset-0 before:bg-[#CCCCCC66] before:backdrop-blur-[5px]'>
+                      <svg
+                        class='relative'
+                        width='11'
+                        height='13'
+                        viewBox='0 0 11 13'
+                        fill='none'
+                      >
+                        <path d="M9.1448 5.79497C10.0395 6.28853 10.0428 6.9094 9.1448 7.46741L2.20628 12.0996C1.33447 12.5602 0.742359 12.2883 0.680203 11.2917L0.650761 1.59657C0.631133 0.678614 1.39499 0.41926 2.12286 0.859376L9.1448 5.79497Z" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+                      </svg>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{%- for block in section.blocks -%}
+  {%- for i in (1..3) -%}
+    {%- liquid
+      assign v_key = 'video'
+      assign vu_key = 'video_url'
+      assign mt_key = 'media_type'
+      assign ou_key = 'other_url'
+      if i > 1
+        assign v_key = 'video' | append: i
+        assign vu_key = 'video_url' | append: i
+        assign mt_key = 'media_type' | append: i
+        assign ou_key = 'other_url' | append: i
+      endif
+      assign modal_video = block.settings[v_key]
+      assign modal_video_url = block.settings[vu_key]
+      assign modal_media_type = block.settings[mt_key] | default: 'video'
+      assign modal_other_url = block.settings[ou_key]
+    -%}
+    {% if modal_video != blank or modal_video_url != blank or modal_other_url != blank %}
+      <div
+        x-data='{ open: false }'
+        @open-video-modal.window="if ($event.detail === '{{ block.id }}-{{ i }}') { open = true; }"
+        x-cloak
+        x-show='open'
+        x-transition.opacity.duration.300ms
+        class='css-reset tailwind-layout modal fixed inset-0 z-100 flex items-center justify-center bg-[#25282A]/80'
+      >
+        <div
+          @click.outside='open = false'
+          x-transition.scale.95.duration.300ms
+          class='relative mx-4 aspect-video w-full max-w-960 bg-black'
+        >
+          <button
+            @click='open = false'
+            class='absolute -top-12 -right-12 z-10 flex h-40 w-40 cursor-pointer items-center justify-center rounded-full border-0 bg-white text-black hover:bg-gray-100'
+          >
+            <svg
+              width='12'
+              height='12'
+              viewBox='0 0 12 12'
+              fill='none'
+            >
+              <path d="M10.918 0.919237L0.917969 10.9192M10.918 10.9192L0.917969 0.919235" stroke="currentColor" stroke-width="1.3" stroke-linecap="square"/>
+            </svg>
+          </button>
+          {% render 'media-element',
+            class: 'block h-full w-full',
+            media_class: 'h-full w-full object-cover',
+            media_type: modal_media_type,
+            pc_video: modal_video,
+            video_url: modal_video_url,
+            other_url: modal_other_url,
+            controls: true,
+            muted: false,
+            is_modal: true
+          %}
+        </div>
+      </div>
+    {% endif %}
+  {%- endfor -%}
+{%- endfor -%}
+
+<script>
+  (() => {
+    const initSplide = () => {
+      const el = document.querySelector('#shopify-section-{{ section.id }} .splide');
+      if (!el) return;
+      const slider = new Splide(el, {
+        type: 'loop',
+        drag: 'free',
+        pagination: false,
+        flickPower: 300,
+        arrows: false,
+        perPage: 3,
+        clones: 4,
+        gap: '12px',
+        breakpoints: {
+          750: {
+            perPage: 1,
+            type: 'slide',
+            drag: true,
+          },
+          1400: {
+            perPage: 2,
+          },
+        },
+      });
+      slider.mount(window.splide.Extensions);
+    };
+    document.addEventListener('DOMContentLoaded', initSplide);
+    document.addEventListener('shopify:section:load', (event) => {
+      if (event.detail.sectionId === '{{ section.id }}') {
+        initSplide();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Index Scrolling",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link URL"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        { "type": "header", "content": "Media Source 1" },
+        { "type": "image_picker", "id": "img", "label": "Image (PC)" },
+        { "type": "image_picker", "id": "h5_img", "label": "Image (Mobile)" },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            { "value": "video", "label": "Shopify Video" },
+            { "value": "video_url", "label": "External Video URL" }
+          ],
+          "default": "video"
+        },
+        { "type": "video", "id": "video", "label": "Shopify Video" },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+
+        { "type": "header", "content": "Media Source 2" },
+        { "type": "image_picker", "id": "img2", "label": "Image (PC) 2" },
+        {
+          "type": "image_picker",
+          "id": "h5_img2",
+          "label": "Image (Mobile) 2"
+        },
+        {
+          "type": "select",
+          "id": "media_type2",
+          "label": "Media Type 2",
+          "options": [
+            { "value": "video", "label": "Shopify Video" },
+            { "value": "video_url", "label": "External Video URL" }
+          ],
+          "default": "video"
+        },
+        { "type": "video", "id": "video2", "label": "Shopify Video 2" },
+        {
+          "type": "video_url",
+          "id": "video_url2",
+          "label": "Platform Video URL (YouTube/Vimeo) 2",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "text",
+          "id": "other_url2",
+          "label": "Other Video URL 2",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+
+        { "type": "header", "content": "Media Source 3" },
+        { "type": "image_picker", "id": "img3", "label": "Image (PC) 3" },
+        {
+          "type": "image_picker",
+          "id": "h5_img3",
+          "label": "Image (Mobile) 3"
+        },
+        {
+          "type": "select",
+          "id": "media_type3",
+          "label": "Media Type 3",
+          "options": [
+            { "value": "video", "label": "Shopify Video" },
+            { "value": "video_url", "label": "External Video URL" }
+          ],
+          "default": "video"
+        },
+        { "type": "video", "id": "video3", "label": "Shopify Video 3" },
+        {
+          "type": "video_url",
+          "id": "video_url3",
+          "label": "Platform Video URL (YouTube/Vimeo) 3",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "text",
+          "id": "other_url3",
+          "label": "Other Video URL 3",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Index Scrolling",
+      "blocks": [
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

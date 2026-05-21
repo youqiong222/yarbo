@@ -1,0 +1,387 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+{%- liquid
+  assign s = section.settings
+  assign pc_w = s.pc_aspect_ratio_w | default: 16
+  assign pc_h = s.pc_aspect_ratio_h | default: 9
+  assign pc_ratio = pc_w | append: '/' | append: pc_h
+  assign h5_w = s.h5_aspect_ratio_w | default: 16
+  assign h5_h = s.h5_aspect_ratio_h | default: 9
+  assign h5_ratio = h5_w | append: '/' | append: h5_h
+-%}
+<div
+  class='bg-(--sj-bg) text-(--sj-text) {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+  style='--sj-bg: {{ section.settings.bg_color }}; --sj-text: {{ section.settings.text_color }}; --sj-desc: {{ section.settings.desc_color }}; --sj-track: {{ section.settings.progress_track_color }}; --sj-fill: {{ section.settings.progress_fill_color }}; --media-aspect-pc: {{ pc_ratio }}; --media-aspect-h5: {{ h5_ratio }};'
+  x-data='
+    {
+      active: 0,
+      total: {{ section.blocks.size }},
+      autoRotate: {{ section.settings.auto_rotate | default: false }},
+      interval: {{ section.settings.change_slides_speed | default: 5 | times: 1000 }},
+      timer: null,
+      select(i) {
+        if (this.active === i) return;
+        const oldVideo = this.$refs[`media${this.active}`]?.querySelector("video");
+        if (oldVideo) oldVideo.pause();
+        this.active = i;
+        const newVideo = this.$refs[`media${i}`]?.querySelector("video");
+        if (newVideo) { newVideo.currentTime = 0; newVideo.play().catch(() => {}); }
+      },
+      next() { this.select((this.active + 1) % this.total); },
+      startAuto() {
+        if (!this.autoRotate || this.total <= 1) return;
+        this.stopAuto();
+        this.timer = setInterval(() => this.next(), this.interval);
+      },
+      stopAuto() {
+        if (this.timer) { clearInterval(this.timer); this.timer = null; }
+      },
+    }
+  '
+  x-init='
+    startAuto();
+    document.addEventListener("shopify:block:select", (event) => {
+      const idx = event.target?.dataset?.index;
+      if (idx !== undefined) { stopAuto(); select(parseInt(idx)); }
+    });
+    document.addEventListener("shopify:block:deselect", () => startAuto());
+  '
+  x-on:mouseenter='stopAuto()'
+  x-on:mouseleave='startAuto()'
+  x-on:click='stopAuto(); startAuto();'
+>
+  <div
+    id='{{ section.settings.anchor_id }}'
+    class='page-container py-40 md:py-80'
+  >
+    <div
+      class='
+        flex w-full items-center justify-center gap-32
+        {% if section.settings.mobile_layout == 'image_top' %}
+          flex-col
+        {% else %}
+          flex-col-reverse
+        {% endif %}
+        {% if section.settings.pc_layout == 'image_left' %}
+          md:flex-row
+        {% else %}
+          md:flex-row-reverse
+        {% endif %}
+        lg:gap-60
+      '
+    >
+      <div class='relative grid w-full shrink-0 md:w-1/2'>
+        {% for block in section.blocks -%}
+          {%- assign image_width = block.settings.image_width | default: 100 -%}
+          <div
+            class='col-start-1 row-start-1 flex items-center justify-center transition-opacity duration-300'
+            style='--media-width: {{ image_width }}%;'
+            x-ref='media{{ forloop.index0 }}'
+            x-bind:class="active === {{ forloop.index0 }} ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'"
+            {{ block.shopify_attributes }}
+            data-index='{{ forloop.index0 }}'
+          >
+            <div class='relative aspect-(--media-aspect-h5) w-full overflow-hidden md:aspect-(--media-aspect-pc) md:w-(--media-width)'>
+              {% render 'media-element',
+                class: 'absolute inset-0 w-full h-full',
+                media_class: 'w-full h-full object-cover rounded-12',
+                media_type: block.settings.media_type,
+                pc_image: block.settings.pc_image,
+                h5_image: block.settings.h5_image,
+                pc_video: block.settings.pc_video,
+                h5_video: block.settings.h5_video,
+                video_url: block.settings.video_url,
+                other_url: block.settings.other_url
+              %}
+              {%- render 'sn-overlay', _settings: block.settings -%}
+            </div>
+          </div>
+        {%- endfor %}
+      </div>
+
+      <div class='w-full md:w-1/2'>
+        {% if section.settings.title != blank %}
+          <h2 class='mb-24 text-left text-[32px] tracking-wide uppercase md:mb-40 md:text-[32px]'>
+            {{ section.settings.title }}
+          </h2>
+        {% endif %}
+        <div class='flex items-stretch'>
+          <div class='relative w-4 shrink-0 self-stretch overflow-hidden bg-(--sj-track)'>
+            <div
+              class='absolute top-0 left-0 block! w-full rounded-full bg-(--sj-fill) transition-[height] duration-300'
+              x-bind:style="{ height: ((active + 1) / total * 100) + '%' }"
+            ></div>
+          </div>
+          <div class='flex w-full flex-1 flex-col gap-24 pl-16 md:pl-28'>
+            {% for block in section.blocks %}
+              <div
+                class='cursor-pointer transition-opacity duration-300'
+                x-bind:class="active === {{ forloop.index0 }} ? 'opacity-100' : 'opacity-50'"
+                x-on:click='select({{ forloop.index0 }})'
+                data-index='{{ forloop.index0 }}'
+              >
+                <div class='mb-8 flex items-center gap-12 md:gap-16'>
+                  <h3 class='text-[20px]/[1.1] uppercase md:text-[22px]/[1.1]'>
+                    {{ block.settings.title | strip_html }}
+                  </h3>
+                </div>
+                <div
+                  class='grid overflow-hidden text-[14px]/[1.3] leading-relaxed text-(--sj-desc) transition-[grid-template-rows] duration-300'
+                  x-bind:class="active === {{ forloop.index0 }} ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
+                >
+                  <div class='min-h-0 overflow-hidden'>
+                    {{ block.settings.desc }}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Scrolljacking",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Section Title",
+      "default": "<p>Reliability, built into every Yarbo.</p>"
+    },
+    {
+      "type": "select",
+      "id": "pc_layout",
+      "label": "PC Layout",
+      "default": "image_left",
+      "options": [
+        { "value": "image_right", "label": "Text Left, Image Right" },
+        { "value": "image_left", "label": "Image Left, Text Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile Layout",
+      "default": "image_top",
+      "options": [
+        { "value": "text_top", "label": " Text Top, Image Bottom" },
+        { "value": "image_top", "label": "Image Top, Text Bottom" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Media Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width"
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Description Color",
+      "default": "#515355"
+    },
+    {
+      "type": "color",
+      "id": "progress_track_color",
+      "label": "Progress Track Color",
+      "default": "#CCCCCC"
+    },
+    {
+      "type": "color",
+      "id": "progress_fill_color",
+      "label": "Progress Fill Color",
+      "default": "#FEDB1E"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Block Title",
+          "default": "<p>Feature Title</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Block Description",
+          "default": "<p>Description text here.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "label": "Image Width (PC)",
+          "min": 30,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 100
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Scrolljacking",
+      "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }]
+    }
+  ]
+}
+{% endschema %}

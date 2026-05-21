@@ -1,0 +1,589 @@
+<yarbo-search-modal
+  class='tailwind-layout block sm:relative'
+  data-predictive-search-url='{{ routes.predictive_search_url }}'
+  data-search-url='{{ routes.search_url }}'
+>
+  <button
+    type='button'
+    data-search-trigger
+    data-open='false'
+    class='m-0 flex cursor-pointer items-center justify-center border-0 bg-transparent p-0'
+    aria-label='{{ 'general.search.search' | t }}'
+    aria-haspopup='dialog'
+  >
+    <svg
+      width='24'
+      height='24'
+      class='header-icon search-svg'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path d="M16.6922 16.8L20 20M18.9333 11.4667C18.9333 15.5904 15.5904 18.9333 11.4667 18.9333C7.34294 18.9333 4 15.5904 4 11.4667C4 7.34294 7.34294 4 11.4667 4C15.5904 4 18.9333 7.34294 18.9333 11.4667Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="square"/>
+    </svg>
+
+    <svg
+      class='close-svg hidden'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path d="M18 6L6 18M18 18L6 6" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+    </svg>
+  </button>
+
+  <div
+    data-modal-overlay
+    class='fixed inset-0 z-99 hidden bg-black/50 opacity-0 transition-opacity duration-300'
+  ></div>
+
+  <div
+    data-modal-panel
+    class='absolute inset-x-0 top-(--header-height,80px) z-100 hidden w-full -translate-y-4 border-t border-[#E6E6E6] bg-[#FCFCFC] opacity-0 transition-all duration-300 max-sm:left-0 sm:inset-x-auto sm:top-[calc(100%+16px)] sm:right-0 sm:w-380'
+    role='dialog'
+    aria-modal='true'
+    aria-label='{{ 'general.search.search' | t }}'
+  >
+    <div class='px-16 py-24 sm:p-24'>
+      <form
+        action='{{ routes.search_url }}'
+        method='get'
+        role='search'
+        class='flex items-center gap-12 border border-[#D9D9D9] px-12 py-10'
+        data-search-form
+      >
+        <svg
+          width='20'
+          height='20'
+          viewBox='0 0 20 20'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path d="M13.9109 13.9987L16.6673 16.6654M15.7784 9.55425C15.7784 12.9907 12.9926 15.7765 9.55621 15.7765C6.11977 15.7765 3.33398 12.9907 3.33398 9.55425C3.33398 6.11781 6.11977 3.33203 9.55621 3.33203C12.9926 3.33203 15.7784 6.11781 15.7784 9.55425Z" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+        </svg>
+        <input
+          id='{{ input_id }}'
+          type='search'
+          name='q'
+          value=''
+          placeholder='Search Yarbo'
+          autocomplete='off'
+          autocorrect='off'
+          autocapitalize='off'
+          spellcheck='false'
+          data-search-input
+          class='flex-1 border-none bg-transparent p-0 text-[14px] leading-none text-[#25282A] outline-none placeholder:text-[#8C8C8C] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none'
+        >
+        <input type='hidden' name='options[prefix]' value='last'>
+        <input type='hidden' name='type' value='product,article'>
+        <button
+          type='reset'
+          data-reset-btn
+          class='hidden shrink-0 cursor-pointer border-0 bg-transparent'
+          aria-label='{{ 'general.search.reset' | t }}'
+        >
+          <svg
+            width='13'
+            height='13'
+            viewBox='0 0 13 13'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d="M0.599609 6.01823C0.599609 3.02669 3.02474 0.601562 6.01628 0.601562C9.00784 0.601562 11.4329 3.02669 11.4329 6.01823C11.4329 9.0098 9.00784 11.4349 6.01628 11.4349C3.02474 11.4349 0.599609 9.0098 0.599609 6.01823Z" fill="#CCCCCC" stroke="#CCCCCC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.60938 3.60938L8.42419 8.42419" stroke="white" stroke-width="1.3" stroke-linecap="square" stroke-linejoin="round"/>
+            <path d="M8.42419 3.60938L3.60938 8.42419" stroke="white" stroke-width="1.3" stroke-linecap="square" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+
+      <div data-results-container class='mt-32 max-h-400 overflow-y-auto'>
+        <div data-default-state>
+          {% if suggested_collection
+            and suggested_collection.products.size > 0
+          %}
+            <div class='mb-24'>
+              <h3 class='mb-12 text-[12px] leading-[1.2] text-[#515355] uppercase'>
+                Suggested Products
+              </h3>
+              <ul
+                class='flex flex-col gap-12 md:gap-12'
+                data-suggested-products
+              >
+                {% for product in suggested_collection.products limit: 4 %}
+                  <li>
+                    <a
+                      href='{{ product.url }}'
+                      class='text-[14px] leading-[1.6] text-[#25282A] transition-colors hover:text-[#D5A036]'
+                    >
+                      {{ product.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          <div data-search-history-section class='hidden'>
+            <h3 class='mb-12 text-[12px] leading-[1.2] text-[#515355] uppercase'>
+              Search History
+            </h3>
+            <div class='flex flex-wrap gap-8' data-search-history-list></div>
+          </div>
+        </div>
+
+        <div data-search-state class='hidden'>
+          <div data-loading class='hidden justify-center py-24'>
+            <svg
+              class='h-20 w-20 animate-spin text-[#25282A]'
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+            >
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+            </svg>
+          </div>
+
+          <div data-related-products class='mb-32 hidden'>
+            <h3 class='mb-12 text-[12px] leading-[1.2] text-[#515355] uppercase'>
+              Related Products
+            </h3>
+            <ul
+              class='flex flex-col gap-12 md:gap-12'
+              data-related-products-list
+            ></ul>
+          </div>
+
+          <div data-related-articles class='hidden'>
+            <h3 class='mb-12 text-[12px] leading-[1.2] text-[#515355] uppercase'>
+              Related Articles
+            </h3>
+            <ul
+              class='flex flex-col gap-12 md:gap-12'
+              data-related-articles-list
+            ></ul>
+          </div>
+
+          <div
+            data-no-results
+            class='hidden py-24 text-center text-[13px] text-[#8C8C8C]'
+          >
+            No results found. Try a different search term.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class='sr-only' role='status' aria-hidden='true' data-status></span>
+</yarbo-search-modal>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!customElements.get('yarbo-search-modal')) {
+      class YarboSearchModal extends HTMLElement {
+        constructor() {
+          super();
+          this.searchSvg = this.querySelector('.search-svg');
+          this.closeSvg = this.querySelector('.close-svg');
+          this.overlay = this.querySelector('[data-modal-overlay]');
+          this.trigger = this.querySelector('[data-search-trigger]');
+          this.panel = this.querySelector('[data-modal-panel]');
+          this.form = this.querySelector('[data-search-form]');
+          this.input = this.querySelector('[data-search-input]');
+          this.resetBtn = this.querySelector('[data-reset-btn]');
+          this.resultsContainer = this.querySelector(
+            '[data-results-container]',
+          );
+          this.defaultState = this.querySelector('[data-default-state]');
+          this.searchState = this.querySelector('[data-search-state]');
+          this.loadingEl = this.querySelector('[data-loading]');
+          this.relatedProducts = this.querySelector('[data-related-products]');
+          this.relatedProductsList = this.querySelector(
+            '[data-related-products-list]',
+          );
+          this.relatedArticles = this.querySelector('[data-related-articles]');
+          this.relatedArticlesList = this.querySelector(
+            '[data-related-articles-list]',
+          );
+          this.noResults = this.querySelector('[data-no-results]');
+          this.historySection = this.querySelector(
+            '[data-search-history-section]',
+          );
+          this.historyList = this.querySelector('[data-search-history-list]');
+          this.statusEl = this.querySelector('[data-status]');
+
+          this.predictiveSearchUrl = this.dataset.predictiveSearchUrl;
+          this.searchUrl = this.dataset.searchUrl;
+          this.abortController = null;
+          this.cachedResults = {};
+          this.searchTerm = '';
+          this.isOpen = false;
+
+          this.HISTORY_KEY = 'yarbo_search_history';
+          this.HISTORY_MAX = 5;
+
+          this.debouncedSearch = debounce(this.handleSearch.bind(this), 300);
+
+          this.bindEvents();
+          this.renderHistory();
+        }
+
+        bindEvents() {
+          this.trigger.addEventListener('click', () => {
+            if (this.isOpen) {
+              this.close();
+            } else {
+              this.open();
+            }
+          });
+          this.overlay.addEventListener('click', () => this.close());
+          this.input.addEventListener('input', () => this.debouncedSearch());
+          this.resetBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.resetSearch();
+          });
+          this.form.addEventListener('submit', (e) => this.onSubmit(e));
+
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isOpen) this.close();
+          });
+        }
+
+        open() {
+          const nav = document.querySelector('desktop-navigation');
+          if (nav) {
+            nav.querySelectorAll('.has-dropdown').forEach((item) => {
+              const ctrl = item.querySelector('[aria-expanded="true"]');
+              if (ctrl) nav.closeDropdown(item);
+            });
+          }
+
+          const drawer = document.querySelector('header-drawer');
+          if (
+            drawer &&
+            drawer.mainDetailsToggle &&
+            drawer.mainDetailsToggle.hasAttribute('open')
+          ) {
+            drawer.closeMenuDrawer(
+              new Event('click'),
+              drawer.mainDetailsToggle.querySelector('summary'),
+            );
+          }
+
+          this.panel.classList.remove('hidden');
+          this.overlay.classList.remove('hidden');
+          this.overlay.classList.add('block');
+          this.isOpen = true;
+          this.searchSvg.classList.add('hidden');
+          this.closeSvg.classList.remove('hidden');
+
+          requestAnimationFrame(() => {
+            let announcementBarHeight = 0;
+            const header = document.querySelector('store-header');
+            const announcementBar = document.querySelector(
+              '.announcement-bar-section',
+            );
+            if (announcementBar) {
+              announcementBarHeight =
+                announcementBar.offsetHeight + header.offsetHeight;
+            } else {
+              announcementBarHeight = header.offsetHeight;
+            }
+            this.overlay.style.top = announcementBarHeight + 'px';
+          });
+
+          document.body.classList.add('overflow-hidden');
+
+          const header = document.querySelector('store-header');
+          if (header && header._checkTransparentHeader) {
+            header._checkTransparentHeader();
+          }
+
+          setTimeout(() => {
+            this.overlay.classList.remove('opacity-0');
+            this.overlay.classList.add('opacity-100');
+            this.panel.classList.remove('opacity-0', '-translate-y-4');
+            this.panel.classList.add('opacity-100', 'translate-y-0');
+          }, 10);
+
+          requestAnimationFrame(() => this.input.focus());
+        }
+
+        close() {
+          this.overlay.classList.remove('opacity-100');
+          this.overlay.classList.add('opacity-0');
+          this.panel.classList.remove('opacity-100', 'translate-y-0');
+          this.panel.classList.add('opacity-0', '-translate-y-4');
+
+          this.isOpen = false;
+          this.searchSvg.classList.remove('hidden');
+          this.closeSvg.classList.add('hidden');
+
+          document.body.classList.remove('overflow-hidden');
+
+          const header = document.querySelector('store-header');
+          if (header && header._checkTransparentHeader) {
+            header._checkTransparentHeader();
+          }
+
+          setTimeout(() => {
+            if (!this.isOpen) {
+              this.panel.classList.add('hidden');
+              this.overlay.classList.add('hidden');
+              this.overlay.classList.remove('block');
+              this.overlay.style.top = '';
+              this.resetSearch();
+            }
+          }, 300);
+        }
+
+        handleSearch() {
+          const term = this.input.value.trim();
+          this.toggleResetBtn(term.length > 0);
+
+          if (!term) {
+            this.showDefaultState();
+            return;
+          }
+
+          this.searchTerm = term;
+          this.showSearchState();
+
+          const cacheKey = term.toLowerCase().replace(/\s+/g, '-');
+          if (this.cachedResults[cacheKey]) {
+            this.renderResults(this.cachedResults[cacheKey]);
+            return;
+          }
+
+          this.showLoading(true);
+
+          if (this.abortController) this.abortController.abort();
+          this.abortController = new AbortController();
+
+          const url = `${this.predictiveSearchUrl}?q=${encodeURIComponent(term)}&resources[type]=product,article&resources[limit]=4&section_id=predictive-search`;
+
+          fetch(url, { signal: this.abortController.signal })
+            .then((res) => {
+              if (!res.ok) throw new Error(res.status);
+              return res.text();
+            })
+            .then((html) => {
+              const doc = new DOMParser().parseFromString(html, 'text/html');
+              const data = this.extractDataFromHTML(doc);
+              this.cachedResults[cacheKey] = data;
+              this.renderResults(data);
+            })
+            .catch((err) => {
+              if (err.name === 'AbortError') return;
+              this.showLoading(false);
+              console.error('Search error:', err);
+            });
+        }
+
+        extractDataFromHTML(doc) {
+          const products = [];
+          const articles = [];
+
+          doc
+            .querySelectorAll(
+              '#predictive-search-results-products-list li a, [id*="predictive-search-option-product"] a',
+            )
+            .forEach((a) => {
+              const title = a
+                .querySelector('.predictive-search__item-heading')
+                ?.textContent?.trim();
+              const url = a.getAttribute('href');
+              if (title && url) products.push({ title, url });
+            });
+
+          doc
+            .querySelectorAll('[id*="predictive-search-option-article"] a')
+            .forEach((a) => {
+              const title = a
+                .querySelector('.predictive-search__item-heading')
+                ?.textContent?.trim();
+              const url = a.getAttribute('href');
+              if (title && url) articles.push({ title, url });
+            });
+
+          return { products, articles };
+        }
+
+        renderResults(data) {
+          this.showLoading(false);
+          const { products, articles } = data;
+          const hasResults = products.length > 0 || articles.length > 0;
+
+          if (products.length > 0) {
+            this.relatedProductsList.innerHTML = products
+              .map(
+                (p) => `
+              <li>
+                <a href="${this.escapeHtml(p.url)}"
+                   class="no-underline hover:underline text-[14px] leading-[1.5] text-[#25282A] hover:text-[#000] transition-colors">
+                  ${this.highlightTerm(this.escapeHtml(p.title), this.searchTerm)}
+                </a>
+              </li>`,
+              )
+              .join('');
+            this.relatedProducts.classList.remove('hidden');
+          } else {
+            this.relatedProducts.classList.add('hidden');
+          }
+
+          if (articles.length > 0) {
+            this.relatedArticlesList.innerHTML = articles
+              .map(
+                (a) => `
+              <li>
+                <a href="${this.escapeHtml(a.url)}"
+                   class="no-underline hover:underline text-[14px] leading-[1.5] text-[#25282A] hover:text-[#000] transition-colors">
+                  ${this.highlightTerm(this.escapeHtml(a.title), this.searchTerm)}
+                </a>
+              </li>`,
+              )
+              .join('');
+            this.relatedArticles.classList.remove('hidden');
+          } else {
+            this.relatedArticles.classList.add('hidden');
+          }
+
+          this.noResults.classList.toggle('hidden', hasResults);
+        }
+
+        highlightTerm(text, term) {
+          if (!term) return text;
+          const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const regex = new RegExp(`(${escaped})`, 'gi');
+          return text.replace(regex, '<span class="text-[#D5A036]">$1</span>');
+        }
+
+        showDefaultState() {
+          this.searchTerm = '';
+          this.defaultState.classList.remove('hidden');
+          this.searchState.classList.add('hidden');
+        }
+
+        showSearchState() {
+          this.defaultState.classList.add('hidden');
+          this.searchState.classList.remove('hidden');
+        }
+
+        showLoading(show) {
+          this.loadingEl.classList.toggle('hidden', !show);
+          if (show) {
+            this.relatedProducts.classList.add('hidden');
+            this.relatedArticles.classList.add('hidden');
+            this.noResults.classList.add('hidden');
+          }
+        }
+
+        toggleResetBtn(show) {
+          this.resetBtn.classList.toggle('hidden', !show);
+          if (this.resetBtn.classList.contains('hidden')) {
+            this.resetBtn.classList.remove('flex');
+          } else {
+            this.resetBtn.classList.add('flex');
+          }
+        }
+
+        resetSearch() {
+          this.input.value = '';
+          this.searchTerm = '';
+          this.toggleResetBtn(false);
+          this.showDefaultState();
+          if (this.abortController) this.abortController.abort();
+        }
+
+        onSubmit(e) {
+          const term = this.input.value.trim();
+          if (!term) {
+            e.preventDefault();
+            return;
+          }
+          this.saveHistory(term);
+        }
+
+        getHistory() {
+          try {
+            return JSON.parse(localStorage.getItem(this.HISTORY_KEY)) || [];
+          } catch {
+            return [];
+          }
+        }
+
+        saveHistory(term) {
+          let history = this.getHistory().filter(
+            (h) => h.toLowerCase() !== term.toLowerCase(),
+          );
+          history.unshift(term);
+          if (history.length > this.HISTORY_MAX)
+            history = history.slice(0, this.HISTORY_MAX);
+          try {
+            localStorage.setItem(this.HISTORY_KEY, JSON.stringify(history));
+          } catch {}
+        }
+
+        removeHistory(term) {
+          const history = this.getHistory().filter(
+            (h) => h.toLowerCase() !== term.toLowerCase(),
+          );
+          try {
+            localStorage.setItem(this.HISTORY_KEY, JSON.stringify(history));
+          } catch {}
+          this.renderHistory();
+        }
+
+        renderHistory() {
+          const history = this.getHistory();
+          if (!history.length) {
+            this.historySection.classList.add('hidden');
+            return;
+          }
+          this.historySection.classList.remove('hidden');
+          this.historyList.innerHTML = history
+            .map(
+              (h) => `
+            <button
+              type="button"
+              class="cursor-pointer hover:bg-[#e9e9e9] bg-[#F2F2F2] inline-flex items-center gap-6 px-8 py-6 border-0 text-[14px] leading-[1.2] text-[#515355]"
+              data-history-term="${this.escapeAttr(h)}"
+            >
+              <span>${this.escapeHtml(h)}</span>
+            </button>`,
+            )
+            .join('');
+
+          this.historyList
+            .querySelectorAll('[data-history-term]')
+            .forEach((btn) => {
+              btn.addEventListener('click', () => {
+                const term = btn.dataset.historyTerm;
+                this.input.value = term;
+                this.debouncedSearch();
+              });
+            });
+        }
+
+        escapeHtml(str) {
+          const el = document.createElement('span');
+          el.textContent = str;
+          return el.innerHTML;
+        }
+
+        escapeAttr(str) {
+          return str
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+        }
+      }
+
+      customElements.define('yarbo-search-modal', YarboSearchModal);
+    }
+  });
+</script>

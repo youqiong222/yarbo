@@ -1,0 +1,1330 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sa_slideshow_f7fGct": {
+      "type": "sa-slideshow",
+      "blocks": {
+        "slide_in3zwA": {
+          "type": "slide",
+          "settings": {
+            "featured_product": "",
+            "product_badge": "For All Seasons",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458698.jpg",
+            "h5_image": "shopify://shop_images/Frame_2036458699.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "title": "<p>MEMORIAL DAY：<br/>RECLAIM<br/>YOUR WEEKEND</p>",
+            "description": "",
+            "button_text": "Shop Now",
+            "button_link": "shopify://pages/memorial-day",
+            "btn_anchor_id": "",
+            "h5_text_position": "top",
+            "h5_bottom_padding": 112,
+            "h5_top_padding": 152
+          }
+        },
+        "slide_g8JDQQ": {
+          "type": "slide",
+          "settings": {
+            "featured_product": "",
+            "product_badge": "For All Seasons",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Yarbo_Robot_1.jpg",
+            "h5_image": "shopify://shop_images/20260430-212629.png",
+            "pc_video": "shopify://files/videos/edit1.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "title": "<p>Yarbo: </p><p>The Modular Yard Robot </p><p>for Every Season.</p>",
+            "description": "<p>Smart, automated mowing keeps your lawn clean as it grows.</p>",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/all-products",
+            "btn_anchor_id": "",
+            "h5_text_position": "bottom",
+            "h5_bottom_padding": 112,
+            "h5_top_padding": 80
+          }
+        },
+        "slide_P69g4W": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "featured_product": "",
+            "product_badge": "For All Seasons",
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/edit1.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "title": "<p>ONE YARD.<br/>MANY MODULES.<br/>ALL SEASONS.</p>",
+            "description": "<p>Transform your yard year-round.</p>",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "btn_anchor_id": "",
+            "h5_text_position": "center",
+            "h5_bottom_padding": 80,
+            "h5_top_padding": 80
+          }
+        },
+        "slide_rpAfkJ": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "featured_product": "",
+            "product_badge": "For All Seasons",
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/edit1.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "title": "<p>ONE YARD.\nMANY MODULES.\nALL SEASONS.</p>",
+            "description": "<p>Transform your yard year-round.</p>",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "btn_anchor_id": "",
+            "h5_text_position": "center",
+            "h5_bottom_padding": 80,
+            "h5_top_padding": 80
+          }
+        },
+        "slide_Bghtfh": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "featured_product": "",
+            "product_badge": "For All Seasons",
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/edit1.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "title": "<p>ONE YARD.\nMANY MODULES.\nALL SEASONS.</p>",
+            "description": "<p>Transform your yard year-round.</p>",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "btn_anchor_id": "",
+            "h5_text_position": "center",
+            "h5_bottom_padding": 80,
+            "h5_top_padding": 80
+          }
+        },
+        "slide_9yrKyb": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "featured_product": "",
+            "product_badge": "For All Seasons",
+            "media_type": "video",
+            "pc_video": "shopify://files/videos/edit1.mp4",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "title": "<p>ONE YARD.\nMANY MODULES.\nALL SEASONS.</p>",
+            "description": "<p>Transform your yard year-round.</p>",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "btn_anchor_id": "",
+            "h5_text_position": "center",
+            "h5_bottom_padding": 80,
+            "h5_top_padding": 80
+          }
+        }
+      },
+      "block_order": [
+        "slide_in3zwA",
+        "slide_g8JDQQ",
+        "slide_P69g4W",
+        "slide_rpAfkJ",
+        "slide_Bghtfh",
+        "slide_9yrKyb"
+      ],
+      "name": "Hero Slider",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "auto_rotate": true,
+        "change_slides_speed": 6,
+        "email_type": "",
+        "klaviyo_list_id": "",
+        "show_subscribe": false,
+        "subscribe_text": "Be the first to know when M Series launches:"
+      }
+    },
+    "sa_index_categories_Dp9AD9": {
+      "type": "sa-index-categories",
+      "blocks": {
+        "block_EcnfKK": {
+          "type": "block",
+          "settings": {
+            "text": "<p>ALL PRODUCTS</p>",
+            "strong_color": "",
+            "icon_img": "shopify://shop_images/Yarbo_4_in_1_Lawn_Mower_pro.jpg",
+            "collection": "all-products",
+            "link_type": "collection",
+            "custom_link": ""
+          }
+        },
+        "block_kgkpFT": {
+          "type": "block",
+          "settings": {
+            "text": "<p>ROBOTS</p>",
+            "strong_color": "",
+            "icon_img": "shopify://shop_images/Yarbo_Lawn_Mower_Pro.jpg",
+            "h5_icon_img": "shopify://shop_images/Yarbo_Lawn_Mower_Pro.jpg",
+            "collection": "robots",
+            "link_type": "collection",
+            "custom_link": ""
+          }
+        },
+        "block_bcF9YU": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Yarbo Y Series</p>",
+            "strong_color": "",
+            "icon_img": "shopify://shop_images/6499b3cb8004ceda68cb5e029e4c709f6e431d7f.png",
+            "collection": "y-series",
+            "link_type": "collection",
+            "custom_link": ""
+          }
+        },
+        "block_tBkxNm": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Early Spring Deals</p><p><strong>SPRING SALE</strong></p>",
+            "strong_color": "#e5483c",
+            "icon_img": "shopify://shop_images/6499b3cb8004ceda68cb5e029e4c709f6e431d7f.png",
+            "collection": "",
+            "link_type": "collection",
+            "custom_link": ""
+          }
+        },
+        "block_4KrU4P": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "<p>yarbo m series</p><p><strong>NEW</strong></p>",
+            "strong_color": "#eec900",
+            "icon_img": "shopify://shop_images/6499b3cb8004ceda68cb5e029e4c709f6e431d7f.png",
+            "collection": "",
+            "link_type": "collection",
+            "custom_link": ""
+          }
+        },
+        "block_cxWtiH": {
+          "type": "block",
+          "settings": {
+            "text": "<p>Bundles</p>",
+            "strong_color": "",
+            "icon_img": "shopify://shop_images/6499b3cb8004ceda68cb5e029e4c709f6e431d7f.png",
+            "collection": "bundles",
+            "link_type": "collection",
+            "custom_link": ""
+          }
+        },
+        "block_cNMcjU": {
+          "type": "block",
+          "settings": {
+            "text": "<p>Modules</p>",
+            "strong_color": "",
+            "icon_img": "shopify://shop_images/Snow_Blower_Module.jpg",
+            "h5_icon_img": "shopify://shop_images/Snow_Blower_Module.jpg",
+            "collection": "modules",
+            "link_type": "collection",
+            "custom_link": ""
+          }
+        },
+        "block_49QCQb": {
+          "type": "block",
+          "settings": {
+            "text": "<p>Accessories</p>",
+            "strong_color": "",
+            "icon_img": "shopify://shop_images/BBM.png",
+            "h5_icon_img": "shopify://shop_images/BBM.png",
+            "collection": "accessories",
+            "link_type": "collection",
+            "custom_link": ""
+          }
+        },
+        "block_Jj3wyU": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Accessories</p>",
+            "strong_color": "",
+            "icon_img": "shopify://shop_images/6499b3cb8004ceda68cb5e029e4c709f6e431d7f.png",
+            "collection": "",
+            "link_type": "collection",
+            "custom_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_EcnfKK",
+        "block_kgkpFT",
+        "block_bcF9YU",
+        "block_tBkxNm",
+        "block_4KrU4P",
+        "block_cxWtiH",
+        "block_cNMcjU",
+        "block_49QCQb",
+        "block_Jj3wyU"
+      ],
+      "name": "Index Categories",
+      "settings": {
+        "anchor_id": "aa",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "h5_padding_top": 60,
+        "h5_padding_bottom": 0,
+        "title": "<p>Explore <strong>THE YARBO SYSTEM</strong></p>"
+      }
+    },
+    "sa_index_img_text_blocks_kLRhRn": {
+      "type": "sa-index-img-text-blocks",
+      "blocks": {
+        "block_E8yDxK": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "label": "",
+            "label_color": "#eec900",
+            "label_bg": "#0d0d0d",
+            "title": "<p>Yarbo M Series</p>",
+            "desc": "<p>Smart Towing  |  Precision Mowing  |  Snow Clearing  |  Edge & Detail Trimming</p>",
+            "shop_now": "Shop now",
+            "learn_more_link": "/",
+            "learn_more_anchor_id": "",
+            "show_learn_more": true,
+            "shop_now_link": "/",
+            "shop_now_anchor_id": "",
+            "show_shop_now": true,
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "block_E8yDxK"
+      ],
+      "disabled": true,
+      "name": "Index Img Text Blocks",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "",
+        "description": "",
+        "heading_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 80,
+        "pc_aspect_ratio_w": 1320,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1
+      }
+    },
+    "sa_index_img_text_blocks_UWM3Ci": {
+      "type": "sa-index-img-text-blocks",
+      "blocks": {
+        "block_HXJaQE": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "label": "Multi-Seasonal",
+            "label_color": "#25282a",
+            "label_bg": "#fedb1e",
+            "title": "<p>Yarbo Y Series</p>",
+            "desc": "<p>The Heavy-Duty Modular Yard Robot for Large Properties.</p>",
+            "shop_now": "Shop Now",
+            "learn_more_link": "/",
+            "learn_more_anchor_id": "",
+            "show_learn_more": false,
+            "shop_now_link": "shopify://collections/y-series",
+            "shop_now_anchor_id": "",
+            "show_shop_now": true,
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Yarbo_Yard_Care_Modular_Unit.jpg",
+            "h5_image": "shopify://shop_images/20260507-113337.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 8
+          }
+        },
+        "block_kGRtzc": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "label": "Coming Soon",
+            "label_color": "#eec900",
+            "label_bg": "#0d0d0d",
+            "title": "<p>Yarbo M Series</p>",
+            "desc": "<p>The Essential Modular Yard Robot for Every Home.</p>",
+            "shop_now": "Shop now",
+            "learn_more_link": "/",
+            "learn_more_anchor_id": "",
+            "show_learn_more": false,
+            "shop_now_link": "/",
+            "shop_now_anchor_id": "",
+            "show_shop_now": false,
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Yarbo_Robots_for_All_Season.jpg",
+            "h5_image": "shopify://shop_images/Yarbo_Robot_3_Season_in_1.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 8
+          }
+        }
+      },
+      "block_order": [
+        "block_HXJaQE",
+        "block_kGRtzc"
+      ],
+      "name": "Index Img Text Blocks",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "",
+        "description": "",
+        "heading_alignment": "left",
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "h5_padding_top": 60,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 654,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1
+      }
+    },
+    "sa_index_img_text_blocks_DLYQiG": {
+      "type": "sa-index-img-text-blocks",
+      "blocks": {
+        "block_4mCeX9": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "label": "Coming Soon",
+            "label_color": "#eec900",
+            "label_bg": "#0d0d0d",
+            "title": "<p>Yarbo M Series</p>",
+            "desc": "<p>Smart Towing  |  Precision Mowing  |  Snow Clearing  |  Edge & Detail Trimming</p>",
+            "shop_now": "Shop now",
+            "learn_more_link": "/",
+            "learn_more_anchor_id": "",
+            "show_learn_more": true,
+            "shop_now_link": "/",
+            "shop_now_anchor_id": "",
+            "show_shop_now": true,
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "block_n3rLLN": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "label": "Coming Soon",
+            "label_color": "#eec900",
+            "label_bg": "#0d0d0d",
+            "title": "<p>Yarbo M Series</p>",
+            "desc": "<p>Smart Towing  |  Precision Mowing  |  Snow Clearing  |  Edge & Detail Trimming</p>",
+            "shop_now": "Shop now",
+            "learn_more_link": "/",
+            "learn_more_anchor_id": "",
+            "show_learn_more": true,
+            "shop_now_link": "/",
+            "shop_now_anchor_id": "",
+            "show_shop_now": true,
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "block_4gw8te": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "label": "Multi-Seasonal",
+            "label_color": "#25282a",
+            "label_bg": "#fedb1e",
+            "title": "<p>Yarbo Y Series  4-in-1 Yard Robot (Lawn MOWER PRO)</p>",
+            "desc": "<p>Smart Towing  |  Precision Mowing  |  Snow Clearing  |  Autonomous Blowing</p>",
+            "shop_now": "Shop now",
+            "learn_more_link": "/",
+            "learn_more_anchor_id": "",
+            "show_learn_more": true,
+            "shop_now_link": "",
+            "shop_now_anchor_id": "",
+            "show_shop_now": true,
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "block_4mCeX9",
+        "block_n3rLLN",
+        "block_4gw8te"
+      ],
+      "disabled": true,
+      "name": "Index Img Text Blocks",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "",
+        "description": "",
+        "heading_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 80,
+        "pc_aspect_ratio_w": 430,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1
+      }
+    },
+    "sa_index_img_text_blocks_kxxirL": {
+      "type": "sa-index-img-text-blocks",
+      "blocks": {
+        "block_Gc3bUd": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "label": "Coming Soon",
+            "label_color": "#eec900",
+            "label_bg": "#0d0d0d",
+            "title": "<p>Yarbo M Series</p>",
+            "desc": "<p>Smart Towing  |  Precision Mowing  |  Snow Clearing  |  Edge & Detail Trimming</p>",
+            "shop_now": "Shop now",
+            "learn_more_link": "/",
+            "learn_more_anchor_id": "",
+            "show_learn_more": true,
+            "shop_now_link": "/",
+            "shop_now_anchor_id": "",
+            "show_shop_now": true,
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "block_3PHApm": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "label": "Coming Soon",
+            "label_color": "#eec900",
+            "label_bg": "#0d0d0d",
+            "title": "<p>Yarbo M Series</p>",
+            "desc": "<p>Smart Towing  |  Precision Mowing  |  Snow Clearing  |  Edge & Detail Trimming</p>",
+            "shop_now": "Shop now",
+            "learn_more_link": "/",
+            "learn_more_anchor_id": "",
+            "show_learn_more": true,
+            "shop_now_link": "/",
+            "shop_now_anchor_id": "",
+            "show_shop_now": true,
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "block_8GFxQt": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "label": "Coming Soon",
+            "label_color": "#eec900",
+            "label_bg": "#0d0d0d",
+            "title": "<p>Yarbo M Series</p>",
+            "desc": "<p>Smart Towing  |  Precision Mowing  |  Snow Clearing  |  Edge & Detail Trimming</p>",
+            "shop_now": "Shop now",
+            "learn_more_link": "/",
+            "learn_more_anchor_id": "",
+            "show_learn_more": true,
+            "shop_now_link": "/",
+            "shop_now_anchor_id": "",
+            "show_shop_now": true,
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "block_LjKxpN": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "label": "Multi-Seasonal",
+            "label_color": "#25282a",
+            "label_bg": "#fedb1e",
+            "title": "<p>Yarbo Y Series  4-in-1 Yard Robot (Lawn MOWER PRO)</p>",
+            "desc": "<p>Smart Towing  |  Precision Mowing  |  Snow Clearing  |  Autonomous Blowing</p>",
+            "shop_now": "Shop now",
+            "learn_more_link": "/",
+            "learn_more_anchor_id": "",
+            "show_learn_more": true,
+            "shop_now_link": "",
+            "shop_now_anchor_id": "",
+            "show_shop_now": true,
+            "media_type": "image",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "block_Gc3bUd",
+        "block_3PHApm",
+        "block_8GFxQt",
+        "block_LjKxpN"
+      ],
+      "disabled": true,
+      "name": "Index Img Text Blocks",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "",
+        "description": "",
+        "heading_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 80,
+        "pc_aspect_ratio_w": 650,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1
+      }
+    },
+    "sa_index_collections_PLdTEK": {
+      "type": "sa-index-collections",
+      "blocks": {
+        "block_MmWbKH": {
+          "type": "block",
+          "settings": {
+            "label": "Y Series",
+            "product_list": [
+              "yarbo-lawn-mower",
+              "yarbo-lawn-mower-pro",
+              "yarbo-snow-blower-lawn-mower",
+              "yarbo-lawn-mower-pro-snow-blower"
+            ],
+            "shop_all_text": "Shop All Y Series",
+            "shop_all_url": ""
+          }
+        },
+        "block_djwU6g": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "label": "M Series",
+            "product_list": [],
+            "shop_all_text": "Shop All M Series",
+            "shop_all_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_MmWbKH",
+        "block_djwU6g"
+      ],
+      "name": "Index Collections",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "h5_padding_top": 60,
+        "h5_padding_bottom": 0,
+        "title": "<p>Spring Into Effortless Yard Care</p>",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_rating": true,
+        "quick_add": "standard"
+      }
+    },
+    "sa_index_accordion_83w8Ew": {
+      "type": "sa-index-accordion",
+      "blocks": {
+        "block_yMBA98": {
+          "type": "block",
+          "settings": {
+            "label": "Summer Lawn Care",
+            "title": "<p><strong>EFFORTLESS LAWN CARE</strong></p>",
+            "desc": "<p>Keep your lawn perfectly maintained with consistent, automated mowing.</p>",
+            "learn_more_url": "shopify://pages/shop-by-scenario-summer",
+            "show_btn": true,
+            "icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M18.3334 11.6667V6.66675H21.6667V11.6667H18.3334Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M21.6667 28.3334V33.3334H18.3334V28.3334H21.6667Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M25.0001 20.0001C25.0001 22.7615 22.7615 25.0001 20.0001 25.0001C17.2387 25.0001 15.0001 22.7615 15.0001 20.0001C15.0001 17.2387 17.2387 15.0001 20.0001 15.0001C22.7615 15.0001 25.0001 17.2387 25.0001 20.0001Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M6.66675 21.6667H11.6667V18.3334H6.66675V21.6667Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M33.3334 18.3334H28.3334V21.6667H33.3334V18.3334Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M12.929 15.286L9.39347 11.7505L11.7505 9.39347L15.286 12.929L12.929 15.286Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M27.0711 24.7141L30.6067 28.2496L28.2496 30.6067L24.7141 27.0711L27.0711 24.7141Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M11.7505 30.6067L15.286 27.0712L12.929 24.7141L9.39347 28.2497L11.7505 30.6067Z\" fill=\"#A6A6A6\"></path>\n<path d=\"M28.2496 9.39349L24.7141 12.929L27.0711 15.286L30.6067 11.7505L28.2496 9.39349Z\" fill=\"#A6A6A6\"></path>\n</svg>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Yarbo_Robot_3.jpg",
+            "h5_image": "shopify://shop_images/Yarbo_in_a_Yard.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_yYPdpd": {
+          "type": "block",
+          "settings": {
+            "label": "Spring Preparation",
+            "title": "<p><strong>SPRING CLEANUP & PREP</strong></p>",
+            "desc": "<p>Clear debris, prep your lawn, and get your yard ready for a fresh start.</p>",
+            "learn_more_url": "shopify://pages/shop-by-scenario-spring",
+            "show_btn": true,
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M20.0002 6.66663C18.1592 6.66663 16.6668 8.15901 16.6668 9.99996V10.0598L16.615 10.0299C15.0207 9.1094 12.9821 9.65565 12.0616 11.25C11.1411 12.8443 11.6874 14.8829 13.2817 15.8034L13.3335 15.8333L13.2817 15.8632C11.6874 16.7837 11.1411 18.8223 12.0616 20.4166C12.9821 22.0109 15.0207 22.5572 16.615 21.6367L16.6668 21.6068V21.6666C16.6668 23.5076 18.1592 25 20.0002 25C21.8411 25 23.3335 23.5076 23.3335 21.6666V21.6068L23.3853 21.6367C24.9796 22.5572 27.0183 22.0109 27.9387 20.4166C28.8592 18.8223 28.313 16.7837 26.7186 15.8632L26.6668 15.8333L26.7186 15.8034C28.313 14.8829 28.8592 12.8443 27.9387 11.25C27.0183 9.65565 24.9796 9.1094 23.3853 10.0299L23.3335 10.0598V9.99996C23.3335 8.15901 21.8411 6.66663 20.0002 6.66663ZM20.0001 18.3333C21.3808 18.3333 22.5001 17.214 22.5001 15.8333C22.5001 14.4526 21.3808 13.3333 20.0001 13.3333C18.6194 13.3333 17.5001 14.4526 17.5001 15.8333C17.5001 17.214 18.6194 18.3333 20.0001 18.3333Z\" fill=\"#25282A\"></path>\n<path d=\"M18.3335 33.3333H16.6668C12.0645 33.3333 8.3335 29.6023 8.3335 25V23.3333H10.0002C14.6025 23.3333 18.3335 27.0643 18.3335 31.6666V33.3333Z\" fill=\"#25282A\"></path>\n<path d=\"M23.3335 33.3333H21.6668V31.6666C21.6668 27.0643 25.3978 23.3333 30.0002 23.3333H31.6668V25C31.6668 29.6023 27.9359 33.3333 23.3335 33.3333Z\" fill=\"#25282A\"></path>\n</svg>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Yarbo_Core_Towing.jpg",
+            "h5_image": "shopify://shop_images/Yarbo_Towing.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_4pCH6D": {
+          "type": "block",
+          "settings": {
+            "label": "Autumn Leaf Cleanup",
+            "title": "<p><strong>LEAF CLEANUP MADE EASY</strong></p>",
+            "desc": "<p>Tackle heavy leaf buildup quickly and keep your yard neat through the season.</p>",
+            "learn_more_url": "shopify://pages/shop-by-scenario-autumn",
+            "show_btn": true,
+            "icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M26.5833 6.77075C16.8033 6.77075 8.875 13.9062 8.875 22.7083V33.3333H12.4167L12.4167 23.7456L20.0187 16.1436L22.523 18.6479L15.9583 25.2126V29.7129C24.9069 28.9133 31.8958 22.1182 31.8958 13.8541L31.8958 6.77075H26.5833Z\" fill=\"#A6A6A6\"></path>\n</svg>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_414.jpg",
+            "h5_image": "shopify://shop_images/Frame_410.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_FVm6FM": {
+          "type": "block",
+          "settings": {
+            "label": "Winter Snow Removal",
+            "title": "<p>HEAVY SNOW REMOVAL</p>",
+            "desc": "<p>Handle snow with ease—clear driveways and paths without lifting a finger.</p>",
+            "learn_more_url": "shopify://pages/shop-by-scenario-winter",
+            "show_btn": true,
+            "icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M24.6053 9.64334L21.6668 11.3399V15.1889L23.3335 16.1512L26.6668 14.2267L26.6668 10.8336L30.0001 10.8336L30.0001 14.2267L32.9387 15.9233L31.272 18.81L28.3334 17.1135L25.0001 19.038V20.9624L28.3334 22.8869L31.272 21.1904L32.9387 24.0771L30.0001 25.7737V29.1669H26.6668V25.7737L23.3334 23.8492L21.6668 24.8114V28.6604L24.6053 30.357L22.9387 33.2438L20.0001 31.5472L17.0616 33.2438L15.3949 30.357L18.3334 28.6605V24.8114L16.6668 23.8492L13.3334 25.7737L13.3334 29.1669H10.0001L10.0001 25.7737L7.06152 24.0771L8.72819 21.1904L11.6668 22.887L15.0001 20.9625V19.0379L11.6668 17.1135L8.72824 18.81L7.06157 15.9233L10.0001 14.2267L10.0001 10.8335H13.3334L13.3334 14.2267L16.6668 16.1512L18.3334 15.1889V11.34L15.3949 9.64337L17.0616 6.75662L20.0001 8.45319L22.9387 6.75659L24.6053 9.64334ZM21.6668 20.0002C21.6668 20.9207 20.9206 21.6669 20.0001 21.6669C19.0796 21.6669 18.3334 20.9207 18.3334 20.0002C18.3334 19.0797 19.0796 18.3335 20.0001 18.3335C20.9206 18.3335 21.6668 19.0797 21.6668 20.0002Z\" fill=\"#A6A6A6\"></path>\n</svg>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Yarbo_in_the_Snow.jpg",
+            "h5_image": "shopify://shop_images/Yarbo_in_the_Snow_Mobile.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "block_yMBA98",
+        "block_yYPdpd",
+        "block_4pCH6D",
+        "block_FVm6FM"
+      ],
+      "name": "Index Accordion",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "h5_padding_top": 60,
+        "h5_padding_bottom": 60,
+        "sub_title": "Shop by Scenario",
+        "title": "<p><strong>TIRED OF DIFFERENT YARD PROBLEMS EVERY SEASON?</strong><br/> Yarbo’s modular, smart system adapts to your needs,</p><p>so yard care stays simple all year round.<br/></p>",
+        "heading_alignment": "left"
+      }
+    },
+    "sa_index_scrolljacking_emkTwG": {
+      "type": "sa-index-scrolljacking",
+      "blocks": {
+        "item_VFX8MP": {
+          "type": "item",
+          "settings": {
+            "icon": "<svg width=\"19\" height=\"22\" viewbox=\"0 0 19 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M9.33334 0L18.6667 5.33333V16L9.33334 21.3333L0 16V5.33333L9.33334 0Z\" fill=\"white\"></path>\n</svg>",
+            "title": "<p>WORLD’S FIRST 1+N MODULAR ARCHITECTURE</p>",
+            "desc": "<p>One intelligent core powers multiple attachments with seamless hot-swapping—transforming Yarbo into a year-round yard system.</p>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Yarbo_Modular_Yard_Care.jpg",
+            "h5_image": "shopify://shop_images/Frame_474.png",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "item_YCBkYR": {
+          "type": "item",
+          "settings": {
+            "icon": "<svg width=\"19\" height=\"22\" viewbox=\"0 0 19 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M9.33334 0L18.6667 5.33333V16L9.33334 21.3333L0 16V5.33333L9.33334 0Z\" fill=\"white\"></path>\n</svg>",
+            "title": "<p>PPVS FUSION NAVIGATION SYSTEM</p>",
+            "desc": "<p>Combining RTK-GPS, vision, and onboard sensors, Yarbo maintains precise positioning—even without satellite signal.</p>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Yarbo_Sensors.jpg",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "item_chBikm": {
+          "type": "item",
+          "settings": {
+            "icon": "<svg width=\"19\" height=\"22\" viewbox=\"0 0 19 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M9.33334 0L18.6667 5.33333V16L9.33334 21.3333L0 16V5.33333L9.33334 0Z\" fill=\"white\"></path>\n</svg>",
+            "title": "<p>ALL-TERRAIN TRACKED PERFORMANCE</p>",
+            "desc": "<p>Engineered with tracked mobility and real-time traction control, Yarbo handles steep slopes, heavy loads, and extreme conditions with confidence.</p>",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Yarbo_All_Terrain.jpg",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_VFX8MP",
+        "item_YCBkYR",
+        "item_chBikm"
+      ],
+      "name": "Index Scrolljacking",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "title": "<p><strong>ENGINEERED FOR EVERY SEASON. BUILT TO OUTPERFORM.</strong></p>",
+        "pc_layout": "image_left",
+        "mobile_layout": "image_top"
+      }
+    },
+    "sa_index_img_text_aEthpa": {
+      "type": "sa-index-img-text",
+      "blocks": {
+        "item_UL3AdL": {
+          "type": "item",
+          "settings": {
+            "title": "<p><strong>10,000+ </strong>Owners. </p><p><strong>10 Years </strong>Strong. </p><p>One System for </p><p>Every Season.</p>",
+            "desc": "<p>Every system is designed for performance, safety, and efficiency — giving first-time buyers confidence from day one.</p>",
+            "button_text": "About Us",
+            "button_link": "shopify://pages/about-us",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Yarbo_with_Kids_and_Pets.jpg",
+            "h5_image": "shopify://shop_images/Yarbo_with_Kids_and_Pets.jpg",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "pc_aspect_ratio_w": 654,
+            "pc_aspect_ratio_h": 436,
+            "h5_aspect_ratio_w": 342,
+            "h5_aspect_ratio_h": 229,
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "item_UL3AdL"
+      ],
+      "name": "Index Text Media",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bac_color": "#000",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 32,
+        "h5_padding_bottom": 80,
+        "section_title": "",
+        "pc_layout": "image_left",
+        "mobile_layout": "image_top",
+        "section_title_color": "#fff",
+        "title_color": "#ffffff",
+        "strong_color": "#fedb1e",
+        "desc_color": "#ffffff",
+        "gap_pc": 80,
+        "gap_mobile": 48,
+        "title_size_pc": 52,
+        "title_size_mobile": 36,
+        "desc_size_pc": 18,
+        "desc_size_mobile": 15
+      }
+    },
+    "sa_index_scrolling_VdNneD": {
+      "type": "sa-index-scrolling",
+      "blocks": {
+        "block_dT9cCY": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/4_16_1.jpg",
+            "media_type": "video",
+            "video": "shopify://files/videos/FDownloader.Net_AQOErI5zI7yOZjcJYj-gNgOnfnlaaoFwEz8iLxC1ApM_neKehdTRT1BfkZzesEFEnFyYt0EJx53ltkYJLrUnH85G9D3SUsSwg_r8FNJfgpbYvg_720p_(HD) (1) (1).mp4",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/maxresdefault_841a2015-1a0f-4310-94b4-007bb71171b1.jpg",
+            "media_type2": "video_url",
+            "video_url2": "https://www.youtube.com/watch?v=8C1kjZNcKtA&t=293s",
+            "other_url2": "",
+            "img3": "shopify://shop_images/4_16.jpg",
+            "media_type3": "video",
+            "video3": "shopify://files/videos/FDownloader.Net_AQOeMxGsr34smltwLsp1ZAUSU-bKoA8Mn0zSsigOPe7L3miMHOqUQtRSZin4lzM0tuD1GquZiSw4VpljdTwYtlb4zqnLCx9KiypfrN5Pw70Q-Q_720p_(HD).mp4",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_jefLjX": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/maxresdefault_1_84c1907c-a9d5-4501-ab28-b8097fa31eb8.jpg",
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=9BP40fKU9Kw&t=124s",
+            "other_url": "",
+            "img2": "shopify://shop_images/image_43.png",
+            "media_type2": "video",
+            "video_url2": "",
+            "other_url2": "",
+            "img3": "shopify://shop_images/9704b596f477feac12a64afe79203ee666118bb7.png",
+            "media_type3": "video",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_kybhcr": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/667826560_122107351779214436_7325298365434661641_n_1.jpg",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/maxresdefault_2.jpg",
+            "media_type2": "video_url",
+            "video_url2": "https://www.youtube.com/watch?v=cO7XFB0cBMo&t=463s",
+            "other_url2": "",
+            "img3": "shopify://shop_images/4_16_1_f3174828-68cd-4041-89b3-a4216bcb831d.jpg",
+            "media_type3": "video",
+            "video3": "shopify://files/videos/FDownloader.Net_AQMm8jBzQ7aqcZIk-yGpNS_8fj6F7blOMARsOUIErvv9z6H1I7fUywfHI0-Q3LFIqq0dAJh6C4i8xu5g8iYGfMCEr7brn89B0YTd_bw0-MAbeQ_720p_(HD) (1).mp4",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_dFzRUY": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "img": "shopify://shop_images/10f7b24d0723718f6be8ae0a9a10e04fd2b8c1a7.png",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/a00d39adac7e15aa2c56e8f3122b965ba851e184.jpg",
+            "media_type2": "video",
+            "video_url2": "",
+            "other_url2": "",
+            "img3": "shopify://shop_images/9704b596f477feac12a64afe79203ee666118bb7.png",
+            "media_type3": "video",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_dT9cCY",
+        "block_jefLjX",
+        "block_kybhcr",
+        "block_dFzRUY"
+      ],
+      "name": "Index Scrolling",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "h5_padding_top": 60,
+        "h5_padding_bottom": 0,
+        "title": "<p>Trusted by Thousands <br/>of Homeowners and experts</p>",
+        "link": "shopify://pages/yarbo-official-community",
+        "link_text": "Join the Community"
+      }
+    },
+    "sa_index_awards_66Mn4Y": {
+      "type": "sa-index-awards",
+      "blocks": {
+        "block_q8JhD4": {
+          "type": "block",
+          "settings": {
+            "text": "2024 Edison Awards",
+            "award_img": "shopify://shop_images/Frame_2036457807_6ded0d61-99b1-4de0-867b-3b755e9a155a.png"
+          }
+        },
+        "block_Gj4FFK": {
+          "type": "block",
+          "settings": {
+            "text": "iF Design Award 2026",
+            "award_img": "shopify://shop_images/Frame_2036457811.png"
+          }
+        },
+        "block_caFpwc": {
+          "type": "block",
+          "settings": {
+            "text": "CES Innovation Awards 2025",
+            "award_img": "shopify://shop_images/Frame_2036457812.png"
+          }
+        },
+        "block_EaUjPX": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award 2023",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_c6E3tj": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_3ifRDe": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_q8JhD4",
+        "block_Gj4FFK",
+        "block_caFpwc",
+        "block_EaUjPX",
+        "block_c6E3tj",
+        "block_3ifRDe"
+      ],
+      "name": "Index Awards",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "h5_padding_top": 60,
+        "h5_padding_bottom": 60
+      }
+    },
+    "sa_index_img_text_banner_MfzgjH": {
+      "type": "sa-index-img-text-banner",
+      "blocks": {
+        "block_aLQeXe": {
+          "type": "block",
+          "settings": {
+            "text": "Split your payment using your existing credit card with zero interest.",
+            "icon": "shopify://shop_images/Splitit-Primary-Logo-1_1.png"
+          }
+        },
+        "block_B7fptW": {
+          "type": "block",
+          "settings": {
+            "text": "Enjoy flexible monthly payments with clear terms.",
+            "icon": "shopify://shop_images/black_logo-transparent_bg_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_aLQeXe",
+        "block_B7fptW"
+      ],
+      "name": "Index Img Text Banner",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 60,
+        "title": "<p>Own Your Yarbo Sooner </p><p>with 0% Financing and </p><p>flexible payment plans</p>"
+      }
+    },
+    "sa_blogs_tags_wWkWbY": {
+      "type": "sa-blogs-tags",
+      "name": "Blogs with Tabs",
+      "settings": {
+        "blog": "all",
+        "custom_all_enabled": true,
+        "article1": "all/yarbo-rtk-gps-technology-redefining-wire-free-robotic-lawn-mower-navigation",
+        "article2": "all/goodbye-cluttered-garage-yard-tool-storage-made-simple",
+        "article3": "all/how-to-get-stripes-on-your-lawn-a-step-by-step-tutorial",
+        "article4": "all/the-ultimate-guide-to-yarbo-best-robotic-lawn-mower-for-large-lawns",
+        "animations_reveal_on_scroll": false,
+        "sub_title": "Blog & Newsroom",
+        "title": "<p>Get expert guidance, tips, and trends<br/>to maintain a vibrant lawn.</p>",
+        "padding_top": 30,
+        "padding_bottom": 60,
+        "h5_padding_top": 30,
+        "h5_padding_bottom": 60
+      }
+    },
+    "sa_why_yarbo_AxLhbq": {
+      "type": "sa-why-yarbo",
+      "blocks": {
+        "media_text_hW9MyM": {
+          "type": "media_text",
+          "disabled": true,
+          "settings": {
+            "title": "Fast DELIVERY",
+            "desc": "Delivered in 3–7 days",
+            "img": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3.png",
+            "icon": "shopify://shop_images/Icon_e17e49aa-e279-40e9-9265-05d85dcc3653.svg"
+          }
+        },
+        "media_text3_aXDrcT": {
+          "type": "media_text3",
+          "settings": {
+            "title": "Fast DELIVERY",
+            "desc": "Delivered in 3–8 business days",
+            "icon": "shopify://shop_images/truck.svg"
+          }
+        },
+        "media_text1_VeNDRG": {
+          "type": "media_text1",
+          "settings": {
+            "title": "The Future of Yard Care Starts Here",
+            "img": "shopify://shop_images/Frame_2036457865_1.png"
+          }
+        },
+        "media_text3_EfNxpX": {
+          "type": "media_text3",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Help anytime you need",
+            "icon": "shopify://shop_images/Icon.svg"
+          }
+        },
+        "media_text3_fFDEPy": {
+          "type": "media_text3",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Pay now or over time with Affirm, Splitit, and more",
+            "icon": "shopify://shop_images/Icon_f27f9fd4-d062-40a2-ac2f-9a5ebd152d31.svg"
+          }
+        },
+        "media_text3_J8QKkW": {
+          "type": "media_text3",
+          "settings": {
+            "title": "30-Day Trial",
+            "desc": "Try it risk-free with an easy refund option",
+            "icon": "shopify://shop_images/Icon_612f2127-8834-43e4-9f8d-f7cdebd68e1d.svg"
+          }
+        },
+        "media_text3_qw6xKi": {
+          "type": "media_text3",
+          "settings": {
+            "title": "up to 5-year Warranty",
+            "desc": "Protection you can trust",
+            "icon": "shopify://shop_images/Icon_9b7eeae0-74a6-4cfb-83f7-8bd97b5f5275.svg"
+          }
+        },
+        "media_text3_LtjLQN": {
+          "type": "media_text3",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Safe and protected checkout",
+            "icon": "shopify://shop_images/Icon_d5ad1723-66d0-4a8a-8777-366d945fac61.svg"
+          }
+        }
+      },
+      "block_order": [
+        "media_text_hW9MyM",
+        "media_text3_aXDrcT",
+        "media_text1_VeNDRG",
+        "media_text3_EfNxpX",
+        "media_text3_fFDEPy",
+        "media_text3_J8QKkW",
+        "media_text3_qw6xKi",
+        "media_text3_LtjLQN"
+      ],
+      "disabled": true,
+      "name": "Why Yarbo",
+      "settings": {
+        "anchor_id": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "h5_padding_top": 60,
+        "h5_padding_bottom": 60,
+        "title": "Why Shop With Yarbo"
+      }
+    },
+    "sa_why_yarbo_xwhpfi": {
+      "type": "sa-why-yarbo",
+      "blocks": {
+        "media_text_CMBCTi": {
+          "type": "media_text",
+          "disabled": true,
+          "settings": {
+            "title": "Fast DELIVERY",
+            "desc": "Delivered in 3–7 days",
+            "img": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3.png",
+            "icon": "shopify://shop_images/Icon_e17e49aa-e279-40e9-9265-05d85dcc3653.svg"
+          }
+        },
+        "media_text3_3G6egd": {
+          "type": "media_text3",
+          "settings": {
+            "title": "Fast DELIVERY",
+            "desc": "Delivered in 3–8 business days",
+            "icon": "shopify://shop_images/truck-icon-1.5x.svg"
+          }
+        },
+        "media_text1_tHtUCJ": {
+          "type": "media_text1",
+          "settings": {
+            "title": "The Future of Yard Care Starts Here",
+            "img": "shopify://shop_images/Yarbo_Unit_Attachments.jpg"
+          }
+        },
+        "media_text3_8HJ47c": {
+          "type": "media_text3",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Help anytime you need",
+            "icon": "shopify://shop_images/headphone-icon-1.5x.svg"
+          }
+        },
+        "media_text3_7tby9f": {
+          "type": "media_text3",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Pay now or over time with Affirm, Splitit, and more",
+            "icon": "shopify://shop_images/pause-icon-1.5x.svg"
+          }
+        },
+        "media_text3_rRgL8g": {
+          "type": "media_text3",
+          "settings": {
+            "title": "30-Day Trial",
+            "desc": "Try it risk-free with an easy refund option",
+            "icon": "shopify://shop_images/refresh-icon-1.5x.svg"
+          }
+        },
+        "media_text3_UKA79c": {
+          "type": "media_text3",
+          "settings": {
+            "title": "up to 5-year Warranty",
+            "desc": "Protection you can trust",
+            "icon": "shopify://shop_images/shield-icon-1.5x.svg"
+          }
+        },
+        "media_text3_JtKkmE": {
+          "type": "media_text3",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Safe and protected checkout",
+            "icon": "shopify://shop_images/wallet-icon-1.5x.svg"
+          }
+        }
+      },
+      "block_order": [
+        "media_text_CMBCTi",
+        "media_text3_3G6egd",
+        "media_text1_tHtUCJ",
+        "media_text3_8HJ47c",
+        "media_text3_7tby9f",
+        "media_text3_rRgL8g",
+        "media_text3_UKA79c",
+        "media_text3_JtKkmE"
+      ],
+      "name": "Why Yarbo",
+      "settings": {
+        "anchor_id": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "h5_padding_top": 60,
+        "h5_padding_bottom": 60,
+        "title": "Why Shop With Yarbo"
+      }
+    }
+  },
+  "order": [
+    "sa_slideshow_f7fGct",
+    "sa_index_categories_Dp9AD9",
+    "sa_index_img_text_blocks_kLRhRn",
+    "sa_index_img_text_blocks_UWM3Ci",
+    "sa_index_img_text_blocks_DLYQiG",
+    "sa_index_img_text_blocks_kxxirL",
+    "sa_index_collections_PLdTEK",
+    "sa_index_accordion_83w8Ew",
+    "sa_index_scrolljacking_emkTwG",
+    "sa_index_img_text_aEthpa",
+    "sa_index_scrolling_VdNneD",
+    "sa_index_awards_66Mn4Y",
+    "sa_index_img_text_banner_MfzgjH",
+    "sa_blogs_tags_wWkWbY",
+    "sa_why_yarbo_AxLhbq",
+    "sa_why_yarbo_xwhpfi"
+  ]
+}

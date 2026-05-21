@@ -1,0 +1,154 @@
+{% comment %}
+  Renders product buy-buttons.
+  Accepts:
+  - product: {Object} product object.
+  - product_form_id: {String} product form id.
+  - section_id: {String} id of section to which this snippet belongs.
+  - add_text: {String} (optional) custom text for the add to cart button. If not provided, it will default to the translation for 'products.product.add_to_cart'.
+  - btn_class: {String} (optional) additional classes for styling the button. If not provided, it will default to 'h-42 transition-colors duration-300 min-h-32 px-16 text-[14px] md:text-[15px]'.
+  Usage:
+  {% render 'buy-buttons-new', block: block, product: product, product_form_id: product_form_id, section_id: section.id %}
+{% endcomment %}
+<buy-buttons-new class='buy-buttons-new block'>
+  {%- if product != blank -%}
+    {% if product.metafields.custom.is_shopnow %}
+      <a
+        href='/cart/{{ product.selected_or_first_available_variant.id }}:1'
+        class='
+          button
+          flex
+          h-32
+          w-full
+          border-0
+          bg-[#25282A]
+          px-16 text-[12px] text-white transition-colors duration-300
+
+            after:content-none hover:bg-[#FEDB1E] hover:text-[#25282A] md:h-44 md:text-[15px]
+        '
+      >
+        <span>
+          {% if product.metafields.custom.custom_card_button != blank %}
+            {{ product.metafields.custom.custom_card_button }}
+          {% else %}
+            {{ 'button.shop_now' | t }}
+          {% endif %}
+        </span>
+
+        {%- render 'loading-spinner' -%}
+      </a>
+    {% else %}
+      <product-form
+        class='product-form'
+        data-section-id='{{ section.id }}'
+      >
+        <div
+          class='product-form__error-message-wrapper sr-only'
+          role='alert'
+          hidden
+        >
+          <span class='product-form__error-message'></span>
+        </div>
+
+        {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+          <input
+            type='hidden'
+            name='id'
+            value='{{ product.selected_or_first_available_variant.id }}'
+            {% if product.selected_or_first_available_variant.available == false
+              or quantity_rule_soldout
+              or product.selected_or_first_available_variant == null
+            %}
+              disabled
+            {% endif %}
+            class='product-variant-id'
+          >
+
+          <div>
+            {%- liquid
+              assign check_against_inventory = true
+              if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+                assign check_against_inventory = false
+              endif
+              if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                assign quantity_rule_soldout = true
+              endif
+            -%}
+            {% if product.selected_or_first_available_variant.available == false
+              or quantity_rule_soldout
+              or product.selected_or_first_available_variant == null
+            -%}
+              {%- assign disabled = true -%}
+            {% endif %}
+            {%- liquid
+              assign notify_me_image = product.featured_image | image_url: width: 200
+            -%}
+
+            <button
+              id='ProductSubmitButton-{{ section_id }}'
+              {% if disabled and product.selected_or_first_available_variant != null %}
+                type='button'
+                data-notify-me-trigger
+                data-product-title='{{ product.title | escape }}'
+                data-variant-title='{{ product.selected_or_first_available_variant.title | escape }}'
+                data-product-image='{{ notify_me_image }}'
+                data-variant-id='{{ product.selected_or_first_available_variant.id }}'
+                data-product-id='{{ product.id }}'
+              {% else %}
+                type='submit'
+                name='add'
+                {% if disabled %}disabled{% endif %}
+              {% endif %}
+              class='
+                button
+                flex
+                w-full
+                transition-colors
+                duration-300
+                after:content-none
+                {{ btn_class }}
+                {% if disabled %}
+                  after:content-[""]!
+                  after:shadow-[0_0_0_1px_#CCCCCC] hover:bg-[#E6E6E6] bg-transparent text-[#25282A]
+                {% else %}
+                  hover:bg-[#FEDB1E] text-white bg-[#25282A] border-0 hover:text-[#25282A]
+                {% endif %}
+              '
+            >
+              <span>
+                {%- if product.selected_or_first_available_variant == null -%}
+                  {{ 'products.product.unavailable' | t }}
+                {%- elsif disabled -%}
+                  {{ 'products.product.notify_me' | t }}
+                {%- else -%}
+                  {% if add_text != blank %}
+                    {{ add_text }}
+                  {% elsif product.metafields.custom.is_preorder %}
+                    {{ 'products.product.preorder' | t }}
+                  {% elsif product.metafields.custom.custom_card_button != blank %}
+                    {{ product.metafields.custom.custom_card_button }}
+                  {% else %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% endif %}
+                {%- endif -%}
+              </span>
+              {%- render 'loading-spinner' -%}
+            </button>
+          </div>
+        {%- endform -%}
+      </product-form>
+    {% endif %}
+  {%- else -%}
+    <div class='product-form'>
+      <div class='product-form__buttons form'>
+        <button
+          type='submit'
+          name='add'
+          class='product-form__submit {{ btn_class }} button button--full-width button--primary'
+          disabled
+        >
+          {{ 'products.product.notify_me' | t }}
+        </button>
+      </div>
+    </div>
+  {%- endif -%}
+</buy-buttons-new>

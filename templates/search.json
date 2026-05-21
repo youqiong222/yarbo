@@ -1,0 +1,142 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "sa-main-search",
+      "settings": {
+        "products_per_page": 16,
+        "articles_per_page": 9,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_rating": false,
+        "quick_add": "standard",
+        "article_show_date": true,
+        "article_show_author": false,
+        "recommended_collection": "robots"
+      }
+    },
+    "sa_recently_viewed_products_hAUjPy": {
+      "type": "sa-recently-viewed-products",
+      "name": "Recently viewed products",
+      "settings": {
+        "title": "recently viewed",
+        "products_count": 8,
+        "padding_top": 60,
+        "padding_bottom": 50,
+        "h5_padding_top": 48,
+        "h5_padding_bottom": 48,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_rating": false,
+        "quick_add": "standard"
+      }
+    },
+    "line_bK4NHb": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_why_shop_with_hover_7eg66L": {
+      "type": "sa-why-shop-with-hover",
+      "blocks": {
+        "item_EF6Yad": {
+          "type": "item",
+          "settings": {
+            "title": "Free & Fast Shipping",
+            "desc": "Delivered in 3-7 days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        },
+        "item_TgeEUk": {
+          "type": "item",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Delivered in 3-7 days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        },
+        "item_iXLppP": {
+          "type": "item",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Delivered in 3-7 days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        },
+        "item_ggAAen": {
+          "type": "item",
+          "settings": {
+            "title": "30-Day Free Returns",
+            "desc": "Delivered in 3-7 days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        },
+        "item_iWYAgc": {
+          "type": "item",
+          "settings": {
+            "title": "Comprehensive Warranty",
+            "desc": "Delivered in 3-7 days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        },
+        "item_E4EhA7": {
+          "type": "item",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Delivered in 3-7 days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        },
+        "item_WxKiKW": {
+          "type": "item",
+          "settings": {
+            "title": "FREE SHIPPING",
+            "desc": "Delivered in 3-7 days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_EF6Yad",
+        "item_TgeEUk",
+        "item_iXLppP",
+        "item_ggAAen",
+        "item_iWYAgc",
+        "item_E4EhA7",
+        "item_WxKiKW"
+      ],
+      "name": "Why Shop Hover",
+      "settings": {
+        "anchor_id": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "Why Shop With Yarbo"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_recently_viewed_products_hAUjPy",
+    "line_bK4NHb",
+    "sa_why_shop_with_hover_7eg66L"
+  ]
+}

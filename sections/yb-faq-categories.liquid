@@ -1,0 +1,733 @@
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/index.min_3308300c-dc24-4cc1-8c5d-a50436e71724.css"
+  rel="stylesheet"
+  type="text/css"
+  media="all"
+>
+<style>
+  /* vendor/global.min.css start*/
+  @-webkit-keyframes splide-loading {
+    0% {
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
+    }
+
+    to {
+      -webkit-transform: rotate(1turn);
+      transform: rotate(1turn);
+    }
+  }
+
+  @-moz-keyframes splide-loading {
+    0% {
+      -moz-transform: rotate(0);
+      transform: rotate(0);
+    }
+
+    to {
+      -moz-transform: rotate(1turn);
+      transform: rotate(1turn);
+    }
+  }
+
+  @keyframes splide-loading {
+    0% {
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      transform: rotate(0);
+    }
+
+    to {
+      -webkit-transform: rotate(1turn);
+      -moz-transform: rotate(1turn);
+      transform: rotate(1turn);
+    }
+  }
+
+  .advc .splide__track--draggable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  .advc .splide__track--fade > .splide__list > .splide__slide {
+    margin: 0 !important;
+    opacity: 0;
+    z-index: 0;
+  }
+
+  .advc .splide__track--fade > .splide__list > .splide__slide.is-active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .advc .splide--rtl {
+    direction: rtl;
+  }
+
+  .advc .splide__track--ttb > .splide__list {
+    display: block;
+  }
+
+  .advc .splide__container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .advc .splide__list {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .advc .splide.is-initialized:not(.is-active) .splide__list {
+    display: block;
+  }
+
+  .advc .splide__pagination {
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-align-items: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .advc .splide__pagination li {
+    display: inline-block;
+    line-height: 1;
+    list-style-type: none;
+    margin: 0;
+    pointer-events: auto;
+  }
+
+  .advc .splide:not(.is-overflow) .splide__pagination {
+    display: none;
+  }
+
+  .advc .splide__progress__bar {
+    width: 0;
+  }
+
+  .advc .splide {
+    position: relative;
+    visibility: hidden;
+  }
+
+  .advc .splide.is-initialized,
+  .advc .splide.is-rendered {
+    visibility: visible;
+  }
+
+  .advc .splide__slide {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    list-style-type: none !important;
+    margin: 0;
+    position: relative;
+    width: 100%;
+  }
+
+  .advc .splide__slide img {
+    vertical-align: bottom;
+  }
+
+  .advc .splide__spinner {
+    -webkit-animation: splide-loading 1s linear infinite;
+    -moz-animation: splide-loading 1s linear infinite;
+    animation: splide-loading 1s linear infinite;
+    border: 2px solid #999;
+    border-left-color: transparent;
+    border-radius: 50%;
+    bottom: 0;
+    contain: strict;
+    display: inline-block;
+    height: 20px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+  }
+
+  .advc .splide__sr {
+    clip: rect(0 0 0 0);
+    border: 0;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .advc .splide__toggle.is-active .splide__toggle__play,
+  .advc .splide__toggle__pause {
+    display: none;
+  }
+
+  .advc .splide__toggle.is-active .splide__toggle__pause {
+    display: inline;
+  }
+
+  .advc .splide__track {
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+  }
+
+  .advc-section *,
+  .advc-section :after,
+  .advc-section :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .advc-section a,
+  .advc-section a:hover {
+    text-decoration: none;
+  }
+
+  .advc-section h2 {
+    margin: 0;
+  }
+
+  .advc .advc-d-block {
+    display: block !important;
+  }
+
+  .advc .advc-d-none {
+    display: none !important;
+  }
+
+  .advc .advc-d-flex {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -moz-box !important;
+    display: flex !important;
+  }
+
+  .advc .advc-d-inline-block {
+    display: inline-block !important;
+  }
+
+  @media (min-width: 750px) {
+    .advc .advc-d-md-block {
+      display: block !important;
+    }
+
+    .advc .advc-d-md-none {
+      display: none !important;
+    }
+
+    .advc .advc-d-md-flex {
+      display: -webkit-box !important;
+      display: -webkit-flex !important;
+      display: -moz-box !important;
+      display: flex !important;
+    }
+
+    .advc .advc-d-md-inline-block {
+      display: inline-block !important;
+    }
+  }
+
+  @media (min-width: 961px) {
+    .advc .advc-d-lg-block {
+      display: block !important;
+    }
+
+    .advc .advc-d-lg-none {
+      display: none !important;
+    }
+
+    .advc .advc-d-lg-flex {
+      display: -webkit-box !important;
+      display: -webkit-flex !important;
+      display: -moz-box !important;
+      display: flex !important;
+    }
+
+    .advc .advc-d-lg-inline-block {
+      display: inline-block !important;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .advc .advc-d-xl-block {
+      display: block !important;
+    }
+
+    .advc .advc-d-xl-none {
+      display: none !important;
+    }
+
+    .advc .advc-d-xl-flex {
+      display: -webkit-box !important;
+      display: -webkit-flex !important;
+      display: -moz-box !important;
+      display: flex !important;
+    }
+
+    .advc .advc-d-xl-inline-block {
+      display: inline-block !important;
+    }
+  }
+
+  @media (max-width: 749.98px) {
+    .advc .advc-d-grid {
+      display: grid !important;
+    }
+  }
+
+  @media (min-width: 750px) {
+    .advc .advc-d-md-grid {
+      display: grid !important;
+    }
+  }
+
+  .advc .advc-hidden {
+    display: none !important;
+  }
+
+  @media (max-width: 749.98px) {
+    .advc .advc-hidden-mobile {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 750px) {
+    .advc .advc-hidden-desktop {
+      display: none !important;
+    }
+  }
+
+    #shopify-section-{{ section.id }} .advc-title {
+      --advc-title-font-weight: 600;
+      --advc-title-font-style: normal;
+      --advc-title-color: #000000;
+      --advc-title-font-size: 36px;
+      --advc-title-letter-spacing: 0em;
+      --advc-title-line-height: 1.2;
+    }
+
+    #shopify-section-{{ section.id }} .advc-nav-title {
+      --advc-title-nav-font-weight: 600;
+      --advc-title-nav-font-style: normal;
+      --advc-title-nav-color: #000000;
+      --advc-title-nav-font-size: 24px;
+      --advc-title-nav-letter-spacing: 0em;
+      --advc-title-nav-line-height: 1.6;
+    }
+
+    #shopify-section-{{ section.id }} .advc-sub-title {
+      --advc-sub-title-font-weight: 500;
+      --advc-sub-title-font-style: normal;
+      --advc-sub-title-color: #000000;
+      --advc-sub-title-font-size: 20px;
+      --advc-sub-title-letter-spacing: 0em;
+      --advc-sub-title-line-height: 1.6;
+    }
+
+    #shopify-section-{{ section.id }} .advc-body {
+      --advc-body-font-weight: 400;
+      --advc-body-font-style: normal;
+      --advc-body-color: #000000;
+      --advc-body-font-size: 16px;
+      --advc-body-letter-spacing: 0em;
+      --advc-body-line-height: 1.6;
+    }
+
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_pc }}px;
+      padding-bottom: {{ section.settings.padding_bottom_pc }}px;
+      padding-right: 40px;
+      padding-left: 40px;
+      max-width: 1920px;
+      background: {{ section.settings.bg_color }};
+    }
+
+    @media only screen and (max-width: 750px) {
+      #shopify-section-{{ section.id }} .advc-title {
+        --advc-title-font-size: 28px;
+      }
+      #shopify-section-{{ section.id }} .advc-nav-title {
+        --advc-title-nav-font-size: 20px;
+      }
+      #shopify-section-{{ section.id }} .advc-sub-title {
+        --advc-sub-title-font-size: 16px;
+      }
+      #shopify-section-{{ section.id }} .advc-body {
+        --advc-body-font-size: 14px;
+      }
+      #shopify-section-{{ section.id }} {
+        padding-top: {{ section.settings.padding_top_m }}px;
+        padding-bottom: {{ section.settings.padding_bottom_m }}px;
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+    }
+
+    #shopify-section-{{ section.id }} .advc-title {
+      font-family: var(--advc-title-font-family);
+      color: var(--advc-title-color);
+      font-size: var(--advc-title-font-size);
+      letter-spacing: var(--advc-title-letter-spacing);
+      line-height: var(--advc-title-line-height);
+      font-weight: var(--advc-title-font-weight);
+      font-style: var(--advc-title-font-style);
+    }
+
+    #shopify-section-{{ section.id }} .advc-nav-title {
+      font-family: var(--advc-title-nav-font-family);
+      color: var(--advc-title-nav-color);
+      font-size: var(--advc-title-nav-font-size);
+      letter-spacing: var(--advc-title-nav-letter-spacing);
+      line-height: var(--advc-title-nav-line-height);
+      font-weight: var(--advc-title-nav-font-weight);
+      font-style: var(--advc-title-nav-font-style);
+    }
+
+    #shopify-section-{{ section.id }} .advc-sub-title {
+      font-family: var(--advc-sub-title-font-family);
+      color: var(--advc-sub-title-color);
+      font-size: var(--advc-sub-title-font-size);
+      letter-spacing: var(--advc-sub-title-letter-spacing);
+      line-height: var(--advc-sub-title-line-height);
+      font-weight: var(--advc-sub-title-font-weight);
+      font-style: var(--advc-sub-title-font-style);
+      margin: 0;
+      max-width: 90%;
+    }
+
+    #shopify-section-{{ section.id }} .advc-body {
+      font-family: var(--advc-body-font-family);
+      color: var(--advc-body-color);
+      font-size: var(--advc-body-font-size);
+      letter-spacing: var(--advc-body-letter-spacing);
+      line-height: var(--advc-body-line-height);
+      font-weight: var(--advc-body-font-weight);
+      font-style: var(--advc-body-font-style);
+    }
+    #shopify-section-template--17453916618849__yb_faq_categories_ieaMxt{
+        margin: auto;}
+</style>
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div class="advc">
+  <div class="advc-faq-with-nav">
+    {% if section.settings.title != blank %}
+      <div class="advc-custom-title-tag advc-title advc-faq-with-nav-title">
+        {{ section.settings.title }}
+      </div>
+    {% endif %}
+
+    <div class="advc-faq-with-nav-text-item__blocks">
+      {% for block in section.blocks %}
+        {% if block.type == 'category' %}
+          <div
+            class="advc-faq-with-nav-item"
+            style="background-color: {{ block.settings.bg_color }}; border-radius: 8px;"
+            {{ block.shopify_attributes }}
+          >
+            <div class="advc-faq-with-nav-item-icon advc-d-none advc-d-md-block">
+              <svg
+                class="icon icon-accordion"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                viewBox="0 0 20 20"
+              >
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.75 10.4997C2.75 6.49581 5.99581 3.25 9.99973 3.25C11.5789 3.25 13.0382 3.75405 14.2283 4.61018C14.5645 4.85207 15.0332 4.77557 15.2751 4.43932C15.517 4.10307 15.4405 3.6344 15.1042 3.39251C13.6674 2.35893 11.9036 1.75 9.99973 1.75C5.16739 1.75 1.25 5.66739 1.25 10.4997C1.25 15.3321 5.16739 19.2495 9.99973 19.2495C14.8321 19.2495 18.7495 15.3321 18.7495 10.4997C18.7495 9.34078 18.5237 8.23271 18.1132 7.21842C17.9577 6.83447 17.5205 6.64921 17.1365 6.80463C16.7526 6.96005 16.5673 7.39729 16.7228 7.78124C17.0622 8.61975 17.2495 9.53694 17.2495 10.4997C17.2495 14.5036 14.0036 17.7495 9.99973 17.7495C5.99581 17.7495 2.75 14.5036 2.75 10.4997ZM18.5304 4.69683C18.8233 4.40394 18.8233 3.92907 18.5304 3.63617C18.2375 3.34328 17.7626 3.34328 17.4697 3.63617L8.66706 12.4389L6.53082 10.3026C6.23793 10.0097 5.76305 10.0097 5.47016 10.3026C5.17726 10.5955 5.17726 11.0704 5.47016 11.3633L8.13673 14.0299C8.27739 14.1705 8.46815 14.2495 8.66706 14.2495C8.86598 14.2495 9.05674 14.1705 9.19739 14.0299L18.5304 4.69683Z"></path>
+              </svg>
+            </div>
+            <div class="advc-faq-with-nav-item-icon advc-d-md-none">
+              <svg
+                class="icon icon-accordion"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 20 20"
+              >
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.75 10.4997C2.75 6.49581 5.99581 3.25 9.99973 3.25C11.5789 3.25 13.0382 3.75405 14.2283 4.61018C14.5645 4.85207 15.0332 4.77557 15.2751 4.43932C15.517 4.10307 15.4405 3.6344 15.1042 3.39251C13.6674 2.35893 11.9036 1.75 9.99973 1.75C5.16739 1.75 1.25 5.66739 1.25 10.4997C1.25 15.3321 5.16739 19.2495 9.99973 19.2495C14.8321 19.2495 18.7495 15.3321 18.7495 10.4997C18.7495 9.34078 18.5237 8.23271 18.1132 7.21842C17.9577 6.83447 17.5205 6.64921 17.1365 6.80463C16.7526 6.96005 16.5673 7.39729 16.7228 7.78124C17.0622 8.61975 17.2495 9.53694 17.2495 10.4997C17.2495 14.5036 14.0036 17.7495 9.99973 17.7495C5.99581 17.7495 2.75 14.5036 2.75 10.4997ZM18.5304 4.69683C18.8233 4.40394 18.8233 3.92907 18.5304 3.63617C18.2375 3.34328 17.7626 3.34328 17.4697 3.63617L8.66706 12.4389L6.53082 10.3026C6.23793 10.0097 5.76305 10.0097 5.47016 10.3026C5.17726 10.5955 5.17726 11.0704 5.47016 11.3633L8.13673 14.0299C8.27739 14.1705 8.46815 14.2495 8.66706 14.2495C8.86598 14.2495 9.05674 14.1705 9.19739 14.0299L18.5304 4.69683Z"></path>
+              </svg>
+            </div>
+            <div class="advc-nav-title">{{ block.settings.title }}</div>
+          </div>
+        {% elsif block.type == 'faq' %}
+          <div
+            class="advc-faq-with-content-item advc-faq-with-nav-text-item__block"
+            data-open="0"
+            {{ block.shopify_attributes }}
+          >
+            <div class="advc-faq-with-nav-text-item__block-title">
+              <div class="advc-sub-title">{{ block.settings.question }}</div>
+              <div class="advc-faq-with-nav-text-item__block-open-icon">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 8H16M8 0L8 16" stroke="currentColor" stroke-width="2"></path>
+                </svg>
+              </div>
+              <div class="advc-faq-with-nav-text-item__block-close-icon advc-d-none">
+                <svg
+                  width="16"
+                  height="2"
+                  viewBox="0 0 16 2"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 1H16" stroke="currentColor" stroke-width="2"></path>
+                </svg>
+              </div>
+            </div>
+            <div
+              class="advc-faq-with-nav-text-item__block-desc advc-body advc-richtext"
+              style="height: 0px; opacity: 0; margin-top: 0px; margin-bottom: 0px;"
+            >
+              {{ block.settings.answer }}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const initFaq_{{ section.id | replace: '-', '_' }} = () => {
+    const container = document.querySelector('#shopify-section-{{ section.id }}');
+    if (!container) return;
+
+    const faqBlocks = container.querySelectorAll('.advc-faq-with-nav-text-item__block');
+    if (faqBlocks.length === 0) return;
+
+    const getElements = (block) => ({
+      openBtn: block.querySelector('.advc-faq-with-nav-text-item__block-open-icon'),
+      closeBtn: block.querySelector('.advc-faq-with-nav-text-item__block-close-icon'),
+      desc: block.querySelector('.advc-faq-with-nav-text-item__block-desc'),
+    });
+
+    const closeBlock = (block) => {
+      const { openBtn, closeBtn, desc } = getElements(block);
+      block.setAttribute('data-open', '0');
+
+      if (openBtn) openBtn.classList.remove('advc-d-none');
+      if (closeBtn) closeBtn.classList.add('advc-d-none');
+
+      if (desc) {
+        desc.style.height = '0px';
+        desc.style.opacity = '0';
+        desc.style.marginTop = '0px';
+        desc.style.marginBottom = '0px';
+      }
+    };
+
+    const openBlock = (block) => {
+      const { openBtn, closeBtn, desc } = getElements(block);
+      block.setAttribute('data-open', '1');
+
+      if (openBtn) openBtn.classList.add('advc-d-none');
+      if (closeBtn) closeBtn.classList.remove('advc-d-none');
+
+      if (desc) {
+        desc.style.height = `${desc.scrollHeight}px`;
+        desc.style.opacity = '1';
+        const marginTop = getComputedStyle(desc).getPropertyValue('--margin-top').trim() || '16px';
+        desc.style.marginTop = marginTop;
+      }
+    };
+
+    faqBlocks.forEach((block) => {
+      closeBlock(block);
+
+      const titleArea = block.querySelector('.advc-faq-with-nav-text-item__block-title');
+      if (!titleArea) return;
+
+      titleArea.addEventListener('click', (e) => {
+        const isOpen = block.getAttribute('data-open') === '1';
+
+        if (isOpen) {
+          closeBlock(block);
+        } else {
+          faqBlocks.forEach((otherBlock) => {
+            if (otherBlock.getAttribute('data-open') === '1') {
+              closeBlock(otherBlock);
+            }
+          });
+          openBlock(block);
+        }
+      });
+    });
+  };
+
+  initFaq_{{ section.id | replace: '-', '_' }}();
+
+  if (Shopify.designMode) {
+    document.addEventListener('shopify:section:load', (e) => {
+      if (e.detail.sectionId === '{{ section.id }}') {
+        initFaq_{{ section.id | replace: '-', '_' }}();
+      }
+    });
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Advanced FAQ (Nav)",
+  "class": "migrated-page page-container",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "FAQs"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_pc",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_pc",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_m",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_m",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Name",
+          "default": "Coverage & Eligibility"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#E5E5E5"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is the YarboCare™ 3-Year Extended Warranty?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Provide the answer details here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advanced FAQ (Nav)",
+      "blocks": [
+        { "type": "category" },
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "category" },
+        { "type": "faq" }
+      ]
+    }
+  ]
+}
+{% endschema %}

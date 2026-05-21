@@ -1,0 +1,504 @@
+<div class="w-full px-6 pb-[98px] md:bg-[linear-gradient(to_right,_white_50%,_#F5F5F5_50%)] mobile:pb-[63px]">
+  <div class="mx-auto grid w-full max-w-[1600px] grid-cols-2 mobile:grid-cols-1">
+    <div class="pr-[51px] pt-[131px] mobile:bg-white mobile:px-4 mobile:py-12">
+      <h1 class="text-[56px]/[67px] text-[#02060B] mobile:text-2xl/[29px] >3xl:text-[56px]/[67px]">
+        Visit a Neighbor Product Demo Program
+      </h1>
+      <p
+        class="mt-5 text-[28px]/[39px] font-semibold text-[#676A6D] mobile:mt-[14px] mobile:text-[18px]/[25px] >3xl:mt-[20px] >3xl:text-[28px]/[39px]"
+      >
+        Discover Yarbo products up close by visiting a Neighbor Product Demo Program near you! Submit your request, and
+        our team will connect you with a Yarbo ambassadors who will guide you through the Product Demo Program and
+        answer your questions.
+      </p>
+      <div class="mt-[65px] flex flex-col gap-[26px] mobile:mt-[30px] mobile:gap-[14px] >3xl:mt-[65px]">
+        <h3 class="text-2xl/7 font-medium text-[#676A6D] mobile:text-base/[19px] >3xl:text-2xl/[28px]">
+          Benefits of visiting a Yarbo Neighbor Product Demo Program include:
+        </h3>
+        <ul class="list-outside list-disc pl-6 mobile:pl-4">
+          <li
+            class=">3xltext-text-2xl/[28px] text-2xl/7 font-medium text-[#676A6D] mobile:text-base/[19px]"
+          >
+            Hands-on experience with Yarbo products in real-world settings before making a purchase.
+          </li>
+          <li
+            class=">3xltext-text-2xl/[28px] text-2xl/7 font-medium text-[#676A6D] mobile:text-base/[19px]"
+          >
+            Honest conversations with actual Yarbo owners about their experiences and how Yarbo fits into their lives.
+          </li>
+          <li
+            class=">3xltext-text-2xl/[28px] text-2xl/7 font-medium text-[#676A6D] mobile:text-base/[19px]"
+          >
+            Opportunity to see the performance, quality, and design of Yarbo products in action.
+          </li>
+          <li
+            class=">3xltext-text-2xl/[28px] text-2xl/7 font-medium text-[#676A6D] mobile:text-base/[19px]"
+          >
+            A relaxed, pressure-free environment with no obligation to buy.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="pl-20 pt-[151px] mobile:px-4 mobile:pt-[34px]">
+      <h2 class="text-[30px]/none text-[#02060B] mobile:text-2xl/none">Request to Visit</h2>
+      <p class="mb-14 mt-4 text-xl/none text-[#02060B] mobile:mb-[35px] mobile:text-sm/none">* Required</p>
+      <form id="visit-form">
+        <div class="form-item">
+          <label for="first_name"><span style="color: red;">*</span>First Name</label>
+          <input type="text" id="first_name" name="first_name" required>
+        </div>
+
+        <div class="form-item">
+          <label for="last_name"><span style="color: red;">*</span>Last Name</label>
+          <input type="text" id="last_name" name="last_name" required>
+        </div>
+
+        <div class="form-item">
+          <label for="email"><span style="color: red;">*</span>Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-item">
+          <label for="phone"><span style="color: red;">*</span>Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-item">
+          <label for="timeframe"
+            ><span style="color: red;">*</span>When would you prefer to visit the Neighbor Product Demo Program?</label
+          >
+          <div class="input-time-box">
+            <input type="text" id="start_time" placeholder="Start date" required>
+            <div class="ant-picker-range-separator">
+              <span
+                aria-label="to"
+                class="ant-picker-separator"
+                ><span
+                  role="img"
+                  aria-label="swap-right"
+                  class="anticon anticon-swap-right"
+                >
+                  <svg
+                    viewBox="0 0 1024 1024"
+                    focusable="false"
+                    data-icon="swap-right"
+                    width="1em"
+                    height="1em"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                        d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z">
+                    </path>
+                  </svg></span
+              ></span>
+            </div>
+            <input type="text" id="end_time" placeholder="End date" required>
+          </div>
+        </div>
+
+        <div class="form-item">
+          <label for="first_name"><span style="color: red;">*</span>What Yarbo products are you interested in?</label>
+          <div class="select-container">
+            <div class="ant-select-selector" onclick="toggleDropdown()">
+              <div class="ant-select-selection-overflow" id="selected-products">
+                <div class="no-select">Select an option</div>
+              </div>
+            </div>
+            <div class="ant-select-dropdown" id="product-dropdown">
+              <div
+                class="ant-select-item ant-select-item-option"
+                onclick="selectProduct('Yarbo Core 2024',this)"
+              >
+                <div class="ant-select-item-option-content">Yarbo Core 2024</div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                onclick="selectProduct('Yarbo Core 2023',this)"
+              >
+                <div class="ant-select-item-option-content">Yarbo Core 2023</div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                onclick="selectProduct('Lawn Mower',this)"
+              >
+                <div class="ant-select-item-option-content">Lawn Mower</div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                onclick="selectProduct('Snow Blower',this)"
+              >
+                <div class="ant-select-item-option-content">Snow Blower</div>
+              </div>
+              <div
+                class="ant-select-item ant-select-item-option"
+                onclick="selectProduct('Blower',this)"
+              >
+                <div class="ant-select-item-option-content">Blower</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-item">
+          <label for="timeframe"
+            ><span style="color: red;">*</span>Is there anything specific you would like to learn about or see during
+            your visit?</label
+          >
+          <textarea id="descAll" name="descAll" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Submit Request</button>
+      </form>
+
+      <p class="mt-[30px] text-xl/6 text-[#777777] mobile:mt-5 mobile:text-xs/[14px]">
+        By submitting this form, you agree to Yarbo's
+        <a
+          class="underline"
+          target="_blank"
+          href="/legal/terms-of-service"
+          >Terms of Use</a
+        >
+        and
+        <a
+          href="/legal/privacy-policy"
+          class="underline"
+          target="_blank"
+          >Privacy Policy</a
+        >.<br>
+        <br>
+        Note: You may receive updates, calls, or texts from Yarbo’s team regarding your application process.
+      </p>
+    </div>
+  </div>
+</div>
+<style>
+        @media (max-width: 767px){
+  .mobile\:px-4 {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  }}
+  .form-item {
+    margin-bottom: 15px;
+  }
+
+  .form-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .form-item input,
+  .form-item select,
+  .form-item textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-item textarea {
+    resize: vertical;
+  }
+
+  .form-item:nth-child(1),
+  .form-item:nth-child(2) {
+    width: 48%;
+  }
+
+  .form-item {
+    width: 100%;
+  }
+
+  form#visit-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .form-item:nth-child(5) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .input-time-box {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+  }
+
+  span.anticon.anticon-swap-right svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .date-input:focus {
+    border-bottom: 1px solid #ff4d4f;
+    outline: none;
+  }
+
+  .input-time-box>input {
+    border: 1px solid #0000;
+    font-size: 15px;
+  }
+
+  .form-item label {
+    font-size: 14px;
+    font-weight: 300 !important;
+  }
+
+  .select-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .ant-select-selector {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    background: white;
+  }
+
+  .ant-select-selection-overflow {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 0;
+  }
+
+  .ant-select-selection-overflow-item {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid transparent;
+    font-size: 15px;
+  }
+
+  .ant-select-selection-item-remove {
+    cursor: pointer;
+    margin-left: 5px;
+    color: currentColor;
+  }
+
+  .ant-select-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+  }
+
+  .ant-select-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .ant-select-item:hover {
+    background: #f0f0f0;
+  }
+
+  .no-select {
+    font-size: 15px;
+    color: #6666669c;
+  }
+
+  .ant-select-item-option-active {
+    background: #e6f7ff;
+  }
+
+
+  .migrated-page .btn {
+    padding: 10px 15px;
+    background-color: rgb(254 219 30);
+    color: #000;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .selected-option {
+    color: rgba(0, 0, 0, 0.88);
+    font-weight: 600;
+    background-color: #e6f4ff;
+  }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  flatpickr('#start_time', {
+    dateFormat: 'Y-m-d',
+    allowInput: true,
+    disableMobile: 'true',
+    onReady: function () {
+      const input = document.querySelector('#start_time');
+      input.classList.add('date-input');
+    },
+  });
+  flatpickr('#end_time', {
+    dateFormat: 'Y-m-d',
+    allowInput: true,
+    disableMobile: 'true',
+    onReady: function () {
+      const input = document.querySelector('#end_time');
+      input.classList.add('date-input');
+    },
+  });
+  const selectedProducts = new Set();
+  function toggleDropdown() {
+    const dropdown = document.getElementById('product-dropdown');
+    dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+  }
+  function selectProduct(product, element) {
+    if (selectedProducts.has(product)) {
+      selectedProducts.delete(product);
+      element.classList.remove('selected-option');
+    } else {
+      selectedProducts.add(product);
+      element.classList.add('selected-option');
+    }
+    updateSelectedProductsDisplay();
+    toggleDropdown();
+  }
+  function updateSelectedProductsDisplay() {
+    const selectedContainer = document.getElementById('selected-products');
+    selectedContainer.innerHTML = '';
+
+    if (selectedProducts.size === 0) {
+      selectedContainer.innerHTML = '<div class="no-select">Select an option</div>';
+    } else {
+      selectedProducts.forEach((product) => {
+        const item = document.createElement('div');
+        item.className = 'ant-select-selection-overflow-item';
+        item.innerHTML = `${product} <span class="ant-select-selection-item-remove" onclick="removeProduct(event, '${product}')">×</span>`;
+        selectedContainer.appendChild(item);
+      });
+    }
+  }
+  function removeProduct(event, product) {
+    event.stopPropagation();
+    selectedProducts.delete(product);
+    updateSelectedProductsDisplay();
+    const dropdownItems = document.querySelectorAll('.ant-select-item-option');
+    dropdownItems.forEach((item) => {
+      if (item.textContent.trim() === product) {
+        item.classList.remove('selected-option');
+      }
+    });
+  }
+  document.addEventListener('click', function (event) {
+    const dropdown = document.getElementById('product-dropdown');
+    if (!dropdown.contains(event.target) && !document.querySelector('.ant-select-selector').contains(event.target)) {
+      dropdown.style.display = 'none';
+    }
+  });
+  function getUrlParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+  const startTimeInput = document.getElementById('start_time');
+  const endTimeInput = document.getElementById('end_time');
+  startTimeInput.addEventListener('change', validateTimes);
+  endTimeInput.addEventListener('change', validateTimes);
+
+  function validateTimes() {
+    const startTime = new Date(startTimeInput.value);
+    const endTime = new Date(endTimeInput.value);
+
+    if (endTime < startTime) {
+      alert('结束时间不能早于开始时间');
+      endTimeInput.value = '';
+    }
+  }
+  let isSubmitting = false;
+  document.getElementById('visit-form').addEventListener('submit', async function (event) {
+    event.preventDefault();
+    if (isSubmitting) {
+      return;
+    }
+
+    isSubmitting = true;
+    const submitButton = document.querySelector('button[type="submit"]');
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+      submitButton.style.opacity = '0.7';
+      submitButton.style.cursor = 'not-allowed';
+    }
+
+    const ambassadorId = getUrlParam('id');
+    let startTime = document.getElementById('start_time').value;
+    let endTime = document.getElementById('end_time').value;
+    const startTimeIso = convertToISO(startTime);
+    const endTimeIso = convertToISO(endTime);
+
+    const formData = {
+      first_name: document.getElementById('first_name').value,
+      last_name: document.getElementById('last_name').value,
+      phone_number: document.getElementById('phone').value,
+      end_time: endTimeIso,
+      start_time: startTimeIso,
+      interest_yarbo_products: Array.from(selectedProducts),
+      why_yarbo_product: document.getElementById('descAll').value,
+      email: document.getElementById('email').value,
+      ambassador_email: ambassadorId,
+    };
+
+    try {
+      const response = await fetch('https://dev.yarbo.ai/backend/ambassador/visit/face', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        throw new Error('request failed');
+      }
+      const responseData = await response.json();
+      const ambassadorName = responseData.data.ambassador_name;
+      const confirmationUrl = `/showcases/confirmation?name=${encodeURIComponent(
+        formData.first_name + ' ' + formData.last_name
+      )}&email=${encodeURIComponent(formData.email)}&phone=${encodeURIComponent(
+        formData.phone_number
+      )}&type=On-site Showcase&products=${encodeURIComponent(
+        Array.from(selectedProducts).join(',')
+      )}&start_time=${encodeURIComponent(startTime)}&end_time=${encodeURIComponent(
+        endTime
+      )}&ambassador_name=${encodeURIComponent(ambassadorName)}`;
+      window.location.href = confirmationUrl;
+    } catch (error) {
+      console.error('request error:', error);
+      isSubmitting = false;
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit Request';
+        submitButton.style.opacity = '1';
+      }
+    }
+  });
+  function convertToISO(dateString) {
+    const date = new Date(dateString);
+    date.setUTCHours(16, 0, 0, 0);
+    return date.toISOString();
+  }
+</script>

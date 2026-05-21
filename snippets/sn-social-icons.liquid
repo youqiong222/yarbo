@@ -1,0 +1,180 @@
+{% comment %}
+  Renders social icons.
+  Accepts:
+  - class: {String} a class to be added to the <ul> element (optional).
+
+  Usage:
+  {% render 'sn-social-icons',
+    class: 'my-class'
+  %}
+{% endcomment %}
+
+<ul
+  class='list-unstyled flex flex-wrap justify-end gap-12 list-social{% if class %} {{ class}}{% endif %}'
+  role='list'
+>
+  {%- if settings.social_facebook_link != blank -%}
+    <li class='list-social__item'>
+      <a
+        href='{{ settings.social_facebook_link }}'
+        class='link list-social__link flex items-center'
+      >
+        <span class='svg-wrapper h-24 w-24'>
+          <svg
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d="M13.5862 21V13.1299H16.2058L16.7005 9.86946H13.575V7.75578C13.575 6.86758 14.0134 6.00187 15.4076 6.00187H16.8242V3.22486C16.8242 3.22486 15.5312 3 14.3058 3C11.7311 3 10.0559 4.56277 10.0559 7.38476V9.86946H7.2002V13.1299H10.0559V21H13.575H13.5862Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class='visually-hidden'>
+          {{- 'general.social.links.facebook' | t -}}
+        </span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_twitter_link != blank -%}
+    <li class='list-social__item'>
+      <a
+        href='{{ settings.social_twitter_link }}'
+        class='link list-social__link'
+      >
+        <span class='svg-wrapper h-24 w-24'>
+          <svg
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d="M13.4897 10.77L19.3197 4H17.9397L12.8797 9.88L8.83969 4H4.17969L10.2897 12.9L4.17969 20H5.55969L10.8997 13.79L15.1697 20H19.8297L13.4897 10.77ZM11.5997 12.97L10.9797 12.08L6.04969 5.03H8.16969L12.1497 10.72L12.7697 11.61L17.9397 19H15.8197L11.5997 12.97Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class='visually-hidden'>
+          {{- 'general.social.links.twitter' | t -}}
+        </span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_tiktok_link != blank -%}
+    <li class='list-social__item'>
+      <a
+        href='{{ settings.social_tiktok_link }}'
+        class='link list-social__link'
+      >
+        <span class='svg-wrapper h-24 w-24'>
+          <svg
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d="M19.6994 10.272C19.5531 10.2833 19.4067 10.2946 19.2604 10.2946C17.6394 10.2946 16.1309 9.4728 15.2416 8.12195V15.5291C15.2416 18.546 12.7876 21 9.77072 21C6.75384 21 4.2998 18.546 4.2998 15.5291C4.2998 12.5122 6.75384 10.0582 9.77072 10.0582C9.88329 10.0582 9.99586 10.0582 10.1084 10.0807V12.7824C9.99586 12.7711 9.88329 12.7486 9.77072 12.7486C8.22851 12.7486 6.97898 13.9981 6.97898 15.5403C6.97898 17.0826 8.22851 18.3321 9.77072 18.3321C11.3129 18.3321 12.675 17.1163 12.675 15.5741L12.6976 3H15.2754C15.5231 5.31895 17.3805 7.12008 19.6994 7.28893V10.2833V10.272Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class='visually-hidden'>
+          {{- 'general.social.links.tiktok' | t -}}
+        </span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_youtube_link != blank -%}
+    <li class='list-social__item'>
+      <a
+        href='{{ settings.social_youtube_link }}'
+        class='link list-social__link'
+      >
+        <span class='svg-wrapper h-24 w-24'>
+          <svg
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d="M21.8008 8.00391C21.8008 8.00391 21.6055 6.625 21.0039 6.01953C20.2422 5.22266 19.3906 5.21875 19 5.17187C16.2031 4.96875 12.0039 4.96875 12.0039 4.96875H11.9961C11.9961 4.96875 7.79688 4.96875 5 5.17187C4.60938 5.21875 3.75781 5.22266 2.99609 6.01953C2.39453 6.625 2.20312 8.00391 2.20312 8.00391C2.20312 8.00391 2 9.625 2 11.2422V12.7578C2 14.375 2.19922 15.9961 2.19922 15.9961C2.19922 15.9961 2.39453 17.375 2.99219 17.9805C3.75391 18.7773 4.75391 18.75 5.19922 18.8359C6.80078 18.9883 12 19.0352 12 19.0352C12 19.0352 16.2031 19.0273 19 18.8281C19.3906 18.7813 20.2422 18.7773 21.0039 17.9805C21.6055 17.375 21.8008 15.9961 21.8008 15.9961C21.8008 15.9961 22 14.3789 22 12.7578V11.2422C22 9.625 21.8008 8.00391 21.8008 8.00391ZM9.93359 14.5977V8.97656L15.3359 11.7969L9.93359 14.5977Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class='visually-hidden'>
+          {{- 'general.social.links.youtube' | t -}}
+        </span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_instagram_link != blank -%}
+    <li class='list-social__item'>
+      <a
+        href='{{ settings.social_instagram_link }}'
+        class='link list-social__link'
+      >
+        <span class='svg-wrapper h-24 w-24'>
+          {{- 'icon-instagram.svg' | inline_asset_content -}}
+        </span>
+        <span class='visually-hidden'>
+          {{- 'general.social.links.instagram' | t -}}
+        </span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_pinterest_link != blank -%}
+    <li class='list-social__item'>
+      <a
+        href='{{ settings.social_pinterest_link }}'
+        class='link list-social__link'
+      >
+        <span class='svg-wrapper h-24 w-24'>
+          {{- 'icon-pinterest.svg' | inline_asset_content -}}
+        </span>
+        <span class='visually-hidden'>
+          {{- 'general.social.links.pinterest' | t -}}
+        </span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_snapchat_link != blank -%}
+    <li class='list-social__item'>
+      <a
+        href='{{ settings.social_snapchat_link }}'
+        class='link list-social__link'
+      >
+        <span class='svg-wrapper h-24 w-24'>
+          {{- 'icon-snapchat.svg' | inline_asset_content -}}
+        </span>
+        <span class='visually-hidden'>
+          {{- 'general.social.links.snapchat' | t -}}
+        </span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_tumblr_link != blank -%}
+    <li class='list-social__item'>
+      <a
+        href='{{ settings.social_tumblr_link }}'
+        class='link list-social__link'
+      >
+        <span class='svg-wrapper h-24 w-24'>
+          {{- 'icon-tumblr.svg' | inline_asset_content -}}
+        </span>
+        <span class='visually-hidden'>
+          {{- 'general.social.links.tumblr' | t -}}
+        </span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_vimeo_link != blank -%}
+    <li class='list-social__item'>
+      <a href='{{ settings.social_vimeo_link }}' class='link list-social__link'>
+        <span class='svg-wrapper h-24 w-24'>
+          {{- 'icon-vimeo.svg' | inline_asset_content -}}
+        </span>
+        <span class='visually-hidden'>
+          {{- 'general.social.links.vimeo' | t -}}
+        </span>
+      </a>
+    </li>
+  {%- endif -%}
+</ul>

@@ -1,0 +1,473 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_9JHYQ4": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "yb_banner_swiper_Vqhy3b": {
+      "type": "yb-banner-swiper",
+      "blocks": {
+        "item_jKYENw": {
+          "type": "item",
+          "settings": {
+            "text_horizontal_position": "left",
+            "text_vertical_position": "center",
+            "text_width": 30,
+            "description": "",
+            "title": "<p>Yarbo Official Community</p>",
+            "subTitle": "<p>Subscribe and join Yarbo Community!</p>",
+            "enable_btn_group": false,
+            "enable_global_btn": false,
+            "enable_global_anchor": false,
+            "global_anchor_id": "",
+            "button_text": "",
+            "button_type": "link",
+            "button_link": "",
+            "button_class": "",
+            "button_anchor": "",
+            "button_modal_title": "",
+            "button_modal_content": "",
+            "button2_text": "",
+            "button2_type": "link",
+            "button2_link": "",
+            "button2_class": "",
+            "button2_anchor": "",
+            "button2_modal_title": "",
+            "button2_modal_content": "",
+            "enable_subscription": true,
+            "subscription_absolute": false,
+            "subscription_position": 24,
+            "email_type": "",
+            "klaviyo_list_id": "",
+            "subscription_title": "",
+            "subscription_button_text": "",
+            "pc_img": "shopify://shop_images/Frame-2036456190-_2_-0.webp",
+            "pc_external_video": "",
+            "mobile_img": "shopify://shop_images/123-1.webp",
+            "mobile_external_video": "",
+            "mobile_layout": "style1"
+          }
+        }
+      },
+      "block_order": [
+        "item_jKYENw"
+      ],
+      "name": "Yb-Banner",
+      "settings": {
+        "banner_speed": 6
+      }
+    },
+    "yb_tabs_section_jA9beG": {
+      "type": "yb-tabs-section",
+      "blocks": {
+        "tab_fQwM93": {
+          "type": "tab",
+          "settings": {
+            "title": "Benefits",
+            "btn_anchor_id": "Benefits",
+            "tab_title_color": "#ffffff",
+            "active_tab_title_color": "#000000",
+            "active_tab_bg_color": "#f5f5f5"
+          }
+        },
+        "tab_TXALdT": {
+          "type": "tab",
+          "settings": {
+            "title": "User Stories",
+            "btn_anchor_id": "User_Reviews",
+            "tab_title_color": "#ffffff",
+            "active_tab_title_color": "#000000",
+            "active_tab_bg_color": "#f5f5f5"
+          }
+        },
+        "tab_7qegzj": {
+          "type": "tab",
+          "settings": {
+            "title": "User Reviews",
+            "btn_anchor_id": "User Stories",
+            "tab_title_color": "#ffffff",
+            "active_tab_title_color": "#000000",
+            "active_tab_bg_color": "#f5f5f5"
+          }
+        },
+        "tab_dBWD6D": {
+          "type": "tab",
+          "settings": {
+            "title": "Yarbo in Real Yards",
+            "btn_anchor_id": "Yarbo in Real Yards",
+            "tab_title_color": "#ffffff",
+            "active_tab_title_color": "#000000",
+            "active_tab_bg_color": "#f5f5f5"
+          }
+        }
+      },
+      "block_order": [
+        "tab_fQwM93",
+        "tab_TXALdT",
+        "tab_7qegzj",
+        "tab_dBWD6D"
+      ],
+      "name": "Tabs Section",
+      "settings": {
+        "section_bg_color": "#000000",
+        "svg_color": "#ffffff"
+      }
+    },
+    "yb_custom_grid_richtext_TtwBX8": {
+      "type": "yb-custom-grid-richtext",
+      "blocks": {
+        "richtext_EtkUmR": {
+          "type": "richtext",
+          "settings": {
+            "title": "<p>Community-Only Deals<br/><br/></p>",
+            "richtext": "",
+            "line_height": 2,
+            "column_width": 2,
+            "image": "shopify://shop_images/Mask-group-_24.webp",
+            "jump_type": "none",
+            "amount": "",
+            "anchor_id": "",
+            "link": ""
+          }
+        },
+        "richtext_L6K6Eb": {
+          "type": "richtext",
+          "settings": {
+            "title": "<p>Unfiltered Reviews from Real Owners</p>",
+            "richtext": "",
+            "line_height": 1,
+            "column_width": 2,
+            "image": "shopify://shop_images/Group-1960930443.webp",
+            "jump_type": "none",
+            "amount": "",
+            "anchor_id": "",
+            "link": ""
+          }
+        },
+        "richtext_ewD7At": {
+          "type": "richtext",
+          "settings": {
+            "title": "<p>Be the First to Know</p>",
+            "richtext": "",
+            "line_height": 1,
+            "column_width": 1,
+            "image": "shopify://shop_images/Group-1960930445.webp",
+            "jump_type": "none",
+            "amount": "",
+            "anchor_id": "",
+            "link": ""
+          }
+        },
+        "richtext_Dmqete": {
+          "type": "richtext",
+          "settings": {
+            "title": "<p>Yard Lovers Connect</p>",
+            "richtext": "",
+            "line_height": 1,
+            "column_width": 1,
+            "image": "shopify://shop_images/Group-1960930444.webp",
+            "jump_type": "none",
+            "amount": "",
+            "anchor_id": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "richtext_EtkUmR",
+        "richtext_L6K6Eb",
+        "richtext_ewD7At",
+        "richtext_Dmqete"
+      ],
+      "name": "Custom Grid Richtext",
+      "settings": {
+        "anchor_id": "Benefits",
+        "heading": "",
+        "is_affirm_popup": false,
+        "bg_color": "#f5f5f5",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yb_multicolumn_HQp8kh": {
+      "type": "yb-multicolumn",
+      "blocks": {
+        "image_item_hELtKH": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "@Scott Grams",
+            "block_description": "<p><a href=\"https://www.facebook.com/groups/1714379818996666/posts/2167922823642361\" target=\"_blank\">Yarbo, can you serenade me with some music while you mow my yard? Some people ask me why I ask why not...&gt;&gt;&gt;</a></p>",
+            "block_image": "shopify://shop_images/Frame-2036456263-_2.webp",
+            "block_rating": 5
+          }
+        },
+        "image_item_rajtFV": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "@Mike Hostetler",
+            "block_description": "<p><a href=\"https://www.facebook.com/groups/1714379818996666/posts/2161423977625579\" target=\"_blank\">This thing is supposed to be a timesaver, but it’s just so fun to watch I just stare at it and video it— feeling thankful...&gt;&gt;&gt;</a></p>",
+            "block_image": "shopify://shop_images/Frame-2036456263-_3.webp",
+            "block_rating": 5
+          }
+        },
+        "image_item_qGgM6c": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "@Chad Albrecht",
+            "block_description": "<p><a href=\"https://www.facebook.com/groups/1714379818996666/posts/2150493462051964\" target=\"_blank\">My neighbor lent his de-thatcher for a test with my Yarbo. Enjoy this short video of me, scratching my grass…&gt;&gt;&gt;</a></p>",
+            "block_image": "shopify://shop_images/Frame-2036456263-_4.webp",
+            "block_rating": 5
+          }
+        },
+        "image_item_WPeUQM": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "@Bryan Wheeler",
+            "block_description": "<p><a href=\"https://www.facebook.com/groups/1714379818996666/posts/2131114200656557/\" target=\"_blank\">An hour away from home, spending time with family and enjoying the birthday party. Meanwhile Yarbo works faithfully and tirelessly mowing my lawn. Now my only problem is...&gt;&gt;&gt;</a></p>",
+            "block_image": "shopify://shop_images/Mask-group-_14_-0.webp",
+            "block_rating": 5
+          }
+        },
+        "image_item_DRzHna": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "@Scott Morrison",
+            "block_description": "<p><a href=\"https://www.facebook.com/groups/1714379818996666/posts/2116681868766457\" target=\"_blank\">If any of you have wondered about the accuracy of Yarbo's navigation skill, I thought you might want to see these videos of my Yarbo...&gt;&gt;&gt;</a></p>",
+            "block_image": "shopify://shop_images/Frame-2036456263-_5.webp",
+            "block_rating": 5
+          }
+        },
+        "image_item_wjkRcK": {
+          "type": "image_item",
+          "settings": {
+            "block_title": "@Calin Panainte",
+            "block_description": "<p><a href=\"https://www.facebook.com/groups/1714379818996666/posts/2171419563292687/\" target=\"_blank\">Here is my feedback on the mowing that has been performed over the past weeks. It's a machine, that, like all machines, we have to learn how to use them...&gt;&gt;&gt;</a></p>",
+            "block_image": "shopify://shop_images/Mask-group-_16_-0.webp",
+            "block_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "image_item_hELtKH",
+        "image_item_rajtFV",
+        "image_item_qGgM6c",
+        "image_item_WPeUQM",
+        "image_item_DRzHna",
+        "image_item_wjkRcK"
+      ],
+      "name": "Yb Multicolumn",
+      "settings": {
+        "anchor_id": "User Stories",
+        "title": "<p><strong>Wondering What They're Sharing?</strong></p>",
+        "description": "<p>Better join and see for yourself!</p>",
+        "pc_grid_columns": 2,
+        "show_rating": false,
+        "common_button_class": "",
+        "button_text": "Join Now",
+        "button_type": "link",
+        "button_link": "https://www.facebook.com/groups/1714379818996666",
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "dark_mode": false,
+        "bg_color": "#f5f5f5",
+        "highlight_color": "#f1c40f",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yb_rich_photo_gallery_H4ztkG": {
+      "type": "yb-rich-photo-gallery",
+      "blocks": {
+        "photo_row_MDYeyE": {
+          "type": "photo_row",
+          "settings": {
+            "image_1": "shopify://shop_images/image-_2_-13.webp",
+            "image_2": "shopify://shop_images/image-_3_-1.webp",
+            "image_3": "shopify://shop_images/image-_4_-3.webp",
+            "image_4": "shopify://shop_images/image-_5_-2.webp",
+            "image_5": "shopify://shop_images/output-_2.webp",
+            "image_6": "shopify://shop_images/image-_7.webp",
+            "image_7": "shopify://shop_images/image-_12_-1.webp",
+            "image_8": "shopify://shop_images/image-_11_-1.webp",
+            "image_9": "shopify://shop_images/image-_10_-1.webp",
+            "image_10": "shopify://shop_images/output-_2.webp"
+          }
+        },
+        "photo_row_4PAxb4": {
+          "type": "photo_row",
+          "settings": {
+            "image_1": "shopify://shop_images/image-_18_-0.jpg",
+            "image_2": "shopify://shop_images/image-_17_-1.jpg",
+            "image_3": "shopify://shop_images/image-_14_-1.jpg",
+            "image_4": "shopify://shop_images/image-_13_-1.jpg",
+            "image_5": "shopify://shop_images/image-_6_-0.png",
+            "image_6": "shopify://shop_images/image-_8.jpg",
+            "image_7": "shopify://shop_images/406472840-10168244256940317-6507662142680386674-n-2.jpg",
+            "image_8": "shopify://shop_images/image-_15.jpg",
+            "image_9": "shopify://shop_images/image-_16_-2.png",
+            "image_10": "shopify://shop_images/output-_3.png"
+          }
+        }
+      },
+      "block_order": [
+        "photo_row_MDYeyE",
+        "photo_row_4PAxb4"
+      ],
+      "name": "Yb Rich Photo Gallery",
+      "settings": {
+        "anchor_id": "Yarbo in Real Yards",
+        "switch_scroll": true,
+        "title": "<p><strong>How Does Yarbo Perform in Their Yards?</strong></p>",
+        "subtitle": "<p>Check out snapshots from real members.</p>",
+        "picture_width": 338,
+        "picture_width_m": 312,
+        "picture_width_m_small": 176,
+        "button_text": "Join the Discussion",
+        "button_type": "link",
+        "button_link": "https://www.facebook.com/groups/1714379818996666",
+        "button_anchor": "",
+        "button_modal_title": "",
+        "button_modal_content": "",
+        "bg_color": "#ffffff",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    },
+    "yarbo_comments_display_KrjbHc": {
+      "type": "yarbo-comments-display",
+      "blocks": {
+        "image_text_block_BjctWR": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Kent Ross</p>",
+            "comments_small_title": "<p>Yarbo User</p>",
+            "comments_text": "<p>\"Wanna race?!\" My neighbor and my 2023 M1. His is faster, but mine involves a cup of coffee and talking to the family and watching TV.\"</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/Frame-2036456260-0_08746bcc-3a0b-47c8-a63c-b36adff93429.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_7dVAM7": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Steve Thibodeau</p>",
+            "comments_small_title": "<p>Yarbo User</p>",
+            "comments_text": "<p>\"Based on a suggestion from a fellow backer that lives near me and came by Sunday to see Yarbo in person, I picked up a couple pallets and used my leftover decking planks to make a permanent docking station.\"<br/></p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/8c35abe9-f09a-43ec-aded-248741849aa6.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_pFxfp7": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Scott Grams</p>",
+            "comments_small_title": "<p>Yarbo User</p>",
+            "comments_text": "<p>\"Out looking for some snow and there is none in Wisconsin either. so just going to get some well deserved throttle therapy instead. Yarbo is doing a great job keeping it snow free around me.\"</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/Frame-2036456262-_1_-0_45dcc56a-1607-4555-87da-63a61425e0c1.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        },
+        "image_text_block_yEKzzg": {
+          "type": "image_text_block",
+          "settings": {
+            "comments_title": "<p>@Alex Glanville</p>",
+            "comments_small_title": "<p>Yarbo User</p>",
+            "comments_text": "<p>\"My Yarbo journey involved me manually controlling Yarbo to my neighbors sidewalk and clearing it for them. I cleared my driveway with a shovel before work and again afterwork -- I bet if I let it be there would have been adequate snow for Yarbo to eat after I got home.\"</p>",
+            "people_url": "",
+            "picture_image": "shopify://shop_images/832ac74e-d873-4dd5-8105-deb37dddf1cd.webp",
+            "picture_url": "",
+            "picture_youtube_video_url": "",
+            "picture_firework_video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_BjctWR",
+        "image_text_block_7dVAM7",
+        "image_text_block_pFxfp7",
+        "image_text_block_yEKzzg"
+      ],
+      "name": "Yarbo Comments display",
+      "settings": {
+        "anchor_id": "User_Reviews",
+        "bg_color": "#f5f5f5",
+        "common_title": "<p><strong>Interesting Minds Gather Here</strong></p>",
+        "common_content": "<p>There's more waiting for you in the community!</p>",
+        "common_button_text": "Join Now",
+        "M-swiper-show": false,
+        "common_button_type": "link",
+        "common_button_link": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fgroups%2F1714379818996666",
+        "common_button_anchor": "",
+        "common_button_modal_title": "",
+        "common_button_modal_content": "",
+        "padding_top_1920": 100,
+        "padding_bottom_1920": 100,
+        "padding_top_1440": 100,
+        "padding_bottom_1440": 100,
+        "padding_top_960": 64,
+        "padding_bottom_960": 64,
+        "padding_top_680": 64,
+        "padding_bottom_680": 64,
+        "padding_top_375": 48,
+        "padding_bottom_375": 48
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_9JHYQ4",
+    "yb_banner_swiper_Vqhy3b",
+    "yb_tabs_section_jA9beG",
+    "yb_custom_grid_richtext_TtwBX8",
+    "yb_multicolumn_HQp8kh",
+    "yb_rich_photo_gallery_H4ztkG",
+    "yarbo_comments_display_KrjbHc"
+  ]
+}

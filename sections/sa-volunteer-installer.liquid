@@ -1,0 +1,20 @@
+{% if customer.id %}
+  {% render 'main-installer1' %}
+  {% render 'main-installer2' %}
+{% else %}
+  <script>
+    window.location.href = '{{ routes.account_login_url }}';
+  </script>
+{% endif %}
+{% schema %}
+{
+  "name": "Volunteer Installer",
+  "class": "migrated-page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Volunteer Installer"
+    }
+  ]
+}
+{% endschema %}

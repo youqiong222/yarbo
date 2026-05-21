@@ -1,0 +1,106 @@
+{%- comment -%}
+  Renders product variant information for a given product.
+  Accepts:
+  - variant: {Object} passing the block information.
+  - handle: {String} product handle for the product.
+  - type: {String} determines the type of rendering, either 'variant' or 'product' (optional, defaults to 'variant').
+  - main_product: {Object} the main product object.
+  Usage:
+  {% render 'product-variant', variant: variant, handle: handle %}
+{%- endcomment -%}
+{%- liquid
+  assign checked = false
+  if type == 'variant'
+    if variant.product.selected_or_first_available_variant.id == variant.id
+      assign checked = true
+    endif
+  else
+    if main_product.selected_or_first_available_variant.id == variant.id
+      assign checked = true
+    endif
+  endif
+-%}
+<a
+  {% if checked %}
+    data-checked='true'
+  {% endif %}
+  {% if checked and variant.available == false %}
+    href='javascript:void(0)'
+  {% else %}
+    href='{{ variant.url }}'
+  {% endif %}
+  data-product-handle='{{ handle }}'
+  data-variant-id='{{ variant.id }}'
+  class='cursor-pointer'
+>
+  <div class='{% unless variant.available %}opacity-50{% endunless %} flex items-center gap-16 border bg-[#FCFCFC] p-8 hover:border-[#25282A] {% if checked %}border-[#25282A]{% else %}border-[#CCCCCC]{% endif %}'>
+    <div class='h-104 w-104'>
+      {% if type == 'variant' %}
+        {% if variant.featured_image != blank %}
+          <img
+            width='auto'
+            height='auto'
+            class='h-full w-full object-contain'
+            src='{{ variant.featured_image | image_url: width: 180 }}'
+            alt='{{ variant.title }}'
+          >
+        {% else %}
+          <img
+            width='auto'
+            height='auto'
+            class='h-full w-full object-contain'
+            src='{{ variant.product.featured_image | image_url: width: 180 }}'
+            alt='{{ variant.title }}'
+          >
+        {% endif %}
+      {% else %}
+        <img
+          width='auto'
+          height='auto'
+          class='h-full w-full object-contain'
+          src='{{ variant.product.featured_image | image_url: width: 180 }}'
+          alt='{{ variant.product.title }}'
+        >
+      {% endif %}
+    </div>
+    <div>
+      {% if variant.metafields.custom.option_tag != blank %}
+        <span class='mb-2 inline-flex bg-[#0D0D0D] px-12 py-4 text-[12px] font-bold text-[#DDBA00]'>
+          {{ variant.metafields.custom.option_tag.value }}
+        </span>
+      {% endif %}
+      <h3 class='text-[17px] uppercase md:text-[20px]'>
+        {% if type == 'variant' %}
+          {{ variant.title -}}
+          {%- unless variant.available -%}
+            (
+            {{ 'products.product.sold_out' | t -}}
+            )
+          {%- endunless %}
+        {% else %}
+          {{ variant.product.title -}}
+          {%- unless variant.available -%}
+            (
+            {{ 'products.product.sold_out' | t -}}
+            )
+          {%- endunless %}
+        {% endif %}
+      </h3>
+      <div class='mt-2 flex gap-4'>
+        <div class='text-[13px] md:text-[14px]'>
+          {{ variant.price | money }}
+        </div>
+        {%- if variant.compare_at_price != blank and variant.compare_at_price > variant.price -%}
+          <div class='text-[13px] text-[#A6A6A6] line-through md:text-[14px]'>
+            {{ variant.compare_at_price | money }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  {% if variant.metafields.custom.option_tips != blank %}
+    <div class='bg-[#FCFAF2] px-20 py-16 text-[12px] md:px-24'>
+      {{ variant.metafields.custom.option_tips.value }}
+    </div>
+  {% endif %}
+</a>

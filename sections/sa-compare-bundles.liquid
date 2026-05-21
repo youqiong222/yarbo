@@ -1,0 +1,493 @@
+{% comment %}
+  Compare Bundles Section
+  - Schema product_list 选择产品
+  - 产品元字段 custom.compare_specs (JSON) 存储对比参数
+  - 元字段结构:
+    {
+      "categories": [
+        {
+          "name": "GRASS",
+          "items": [
+            { "key": "mowing_motor_power", "label": "Mowing Motor Power", "value": "Dual 300W motors", "highlight": true }
+          ]
+        }
+      ]
+    }
+  - 用 Alpine.js + Tailwind (spacing 1 = 1px)
+  - 用 Section Rendering API 实现 add to cart
+{% endcomment %}
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<style>
+  .compare-bundles-section .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .compare-bundles-section .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<div
+  x-data='compareBundles()'
+  x-init='init()'
+  @resize.window='onResize()'
+  class='compare-bundles-section mx-auto w-full max-w-1180 px-16 lg:px-40 {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+>
+  <!-- 标题 -->
+  {% if section.settings.title != blank %}
+    <h2 class='mb-60 text-center text-[20px] leading-none font-extrabold sm:text-[52px]'>
+      {{ section.settings.title }}
+    </h2>
+  {% endif %}
+
+  <!-- 产品选择卡片 -->
+  <div class='mb-8 sm:grid sm:grid-cols-[160px_repeat(3,1fr)] sm:gap-0'>
+    <div class='hidden bg-white p-16 sm:block'>
+      <p class='text-[14px] font-semibold text-[#6E6E73]'>Features</p>
+    </div>
+
+    <div
+      class='hide-scrollbar flex snap-x snap-mandatory gap-12 overflow-x-auto sm:col-span-3 sm:grid sm:grid-cols-3 sm:gap-0'
+    >
+      <template
+        x-for='(slot, idx) in slots'
+        :key='idx'
+      >
+        <div
+          x-show='isSmUp || idx < 2'
+          class='flex flex-1 shrink-0 snap-start flex-col bg-white sm:w-auto sm:px-6'
+        >
+          <!-- Select dropdown -->
+          <div class='relative sm:mb-32'>
+            <select
+              class='min-h-44 w-full cursor-pointer appearance-none border border-[#ccc] bg-white px-12 py-8 pr-32 text-[12px] leading-[1.3] font-bold whitespace-normal outline-none focus:border-[#FEDB1E] sm:text-[13px]'
+              :value='slot.handle'
+              @change='selectProduct(idx, $event.target.value)'
+            >
+              {% for product in section.settings.product_list %}
+                <option
+                  value='{{ product.handle }}'
+                  :disabled="isProductUsed('{{ product.handle }}', idx)"
+                >
+                  {{ product.title }}
+                </option>
+                <svg
+                  x-show='slot.loading'
+                  class='absolute top-1/2 left-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 animate-spin'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                >
+                  <circle cx='12' cy='12' r='10' stroke='currentColor' stroke-opacity='0.25' stroke-width='2'></circle>
+                  <path d='M22 12a10 10 0 00-10-10' stroke='currentColor' stroke-width='2' stroke-linecap='round'></path>
+                </svg>
+              {% endfor %}
+            </select>
+            <svg
+              class='pointer-events-none absolute top-1/2 right-8 h-16 w-16 -translate-y-1/2 text-[#6E6E73]'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+
+          <!-- 产品图片 -->
+          <div class='rounded-12 mb-16 flex aspect-square items-center justify-center overflow-hidden'>
+            <template x-if='slot.image'>
+              <img
+                width='auto'
+                height='auto'
+                :src='slot.image'
+                :alt='slot.title'
+                class='h-full w-full object-contain'
+              >
+            </template>
+            <template x-if='!slot.image'>
+              <span class='text-[14px] text-[#B3B4B6]'>No product selected</span>
+            </template>
+          </div>
+
+          <!-- 按钮 -->
+          <div class='mt-auto flex flex-col gap-8 sm:flex-row'>
+            <template x-if='slot.url'>
+              <a
+                :href='slot.url'
+                class='flex flex-1 items-center justify-center border border-[#CCCCCC] py-10 text-center text-[14px] transition-colors duration-300 hover:border-[#25282A] hover:bg-[#25282A] hover:text-white sm:text-[15px]'
+              >
+                {{ 'button.learn_more' | t }}
+              </a>
+            </template>
+            <template x-if='slot.variantId'>
+              <div
+                @click='addToCart(idx)'
+                class='relative flex-1 cursor-pointer bg-[#25282A] py-10 text-center text-[14px] text-white transition-colors duration-300 hover:border-[#FEDB1E] hover:bg-[#FEDB1E] hover:text-[#25282A] disabled:cursor-not-allowed disabled:opacity-70 sm:text-[15px]'
+                :disabled='!slot.available || slot.loading'
+              >
+                <span
+                  x-text="slot.loading ? 'Adding...' : (slot.available ? 'Add to Cart' : 'Sold Out')"
+                ></span>
+              </div>
+            </template>
+          </div>
+          <p
+            x-show='slot.error'
+            x-text='slot.error'
+            class='mt-8 text-[12px] text-[#D92D20]'
+          ></p>
+        </div>
+      </template>
+    </div>
+  </div>
+
+  <!-- 对比表格 -->
+  <div class='rounded-16 mt-32 border border-[#CCCCCC] bg-white'>
+    <template
+      x-for='(cat, catIdx) in allCategories'
+      :key='cat'
+    >
+      <div class='border-b border-[#CCCCCC] last:border-b-0'>
+        <!-- 类目标题 -->
+        <button
+          class='flex w-full cursor-pointer items-center justify-between border-0 bg-[#cccc] p-16 py-16 text-left sm:px-24'
+          @click='toggleCategory(cat)'
+        >
+          <span
+            class='text-[14px] font-semibold uppercase sm:text-[22px]'
+            x-text='cat'
+          ></span>
+          <svg
+            class='h-20 w-20 text-[#6E6E73] transition-transform'
+            :class="openCategories.includes(cat) ? 'rotate-180' : ''"
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+
+        <!-- 子项 -->
+        <div
+          x-show='openCategories.includes(cat)'
+          x-collapse
+        >
+          <div class='hide-scrollbar overflow-x-auto'>
+            <template
+              x-for='(item, itemIdx) in getCategoryItems(cat)'
+              :key='item.key'
+            >
+              <div class='border-t border-[#F0F0F0]'>
+                <!-- H5: 参数名在上，值在下方分列 -->
+                <div class='sm:hidden'>
+                  <p
+                    class='px-16 pt-16 pb-8 text-[14px] font-semibold'
+                    x-text='item.label'
+                  ></p>
+                  <div
+                    class='grid gap-0 px-16 pb-16'
+                    :style="'grid-template-columns: repeat(' + visibleSlots.length + ', minmax(0, 1fr));'"
+                  >
+                    <template
+                      x-for='(slot, sIdx) in visibleSlots'
+                      :key="'val-m-' + sIdx"
+                    >
+                      <span
+                        class='pr-12 text-[14px] whitespace-pre-line'
+                        x-text='getItemValue(slot.handle, cat, item.key).value'
+                      ></span>
+                    </template>
+                  </div>
+                </div>
+
+                <!-- PC: 保持原结构（参数名在左） -->
+                <div
+                  class='hidden items-center sm:grid'
+                  :style="'grid-template-columns: 160px repeat(' + visibleSlots.length + ', minmax(120px, 1fr)); min-width: calc(160px + ' + visibleSlots.length + ' * 140px)'"
+                >
+                  <span
+                    class='z-10 bg-white px-24 py-12 text-[14px] font-medium text-[#6E6E73]'
+                    x-text='item.label'
+                  ></span>
+                  <template
+                    x-for='(slot, sIdx) in visibleSlots'
+                    :key="'val-pc-' + sIdx"
+                  >
+                    <span
+                      class='px-12 py-12 text-[14px] whitespace-pre-line'
+                      x-text='getItemValue(slot.handle, cat, item.key).value'
+                    ></span>
+                  </template>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </template>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('compareBundles', () => ({
+      maxSlots: 3,
+      isSmUp: false,
+      slots: [],
+      allCategories: [],
+      openCategories: [],
+      productsData: {},
+
+      get visibleSlots() {
+        return this.isSmUp ? this.slots : this.slots.slice(0, 2);
+      },
+
+      init() {
+        this.isSmUp = window.matchMedia('(min-width: 768px)').matches;
+        const max = this.maxSlots;
+        this.slots = [];
+        for (let i = 0; i < max; i++) {
+          this.slots.push({ handle: '', title: '', image: '', url: '', price: '', variantId: null, available: false, loading: false, error: '' });
+        }
+
+        {% for product in section.settings.product_list %}
+          this.productsData['{{ product.handle }}'] = {
+            title: {{ product.title | json }},
+            image: {{ product.featured_image | image_url: width: 600 | json }},
+            url: {{ product.url | json }},
+            price: {{ product.price | money | json }},
+            variantId: {{ product.selected_or_first_available_variant.id | json }},
+            available: {{ product.selected_or_first_available_variant.available | json }},
+            specs: null
+          };
+          {% assign specs_meta = product.metafields.custom.compare_specs.value %}
+          {% if specs_meta != blank %}
+            try {
+              this.productsData['{{ product.handle }}'].specs = this.normalizeSpec({{ specs_meta | json }});
+            } catch(e) {
+              console.error('Failed to parse specs for {{ product.handle }}', e);
+            }
+          {% endif %}
+        {% endfor %}
+
+        const handles = Object.keys(this.productsData);
+        for (let i = 0; i < Math.min(max, handles.length); i++) {
+          this.slots[i] = { ...this.slots[i], ...this._buildSlot(handles[i]) };
+        }
+
+        this._rebuildCategories();
+      },
+
+      onResize() {
+        const next = window.matchMedia('(min-width: 768px)').matches;
+        if (next !== this.isSmUp) {
+          this.isSmUp = next;
+          this._rebuildCategories();
+        }
+      },
+
+      _buildSlot(handle) {
+        const p = this.productsData[handle];
+        if (!p) return { handle: '', title: '', image: '', url: '', price: '', variantId: null, available: false, loading: false, error: '' };
+        return {
+          handle: handle,
+          title: p.title,
+          image: p.image,
+          url: p.url,
+          price: p.price,
+          variantId: p.variantId,
+          available: p.available,
+          loading: false,
+          error: ''
+        };
+      },
+
+      selectProduct(idx, handle) {
+        if (handle === '') {
+          this.slots[idx] = { handle: '', title: '', image: '', url: '', price: '', variantId: null, available: false, loading: false, error: '' };
+        } else {
+          this.slots[idx] = { ...this.slots[idx], ...this._buildSlot(handle) };
+        }
+        this._rebuildCategories();
+      },
+
+      isProductUsed(handle, currentIdx) {
+        return this.slots.some((s, i) => i !== currentIdx && s.handle === handle);
+      },
+
+      normalizeSpec(raw) {
+        if (!raw) return [];
+        if (Array.isArray(raw)) return raw;
+        if (Array.isArray(raw.categories)) return raw.categories;
+        if (Array.isArray(raw.value)) return raw.value;
+        if (raw.value && Array.isArray(raw.value.categories)) return raw.value.categories;
+        return [];
+      },
+
+      getSpecGroups(handle) {
+        return this.normalizeSpec(this.productsData[handle]?.specs);
+      },
+
+      _rebuildCategories() {
+        const catSet = new Set();
+        this.visibleSlots.forEach(slot => {
+          this.getSpecGroups(slot.handle).forEach(c => catSet.add(c.name));
+        });
+        this.allCategories = [...catSet];
+        this.openCategories = [...catSet];
+      },
+
+      toggleCategory(cat) {
+        const idx = this.openCategories.indexOf(cat);
+        if (idx >= 0) {
+          this.openCategories.splice(idx, 1);
+        } else {
+          this.openCategories.push(cat);
+        }
+      },
+
+      getCategoryItems(cat) {
+        const itemsMap = new Map();
+        this.visibleSlots.forEach(slot => {
+          const category = this.getSpecGroups(slot.handle).find(c => c.name === cat);
+          if (category && category.items) {
+            category.items.forEach(item => {
+              if (!itemsMap.has(item.key)) {
+                itemsMap.set(item.key, { key: item.key, label: item.label });
+              }
+            });
+          }
+        });
+        return [...itemsMap.values()];
+      },
+
+      getItemValue(handle, cat, key) {
+        const category = this.getSpecGroups(handle).find(c => c.name === cat);
+        if (category && category.items) {
+          const item = category.items.find(i => i.key === key);
+          if (item) return { value: item.value, highlight: item.highlight || false };
+        }
+        return { value: '-', highlight: false };
+      },
+
+      addToCart(idx) {
+        const slot = this.slots[idx];
+        const variantId = slot?.variantId;
+        if (!variantId) return;
+
+        this.slots[idx] = { ...slot, loading: true, error: '' };
+
+        const cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+        const config = fetchConfig('javascript');
+        config.headers['X-Requested-With'] = 'XMLHttpRequest';
+        delete config.headers['Content-Type'];
+
+        const formData = new FormData();
+        formData.append('id', variantId);
+        formData.append('quantity', 1);
+        if (cart) {
+          formData.append(
+            'sections',
+            cart.getSectionsToRender().map((section) => section.id)
+          );
+          formData.append('sections_url', window.location.pathname);
+          cart.setActiveElement(document.activeElement);
+        }
+        config.body = formData;
+
+        fetch(routes.cart_add_url, config)
+          .then((response) => response.json())
+          .then((response) => {
+            if (response.status) {
+              this.slots[idx] = {
+                ...this.slots[idx],
+                error: response.description || response.message || 'Failed to add to cart.'
+              };
+              return;
+            }
+            if (!cart) {
+              window.location = window.routes.cart_url;
+              return;
+            }
+            publish(PUB_SUB_EVENTS.cartUpdate, {
+              source: 'compare-bundles',
+              productVariantId: variantId,
+              cartData: response,
+            });
+            cart.renderContents(response);
+          })
+          .catch((e) => {
+            console.error(e);
+            this.slots[idx] = {
+              ...this.slots[idx],
+              error: 'Network error. Please try again.'
+            };
+          })
+          .finally(() => {
+            this.slots[idx] = { ...this.slots[idx], loading: false };
+          });
+      }
+    }));
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Compare Bundles",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 56
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 56
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "COMPARE BUNDLES"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Porduct List"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Compare Bundles"
+    }
+  ]
+}
+{% endschema %}

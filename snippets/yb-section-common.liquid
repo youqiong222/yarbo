@@ -1,0 +1,27 @@
+{{ 'yb-section-common.css' | asset_url | stylesheet_tag }}
+
+<div class="yb-section-common">
+  {% if section.settings.common_title != blank %}
+    <div class="yb-section-common-title">
+      {{ section.settings.common_title }}
+    </div>
+  {% endif %}
+
+  {% if section.settings.common_content != blank %}
+    <div class="yb-section-common-content">
+      {{ section.settings.common_content }}
+    </div>
+  {% endif %}
+
+  {% if section.settings.common_button_text != blank %}
+    <div class="yb-section-common-button">
+      {% capture button_class %}{{ section.settings.common_button_class }} yb-common-button{% endcapture %}
+      {% render 'yb-button',
+        type: section.settings.common_button_type,
+        class: button_class,
+        tag: 'common_button',
+        config: section.settings
+      %}
+    </div>
+  {% endif %}
+</div>

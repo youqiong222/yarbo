@@ -1,0 +1,118 @@
+<style>
+  .section-carousel_scroll {
+    animation: scroll var(--carousel-speed, 20s) linear infinite normal;
+  }
+
+  .section-carousel:hover .section-carousel_scroll {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+<section
+  class='section-carousel overflow-x flex {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+  id='Carousel-{{ section.id }}'
+>
+  <div
+    class='section-carousel flex h-92 w-full overflow-x-hidden whitespace-normal'
+    style='--carousel-speed: 30s;'
+  >
+    {% for i in (1..4) %}
+      <div class='section-carousel_scroll flex'>
+        {% for block in section.blocks %}
+          <div class='section-carousel_item mr-12 inline-flex items-center md:mr-24'>
+            {% if block.settings.img != blank %}
+              <div class='section-carousel_item_icon flex h-full'>
+                <img
+                  src='{{ block.settings.img | image_url: width: 600 }}'
+                  alt='{{ block.settings.img.alt }}'
+                  width='auto'
+                  height='auto'
+                >
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Carousel",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "item",
+      "type": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image",
+          "info": "40 x 40 px .jpg recommended"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Carousel",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

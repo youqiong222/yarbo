@@ -1,0 +1,231 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+{%- assign use_swiper = true -%}
+<div class='overflow-hidden {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <div class='page-container'>
+    <div class='relative'>
+      <div class='awards-container-{{ section.id }} {% if use_swiper %}swiper [overflow:unset] md:overflow-hidden{% endif %}'>
+        <div class='{% if use_swiper %}swiper-wrapper{% else %}grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4{% endif %}'>
+          {%- for block in section.blocks -%}
+            <div
+              class='{% if use_swiper %}swiper-slide{% endif %} flex cursor-pointer flex-col gap-24 bg-[#F2F2F2] px-20 py-24 md:gap-32 md:px-24 md:py-32'
+              {{ block.shopify_attributes }}
+            >
+              <div class='image-wrapper mb-6 flex items-start'>
+                {%- if block.settings.award_img != blank -%}
+                  {% render 'media-element',
+                    media_type: 'image',
+                    class: 'w-auto h-auto',
+                    media_class: 'w-auto h-40 sm:h-60',
+                    pc_image: block.settings.award_img,
+                    h5_image: block.settings.h5_award_img
+                  %}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'w-auto h-60 text-gray-300' }}
+                {%- endif -%}
+              </div>
+
+              <div class='text-wrapper mt-auto'>
+                <span class='text-[13px]/[1.4] font-bold text-[#25282A]'>
+                  {{ block.settings.text }}
+                </span>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- if use_swiper -%}
+        <div class='hidden [&.swiper-button-disabled]:opacity-0 swiper-button-prev-{{ section.id }} absolute top-1/2 left-0 z-1 h-48 w-48 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-[#CCCCCC] bg-white backdrop-blur-[5px] md:flex'>
+          <svg
+            style='transform: rotate(-180deg);'
+            width='8'
+            height='14'
+            viewBox='0 0 8 14'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d="M0.919353 0.919434L6.75269 6.75277L0.919352 12.5861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+          </svg>
+        </div>
+        <div class='hidden [&.swiper-button-disabled]:opacity-0 swiper-button-next-{{ section.id }} absolute top-1/2 right-0 z-1 h-48 w-48 translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-[#CCCCCC] bg-white backdrop-blur-[5px] md:flex'>
+          <svg
+            width='8'
+            height='14'
+            viewBox='0 0 8 14'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d="M0.919353 0.919434L6.75269 6.75277L0.919352 12.5861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+          </svg>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{%- if use_swiper -%}
+  <script>
+    (() => {
+      const swiperContainer = document.querySelector(
+        '.awards-container-{{ section.id }}',
+      );
+
+      if (swiperContainer && typeof Swiper !== 'undefined') {
+        const awardsSwiper = new Swiper(swiperContainer, {
+          slidesPerView: 2,
+          spaceBetween: 16,
+          navigation: {
+            nextEl: '.swiper-button-next-{{ section.id }}',
+            prevEl: '.swiper-button-prev-{{ section.id }}',
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 2.4,
+              spaceBetween: 8,
+            },
+            {% if section.blocks.size == 3 %}
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 8,
+            },
+            {% elsif section.blocks.size == 4 %}
+            1000: {
+              slidesPerView: 4,
+              spaceBetween: 8,
+            },
+            {% elsif section.blocks.size == 5 %}
+            1000: {
+              slidesPerView: 5,
+              spaceBetween: 8,
+            },
+            {% elsif section.blocks.size >= 6 %}
+            1000: {
+              slidesPerView: 4,
+              spaceBetween: 8,
+            },
+            1400: {
+              slidesPerView: 6,
+              spaceBetween: 8,
+            }
+            {% endif %}
+          }
+        });
+      }
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Index Awards",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Red Dot Design Award"
+        },
+        {
+          "type": "image_picker",
+          "id": "award_img",
+          "label": "Award Image (PC)"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_award_img",
+          "label": "Award Image (Mobile)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Index Awards",
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

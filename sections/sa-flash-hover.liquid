@@ -1,0 +1,822 @@
+<style>
+  .yb-section-common + .yb-product-collection-container,
+  .yb-product-collection-container + .yb-product-collection-container {
+    margin: 32px auto 0;
+  }
+
+  .yb-product-collection-container {
+    display: flex;
+  }
+
+  .yb-product-collection-card {
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 16px;
+    padding: 16px;
+    width: 255px !important;
+    height: 304px !important;
+    background-color: white;
+  }
+
+  .yb-product-collection-card:hover {
+    box-shadow:
+      0 12px 20px 6px rgba(96, 109, 128, 0.04),
+      0 8px 16px 4px rgba(96, 109, 128, 0.04),
+      0 4px 14px 0 rgba(98, 111, 131, 0.04);
+  }
+
+  .yb-product-collection-card .score + .title {
+    margin-top: 12px;
+  }
+
+  .yb-product-collection-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+  }
+
+  .yb-product-collection-card .product-img {
+    transition: 0.3s ease;
+  }
+
+  .yb-product-collection-card .icon {
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: auto;
+    z-index: 1;
+  }
+
+  .yb-product-collection-card .price + .compare-at-price {
+    margin-top: 4px;
+  }
+
+  .yb-product-collection-btn {
+    display: inline-block;
+    background-color: #fedb1e;
+    border-radius: 16px;
+    height: 32px;
+    font-size: 10.5px;
+    line-height: 32px;
+    padding: 0 16px;
+    color: #02060b;
+    font-weight: 600px;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .yb-product-collection-btn:hover {
+    background-color: #25282a;
+    color: #ffffff;
+  }
+
+  .yb-product-collection-card-style1 img {
+    top: 0;
+    transition: 0.3s ease;
+    left: 0;
+  }
+
+  .yb-product-collection-card .title {
+    font-weight: 700;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+  }
+
+  .yb-product-collection-card-style1 .title {
+    height: auto;
+    font-size: 20px;
+    margin-top: 24px;
+    margin-left: 16px;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+  }
+
+  .yb-product-collection-card-style1 .yb-product-collection-btn {
+    position: relative;
+    z-index: 1;
+  }
+
+  .yb-product-collection-card-style1 .title + .yb-product-collection-btn {
+    margin-top: 8px;
+  }
+
+  .yb-product-collection-card .score {
+    height: 17px;
+    margin-left: -2px;
+  }
+
+  .yb-product-collection-card .score-text {
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: 600;
+    margin-left: 4px;
+    color: #cccdce;
+    float: left;
+  }
+
+  .yb-product-collection-card .star-icon {
+    float: left;
+  }
+
+  .yb-product-collection-card .price {
+    font-weight: 400;
+  }
+
+  .yb-product-collection-card .compare-at-price {
+    color: #b3b4b6;
+    text-decoration: line-through;
+    font-size: 400;
+  }
+
+  @media screen and (max-width: 959px) {
+    .yb-product-collection {
+      padding-right: 0px;
+      overflow: hidden;
+    }
+
+    .yb-product-collection-card .product-img {
+      display: block;
+      position: static;
+    }
+
+    .yb-product-collection-card .price-container {
+      position: relative;
+    }
+
+    .yb-product-collection-card .yb-product-collection-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 0;
+    }
+
+    .yb-product-collection-card-style1 .yb-product-collection-btn {
+      position: relative;
+    }
+  }
+
+  @media screen and (max-width: 679px) {
+    .yb-product-collection-card-style1 .yb-product-collection-btn {
+      padding: 0 24px;
+      margin-left: 16px;
+    }
+
+    .yb-product-collection-card .product-img {
+      width: 135.39px;
+      height: 135.39px;
+      margin: 19.78px auto 0;
+    }
+
+    .yb-product-collection-card .price-container {
+      margin-top: 29.83px;
+    }
+
+    .yb-product-collection-card .price {
+      height: 18px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .yb-product-collection-card .title.empty-score {
+      height: 40px;
+      margin-bottom: 28.78px;
+    }
+
+    .yb-product-collection-card .title.empty-score:not(.empty-icon) {
+      width: 175px;
+    }
+
+    .yb-product-collection-card .compare-at-price {
+      height: 17px;
+      font-size: 12px;
+      line-height: 17px;
+      margin-top: 4px;
+    }
+
+    .yb-product-collection-card .star-icon {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  @media screen and (min-width: 680px) and (max-width: 959px) {
+    .yb-section-common + .yb-product-collection-container,
+    .yb-product-collection-container + .yb-product-collection-container {
+      margin-top: 48px;
+    }
+
+    .yb-product-collection-card {
+      padding: 24px;
+      width: 388px !important;
+      height: 462px !important;
+    }
+
+    .yb-product-collection-card .icon {
+      top: 24px;
+      right: 24px;
+      width: 67px;
+    }
+
+    .yb-product-collection-card .title {
+      height: 34px;
+      font-size: 24px;
+      line-height: 34px;
+    }
+
+    .yb-product-collection-card .title.empty-score {
+      height: 61px;
+    }
+
+    .yb-product-collection-card .title.empty-score:not(.empty-icon) {
+      width: 268px;
+    }
+
+    .yb-product-collection-card-style1 .title {
+      height: auto;
+      font-size: 30px;
+      margin-top: 36px;
+      margin-left: 24px;
+      line-height: 41px;
+    }
+
+    .yb-product-collection-btn {
+      border-radius: 24px;
+      height: 48px;
+      font-size: 16px;
+      line-height: 48px;
+      padding: 0 26px;
+    }
+
+    .yb-product-collection-card-style1 .yb-product-collection-btn {
+      padding: 0 40px;
+      margin-left: 24px;
+    }
+
+    .yb-product-collection-card-style1 .title + .yb-product-collection-btn {
+      margin-top: 15px;
+    }
+
+    .yb-product-collection-card .score + .title {
+      margin-top: 1px;
+    }
+
+    .yb-product-collection-card .score {
+      height: 26px;
+    }
+
+    .yb-product-collection-card .score-text {
+      font-size: 18.84px;
+      line-height: 26px;
+      margin-left: 6.3px;
+    }
+
+    .yb-product-collection-card .product-img {
+      width: 206px;
+      height: 206px;
+      margin: 33px auto 0;
+    }
+
+    .yb-product-collection-card .price-container {
+      margin-top: 46px;
+    }
+
+    .yb-product-collection-card .price {
+      height: 28px;
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .yb-product-collection-card .compare-at-price {
+      height: 25px;
+      font-size: 18px;
+      line-height: 25px;
+      margin-top: 4px;
+    }
+
+    .yb-product-collection-card .yb-product-collection-btn {
+      bottom: 5px;
+    }
+
+    .yb-product-collection-card .star-icon {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .yb-product-collection-container .swiper-wrapper {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .yb-product-collection-card .score + .title {
+      margin-top: 1px;
+    }
+
+    .yb-product-collection-card .title.empty-icon {
+      width: 100%;
+    }
+
+    .yb-product-collection-card .price-container {
+      position: absolute;
+      transform: translateY(0px);
+      top: 154px;
+    }
+
+    .yb-product-collection-card-style3 .price-container {
+      top: 95px;
+    }
+
+    .yb-product-collection-card {
+      flex-basis: calc(25% - 12px);
+      padding: 24px;
+      width: unset;
+      transition: 0.3s ease;
+    }
+
+    .yb-product-collection-card-style1:hover img,
+    .yb-product-collection-card:hover .product-img {
+      transform: scale(1.05);
+    }
+
+    .yb-product-collection-card .price + .compare-at-price {
+      margin-top: 2px;
+    }
+
+    .yb-product-collection-card .yb-product-collection-btn {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .yb-product-collection-card .yb-product-collection-btn {
+      margin-top: 12px;
+    }
+
+    .yb-product-collection-card-style3 .yb-product-collection-btn {
+      margin-top: 8px;
+    }
+
+    .yb-product-collection-card .score {
+      height: 17px;
+    }
+
+    .yb-product-collection-card .score-text {
+      font-size: 12px;
+      line-height: 17px;
+      margin-left: 4px;
+      float: left;
+    }
+
+    .yb-product-collection-card .star-icon {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  @media screen and (min-width: 960px) and (max-width: 1439px) {
+    .yb-section-common + .yb-product-collection-container {
+      margin-top: 48px;
+    }
+
+    .yb-product-collection-card {
+      height: 253px !important;
+      padding: 16px;
+    }
+
+    .yb-product-collection-card .score + .title {
+      margin-top: 4px;
+    }
+
+    .yb-product-collection-card .icon {
+      width: 48px;
+    }
+
+    .yb-product-collection-card .product-img {
+      top: 78px;
+      right: 16px;
+      width: 100px;
+      height: 100px;
+    }
+
+    .yb-product-collection-card-style3 .product-img {
+      top: 45px;
+    }
+
+    .yb-product-collection-card .title {
+      height: 20px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .yb-product-collection-card-style3 .title {
+      max-height: 60px;
+      height: auto;
+      width: 140px;
+    }
+
+    .yb-product-collection-card-style2 .title {
+      max-height: 40px;
+      height: auto;
+      width: 125px;
+    }
+
+    .yb-product-collection-card-style1 .title {
+      height: auto;
+      font-size: 16px;
+      margin-top: 20px;
+      margin-left: 16px;
+      line-height: 22px;
+    }
+
+    .yb-product-collection-btn {
+      font-size: 12px;
+    }
+
+    .yb-product-collection-card-style1 .yb-product-collection-btn {
+      margin-left: 16px;
+    }
+
+    .yb-product-collection-card-style1 .title + .yb-product-collection-btn {
+      margin-top: 16px;
+    }
+
+    .yb-product-collection-card-style3 {
+      flex-basis: calc((100% - 32px) / 3);
+      height: 190px !important;
+    }
+
+    .yb-product-collection-card .price {
+      height: 20px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .yb-product-collection-card .compare-at-price {
+      height: 17px;
+      font-size: 12px;
+      line-height: 17px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) and (max-width: 1919px) {
+    .yb-section-common + .yb-product-collection-container {
+      margin-top: 56px;
+    }
+
+    .yb-product-collection-card {
+      height: 335px !important;
+      padding: 24px;
+    }
+
+    .yb-product-collection-card .icon {
+      top: 24px;
+      right: 24px;
+      width: 64px;
+    }
+
+    .yb-product-collection-card .product-img {
+      top: 97px;
+      right: 24px;
+      width: 120px;
+      height: 116px;
+    }
+
+    .yb-product-collection-card-style3 .product-img {
+      top: 28px;
+    }
+
+    .yb-product-collection-card .title {
+      height: 25px;
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    .yb-product-collection-card-style1 .title {
+      height: auto;
+      font-size: 24px;
+      margin-top: 24px;
+      margin-left: 24px;
+      line-height: 29px;
+    }
+
+    .yb-product-collection-card-style3 .title {
+      max-height: 75px;
+      height: auto;
+      width: 188px;
+    }
+
+    .yb-product-collection-card-style2 .title {
+      max-height: 50px;
+      height: auto;
+      width: 164px;
+    }
+
+    .yb-product-collection-btn {
+      font-size: 12px;
+    }
+
+    .yb-product-collection-card-style1 .yb-product-collection-btn {
+      margin-left: 24px;
+    }
+
+    .yb-product-collection-card-style1 .title + .yb-product-collection-btn {
+      margin-top: 16px;
+    }
+
+    .yb-product-collection-card-style3 {
+      flex-basis: calc((100% - 32px) / 3);
+      height: 196px !important;
+    }
+
+    .yb-product-collection-card .price-container {
+      top: 212px;
+    }
+
+    .yb-product-collection-card-style3 .price-container {
+      top: 88px;
+    }
+
+    .yb-product-collection-card .price {
+      height: 22px;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .yb-product-collection-card .compare-at-price {
+      height: 20px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    .yb-section-common + .yb-product-collection-container {
+      margin-top: 64px;
+    }
+
+    .yb-product-collection-card {
+      height: 324px !important;
+      padding: 24px;
+    }
+
+    .yb-product-collection-card .icon {
+      top: 24px;
+      right: 24px;
+      width: 64px;
+    }
+
+    .yb-product-collection-card .product-img {
+      top: 97px;
+      right: 24px;
+      width: 142px;
+      height: 142px;
+    }
+
+    .yb-product-collection-card-style3 .product-img {
+      top: 28px;
+    }
+
+    .yb-product-collection-card .title {
+      height: 25px;
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    .yb-product-collection-card-style1 .title {
+      height: auto;
+      font-size: 24px;
+      margin-top: 24px;
+      margin-left: 24px;
+      line-height: 29px;
+    }
+
+    .yb-product-collection-card-style3 .title {
+      max-height: 75px;
+      height: auto;
+      width: 254px;
+    }
+
+    .yb-product-collection-card-style2 .title {
+      max-height: 50px;
+      height: auto;
+      width: 210px;
+    }
+
+    .yb-product-collection-btn {
+      font-size: 12px;
+    }
+
+    .yb-product-collection-card-style1 .yb-product-collection-btn {
+      margin-left: 24px;
+    }
+
+    .yb-product-collection-card-style1 .title + .yb-product-collection-btn {
+      margin-top: 16px;
+    }
+
+    .yb-product-collection-card-style3 {
+      flex-basis: calc((100% - 32px) / 3);
+      height: 196px !important;
+    }
+
+    .yb-product-collection-card .price-container {
+      top: 212px;
+    }
+
+    .yb-product-collection-card-style3 .price-container {
+      top: 88px;
+    }
+
+    .yb-product-collection-card .price {
+      height: 22px;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .yb-product-collection-card .compare-at-price {
+      height: 20px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .yb-product-collection-card .score {
+      height: 17px;
+    }
+
+    .yb-product-collection-card .score-text {
+      font-size: 12px;
+      line-height: 17px;
+    }
+  }
+
+  .yb-product-collection-card-style1 {
+    padding: 0px;
+  }
+</style>
+
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<div
+  style='
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+  '
+  class='
+    yb-product-collection
+    pt-(--h5-padding-top) pb-(--h5-padding-bottom)
+    md:pt-(--padding-top) md:pb-(--padding-bottom)
+    {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <div class='page-container'>
+    {% if section.settings.title != blank %}
+      <h2 class='mb-24 text-center text-[28px] leading-[1.1] font-bold uppercase md:mb-40 md:text-[44px]'>
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    <div class='yb-product-collection-container'>
+      <div class='swiper-wrapper'>
+        {% for block in section.blocks %}
+          {%- liquid
+            assign p = block.settings.product
+            if p != blank
+              assign card_url = p.url
+              assign card_title = block.settings.title | default: p.title
+              assign card_image = block.settings.product_image | default: p.featured_image
+            else
+              assign card_url = '#'
+              assign card_title = block.settings.title
+              assign card_image = block.settings.product_image
+            endif
+          -%}
+          <a
+            href='{{ card_url }}'
+            class='yb-product-collection-card yb-product-collection-card-style2 swiper-slide no-underline'
+            {{ block.shopify_attributes }}
+          >
+            {% if card_title != blank %}
+              <div class='title empty-score'>{{ card_title }}</div>
+            {% endif %}
+
+            {% if block.settings.icon_image != blank %}
+              <img
+                src='{{ block.settings.icon_image | image_url: width: 240 }}'
+                alt=''
+                width='240'
+                height='240'
+                loading='lazy'
+                class='icon'
+              >
+            {% endif %}
+
+            {% if card_image != blank %}
+              <img
+                src='{{ card_image | image_url: width: 568 }}'
+                alt=''
+                width='284'
+                height='284'
+                loading='lazy'
+                class='product-img'
+              >
+            {% endif %}
+
+            <div class='price-container'>
+              {% if p != blank %}
+                <div class='price-row'>
+                  {% render 'price', product: p, show_compare_at_price: true %}
+                </div>
+              {% endif %}
+
+              <span class='yb-product-collection-btn'>
+                {{ block.settings.button_text | default: 'Shop Now' }}
+              </span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    var swiperInstance = null;
+    var section = document.querySelector('#shopify-section-{{ section.id }} .yb-product-collection-container');
+    if (!section) return;
+
+    function init() {
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+        if (!swiperInstance) {
+          swiperInstance = new Swiper(section, {
+            slidesPerView: 'auto',
+            slidesPerGroup: 1,
+            spaceBetween: 16,
+          });
+        }
+      } else if (swiperInstance) {
+        swiperInstance.destroy(true, true);
+        swiperInstance = null;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+    if (document.readyState !== 'loading') init();
+    window.addEventListener('resize', init);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Flash Hover",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor Id" },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    { "type": "richtext", "id": "title", "label": "Title", "default": "<p>Upgrade in a Flash</p>" },
+    { "type": "header", "content": "Spacing Settings" },
+    { "type": "number", "id": "padding_top", "label": "Padding Top", "default": 96 },
+    { "type": "number", "id": "padding_bottom", "label": "Padding Bottom", "default": 100 },
+    { "type": "number", "id": "h5_padding_top", "label": "H5 Padding Top", "default": 48 },
+    { "type": "number", "id": "h5_padding_bottom", "label": "H5 Padding Bottom", "default": 48 }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "header", "content": "Content" },
+        { "type": "text", "id": "title", "label": "Title (override, default: product title)" },
+        { "type": "text", "id": "button_text", "label": "Button Text", "default": "Shop Now" },
+        { "type": "header", "content": "Images" },
+        { "type": "image_picker", "id": "icon_image", "label": "Icon (top-right)" },
+        { "type": "image_picker", "id": "product_image", "label": "Product Image (override product featured image)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flash Hover",
+      "blocks": [
+        { "type": "block", "settings": { "title": "Lawn Mower Pro Module" } },
+        { "type": "block", "settings": { "title": "Lawn Mower Module" } },
+        { "type": "block", "settings": { "title": "Snow Blower Module" } },
+        { "type": "block", "settings": { "title": "Blower Module" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

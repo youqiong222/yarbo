@@ -1,0 +1,110 @@
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/base-form_ecc52a26-9610-42de-a3de-020de732408d.css?v=1776670878'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+<script
+  src='{{ 'yb-form-field.js' | asset_url }}'
+  defer='defer'
+></script>
+
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/custom-select_a7ad75c7-b6de-4f56-9923-871707b48ff5.css?v=1776669603'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+
+<script
+  src='{{ 'yb-custom-select.js' | asset_url }}'
+  defer='defer'
+></script>
+
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/uploader_c2f242a6-1d36-46d5-a703-215f8396bcfd.css?v=1776669805'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+
+<script
+  src='{{ 'yb-uploader.js' | asset_url }}'
+  defer='defer'
+></script>
+
+<style>
+  @media screen and (max-width: 767px){
+    #shopify-section-{{ section.id }} searchable-select .select-trigger,#shopify-section-{{ section.id }} .form-container .form-input{
+      min-height: 44px;
+    }
+    #shopify-section-{{ section.id }} searchable-select .arrow,searchable-select .arrow svg{
+      min-width: 20px;
+      min-height: 20px;
+      width: 20px;
+      height: 20px;
+    }
+
+  }
+</style>
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<div
+  class='form-container form-section'
+  style='padding: 0 1rem;margin:0 auto;max-width:75rem;'
+>
+  {% render 'image-with-text-form', form_button_title: section.settings.button_text %}
+</div>
+{% schema %}
+{
+  "name": "Ugc Form",
+  "class": "css-reset tailwind-layout overflow-hidden",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Submit"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ugc Form"
+    }
+  ]
+}
+{% endschema %}

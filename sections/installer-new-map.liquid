@@ -1,0 +1,929 @@
+{{ 'yb-base.css' | asset_url | stylesheet_tag }}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<script
+  src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.min.js'
+></script>
+<script
+  src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js'
+></script>
+<script
+  src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js'
+></script>
+<script
+  src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.20/babel.min.js'
+></script>
+<link href='https://ew623.net/auth/login' rel='stylesheet'>
+<script
+  src='https://cdnjs.cloudflare.com/ajax/libs/antd/5.11.1/antd.min.js'
+></script>
+
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet.css'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet.js'
+></script>
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/L.Control.Locate.min.css'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/L.Control.Locate.min.js'
+></script>
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Control.FullScreen.css'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/Control.FullScreen.js'
+></script>
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet-search.min.css'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet-search.min.js'
+></script>
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/MarkerCluster.Default.css'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet.markercluster-src.js'
+></script>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet.markercluster.js'
+></script>
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet-gesture-handling.min.css'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+<script
+  src='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/leaflet-gesture-handling.min.js'
+></script>
+
+<section class='mobile:px-[16PX] relative mx-auto w-full max-w-[106rem] lg:px-[48PX]'>
+  <p class='mobile:text-base/none text-center text-[40px]/none font-extrabold'>
+    {% render 'yb-section-common', section: section %}
+  </p>
+  <i class='mobile:h-4 block h-[32px] w-full'></i>
+  <div id='installer-map'>
+    <div class='installer-map mobile:h-[204px] relative z-[1] h-[792px] w-full overflow-hidden rounded-xl'>
+      <div
+        class='leaflet-container leaflet-touch leaflet-fade-anim leaflet-touch-zoom h-full w-full'
+        id='my-leafmap'
+        tabindex='0'
+        data-gesture-handling-touch-content='使用双指移动地图'
+        data-gesture-handling-scroll-content='按住 ⌘ 并滚动鼠标滚轮才可缩放地图'
+        style='position: relative; outline-style: none'
+      ></div>
+      <div
+        class='ant-spin ant-spin-fullscreen css-kghr11'
+        aria-live='polite'
+        aria-busy='false'
+      >
+        <span class='ant-spin-dot ant-spin-dot-spin'>
+          <i class='ant-spin-dot-item'></i>
+          <i class='ant-spin-dot-item'></i>
+          <i class='ant-spin-dot-item'></i>
+          <i class='ant-spin-dot-item'></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <i class='mobile:h-[50px] block h-[120px] w-full'></i>
+</section>
+
+<link
+  href='https://cdn.shopify.com/s/files/1/0604/5394/5441/files/section-main-installer.css'
+  rel='stylesheet'
+  type='text/css'
+  media='all'
+>
+<script
+  type='text/babel'
+>
+    const INSTALLERS_API_URL = "https://dev.yarbo.ai/backend/v2/install/installer/approval/list";
+
+    initializeInstallerMap();
+
+    function initializeInstallerMap() {
+        const map = initMap();
+
+        fetch(INSTALLERS_API_URL, {
+            method: "GET",
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+            })
+            .then((data) => {
+                if (data.code === 0 && data.data) {
+                    if (data.data.length > 0) {
+                        const layerGroup = L.layerGroup();
+                        updateMap(map, data.data, layerGroup);
+                    }
+                } else {
+                    console.error(data.msg);
+                    return [];
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+    function initMap() {
+        const map = L.map("my-leafmap", {
+            scrollWheelZoom: false,
+            gestureHandling: true,
+            attributionControl: false
+        }).setView([51.505, -0.09], 3);
+
+        L.tileLayer("http://mt1.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}", {
+            attribution: "",
+        }).addTo(map);
+
+        return map;
+    }
+
+    function updateMap(map, installers, layerGroup) {
+        const markerCluster = createInstallerMarkers(map, installers, layerGroup);
+        addMapControls(map, markerCluster, layerGroup);
+        layerGroup.addTo(map);
+    }
+
+    function createInstallerMarkers(map, installers, layerGroup) {
+        const markers = L.markerClusterGroup();
+        const markersArray = [];
+        installers.forEach((installer) => {
+            const marker = L.marker([installer.latitude, installer.longitude], {
+                icon: L.icon({
+                    iconUrl:
+                        "https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/86824486-daba-4844-ed8f-fa4226762400/q=100",
+                    iconSize: [28, 28],
+                    iconAnchor: [14, 28],
+                }),
+                title: installer.public_name,
+                searchQuery: installer.public_name
+            }).bindPopup(createInstallerPopup(installer));
+            markersArray.push(marker);
+        });
+        markers.addLayers(markersArray);
+        layerGroup.addLayer(markers);
+        return markers;
+    }
+
+    function createInstallerPopup(installer) {
+        const profileImage =
+            installer.public_picture_urls?.length > 0
+                ? installer.public_picture_urls[0]
+                : "hhttps://cdn.shopify.com/s/files/1/0604/5394/5441/files/7cfd3dd079ff4c10ad10344fe9582140.png";
+
+        return `
+            <div style="max-width: 280px;">
+                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <img src="${profileImage}"
+                         style="width: 80px; height: 80px; object-fit: cover; border-radius: 4px;"
+                         alt="${installer.public_name}">
+                    <div>
+                        <div style="margin-bottom: 5px;">
+                            <span style="color: #666; font-size: 0.9em;">Name: </span>
+                            <strong>${installer.public_name}</strong>
+                        </div>
+                        <div style="margin-bottom: 5px;">
+                            <span style="color: #666; font-size: 0.9em;">Modules: </span>
+                            ${installer.public_yarbo_owned.join(", ")}
+                        </div>
+                        <button
+                           style="color: #1890ff; font-size: 0.9em;cursor: pointer;"
+                           onclick="handleContact('${installer.uuid}')">
+                            Get in Touch with This Installer
+                        </button>
+                    </div>
+                </div>
+                <div style="background: #f5f5f5; padding: 10px; border-radius: 4px; max-height: 120px; overflow-y: auto;">
+                    ${installer.public_comments.replace(/\n/g, "<br/>")}
+                </div>
+            </div>`;
+    }
+
+    function addMapControls(map, markerLayer, layerGroup) {
+        L.control.fullscreen({ position: "topleft" }).addTo(map);
+
+        const searchControl = new L.Control.Search({
+            position: "topleft",
+            layer: layerGroup,
+            initial: false,
+            zoom: 12,
+            marker: false,
+            propertyName: 'searchQuery',
+        });
+
+        map.addControl(searchControl);
+
+        L.control.locate({
+            position: "topleft",
+            locateOptions: { maxZoom: 16 },
+        }).addTo(map);
+    }
+
+    const { Button, Form, Input, Select, Modal, DatePicker } = antd;
+    const { Option } = Select;
+
+    const Yarbo_owned = [
+        { value: "yarbo_core_2024", label: "Yarbo Core 2024" },
+        { value: "yarbo_core_2023", label: "Universal Body 2023" },
+        { value: "lawn_mower", label: "Lawn Mower" },
+        { value: "snow_blower", label: "Snow Blower" },
+        { value: "blower", label: "Blower" }
+    ];
+
+    let agreement = false;
+    const email = '{{ customer.email | default: "" }}';
+    const authorization = btoa(email + '.yarbo');
+
+    async function getCustomerAgreementState(){
+        await fetch('https://dev.yarbo.ai/backend/v2/install/installer/state', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + authorization
+            }
+        })
+        .then(response => {
+            if (response.ok) return response.json();
+        })
+        .then(data => {
+            if (data && typeof data.data === 'number' && data.data === 2) {
+                agreement = true;
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }
+
+    async function agree(){
+        await fetch('https://dev.yarbo.ai/backend/v2/install/user/agreement', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + authorization
+            }
+        })
+        .then(response => {
+            if (response.ok) return response.json();
+        })
+        .then(data => {
+            agreement = true;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }
+
+    function getFormData() {
+        const productsSelect = document.querySelector('.ant-select.agreement-form-select');
+        let selectedProducts = [];
+
+        if (productsSelect) {
+            const selectedNodes = productsSelect.querySelectorAll('.ant-select-selection-item');
+            selectedNodes.forEach(node => {
+                selectedProducts.push(node.getAttribute('title'));
+            });
+        }
+
+        const datePicker = document.querySelector('.ant-picker-input input');
+        const dateValue = datePicker ? datePicker.value : '';
+
+        let phoneCountryCode = '+1';
+        const phoneCountrySelect = document.querySelector('.agreement-form-phone-country-select');
+
+        if (phoneCountrySelect) {
+            const selectedItem = phoneCountrySelect.querySelector('.ant-select-selection-item');
+            if (selectedItem) {
+                const labelText = selectedItem.textContent || selectedItem.innerText || '';
+                const codeMatch = labelText.match(/\+\d+/);
+                if (codeMatch) {
+                    phoneCountryCode = codeMatch[0];
+                }
+            }
+        }
+
+        return {
+            name: document.getElementById('name').value,
+            phoneCountryCode: phoneCountryCode,
+            phone: document.getElementById('phone').value,
+            address: document.getElementById('address').value,
+            productsYouBought: selectedProducts,
+            problems: document.getElementById('problems').value,
+            expectedServiceTime: dateValue,
+            extraInformation: document.getElementById('extra_information').value
+        };
+    }
+
+    function validateForm() {
+        let isValid = true;
+        const requiredFields = [
+            { id: 'name', label: 'Name!' },
+            { id: 'phone', label: 'Phone number!' },
+            { id: 'address', label: 'Address!' },
+            { id: 'products_you_bought', label: 'Products!' },
+            { id: 'problems', label: 'Problems!' },
+            { id: 'expected_service_time', label: 'Expected service time!' },
+            { id: 'extra_information', label: 'information!' }
+        ];
+
+        requiredFields.forEach(({ id, label }) => {
+            if (id === 'products_you_bought' || id === 'expected_service_time') return;
+
+            const element = document.getElementById(id);
+            if (element && (!element.value || element.value.trim() === '')) {
+                displayFieldError(element, label);
+                isValid = false;
+            }
+        });
+
+        const productsSelect = document.querySelector('.ant-select.agreement-form-select');
+        if (productsSelect) {
+            const selectedNodes = productsSelect.querySelectorAll('.ant-select-selection-item');
+            if (selectedNodes.length === 0) {
+                displayFieldError(document.getElementById('products_you_bought'), 'Products!');
+                isValid = false;
+            }
+        }
+
+        const datePicker = document.querySelector('.ant-picker-input input');
+        if (!datePicker || !datePicker.value) {
+            displayFieldError(document.getElementById('expected_service_time'), 'Expected service time!');
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    function displayFieldError(element, fieldLabel) {
+        if (element.id === 'products_you_bought' || element.id === 'expected_service_time') {
+            const formItem = document.querySelector(`.agreement-form-item:has(#${element.id})`);
+            if (formItem) {
+                const existingError = formItem.querySelector('.error-message');
+                if (existingError) {
+                    formItem.removeChild(existingError);
+                }
+
+                if (element.id === 'products_you_bought') {
+                    const selectElement = formItem.querySelector('.ant-select-selector');
+                    if (selectElement) {
+                        selectElement.style.borderColor = '#ff4d4f';
+                        selectElement.style.boxShadow = '0 0 0 2px rgba(255, 77, 79, 0.2)';
+                    }
+                }
+
+                if (element.id === 'expected_service_time') {
+                    const datePickerElement = formItem.querySelector('.ant-picker');
+                    if (datePickerElement) {
+                        datePickerElement.style.borderColor = '#ff4d4f';
+                        datePickerElement.style.boxShadow = '0 0 0 2px rgba(255, 77, 79, 0.2)';
+                    }
+                }
+
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'error-message';
+                errorMsg.style.color = '#ff4d4f';
+                errorMsg.style.fontSize = '14px';
+                errorMsg.style.lineHeight = '1.5715';
+                errorMsg.style.marginTop = '2px';
+                errorMsg.textContent = `Please input your ${fieldLabel}`;
+                formItem.appendChild(errorMsg);
+
+                if (element.id === 'products_you_bought') {
+                    formItem.querySelector('.ant-select').addEventListener('click', function() {
+                        const selectElement = formItem.querySelector('.ant-select-selector');
+                        if (selectElement) {
+                            selectElement.style.borderColor = '';
+                            selectElement.style.boxShadow = '';
+                        }
+                        const errorMsg = formItem.querySelector('.error-message');
+                        if (errorMsg) formItem.removeChild(errorMsg);
+                    }, { once: true });
+                } else if (element.id === 'expected_service_time') {
+                    formItem.querySelector('.ant-picker').addEventListener('click', function() {
+                        this.style.borderColor = '';
+                        this.style.boxShadow = '';
+                        const errorMsg = formItem.querySelector('.error-message');
+                        if (errorMsg) formItem.removeChild(errorMsg);
+                    }, { once: true });
+                }
+            }
+        } else {
+            element.style.borderColor = '#ff4d4f';
+            element.style.boxShadow = '0 0 0 2px rgba(255, 77, 79, 0.2)';
+
+            const formItem = element.closest('.agreement-form-item');
+            if (formItem) {
+                const existingError = formItem.querySelector('.error-message');
+                if (existingError) {
+                    formItem.removeChild(existingError);
+                }
+
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'error-message';
+                errorMsg.style.color = '#ff4d4f';
+                errorMsg.style.fontSize = '14px';
+                errorMsg.style.lineHeight = '1.5715';
+                errorMsg.style.marginTop = '2px';
+                errorMsg.textContent = `Please input your ${fieldLabel}`;
+                formItem.appendChild(errorMsg);
+            }
+
+            element.addEventListener('input', function() {
+                this.style.borderColor = '';
+                this.style.boxShadow = '';
+
+                const formItem = this.closest('.agreement-form-item');
+                if (formItem) {
+                    const errorMsg = formItem.querySelector('.error-message');
+                    if (errorMsg) {
+                        formItem.removeChild(errorMsg);
+                    }
+                }
+            }, { once: true });
+        }
+    }
+
+    function submitContactForm(installerUuid) {
+        const formData = getFormData();
+
+        if (!validateForm()) {
+            return;
+        }
+
+        const requestData = {
+            installer_uuid: installerUuid,
+            name: formData.name,
+            phone: `${formData.phoneCountryCode}${formData.phone}`,
+            address: formData.address,
+            products: formData.productsYouBought,
+            problems: formData.problems,
+            expected_service_time: formData.expectedServiceTime,
+            extra_information: formData.extraInformation || '',
+            email: email
+        };
+
+        formNext(requestData);
+    }
+
+    function handleContact(installer_uuid) {
+        if(email === ''){
+            window.location.href = '/account/login?checkout_url=/installer';
+            return;
+        }
+
+        getCustomerAgreementState();
+
+        Modal.confirm({
+            width: '73vw',
+            icon: null,
+            closable: true,
+            closeIcon: <span className="antd-close-btn">×</span>,
+            maskClosable: true,
+            okButtonProps: { style: { display: 'none' } },
+            footer: null,
+            content: (
+            <Form layout="horizontal" className="agreement-form">
+                <p className="pb-8 text-center text-2xl/none font-extrabold mobile:pb-2 mobile:text-base/none agreement-form-title">Provide Your Information for the Installer</p>
+                <div className="grid grid-cols-2 gap-x-[24px] gap-y-[16px] w-full mobile:grid-cols-1 agreement-form-div">
+                    <Form.Item label="Name" required className="agreement-form-item">
+                        <Input id="name"/>
+                    </Form.Item>
+                    <Form.Item label="Phone" required className="agreement-form-item">
+                        <Input.Group compact>
+                            <Select
+                                id="phone_country_code"
+                                defaultValue="+1"
+                                className="agreement-form-phone-country-select"
+                                showSearch
+                                dropdownMatchSelectWidth={false}
+                                optionLabelProp="label"
+                                optionFilterProp="children"
+                            >
+                                <Option value="+1" label="🇺🇸 +1">🇺🇸 United States +1</Option>
+                                <Option value="+44" label="🇬🇧 +44">🇬🇧 United Kingdom +44</Option>
+                                <Option value="+86" label="🇨🇳 +86">🇨🇳 China +86</Option>
+                                <Option value="+49" label="🇩🇪 +49">🇩🇪 Germany +49</Option>
+                                <Option value="+33" label="🇫🇷 +33">🇫🇷 France +33</Option>
+                                <Option value="+81" label="🇯🇵 +81">🇯🇵 Japan +81</Option>
+                                <Option value="+82" label="🇰🇷 +82">🇰🇷 South Korea +82</Option>
+                                <Option value="+61" label="🇦🇺 +61">🇦🇺 Australia +61</Option>
+                                <Option value="+39" label="🇮🇹 +39">🇮🇹 Italy +39</Option>
+                                <Option value="+7" label="🇷🇺 +7">🇷🇺 Russia +7</Option>
+                                <Option value="+36" label="🇭🇺 +36">🇭🇺 Hungary +36</Option>
+                                <Option value="+385" label="🇭🇷 +385">🇭🇷 Croatia +385</Option>
+                                <Option value="+45" label="🇩🇰 +45">🇩🇰 Denmark +45</Option>
+                                <Option value="+46" label="🇸🇪 +46">🇸🇪 Sweden +46</Option>
+                                <Option value="+47" label="🇳🇴 +47">🇳🇴 Norway +47</Option>
+                                <Option value="+30" label="🇬🇷 +30">🇬🇷 Greece +30</Option>
+                                <Option value="+358" label="🇫🇮 +358">🇫🇮 Finland +358</Option>
+                                <Option value="+48" label="🇵🇱 +48">🇵🇱 Poland +48</Option>
+                                <Option value="+351" label="🇵🇹 +351">🇵🇹 Portugal +351</Option>
+                                <Option value="+353" label="🇮🇪 +353">🇮🇪 Ireland +353</Option>
+                                <Option value="+386" label="🇸🇮 +386">🇸🇮 Slovenia +386</Option>
+                                <Option value="+420" label="🇨🇿 +420">🇨🇿 Czech Republic +420</Option>
+                                <Option value="+34" label="🇪🇸 +34">🇪🇸 Spain +34</Option>
+                                <Option value="+371" label="🇱🇻 +371">🇱🇻 Latvia +371</Option>
+                                <Option value="+370" label="🇱🇹 +370">🇱🇹 Lithuania +370</Option>
+                                <Option value="+31" label="🇳🇱 +31">🇳🇱 Netherlands +31</Option>
+                                <Option value="+32" label="🇧🇪 +32">🇧🇪 Belgium +32</Option>
+                                <Option value="+359" label="🇧🇬 +359">🇧🇬 Bulgaria +359</Option>
+                                <Option value="+372" label="🇪🇪 +372">🇪🇪 Estonia +372</Option>
+                                <Option value="+43" label="🇦🇹 +43">🇦🇹 Austria +43</Option>
+                                <Option value="+381" label="🇷🇸 +381">🇷🇸 Serbia +381</Option>
+                                <Option value="+421" label="🇸🇰 +421">🇸🇰 Slovakia +421</Option>
+                                <Option value="+357" label="🇨🇾 +357">🇨🇾 Cyprus +357</Option>
+                                <Option value="+40" label="🇷🇴 +40">🇷🇴 Romania +40</Option>
+                                <Option value="+356" label="🇲🇹 +356">🇲🇹 Malta +356</Option>
+                                <Option value="+352" label="🇱🇺 +352">🇱🇺 Luxembourg +352</Option>
+                            </Select>
+                            <Input id="phone" className="agreement-form-phone-input"/>
+                        </Input.Group>
+                    </Form.Item>
+                </div>
+                <div className="grid grid-cols-2 gap-x-[24px] gap-y-[16px] w-full mobile:grid-cols-1 agreement-form-div">
+                    <Form.Item label="Your address" required className="agreement-form-item">
+                        <Input id="address"/>
+                    </Form.Item>
+                    <Form.Item label="Products You bought" required className="agreement-form-item">
+                        <Select
+                          id="products_you_bought"
+                          mode="multiple"
+                          options={Yarbo_owned}
+                          className="agreement-form-select"
+                        >
+                        </Select>
+                    </Form.Item>
+                </div>
+                <Form.Item label="Please specify the problems you've encountered" required className="agreement-form-item">
+                    <Input.TextArea id="problems" rows={4}/>
+                </Form.Item>
+                <Form.Item label="Expected service time" required className="agreement-form-item">
+                    <DatePicker
+                        id="expected_service_time"
+                        format="YYYY-MM-DD HH:mm:ss"
+                        showTime={true}
+                        className="agreement-form-DatePicker"
+                    />
+                </Form.Item>
+                <Form.Item label="Other information you want to share" required className="agreement-form-item">
+                    <Input id="extra_information"/>
+                </Form.Item>
+
+                <Form.Item className="flex justify-center mt-6 agreement-form-button-box">
+                    <Button
+                        type="primary"
+                        className="flex justify-center items-center w-[233px] h-[60px] mx-auto text-2xl/none font-semibold rounded-full bg-[#FEDB1E] hover:opacity-80 mobile:w-[139px] mobile:h-[32px] mobile:text-base/none agreement-form-button"
+                        onClick={() => submitContactForm(installer_uuid)}
+                    >
+                        Next >
+                    </Button>
+                </Form.Item>
+            </Form>
+            )
+        });
+    }
+
+    async function formNext(requestData){
+        await fetch('https://dev.yarbo.ai/backend/v2/install/user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + authorization
+            },
+            body: JSON.stringify(requestData)
+        })
+        .then(response => {
+            if (response.ok) {
+            }
+        }).catch(error => {
+            console.error(error);
+        });
+
+        const modalContent = document.querySelector('.ant-modal-content');
+        let modalBodyRoot = null;
+        if (modalContent) {
+            const modalBody = modalContent.querySelector('.ant-modal-body');
+            modalBodyRoot = ReactDOM.createRoot(modalBody);
+        }
+
+        if(agreement){
+            finishFrom(modalBodyRoot);
+        }else{
+            openAgreement(modalBodyRoot);
+        }
+    }
+
+    const notification = antd.notification;
+
+    function openAgreement(modalBodyRoot){
+        modalBodyRoot.render(
+            <div className="py-4">
+                <div className="w-full flex flex-col gap-6 text-base/[22px] text-[#02060B] mobile:text-sm/5 mobile:gap-1">
+                    <p className="pb-[32px] text-center text-2xl/none font-extrabold mobile:pb-2 mobile:text-base/none">Yarbo Installer Program User Agreement and Disclaimer</p>
+                    <div className="max-h-[50vh] w-full overflow-y-auto">
+                        <p className="text-base/[22px] text-[#676A6D] mobile:text-[10px]/[14px]">
+                            <span className="font-bold">Important Notice:</span><br />Before applying to
+                            become a
+                            <span className="font-bold">Yarbo volunteer Installer</span>
+                            or seeking
+                            <span className="font-bold">Yarbo Installer</span>
+                            services, please read and understand the following user agreement and
+                            disclaimer carefully. By checking
+                            <span className="font-bold">"Agree"</span>, you confirm that you have read,
+                            understood, and accepted all terms of this agreement.
+                        </p>
+                        <div className="mt-[32px] rounded-[16px] bg-[#F1F1F1] px-[120px] py-[72px] mobile:mt-2 mobile:rounded-lg mobile:px-2 mobile:py-6">
+                            <div className="mb-[48px] border-b border-[#B3B4B6] pb-[48px] last:mb-0 last:border-transparent last:pb-0 mobile:mb-6 mobile:pb-6">
+                                <p className="text-center text-xl/[24px] font-bold mobile:text-sm/4">
+                                    Agreement for Yarbo volunteer Installer Applicants<br />Terms
+                                    and Conditions for Becoming a Yarbo volunteer Installer:
+                                </p>
+                                <div className="pt-[32px] mobile:pt-4">
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">1. Installer Identity and Responsibility:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>The Yarbo volunteer Installer program aims to provide an opportunity for existing Yarbo users to assist other users with the installation of their Yarbo devices. As a Yarbo volunteer Installer, you will receive basic installation training and undergo the necessary assessments.</span>
+                                            </p>
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span><span className="font-bold">You understand and agree{' '}</span>that you are providing installation services as an independent individual and that Yarbo Inc. does not assume any legal responsibility for your actions during the installation process. Yarbo Inc. only provides necessary installation training and guidance and is not responsible for any equipment failures, damages, or personal injuries that may occur during your service.</span>
+                                            </p>
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span><span className="font-bold">You understand and agree{' '}</span>to purchase the <span className="font-bold">necessary liability insurance</span> to ensure that the safety and rights of you and other users are adequately protected prior to the provision of installation services.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">2. Risks and Disclaimer:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>As an installer, you acknowledge and accept that improper installation may lead to <span className="font-bold">{' '}equipment failures, suboptimal performance, or other potential risks,{' '}</span>for which you will assume full responsibility.</span>
+                                            </p>
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>You agree that you have the necessary competence and qualifications to provide installation services, and that any issues arising from your provision of installation services will not hold Yarbo Inc. liable for damages or complaints.</span>
+                                            </p>
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>You agree to refrain from performing high-risk maneuvers while volunteering your services, including but not limited to climbing on roofs, modifying electrical systems, and lifting heavy objects beyond safe limits. You have the right to refuse service if the installation site is a safety hazard.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">3. Service Agreement and Fees:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>As a Yarbo volunteer Installer, you will negotiate the installation service fees directly with new users. Yarbo Inc. does not participate in negotiations or payment arrangements for installation services.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">4. Data Privacy and Confidentiality:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>In the provision of installation services, you may encounter personal information of users. You agree to maintain strict confidentiality and not disclose any user data or privacy information to third parties without permission.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">5. Limitation of Legal Liability:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>As an installer, you are required to comply with all applicable laws, regulations, and standards during the installation process. Yarbo Inc. will not be responsible for any actions that violate laws or regulations.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="mb-[48px] border-b border-[#B3B4B6] pb-[48px] last:mb-0 last:border-transparent last:pb-0 mobile:mb-6 mobile:pb-6">
+                                <p className="text-center text-xl/[24px] font-bold mobile:text-sm/4">
+                                    Agreement for Users Seeking Yarbo Installer Services<br />Terms
+                                    and Conditions for Using Yarbo volunteer Installer Services:
+                                </p>
+                                <div className="pt-[32px] mobile:pt-4">
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">1. Nature and Limitations of Services:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>The Yarbo volunteer Installer program is intended to provide users with opportunities to obtain installation services from independent installers. You understand and agree that this service<span className="font-bold">{' '}does not include{' '}</span>any form of equipment maintenance, troubleshooting, or after-sales support from Yarbo Inc..</span>
+                                            </p>
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>You agree that the installation services are provided by<span className="font-bold">{' '}independent Yarbo volunteer Installers</span>, not directly by Yarbo Inc. Yarbo Inc. serves only as a platform for service connection and<span className="font-bold">{' '}will not assume any responsibility for the quality or results of the installation services</span>.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">2. Fee Negotiation and Payment:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>As a user seeking installation services, you will negotiate the installation service fees directly with the installer. Yarbo Inc. does not participate in negotiations or any related payment matters.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">3. Risks and Disclaimer:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>You understand and accept that equipment damage, performance issues, or any other loss resulting from improper installation or user error will not hold Yarbo Inc. responsible.</span>
+                                            </p>
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>You agree that any disputes arising from your transaction with the installer will not hold Yarbo Inc. liable for any legal responsibilities or compensation.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">4. Data Privacy and Confidentiality:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>In seeking installation services, you understand and agree that Yarbo Inc. will not collect or store your personal data, and any data exchange between you and the installer will be handled confidentially by both parties.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">5. Limitation of Legal Liability:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>You understand and agree that Yarbo Inc. is not liable for any damages, accidents, or equipment issues that may occur during or after the installation process.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="mb-[48px] border-b border-[#B3B4B6] pb-[48px] last:mb-0 last:border-transparent last:pb-0 mobile:mb-6 mobile:pb-6">
+                                <p className="text-center text-xl/[24px] font-bold mobile:text-sm/4">
+                                    General Terms (Applicable to Both Installers and Service
+                                    Seekers)
+                                </p>
+                                <div className="pt-[32px] mobile:pt-4">
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">1. Intellectual Property:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>Yarbo Inc. retains all rights to its brand, device designs, installation guidelines, and other related intellectual property. No individual may reproduce, modify, or publish related content without the company’s authorization.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">2. Disclaimer Updates:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>Yarbo Inc. reserves the right to update this Disclaimer at any time without prior notice to users. The updated disclaimer shall become legally effective upon publication. Users are responsible for regularly reviewing and understanding the latest disclaimer terms.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">3. Dispute Resolution:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>The interpretation of this agreement and any related disputes shall be governed by the laws of the state of New York, U.S.A. Any disputes arising from this agreement shall be submitted to appropriate court in the State of New York with jurisdiction for resolution.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pb-[32px] last:pb-0 mobile:pb-4">
+                                        <p className="text-lg/none font-bold mobile:text-xs/none">4. Risk Warning:</p>
+                                        <div className="pt-[16px] mobile:pt-2">
+                                            <p className="relative pb-[8px] pl-[32px] text-base/[22px] last:pb-0 mobile:pl-3 mobile:text-[10px]/[14px]">
+                                                <i className="absolute left-[18px] top-[8px] z-10 block h-[6px] w-[6px] rounded-full bg-black mobile:left-[2px] mobile:top-1 mobile:h-1 mobile:w-1"></i>
+                                                <span>Users are advised that improper installation of the Yarbo Data Center may result in performance issues and agree to bear all risks and consequences arising from such installation. Users should ensure adherence to installation guidelines and take necessary safety precautions. Users may contact Yarbo for assistance if uncertainties arise.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mt-[32px] flex mobile:mt-2">
+                        <div id="agreementCheckBox" onClick={(event) => {
+                                const checkBox = event.currentTarget;
+                                const hasBackground = checkBox.classList.contains('bg-[#FEDB1E]');
+
+                                if (hasBackground) {
+                                    checkBox.classList.remove('bg-[#FEDB1E]');
+                                    checkBox.innerHTML = '';
+                                    checkBox.classList.add('border', 'border-[#D9D9D9]');
+                                } else {
+                                    checkBox.classList.add('bg-[#FEDB1E]');
+                                    checkBox.innerHTML = '<i class="iconfont icon-true1 text-sm/none mobile:text-[8px]/none"></i>';
+                                    checkBox.classList.remove('border', 'border-[#D9D9D9]');
+                                }
+                            }}
+                            className="mt-[2px] flex h-[20px] w-[20px] items-center justify-center rounded-[2px] bg-[#FEDB1E] mobile:h-[10px] mobile:w-[10px] mobile:rounded-sm"
+                        >
+                            <i className="iconfont icon-true1 text-sm/none mobile:text-[8px]/none"></i>
+                        </div>
+                        <p className="flex-1 pl-[8px] text-base/[24px] mobile:pl-2 mobile:text-[10px]/[14px]">
+                            By checking "I Agree," you confirm that you have read, understood, and
+                            accepted the terms stated above. If you have any questions, please
+                            contact Yarbo customer support for further information
+                        </p>
+                    </div>
+                    <Button
+                        type="primary"
+                        className="flex justify-center items-center w-[200px] h-[50px] mx-auto text-xl/none font-semibold rounded-full bg-[#FEDB1E] hover:opacity-80 mobile:w-[120px] mobile:h-[32px] mobile:text-base/none agreement-form-button"
+                        onClick={() => {
+                            if (!document.getElementById('agreementCheckBox').querySelector('.icon-true1')) {
+                                notification.warning({
+                                    message: 'Please agree to the agreement before proceeding to the next step!',
+                                    closeIcon: false,
+                                    duration: 3,
+                                    placement: 'top'
+                                });
+                                return;
+                            }
+                            agree();
+                            finishFrom(modalBodyRoot);
+                        }}
+                    >
+                        Next >
+                    </Button>
+                </div>
+            </div>
+        );
+    }
+
+    function finishFrom(modalBodyRoot){
+        modalBodyRoot.render(
+            <div className="py-4">
+                <div className="w-full flex flex-col gap-6 text-base/[22px] text-[#02060B] mobile:text-sm/5 mobile:gap-1">
+                    <h2 className="font-bold mobile:mb-3">Dear Yarbo Familiy,</h2>
+                    <p className="font-bold mobile:text-xs/4">Your application has been forwarded to the installer, who will contact you upon agreement.</p>
+                    <p className="mobile:text-xs/4">Volunteer Installers are community champions, generously sharing their technical expertise to help others enjoy Yarbo. However, They are not official Yarbo staff, and their role is limited to providing basic installation support.</p>
+                    <p className="mobile:text-xs/4">For complex issues, we advise contacting Team Yarbo through the Yarbo Support Center for professional support. We are just a message away!</p>
+                    <p className="mobile:text-xs/4">We appreciate the significant contributions of our Volunteer Installers to our community, you can also tip them to show appreciation for their efforts.</p>
+                    <p className="font-bold">Warm regards,<br/>Team Yarbo</p>
+                    <Button
+                        type="primary"
+                        className="flex justify-center items-center w-[200px] h-[50px] mx-auto text-xl/none font-semibold rounded-full bg-[#FEDB1E] hover:opacity-80 mobile:w-[120px] mobile:h-[32px] mobile:text-base/none agreement-form-button"
+                        onClick={() => Modal.destroyAll()}
+                    >
+                        Finish
+                    </Button>
+                </div>
+            </div>
+        );
+    }
+</script>
+
+{% schema %}
+{
+  "name": "installer-new-map",
+  "class": "migrated-page",
+  "settings": [
+    {
+        "type": "text",
+        "id": "anchor_id",
+        "label": "Anchor Id"
+    },
+    {
+      "id": "common_title",
+      "type": "richtext",
+      "label": "标题",
+      "default": "<p>Use Map to Find a Volunteer Installer</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "installer-new-map"
+    }
+  ]
+}
+{% endschema %}

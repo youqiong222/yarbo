@@ -1,0 +1,221 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div
+  class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+>
+  <h2 class='mb-12 text-[26px]/[1.1] uppercase sm:text-center sm:text-[32px]/[1.1]'>
+    {{ section.settings.title }}
+  </h2>
+  <div class='splide sm:mx-0 sm:pl-0'>
+    <div class='splide__track [overflow:unset] md:overflow-hidden'>
+      <ul class='splide__list flex {% if section.blocks.size <= 5 %}lg:justify-center{% endif %}'>
+        {% for block in section.blocks %}
+          <li
+            class='splide__slide'
+            style='--strong-color: {{ block.settings.strong_color }};'
+          >
+            <a
+              href='{% if block.settings.link_type == "custom" and block.settings.custom_link != blank %}{{ block.settings.custom_link }}{% else %}{{ block.settings.collection.url }}{% endif %}'
+              class='group flex flex-col items-center justify-center gap-8 p-12 text-center text-[#25282A] no-underline'
+            >
+              {% render 'media-element',
+                media_type: 'image',
+                class: 'w-auto h-auto overflow-hidden',
+                media_class: 'w-100 sm:w-120 h-auto transition-transform duration-300 group-hover:scale-110',
+                pc_image: block.settings.icon_img,
+                h5_image: block.settings.h5_icon_img
+              %}
+              <h3 class='mt-8 inline-block text-[17px]/[1.1] uppercase sm:text-[22px]/[1.1] [&_strong]:text-(--strong-color)'>
+                {{ block.settings.text }}
+              </h3>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+<script>
+  (() => {
+    const initSplide = () => {
+      const el = document.querySelector('#shopify-section-{{ section.id }} .splide');
+      if (!el) return;
+      const slider = new Splide('#shopify-section-{{ section.id }} .splide', {
+        autoWidth: true, // 宽度跟随文字自适应 (200px, 166px 等)
+        arrows: false,
+        pagination: false,
+        gap: '40px',
+        // 【H5 移动端断点配置】
+        breakpoints: {
+          768: {
+            fixedWidth: '33vw', // H5 显示 2.2 个，露出后面一个的半边，暗示用户可以继续滑动
+            autoWidth: false,
+            // 当屏幕宽度小于或等于 768px 时触发 (通常指手机/平板竖屏)
+            drag: 'free', // H5 开启自由滑动，手指左右搓动很丝滑
+            gap: '12px',
+            arrows: false, // 手机端靠滑动，隐藏丑陋的点击箭头
+          },
+        },
+      });
+      slider.mount();
+    };
+    document.addEventListener('DOMContentLoaded', initSplide);
+    document.addEventListener('shopify:section:load', (event) => {
+      if (event.detail.sectionId === '{{ section.id }}') {
+        initSplide();
+      }
+    });
+  })();
+</script>
+{% schema %}
+{
+  "name": "Index Categories",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "strong_color",
+          "label": "Strong Color"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_img",
+          "label": "Icon Image (PC)"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_icon_img",
+          "label": "Icon Image (Mobile)"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "radio",
+          "id": "link_type",
+          "label": "Link Type",
+          "options": [
+            { "value": "collection", "label": "Collection URL" },
+            { "value": "custom", "label": "Custom Link" }
+          ],
+          "default": "collection"
+        },
+        {
+          "type": "url",
+          "id": "custom_link",
+          "label": "Custom Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Index Categories",
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "text": "<p>Accessories</p>",
+            "strong_color": ""
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "<p>Early Spring Deals</p><p><strong>SPRING SALE</strong></p>",
+            "strong_color": "#e5483c"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "<p>yarbo m series</p><p><strong>NEW</strong></p>",
+            "strong_color": "#eec900"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "<p>Yarbo Y Series</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "<p>Bundles</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "<p>Modules</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "<p>Accessories</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

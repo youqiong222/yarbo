@@ -1,0 +1,112 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+<div
+  x-data='{ open: false }'
+  class='mx-auto flex max-w-638 flex-col gap-12 px-20 text-center md:px-40 {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+>
+  <h2 class='text-[24px] leading-[1.1] uppercase md:text-[32px]'>
+    {{ section.settings.title }}
+  </h2>
+
+  <div
+    id='textContent'
+    :class="open ? '' : 'line-clamp-5'"
+    class='text-[14px] leading-[1.3] text-[#515355] transition-all duration-300'
+  >
+    {{ section.settings.text }}
+  </div>
+
+  <div
+    id='toggleBtn'
+    @click='open = !open'
+    class='flex cursor-pointer items-center justify-center gap-6 text-[14px] leading-[1.3]'
+  >
+    <span
+      class='btn-text'
+      x-text="open ? 'Show Less' : 'Show More'"
+    ></span>
+
+    <svg
+      x-show='!open'
+      x-transition
+      class='icon-plus'
+      width='11'
+      height='11'
+      viewBox='0 0 11 11'
+    >
+      <path d="M5.31706 0.649902L5.31706 9.98324M9.98372 5.31657L0.650391 5.31657" stroke="#25282A" stroke-width="1.3"/>
+    </svg>
+
+    <svg
+      x-show='open'
+      x-transition
+      class='icon-minus'
+      width='11'
+      height='2'
+      viewBox='0 0 11 2'
+    >
+      <path d="M9.98372 0.649902L0.650391 0.649902" stroke="#25282A" stroke-width="1.3"/>
+    </svg>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Richtext",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Richtext"
+    }
+  ]
+}
+{% endschema %}

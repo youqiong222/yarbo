@@ -1,0 +1,142 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_product_swiper_q8YWCc": {
+      "type": "page-meet-yarbo",
+      "blocks": {
+        "image_EnT6pG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2a8a340207272af83aa14daaeb6d2d62.png",
+            "swiper_image": "shopify://shop_images/7d7ee3dd0dc522824d54f644e74122d9.png",
+            "title": "Yarbo Snow Blower",
+            "desc": "Remove light/hard/wet snow and a small amount of ice.",
+            "btn_text": "learn more",
+            "btn_link": "shopify://products/yarbo-snow-blower"
+          }
+        },
+        "image_3J4GJN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/f5f58cc73af51457b2c158e5f9ddea95.png",
+            "swiper_image": "shopify://shop_images/e8dd22a10214abe113d3eebca38c99a3.png",
+            "title": "Yarbo Lawn Mower",
+            "desc": "Mow and keep your lawn perfect.",
+            "btn_text": "Learn More",
+            "btn_link": "shopify://products/yarbo-lawn-mower"
+          }
+        },
+        "image_PpEHGX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a7588f962f832405c79be0b6fa1d1452.png",
+            "swiper_image": "shopify://shop_images/4a1d99ba50c16db71878e4310115f56b.png",
+            "title": "Yarbo Blower",
+            "desc": "Blow leaves/debris to designated areas.",
+            "btn_text": "Learn More",
+            "btn_link": "shopify://products/yarbo-leaf-blower"
+          }
+        },
+        "image_rE3hWV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ff725624d9492cf1c5b0cbb503f3f95f.png",
+            "swiper_image": "shopify://shop_images/0f576bb92b3b213a6347e446dc038e64.png",
+            "title": "Yarbo Sweeper",
+            "desc": "Sweeping light snow or debris.",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "image_JpLtiA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/90697b1fb0186a87756ddff46362b0da.png",
+            "swiper_image": "shopify://shop_images/5d8afab4b939b2e7b93401b9e56876ab.png",
+            "title": "Yarbo Plow",
+            "desc": "Push snow to sides of your driveways and sidewalks.",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "image_cQdrJt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/0f0b8fee8a7f68dbfb7f9a0160e2821e.png",
+            "swiper_image": "shopify://shop_images/53d0293247030d309e4901d35f9b3c16.png",
+            "title": "Yarbo Vacblow",
+            "desc": "Leaves and debris collection and blowing.",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "image_W9jzPY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/9076652a4e6e50539a19cd8834aea1d9.png",
+            "swiper_image": "shopify://shop_images/27ca55b415b29882ec03318a0581b8c8.png",
+            "title": "Yarbo Arm",
+            "desc": "Pick vegetables and fruits, spread solid fertilizer, pick up garbage…",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "image_bDVNzD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/121006ee93bde67a4331f4078d28fef3.png",
+            "swiper_image": "shopify://shop_images/9db63060b40a27ee7830e916fd34789a.png",
+            "title": "Yarbo Sprinkler",
+            "desc": "Irrigate and spray pesticides.",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "image_Q6tCP6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cb71ec0b52e7332bb99cd4e913ee3096.png",
+            "swiper_image": "shopify://shop_images/42ef5499b6ccf4938d7c38be85da135d.png",
+            "title": "Yarbo Guard",
+            "desc": "Collect packages with a tray, tow the trash can, and security &amp;            surveillance.",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_EnT6pG",
+        "image_3J4GJN",
+        "image_PpEHGX",
+        "image_rE3hWV",
+        "image_JpLtiA",
+        "image_cQdrJt",
+        "image_W9jzPY",
+        "image_bDVNzD",
+        "image_Q6tCP6"
+      ],
+      "name": "Custom Product Swiper",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "custom_product_swiper_q8YWCc"
+  ]
+}

@@ -1,0 +1,761 @@
+{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}
+{{ 'yb-section-slideshow.css' | asset_url | stylesheet_tag }}
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/custom-product-swiper.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/swiper-bundle.min.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+<script
+  defer
+  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/custom-product-swiper.js"
+></script>
+
+
+<style>
+  .custom-product-swiper .thumbnail-item {
+    width: auto;
+  }
+
+  .thumbnail-grid {
+    gap: 1rem;
+  }
+  #shopify-section-17421921102298d2a6e3{
+    margin-top:75px !important;
+  }
+</style>
+<style>
+  .display-block {
+    display: block !important;
+  }
+
+  .display-none {
+    display: none !important;
+  }
+
+  .display-flex {
+    display: flex !important;
+  }
+
+  .display-inline-block {
+    display: inline-block !important;
+  }
+
+  .display-inline-flex {
+    display: inline-flex !important;
+  }
+
+  @media screen and (max-width: 959px) {
+    .display-block-tablet {
+      display: block !important;
+    }
+
+    .display-none-tablet {
+      display: none !important;
+    }
+
+    .display-flex-tablet {
+      display: flex !important;
+    }
+
+    .display-inline-block-tablet {
+      display: inline-block !important;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .display-block-desktop {
+      display: block !important;
+    }
+
+    .display-none-desktop {
+      display: none !important;
+    }
+
+    .display-flex-desktop {
+      display: flex !important;
+    }
+
+    .display-inline-block-desktop {
+      display: inline-block !important;
+    }
+
+    .display-inline-flex-desktop {
+      display: inline-flex !important;
+    }
+  }
+
+  :root {
+    /**
+  * content element
+  */
+    --z-index-hover: 1;
+    --z-index-active: 2;
+    --z-index-focus: 3;
+
+    /**
+  * overlay element
+  */
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1010;
+    --z-index-fixed: 1020;
+    --z-index-modal: 1030;
+    --z-index-popover: 1040;
+    --z-index-tooltip: 1050;
+    --z-index-toast: 1060;
+  }
+
+  :root {
+    --title1-font-size: calc(var(--title-font-size) * 1);
+    --title2-font-size: calc(var(--title-font-size) * 0.833333);
+    --title3-font-size: calc(var(--title-font-size) * 0.733333);
+    --title4-font-size: calc(var(--title-font-size) * 0.666667);
+    --title5-font-size: calc(var(--title-font-size) * 0.6);
+    --title6-font-size: calc(var(--title-font-size) * 0.6);
+
+    --body1-font-size: calc(var(--body-font-size) * 1.142857);
+    --body2-font-size: calc(var(--body-font-size) * 1.071429);
+    --body3-font-size: calc(var(--body-font-size) * 1);
+    --body4-font-size: calc(var(--body-font-size) * 0.928571);
+    --body5-font-size: calc(var(--body-font-size) * 0.857143);
+    --body6-font-size: calc(var(--body-font-size) * 0.857143);
+  }
+
+  @media (min-width: 960px) {
+    :root {
+      --title1-font-size: calc(var(--title-font-size) * 2.333333);
+      --title2-font-size: calc(var(--title-font-size) * 1.666667);
+      --title3-font-size: calc(var(--title-font-size) * 1.2);
+      --title4-font-size: calc(var(--title-font-size) * 1);
+      --title5-font-size: calc(var(--title-font-size) * 0.833333);
+      --title6-font-size: calc(var(--title-font-size) * 0.666667);
+
+      --body1-font-size: calc(var(--body-font-size) * 1.571429);
+      --body2-font-size: calc(var(--body-font-size) * 1.285714);
+      --body3-font-size: calc(var(--body-font-size) * 1.142857);
+      --body4-font-size: calc(var(--body-font-size) * 1);
+      --body5-font-size: calc(var(--body-font-size) * 0.928571);
+      --body6-font-size: calc(var(--body-font-size) * 0.857143);
+    }
+  }
+
+  .title1,
+  .title2,
+  .title3,
+  .title4,
+  .title5,
+  .title6 {
+    font-family: var(--title-font);
+    font-style: var(--title-font-style);
+    font-weight: var(--title-font-weight, 700);
+    letter-spacing: var(--title-letter-spacing);
+    line-height: var(--title-line-height);
+    margin-bottom: 0;
+    margin-top: 0;
+    word-break: break-word;
+    text-transform: var(--title-text-transform);
+  }
+
+  .title1 {
+    font-size: var(--title1-font-size);
+  }
+
+  .title2 {
+    font-size: var(--title2-font-size);
+  }
+
+  .title3 {
+    font-size: var(--title3-font-size);
+  }
+
+  .title4 {
+    font-size: var(--title4-font-size);
+  }
+
+  .title5 {
+    font-size: var(--title5-font-size);
+  }
+
+  .title6 {
+    font-size: var(--title6-font-size);
+  }
+
+  .body-font,
+  .body1,
+  .body2,
+  .body3,
+  .body4,
+  .body5,
+  .body6 {
+    font-family: var(--body-font);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight, 400);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var(--body-line-height);
+    word-break: break-word;
+  }
+
+  .body1 {
+    font-size: var(--body1-font-size);
+  }
+
+  .body2 {
+    font-size: var(--body2-font-size);
+  }
+
+  .body3 {
+    font-size: var(--body3-font-size);
+  }
+
+  .body4 {
+    font-size: var(--body4-font-size);
+  }
+
+  .body5 {
+    font-size: var(--body5-font-size);
+  }
+
+  .body6 {
+    font-size: var(--body6-font-size);
+  }
+
+  :root {
+    --duration-short: 100ms;
+    --duration-long: 500ms;
+    --duration-default: 250ms;
+  }
+</style>
+<div class="migrated-page">
+  <div class="slideshow__slider slider nsa-accesstive" id="Slider-1741058787733dffc2e6">
+    <div
+      class="slideshow__slide slider__slide is-active nsa-accesstive"
+      id="Slide-1741058787733e1bbbfa"
+      style="
+        --slideshow-overlay-opacity: 0;
+        --slideshow-title-size: 50px;
+        --slideshow-pc-text-position-vertical: flex-end;
+        --slideshow-pc-text-position-horizontal: flex-start;
+        --slideshow-mobile-text-position-vertical: center;
+        --slideshow-mobile-text-position-horizontal: flex-start;
+        --slideshow-pc-text-align: left;
+        --slideshow-mobile-text-align: left;
+        --slideshow-pc-text-color: #ffffff;
+        --slideshow-text-color--mb: #2c2c2c;
+        --slideshow-text-area-bg-color:#ffffff;
+      "
+    >
+      <div class="slideshow-slide__media nsa-accesstive" style="--image-show-position: center center;">
+        <img
+          alt=""
+          class="slideshow-slide__image display-none display-block-desktop nsa-accesstive"
+          data-scale="hover-scale"
+          decoding="async"
+          fetchpriority="high"
+          height="923"
+          loading="eager"
+          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/meet-yarbo.jpg?v=1772524213"
+          width="1920"
+        >
+        <img
+          alt=""
+          class="slideshow-slide__image display-none-desktop nsa-accesstive"
+          data-scale="hover-scale"
+          decoding="async"
+          fetchpriority="high"
+          height="923"
+          loading="eager"
+          src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/meet-yarbo.jpg?v=1772524213"
+          width="1920"
+        >
+      </div>
+      <div
+        class="slideshow-slide__text-wrapper slideshow-slide__text-max-width nsa-accesstive"
+        style="--pc-content-width: 1200px; --pc-content-padding: 5%;"
+      >
+        <div class="slideshow-slide__text nsa-accesstive">
+          <div class="slideshow-slide__buttons nsa-accesstive"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shopline-section advc-section advc" id="shopify-section-17421921102298d2a6e3">
+    <style>
+      #shopify-section-17421921102298d2a6e3 .advc-title {
+        --advc-title-font-family: "Poppins";
+        --advc-title-font-weight: 600;
+        --advc-title-font-style: normal;
+        --advc-title-color: #000000;
+        --advc-title-font-size: 32px;
+        --advc-title-letter-spacing: 0em;
+        --advc-title-line-height: 1;
+      }
+      @media only screen and (max-width: 750px) {
+        #shopify-section-17421921102298d2a6e3 .advc-title {
+          --advc-title-font-size: 24px;
+        }
+      }
+      .advc-title {
+        font-family: var(--advc-title-font-family);
+        color: var(--advc-title-color);
+        font-size: var(--advc-title-font-size);
+        letter-spacing: var(--advc-title-letter-spacing);
+        line-height: var(--advc-title-line-height);
+        font-weight: var(--advc-title-font-weight);
+        font-style: var(--advc-title-font-style);
+      }
+    </style>
+    <style>
+      #shopify-section-17421921102298d2a6e3 .advc-body {
+        --advc-body-font-family: "Montserrat";
+        --advc-body-font-weight: 400;
+        --advc-body-font-style: normal;
+        --advc-body-color: #000000;
+        --advc-body-font-size: 16px;
+        --advc-body-letter-spacing: 0em;
+        --advc-body-line-height: 1.6;
+      }
+      @media only screen and (max-width: 750px) {
+        #shopify-section-17421921102298d2a6e3 .advc-body {
+          --advc-body-font-size: 14px;
+        }
+      }
+      .advc-body {
+        font-family: var(--advc-body-font-family);
+        color: var(--advc-body-color);
+        font-size: var(--advc-body-font-size);
+        letter-spacing: var(--advc-body-letter-spacing);
+        line-height: var(--advc-body-line-height);
+        font-weight: var(--advc-body-font-weight);
+        font-style: var(--advc-body-font-style);
+      }
+    </style>
+    <style>
+      #shopify-section-17421921102298d2a6e3 .advc-sub-title {
+        --advc-sub-title-font-family: "Poppins";
+        --advc-sub-title-font-weight: 600;
+        --advc-sub-title-font-style: normal;
+        --advc-sub-title-color: #000000;
+        --advc-sub-title-font-size: 26px;
+        --advc-sub-title-letter-spacing: 0em;
+        --advc-sub-title-line-height: 1.2;
+      }
+      @media only screen and (max-width: 750px) {
+        #shopify-section-17421921102298d2a6e3 .advc-sub-title {
+          --advc-sub-title-font-size: 24px;
+        }
+      }
+      .advc-sub-title {
+        font-family: var(--advc-sub-title-font-family);
+        color: var(--advc-sub-title-color);
+        font-size: var(--advc-sub-title-font-size);
+        letter-spacing: var(--advc-sub-title-letter-spacing);
+        line-height: var(--advc-sub-title-line-height);
+        font-weight: var(--advc-sub-title-font-weight);
+        font-style: var(--advc-sub-title-font-style);
+      }
+    </style>
+    <style>
+      #shopify-section-17421921102298d2a6e3 .advc-btn {
+        --advc-btn-font-family: "Montserrat";
+        --advc-btn-font-weight: 500;
+        --advc-btn-font-style: normal;
+        --advc-btn-font-color: #FFFFFF;
+        --advc-btn-font-size: 13px;
+        --advc-btn-letter-spacing: 0em;
+        --advc-btn-line-height: 1.6;
+        --advc-btn-background: #111111;
+        --advc-btn-border-thickness: 0px;
+        --advc-btn-border-opacity: 0;
+        --advc-btn-border-radius: 0px;
+        --advc-btn-border-outset: 0px;
+        --advc-btn-border-color: 17, 17, 17;
+        --advc-btn-shadow-color: 0, 0, 0;
+        --advc-btn-shadow-opacity: 0;
+        --advc-btn-shadow-offset-x: 12px;
+        --advc-btn-shadow-offset-y: 4px;
+        --advc-btn-shadow-blur: 5px;
+      }
+      @media only screen and (max-width: 750px) {
+        #shopify-section-17421921102298d2a6e3 .advc-btn {
+          --advc-btn-font-size: 12px;
+        }
+      }
+    </style>
+    <style>
+      #shopify-section-17421921102298d2a6e3 .advc-video {
+        --advc-video-border-thickness: 0px;
+        --advc-video-border-opacity: 1;
+        --advc-video-border-radius: 0px;
+        --advc-video-border-color: 0, 0, 0;
+        --advc-video-shadow-opacity: 0.2;
+        --advc-video-shadow-offset-x: 4px;
+        --advc-video-shadow-offset-y: 4px;
+        --advc-video-shadow-blur: 0px;
+        --advc-video-shadow-color: 0, 0, 0;
+      }
+    </style>
+    <style>
+      #shopify-section-17421921102298d2a6e3 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        --advc-container-padding-top: 60px;
+        --advc-container-padding-bottom: 60px;
+        --advc-container-padding-right: 40px;
+        --advc-container-padding-left: 40px;
+        --advc-container-max-width: 1920px;
+      }
+      @media only screen and (max-width: 750px) {
+        #shopify-section-17421921102298d2a6e3 {
+          margin-top: 0px;
+          margin-bottom: 0px;
+          margin-left: 0px;
+          margin-right: 0px;
+          --advc-container-padding-top: 0px;
+          --advc-container-padding-bottom: 0px;
+          --advc-container-padding-right: 0px;
+          --advc-container-padding-left: 0px;
+        }
+      }
+    </style>
+    <style>
+      #shopify-section-17421921102298d2a6e3 {
+        --advc-container-background: rgba(, 1);
+      }
+    </style>
+    <div
+      class="advc-container-background advc-container advc-text-columns-with-videos advc-d-block advc-d-md-none qy"
+      data-section-id="17421921102298d2a6e3"
+      data-section-type="advc-text-columns-with-videos"
+      style="
+        --column-gap: 0px;
+        --text-align: left;
+        --content-inline-padding: 10px;
+      "
+    >
+      <div class="advc-text-columns-with-videos__wrap splide">
+        <div class="advc-text-columns-with-videos__main splide__track">
+          <ul class="advc-text-columns-with-videos__list splide__list" style="list-style: none; padding: 0;">
+            <li class="advc-text-columns-with-videos__item splide__slide">
+              <div
+                class="advc-video advc-video-wrapper video--17421921102294f90288 video--r16-9 advc-text-columns-with-videos__video"
+                data-id="17421921102294f90288"
+                data-video-id="1K-m2jFwm6I"
+                style="cursor: pointer; position: relative; overflow: hidden; aspect-ratio: 16/9;"
+              >
+                <script id="Video-data-17421921102294f90288" type="text/json">
+                  {
+                    "video_url": "https://www.youtube.com/watch?v=1K-m2jFwm6I",
+                    "autoplay": true,
+                    "background_position": "center",
+                    "sub_title": "",
+                    "button_text": "",
+                    "cover": null,
+                    "description": "",
+                    "jump_link": ""
+                  }
+                </script>
+
+                <div
+                  class="video__cover"
+                  style="opacity: 0; pointer-events: none; position: absolute; inset: 0; z-index: 2;"
+                >
+                  <svg
+                    class="placeholder-svg"
+                    fill="#F3F3F3"
+                    height="100%"
+                    viewbox="0 0 380 380"
+                    width="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g fill="#F3F3F3" opacity="0.15">
+                    <path d="M180.903 200.5V179L203.403 189.5L180.903 200.5Z" fill="#fff"></path>
+                    <rect height="83" rx="6" stroke="black" stroke-linejoin="round" stroke-width="4" width="125" x="127.403" y="148"></rect>
+                    <path d="M149.456 150V229.5" stroke="black" stroke-width="3"></path>
+                    <path d="M230.351 150V229.5" stroke="black" stroke-width="3"></path>
+                    <path d="M129 167.667L149.456 167.667M129 189.794H149.456M129 211.368H149.456" stroke="black" stroke-width="3"></path>
+                    <path d="M230.351 167.667L250.807 167.667M230.351 189.794H250.807M230.351 211.368H250.807" stroke="black" stroke-width="3"></path>
+                    <path d="M180.141 201.14V177.895L203.386 189.28L180.141 201.14Z" stroke="black" stroke-linejoin="round" stroke-width="3"></path>
+                    </g>
+                  </svg>
+                </div>
+
+                <div class="video__controll" style="width: 100%; height: 100%;">
+                  <iframe
+                    class="video-data"
+                    id="Video-17421921102294f90288"
+                    width="100%"
+                    height="100%"
+                    style="border: none; position: absolute; top: 0; left: 0;"
+                    src="https://www.youtube.com/embed/1K-m2jFwm6I?autoplay=1&mute=1&controls=0&loop=1&playlist=1K-m2jFwm6I&playsinline=1&rel=0"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen
+                  >
+                  </iframe>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="advc-previewer hide" id="advc-previewer-17421921102298d2a6e3" style="display: none;">
+          <div
+            class="advc-previewer__wrap"
+            style="position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center;"
+          >
+            <div
+              class="advc-previewer__mask"
+              style="position: absolute; inset: 0; background: rgba(0,0,0,0.8); cursor: pointer;"
+            ></div>
+            <div
+              class="advc-previewer__close-btn"
+              style="position: absolute; top: 20px; right: 20px; color: #fff; cursor: pointer; z-index: 1002; font-size: 36px; line-height: 1;"
+            >
+              <i class="advc-icon icon">×</i>
+            </div>
+            <div
+              class="advc-previewer__body"
+              style="position: relative; z-index: 1001; width: 90%; max-width: 1000px; aspect-ratio: 16/9; background: #000;"
+            >
+              <div class="advc-previewer__area" style="width: 100%; height: 100%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var section = document.getElementById('shopify-section-17421921102298d2a6e3');
+        if (!section) return;
+
+        var videoWrapper = section.querySelector('.advc-video-wrapper');
+        var previewer = section.querySelector('.advc-previewer');
+        var previewArea = section.querySelector('.advc-previewer__area');
+        var closeBtn = section.querySelector('.advc-previewer__close-btn');
+        var mask = section.querySelector('.advc-previewer__mask');
+
+        function openModal() {
+          if (previewer && previewArea) {
+            previewer.classList.remove('hide');
+            previewer.style.display = 'block';
+            var videoId = videoWrapper.getAttribute('data-video-id') || '1K-m2jFwm6I';
+            // 注入带声音和控制条的 iframe 进行有声播放
+            previewArea.innerHTML =
+              '<iframe width="100%" height="100%" style="border:none;" src="https://www.youtube.com/embed/' +
+              videoId +
+              '?autoplay=1&mute=0&controls=1&rel=0" allow="autoplay; fullscreen"></iframe>';
+          }
+        }
+
+        function closeModal() {
+          if (previewer && previewArea) {
+            previewer.classList.add('hide');
+            previewer.style.display = 'none';
+            previewArea.innerHTML = ''; // 清空 iframe 切断声音
+          }
+        }
+
+        if (videoWrapper) videoWrapper.addEventListener('click', openModal);
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (mask) mask.addEventListener('click', closeModal);
+      });
+    </script>
+  </div>
+  {%- if section.blocks.size > 0 -%}
+    <section class="custom-product-swiper" data-section="{{ section.id }}" id="CustomProductSwiper-{{ section.id }}">
+      <custom-product-swiper class="swiper-container">
+        <div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              <div class="swiper-slide" data-swiper-slide-index="{{ forloop.index0 }}">
+                <div class="custom-product-swiper-slide">
+                  <div class="custom-product-swiper-image">
+                    {%- if block.settings.image != blank -%}
+                      {{
+                        block.settings.image
+                        | image_url: width: 1200
+                        | image_tag: class: 'custom-product-swiper-featured-image', loading: 'lazy'
+                      }}
+                    {%- else -%}
+                      {{ 'image' | placeholder_svg_tag: 'custom-product-swiper-featured-image' }}
+                    {%- endif -%}
+                  </div>
+                  <div class="custom-product-swiper-info">
+                    <div class="custom-product-swiper-title">{{ block.settings.title }}</div>
+                    <div class="custom-product-swiper-desc">{{ block.settings.desc }}</div>
+                    <a
+                      class="custom-product-swiper-btn {% if block.settings.btn_text == blank %} custom-product-swiper-btn-hide {% endif %}"
+                      href="{{ block.settings.btn_link }}"
+                    >
+                      {{- block.settings.btn_text -}}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+          <div class="swiper-nav">
+            <img
+              alt="&lt;"
+              class="swiper-custom-button-prev"
+              height="36"
+              src="{{ 'product-arrow-left.png' | asset_url }}"
+              width="36"
+            >
+            <img
+              alt="&gt;"
+              class="swiper-custom-button-next"
+              height="36"
+              src="{{ 'product-arrow-right.png' | asset_url }}"
+              width="36"
+            >
+          </div>
+        </div>
+        <div class="thumbnail-grid">
+          {%- for block in section.blocks -%}
+            <div class="thumbnail-item">
+              <div class="thumbnail-image">
+                {%- if block.settings.swiper_image != blank -%}
+                  {{
+                    block.settings.swiper_image
+                    | image_url: width: 200
+                    | image_tag: class: 'thumbnail-img', loading: 'lazy'
+                  }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'thumbnail-img' }}
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </custom-product-swiper>
+    </section>
+  {%- endif -%}
+  <slider-component
+    autoplay="false"
+    class="slideshow slideshow-layout--text-inside nsa-accesstive"
+    current="1"
+    loop="true"
+    speed="7"
+    style="
+      --slideshow-speed: 7s;
+      --slideshow-pc-height: 750px;
+      --slideshow-mobile-height: 500px;--slideshow-text-color-1: 44, 44, 44;
+    "
+  >
+    <div class="slideshow__slider slider nsa-accesstive" id="Slider-174116676516712ac9f0">
+      <div
+        class="slideshow__slide slider__slide is-active nsa-accesstive"
+        id="Slide-1741058787733e1bbbfa"
+        style="
+          --slideshow-overlay-opacity: 0;
+          --slideshow-title-size: 40px;
+          --slideshow-pc-text-position-vertical: flex-end;
+          --slideshow-pc-text-position-horizontal: center;
+          --slideshow-mobile-text-position-vertical: flex-end;
+          --slideshow-mobile-text-position-horizontal: flex-end;
+          --slideshow-pc-text-align: center;
+          --slideshow-mobile-text-align: center;
+          --slideshow-pc-text-color: #ffffff;
+          --slideshow-text-color--mb: #2c2c2c;
+          --slideshow-text-area-bg-color:#ffffff;
+        "
+      >
+        <div class="slideshow-slide__media nsa-accesstive" style="--image-show-position: center center;">
+          <img
+            alt=""
+            class="slideshow-slide__image display-none display-block-desktop nsa-accesstive"
+            data-scale="hover-scale"
+            decoding="async"
+            fetchpriority="auto"
+            height="1080"
+            loading="lazy"
+            src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/image-14.jpg?v=1772524100"
+            width="1920"
+          >
+          <img
+            alt=""
+            class="slideshow-slide__image display-none-desktop nsa-accesstive"
+            data-scale="hover-scale"
+            decoding="async"
+            fetchpriority="auto"
+            height="1140"
+            loading="lazy"
+            src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/image-_1_-2.jpg?v=1772523925"
+            width="750"
+          >
+        </div>
+        <div
+          class="slideshow-slide__text-wrapper slideshow-slide__text-max-width nsa-accesstive"
+          style="--pc-content-width: 1200px; --pc-content-padding: 5%;"
+        >
+          <div class="slideshow-slide__text nsa-accesstive">
+            <h2 class="slideshow-slide__title title1 nsa-accesstive">
+              Let Yarbo Become Your Personlized Yard Care Assistant
+            </h2>
+            <div class="slideshow-slide__buttons nsa-accesstive"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </slider-component>
+</div>
+{% schema %}
+{
+  "name": "Custom Product Swiper",
+  "class": "section",
+  "max_blocks": 9,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "图片",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "选择图片"
+        },
+        {
+          "type": "image_picker",
+          "id": "swiper_image",
+          "label": "选择swiper图片"
+        },
+        {
+          "type": "text",
+          "label": "标题",
+          "id": "title",
+          "default": "标题"
+        },
+        {
+          "type": "text",
+          "label": "描述",
+          "id": "desc",
+          "default": "描述内容"
+        },
+        {
+          "id": "btn_text",
+          "type": "text",
+          "label": "按钮文本",
+          "default": "按钮"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "跳转链接"
+        }
+      ]
+    }
+  ]
+
+}
+{% endschema %}

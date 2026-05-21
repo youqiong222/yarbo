@@ -1,0 +1,247 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<div
+  style='
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+  '
+  class='
+    pt-(--h5-padding-top)
+    pb-(--h5-padding-bottom)
+    md:pt-(--padding-top)
+    md:pb-(--padding-bottom) {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <div class='page-container'>
+    {% if section.settings.title != blank or section.settings.description != blank %}
+      <div class='mb-32 text-center md:mb-40'>
+        {% if section.settings.title != blank %}
+          <h2 class='text-[32px] leading-none md:text-[44px]'>
+            <div class='hidden md:block'>
+              {{ section.settings.title }}
+            </div>
+            <div class='md:hidden'>
+              {{ section.settings.title | strip_html }}
+            </div>
+          </h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <div class='mt-8 text-[14px] leading-[1.3] text-[#515355] md:mt-16 md:text-[15px]'>
+            <div class='hidden md:block'>
+              {{ section.settings.description }}
+            </div>
+            <div class='md:hidden'>
+              {{ section.settings.description | strip_html }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class='grid grid-cols-2 gap-x-12 gap-y-24 sm:flex sm:gap-12'>
+      {% for block in section.blocks %}
+        <div
+          class='flex-1'
+          {{ block.shopify_attributes }}
+        >
+          {% render 'media-element',
+            class: 'relative aspect-[1]',
+            media_class: 'w-full h-full object-cover',
+            media_type: 'image',
+            pc_image: block.settings.pc_image,
+            h5_image: block.settings.h5_image
+          %}
+          <h3 class='mt-16 text-[20px] leading-[1.1] md:mt-16 md:text-[22px]'>
+            {{ block.settings.title }}
+          </h3>
+          <p class='mt-8 text-[14px] leading-[1.3] text-[#515355] md:mt-8 md:text-[15px]'>
+            {{ block.settings.description }}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+    <div class='mt-20 flex justify-center md:mt-40'>
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+        <a
+          href='{{ section.settings.button_link | default: '#' }}'
+          {% if section.settings.btn_anchor_id != blank %}
+            data-anchor-id='{{ section.settings.btn_anchor_id }}'
+          {% endif %}
+          class='
+            inline-flex
+            h-40 items-center justify-center
+            self-start
+            bg-[#FEDB1E]
+            px-24
+            text-[13px]/[1.3]
+            tracking-[0]
+            text-[#25282A]
+            no-underline
+            transition-colors
+            duration-300
+            hover:bg-[#25282A]
+            hover:text-[#FFFFFF]
+            sm:h-44
+            sm:min-w-170
+            sm:px-32
+            sm:text-[14px]/[1.4]
+          '
+        >
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Ugc Block Text",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "btn_anchor_id",
+      "label": "Button Anchor Id"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            { "value": "image", "label": "Image" },
+            { "value": "video", "label": "Shopify Video" },
+            { "value": "video_url", "label": "External Video URL" }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "Mobile Image (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ugc Block Text",
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "Epic Quests",
+            "description": "Share longer, high-quality videos of Yarbo taking on big challenges — complex yards, extreme conditions, or a thorough review of your experience."
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Epic Quests",
+            "description": "Share longer, high-quality videos of Yarbo taking on big challenges — complex yards, extreme conditions, or a thorough review of your experience."
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Epic Quests",
+            "description": "Share longer, high-quality videos of Yarbo taking on big challenges — complex yards, extreme conditions, or a thorough review of your experience."
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Epic Quests",
+            "description": "Share longer, high-quality videos of Yarbo taking on big challenges — complex yards, extreme conditions, or a thorough review of your experience."
+          }
+        }
+      ],
+      "settings": {
+        "title": "<p>Weekly Quests & Awards</p>",
+        "button_text": "Join in Now"
+      }
+    }
+  ]
+}
+{% endschema %}

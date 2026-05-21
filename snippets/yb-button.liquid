@@ -1,0 +1,64 @@
+{% assign button_class = class | default: '' %}
+{% assign button_tag = tag | default: 'button' %}
+{% assign type_string = button_tag | append: '_type' %}
+{% assign button_type = type | default: config[type_string] %}
+{% assign text_string = button_tag | append: '_text' %}
+{% assign button_text = config[text_string] %}
+
+{% case button_type %}
+  {% when 'anchor' %}
+    <a
+      href='javascript:void(0);'
+      class='{{ button_class }}'
+      data-anchor-id='{{ config.button_anchor }}'
+    >
+      {{- button_text -}}
+    </a>
+  {% when 'link' %}
+    {% assign link_string = button_tag | append: '_link' %}
+    {% assign button_link = config[link_string] %}
+    {% assign link_new_window_string = button_tag
+      | append: '_link_new_window'
+    %}
+    {% assign link_new_window = config[link_new_window_string] %}
+    {% if button_link != blank %}
+      {% if link_new_window %}
+        <a
+          href='{{ button_link }}'
+          class='{{ button_class }}'
+          {% if button_link contains 'facebook' %}
+            data-datalayer='facebook_group_join_click'
+            data-btn-name='facebook_group_join_click'
+          {% endif %}
+          target='_blank'
+        >
+          {{- button_text -}}
+        </a>
+      {% else %}
+        <a
+          href='{{ button_link }}'
+          class='{{ button_class }}'
+          {% if button_link contains 'facebook' %}
+            data-datalayer='facebook_group_join_click'
+            data-btn-name='facebook_group_join_click'
+          {% endif %}
+        >
+          {{- button_text -}}
+        </a>
+      {% endif %}
+    {% else %}
+      <button class='{{ button_class }}'>{{ button_text }}</button>
+    {% endif -%}
+
+  {% when 'modal' %}
+    {% assign modal_title_string = button_tag | append: '_modal_title' %}
+    {% assign button_modal_title = config[modal_title_string] %}
+    {% assign modal_content_string = button_tag | append: '_modal_content' %}
+    {% assign button_modal_content = config[modal_content_string] %}
+    {% render 'yb-snippet-modal',
+      content: button_text,
+      class: button_class,
+      title: button_modal_title,
+      html: button_modal_content
+    %}
+{% endcase %}

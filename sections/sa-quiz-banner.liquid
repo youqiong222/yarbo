@@ -1,0 +1,335 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{%- liquid
+  assign b = section.settings
+  assign pc_ratio = b.pc_aspect_ratio_w | append: '/' | append: b.pc_aspect_ratio_h
+  assign h5_ratio = b.h5_aspect_ratio_w | append: '/' | append: b.h5_aspect_ratio_h
+-%}
+
+<div
+  class='    page-container'
+  style='
+    --pt-pc: {{ b.pt_pc }}px;
+    --pb-pc: {{ b.pb_pc }}px;
+    --pt-h5: {{ b.pt_h5 }}px;
+    --pb-h5: {{ b.pb_h5 }}px;
+
+    --title-size-pc: {{ b.title_size_pc }}px;
+    --title-size-h5: {{ b.title_size_h5 }}px;
+
+    {% if b.use_aspect_ratio %}
+      --media-aspect-pc: {{ pc_ratio }};
+      --media-aspect-h5: {{ h5_ratio }};
+    {% else %}
+      --media-height-pc: {{ b.pc_height }}px;
+      --media-height-h5: {{ b.h5_height }}px;
+    {% endif %}
+  '
+>
+  <a
+    href='{{ b.button_link }}'
+    class='block'
+  >
+    <div
+      class='
+        relative overflow-hidden border border-white/20 bg-[#EAEAEA] p-4 md:p-10
+        {% if b.use_aspect_ratio %}
+          aspect-(--media-aspect-h5) md:aspect-(--media-aspect-pc)
+        {% else %}
+          h-(--media-height-h5) md:h-(--media-height-pc)
+        {% endif %}
+      '
+    >
+      <!-- Media -->
+      <div class='absolute inset-0'>
+        {% render 'media-element',
+          class: 'absolute inset-0 w-full h-full',
+          media_class: 'w-full h-full object-cover',
+          media_type: b.media_type,
+          pc_image: b.pc_image,
+          h5_image: b.h5_image,
+          pc_video: b.pc_video,
+          h5_video: b.h5_video,
+          video_url: b.video_url,
+          other_url: b.other_url
+        %}
+      </div>
+
+      <!-- Gradient Overlay -->
+      <div class='absolute inset-0 bg-gradient-to-r from-black/75 via-black/25 to-transparent'></div>
+
+      <!-- Custom Overlay -->
+      {%- render 'sn-overlay', _settings: b -%}
+
+      <!-- PC Content -->
+      <div
+        style='--text-color:{{ b.color }}'
+        class='
+          absolute  top-0 left-0 z-10 flex
+          h-full
+          w-full flex-row items-center justify-between gap-24  px-24 md:flex-col md:items-start md:justify-center md:px-80
+        '
+      >
+        {% if b.title != blank %}
+          <h3
+            class='text-[26px] leading-[1.1] text-(--text-color) uppercase md:text-[44px]'
+          >
+            {{ b.title }}
+          </h3>
+        {% endif %}
+
+        {% if b.button_text != blank %}
+          <div
+            class='
+              hidden  w-fit items-center justify-center bg-white px-32 py-10 text-[15px] text-[#25282A] transition-all
+              duration-300 hover:bg-[#FEDB1E] hover:text-white md:flex
+            '
+            href='{{ b.button_link }}'
+          >
+            {{ b.button_text }}
+          </div>
+          <div
+            href='{{ b.button_link }}'
+            class='text-(--text-color) md:hidden'
+          >
+            <svg
+              width='18'
+              height='18'
+              viewBox='0 0 18 18'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                d='M4 14L14 4M14 4H6.5M14 4V11.5'
+                stroke='currentColor'
+                stroke-width='1.5'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+              />
+            </svg>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "Quiz Banner",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Shopify Video"
+        },
+        {
+          "value": "video_url",
+          "label": "External Video URL"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "PC Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "video",
+      "id": "pc_video",
+      "label": "PC Shopify Video"
+    },
+    {
+      "type": "video",
+      "id": "h5_video",
+      "label": "Mobile Shopify Video"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "YouTube/Vimeo URL",
+      "accept": ["youtube", "vimeo"]
+    },
+    {
+      "type": "text",
+      "id": "other_url",
+      "label": "Custom Video URL"
+    },
+
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show Overlay",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 40
+    },
+
+    {
+      "type": "header",
+      "content": "Aspect Ratio / Height"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_aspect_ratio",
+      "label": "Use Aspect Ratio",
+      "default": true
+    },
+
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width",
+      "default": 16
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height",
+      "default": 6
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width",
+      "default": 4
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height",
+      "default": 3
+    },
+
+    {
+      "type": "number",
+      "id": "pc_height",
+      "label": "PC Height",
+      "default": 500
+    },
+    {
+      "type": "number",
+      "id": "h5_height",
+      "label": "Mobile Height",
+      "default": 240
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+
+    {
+      "type": "range",
+      "id": "title_size_pc",
+      "label": "Title Size PC",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "title_size_h5",
+      "label": "Title Size Mobile",
+      "min": 14,
+      "max": 60,
+      "step": 2,
+      "default": 24
+    },
+
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Take the Quiz"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quiz Banner"
+    }
+  ]
+}
+{% endschema %}

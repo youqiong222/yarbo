@@ -1,0 +1,484 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    {% if section.settings.bg_img != blank %}
+      background: url({{ section.settings.bg_img | image_url }}) no-repeat center center;
+      background-size: cover;
+    {% else %}
+      background: {{ section.settings.bac_color }};
+    {% endif %}
+  }
+  #shopify-section-{{ section.id }} h2 {
+   background: {{ section.settings.section_title_color }};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+{%- endstyle -%}
+
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <h2
+    class='
+      mb-32
+      bg-clip-text
+      text-left
+      text-[28px]
+      leading-[1.4]
+      text-transparent md:mb-32  md:text-center md:text-[48px]
+    '
+  >
+    {{ section.settings.section_title }}
+  </h2>
+
+  {% for block in section.blocks %}
+    <div
+      style='
+        --gap-mobile: {{ section.settings.gap_mobile }}px;
+        --gap-pc: {{ section.settings.gap_pc }}px;
+      '
+      class='
+        mt-30 flex gap-(--gap-mobile) md:mt-0 md:items-center md:gap-(--gap-pc)
+        {% if section.settings.mobile_layout == 'image_top' %}
+          flex-col
+        {% else %}
+          flex-col-reverse
+        {% endif %}
+        {% if section.settings.pc_layout == 'image_left' %}
+          md:flex-row
+        {% else %}
+          md:flex-row-reverse
+        {% endif %}
+      '
+    >
+      <div class='flex flex-1 flex-col gap-24 md:gap-40'>
+        <div
+          {{ block.shopify_attributes }}
+          class='flex flex-col gap-12 md:gap-16'
+        >
+          {% if block.settings.title != blank %}
+            <h3
+              style='
+                --color: {{ section.settings.title_color }};
+                --strong-color: {{ section.settings.strong_color }};
+                --title-mobile: {{ section.settings.title_size_mobile }}px;
+                --title-pc: {{ section.settings.title_size_pc }}px;
+              '
+              class='
+                mb-0
+                text-(length:--title-mobile)
+                leading-none
+                text-(--color)
+                uppercase
+                md:mb-0
+                md:text-(length:--title-pc)
+                [&_strong]:text-(--strong-color)
+              '
+            >
+              {{ block.settings.title }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.desc != blank %}
+            <div
+              style='
+                --color: {{ section.settings.desc_color }};
+                --text-mobile: {{ section.settings.desc_size_mobile }}px;
+                --text-pc: {{ section.settings.desc_size_pc }}px;
+              '
+              class='text-(length:--text-mobile) leading-[1.4] text-(--color) md:pr-60 md:text-(length:--text-pc)'
+            >
+              {{ block.settings.desc }}
+            </div>
+          {% endif %}
+          {% if block.settings.button_link != blank %}
+            <a
+              class='mt-12 flex h-44 items-center justify-center self-start bg-white px-32 text-[14px]/[1.4] text-[#25282A] no-underline transition-colors duration-300 hover:bg-[#FEDB1E] md:mt-16'
+              href='{{ block.settings.button_link }}'
+            >
+              {{- block.settings.button_text -}}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      <div
+        style='--width:{{ block.settings.image_width }}%'
+        class='md:w-(--width)'
+      >
+        {%- liquid
+          assign b = block.settings
+          assign pc_w = b.pc_aspect_ratio_w | default: 16
+          assign pc_h = b.pc_aspect_ratio_h | default: 9
+          assign pc_ratio = pc_w | append: '/' | append: pc_h
+          assign h5_w = b.h5_aspect_ratio_w | default: 16
+          assign h5_h = b.h5_aspect_ratio_h | default: 9
+          assign h5_ratio = h5_w | append: '/' | append: h5_h
+        -%}
+        <div
+          style='
+            --media-aspect-pc: {{ pc_ratio }};
+            --media-aspect-h5: {{ h5_ratio }};
+          '
+          class='
+            relative aspect-(--media-aspect-h5) w-full
+            overflow-hidden md:aspect-(--media-aspect-pc)
+          '
+        >
+          {% render 'media-element',
+            class: 'absolute inset-0 w-full h-full object-cover',
+            media_class: 'w-full h-full object-cover',
+            media_type: block.settings.media_type,
+            pc_image: block.settings.pc_image,
+            h5_image: block.settings.h5_image,
+            pc_video: block.settings.pc_video,
+            h5_video: block.settings.h5_video,
+            video_url: block.settings.video_url,
+            other_url: block.settings.other_url
+          %}
+          {%- render 'sn-overlay', _settings: block.settings -%}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Index Text Media",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_img",
+      "label": "Bg Img"
+    },
+    {
+      "type": "color_background",
+      "id": "bac_color",
+      "label": "Bg Color",
+      "default": "#000"
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "section_title",
+      "label": "Section Title"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "select",
+      "id": "pc_layout",
+      "label": "PC Layout",
+      "default": "image_left",
+      "options": [
+        { "value": "image_left", "label": "Text Left, Image Right" },
+        { "value": "image_right", "label": "Image Left, Text Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile Layout",
+      "default": "image_top",
+      "options": [
+        { "value": "image_top", "label": " Text Top, Image Bottom" },
+        { "value": "text_top", "label": "Image Top, Text Bottom" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text Colors"
+    },
+    {
+      "type": "color_background",
+      "id": "section_title_color",
+      "label": "Section Title Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "strong_color",
+      "label": "Strong Text Color",
+      "default": "#FEDB1E"
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Description Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing & Typography"
+    },
+    {
+      "type": "range",
+      "id": "gap_pc",
+      "label": "Desktop Gap",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "label": "Mobile Gap",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 32
+    },
+
+    {
+      "type": "range",
+      "id": "title_size_pc",
+      "label": "Title Size (Desktop)",
+      "min": 16,
+      "max": 72,
+      "step": 2,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Title Size (Mobile)",
+      "min": 14,
+      "max": 40,
+      "step": 2,
+      "default": 24
+    },
+
+    {
+      "type": "range",
+      "id": "desc_size_pc",
+      "label": "Description Size (Desktop)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desc_size_mobile",
+      "label": "Description Size (Mobile)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Shopify Video"
+            },
+            {
+              "value": "video_url",
+              "label": "External Video URL"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        },
+        {
+          "type": "video",
+          "id": "pc_video",
+          "label": "PC Shopify Video"
+        },
+        {
+          "type": "video",
+          "id": "h5_video",
+          "label": "H5 Shopify Video(Optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Platform Video URL (YouTube/Vimeo)",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+          "type": "text",
+          "id": "other_url",
+          "label": "Other Video URL",
+          "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+        },
+        {
+          "type": "header",
+          "content": "Overlay Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show Media Overlay",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay Opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 40
+        },
+        {
+          "type": "header",
+          "content": "Block Aspect Ratio"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_w",
+          "label": "PC Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "pc_aspect_ratio_h",
+          "label": "PC Ratio Height"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_w",
+          "label": "Mobile Ratio Width"
+        },
+        {
+          "type": "number",
+          "id": "h5_aspect_ratio_h",
+          "label": "Mobile Ratio Height"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "label": "Image Width",
+          "min": 40,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Index Text Media",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "<p><strong>100,000 </strong>Owners. </p><p><strong>10 Years </strong>Strong. </p><p>One System for </p><p>Every Season.</p>",
+            "desc": "<p>Every system is designed for performance, safety, and efficiency — giving first-time buyers confidence from day one.</p>",
+            "button_text": "About Us"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

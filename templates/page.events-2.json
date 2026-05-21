@@ -1,0 +1,251 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "yb_banner_swiper_yaLjHe": {
+      "type": "yb-banner-swiper",
+      "blocks": {
+        "item_VwawDc": {
+          "type": "item",
+          "settings": {
+            "text_horizontal_position": "left",
+            "text_vertical_position": "top",
+            "text_width": 50,
+            "description": "<h1><em><strong>Events</strong></em></h1>",
+            "title": "",
+            "subTitle": "",
+            "enable_btn_group": false,
+            "enable_global_btn": false,
+            "enable_global_anchor": false,
+            "global_anchor_id": "",
+            "button_text": "",
+            "button_type": "link",
+            "button_link": "",
+            "button_class": "",
+            "button_anchor": "",
+            "button_modal_title": "",
+            "button_modal_content": "",
+            "button2_text": "",
+            "button2_type": "link",
+            "button2_link": "",
+            "button2_class": "",
+            "button2_anchor": "",
+            "button2_modal_title": "",
+            "button2_modal_content": "",
+            "enable_subscription": false,
+            "subscription_absolute": false,
+            "subscription_position": 24,
+            "email_type": "",
+            "klaviyo_list_id": "",
+            "subscription_title": "",
+            "subscription_button_text": "",
+            "pc_img": "shopify://shop_images/Frame-2036456510.webp",
+            "pc_external_video": "",
+            "mobile_img": "shopify://shop_images/Frame-2036456509.webp",
+            "mobile_external_video": "",
+            "mobile_layout": "style1"
+          }
+        }
+      },
+      "block_order": [
+        "item_VwawDc"
+      ],
+      "custom_css": [
+        "h1 {font-size: 60px; color: #596480;}"
+      ],
+      "name": "Yb-Banner",
+      "settings": {
+        "banner_speed": 6
+      }
+    },
+    "sa_event_list_V7gnG3": {
+      "type": "sa-event-list",
+      "blocks": {
+        "event_C7VeWC": {
+          "type": "event",
+          "settings": {
+            "event_type": "incoming",
+            "pc_image": "shopify://shop_images/20260421-222526.png",
+            "title": "Spogagafa 2026",
+            "location": "Cologne, Germany",
+            "date": "Jun. 22-24, 2026",
+            "booth": "-",
+            "link_text": "",
+            "link_url": ""
+          }
+        },
+        "event_XDxcjq": {
+          "type": "event",
+          "settings": {
+            "event_type": "past",
+            "pc_image": "shopify://shop_images/3cdd03e6-a00f-45da-ba3e-223438d16a2c_5f237f3e-8239-425a-86bc-4ea8776c1339.webp",
+            "title": "Equip Expo",
+            "location": "Kentucky Exposition Center, 937 Phillips Ln, Louisville, Kentucky 40209, USA",
+            "date": "Oct. 21-24, 2025",
+            "booth": "10162 (Indoor) + 6243D (Outdoor)",
+            "link_text": "Learn More",
+            "link_url": "https://www.equipexposition.com/"
+          }
+        },
+        "event_DtqXqE": {
+          "type": "event",
+          "settings": {
+            "event_type": "past",
+            "pc_image": "shopify://shop_images/cbbf533f-f392-47f9-b334-829b3ebe4e68.webp",
+            "title": "CES 2026",
+            "location": "Las Vegas, NV, USA",
+            "date": "Jan. 6-9, 2026",
+            "booth": "#51232",
+            "link_text": "Learn More",
+            "link_url": "https://mseries.yarbo.com/pages/ces-2026"
+          }
+        },
+        "event_4cCgja": {
+          "type": "event",
+          "settings": {
+            "event_type": "past",
+            "pc_image": "shopify://shop_images/47a4732c-2a10-4b4f-b5cd-73b7c96b2fd0.webp",
+            "title": "SIMA",
+            "location": "Michigan, USA",
+            "date": "Jun. 17-20, 2025",
+            "booth": "747",
+            "link_text": "",
+            "link_url": ""
+          }
+        },
+        "event_FPqdCq": {
+          "type": "event",
+          "settings": {
+            "event_type": "past",
+            "pc_image": "shopify://shop_images/d86a3f76-9348-4cb5-9701-ed9d4ac0e4bf.webp",
+            "title": "IFA 2025",
+            "location": "Berlin, Germany",
+            "date": "Sep. 5-9, 2025",
+            "booth": "Hall 9, Booth 131 (Indoor) + OCG 109 (Outdoor)",
+            "link_text": "Learn More",
+            "link_url": "https://www.ifa-berlin.com/"
+          }
+        },
+        "event_rNVxGY": {
+          "type": "event",
+          "settings": {
+            "event_type": "past",
+            "pc_image": "shopify://shop_images/05b60f41-a2db-493c-9878-373d7c105871.webp",
+            "title": "GroundsFest",
+            "location": "TBD",
+            "date": "Sep. 9-10, 2025",
+            "booth": "RB20",
+            "link_text": "Learn More",
+            "link_url": "https://groundsfest.com/"
+          }
+        },
+        "event_cFaVAA": {
+          "type": "event",
+          "settings": {
+            "event_type": "past",
+            "pc_image": "shopify://shop_images/c833c01f-af2f-47f0-99fb-91560aebdc0b.png",
+            "title": "IFA 2024",
+            "location": "Messe Berlin, Messedamm 22, 14055 Berlin, Germany",
+            "date": "Sep. 6-10, 2024",
+            "booth": "H27-I03",
+            "link_text": "",
+            "link_url": ""
+          }
+        },
+        "event_GhcGen": {
+          "type": "event",
+          "settings": {
+            "event_type": "past",
+            "pc_image": "shopify://shop_images/2a14df2b-5040-4e87-8f1c-a2bf70a9a619.webp",
+            "title": "GaLaBau",
+            "location": "NürnbergMesse, Messezentrum 1, 90471 Nürnberg, Germany",
+            "date": "Sep. 11-14, 2024",
+            "booth": "10.0-303",
+            "link_text": "",
+            "link_url": ""
+          }
+        },
+        "event_gTRRRg": {
+          "type": "event",
+          "settings": {
+            "event_type": "past",
+            "pc_image": "shopify://shop_images/2018e76a-c3e2-436f-83ac-034ae849c59e.webp",
+            "title": "Equip",
+            "location": "Kentucky Exposition Center, 937 Phillips Ln, Louisville, Kentucky 40209, USA",
+            "date": "Oct. 15-18, 2024",
+            "booth": "42220 (Indoor) + 6243D (Outdoor)",
+            "link_text": "",
+            "link_url": ""
+          }
+        },
+        "event_b46ncf": {
+          "type": "event",
+          "settings": {
+            "event_type": "past",
+            "pc_image": "shopify://shop_images/09220b11-e1f1-400f-b1d2-662e1d48fe56.webp",
+            "title": "CES 2025",
+            "location": "Las Vegas, NV, USA",
+            "date": "Jan. 7th - 10th, 2025",
+            "booth": "#51562",
+            "link_text": "Learn More",
+            "link_url": "https://www.ces.tech/"
+          }
+        },
+        "event_wnKCtx": {
+          "type": "event",
+          "settings": {
+            "event_type": "past",
+            "pc_image": "shopify://shop_images/c3935065-8e87-4fa5-8553-7fc7ab19a277.webp",
+            "title": "National Hardware Show",
+            "location": "Las Vegas, NV, USA",
+            "date": "Mar. 18-20, 2025",
+            "booth": "W2710",
+            "link_text": "Learn More",
+            "link_url": "https://www.nhsconcepttocommerce.com/"
+          }
+        }
+      },
+      "block_order": [
+        "event_C7VeWC",
+        "event_XDxcjq",
+        "event_DtqXqE",
+        "event_4cCgja",
+        "event_FPqdCq",
+        "event_rNVxGY",
+        "event_cFaVAA",
+        "event_GhcGen",
+        "event_gTRRRg",
+        "event_b46ncf",
+        "event_wnKCtx"
+      ],
+      "name": "Event List",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "h5_padding_top": 100,
+        "h5_padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "main",
+    "yb_banner_swiper_yaLjHe",
+    "sa_event_list_V7gnG3"
+  ]
+}

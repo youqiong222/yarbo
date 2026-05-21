@@ -1,0 +1,463 @@
+{% render 'yb-section-style', section: section %}
+{% render 'yb-section-common', section: section %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div class='yarbo-porture-card-main-box'>
+  <div class='yarbo-porture-card-list {% if section.settings.M-swiper-show %}swiper-wrapper{% endif %}'>
+    {% for block in section.blocks %}
+      <div
+        class='yarbo-porture-card-one'
+        {{ block.shopify_attributes }}
+      >
+        <div
+          class='yarbo--porture-card-img-box'
+          {% unless block.settings.image %}
+            style='background: linear-gradient(to bottom, #02060B, #676A6D);'
+          {% endunless %}
+        >
+          {% if block.settings.image %}
+            {{ block.settings.image | image_url: width: 800 | image_tag: class: 'yarbo--porture-card-img', loading: 'lazy' }}
+          {% endif %}
+        </div>
+        <div class='yarbo--porture-card-title'>{{ block.settings.title }}</div>
+        <div class='yarbo--porture-card-text'>{{ block.settings.text }}</div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class='picture_card_swiper-pagination'></div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} .yarbo-porture-card-main-box {
+      margin: 0 auto;
+  }
+  #shopify-section-{{ section.id }} {
+      overflow-x: hidden;
+  }
+  #shopify-section-{{ section.id }} strong {
+      font-weight: 800 !important;
+  }
+  #shopify-section-{{ section.id }} span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+      background: #02060B;
+      border-radius: 41px;
+      width: 64px;
+      height: 4px;
+  }
+  span.swiper-pagination-bullet {
+      width: 12px;
+      height: 4px;
+      border-radius: 41px;
+      background: #A9A9A9;
+      margin: 0 6px !important;
+  }
+  #shopify-section-{{ section.id }} .picture_card_swiper-pagination {
+      text-align: center;
+      margin-top: 32px;
+      display: none;
+  }
+  #shopify-section-{{ section.id }} .yarbo-porture-card-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px 16px;
+      align-items: baseline;
+  }
+  #shopify-section-{{ section.id }} .yarbo--porture-card-img-box,
+  #shopify-section-{{ section.id }} .yarbo--porture-card-img {
+      aspect-ratio: 1/1;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+  }
+  #shopify-section-{{ section.id }} .yarbo--porture-card-title {
+      text-align: center;
+  }
+  #shopify-section-{{ section.id }} .yarbo--porture-card-text {
+      margin-top: 4px;
+      text-align: center;
+  }
+  #shopify-section-{{ section.id }} .yarbo-porture-card-one {
+      flex: 0 0 calc((100% - 16px * ({{ section.settings.PC-number-show }} - 1)) / {{ section.settings.PC-number-show }});
+      display: flex;
+      flex-direction: column;
+  }
+
+  /* 375-679px */
+  @media (max-width: 679px) {
+      #shopify-section-{{ section.id }} .yarbo-porture-card-list {
+          gap: 32px 8px;
+          flex-wrap: wrap;
+      }
+      #shopify-section-{{ section.id }} .yarbo-porture-card-list.swiper-wrapper {
+          flex-wrap: nowrap;
+          gap: 32px 0;
+      }
+      #shopify-section-{{ section.id }} .picture_card_swiper-pagination {
+          display: block;
+      }
+      #shopify-section-{{ section.id }} .yarbo-porture-card-main-box {
+          max-width: calc(100% - 2 * 16px);
+          margin-top: 32px;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-img-box {
+          margin-bottom: 12px;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-title {
+          font-size: 14px;
+          font-weight: 700;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-text {
+          font-size: 12px;
+          font-weight: 400;
+      }
+      #shopify-section-{{ section.id }} .yarbo-porture-card-one {
+          flex: 0 0 calc((100% - 8px) / 2);
+      }
+  }
+
+  /* 680-959px */
+  @media (min-width: 680px) and (max-width: 959px) {
+      #shopify-section-{{ section.id }} .yarbo-porture-card-list {
+          gap: 32px 8px;
+          flex-wrap: wrap;
+      }
+      #shopify-section-{{ section.id }} .yarbo-porture-card-list.swiper-wrapper {
+          flex-wrap: nowrap;
+          gap: 32px 0;
+      }
+      #shopify-section-{{ section.id }} .picture_card_swiper-pagination {
+          display: block;
+      }
+      #shopify-section-{{ section.id }} .yarbo-porture-card-main-box {
+          max-width: calc(100% - 2 * 24px);
+          margin-top: 48px;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-img-box {
+          margin-bottom: 16px;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-text {
+          margin-top: 8px;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-title {
+          font-size: 18px;
+          font-weight: 700;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-text {
+          font-size: 14px;
+          font-weight: 400;
+      }
+      #shopify-section-{{ section.id }} .yarbo-porture-card-one {
+          flex: 0 0 calc((100% - 8px) / 2);
+      }
+  }
+
+  /* 960-1439px */
+  @media (min-width: 960px) and (max-width: 1439px) {
+      #shopify-section-{{ section.id }} .yarbo-porture-card-main-box {
+          max-width: 900px;
+          margin-top: 48px;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-img-box {
+          margin-bottom: 12px;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-title {
+          font-size: 14px;
+          font-weight: 700;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-text {
+          font-size: 12px;
+          font-weight: 400;
+      }
+  }
+
+  /* 1440-1919px */
+  @media (min-width: 1440px) and (max-width: 1919px) {
+      #shopify-section-{{ section.id }} .yarbo-porture-card-main-box {
+          max-width: 1200px;
+          margin-top: 56px;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-img-box {
+          margin-bottom: 16px;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-title {
+          font-size: 16px;
+          font-weight: 700;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-text {
+          font-size: 12px;
+          font-weight: 400;
+      }
+  }
+
+  /* 1920px+ default */
+  @media (min-width: 1920px) {
+      #shopify-section-{{ section.id }} .yarbo-porture-card-main-box {
+          max-width: 1400px;
+          margin-top: 64px;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-img-box {
+          margin-bottom: 16px;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-title {
+          font-size: 18px;
+          font-weight: 700;
+      }
+      #shopify-section-{{ section.id }} .yarbo--porture-card-text {
+          font-size: 14px;
+          font-weight: 400;
+      }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      let yarboSwiperPicture{{ section.id | replace: '-', '_' }} = null;
+      const pictureCardAll{{ section.id | replace: '-', '_' }} = document.querySelectorAll('#shopify-section-{{ section.id }} .yarbo-porture-card-one');
+
+      function initYarboSwiperPicture{{ section.id | replace: '-', '_' }}() {
+          const isMobile = window.innerWidth < 960;
+          const mSwiperEnabled = {{ section.settings.M-swiper-show | default: 'false' }};
+
+          pictureCardAll{{ section.id | replace: '-', '_' }}.forEach(el => {
+              el.classList.add('swiper-slide');
+          });
+
+          if (!isMobile || !mSwiperEnabled) {
+              pictureCardAll{{ section.id | replace: '-', '_' }}.forEach(el => {
+                  el.classList.remove('swiper-slide');
+              });
+              if (yarboSwiperPicture{{ section.id | replace: '-', '_' }}) {
+                  yarboSwiperPicture{{ section.id | replace: '-', '_' }}.destroy(true, true);
+                  yarboSwiperPicture{{ section.id | replace: '-', '_' }} = null;
+              }
+              return;
+          }
+
+          if (!yarboSwiperPicture{{ section.id | replace: '-', '_' }}) {
+              pictureCardAll{{ section.id | replace: '-', '_' }}.forEach(el => {
+                  el.classList.add('swiper-slide');
+              });
+              yarboSwiperPicture{{ section.id | replace: '-', '_' }} = new Swiper("#shopify-section-{{ section.id }} .yarbo-porture-card-main-box", {
+                  slidesPerView: 2,
+                  slidesPerGroup: 2,
+                  spaceBetween: 8,
+                  pagination: {
+                      el: "#shopify-section-{{ section.id }} .picture_card_swiper-pagination",
+                      clickable: true
+                  },
+                  resistanceRatio: 0
+              });
+          }
+      }
+
+      initYarboSwiperPicture{{ section.id | replace: '-', '_' }}();
+
+      let resizeTimerPicture{{ section.id | replace: '-', '_' }};
+      window.addEventListener('resize', () => {
+          clearTimeout(resizeTimerPicture{{ section.id | replace: '-', '_' }});
+          resizeTimerPicture{{ section.id | replace: '-', '_' }} = setTimeout(() => {
+              initYarboSwiperPicture{{ section.id | replace: '-', '_' }}();
+          }, 300);
+      });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Yarbo Picture display",
+  "class": "migrated-page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景颜色",
+      "default": "#e6e6e7"
+    },
+    {
+      "id": "common_title",
+      "type": "richtext",
+      "label": "标题",
+      "default": "<p>Influencer Insights</p>"
+    },
+    {
+      "id": "common_content",
+      "type": "richtext",
+      "label": "内容",
+      "default": "<p>Section Content</p>"
+    },
+    {
+      "type": "text",
+      "id": "common_button_text",
+      "label": "按钮文字"
+    },
+    {
+      "type": "checkbox",
+      "id": "M-swiper-show",
+      "label": "移动端滑动展示",
+      "default": false,
+      "info": "关闭则平铺"
+    },
+    {
+      "type": "range",
+      "id": "PC-number-show",
+      "label": "PC端显示列数",
+      "default": 5,
+      "step": 1,
+      "min": 2,
+      "max": 5
+    },
+    {
+      "type": "select",
+      "id": "common_button_type",
+      "label": "按钮类型",
+      "default": "link",
+      "options": [
+        { "value": "link", "label": "链接" },
+        { "value": "anchor", "label": "锚点" },
+        {
+          "value": "modal",
+          "label": "弹窗"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "common_button_link",
+      "label": "按钮链接"
+    },
+    {
+      "type": "text",
+      "id": "common_button_anchor",
+      "label": "按钮锚点ID"
+    },
+    {
+      "type": "text",
+      "id": "common_button_modal_title",
+      "label": "按钮弹窗标题"
+    },
+    {
+      "type": "html",
+      "id": "common_button_modal_content",
+      "label": "按钮弹窗内容"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1920",
+      "label": "1920顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1920",
+      "label": "1920底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1440",
+      "label": "1440顶部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1440",
+      "label": "1440底部填充",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_960",
+      "label": "960顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_960",
+      "label": "960底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_680",
+      "label": "680顶部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_680",
+      "label": "680底部填充",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_375",
+      "label": "375顶部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_375",
+      "label": "375底部填充",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_text_block",
+      "name": "卡片",
+      "settings": [
+        {
+          "id": "title",
+          "type": "richtext",
+          "label": "标题",
+          "default": "<p>Yarbo Core</p>"
+        },
+        {
+          "id": "text",
+          "type": "richtext",
+          "label": "评论副标题",
+          "default": "<p>Your Spring Yard Companion</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "图片选择器"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

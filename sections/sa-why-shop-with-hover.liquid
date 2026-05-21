@@ -1,0 +1,337 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+{% assign pc_ratio_w = section.settings.pc_aspect_ratio_w | default: 250 %}
+{% assign pc_ratio_h = section.settings.pc_aspect_ratio_h | default: 300 %}
+<section
+  id='why-shop-{{ section.id }}'
+  class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+>
+  <div class='mb-24 flex items-center justify-between md:mb-32'>
+    {% if section.settings.title != blank %}
+      <h2 class='text-[20px] leading-[1.1] tracking-[-0.02em]  uppercase md:text-[28px]'>
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+    <div class='hidden md:block'>
+      <div class=' flex items-center justify-end gap-8  {% if section.blocks.size <= 4 %} hidden {% endif %}'>
+        <div class='swiper-button-prev relative left-0 mt-0 flex h-48 w-48 items-center justify-center rounded-[50%] border border-[#cccccc] after:hidden hover:bg-[#ccc] [&.swiper-button-disabled]:bg-[#ccc] [&.swiper-button-lock]:hidden'>
+          <svg
+            width='8'
+            height='14'
+            viewBox='0 0 8 14'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d="M6.75325 12.5859L0.919923 6.7526L6.75325 0.91927" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+          </svg>
+        </div>
+
+        <div class='swiper-button-next relative right-0 mt-0 flex h-48 w-48 items-center justify-center rounded-[50%] border border-[#cccccc] after:hidden hover:bg-[#ccc] [&.swiper-button-disabled]:bg-[#ccc] [&.swiper-button-lock]:hidden'>
+          <svg
+            width='8'
+            height='14'
+            viewBox='0 0 8 14'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d="M0.91862 0.919434L6.75195 6.75277L0.91862 12.5861" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper -->
+  <div class='{% if section.blocks.size >= 5 %} swiper whyShopSwiper {% endif %} hidden md:block md:overflow-visible'>
+    <div
+      class='{% if section.blocks.size <= 4 %} grid gap-12 {% case section.blocks.size %}{% when 3 %} grid-cols-3 {% when 4 %} grid-cols-4 {% else %} grid-cols-{{ section.blocks.size }} {% endcase %} {% else %} swiper-wrapper {% endif %}'
+    >
+      {% for block in section.blocks %}
+        <div class='swiper-slide'>
+          <div
+            class='group relative overflow-hidden rounded-lg bg-[#f2f2f2]'
+            style='aspect-ratio: {{ pc_ratio_w }}/{{ pc_ratio_h }}'
+          >
+            <div class='absolute inset-0'>
+              {% if block.settings.hover_image != blank %}
+                {% assign media_class = 'w-full h-full object-cover transition duration-500' %}
+
+                {% unless block.settings.show_image %}
+                  {% assign media_class = media_class | append: ' opacity-0 group-hover:opacity-100' %}
+                {% endunless %}
+
+                <div class='absolute inset-0 overflow-hidden'>
+                  {% render 'media-element', media_type: 'image', class: 'w-full h-full', media_class: media_class, pc_image: block.settings.hover_image %}
+                </div>
+              {% else %}
+                <div class='h-full w-full bg-[#e5e5e5] opacity-0 transition duration-500 group-hover:opacity-100'></div>
+              {% endif %}
+            </div>
+
+            <div
+              class='
+                absolute inset-0 flex flex-col justify-between p-32
+                transition duration-500
+                {% if block.settings.hover_image != blank and block.settings.show_image == false %} group-hover:bg-[linear-gradient(360deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.5)_90%)]  {% elsif block.settings.show_image %} bg-[linear-gradient(360deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.5)_90%)] {% endif %}
+              '
+            >
+              <div>
+                <h3 class='text-[18px] leading-[1.1] uppercase transition {% if block.settings.hover_image != blank and block.settings.show_image == false %} group-hover:text-white {% elsif block.settings.show_image %} text-white {% endif %} md:text-[20px]'>
+                  {{ block.settings.title }}
+                </h3>
+
+                <p class='hidden-phone mt-4 text-[14px] leading-[1.3] text-[#515355] transition {% if block.settings.hover_image != blank and block.settings.show_image == false %} group-hover:text-white {% elsif block.settings.show_image %} text-white {% endif %}'>
+                  {{ block.settings.desc }}
+                </p>
+              </div>
+
+              {% if block.settings.icon != blank %}
+                <img
+                  src='{{ block.settings.icon | image_url: width: 80 }}'
+                  class='max-w-24 transition {% if block.settings.hover_image != blank and block.settings.show_image == false %} group-hover:brightness-0 group-hover:invert {% elsif block.settings.show_image %} brightness-0 invert {% endif %}  md:max-w-60'
+                  width='auto'
+                  height='auto'
+                  alt=''
+                >
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class=' block md:hidden'>
+    <div class='flex flex-col gap-8'>
+      {% for block in section.blocks %}
+        <div class='group  flex items-center gap-12 bg-[#f2f2f2] px-20 py-16'>
+          {% if block.settings.icon != blank %}
+            <img
+              src='{{ block.settings.icon | image_url: width: 80 }}'
+              class='max-w-28 md:max-w-60 '
+              width='auto'
+              height='auto'
+              alt=''
+            >
+          {% endif %}
+          <h3 class=' text-[18px] leading-[1.1]  uppercase md:text-[20px]'>
+            {{ block.settings.title }}
+          </h3>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    new Swiper('#why-shop-{{ section.id }} .whyShopSwiper', {
+      slidesPerView: 1.2,
+      spaceBetween: 16,
+      watchOverflow: true,
+      {%- if section.settings.auto_rotate %}
+      autoplay: { delay: {{ section.settings.change_slides_speed | times: 1000 }}, disableOnInteraction: false },
+      {% endif -%}
+      navigation: {
+        nextEl: '#why-shop-{{ section.id }} .swiper-button-next',
+        prevEl: '#why-shop-{{ section.id }} .swiper-button-prev',
+      },
+
+      breakpoints: {
+        640: {
+          slidesPerView: 2.2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 12,
+        },
+      },
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Why Shop (Hover Image)",
+  "class": "css-reset tailwind-layout overflow-hidden",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "PC Card Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width",
+      "default": 250
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height",
+      "default": 300
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "WHY SHOP WITH US"
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "FREE SHIPPING"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Description",
+          "default": "Delivered in 3-7 days"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "hover_image",
+          "label": "Hover Big Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_image",
+          "label": "Show Image",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Shop Hover",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "Free & Fast Shipping",
+            "desc": "Delivered in 3-7 days"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Delivered in 3-7 days"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Delivered in 3-7 days"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "30-Day Free Returns",
+            "desc": "Delivered in 3-7 days"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Comprehensive Warranty",
+            "desc": "Delivered in 3-7 days"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Delivered in 3-7 days"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "FREE SHIPPING",
+            "desc": "Delivered in 3-7 days"
+          }
+        }
+      ],
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "WHY SHOP WITH US"
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,947 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_common_banner_LTcDiT": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_HRMVUc": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036457793_6.png",
+            "h5_image": "shopify://shop_images/Frame_2036457794.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "bottom-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "<p>Become a Yarbo <br/>Affiliate Partner</p>",
+            "title_color": "#ffffff",
+            "desc": "<p>Easy Promotion, Easy Earnings!</p>",
+            "desc_color": "#ffffff",
+            "button1_text": "Join Now",
+            "button1_link": "https://app.impact.com/campaign-promo-signup/Yarbo.brand?execution=e1s1&#/?viewkey=signUpPreStart",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_HRMVUc"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 500,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_count_up_blocks_tfw8Ht": {
+      "type": "sa-count-up-blocks",
+      "blocks": {
+        "block_Q4WHfM": {
+          "type": "block",
+          "settings": {
+            "title": "Up to 8%",
+            "text": "Basic commission rate"
+          }
+        },
+        "block_JUHVfk": {
+          "type": "block",
+          "settings": {
+            "title": "Exclusive",
+            "text": "Seasonal promotions"
+          }
+        }
+      },
+      "block_order": [
+        "block_Q4WHfM",
+        "block_JUHVfk"
+      ],
+      "disabled": true,
+      "name": "Count Up Blocks 2",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40
+      }
+    },
+    "sa_count_up_blocks_peRUC6": {
+      "type": "sa-count-up-blocks",
+      "blocks": {
+        "block_UJ6hc8": {
+          "type": "block",
+          "settings": {
+            "title": "$5,000+",
+            "text": "Average order value"
+          }
+        },
+        "block_Gzwkzk": {
+          "type": "block",
+          "settings": {
+            "title": "Up to 8%",
+            "text": "Basic commission rate"
+          }
+        },
+        "block_GrVcqi": {
+          "type": "block",
+          "settings": {
+            "title": "Exclusive",
+            "text": "Seasonal promotions"
+          }
+        }
+      },
+      "block_order": [
+        "block_UJ6hc8",
+        "block_Gzwkzk",
+        "block_GrVcqi"
+      ],
+      "name": "Count Up Blocks 3",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40
+      }
+    },
+    "sa_count_up_blocks_UM7yLg": {
+      "type": "sa-count-up-blocks",
+      "blocks": {
+        "block_J4zyAa": {
+          "type": "block",
+          "settings": {
+            "title": "$5,000+",
+            "text": "Average order value"
+          }
+        },
+        "block_YeTGrR": {
+          "type": "block",
+          "settings": {
+            "title": "Up to 8%",
+            "text": "Basic commission rate"
+          }
+        },
+        "block_RxdP4j": {
+          "type": "block",
+          "settings": {
+            "title": "Up to 8%",
+            "text": "Basic commission rate"
+          }
+        },
+        "block_Awy8fL": {
+          "type": "block",
+          "settings": {
+            "title": "Exclusive",
+            "text": "Seasonal promotions"
+          }
+        }
+      },
+      "block_order": [
+        "block_J4zyAa",
+        "block_YeTGrR",
+        "block_RxdP4j",
+        "block_Awy8fL"
+      ],
+      "disabled": true,
+      "name": "Count Up Blocks 4",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40
+      }
+    },
+    "sa_blocks_grid_pXDynp": {
+      "type": "sa-blocks-grid",
+      "blocks": {
+        "step_item_nDxajR": {
+          "type": "step_item",
+          "settings": {
+            "number": "01",
+            "title": "Sign Up",
+            "description": "Visit the Impact Affiliate page and fill out \nthe application form.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_20348830-610d-4ad5-8c69-81bebda39969.svg"
+          }
+        },
+        "step_item_NnQKaJ": {
+          "type": "step_item",
+          "settings": {
+            "number": "02",
+            "title": "Promote",
+            "description": "Get your exclusive link to share and earn while we'll prepare everything you need, from banners to images.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_9a524de2-c867-42fa-8dda-e60e47185758.svg"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_nDxajR",
+        "step_item_NnQKaJ"
+      ],
+      "disabled": true,
+      "name": "Blocks Text Grid 2",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "HOW IT WORKS"
+      }
+    },
+    "sa_blocks_grid_XyTdK4": {
+      "type": "sa-blocks-grid",
+      "blocks": {
+        "step_item_BDm8KP": {
+          "type": "step_item",
+          "settings": {
+            "number": "01",
+            "title": "Sign Up",
+            "description": "Visit the Impact Affiliate page and fill out \nthe application form.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_20348830-610d-4ad5-8c69-81bebda39969.svg"
+          }
+        },
+        "step_item_i3Tqzf": {
+          "type": "step_item",
+          "settings": {
+            "number": "02",
+            "title": "Promote",
+            "description": "Get your exclusive link to share and earn while we'll prepare everything you need, from banners to images.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_9a524de2-c867-42fa-8dda-e60e47185758.svg"
+          }
+        },
+        "step_item_D4PUfk": {
+          "type": "step_item",
+          "settings": {
+            "number": "03",
+            "title": "Earn",
+            "description": "Earn 3% to 8% on each sale made through your link. The more you share, the more you earn.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4a4fad2e-4040-429d-b48a-2f16aa3ed9c7.svg"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_BDm8KP",
+        "step_item_i3Tqzf",
+        "step_item_D4PUfk"
+      ],
+      "name": "Blocks Text Grid 3",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "HOW IT WORKS"
+      }
+    },
+    "sa_blocks_grid_mGjp9r": {
+      "type": "sa-blocks-grid",
+      "blocks": {
+        "step_item_Yb4ctf": {
+          "type": "step_item",
+          "settings": {
+            "number": "01",
+            "title": "Sign Up",
+            "description": "Visit the Impact Affiliate page and fill out \nthe application form.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_20348830-610d-4ad5-8c69-81bebda39969.svg"
+          }
+        },
+        "step_item_NQwMDC": {
+          "type": "step_item",
+          "settings": {
+            "number": "02",
+            "title": "Promote",
+            "description": "Get your exclusive link to share and earn while we'll prepare everything you need, from banners to images.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_9a524de2-c867-42fa-8dda-e60e47185758.svg"
+          }
+        },
+        "step_item_May4R9": {
+          "type": "step_item",
+          "settings": {
+            "number": "03",
+            "title": "Earn",
+            "description": "Earn 3% to 8% on each sale made through your link. The more you share, the more you earn.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4a4fad2e-4040-429d-b48a-2f16aa3ed9c7.svg"
+          }
+        },
+        "step_item_fRDNVx": {
+          "type": "step_item",
+          "settings": {
+            "number": "03",
+            "title": "Earn",
+            "description": "Earn 3% to 8% on each sale made through your link. The more you share, the more you earn.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4a4fad2e-4040-429d-b48a-2f16aa3ed9c7.svg"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_Yb4ctf",
+        "step_item_NQwMDC",
+        "step_item_May4R9",
+        "step_item_fRDNVx"
+      ],
+      "disabled": true,
+      "name": "Blocks Text Grid 4",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "HOW IT WORKS"
+      }
+    },
+    "sa_blocks_grid_k3BpiF": {
+      "type": "sa-blocks-grid",
+      "blocks": {
+        "step_item_AVCada": {
+          "type": "step_item",
+          "settings": {
+            "number": "01",
+            "title": "Sign Up",
+            "description": "Visit the Impact Affiliate page and fill out \nthe application form.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_20348830-610d-4ad5-8c69-81bebda39969.svg"
+          }
+        },
+        "step_item_LdEjxn": {
+          "type": "step_item",
+          "settings": {
+            "number": "02",
+            "title": "Promote",
+            "description": "Get your exclusive link to share and earn while we'll prepare everything you need, from banners to images.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_9a524de2-c867-42fa-8dda-e60e47185758.svg"
+          }
+        },
+        "step_item_3qaEPn": {
+          "type": "step_item",
+          "settings": {
+            "number": "02",
+            "title": "Promote",
+            "description": "Get your exclusive link to share and earn while we'll prepare everything you need, from banners to images.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_9a524de2-c867-42fa-8dda-e60e47185758.svg"
+          }
+        },
+        "step_item_JMP8Gt": {
+          "type": "step_item",
+          "settings": {
+            "number": "02",
+            "title": "Promote",
+            "description": "Get your exclusive link to share and earn while we'll prepare everything you need, from banners to images.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_9a524de2-c867-42fa-8dda-e60e47185758.svg"
+          }
+        },
+        "step_item_Hpcq4H": {
+          "type": "step_item",
+          "settings": {
+            "number": "03",
+            "title": "Earn",
+            "description": "Earn 3% to 8% on each sale made through your link. The more you share, the more you earn.",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4a4fad2e-4040-429d-b48a-2f16aa3ed9c7.svg"
+          }
+        }
+      },
+      "block_order": [
+        "step_item_AVCada",
+        "step_item_LdEjxn",
+        "step_item_3qaEPn",
+        "step_item_JMP8Gt",
+        "step_item_Hpcq4H"
+      ],
+      "disabled": true,
+      "name": "Blocks Text Grid 5",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "HOW IT WORKS"
+      }
+    },
+    "sa_affiliates_block_text_DV3dVq": {
+      "type": "sa-affiliates-block-text",
+      "blocks": {
+        "block_Gftiee": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2036457795.png",
+            "title": "Influencer",
+            "description": "Post Yarbo product information on your channel."
+          }
+        },
+        "block_GzbNTN": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2036457796.png",
+            "title": "Content/Blog Sites",
+            "description": "Promote Yarbo product copy in articles"
+          }
+        },
+        "block_ckY3Mx": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2036457797.png",
+            "title": "Chat Groups",
+            "description": "Share Yarbo product info in social chat groups"
+          }
+        },
+        "block_GqJw4d": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2036457798.png",
+            "title": "Coupon Sites",
+            "description": "Share Yarbo discount codes and store coupons with consumers"
+          }
+        },
+        "block_RJqGDb": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2036457799.png",
+            "title": "Cashback Sites",
+            "description": "Reward cashback to consumers for making purchases with Yarbo"
+          }
+        },
+        "block_QExRg6": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2036457800.png",
+            "title": "Comparison Sites",
+            "description": "Highlight comparisons between\nYarbo and similar brands"
+          }
+        },
+        "block_HXbMMY": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2036457801.png",
+            "title": "Networks and Agencies",
+            "description": "Promote Yarbo products through cooperation with multiple sites and channels"
+          }
+        },
+        "block_ENLRYr": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2036457802.png",
+            "title": "Deal Sites",
+            "description": "List great deals from Yarbo"
+          }
+        }
+      },
+      "block_order": [
+        "block_Gftiee",
+        "block_GzbNTN",
+        "block_ckY3Mx",
+        "block_GqJw4d",
+        "block_RJqGDb",
+        "block_QExRg6",
+        "block_HXbMMY",
+        "block_ENLRYr"
+      ],
+      "name": "Affiliates Block Text",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "h5_padding_top": 100,
+        "h5_padding_bottom": 100,
+        "title": "<p>Yarbo Affiliate <br/>Partners & Channels</p>",
+        "description": "<p>If you have or want experience with (but not limited to) any </p><p>of the following, come join us!</p>",
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_img_text_features_ERmWz7": {
+      "type": "sa-img-text-features",
+      "blocks": {
+        "accordion_item_FFkgDw": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "01",
+            "title": "Cleaner Energy",
+            "description": "The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in -13°F to 113°F, and carries an IPX5 waterproof rating for reliable performance."
+          }
+        },
+        "accordion_item_qQhmAP": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "02",
+            "title": "Cleaner Energy",
+            "description": "The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in -13°F to 113°F, and carries an IPX5 waterproof rating for reliable performance."
+          }
+        },
+        "accordion_item_rY3JPA": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "03",
+            "title": "Cleaner Energy",
+            "description": "The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in -13°F to 113°F, and carries an IPX5 waterproof rating for reliable performance."
+          }
+        },
+        "accordion_item_RW48UX": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "04",
+            "title": "Cleaner Energy",
+            "description": "The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in -13°F to 113°F, and carries an IPX5 waterproof rating for reliable performance."
+          }
+        },
+        "accordion_item_AkUWCY": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "05",
+            "title": "Inclusive Design",
+            "description": "The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in -13°F to 113°F, and carries an IPX5 waterproof rating for reliable performance."
+          }
+        },
+        "accordion_item_cMawEU": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "06",
+            "title": "Inclusive Design",
+            "description": "The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in -13°F to 113°F, and carries an IPX5 waterproof rating for reliable performance."
+          }
+        },
+        "accordion_item_GDmrVN": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "07",
+            "title": "Lower Carbon Footprint",
+            "description": "The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in -13°F to 113°F, and carries an IPX5 waterproof rating for reliable performance."
+          }
+        },
+        "accordion_item_3eJfyt": {
+          "type": "accordion_item",
+          "settings": {
+            "number": "08",
+            "title": "Inclusive Design",
+            "description": "The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in -13°F to 113°F, and carries an IPX5 waterproof rating for reliable performance."
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_FFkgDw",
+        "accordion_item_qQhmAP",
+        "accordion_item_rY3JPA",
+        "accordion_item_RW48UX",
+        "accordion_item_AkUWCY",
+        "accordion_item_cMawEU",
+        "accordion_item_GDmrVN",
+        "accordion_item_3eJfyt"
+      ],
+      "disabled": true,
+      "name": "Features Accordion",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "title": "EFFORTS WE'VE TAKEN",
+        "description": "<p>If you have or want experience with (but not limited to) any of the following, come join us!</p>",
+        "image_width": 55,
+        "pc_layout": "image_left",
+        "mobile_layout": "image_top",
+        "pc_aspect_ratio_w": 1,
+        "pc_aspect_ratio_h": 1,
+        "h5_aspect_ratio_w": 1,
+        "h5_aspect_ratio_h": 1
+      }
+    },
+    "sa_aff_img_text_banner_gbMgJp": {
+      "type": "sa-aff-img-text-banner",
+      "name": "Img Text Banner With Btn",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "<p>Partner with Yarbo for a <br/>Win-Win Opportunity</p>",
+        "btn_link": "https://app.impact.com/campaign-promo-signup/Yarbo.brand?execution=e1s1&#/?viewkey=signUpPreStart",
+        "btn_anchor_id": "",
+        "btn_text": "Join Now",
+        "img": "shopify://shop_images/1_8b681766-aa9f-4b57-a45a-0fce7b3cebf1_1.png"
+      }
+    },
+    "sa_index_scrolling_nj8qPB": {
+      "type": "sa-index-scrolling",
+      "blocks": {
+        "block_Vzfg8C": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/4_16_1.jpg",
+            "media_type": "video",
+            "video": "shopify://files/videos/FDownloader.Net_AQOErI5zI7yOZjcJYj-gNgOnfnlaaoFwEz8iLxC1ApM_neKehdTRT1BfkZzesEFEnFyYt0EJx53ltkYJLrUnH85G9D3SUsSwg_r8FNJfgpbYvg_720p_(HD) (1) (1).mp4",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/maxresdefault_841a2015-1a0f-4310-94b4-007bb71171b1.jpg",
+            "media_type2": "video_url",
+            "video_url2": "https://www.youtube.com/watch?v=8C1kjZNcKtA&t=293s",
+            "other_url2": "",
+            "img3": "shopify://shop_images/4_16.jpg",
+            "media_type3": "video",
+            "video3": "shopify://files/videos/FDownloader.Net_AQOeMxGsr34smltwLsp1ZAUSU-bKoA8Mn0zSsigOPe7L3miMHOqUQtRSZin4lzM0tuD1GquZiSw4VpljdTwYtlb4zqnLCx9KiypfrN5Pw70Q-Q_720p_(HD).mp4",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_aQxERe": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/maxresdefault_1_84c1907c-a9d5-4501-ab28-b8097fa31eb8.jpg",
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=9BP40fKU9Kw&t=124s",
+            "other_url": "",
+            "img2": "shopify://shop_images/image_43.png",
+            "media_type2": "video",
+            "video_url2": "",
+            "other_url2": "",
+            "img3": "shopify://shop_images/9704b596f477feac12a64afe79203ee666118bb7.png",
+            "media_type3": "video",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_UX79CB": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/667826560_122107351779214436_7325298365434661641_n_1.jpg",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/maxresdefault_2.jpg",
+            "media_type2": "video_url",
+            "video_url2": "https://www.youtube.com/watch?v=cO7XFB0cBMo&t=463s",
+            "other_url2": "",
+            "img3": "shopify://shop_images/4_16_1_f3174828-68cd-4041-89b3-a4216bcb831d.jpg",
+            "media_type3": "video",
+            "video3": "shopify://files/videos/FDownloader.Net_AQMm8jBzQ7aqcZIk-yGpNS_8fj6F7blOMARsOUIErvv9z6H1I7fUywfHI0-Q3LFIqq0dAJh6C4i8xu5g8iYGfMCEr7brn89B0YTd_bw0-MAbeQ_720p_(HD) (1).mp4",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_fHGG6B": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "img": "shopify://shop_images/10f7b24d0723718f6be8ae0a9a10e04fd2b8c1a7.png",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/a00d39adac7e15aa2c56e8f3122b965ba851e184.jpg",
+            "media_type2": "video",
+            "video_url2": "",
+            "other_url2": "",
+            "img3": "shopify://shop_images/9704b596f477feac12a64afe79203ee666118bb7.png",
+            "media_type3": "video",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_Vzfg8C",
+        "block_aQxERe",
+        "block_UX79CB",
+        "block_fHGG6B"
+      ],
+      "name": "Index Scrolling",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 0,
+        "title": "<p>Trusted by Thousands <br/>of Homeowners and experts</p>",
+        "link": "shopify://pages/yarbo-official-community",
+        "link_text": "Join the Community"
+      }
+    },
+    "sa_index_awards_4f6GQt": {
+      "type": "sa-index-awards",
+      "blocks": {
+        "block_VU4tLY": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_G48yg7": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_9LJ9Nc": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_XkCjcR": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_T7kRjE": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_yzrMTj": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_q8Lcwx": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_VU4tLY",
+        "block_G48yg7",
+        "block_9LJ9Nc",
+        "block_XkCjcR",
+        "block_T7kRjE",
+        "block_yzrMTj",
+        "block_q8Lcwx"
+      ],
+      "disabled": true,
+      "name": "Index Awards",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "h5_padding_top": 48,
+        "h5_padding_bottom": 56
+      }
+    },
+    "sa_index_awards_GECTRJ": {
+      "type": "sa-index-awards",
+      "blocks": {
+        "block_9m76eY": {
+          "type": "block",
+          "settings": {
+            "text": "2024 Edison Awards",
+            "award_img": "shopify://shop_images/Frame_2036457807_6ded0d61-99b1-4de0-867b-3b755e9a155a.png"
+          }
+        },
+        "block_EnyCnz": {
+          "type": "block",
+          "settings": {
+            "text": "iF Design Award 2026",
+            "award_img": "shopify://shop_images/Frame_2036457811.png"
+          }
+        },
+        "block_nq9QaJ": {
+          "type": "block",
+          "settings": {
+            "text": "CES Innovation Awards 2025",
+            "award_img": "shopify://shop_images/Frame_2036457812.png"
+          }
+        },
+        "block_KhYUgN": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award 2023",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_DKHxEi": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_penM3t": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_9m76eY",
+        "block_EnyCnz",
+        "block_nq9QaJ",
+        "block_KhYUgN",
+        "block_DKHxEi",
+        "block_penM3t"
+      ],
+      "name": "Index Awards",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "h5_padding_top": 48,
+        "h5_padding_bottom": 56
+      }
+    },
+    "line_X8fGfH": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_faq_BbJDwD": {
+      "type": "sa-faq",
+      "blocks": {
+        "qa_MqzFDC": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>What is an Affiliate Program?</p>",
+            "answer": "<p>Affiliate marketing relies on a relationship between a merchant and you, the affiliate, as well as between you and consumers. When you promote the merchant's product or service and a consumer purchases through your link, you earn a share of the sale. Compensation can include incentives, discounts, giveaways, bonuses, and commissions.</p>"
+          }
+        },
+        "qa_Vmg6EW": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>How long can l get my commission?</p>",
+            "answer": "<p>Commissions are paid 60 days after the order is confirmed to account for returns and cancellations.</p>"
+          }
+        },
+        "qa_GBRCBT": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>How can I track my performance?</p>",
+            "answer": "<p>Simply log in to your Impact affiliate account to view your sales, clicks, and commission earnings in real time.</p>"
+          }
+        },
+        "qa_ri8n8h": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Do I need to request payment manually?</p>",
+            "answer": "<p>No, payments are processed automatically by Impact once the commission is approved and the threshold is met.</p>"
+          }
+        },
+        "qa_D7YVcT": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Is it safe around people, pets, and obstacles?</p>",
+            "answer": "<p>Yarbo uses smart mapping and sensors to navigate your yard, clearing snow automatically without manual supervision. You just set the boundaries in the app.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "qa_MqzFDC",
+        "qa_Vmg6EW",
+        "qa_GBRCBT",
+        "qa_ri8n8h",
+        "qa_D7YVcT"
+      ],
+      "name": "Faq",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 120,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Frequently Asked Questions</p>",
+        "see_all_text": "",
+        "see_all_url": "",
+        "enable_tabs": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_common_banner_LTcDiT",
+    "sa_count_up_blocks_tfw8Ht",
+    "sa_count_up_blocks_peRUC6",
+    "sa_count_up_blocks_UM7yLg",
+    "sa_blocks_grid_pXDynp",
+    "sa_blocks_grid_XyTdK4",
+    "sa_blocks_grid_mGjp9r",
+    "sa_blocks_grid_k3BpiF",
+    "sa_affiliates_block_text_DV3dVq",
+    "sa_img_text_features_ERmWz7",
+    "sa_aff_img_text_banner_gbMgJp",
+    "sa_index_scrolling_nj8qPB",
+    "sa_index_awards_4f6GQt",
+    "sa_index_awards_GECTRJ",
+    "line_X8fGfH",
+    "sa_faq_BbJDwD"
+  ]
+}

@@ -1,0 +1,490 @@
+{% render 'yb-section-style', section: section %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+{%- liquid
+  assign s = section.settings
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .yb-block-container,
+  #shopify-section-{{ section.id }} .yb-block-container .video-section__media,
+  #shopify-section-{{ section.id }} .video-section__media video,
+  #shopify-section-{{ section.id }} .yb-video-wrapper {
+    width: 100%;
+    border-width: 0px;
+    border-style: solid;
+    border-radius: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .yb-section-text-container {
+    padding: 0px 32px 32px;
+  }
+
+  #shopify-section-{{ section.id }} .video-section__media video {
+    left: 0;
+    height: auto !important;
+  }
+
+  #shopify-section-{{ section.id }} .yb-play-button .icon {
+    width: 23.27px;
+    height: 23.27px;
+  }
+
+  @media screen and (min-width: 680px) {
+    #shopify-section-{{ section.id }} .yb-block-container {
+      order: 1;
+      line-height: 0;
+    }
+    #shopify-section-{{ section.id }} .yb-section-text-container {
+      padding: 0 48px 48px;
+    }
+    #shopify-section-{{ section.id }} .yb-play-button .icon {
+      width: 29.09px;
+      height: 29.09px;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    #shopify-section-{{ section.id }} .yb-section-text-container {
+      padding: 0 103px 48px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    #shopify-section-{{ section.id }} .yb-section-text-container {
+      padding: 0 157px 56px;
+    }
+    #shopify-section-{{ section.id }} .yb-play-button .icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    #shopify-section-{{ section.id }} .yb-section-text-container {
+      padding: 0 200px 64px;
+    }
+  }
+
+  {% if s.layout == 'picture-above-and-text-below' %}
+    #shopify-section-{{ section.id }} .yb-section-container {
+      display: grid;
+    }
+    #shopify-section-{{ section.id }} .yb-section-text-container {
+      margin-top: -1px;
+      padding-top: 24px;
+      order: 2;
+    }
+
+    @media screen and (max-width: 959px) {
+      #shopify-section-{{ section.id }} .yb-section-text-container {
+        padding-bottom: 0px;
+      }
+      .video-section__media iframe, .video-section__media video {
+        position: inherit;
+      }
+    }
+
+    @media screen and (min-width: 680px) {
+      #shopify-section-{{ section.id }} .yb-section-text-container {
+        padding-top: 32px;
+      }
+    }
+
+    @media screen and (min-width: 960px) {
+      #shopify-section-{{ section.id }} .yb-section-text-container {
+        padding-top: 48px;
+      }
+    }
+
+    @media screen and (min-width: 1440px) {
+      #shopify-section-{{ section.id }} .yb-section-text-container {
+        padding-top: 56px;
+      }
+    }
+
+    {% if s.textarea_bg_color != blank and s.textarea_bg_color != 'rgba(0,0,0,0)' %}
+      @media screen and (min-width: 960px) {
+        #shopify-section-{{ section.id }} .yb-section-text-container {
+          background-color: {{ s.textarea_bg_color }};
+          border-bottom-left-radius: 24px;
+          border-bottom-right-radius: 24px;
+          border-width: 0px;
+        }
+        #shopify-section-{{ section.id }} .yb-block-container,
+        #shopify-section-{{ section.id }} .yb-block-container .video-section__media,
+        #shopify-section-{{ section.id }} .yb-block-container video,
+        #shopify-section-{{ section.id }} .yb-video-wrapper {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+    {% endif %}
+  {% endif %}
+
+  {% if s.mobile_image_width == 'full-screen' %}
+    @media screen and (max-width: 959px) {
+      #shopify-section-{{ section.id }} .yb-section-container {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+      #shopify-section-{{ section.id }} .yb-block-container,
+      #shopify-section-{{ section.id }} .yb-block-container .video-section__media,
+      #shopify-section-{{ section.id }} .video-section__media video,
+      #shopify-section-{{ section.id }} .yb-video-wrapper {
+        border-radius: 0px;
+      }
+      .video-section__media video {
+        position: absolute;
+      }
+    }
+  {% endif %}
+
+  #shopify-section-{{ section.id }} .deferred-media__poster {
+    z-index: 3;
+  }
+</style>
+
+<div class='yb-section-container'>
+  <div class='yb-section-text-container text-center'>
+    {% if s.title != blank %}
+      <h2 class='yb-h2 yb-section-title'>{{ s.title }}</h2>
+    {% endif %}
+    {% if s.description != blank %}
+      <div class='yb-section-description'>{{ s.description }}</div>
+    {% endif %}
+    {% if s.button_text != blank %}
+      {% render 'yb-button', class: 'yb-single-video-btn', tag: 'button', config: s %}
+    {% endif %}
+  </div>
+
+  {%- liquid
+    assign has_pc_media = false
+    if s.pc_image != blank or s.pc_internal_video != blank or s.pc_external_video != blank or s.pc_firework_video != blank
+      assign has_pc_media = true
+    endif
+
+    assign has_m_media = false
+    if s.m_image != blank or s.m_internal_video != blank or s.m_external_video != blank or s.m_firework_video != blank
+      assign has_m_media = true
+    endif
+
+    assign pc_media_type = 'image'
+    if s.pc_internal_video != blank
+      assign pc_media_type = 'video'
+    elsif s.pc_external_video != blank or s.pc_firework_video != blank
+      assign pc_media_type = 'video_url'
+    endif
+
+    assign m_media_type = 'image'
+    if s.m_internal_video != blank
+      assign m_media_type = 'video'
+    elsif s.m_external_video != blank or s.m_firework_video != blank
+      assign m_media_type = 'video_url'
+    endif
+  -%}
+
+  {% if has_pc_media %}
+    <div class='yb-block-container yb-video-wrapper video-section__media hidden md:block'>
+      {% render 'media-element',
+        class: 'w-full h-full',
+        media_class: 'w-full h-full object-cover',
+        media_type: pc_media_type,
+        pc_image: s.pc_image,
+        pc_video: s.pc_internal_video,
+        video_url: s.pc_external_video,
+        other_url: s.pc_firework_video,
+        controls: s.show_controls,
+        muted: true
+      %}
+    </div>
+  {% endif %}
+
+  {% if has_m_media %}
+    <div class='yb-block-container yb-video-wrapper video-section__media block md:hidden'>
+      {% render 'media-element',
+        class: 'w-full h-full',
+        media_class: 'w-full h-full object-cover',
+        media_type: m_media_type,
+        pc_image: s.m_image,
+        pc_video: s.m_internal_video,
+        video_url: s.m_external_video,
+        other_url: s.m_firework_video,
+        controls: s.show_controls,
+        muted: true
+      %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "YB Single Video",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "text-above-and-picture-below",
+      "options": [
+        {
+          "value": "text-above-and-picture-below",
+          "label": "Text Above & Picture Below"
+        },
+        {
+          "value": "picture-above-and-text-below",
+          "label": "Picture Above & Text Below"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "color",
+      "id": "textarea_bg_color",
+      "label": "Text Area Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "Button Type",
+      "default": "link",
+      "options": [
+        { "value": "link", "label": "Link" },
+        { "value": "anchor", "label": "Anchor" },
+        { "value": "modal", "label": "Modal" }
+      ]
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_link_new_window",
+      "label": "Open Link in New Window",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "button_anchor",
+      "label": "Button Anchor ID"
+    },
+    {
+      "type": "text",
+      "id": "button_modal_title",
+      "label": "Button Modal Title"
+    },
+    {
+      "type": "html",
+      "id": "button_modal_content",
+      "label": "Button Modal Content"
+    },
+    {
+      "type": "header",
+      "content": "PC Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "PC Cover Image"
+    },
+    {
+      "type": "video",
+      "id": "pc_internal_video",
+      "label": "PC Shopify Video"
+    },
+    {
+      "type": "video_url",
+      "id": "pc_external_video",
+      "label": "PC External Video (YouTube/Vimeo)",
+      "accept": ["youtube", "vimeo"]
+    },
+    {
+      "type": "text",
+      "id": "pc_firework_video",
+      "label": "PC Other Video URL",
+      "info": "ex: xxx.mp4 (If filled, this takes priority over the External Video URL)"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "m_image",
+      "label": "Mobile Cover Image"
+    },
+    {
+      "type": "video",
+      "id": "m_internal_video",
+      "label": "Mobile Shopify Video"
+    },
+    {
+      "type": "video_url",
+      "id": "m_external_video",
+      "label": "Mobile External Video (YouTube/Vimeo)",
+      "accept": ["youtube", "vimeo"]
+    },
+    {
+      "type": "text",
+      "id": "m_firework_video",
+      "label": "Mobile Other Video URL",
+      "info": "ex: xxx.mp4 (If filled, this takes priority over the External Video URL)"
+    },
+    {
+      "type": "header",
+      "content": "Video Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_controls",
+      "label": "Show Video Controls",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_width",
+      "label": "Mobile Image Width",
+      "default": "full-screen",
+      "options": [
+        { "value": "full-screen", "label": "Full Screen" },
+        { "value": "partial-screen", "label": "With Margins" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1920",
+      "label": "1920 Padding Top",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1920",
+      "label": "1920 Padding Bottom",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_1440",
+      "label": "1440 Padding Top",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_1440",
+      "label": "1440 Padding Bottom",
+      "default": 100,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_960",
+      "label": "960 Padding Top",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_960",
+      "label": "960 Padding Bottom",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_680",
+      "label": "680 Padding Top",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_680",
+      "label": "680 Padding Bottom",
+      "default": 64,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_375",
+      "label": "375 Padding Top",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_375",
+      "label": "375 Padding Bottom",
+      "default": 48,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "YB Single Video"
+    }
+  ]
+}
+{% endschema %}

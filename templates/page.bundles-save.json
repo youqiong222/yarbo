@@ -1,0 +1,509 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_bundles_banner_xRheFn": {
+      "type": "sa-bundles-banner",
+      "name": "Bundles Slider",
+      "settings": {
+        "media_type": "image",
+        "pc_image": "shopify://shop_images/d8a33dde85144bc2ac5b36a09749caf6.png",
+        "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+        "other_url": "",
+        "show_overlay": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "title": "<p>ONE YARBO. <br/>EVERY SEASOn.</p>",
+        "description": "<p>Get everything you need in one smart package. Enjoy better value <br/>and seamless performance with curated Yarbo bundles.</p>"
+      }
+    },
+    "sa_special_offers_anchor_76CWR8": {
+      "type": "sa-special-offers-anchor",
+      "blocks": {
+        "block_8cx3gU": {
+          "type": "block",
+          "settings": {
+            "title": "Singles",
+            "anchor_id": "Singles"
+          }
+        },
+        "block_bF849J": {
+          "type": "block",
+          "settings": {
+            "title": "Bundles",
+            "anchor_id": "Bundles"
+          }
+        },
+        "block_GAmEAR": {
+          "type": "block",
+          "settings": {
+            "title": "Accessories",
+            "anchor_id": "Accessories"
+          }
+        },
+        "block_VaVTUg": {
+          "type": "block",
+          "settings": {
+            "title": "Comparison",
+            "anchor_id": "Comparison"
+          }
+        }
+      },
+      "block_order": [
+        "block_8cx3gU",
+        "block_bF849J",
+        "block_GAmEAR",
+        "block_VaVTUg"
+      ],
+      "name": "Special Offers Anchor",
+      "settings": {
+        "bg_color": "#25282a",
+        "label_color": "#ffffff",
+        "label_bac": "rgba(0,0,0,0)",
+        "label_active_color": "#ffffff"
+      }
+    },
+    "sa_index_img_text_blocks_Mqz9pV": {
+      "type": "sa-index-img-text-blocks",
+      "blocks": {
+        "block_CWJhR9": {
+          "type": "block",
+          "settings": {
+            "label": "Spring Preparation",
+            "label_color": "#121212",
+            "label_bg": "#fedb1e",
+            "title": "<p>Yarbo Y Series  4-in-1 Yard Robot (Lawn MOWER PRO)</p>",
+            "desc": "<p>Smart Towing  |  Precision Mowing  |  Snow Clearing  |  Autonomous Blowing</p>",
+            "learn_more_link": "shopify://products/lawn-mower-module",
+            "shop_now_link": "shopify://pages/become-a-dealer-kr",
+            "show_shop_now": true,
+            "media_type": "img",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_hQAcEa": {
+          "type": "block",
+          "settings": {
+            "label": "Spring Preparation",
+            "label_color": "#121212",
+            "label_bg": "#fedb1e",
+            "title": "<p>Yarbo Y Series  4-in-1 Yard Robot (Lawn MOWER PRO)</p>",
+            "desc": "<p>Smart Towing  |  Precision Mowing  |  Snow Clearing  |  Autonomous Blowing</p>",
+            "learn_more_link": "shopify://products/lawn-mower-module",
+            "shop_now_link": "shopify://pages/become-a-dealer-kr",
+            "show_shop_now": true,
+            "media_type": "img",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 80
+          }
+        }
+      },
+      "block_order": [
+        "block_CWJhR9",
+        "block_hQAcEa"
+      ],
+      "name": "Index Img Text Blocks",
+      "settings": {
+        "anchor_id": "",
+        "title": "<p>OUR BESTSELLERS</p>",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56
+      }
+    },
+    "sa_index_scrolljacking_NWJ7XW": {
+      "type": "sa-index-scrolljacking",
+      "blocks": {
+        "item_H4PmEU": {
+          "type": "item",
+          "settings": {
+            "icon": "<svg width=\"19\" height=\"22\" viewbox=\"0 0 19 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M9.33334 0L18.6667 5.33333V16L9.33334 21.3333L0 16V5.33333L9.33334 0Z\" fill=\"white\"></path>\n</svg>",
+            "title": "<p>World’s First 1+N Modular Design</p>",
+            "desc": "<p>Yarbo is a smart system with one core that powers different attachments for every task. Easily swap between mowing, snow clearing, and more for simple, year-round yard care in one investment.</p>",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "item_wgafhU": {
+          "type": "item",
+          "settings": {
+            "icon": "<svg width=\"19\" height=\"22\" viewbox=\"0 0 19 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M9.33334 0L18.6667 5.33333V16L9.33334 21.3333L0 16V5.33333L9.33334 0Z\" fill=\"white\"></path>\n</svg>",
+            "title": "<p>World’s First 1+N Modular Design</p>",
+            "desc": "<p>Yarbo is a smart system with one core that powers different attachments for every task. Easily swap between mowing, snow clearing, and more for simple, year-round yard care in one investment.</p>",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "item_XeanzF": {
+          "type": "item",
+          "settings": {
+            "icon": "<svg width=\"19\" height=\"22\" viewbox=\"0 0 19 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M9.33334 0L18.6667 5.33333V16L9.33334 21.3333L0 16V5.33333L9.33334 0Z\" fill=\"white\"></path>\n</svg>",
+            "title": "<p>World’s First 1+N Modular Design</p>",
+            "desc": "<p>Yarbo is a smart system with one core that powers different attachments for every task. Easily swap between mowing, snow clearing, and more for simple, year-round yard care in one investment.</p>",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "item_H4PmEU",
+        "item_wgafhU",
+        "item_XeanzF"
+      ],
+      "name": "Index Scrolljacking",
+      "settings": {
+        "anchor_id": "",
+        "title": "<p>Reliability, built into every Yarbo.</p>",
+        "pc_layout": "image_left",
+        "mobile_layout": "image_top"
+      }
+    },
+    "sa_index_collections_fEHrpz": {
+      "type": "sa-index-collections",
+      "blocks": {
+        "block_RfXrn7": {
+          "type": "block",
+          "settings": {
+            "label": "Y Series",
+            "product_list": [
+              "yarbo-lawn-mower-blower",
+              "yarbo-4-in-1-yard-robot",
+              "yarbo-lawn-mower-trimmer-package",
+              "yarbo-snow-blower-blower"
+            ],
+            "shop_all_text": "Shop All Y Series",
+            "shop_all_url": "shopify://collections"
+          }
+        },
+        "block_TUzbFW": {
+          "type": "block",
+          "settings": {
+            "label": "M Series",
+            "product_list": [
+              "yarbo-lawn-mower-blower",
+              "yarbo-4-in-1-yard-robot",
+              "yarbo-lawn-mower-trimmer-package",
+              "yarbo-snow-blower-blower"
+            ],
+            "shop_all_text": "Shop All M Series",
+            "shop_all_url": "shopify://collections"
+          }
+        }
+      },
+      "block_order": [
+        "block_RfXrn7",
+        "block_TUzbFW"
+      ],
+      "name": "Index Collections",
+      "settings": {
+        "anchor_id": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Single Purpose. Superior Performance.</p>",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_rating": true,
+        "quick_add": "standard"
+      }
+    },
+    "line_Ci8rYi": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_season_bundles_QM83NE": {
+      "type": "sa-season-bundles",
+      "blocks": {
+        "block_78xJGR": {
+          "type": "block",
+          "settings": {
+            "label": "Y Series",
+            "pc_image_1": "shopify://shop_images/c3630eb5f26245e0897b2a07e65163c1.jpg",
+            "product_list_1": [
+              "yarbo-4-in-1-yard-robot",
+              "yarbo-lawn-mower-blower",
+              "yarbo-lawn-mower-trimmer-package",
+              "yarbo-snow-blower-blower"
+            ],
+            "title_1": "<p>Spring preparation</p>",
+            "text_1": "<p>Spring is the season for preparing your yard. With Yarbo Core’s towing capability, move soil, tools, and yard materials effortlessly to get your property ready for the growing season.</p>",
+            "pc_image_2": "shopify://shop_images/9847a659e1e841dc8d8904adbf7763a0.png",
+            "product_list_2": [
+              "yarbo-4-in-1-yard-robot",
+              "yarbo-lawn-mower-blower",
+              "yarbo-lawn-mower-trimmer-package",
+              "yarbo-snow-blower-blower"
+            ],
+            "title_2": "<p>Summer Lawn Care</p>",
+            "text_2": "<p>When the snow hits, Yarbo gets to work. Clear driveways, paths, and heavy buildup without lifting a shovel — powerful, precise, and built for harsh conditions.</p>",
+            "pc_image_3": "shopify://shop_images/e0419825786b4350a86853d3b90df3d8.png",
+            "product_list_3": [
+              "yarbo-4-in-1-yard-robot",
+              "yarbo-lawn-mower-blower",
+              "yarbo-lawn-mower-trimmer-package",
+              "yarbo-snow-blower-blower"
+            ],
+            "title_3": "<p>Autumn Cleanup</p>",
+            "text_3": "<p>Falling leaves don’t slow you down. Yarbo clears debris quickly and consistently, keeping your yard clean and ready before winter arrives.</p>",
+            "pc_image_4": "shopify://shop_images/e0419825786b4350a86853d3b90df3d8.png",
+            "product_list_4": [
+              "yarbo-4-in-1-yard-robot",
+              "yarbo-lawn-mower-blower",
+              "yarbo-lawn-mower-trimmer-package",
+              "yarbo-snow-blower-blower"
+            ],
+            "title_4": "<p>Winter READY</p>",
+            "text_4": "<p>When the snow hits, Yarbo gets to work. Clear driveways, paths, and heavy buildup without lifting a shovel — powerful, precise, and built for harsh conditions.</p>"
+          }
+        },
+        "block_7bzbXp": {
+          "type": "block",
+          "settings": {
+            "label": "M Series",
+            "pc_image_1": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png",
+            "product_list_1": [
+              "yarbo-4-in-1-yard-robot",
+              "yarbo-lawn-mower-blower",
+              "yarbo-lawn-mower-trimmer-package"
+            ],
+            "title_1": "",
+            "text_1": "",
+            "product_list_2": [],
+            "title_2": "",
+            "text_2": "",
+            "product_list_3": [],
+            "title_3": "",
+            "text_3": "",
+            "product_list_4": [],
+            "title_4": "",
+            "text_4": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_78xJGR",
+        "block_7bzbXp"
+      ],
+      "name": "Season Bundles",
+      "settings": {
+        "anchor_id": "Bundles",
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Bundles for Every Season</p>",
+        "text": "<p>Everything you need to keep your yard cared for all year round.</p>",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_rating": true,
+        "quick_add": "standard"
+      }
+    },
+    "line_pgHNKW": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_choose_accessories_EiyCaT": {
+      "type": "sa-choose-accessories",
+      "blocks": {
+        "block_8DKgiw": {
+          "type": "block",
+          "settings": {
+            "label": "All",
+            "product_list": [
+              "yarbo-4-in-1-yard-robot",
+              "yarbo-lawn-mower-blower",
+              "yarbo-lawn-mower-trimmer-package",
+              "yarbo-snow-blower-blower"
+            ],
+            "shop_all_text": "Shop All Serise",
+            "shop_all_url": "shopify://products/lawn-mower-module"
+          }
+        },
+        "block_3rJDwj": {
+          "type": "block",
+          "settings": {
+            "label": "Snow",
+            "product_list": [
+              "yarbo-4-in-1-yard-robot",
+              "yarbo-lawn-mower-blower",
+              "yarbo-lawn-mower-trimmer-package",
+              "yarbo-snow-blower-blower"
+            ],
+            "shop_all_text": "Shop Snow Serise",
+            "shop_all_url": "shopify://products/lawn-mower-module"
+          }
+        },
+        "block_mAjTU4": {
+          "type": "block",
+          "settings": {
+            "label": "Grass",
+            "product_list": [
+              "yarbo-4-in-1-yard-robot",
+              "yarbo-lawn-mower-blower",
+              "yarbo-snow-blower-blower",
+              "yarbo-lawn-mower-trimmer-package"
+            ],
+            "shop_all_text": "Shop Grass Serise",
+            "shop_all_url": "shopify://products/lawn-mower-module"
+          }
+        }
+      },
+      "block_order": [
+        "block_8DKgiw",
+        "block_3rJDwj",
+        "block_mAjTU4"
+      ],
+      "name": "Choose Accessories",
+      "settings": {
+        "anchor_id": "Accessories",
+        "padding_top": 120,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Choose matching accessories</p>",
+        "text": "<p>Customize your Yarbo with accessories built to expand its capabilities. Add the right tools and upgrades to get the most out of your yard robot.</p>",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_rating": true,
+        "quick_add": "standard"
+      }
+    },
+    "line_nKBeKj": {
+      "type": "line",
+      "name": "line",
+      "settings": {}
+    },
+    "sa_why_shop_with_hover_RFpYX4": {
+      "type": "sa-why-shop-with-hover",
+      "blocks": {
+        "item_r9mLhW": {
+          "type": "item",
+          "settings": {
+            "title": "FREE SHIPPING",
+            "desc": "Delivered in 3-7 days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        },
+        "item_hbNcYH": {
+          "type": "item",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Help anytime you need",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        },
+        "item_djPyjp": {
+          "type": "item",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Pay now or over time using affirm or splitit",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        },
+        "item_EHTXAr": {
+          "type": "item",
+          "settings": {
+            "title": "30-Day Free Returns",
+            "desc": "Full refund, no hassle",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        },
+        "item_JbzWqe": {
+          "type": "item",
+          "settings": {
+            "title": "Comprehensive Warranty",
+            "desc": "Protection you can trust",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        },
+        "item_Bmp7Vf": {
+          "type": "item",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Safe and protected checkout",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png",
+            "hover_image": "shopify://shop_images/957f7ce4cacfaab541c4c65337533c83fe35def3_965d2938-a22f-4437-9610-97920c763174.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_r9mLhW",
+        "item_hbNcYH",
+        "item_djPyjp",
+        "item_EHTXAr",
+        "item_JbzWqe",
+        "item_Bmp7Vf"
+      ],
+      "name": "Why Shop Hover",
+      "settings": {
+        "anchor_id": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "WHY SHOP WITH US"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_bundles_banner_xRheFn",
+    "sa_special_offers_anchor_76CWR8",
+    "sa_index_img_text_blocks_Mqz9pV",
+    "sa_index_scrolljacking_NWJ7XW",
+    "sa_index_collections_fEHrpz",
+    "line_Ci8rYi",
+    "sa_season_bundles_QM83NE",
+    "line_pgHNKW",
+    "sa_choose_accessories_EiyCaT",
+    "line_nKBeKj",
+    "sa_why_shop_with_hover_RFpYX4"
+  ]
+}

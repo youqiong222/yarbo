@@ -1,0 +1,264 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+<div
+  class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+  id='EventList-{{ section.id }}'
+>
+  <div class='flex justify-center'>
+    <div class='flex gap-8 md:gap-60'>
+      <button
+        data-tab='incoming'
+        class='tab-btn mx-60 flex h-56 w-415 cursor-pointer items-center justify-center rounded-full bg-[#FEDB1E] text-[20px] font-bold hover:shadow-lg max-sm:mx-5 max-sm:h-32 max-sm:w-166 max-sm:text-[14px]'
+      >
+        Incoming Events
+      </button>
+      <button
+        data-tab='past'
+        class='tab-btn mx-60 flex h-56 w-415 cursor-pointer items-center justify-center rounded-full bg-white text-[20px] font-bold hover:shadow-lg max-sm:mx-5 max-sm:h-32 max-sm:w-166 max-sm:text-[14px]'
+      >
+        Past Events
+      </button>
+    </div>
+  </div>
+
+  <div class='pt-90 max-sm:pt-36'>
+    {% for block in section.blocks %}
+      <div
+        class='event-item mb-80 flex max-sm:mb-36 max-sm:flex-col max-sm:items-center'
+        data-event-type='{{ block.settings.event_type }}'
+        {{ block.shopify_attributes }}
+      >
+        <div class='rounded-10 relative mr-10 aspect-760/600 w-[54.29%] overflow-hidden max-sm:mr-0 max-sm:mb-10 max-sm:w-344'>
+          {% render 'media-element',
+            class: 'w-full h-full',
+            media_class: 'w-full h-full object-cover',
+            media_type: 'image',
+            pc_image: block.settings.pc_image,
+            h5_image: block.settings.h5_image
+          %}
+        </div>
+
+        <div class='rounded-10 flex flex-1 flex-col justify-between max-sm:w-344'>
+          <div class='rounded-10 relative mb-10 flex-1 bg-white px-32 max-sm:px-20'>
+            <p class='border-b border-b-[#D5D5D5] pt-22 pb-12 text-[32px] font-semibold max-sm:text-[24px]'>
+              {{ block.settings.title }}
+            </p>
+            <div class='pt-12 text-[#757575]'>
+              <p class='pb-2 text-[16px] max-sm:text-[14px]'>
+                <strong>Location:</strong>
+                {{ block.settings.location }}
+              </p>
+              <p class='pb-2 text-[16px] max-sm:text-[14px]'>
+                <strong>Date:</strong>
+                {{ block.settings.date }}
+              </p>
+              <p class='pb-2 text-[16px] max-sm:text-[14px]'>
+                <strong>Booth No.:</strong>
+                {{ block.settings.booth }}
+              </p>
+            </div>
+
+            {% if block.settings.link_text != blank %}
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                class='max-sm:text-16 mt-42 flex h-42 w-196 items-center justify-center rounded-full bg-[#FEDB1E] text-xl font-bold hover:shadow-lg max-sm:mb-24 max-sm:h-32 max-sm:w-166'
+                href='{{ block.settings.link_url }}'
+              >
+                {{ block.settings.link_text }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('EventList-{{ section.id }}');
+    if (!section) return;
+
+    const tabBtns = section.querySelectorAll('.tab-btn');
+    const eventItems = section.querySelectorAll('.event-item');
+
+    // 过滤展示的 Event
+    const filterEvents = (type) => {
+      eventItems.forEach((item) => {
+        if (item.dataset.eventType === type) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    };
+
+    // 切换 Tab 高亮状态
+    const setActiveTab = (activeBtn) => {
+      tabBtns.forEach((btn) => {
+        if (btn === activeBtn) {
+          btn.classList.add('bg-[#FEDB1E]');
+          btn.classList.remove('bg-white');
+        } else {
+          btn.classList.add('bg-white');
+          btn.classList.remove('bg-[#FEDB1E]');
+        }
+      });
+    };
+
+    // 绑定点击事件
+    tabBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const targetBtn = e.currentTarget;
+        const targetType = targetBtn.dataset.tab;
+
+        setActiveTab(targetBtn);
+        filterEvents(targetType);
+      });
+    });
+
+    // 初始化：默认选中并展示第一个 Tab 的内容（Incoming）
+    if (tabBtns.length > 0) {
+      const firstTab = tabBtns[0];
+      setActiveTab(firstTab);
+      filterEvents(firstTab.dataset.tab);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Event List",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 100
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "event",
+      "name": "Event Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "event_type",
+          "label": "Event Type",
+          "options": [
+            {
+              "value": "incoming",
+              "label": "Incoming Event"
+            },
+            {
+              "value": "past",
+              "label": "Past Event"
+            }
+          ],
+          "default": "incoming"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Event Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Event Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Event Title",
+          "default": "Equip Expo"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location",
+          "default": "Las Vegas, NV, USA"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "default": "Oct. 21-24, 2025"
+        },
+        {
+          "type": "text",
+          "id": "booth",
+          "label": "Booth No.",
+          "default": "10162 (Indoor) + 6243D (Outdoor)"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "text",
+          "id": "link_url",
+          "label": "Button Link (URL)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Event List",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "event",
+          "settings": {
+            "event_type": "incoming",
+            "title": "Equip Expo",
+            "location": "Kentucky Exposition Center, 937 Phillips Ln, Louisville, Kentucky 40209, USA",
+            "date": "Oct. 21-24, 2025",
+            "booth": "10162 (Indoor) + 6243D (Outdoor)"
+          }
+        },
+        {
+          "type": "event",
+          "settings": {
+            "event_type": "past",
+            "title": "CES 2026",
+            "location": "Las Vegas, NV, USA",
+            "date": "Jan. 6-9, 2026",
+            "booth": "# 51232"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,924 @@
+<div class='page-container'>
+  {%- unless customer -%}
+    <script>
+      window.location.href = '{{ routes.account_login_url }}';
+    </script>
+  {%- endunless -%}
+  <div
+    style='
+      --padding-top: {{ section.settings.padding_top }}px;
+      --padding-bottom: {{ section.settings.padding_bottom }}px;
+    '
+    class='pt-(--padding-top) pb-(--padding-bottom)'
+  >
+    <!-- Tabs 已移除 -->
+    {%- if customer.orders.size == 0 -%}
+      <p class='py-32 text-center text-[#8C8F91]'>{{ 'customer.orders.none' | t }}</p>
+    {%- else -%}
+      <div class='space-y-8'>
+        {%- for order in customer.orders -%}
+          {%- assign fulfillment_lower = order.fulfillment_status | downcase -%}
+          {%- if fulfillment_lower == 'fulfilled' or fulfillment_lower == 'complete' -%}
+            {%- assign status_badge_cls = 'border-green-500 text-green-600 bg-green-50' -%}
+          {%- elsif fulfillment_lower == 'partial' -%}
+            {%- assign status_badge_cls = 'border-orange-400 text-orange-600 bg-orange-50' -%}
+          {%- elsif fulfillment_lower == 'unfulfilled' -%}
+            {%- assign status_badge_cls = 'border-yellow-400 text-yellow-700 bg-yellow-50' -%}
+          {%- elsif fulfillment_lower == 'restocked' -%}
+            {%- assign status_badge_cls = 'border-[#cccccc] text-gray-500 bg-gray-50' -%}
+          {%- else -%}
+            {%- assign status_badge_cls = 'border-[#cccccc] text-gray-600 bg-gray-50' -%}
+          {%- endif -%}
+
+          <div
+            class='overflow-hidden rounded-lg border border-[#e5e5e5] bg-white shadow-sm'
+            x-data='{ open: false }'
+          >
+            <button
+              type='button'
+              @click='open = !open'
+              class='flex w-full cursor-pointer items-center gap-12 bg-transparent px-20 py-14 text-left transition-colors hover:bg-gray-100'
+            >
+              <span
+                class='shrink-0 text-[16px] text-[#8C8F91] transition-transform'
+                x-text="open ? '–' : '+'"
+              ></span>
+              <span class='shrink-0 text-[16px] text-[#25282A]'>
+                {{ section.settings.label_order_prefix | default: 'Order' }}
+                {{ order.name }}
+              </span>
+              <span class='min-w-0 truncate text-[14px] text-[#515355]'>
+                {{ section.settings.label_order_time | default: 'Order time:' }}
+                {{ order.created_at | date: '%Y-%m-%d %H:%M:%S' }}
+              </span>
+              <span class='ml-auto shrink-0 rounded-full border px-12 py-2 text-[12px] {{ status_badge_cls }}'>
+                {{ order.fulfillment_status_label }}
+              </span>
+            </button>
+
+            <div
+              x-show='open'
+              style='display:none'
+            >
+              <div class='space-y-24 border-t border-[#f0f0f0] px-24 py-20'>
+                <div>
+                  <p class='mb-8 text-[14px] text-[#25282A]'>{{ section.settings.label_information | default: 'Information' }}</p>
+                  <p class='text-[14px] text-[#515355]'>
+                    {{ section.settings.label_name | default: 'Name:' }}
+                    {{ customer.first_name }}
+                    {{ customer.last_name }}
+                  </p>
+                  <p class='text-[14px] text-[#515355]'>
+                    {{ section.settings.label_email | default: 'Email:' }}
+                    {{ customer.email }}
+                  </p>
+                  {%- if order.billing_address -%}
+                    {%- assign ba = order.billing_address -%}
+                    {%- capture billing_parts -%}{{ ba.address1 }}{% if ba.address2 != blank %} {{ ba.address2 }}{% endif %}, {{ ba.city }} {{ ba.province }} {{ ba.zip }}, {{ ba.country }}{% if ba.phone != blank %}, {{ ba.phone }}{% endif %}{%- endcapture -%}
+                    <p class='text-[14px] text-[#515355]'>
+                      {{ section.settings.label_billing_address | default: 'Billing address:' }}
+                      {{ billing_parts }}
+                    </p>
+                  {%- endif -%}
+                </div>
+
+                <div>
+                  <p class='mb-12 text-[14px] text-[#25282A]'>{{ section.settings.label_items | default: 'Item(s)' }}</p>
+                  {%- for line_item in order.line_items -%}
+                    <div class='flex items-center gap-16 py-8'>
+                      {%- if line_item.image -%}
+                        <img
+                          src='{{ line_item.image | image_url: width: 96 }}'
+                          alt='{{ line_item.title | escape }}'
+                          width='100'
+                          height='100'
+                          class='h-100 w-100 shrink-0 rounded object-contain'
+                          loading='lazy'
+                        >
+                      {%- else -%}
+                        <div class='h-100 w-100 shrink-0 rounded bg-gray-100'></div>
+                      {%- endif -%}
+                      <div class='min-w-0 flex-1'>
+                        <p class='truncate text-[14px] text-[#25282A]'>{{ line_item.title | escape }}</p>
+                        <p class='text-[12px] text-[#8C8F91]'>
+                          {{ section.settings.label_sku | default: 'SKU:' }}
+                          {{ line_item.sku }} × {{ line_item.quantity }}
+                        </p>
+                      </div>
+                      <span class='shrink-0 text-[14px] text-[#25282A]'>{{ line_item.final_line_price | money_with_currency }}</span>
+                    </div>
+                  {%- endfor -%}
+                </div>
+
+                <div>
+                  <p class='mb-12 text-[14px] text-[#25282A]'>{{ section.settings.label_order_summary | default: 'Order summary' }}</p>
+                  <div class='space-y-8'>
+                    <div class='flex justify-between text-[14px] text-[#515355]'>
+                      <span>{{ section.settings.label_subtotal | default: 'Subtotal' }}</span>
+                      <span>{{ order.line_items_subtotal_price | money_with_currency }}</span>
+                    </div>
+                    {%- assign total_shipping = 0 -%}
+                    {%- for shipping_method in order.shipping_methods -%}
+                      {%- assign total_shipping = total_shipping | plus: shipping_method.price -%}
+                    {%- endfor -%}
+                    <div class='flex justify-between text-[14px] text-[#515355]'>
+                      <span>{{ section.settings.label_shipping_fee | default: 'Shipping fee' }}</span>
+                      <span>{{ total_shipping | money_with_currency }}</span>
+                    </div>
+                    <div class='flex justify-between text-[14px] text-[#515355]'>
+                      <span>{{ section.settings.label_tax | default: 'Tax' }}</span>
+                      <span>{{ order.tax_price | money_with_currency }}</span>
+                    </div>
+                    <div class='flex justify-between border-t border-[#e5e5e5] pt-8 text-[14px] text-[#25282A]'>
+                      <span>{{ section.settings.label_total | default: 'Total' }}</span>
+                      <span>{{ order.total_net_amount | money_with_currency }}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class='rounded border border-[#cccccc] bg-transparent'
+                  x-data="
+                    {
+                      open: false,
+                      loaded: false,
+                      loading: false,
+                      packages: [],
+                      noPackages: false,
+                      fetchError: false,
+                      statusCls(s) {
+                        if (!s) return 'border-[#cccccc] text-gray-600 bg-gray-50';
+                        var l = s.toLowerCase();
+                        if (l === 'delivered' || l === 'delivery') return 'border-green-500 text-green-600 bg-green-50';
+                        if (l === 'shipping' || l.includes('transit')) return 'border-green-500 text-green-600 bg-green-50';
+                        if (l.includes('pending') || l.includes('wait')) return 'border-yellow-400 text-yellow-700 bg-yellow-50';
+                        return 'border-[#cccccc] text-gray-600 bg-gray-50';
+                      },
+                      async toggle() {
+                        this.open = !this.open;
+                        if (this.open && !this.loaded) await this.fetchPackages();
+                      },
+                      async fetchPackages() {
+                        this.loading = true;
+                        this.fetchError = false;
+                        try {
+                          const r = await fetch('/apps/yarbo-erp/order-package', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ order_id: '{{ order.id }}', platform: 'shopify' })
+                          });
+                          const data = await r.json();
+                          if (data.success && data.data && Array.isArray(data.data.list) && data.data.list.length) {
+                            this.packages = data.data.list.map(p => ({ ...p, logOpen: false, logLoaded: false, logLoading: false, events: [], noEvents: false }));
+                          } else {
+                            this.noPackages = true;
+                          }
+                        } catch (e) {
+                          this.fetchError = true;
+                        } finally {
+                          this.loading = false;
+                          this.loaded = true;
+                        }
+                      },
+                      async toggleLogistics(pkg) {
+                        if (pkg.logOpen) { pkg.logOpen = false; return; }
+                        pkg.logOpen = true;
+                        if (pkg.logLoaded) return;
+                        pkg.logLoading = true;
+                        try {
+                          const r = await fetch('/apps/yarbo-erp/package-logistics', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ code: pkg.carrier, logistics_number: pkg.logistics_number })
+                          });
+                          const data = await r.json();
+                          if (data.success && data.data && Array.isArray(data.data.events) && data.data.events.length) {
+                            pkg.events = data.data.events;
+                          } else {
+                            pkg.noEvents = true;
+                          }
+                        } catch (e) {
+                          pkg.noEvents = true;
+                        } finally {
+                          pkg.logLoading = false;
+                          pkg.logLoaded = true;
+                        }
+                      }
+                    }
+                  "
+                >
+                  <button
+                    type='button'
+                    @click='toggle()'
+                    class='flex w-full cursor-pointer items-center justify-between bg-transparent px-16 py-12 text-left transition-colors hover:bg-gray-50'
+                  >
+                    <span class='text-[14px] text-[#25282A]'>{{ section.settings.label_packages | default: 'Packages & logistics' }}</span>
+                    <span
+                      class='text-[16px] text-[#8C8F91] transition-transform'
+                      x-text="open ? '–' : '+'"
+                    ></span>
+                  </button>
+
+                  <div
+                    x-show='open'
+                    style='display:none'
+                  >
+                    <div
+                      x-show='loading'
+                      class='border-t border-[#f0f0f0] px-16 py-12 text-[14px] text-[#8C8F91]'
+                    >
+                      {{ section.settings.label_loading | default: 'Loading...' }}
+                    </div>
+                    <div
+                      x-show='fetchError && !loading'
+                      class='border-t border-[#f0f0f0] px-16 py-12 text-[14px] text-red-500'
+                    >
+                      {{ section.settings.label_load_failed | default: 'Failed to load packages.' }}
+                    </div>
+                    <div
+                      x-show='noPackages && !loading'
+                      class='border-t border-[#f0f0f0] px-16 py-12 text-[14px] text-[#8C8F91]'
+                    >
+                      {{ section.settings.label_no_packages | default: 'No packages found.' }}
+                    </div>
+
+                    <template
+                      x-for='(pkg, pkgIdx) in packages'
+                      :key='pkg.package_no || pkgIdx'
+                    >
+                      <div class='border-t border-[#e5e5e5] px-16 py-16'>
+                        <p
+                          class='mb-8 text-[12px] font-medium text-[#8C8F91]'
+                          x-text='pkg.package_no'
+                        ></p>
+                        <div class='mb-12 flex items-start gap-12'>
+                          <template x-if='pkg.image'>
+                            <img
+                              :src='pkg.image'
+                              :alt='pkg.product_name'
+                              width='48'
+                              height='48'
+                              class='h-48 w-48 shrink-0 rounded object-contain'
+                              loading='lazy'
+                            >
+                          </template>
+                          <template x-if='!pkg.image'>
+                            <div class='h-48 w-48 shrink-0 rounded bg-gray-100'></div>
+                          </template>
+                          <div>
+                            <p
+                              class='text-[14px] text-[#25282A]'
+                              x-text='pkg.product_name'
+                            ></p>
+                            <p class='mt-2 text-[12px] text-[#8C8F91]'>
+                              SKU:
+                              <span x-text='pkg.sku'></span>
+                              &times;
+                              <span x-text='pkg.quantity'></span>
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class='mb-12 flex items-center justify-between'>
+                          <div class='flex items-center gap-16 text-[14px]'>
+                            <span
+                              class='text-[#25282A]'
+                              x-text='pkg.carrier'
+                            ></span>
+                            <span
+                              class='text-[#515355]'
+                              x-text='pkg.logistics_number'
+                            ></span>
+                          </div>
+                          <span
+                            class='rounded-full border px-10 py-2 text-[12px]'
+                            :class='statusCls(pkg.status)'
+                            x-text='pkg.status'
+                          ></span>
+                        </div>
+
+                        <button
+                          x-show='pkg.logistics_number'
+                          type='button'
+                          @click='toggleLogistics(pkg)'
+                          :disabled='pkg.logLoading'
+                          class='inline-block cursor-pointer rounded border border-[#cccccc] px-12 py-4 text-[12px] text-[#515355] transition-colors hover:bg-gray-50'
+                          x-text="pkg.logLoading ? '{{ section.settings.label_loading | default: 'Loading...' }}' : (pkg.logOpen ? '{{ section.settings.label_collapse_logistics | default: 'Collapse logistics' }}' : '{{ section.settings.label_view_logistics | default: 'View logistics' }}')"
+                        ></button>
+
+                        <div
+                          class='mt-16 space-y-12'
+                          x-show='pkg.logOpen'
+                          style='display:none'
+                        >
+                          <p
+                            x-show='pkg.noEvents'
+                            class='text-[12px] text-gray-500'
+                          >
+                            {{ section.settings.label_no_logistics | default: 'No logistics info available.' }}
+                          </p>
+                          <template
+                            x-for='(evt, i) in pkg.events'
+                            :key='i'
+                          >
+                            <div class='flex gap-12'>
+                              <div class='relative flex flex-col items-center'>
+                                <div class='mt-6 h-8 w-8 shrink-0 rounded-full bg-gray-300'></div>
+                                <div class='w-px flex-1 bg-gray-200'></div>
+                              </div>
+                              <div class='pb-16'>
+                                <p
+                                  class='text-[12px] text-[#8C8F91]'
+                                  x-text='evt.time'
+                                ></p>
+                                <p
+                                  class='mt-2 text-[14px] text-[#515355]'
+                                  x-text='evt.description'
+                                ></p>
+                              </div>
+                            </div>
+                          </template>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- comment -%} ---- original single-order detail kept below for reference; remove when no longer needed ---- {%- endcomment -%}
+{%- liquid
+  # intentionally never true – kept only as reference
+-%}
+{%- if false -%}
+  <div class='customer order section-{{ section.id }}-padding'>
+    <div>
+      <h1 class='customer__title'>{{ 'customer.account.title' | t }}</h1>
+      <a href='{{ routes.account_url }}'>{{ 'customer.account.return' | t }}</a>
+    </div>
+
+    <div>
+      <div>
+        <h2>{{ 'customer.order.title' | t: name: order.name }}</h2>
+        {%- assign order_date = order.created_at | time_tag: format: 'date_at_time' -%}
+        <p>{{ 'customer.order.date_html' | t: date: order_date }}</p>
+        {%- if order.cancelled -%}
+          {%- assign cancelled_at = order.cancelled_at | time_tag: format: 'date_at_time' -%}
+          <p>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
+          <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}</p>
+        {%- endif -%}
+
+        <table
+          role='table'
+          class='order-details'
+        >
+          <caption class='visually-hidden'>
+            {{ 'customer.order.title' | t: name: order.name }}
+          </caption>
+          <thead role='rowgroup'>
+            <tr role='row'>
+              <th
+                id='ColumnProduct'
+                scope='col'
+                role='columnheader'
+              >
+                {{ 'customer.order.product' | t }}
+              </th>
+              <th
+                id='ColumnSku'
+                scope='col'
+                role='columnheader'
+              >
+                {{ 'customer.order.sku' | t }}
+              </th>
+              <th
+                id='ColumnPrice'
+                scope='col'
+                role='columnheader'
+              >
+                {{ 'customer.order.price' | t }}
+              </th>
+              <th
+                id='ColumnQuantity'
+                scope='col'
+                role='columnheader'
+              >
+                {{ 'customer.order.quantity' | t }}
+              </th>
+              <th
+                id='ColumnTotal'
+                scope='col'
+                role='columnheader'
+              >
+                {{ 'customer.order.total' | t }}
+              </th>
+            </tr>
+          </thead>
+          <tbody role='rowgroup'>
+            {%- for line_item in order.line_items -%}
+              <tr role='row'>
+                <td
+                  id='Row{{ line_item.key }}'
+                  headers='ColumnProduct'
+                  role='rowheader'
+                  scope='row'
+                  data-label='{{ 'customer.order.product' | t }}'
+                >
+                  <div>
+                    {%- if line_item.url != blank -%}
+                      <a href='{{ line_item.url }}'>{{ line_item.title | escape }}</a>
+                    {%- else -%}
+                      <p>{{ line_item.title | escape }}</p>
+                    {%- endif -%}
+                    {%- assign property_size = line_item.properties | size -%}
+                    {%- unless line_item.selling_plan_allocation == null and property_size == 0 -%}
+                      <div class='properties'>
+                        {%- unless line_item.product.has_only_default_variant -%}
+                          <span>
+                            {{ line_item.variant.title | escape }}
+                          </span>
+                        {%- endunless -%}
+                        {%- unless line_item.selling_plan_allocation == null -%}
+                          <span>
+                            {{ line_item.selling_plan_allocation.selling_plan.name }}
+                          </span>
+                        {%- endunless -%}
+                        {%- if property_size != 0 -%}
+                          {%- for property in line_item.properties -%}
+                            {% assign property_first_char = property.first | slice: 0 %}
+                            {%- if property.last != blank and property_first_char != '_' -%}
+                              <span>{{ property.first }}:</span>
+                              <span>
+                                {%- if property.last contains '/uploads/' -%}
+                                  <a href='{{ property.last }}'>{{ property.last | split: '/' | last }}</a>
+                                {%- else -%}
+                                  {{ property.last }}
+                                {%- endif -%}
+                              </span>
+                            {%- endif -%}
+                          {%- endfor -%}
+                        {%- endif -%}
+                      </div>
+                    {%- endunless -%}
+
+                    {%- if line_item.line_level_discount_allocations != blank -%}
+                      <ul
+                        role='list'
+                        aria-label='{{ 'customer.order.discount' | t }}'
+                      >
+                        {%- for discount_allocation in line_item.line_level_discount_allocations -%}
+                          <li>
+                            <span class='svg-wrapper'>
+                              {{- 'icon-discount.svg' | inline_asset_content -}}
+                            </span>
+                            {{- discount_allocation.discount_application.title | escape }} (-
+                            {{- discount_allocation.amount | money -}}
+                            )
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+
+                    {%- if line_item.fulfillment -%}
+                      <div class='fulfillment'>
+                        {%- assign created_at = line_item.fulfillment.created_at | time_tag: format: 'date' -%}
+                        <span>{{ 'customer.order.fulfilled_at_html' | t: date: created_at }}</span>
+
+                        {%- if line_item.fulfillment.tracking_url -%}
+                          <a href='{{ line_item.fulfillment.tracking_url }}'>
+                            {{ 'customer.order.track_shipment' | t }}
+                          </a>
+                        {%- endif -%}
+                        <span>
+                          {{ line_item.fulfillment.tracking_company }}
+                          {%- if line_item.fulfillment.tracking_number -%}
+                            #{{ line_item.fulfillment.tracking_number }}
+                          {%- endif -%}
+                        </span>
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </td>
+                <td
+                  headers='Row{{ line_item.key }} ColumnSku'
+                  role='cell'
+                  data-label='{{ 'customer.order.sku' | t }}'
+                >
+                  {{ line_item.sku }}
+                </td>
+                <td
+                  headers='Row{{ line_item.key }} ColumnPrice'
+                  role='cell'
+                  data-label='{{ 'customer.order.price' | t }}'
+                >
+                  {%- if line_item.original_price != line_item.final_price or line_item.unit_price_measurement -%}
+                    <dl>
+                      {%- if line_item.original_price != line_item.final_price -%}
+                        <dt>
+                          <span class='visually-hidden'>{{ 'products.product.price.regular_price' | t }}</span>
+                        </dt>
+                        <dd class='regular-price'>
+                          <s>{{ line_item.original_price | money }}</s>
+                        </dd>
+                        <dt>
+                          <span class='visually-hidden'>{{ 'products.product.price.sale_price' | t }}</span>
+                        </dt>
+                        <dd>
+                          <span>{{ line_item.final_price | money }}</span>
+                        </dd>
+                      {%- else -%}
+                        <dt>
+                          <span class='visually-hidden'>{{ 'products.product.price.regular_price' | t }}</span>
+                        </dt>
+                        <dd>
+                          {{ line_item.original_price | money }}
+                        </dd>
+                      {%- endif -%}
+                      {%- if line_item.unit_price_measurement -%}
+                        <dt>
+                          <span class='visually-hidden'>{{ 'products.product.price.unit_price' | t }}</span>
+                        </dt>
+                        <dd class='unit-price'>
+                          {% render 'unit-price', price: line_item.unit_price, measurement: line_item.unit_price_measurement, hide_accessibility_label: true %}
+                        </dd>
+                      {%- endif -%}
+                    </dl>
+                  {%- else -%}
+                    <span>{{ line_item.final_price | money }}</span>
+                  {%- endif -%}
+                </td>
+                <td
+                  headers='Row{{ line_item.key }} ColumnQuantity'
+                  role='cell'
+                  data-label='{{ 'customer.order.quantity' | t }}'
+                >
+                  {{ line_item.quantity }}
+                </td>
+                <td
+                  headers='Row{{ line_item.key }} ColumnTotal'
+                  role='cell'
+                  data-label='{{ 'customer.order.total' | t }}'
+                >
+                  {%- if line_item.original_line_price != line_item.final_line_price -%}
+                    <dl>
+                      <dt>
+                        <span class='visually-hidden'>{{ 'products.product.price.regular_price' | t }}</span>
+                      </dt>
+                      <dd class='regular-price'>
+                        <s>{{ line_item.original_line_price | money }}</s>
+                      </dd>
+                      <dt>
+                        <span class='visually-hidden'>{{ 'products.product.price.sale_price' | t }}</span>
+                      </dt>
+                      <dd>
+                        <span>{{ line_item.final_line_price | money }}</span>
+                      </dd>
+                    </dl>
+                  {%- else -%}
+                    {{ line_item.original_line_price | money }}
+                  {%- endif -%}
+                </td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+          <tfoot role='rowgroup'>
+            <tr role='row'>
+              <td
+                id='RowSubtotal'
+                role='rowheader'
+                scope='row'
+                colspan='4'
+              >
+                {{ 'customer.order.subtotal' | t }}
+              </td>
+              <td
+                headers='RowSubtotal'
+                role='cell'
+                data-label='{{ 'customer.order.subtotal' | t }}'
+              >
+                {{ order.line_items_subtotal_price | money }}
+              </td>
+            </tr>
+            {%- if order.cart_level_discount_applications != blank -%}
+              <tr role='row'>
+                {%- for discount_application in order.cart_level_discount_applications -%}
+                  <td
+                    id='RowDiscount'
+                    role='rowheader'
+                    scope='row'
+                    colspan='4'
+                  >
+                    {{ 'customer.order.discount' | t }}
+                    <span class='cart-discount'>
+                      <span class='svg-wrapper'>
+                        {{- 'icon-discount.svg' | inline_asset_content -}}
+                      </span>
+                      {{- discount_application.title | escape -}}
+                    </span>
+                  </td>
+                  <td
+                    headers='RowDiscount'
+                    role='cell'
+                    data-label='{{ 'customer.order.discount' | t }}'
+                  >
+                    <div>
+                      <span>-{{ discount_application.total_allocated_amount | money }}</span>
+                      <span class='cart-discount'>
+                        <span class='svg-wrapper'>
+                          {{- 'icon-discount.svg' | inline_asset_content -}}
+                        </span>
+                        {{- discount_application.title | escape -}}
+                      </span>
+                    </div>
+                  </td>
+                {%- endfor -%}
+              </tr>
+            {%- endif -%}
+            {%- for shipping_method in order.shipping_methods -%}
+              <tr role='row'>
+                <td
+                  id='RowShipping'
+                  role='rowheader'
+                  scope='row'
+                  colspan='4'
+                >
+                  {{ 'customer.order.shipping' | t }} ({{ shipping_method.title | escape }})
+                </td>
+                <td
+                  headers='RowShipping'
+                  role='cell'
+                  data-label='{{ 'customer.order.shipping' | t }} ({{ shipping_method.title | escape }})'
+                >
+                  {{ shipping_method.price | money }}
+                </td>
+              </tr>
+            {%- endfor -%}
+            {%- for tax_line in order.tax_lines -%}
+              <tr role='row'>
+                <td
+                  id='RowTax'
+                  role='rowheader'
+                  scope='row'
+                  colspan='4'
+                >
+                  {{ 'customer.order.tax' | t }} ({{ tax_line.title | escape }}
+                  {{ tax_line.rate | times: 100 }}%)
+                </td>
+                <td
+                  headers='RowTax'
+                  role='cell'
+                  data-label='{{ 'customer.order.tax' | t }} ({{ tax_line.title | escape }} {{ tax_line.rate | times: 100 }}%)'
+                >
+                  {{ tax_line.price | money }}
+                </td>
+              </tr>
+            {%- endfor -%}
+            {%- if order.total_duties -%}
+              <tr role='row'>
+                <td
+                  id='RowDuties'
+                  role='rowheader'
+                  scope='row'
+                  colspan='4'
+                >
+                  {{ 'customer.order.total_duties' | t }}
+                </td>
+                <td
+                  headers='RowDuties'
+                  role='cell'
+                  data-label='{{ 'customer.order.total_duties' | t }}'
+                >
+                  {{ order.total_duties | money }}
+                </td>
+              </tr>
+            {%- endif -%}
+            {%- if order.total_refunded_amount > 0 -%}
+              <tr role='row'>
+                <td
+                  id='RowTotalRefund'
+                  role='rowheader'
+                  scope='row'
+                  colspan='3'
+                >
+                  {{ 'customer.order.total_refunded' | t }}
+                </td>
+                <td
+                  headers='RowTotalRefund'
+                  role='cell'
+                  colspan='2'
+                  data-label='{{ 'customer.order.total_refunded' | t }}'
+                >
+                  -{{ order.total_refunded_amount | money_with_currency }}
+                </td>
+              </tr>
+            {%- endif -%}
+            <tr role='row'>
+              <td
+                id='RowTotal'
+                role='rowheader'
+                scope='row'
+                colspan='3'
+              >
+                {{ 'customer.order.total' | t }}
+              </td>
+              <td
+                headers='RowTotal'
+                role='cell'
+                colspan='2'
+                data-label='{{ 'customer.order.total' | t }}'
+              >
+                {{ order.total_net_amount | money_with_currency }}
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div>
+        <div>
+          <h2>{{ 'customer.order.billing_address' | t }}</h2>
+          <p>
+            <strong>{{ 'customer.order.payment_status' | t }}:</strong>
+            {{ order.financial_status_label }}
+          </p>
+          {{ order.billing_address | format_address }}
+        </div>
+        <div>
+          <h2>{{ 'customer.order.shipping_address' | t }}</h2>
+          <p>
+            <strong>{{ 'customer.order.fulfillment_status' | t }}:</strong>
+            {{ order.fulfillment_status_label }}
+          </p>
+          {{ order.shipping_address | format_address }}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "main orders",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text Labels"
+    },
+    {
+      "type": "text",
+      "id": "label_order_prefix",
+      "label": "Order Prefix",
+      "default": "Order"
+    },
+    {
+      "type": "text",
+      "id": "label_order_time",
+      "label": "Order Time Label",
+      "default": "Order time:"
+    },
+    {
+      "type": "text",
+      "id": "label_information",
+      "label": "Information Label",
+      "default": "Information"
+    },
+    {
+      "type": "text",
+      "id": "label_name",
+      "label": "Name Label",
+      "default": "Name:"
+    },
+    {
+      "type": "text",
+      "id": "label_email",
+      "label": "Email Label",
+      "default": "Email:"
+    },
+    {
+      "type": "text",
+      "id": "label_billing_address",
+      "label": "Billing Address Label",
+      "default": "Billing address:"
+    },
+    {
+      "type": "text",
+      "id": "label_items",
+      "label": "Items Label",
+      "default": "Item(s)"
+    },
+    {
+      "type": "text",
+      "id": "label_sku",
+      "label": "SKU Label",
+      "default": "SKU:"
+    },
+    {
+      "type": "text",
+      "id": "label_order_summary",
+      "label": "Order Summary Label",
+      "default": "Order summary"
+    },
+    {
+      "type": "text",
+      "id": "label_subtotal",
+      "label": "Subtotal Label",
+      "default": "Subtotal"
+    },
+    {
+      "type": "text",
+      "id": "label_shipping_fee",
+      "label": "Shipping Fee Label",
+      "default": "Shipping fee"
+    },
+    {
+      "type": "text",
+      "id": "label_tax",
+      "label": "Tax Label",
+      "default": "Tax"
+    },
+    {
+      "type": "text",
+      "id": "label_total",
+      "label": "Total Label",
+      "default": "Total"
+    },
+    {
+      "type": "text",
+      "id": "label_packages",
+      "label": "Packages Section Label",
+      "default": "Packages & logistics"
+    },
+    {
+      "type": "text",
+      "id": "label_loading",
+      "label": "Loading Label",
+      "default": "Loading..."
+    },
+    {
+      "type": "text",
+      "id": "label_load_failed",
+      "label": "Load Failed Label",
+      "default": "Failed to load packages."
+    },
+    {
+      "type": "text",
+      "id": "label_no_packages",
+      "label": "No Packages Label",
+      "default": "No packages found."
+    },
+    {
+      "type": "text",
+      "id": "label_view_logistics",
+      "label": "View Logistics Label",
+      "default": "View logistics"
+    },
+    {
+      "type": "text",
+      "id": "label_collapse_logistics",
+      "label": "Collapse Logistics Label",
+      "default": "Collapse logistics"
+    },
+    {
+      "type": "text",
+      "id": "label_no_logistics",
+      "label": "No Logistics Label",
+      "default": "No logistics info available."
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "main orders"
+    }
+  ]
+}
+{% endschema %}

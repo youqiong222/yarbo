@@ -1,0 +1,50 @@
+{% comment %}
+  ==============================================================================
+  Snippet: section-padding.liquid
+  描述: 渲染 Section 的全局上下边距（支持 PC 与移动端分离设置）
+  用法: {% render 'section-padding', section_id: section.id, settings: section.settings %}
+  ==============================================================================
+  {
+    "type": "header",
+    "content": "Spacing Settings"
+  },
+  {
+    "type": "number",
+    "id": "padding_top",
+    "label": "Padding Top",
+    "default": 0
+  },
+  {
+    "type": "number",
+    "id": "padding_bottom",
+    "label": "Padding Bottom",
+    "default": 0
+  },
+  {
+    "type": "number",
+    "id": "h5_padding_top",
+    "label": "H5 Padding Top",
+    "default": 0
+  },
+  {
+    "type": "number",
+    "id": "h5_padding_bottom",
+    "label": "H5 Padding Bottom",
+    "default": 0
+  },
+{% endcomment %}
+
+{%- style -%}
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section_id }} {
+      padding-top: {{ settings.padding_top | default: 0 }}px;
+      padding-bottom: {{ settings.padding_bottom | default: 0 }}px;
+    }
+  }
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section_id }} {
+      padding-top: {{ settings.h5_padding_top | default: 0 }}px;
+      padding-bottom: {{ settings.h5_padding_bottom | default: 0 }}px;
+    }
+  }
+{%- endstyle -%}

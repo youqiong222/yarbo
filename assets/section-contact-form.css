@@ -1,0 +1,39 @@
+.contact img {
+  max-width: 100%;
+}
+
+.contact .form__message {
+  align-items: flex-start;
+}
+
+.contact .icon-success {
+  margin-top: 2px;
+}
+
+.contact .field {
+  margin-bottom: 14px;
+}
+
+@media screen and (min-width: 750px) {
+  .contact .field {
+    margin-bottom: 20px;
+  }
+}
+
+.contact__button {
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 750px) {
+  .contact__button {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .contact__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+  }
+}

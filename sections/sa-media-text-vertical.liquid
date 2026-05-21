@@ -1,0 +1,186 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<style>
+  #shopify-section-{{ section.id }}{
+    background: {{ section.settings.bac }};
+    position: relative;
+    overflow: visible;
+
+    {% if section.settings.show_before %}
+      margin-top: 240px;
+    {% else %}
+      margin-top: 0;
+    {% endif %}
+
+    {% if section.settings.show_after %}
+      margin-bottom: 240px;
+    {% else %}
+      margin-bottom: 0;
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }}::after,
+  #shopify-section-{{ section.id }}::before{
+    position: absolute;
+    content: '';
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }}::after{
+    top: 100%;
+    background: linear-gradient(
+      180deg,
+      {{ section.settings.bac }} 0%,
+      rgba(13, 13, 13, 0.5) 36.22%,
+      rgba(0, 0, 0, 0) 72.44%
+    );
+
+    {% if section.settings.show_after %}
+      height: 240px;
+    {% else %}
+      height: 0;
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }}::before{
+    bottom: 100%;
+    background: linear-gradient(
+      0deg,
+      {{ section.settings.bac }} 0%,
+      rgba(13, 13, 13, 0.5) 36.22%,
+      rgba(0, 0, 0, 0) 72.44%
+    );
+
+    {% if section.settings.show_before %}
+      height: 240px;
+    {% else %}
+      height: 0;
+    {% endif %}
+  }
+
+  @media screen and (max-width: 999px){
+
+    #shopify-section-{{ section.id }}{
+
+      {% if section.settings.show_before %}
+        margin-top: 150px;
+      {% else %}
+        margin-top: 0;
+      {% endif %}
+
+      {% if section.settings.show_after %}
+        margin-bottom: 150px;
+      {% else %}
+        margin-bottom: 0;
+      {% endif %}
+    }
+
+    #shopify-section-{{ section.id }}::before{
+      {% if section.settings.show_before %}
+        height: 150px;
+      {% else %}
+        height: 0;
+      {% endif %}
+    }
+
+    #shopify-section-{{ section.id }}::after{
+      {% if section.settings.show_after %}
+        height: 150px;
+      {% else %}
+        height: 0;
+      {% endif %}
+    }
+  }
+</style>
+<div
+  class='flex w-full flex-col {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+>
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "Media Text Builder",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "bac",
+      "label": "Background color",
+      "default": "#0d0d0d"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_before",
+      "label": "Show top gradient",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_after",
+      "label": "Show bottom gradient",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "media"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "number-roll"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media Text Vertical Builder",
+      "blocks": [{ "type": "media" }, { "type": "text" }]
+    }
+  ]
+}
+{% endschema %}

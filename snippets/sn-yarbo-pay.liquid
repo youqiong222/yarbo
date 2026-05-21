@@ -1,0 +1,17 @@
+{% comment %}
+  {% render 'sn-yarbo-pay', product: product %}
+{% endcomment %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign months = settings.months | default: 12 %}
+{% assign monthly_price = current_variant.price | times: 1.0 | divided_by: months | round | money %}
+
+{% assign pay_text = settings.pay_text | default: '[price]/mo for [months] months at 0% APR with Yarbo Pay' %}
+{% assign months_text = months | append: '' %}
+{% assign pay_text = pay_text | replace: '[price]', monthly_price %}
+{% assign pay_text = pay_text | replace: '[months]', months_text %}
+
+{% if settings.yarbo_pay_enabled %}
+  <div class='yarbo-pay text-[12px] leading-[1.2] md:text-[14px] {{ pay_class }}'>
+    {{ pay_text }}
+  </div>
+{% endif %}

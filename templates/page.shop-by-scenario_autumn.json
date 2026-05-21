@@ -1,0 +1,225 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_shop_by_scenario_MJwBLp": {
+      "type": "sa-shop-by-scenario",
+      "blocks": {
+        "text_ieNbdc": {
+          "type": "text",
+          "settings": {
+            "title": "<p>What starts as a few leaves quickly turns into constant cleanup.</p>",
+            "text": "<p>Here are the top two challenges homeowners face:</p>"
+          }
+        },
+        "block_3NpmAR": {
+          "type": "block",
+          "settings": {
+            "sort": "1",
+            "image": "shopify://shop_images/Frame_442.png",
+            "h5_image": "shopify://shop_images/Frame_2036457856.png",
+            "title": "<p>HEAVY LEAF BUILDUP</p>",
+            "text": "<p>Leaves cover your lawn and block healthy growth.</p>",
+            "product": "yarbo-leaf-blower",
+            "product_image": "shopify://shop_images/Frame_443.png",
+            "product_desc": "<p>Clear large areas quickly and efficiently.</p>",
+            "product_button": "Shop now"
+          }
+        },
+        "block_UMVDcX": {
+          "type": "block",
+          "settings": {
+            "sort": "2",
+            "image": "shopify://shop_images/Frame_444.png",
+            "h5_image": "shopify://shop_images/Frame_2036457858.png",
+            "title": "<p>SEAMLESS TRANSITION FROM AUTUMN TO WINTER</p>",
+            "text": "<p>Leave the leaves—and the worries of winter—all behind in the autumn.</p>",
+            "product": "yarbo-snow-blower-blower",
+            "product_image": "shopify://shop_images/Frame_465.png",
+            "product_desc": "<p>No need to worry about seasonal transitions.</p>",
+            "product_button": "Shop now"
+          }
+        },
+        "block_jWVYBz": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "sort": "3",
+            "image": "shopify://shop_images/Frame_434.png",
+            "h5_image": "shopify://shop_images/Frame_2036457854_cb00b799-fc17-4c96-916b-b0650b794b0e.png",
+            "title": "<p>EARLY-SEASON LAWN RECOVERY</p>",
+            "text": "<p>Patchy grass and uneven growth make mowing difficult.</p>",
+            "product": "yarbo-lawn-mower",
+            "product_image": "shopify://shop_images/Frame_435.png",
+            "product_desc": "<p>Restore a clean, even lawn from the start of the season.</p>",
+            "product_button": "Shop now"
+          }
+        },
+        "line_Rxy9Lg": {
+          "type": "line",
+          "settings": {}
+        },
+        "image_9i4yQp": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Frame_2036457840.png",
+            "h5_image": "shopify://shop_images/Frame_2036457864_1.png",
+            "title": "<p>Find your perfect yarbo</p>",
+            "link": "",
+            "use_link": true
+          }
+        },
+        "policy_Kw9HGX": {
+          "type": "policy",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2036457824.png",
+            "title": "<p>Fast DELIVERY</p>"
+          }
+        },
+        "policy_YbaqRE": {
+          "type": "policy",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2036457828_a43240cf-d261-45d7-b4f5-b78a396676f7.png",
+            "title": "<p>UP TO 5-YEAR WARRANTY</p>"
+          }
+        },
+        "policy_RNDULp": {
+          "type": "policy",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2036457827.png",
+            "title": "<p>30-Day Trial</p>"
+          }
+        },
+        "policy_kGJ4R9": {
+          "type": "policy",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2036457825.png",
+            "title": "<p>24/7 Expert Support</p>"
+          }
+        },
+        "payment_8PFByV": {
+          "type": "payment",
+          "settings": {
+            "title": "<p>Own Your Yarbo Sooner <br/>with flexible payment plans</p>",
+            "splitit_image": "shopify://shop_images/Frame_377.png",
+            "affirm_image": "shopify://shop_images/Frame_379-1.png"
+          }
+        },
+        "line_YRU7Mm": {
+          "type": "line",
+          "settings": {}
+        },
+        "explore_FRR9Gg": {
+          "type": "explore",
+          "settings": {
+            "title": "Spring",
+            "image": "shopify://shop_images/Frame_2036457845_93f0f7b5-35fe-4ecb-9033-8c196f3ce189.png",
+            "link": "shopify://pages/shop-by-scenario-spring"
+          }
+        },
+        "explore_a4jqQU": {
+          "type": "explore",
+          "settings": {
+            "title": "Summer",
+            "image": "shopify://shop_images/Frame_2036457849_1.png",
+            "link": "shopify://pages/shop-by-scenario-summer"
+          }
+        },
+        "explore_A3hhft": {
+          "type": "explore",
+          "disabled": true,
+          "settings": {
+            "title": "Autumn",
+            "image": "shopify://shop_images/Frame_2036457846.png",
+            "link": "shopify://pages/shop-by-scenario-autumn"
+          }
+        },
+        "explore_4t7QNc": {
+          "type": "explore",
+          "settings": {
+            "title": "Winter",
+            "image": "shopify://shop_images/Frame_2036457847_8cc37cf4-e1e2-4915-9910-d4630ef92833.png",
+            "link": "shopify://pages/shop-by-scenario-winter"
+          }
+        }
+      },
+      "block_order": [
+        "text_ieNbdc",
+        "block_3NpmAR",
+        "block_UMVDcX",
+        "block_jWVYBz",
+        "line_Rxy9Lg",
+        "image_9i4yQp",
+        "policy_Kw9HGX",
+        "policy_YbaqRE",
+        "policy_RNDULp",
+        "policy_kGJ4R9",
+        "payment_8PFByV",
+        "line_YRU7Mm",
+        "explore_FRR9Gg",
+        "explore_a4jqQU",
+        "explore_A3hhft",
+        "explore_4t7QNc"
+      ],
+      "name": "Shop by scenario",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 56,
+        "image": "shopify://shop_images/Frame_430.png",
+        "title": "<p>FALL LEAVES DON’T CLEAN THEMSELVES.</p>",
+        "explore_title": "Explore other seasons"
+      }
+    },
+    "custom_liquid_BVCb9U": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "career_form_gMMk6X": {
+      "type": "career-form",
+      "disabled": true,
+      "custom_css": [
+        ".flex.items-baseline.justify-center.mobile\\:justify-between {max-width: 75rem; margin: auto;}",
+        "career-form.career-form.form-container {max-width: 75rem; margin: auto; padding-left: 5rem; padding-right: 5rem; padding-top: 2.5rem; padding-bottom: 2.5rem;}",
+        "@media (max-width: 767px) {career-form.career-form.form-container {border-radius: 1.5rem; padding-left: 1.0625rem; padding-right: 1.0625rem; padding-top: 1.6875rem; padding-bottom: 2.625rem; }}"
+      ],
+      "name": "Career 提交表单",
+      "settings": {
+        "title": "JOIN YARBO",
+        "description": "Dive into a world of innovation and excellence. Shape the future of yard robot technology with us."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_shop_by_scenario_MJwBLp",
+    "custom_liquid_BVCb9U",
+    "career_form_gMMk6X"
+  ]
+}

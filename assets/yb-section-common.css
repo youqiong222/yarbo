@@ -1,0 +1,125 @@
+.yb-section-common {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.yb-section-common .yb-section-common-title {
+  max-width: 1000px;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.yb-section-common .yb-section-common-content {
+  max-width: 1000px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.yb-section-common .yb-section-common-button {
+  margin-top: 40px;
+}
+
+.yb-section-common .yb-section-common-button .yb-common-button {
+  min-width: 180px;
+  min-height: 48px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+  background-color: #fedb1e;
+  place-content: center;
+  border-radius: 30px;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+  border: 0;
+  cursor: pointer;
+}
+
+/* 375-679px */
+@media (max-width: 679px) {
+  .yb-section-common .yb-section-common-title {
+    /* min-width: 327px; */
+    font-size: 24px;
+    max-width: calc(100% - 16px);
+  }
+
+  .yb-section-common .yb-section-common-content {
+    /* min-width: 327px; */
+    font-size: 14px;
+    margin-top: 12px;
+    max-width: calc(100% - 16px);
+  }
+
+  .yb-section-common .yb-section-common-button {
+    margin-top: 16px;
+  }
+
+  .yb-section-common .yb-section-common-button .yb-common-button {
+    min-height: 48px;
+    min-width: calc(100% - 48px);
+  }
+}
+
+/* 680-959px */
+@media (min-width: 680px) and (max-width: 959px) {
+  .yb-section-common .yb-section-common-title {
+    max-width: 600px;
+    font-size: 32px;
+  }
+
+  .yb-section-common .yb-section-common-content {
+    max-width: 600px;
+    font-size: 16px;
+    margin-top: 16px;
+  }
+
+  .yb-section-common .yb-section-common-button {
+    margin-top: 24px;
+  }
+}
+
+/* 960-1439px */
+@media (min-width: 960px) and (max-width: 1439px) {
+  .yb-section-common .yb-section-common-title {
+    max-width: 728px;
+    font-size: 28px;
+  }
+
+  .yb-section-common .yb-section-common-content {
+    max-width: 728px;
+    font-size: 16px;
+    margin-top: 16px;
+  }
+
+  .yb-section-common .yb-section-common-button {
+    margin-top: 24px;
+  }
+}
+
+/* 1440-1919px */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .yb-section-common .yb-section-common-title {
+    max-width: 924px;
+    font-size: 36px;
+  }
+
+  .yb-section-common .yb-section-common-content {
+    max-width: 924px;
+    font-size: 18px;
+    margin-top: 16px;
+  }
+
+  .yb-section-common .yb-section-common-button {
+    margin-top: 32px;
+  }
+}
+
+/* 1920px+ default*/
+@media (min-width: 1920px) {}

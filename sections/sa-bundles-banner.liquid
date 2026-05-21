@@ -1,0 +1,199 @@
+<div
+  class='relative flex min-h-550 w-full items-center overflow-hidden font-sans {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+  id='hero-{{ section.id }}'
+>
+  <!-- 背景媒体 -->
+  {% render 'media-element',
+    class: 'absolute inset-0 w-full h-full z-0',
+    media_class: 'w-full h-full object-cover',
+    media_type: section.settings.media_type,
+    pc_image: section.settings.pc_image,
+    h5_image: section.settings.h5_image,
+    pc_video: section.settings.pc_video,
+    h5_video: section.settings.h5_video,
+    video_url: section.settings.video_url,
+    other_url: section.settings.other_url
+  %}
+
+  <div class='pointer-events-none absolute inset-0 bg-black/30'></div>
+
+  <div class='page-container relative z-10 flex h-full min-h-550 w-full flex-col  justify-end '>
+    <div class='pb-48 md:pb-60'>
+      {% if section.settings.title != blank %}
+        <h2 class='mb-16 text-[40px]/[1] tracking-tight text-white uppercase sm:mb-24 sm:text-[80px]/[1]'>
+          {{ section.settings.title | newline_to_br }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class='text-[12px]/[1.3] text-white sm:text-[18px]/[1.4]'>
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const sectionElement = document.querySelector(
+      '#shopify-section-{{ section.id }}',
+    );
+    if (!sectionElement) return;
+
+    const heroSwiperElement = sectionElement.querySelector('.hero-swiper');
+
+    if (heroSwiperElement) {
+      const heroSwiper = new Swiper(heroSwiperElement, {
+        loop: true,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true,
+        },
+        {%- if section.settings.auto_rotate %}
+        autoplay: { delay: {{ section.settings.change_slides_speed | times: 1000 }}, disableOnInteraction: false },
+        {% endif -%}
+        navigation: {
+          nextEl: sectionElement.querySelector('.hero-next'),
+          prevEl: sectionElement.querySelector('.hero-prev'),
+        },
+        pagination: {
+          el: sectionElement.querySelector('.hero-pagination'),
+          clickable: true,
+          renderBullet: function (index, className) {
+            const bulletClasses = `
+              ${className}
+              rounded-none
+              w-8 h-8 bg-[#CCCCCC] transition-all duration-300 block cursor-pointer m-0
+              hover:bg-white
+              [&.swiper-pagination-bullet-active]:w-50 [&.swiper-pagination-bullet-active]:h-8 [&.swiper-pagination-bullet-active]:bg-[#FEDB1E]
+            `;
+            return `<span class="${bulletClasses.trim().replace(/\s+/g, ' ')}"></span>`;
+          },
+        },
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Bundles Slider",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Shopify Video"
+        },
+        {
+          "value": "video_url",
+          "label": "External Video URL"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "PC Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_image",
+      "label": "H5 Image"
+    },
+    {
+      "type": "video",
+      "id": "pc_video",
+      "label": "PC Shopify Video"
+    },
+    {
+      "type": "video",
+      "id": "h5_video",
+      "label": "H5 Shopify Video(Optional)"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Platform Video URL (YouTube/Vimeo)",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+    },
+    {
+      "type": "text",
+      "id": "other_url",
+      "label": "Other Video URL",
+      "info": "ex: xxx.mp4 (If filled, this takes priority over the Platform Video URL)"
+    },
+    {
+      "type": "header",
+      "content": "Overlay Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show Media Overlay",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 40
+    },
+    { "type": "richtext", "id": "title", "label": "Heading" },
+    { "type": "richtext", "id": "description", "label": "Description" },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Bundles Slider"
+    }
+  ]
+}
+{% endschema %}

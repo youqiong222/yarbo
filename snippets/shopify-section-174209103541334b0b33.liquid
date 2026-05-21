@@ -1,0 +1,1300 @@
+<div class="shopline-section section nsa-accesstive" id="shopline-section-174209103541334b0b33">
+  <section
+    class="custom-yt-video-swiper nsa-accesstive"
+    data-section="174209103541334b0b33"
+    id="CustomYTVideoSwiper-174209103541334b0b33"
+  >
+    <custom-yt-video-swiper class="yt-video-swiper-container nsa-accesstive">
+      <h2 class="custom-yt-video-swiper__title nsa-accesstive">See What the Pros Say</h2>
+      <div class="swiper swiper-initialized swiper-horizontal swiper-android swiper-backface-hidden">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide video-slide nsa-accesstive" role="group">
+            <div class="video-section__media optimized-youtube-wrapper nsa-accesstive" data-media-id="video-id">
+              <!-- 优化的YouTube嵌入 - 使用nocookie域名和性能参数 -->
+              <div class="youtube-optimized-container nsa-accesstive" data-video-id="0deWOZunaOQ">
+                <!-- 预览图阶段 -->
+                <div class="youtube-preview nsa-accesstive" data-lazyframe-enhanced="" style="display: block;">
+                  <img
+                    alt=""
+                    class="youtube-thumbnail nsa-accesstive"
+                    loading="lazy"
+                    src="https://i.ytimg.com/vi/0deWOZunaOQ/hqdefault.jpg"
+                  >
+                  <button aria-label="播放视频" class="youtube-play-btn">
+                    <svg class="play-icon" viewbox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" fill="currentColor"></path>
+                    </svg>
+                  </button>
+                </div>
+                <!-- 实际iframe - 点击后加载 -->
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen=""
+                  class="js-youtube youtube-iframe nsa-accesstive"
+                  data-lazyframe=""
+                  data-src="https://www.youtube-nocookie.com/embed/0deWOZunaOQ?enablejsapi=1&amp;muted=0&amp;rel=0&amp;modestbranding=1&amp;autoplay=1&amp;controls=1&amp;fs=1"
+                  frameborder="0"
+                  height="100%"
+                  style="display: none;"
+                  title=""
+                  width="100%"
+                ></iframe>
+              </div>
+              <style>
+                .youtube-optimized-container {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                }
+
+                .youtube-preview {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  cursor: pointer;
+                  background: #000;
+                  border-radius: 16px;
+                  overflow: hidden;
+                  transition: transform 0.2s ease;
+                }
+
+                .youtube-preview:hover {
+                  transform: scale(1.02);
+                }
+
+                .youtube-thumbnail {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center;
+                }
+
+                .youtube-play-btn {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background: rgba(0, 0, 0, 0.8);
+                  border: none;
+                  border-radius: 50%;
+                  width: 80px;
+                  height: 80px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  color: white;
+                }
+
+                .youtube-play-btn:hover {
+                  background: rgba(255, 0, 0, 0.9);
+                  transform: translate(-50%, -50%) scale(1.1);
+                }
+
+                .play-icon {
+                  width: 32px;
+                  height: 32px;
+                  margin-left: 4px;
+                }
+
+                .youtube-iframe {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border: none;
+                  border-radius: 16px;
+                  z-index: 2;
+                  background: #000;
+                }
+              </style>
+              <script>
+                // 增强现有lazyframe功能 - 无需外部依赖
+                document.addEventListener('DOMContentLoaded', function () {
+                  // 预连接到YouTube域名
+                  const preconnectLinks = ['https://www.youtube-nocookie.com', 'https://i.ytimg.com'];
+
+                  preconnectLinks.forEach((href) => {
+                    const link = document.createElement('link');
+                    link.rel = 'preconnect';
+                    link.href = href;
+                    link.crossOrigin = 'anonymous';
+                    document.head.appendChild(link);
+                  });
+
+                  // 增强的YouTube预览点击处理
+                  document.querySelectorAll('.youtube-preview').forEach((preview) => {
+                    preview.addEventListener('click', function () {
+                      const container = this.closest('.youtube-optimized-container');
+                      const iframe = container.querySelector('.youtube-iframe');
+
+                      if (!container || !iframe) {
+                        console.error('YouTube容器或iframe未找到');
+                        return;
+                      }
+
+                      // 加载真实iframe
+                      const dataSrc = iframe.getAttribute('data-src');
+                      if (!dataSrc) {
+                        console.error('iframe data-src属性未找到');
+                        return;
+                      }
+
+                      console.log('正在加载YouTube视频:', dataSrc);
+
+                      // 设置iframe src并显示
+                      iframe.src = dataSrc;
+                      iframe.style.display = 'block';
+                      iframe.style.opacity = '1';
+
+                      // 隐藏预览
+                      this.style.display = 'none';
+
+                      // 确保iframe获得焦点
+                      setTimeout(() => {
+                        iframe.focus();
+                      }, 100);
+
+                      // 触发现有lazyframe逻辑（如果存在）
+                      if (window.lazyframe && typeof window.lazyframe.init === 'function') {
+                        window.lazyframe.init();
+                      }
+                    });
+                  });
+                });
+              </script>
+            </div>
+            <div class="video-content nsa-accesstive">
+              <p class="video-title nsa-accesstive">This is an Autonomous Snowblower - Does it Actually Work?!</p>
+              <div class="author-container nsa-accesstive">
+                <div class="author-avatar nsa-accesstive">
+                  <img
+                    alt=""
+                    class="rounded-full nsa-accesstive"
+                    data-scale="hover-scale"
+                    decoding="async"
+                    fetchpriority="auto"
+                    height="176"
+                    loading="lazy"
+                    src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/image-_19.jpg?v=1772523985"
+                    width="176"
+                  >
+                </div>
+                <div class="author-name nsa-accesstive">Mark Spurrell</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide video-slide nsa-accesstive" role="group">
+            <div class="video-section__media optimized-youtube-wrapper nsa-accesstive" data-media-id="video-id">
+              <!-- 优化的YouTube嵌入 - 使用nocookie域名和性能参数 -->
+              <div class="youtube-optimized-container nsa-accesstive" data-video-id="njPX92L-dH8">
+                <!-- 预览图阶段 -->
+                <div class="youtube-preview nsa-accesstive" data-lazyframe-enhanced="" style="display: block;">
+                  <img
+                    alt=""
+                    class="youtube-thumbnail nsa-accesstive"
+                    loading="lazy"
+                    src="https://i.ytimg.com/vi/njPX92L-dH8/hqdefault.jpg"
+                  >
+                  <button aria-label="播放视频" class="youtube-play-btn">
+                    <svg class="play-icon" viewbox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" fill="currentColor"></path>
+                    </svg>
+                  </button>
+                </div>
+                <!-- 实际iframe - 点击后加载 -->
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen=""
+                  class="js-youtube youtube-iframe nsa-accesstive"
+                  data-lazyframe=""
+                  data-src="https://www.youtube-nocookie.com/embed/njPX92L-dH8?enablejsapi=1&amp;muted=0&amp;rel=0&amp;modestbranding=1&amp;autoplay=1&amp;controls=1&amp;fs=1"
+                  frameborder="0"
+                  height="100%"
+                  style="display: none;"
+                  title=""
+                  width="100%"
+                ></iframe>
+              </div>
+              <style>
+                .youtube-optimized-container {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                }
+
+                .youtube-preview {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  cursor: pointer;
+                  background: #000;
+                  border-radius: 16px;
+                  overflow: hidden;
+                  transition: transform 0.2s ease;
+                }
+
+                .youtube-preview:hover {
+                  transform: scale(1.02);
+                }
+
+                .youtube-thumbnail {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center;
+                }
+
+                .youtube-play-btn {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background: rgba(0, 0, 0, 0.8);
+                  border: none;
+                  border-radius: 50%;
+                  width: 80px;
+                  height: 80px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  color: white;
+                }
+
+                .youtube-play-btn:hover {
+                  background: rgba(255, 0, 0, 0.9);
+                  transform: translate(-50%, -50%) scale(1.1);
+                }
+
+                .play-icon {
+                  width: 32px;
+                  height: 32px;
+                  margin-left: 4px;
+                }
+
+                .youtube-iframe {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border: none;
+                  border-radius: 16px;
+                  z-index: 2;
+                  background: #000;
+                }
+              </style>
+              <script>
+                // 增强现有lazyframe功能 - 无需外部依赖
+                document.addEventListener('DOMContentLoaded', function () {
+                  // 预连接到YouTube域名
+                  const preconnectLinks = ['https://www.youtube-nocookie.com', 'https://i.ytimg.com'];
+
+                  preconnectLinks.forEach((href) => {
+                    const link = document.createElement('link');
+                    link.rel = 'preconnect';
+                    link.href = href;
+                    link.crossOrigin = 'anonymous';
+                    document.head.appendChild(link);
+                  });
+
+                  // 增强的YouTube预览点击处理
+                  document.querySelectorAll('.youtube-preview').forEach((preview) => {
+                    preview.addEventListener('click', function () {
+                      const container = this.closest('.youtube-optimized-container');
+                      const iframe = container.querySelector('.youtube-iframe');
+
+                      if (!container || !iframe) {
+                        console.error('YouTube容器或iframe未找到');
+                        return;
+                      }
+
+                      // 加载真实iframe
+                      const dataSrc = iframe.getAttribute('data-src');
+                      if (!dataSrc) {
+                        console.error('iframe data-src属性未找到');
+                        return;
+                      }
+
+                      console.log('正在加载YouTube视频:', dataSrc);
+
+                      // 设置iframe src并显示
+                      iframe.src = dataSrc;
+                      iframe.style.display = 'block';
+                      iframe.style.opacity = '1';
+
+                      // 隐藏预览
+                      this.style.display = 'none';
+
+                      // 确保iframe获得焦点
+                      setTimeout(() => {
+                        iframe.focus();
+                      }, 100);
+
+                      // 触发现有lazyframe逻辑（如果存在）
+                      if (window.lazyframe && typeof window.lazyframe.init === 'function') {
+                        window.lazyframe.init();
+                      }
+                    });
+                  });
+                });
+              </script>
+            </div>
+            <div class="video-content nsa-accesstive">
+              <p class="video-title nsa-accesstive">
+                do You Really Need a Robot Snowblower? Yarbo w/ SnowBlower s1 module NOT JUST a snowblower
+              </p>
+              <div class="author-container nsa-accesstive">
+                <div class="author-avatar nsa-accesstive">
+                  <img
+                    alt=""
+                    class="rounded-full nsa-accesstive"
+                    data-scale="hover-scale"
+                    decoding="async"
+                    fetchpriority="auto"
+                    height="176"
+                    loading="lazy"
+                    src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/image-_20.jpg?v=1772523990"
+                    width="176"
+                  >
+                </div>
+                <div class="author-name nsa-accesstive">Pest and Lawn Ginja</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide video-slide nsa-accesstive" role="group">
+            <div class="video-section__media optimized-youtube-wrapper nsa-accesstive" data-media-id="video-id">
+              <!-- 优化的YouTube嵌入 - 使用nocookie域名和性能参数 -->
+              <div class="youtube-optimized-container nsa-accesstive" data-video-id="5lhAWmXzwSE">
+                <!-- 预览图阶段 -->
+                <div class="youtube-preview nsa-accesstive" data-lazyframe-enhanced="" style="display: block;">
+                  <img
+                    alt=""
+                    class="youtube-thumbnail nsa-accesstive"
+                    loading="lazy"
+                    src="https://i.ytimg.com/vi/5lhAWmXzwSE/hqdefault.jpg"
+                  >
+                  <button aria-label="播放视频" class="youtube-play-btn">
+                    <svg class="play-icon" viewbox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" fill="currentColor"></path>
+                    </svg>
+                  </button>
+                </div>
+                <!-- 实际iframe - 点击后加载 -->
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen=""
+                  class="js-youtube youtube-iframe nsa-accesstive"
+                  data-lazyframe=""
+                  data-src="https://www.youtube-nocookie.com/embed/5lhAWmXzwSE?enablejsapi=1&amp;muted=0&amp;rel=0&amp;modestbranding=1&amp;autoplay=1&amp;controls=1&amp;fs=1"
+                  frameborder="0"
+                  height="100%"
+                  style="display: none;"
+                  title=""
+                  width="100%"
+                ></iframe>
+              </div>
+              <style>
+                .youtube-optimized-container {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                }
+
+                .youtube-preview {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  cursor: pointer;
+                  background: #000;
+                  border-radius: 16px;
+                  overflow: hidden;
+                  transition: transform 0.2s ease;
+                }
+
+                .youtube-preview:hover {
+                  transform: scale(1.02);
+                }
+
+                .youtube-thumbnail {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center;
+                }
+
+                .youtube-play-btn {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background: rgba(0, 0, 0, 0.8);
+                  border: none;
+                  border-radius: 50%;
+                  width: 80px;
+                  height: 80px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  color: white;
+                }
+
+                .youtube-play-btn:hover {
+                  background: rgba(255, 0, 0, 0.9);
+                  transform: translate(-50%, -50%) scale(1.1);
+                }
+
+                .play-icon {
+                  width: 32px;
+                  height: 32px;
+                  margin-left: 4px;
+                }
+
+                .youtube-iframe {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border: none;
+                  border-radius: 16px;
+                  z-index: 2;
+                  background: #000;
+                }
+              </style>
+              <script>
+                // 增强现有lazyframe功能 - 无需外部依赖
+                document.addEventListener('DOMContentLoaded', function () {
+                  // 预连接到YouTube域名
+                  const preconnectLinks = ['https://www.youtube-nocookie.com', 'https://i.ytimg.com'];
+
+                  preconnectLinks.forEach((href) => {
+                    const link = document.createElement('link');
+                    link.rel = 'preconnect';
+                    link.href = href;
+                    link.crossOrigin = 'anonymous';
+                    document.head.appendChild(link);
+                  });
+
+                  // 增强的YouTube预览点击处理
+                  document.querySelectorAll('.youtube-preview').forEach((preview) => {
+                    preview.addEventListener('click', function () {
+                      const container = this.closest('.youtube-optimized-container');
+                      const iframe = container.querySelector('.youtube-iframe');
+
+                      if (!container || !iframe) {
+                        console.error('YouTube容器或iframe未找到');
+                        return;
+                      }
+
+                      // 加载真实iframe
+                      const dataSrc = iframe.getAttribute('data-src');
+                      if (!dataSrc) {
+                        console.error('iframe data-src属性未找到');
+                        return;
+                      }
+
+                      console.log('正在加载YouTube视频:', dataSrc);
+
+                      // 设置iframe src并显示
+                      iframe.src = dataSrc;
+                      iframe.style.display = 'block';
+                      iframe.style.opacity = '1';
+
+                      // 隐藏预览
+                      this.style.display = 'none';
+
+                      // 确保iframe获得焦点
+                      setTimeout(() => {
+                        iframe.focus();
+                      }, 100);
+
+                      // 触发现有lazyframe逻辑（如果存在）
+                      if (window.lazyframe && typeof window.lazyframe.init === 'function') {
+                        window.lazyframe.init();
+                      }
+                    });
+                  });
+                });
+              </script>
+            </div>
+            <div class="video-content nsa-accesstive">
+              <p class="video-title nsa-accesstive">
+                Smart Robot Snow Blower VS Huge Snowstorm: Yarbo S1 Snow Blower Review
+              </p>
+              <div class="author-container nsa-accesstive">
+                <div class="author-avatar nsa-accesstive">
+                  <img
+                    alt=""
+                    class="rounded-full nsa-accesstive"
+                    data-scale="hover-scale"
+                    decoding="async"
+                    fetchpriority="auto"
+                    height="176"
+                    loading="lazy"
+                    src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/image-_21.jpg?v=1772523995"
+                    width="176"
+                  >
+                </div>
+                <div class="author-name nsa-accesstive">Freshly Charged</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide video-slide nsa-accesstive" role="group">
+            <div class="video-section__media optimized-youtube-wrapper nsa-accesstive" data-media-id="video-id">
+              <!-- 优化的YouTube嵌入 - 使用nocookie域名和性能参数 -->
+              <div class="youtube-optimized-container nsa-accesstive" data-video-id="q8hNPmliUVo">
+                <!-- 预览图阶段 -->
+                <div class="youtube-preview nsa-accesstive" data-lazyframe-enhanced="" style="display: block;">
+                  <img
+                    alt=""
+                    class="youtube-thumbnail nsa-accesstive"
+                    loading="lazy"
+                    src="https://i.ytimg.com/vi/q8hNPmliUVo/hqdefault.jpg"
+                  >
+                  <button aria-label="播放视频" class="youtube-play-btn">
+                    <svg class="play-icon" viewbox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" fill="currentColor"></path>
+                    </svg>
+                  </button>
+                </div>
+                <!-- 实际iframe - 点击后加载 -->
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen=""
+                  class="js-youtube youtube-iframe nsa-accesstive"
+                  data-lazyframe=""
+                  data-src="https://www.youtube-nocookie.com/embed/q8hNPmliUVo?enablejsapi=1&amp;muted=0&amp;rel=0&amp;modestbranding=1&amp;autoplay=1&amp;controls=1&amp;fs=1"
+                  frameborder="0"
+                  height="100%"
+                  style="display: none;"
+                  title=""
+                  width="100%"
+                ></iframe>
+              </div>
+              <style>
+                .youtube-optimized-container {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                }
+
+                .youtube-preview {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  cursor: pointer;
+                  background: #000;
+                  border-radius: 16px;
+                  overflow: hidden;
+                  transition: transform 0.2s ease;
+                }
+
+                .youtube-preview:hover {
+                  transform: scale(1.02);
+                }
+
+                .youtube-thumbnail {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center;
+                }
+
+                .youtube-play-btn {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background: rgba(0, 0, 0, 0.8);
+                  border: none;
+                  border-radius: 50%;
+                  width: 80px;
+                  height: 80px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  color: white;
+                }
+
+                .youtube-play-btn:hover {
+                  background: rgba(255, 0, 0, 0.9);
+                  transform: translate(-50%, -50%) scale(1.1);
+                }
+
+                .play-icon {
+                  width: 32px;
+                  height: 32px;
+                  margin-left: 4px;
+                }
+
+                .youtube-iframe {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border: none;
+                  border-radius: 16px;
+                  z-index: 2;
+                  background: #000;
+                }
+              </style>
+              <script>
+                // 增强现有lazyframe功能 - 无需外部依赖
+                document.addEventListener('DOMContentLoaded', function () {
+                  // 预连接到YouTube域名
+                  const preconnectLinks = ['https://www.youtube-nocookie.com', 'https://i.ytimg.com'];
+
+                  preconnectLinks.forEach((href) => {
+                    const link = document.createElement('link');
+                    link.rel = 'preconnect';
+                    link.href = href;
+                    link.crossOrigin = 'anonymous';
+                    document.head.appendChild(link);
+                  });
+
+                  // 增强的YouTube预览点击处理
+                  document.querySelectorAll('.youtube-preview').forEach((preview) => {
+                    preview.addEventListener('click', function () {
+                      const container = this.closest('.youtube-optimized-container');
+                      const iframe = container.querySelector('.youtube-iframe');
+
+                      if (!container || !iframe) {
+                        console.error('YouTube容器或iframe未找到');
+                        return;
+                      }
+
+                      // 加载真实iframe
+                      const dataSrc = iframe.getAttribute('data-src');
+                      if (!dataSrc) {
+                        console.error('iframe data-src属性未找到');
+                        return;
+                      }
+
+                      console.log('正在加载YouTube视频:', dataSrc);
+
+                      // 设置iframe src并显示
+                      iframe.src = dataSrc;
+                      iframe.style.display = 'block';
+                      iframe.style.opacity = '1';
+
+                      // 隐藏预览
+                      this.style.display = 'none';
+
+                      // 确保iframe获得焦点
+                      setTimeout(() => {
+                        iframe.focus();
+                      }, 100);
+
+                      // 触发现有lazyframe逻辑（如果存在）
+                      if (window.lazyframe && typeof window.lazyframe.init === 'function') {
+                        window.lazyframe.init();
+                      }
+                    });
+                  });
+                });
+              </script>
+            </div>
+            <div class="video-content nsa-accesstive">
+              <p class="video-title nsa-accesstive">Yarbo: The Future Of Snowblowing &amp; Yard Work!</p>
+              <div class="author-container nsa-accesstive">
+                <div class="author-avatar nsa-accesstive">
+                  <img
+                    alt=""
+                    class="rounded-full nsa-accesstive"
+                    data-scale="hover-scale"
+                    decoding="async"
+                    fetchpriority="auto"
+                    height="176"
+                    loading="lazy"
+                    src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/image-_22.jpg?v=1772524000"
+                    width="176"
+                  >
+                </div>
+                <div class="author-name nsa-accesstive">Midas Tom</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide video-slide nsa-accesstive swiper-slide-prev" role="group">
+            <div class="video-section__media optimized-youtube-wrapper nsa-accesstive" data-media-id="video-id">
+              <!-- 优化的YouTube嵌入 - 使用nocookie域名和性能参数 -->
+              <div class="youtube-optimized-container nsa-accesstive" data-video-id="bu2bbIyhjwU">
+                <!-- 预览图阶段 -->
+                <div class="youtube-preview nsa-accesstive" data-lazyframe-enhanced="" style="display: block;">
+                  <img
+                    alt=""
+                    class="youtube-thumbnail nsa-accesstive"
+                    loading="lazy"
+                    src="https://i.ytimg.com/vi/bu2bbIyhjwU/hqdefault.jpg"
+                  >
+                  <button aria-label="播放视频" class="youtube-play-btn">
+                    <svg class="play-icon" viewbox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" fill="currentColor"></path>
+                    </svg>
+                  </button>
+                </div>
+                <!-- 实际iframe - 点击后加载 -->
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen=""
+                  class="js-youtube youtube-iframe nsa-accesstive"
+                  data-lazyframe=""
+                  data-src="https://www.youtube-nocookie.com/embed/bu2bbIyhjwU?enablejsapi=1&amp;muted=0&amp;rel=0&amp;modestbranding=1&amp;autoplay=1&amp;controls=1&amp;fs=1"
+                  frameborder="0"
+                  height="100%"
+                  style="display: none;"
+                  title=""
+                  width="100%"
+                ></iframe>
+              </div>
+              <style>
+                .youtube-optimized-container {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                }
+
+                .youtube-preview {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  cursor: pointer;
+                  background: #000;
+                  border-radius: 16px;
+                  overflow: hidden;
+                  transition: transform 0.2s ease;
+                }
+
+                .youtube-preview:hover {
+                  transform: scale(1.02);
+                }
+
+                .youtube-thumbnail {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center;
+                }
+
+                .youtube-play-btn {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background: rgba(0, 0, 0, 0.8);
+                  border: none;
+                  border-radius: 50%;
+                  width: 80px;
+                  height: 80px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  color: white;
+                }
+
+                .youtube-play-btn:hover {
+                  background: rgba(255, 0, 0, 0.9);
+                  transform: translate(-50%, -50%) scale(1.1);
+                }
+
+                .play-icon {
+                  width: 32px;
+                  height: 32px;
+                  margin-left: 4px;
+                }
+
+                .youtube-iframe {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border: none;
+                  border-radius: 16px;
+                  z-index: 2;
+                  background: #000;
+                }
+              </style>
+              <script>
+                // 增强现有lazyframe功能 - 无需外部依赖
+                document.addEventListener('DOMContentLoaded', function () {
+                  // 预连接到YouTube域名
+                  const preconnectLinks = ['https://www.youtube-nocookie.com', 'https://i.ytimg.com'];
+
+                  preconnectLinks.forEach((href) => {
+                    const link = document.createElement('link');
+                    link.rel = 'preconnect';
+                    link.href = href;
+                    link.crossOrigin = 'anonymous';
+                    document.head.appendChild(link);
+                  });
+
+                  // 增强的YouTube预览点击处理
+                  document.querySelectorAll('.youtube-preview').forEach((preview) => {
+                    preview.addEventListener('click', function () {
+                      const container = this.closest('.youtube-optimized-container');
+                      const iframe = container.querySelector('.youtube-iframe');
+
+                      if (!container || !iframe) {
+                        console.error('YouTube容器或iframe未找到');
+                        return;
+                      }
+
+                      // 加载真实iframe
+                      const dataSrc = iframe.getAttribute('data-src');
+                      if (!dataSrc) {
+                        console.error('iframe data-src属性未找到');
+                        return;
+                      }
+
+                      console.log('正在加载YouTube视频:', dataSrc);
+
+                      // 设置iframe src并显示
+                      iframe.src = dataSrc;
+                      iframe.style.display = 'block';
+                      iframe.style.opacity = '1';
+
+                      // 隐藏预览
+                      this.style.display = 'none';
+
+                      // 确保iframe获得焦点
+                      setTimeout(() => {
+                        iframe.focus();
+                      }, 100);
+
+                      // 触发现有lazyframe逻辑（如果存在）
+                      if (window.lazyframe && typeof window.lazyframe.init === 'function') {
+                        window.lazyframe.init();
+                      }
+                    });
+                  });
+                });
+              </script>
+            </div>
+            <div class="video-content nsa-accesstive">
+              <p class="video-title nsa-accesstive">
+                The World's FIRST Autonomous Robot Snow Blower that can Mow, Plow, &amp; Blow - Yarbo S1 Review
+              </p>
+              <div class="author-container nsa-accesstive">
+                <div class="author-avatar nsa-accesstive">
+                  <img
+                    alt=""
+                    class="rounded-full nsa-accesstive"
+                    data-scale="hover-scale"
+                    decoding="async"
+                    fetchpriority="auto"
+                    height="176"
+                    loading="lazy"
+                    src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/image-_17.jpg?v=1772523975"
+                    width="176"
+                  >
+                </div>
+                <div class="author-name nsa-accesstive">Tech TRX</div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-slide video-slide nsa-accesstive swiper-slide-active"
+            role="group"
+            style="margin-right: 30px;"
+          >
+            <div class="video-section__media optimized-youtube-wrapper nsa-accesstive" data-media-id="video-id">
+              <!-- 优化的YouTube嵌入 - 使用nocookie域名和性能参数 -->
+              <div class="youtube-optimized-container nsa-accesstive" data-video-id="kz9FuUZh03Q">
+                <!-- 预览图阶段 -->
+                <div class="youtube-preview nsa-accesstive" data-lazyframe-enhanced="" style="display: block;">
+                  <img
+                    alt=""
+                    class="youtube-thumbnail nsa-accesstive"
+                    loading="lazy"
+                    src="https://i.ytimg.com/vi/kz9FuUZh03Q/hqdefault.jpg"
+                  >
+                  <button aria-label="播放视频" class="youtube-play-btn">
+                    <svg class="play-icon" viewbox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" fill="currentColor"></path>
+                    </svg>
+                  </button>
+                </div>
+                <!-- 实际iframe - 点击后加载 -->
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen=""
+                  class="js-youtube youtube-iframe nsa-accesstive"
+                  data-lazyframe=""
+                  data-src="https://www.youtube-nocookie.com/embed/kz9FuUZh03Q?enablejsapi=1&amp;muted=0&amp;rel=0&amp;modestbranding=1&amp;autoplay=1&amp;controls=1&amp;fs=1"
+                  frameborder="0"
+                  height="100%"
+                  style="display: none;"
+                  title=""
+                  width="100%"
+                ></iframe>
+              </div>
+              <style>
+                .youtube-optimized-container {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                }
+
+                .youtube-preview {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  cursor: pointer;
+                  background: #000;
+                  border-radius: 16px;
+                  overflow: hidden;
+                  transition: transform 0.2s ease;
+                }
+
+                .youtube-preview:hover {
+                  transform: scale(1.02);
+                }
+
+                .youtube-thumbnail {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center;
+                }
+
+                .youtube-play-btn {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background: rgba(0, 0, 0, 0.8);
+                  border: none;
+                  border-radius: 50%;
+                  width: 80px;
+                  height: 80px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  color: white;
+                }
+
+                .youtube-play-btn:hover {
+                  background: rgba(255, 0, 0, 0.9);
+                  transform: translate(-50%, -50%) scale(1.1);
+                }
+
+                .play-icon {
+                  width: 32px;
+                  height: 32px;
+                  margin-left: 4px;
+                }
+
+                .youtube-iframe {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border: none;
+                  border-radius: 16px;
+                  z-index: 2;
+                  background: #000;
+                }
+              </style>
+              <script>
+                // 增强现有lazyframe功能 - 无需外部依赖
+                document.addEventListener('DOMContentLoaded', function () {
+                  // 预连接到YouTube域名
+                  const preconnectLinks = ['https://www.youtube-nocookie.com', 'https://i.ytimg.com'];
+
+                  preconnectLinks.forEach((href) => {
+                    const link = document.createElement('link');
+                    link.rel = 'preconnect';
+                    link.href = href;
+                    link.crossOrigin = 'anonymous';
+                    document.head.appendChild(link);
+                  });
+
+                  // 增强的YouTube预览点击处理
+                  document.querySelectorAll('.youtube-preview').forEach((preview) => {
+                    preview.addEventListener('click', function () {
+                      const container = this.closest('.youtube-optimized-container');
+                      const iframe = container.querySelector('.youtube-iframe');
+
+                      if (!container || !iframe) {
+                        console.error('YouTube容器或iframe未找到');
+                        return;
+                      }
+
+                      // 加载真实iframe
+                      const dataSrc = iframe.getAttribute('data-src');
+                      if (!dataSrc) {
+                        console.error('iframe data-src属性未找到');
+                        return;
+                      }
+
+                      console.log('正在加载YouTube视频:', dataSrc);
+
+                      // 设置iframe src并显示
+                      iframe.src = dataSrc;
+                      iframe.style.display = 'block';
+                      iframe.style.opacity = '1';
+
+                      // 隐藏预览
+                      this.style.display = 'none';
+
+                      // 确保iframe获得焦点
+                      setTimeout(() => {
+                        iframe.focus();
+                      }, 100);
+
+                      // 触发现有lazyframe逻辑（如果存在）
+                      if (window.lazyframe && typeof window.lazyframe.init === 'function') {
+                        window.lazyframe.init();
+                      }
+                    });
+                  });
+                });
+              </script>
+            </div>
+            <div class="video-content nsa-accesstive">
+              <p class="video-title nsa-accesstive">
+                Can It Handle 5" Of Heavy Snow? - Yarbo S1 Yard Robot Snow Blowing My Driveway - Autonomous!
+              </p>
+              <div class="author-container nsa-accesstive">
+                <div class="author-avatar nsa-accesstive">
+                  <img
+                    alt=""
+                    class="rounded-full nsa-accesstive"
+                    data-scale="hover-scale"
+                    decoding="async"
+                    fetchpriority="auto"
+                    height="176"
+                    loading="lazy"
+                    src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/image-_17.jpg?v=1772523975"
+                    width="176"
+                  >
+                </div>
+                <div class="author-name nsa-accesstive">Nater Tater</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide video-slide nsa-accesstive swiper-slide-next" role="group">
+            <div class="video-section__media optimized-youtube-wrapper nsa-accesstive" data-media-id="video-id">
+              <!-- 优化的YouTube嵌入 - 使用nocookie域名和性能参数 -->
+              <div class="youtube-optimized-container nsa-accesstive" data-video-id="Sb4zlMgKqBw">
+                <!-- 预览图阶段 -->
+                <div class="youtube-preview nsa-accesstive" data-lazyframe-enhanced="" style="display: block;">
+                  <img
+                    alt=""
+                    class="youtube-thumbnail nsa-accesstive"
+                    loading="lazy"
+                    src="https://i.ytimg.com/vi/Sb4zlMgKqBw/hqdefault.jpg"
+                  >
+                  <button aria-label="播放视频" class="youtube-play-btn">
+                    <svg class="play-icon" viewbox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" fill="currentColor"></path>
+                    </svg>
+                  </button>
+                </div>
+                <!-- 实际iframe - 点击后加载 -->
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen=""
+                  class="js-youtube youtube-iframe nsa-accesstive"
+                  data-lazyframe=""
+                  data-src="https://www.youtube-nocookie.com/embed/Sb4zlMgKqBw?enablejsapi=1&amp;muted=0&amp;rel=0&amp;modestbranding=1&amp;autoplay=1&amp;controls=1&amp;fs=1"
+                  frameborder="0"
+                  height="100%"
+                  style="display: none;"
+                  title=""
+                  width="100%"
+                ></iframe>
+              </div>
+              <style>
+                .youtube-optimized-container {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                }
+
+                .youtube-preview {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  cursor: pointer;
+                  background: #000;
+                  border-radius: 16px;
+                  overflow: hidden;
+                  transition: transform 0.2s ease;
+                }
+
+                .youtube-preview:hover {
+                  transform: scale(1.02);
+                }
+
+                .youtube-thumbnail {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center;
+                }
+
+                .youtube-play-btn {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background: rgba(0, 0, 0, 0.8);
+                  border: none;
+                  border-radius: 50%;
+                  width: 80px;
+                  height: 80px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  color: white;
+                }
+
+                .youtube-play-btn:hover {
+                  background: rgba(255, 0, 0, 0.9);
+                  transform: translate(-50%, -50%) scale(1.1);
+                }
+
+                .play-icon {
+                  width: 32px;
+                  height: 32px;
+                  margin-left: 4px;
+                }
+
+                .youtube-iframe {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border: none;
+                  border-radius: 16px;
+                  z-index: 2;
+                  background: #000;
+                }
+              </style>
+              <script>
+                // 增强现有lazyframe功能 - 无需外部依赖
+                document.addEventListener('DOMContentLoaded', function () {
+                  // 预连接到YouTube域名
+                  const preconnectLinks = ['https://www.youtube-nocookie.com', 'https://i.ytimg.com'];
+
+                  preconnectLinks.forEach((href) => {
+                    const link = document.createElement('link');
+                    link.rel = 'preconnect';
+                    link.href = href;
+                    link.crossOrigin = 'anonymous';
+                    document.head.appendChild(link);
+                  });
+
+                  // 增强的YouTube预览点击处理
+                  document.querySelectorAll('.youtube-preview').forEach((preview) => {
+                    preview.addEventListener('click', function () {
+                      const container = this.closest('.youtube-optimized-container');
+                      const iframe = container.querySelector('.youtube-iframe');
+
+                      if (!container || !iframe) {
+                        console.error('YouTube容器或iframe未找到');
+                        return;
+                      }
+
+                      // 加载真实iframe
+                      const dataSrc = iframe.getAttribute('data-src');
+                      if (!dataSrc) {
+                        console.error('iframe data-src属性未找到');
+                        return;
+                      }
+
+                      console.log('正在加载YouTube视频:', dataSrc);
+
+                      // 设置iframe src并显示
+                      iframe.src = dataSrc;
+                      iframe.style.display = 'block';
+                      iframe.style.opacity = '1';
+
+                      // 隐藏预览
+                      this.style.display = 'none';
+
+                      // 确保iframe获得焦点
+                      setTimeout(() => {
+                        iframe.focus();
+                      }, 100);
+
+                      // 触发现有lazyframe逻辑（如果存在）
+                      if (window.lazyframe && typeof window.lazyframe.init === 'function') {
+                        window.lazyframe.init();
+                      }
+                    });
+                  });
+                });
+              </script>
+            </div>
+            <div class="video-content nsa-accesstive">
+              <p class="video-title nsa-accesstive">
+                THE FUTURE IS REALLY HERE : YARBO Autonomous Snow Blower/Mower ROBOT
+              </p>
+              <div class="author-container nsa-accesstive">
+                <div class="author-avatar nsa-accesstive">
+                  <img
+                    alt=""
+                    class="rounded-full nsa-accesstive"
+                    data-scale="hover-scale"
+                    decoding="async"
+                    fetchpriority="auto"
+                    height="176"
+                    loading="lazy"
+                    src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/image-_18.jpg?v=1772523980"
+                    width="176"
+                  >
+                </div>
+                <div class="author-name nsa-accesstive">Everyday Reviews</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination-arrow-combine nsa-accesstive">
+          <ul class="swiper-pagination"></ul>
+          <div class="swiper-arrow-container">
+            <div class="swiper-arrow-l">
+              <svg fill="none" height="17" viewbox="0 0 10 17" width="10" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.66634 1.75L1.58301 8.83333L8.66634 15.9167" stroke="white" stroke-linecap="round" stroke-width="2"></path>
+              </svg>
+            </div>
+            <div class="swiper-arrow-r">
+              <svg fill="none" height="17" viewbox="0 0 10 17" width="10" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.33464 1.75L8.41797 8.83333L1.33464 15.9167" stroke="white" stroke-linecap="round" stroke-width="2"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-nav-prev swiper-custom-button-prev">
+        <svg fill="none" height="17" viewbox="0 0 10 17" width="10" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.66634 1.75L1.58301 8.83333L8.66634 15.9167" stroke="white" stroke-linecap="round" stroke-width="2"></path>
+        </svg>
+      </div>
+      <div class="swiper-nav-next swiper-custom-button-next">
+        <svg fill="none" height="17" viewbox="0 0 10 17" width="10" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.33464 1.75L8.41797 8.83333L1.33464 15.9167" stroke="white" stroke-linecap="round" stroke-width="2"></path>
+        </svg>
+      </div>
+    </custom-yt-video-swiper>
+  </section>
+</div>

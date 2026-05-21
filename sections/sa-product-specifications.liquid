@@ -1,0 +1,236 @@
+{% comment %}
+  Product Specifications Section
+  - 产品元字段 custom.compare_specs (JSON)
+  - KEY HIGHLIGHTS / ALL SPECIFICATIONS 切换
+  - 左侧标题+切换，右侧参数表
+{% endcomment %}
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+{%- liquid
+  assign product_specs_raw = product.metafields.custom.compare_specs.value
+-%}
+<style>
+  #shopify-section-{{ section.id }} {
+     overflow:visible;
+  }
+</style>
+<div
+  x-data='productSpecs()'
+  x-init='init()'
+  class='product-specs-section page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+>
+  <div class='flex flex-col gap-20 sm:flex-row sm:gap-40'>
+    <!-- 左侧/顶部：标题 + 切换 -->
+    <div class='shrink-0 sm:sticky sm:top-120 sm:w-[40%] sm:self-start'>
+      {% if section.settings.heading != blank %}
+        <h2 class='mb-20 text-[36px] leading-none font-extrabold tracking-tight sm:mb-80 sm:text-[44px] md:mb-80'>
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      <!-- PC 竖排切换 -->
+      <div class='hidden flex-col gap-12 sm:flex'>
+        <button
+          class='theme-title flex shrink-0 cursor-pointer items-center border-0 bg-transparent text-[24px] font-bold uppercase transition-colors before:absolute before:left-0 before:h-10 before:bg-[#DDBA00] before:transition-transform before:duration-300 md:text-[32px]'
+          :class="view === 'highlights' ? 'text-[#DDBA00] pl-22 before:w-10' : 'text-[#A6A6A6]'"
+          @click="switchView('highlights')"
+          x-show='hasHighlights'
+        >
+          KEY HIGHLIGHTS
+        </button>
+        <button
+          class='theme-title flex shrink-0 cursor-pointer items-center border-0 bg-transparent text-[24px]  font-bold uppercase transition-colors before:absolute before:left-0 before:h-10 before:bg-[#DDBA00] before:transition-transform before:duration-300 md:text-[32px]'
+          :class="view === 'all' ? 'text-[#DDBA00] pl-22 before:w-10' : 'text-[#A6A6A6]'"
+          @click="switchView('all')"
+        >
+          ALL SPECIFICATIONS
+        </button>
+      </div>
+
+      <!-- H5 横排 tab 切换（带滑块） -->
+      <div
+        class='relative sm:hidden'
+        @resize.window='updateSlider()'
+      >
+        <div
+          class='absolute bottom-0 left-0 z-0 block h-4 w-full bg-[#CCCCCC]'
+        ></div>
+        <div class='no-scrollbar relative z-10 flex gap-24 overflow-x-auto pb-12'>
+          <button
+            x-ref='tab_highlights'
+            x-show='hasHighlights'
+            @click="switchView('highlights')"
+            class='shrink-0 cursor-pointer border-0 bg-transparent text-[14px] font-bold transition-colors sm:uppercase'
+            :class="view === 'highlights' ? 'text-[#02060B]' : 'text-[#B3B4B6]'"
+          >
+            Key Specifications
+          </button>
+          <button
+            x-ref='tab_all'
+            @click="switchView('all')"
+            class='shrink-0 cursor-pointer border-0 bg-transparent text-[14px] font-bold transition-colors sm:uppercase'
+            :class="view === 'all' ? 'text-[#02060B]' : 'text-[#B3B4B6]'"
+          >
+            All Specifications
+          </button>
+          <div
+            class='absolute bottom-0 left-0 block h-4 bg-[#25282A] transition-all duration-300 ease-out'
+            :style='`width: ${sliderWidth}px; transform: translateX(${sliderOffset}px);`'
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧：参数表 -->
+    <div class='min-w-0 flex-1 border-x border-[#CCCCCC] sm:self-start'>
+      <template
+        x-for='(item, idx) in displayItems'
+        :key='item.key'
+      >
+        <div
+          class='grid grid-cols-[1fr_1fr] border-t border-[#CCCCCC] px-16 py-12 sm:p-16'
+          :class="idx === displayItems.length - 1 ? 'border-b border-[#CCCCCC]' : ''"
+        >
+          <span
+            class='pr-16 text-[14px] font-bold text-[#25282A] md:text-[15px]'
+            x-text='item.label'
+          ></span>
+          <span
+            class='text-[14px] whitespace-pre-line text-[#515355] md:text-[15px]'
+            x-text="item.value || '-'"
+          ></span>
+        </div>
+      </template>
+
+      <!-- 空状态 -->
+      <template x-if='displayItems.length === 0'>
+        <p class='py-32 text-center text-[14px] text-[#515355] md:text-[15px]'>No specifications available.</p>
+      </template>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('productSpecs', () => ({
+      specGroups: [],
+      view: 'all',
+      hasHighlights: false,
+      sliderWidth: 0,
+      sliderOffset: 0,
+
+      init() {
+        {% if product_specs_raw != blank %}
+          try {
+            const raw = {{ product_specs_raw | json }};
+            this.specGroups = Array.isArray(raw) ? raw : [];
+          } catch(e) {
+            console.error('Failed to parse specs:', e);
+          }
+        {% endif %}
+
+        if (this.specGroups.length > 0) {
+          const hasAny = this.specGroups.some(c =>
+            c.items && c.items.some(i => i.highlight)
+          );
+          this.hasHighlights = hasAny;
+          if (hasAny) this.view = 'highlights';
+        }
+
+        this.$nextTick(() => this.updateSlider());
+      },
+
+      switchView(v) {
+        this.view = v;
+        this.$nextTick(() => this.updateSlider());
+      },
+
+      updateSlider() {
+        const refKey = 'tab_' + this.view;
+        const el = this.$refs[refKey];
+        if (el) {
+          this.sliderWidth = el.offsetWidth;
+          this.sliderOffset = el.offsetLeft;
+          const container = el.parentElement;
+          container.scrollTo({
+            left: el.offsetLeft - container.offsetWidth / 2 + el.offsetWidth / 2,
+            behavior: 'smooth'
+          });
+        }
+      },
+
+      get displayItems() {
+        if (this.specGroups.length === 0) return [];
+        const items = [];
+        this.specGroups.forEach(cat => {
+          if (cat.items) {
+            cat.items.forEach(item => {
+              if (this.view === 'all' || item.highlight) {
+                const val = (item.value ?? '').toString().trim();
+                if (val.toUpperCase() === 'N/A') return;
+                items.push(item);
+              }
+            });
+          }
+        });
+        return items;
+      }
+    }));
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product Specifications",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 56
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 56
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Title",
+      "default": "SPECIFICATIONS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Specifications"
+    }
+  ]
+}
+{% endschema %}

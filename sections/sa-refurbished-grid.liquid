@@ -1,0 +1,242 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+
+<div
+  style='
+    --bg-color: {{ section.settings.bg_color }};
+    --title-color: {{ section.settings.title_color }};
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+  '
+  class='
+    bg-(--bg-color)
+    pt-(--h5-padding-top) pb-(--h5-padding-bottom)
+    md:py-(--padding-top) md:pb-(--padding-bottom) {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <div class='page-container'>
+    {% if section.settings.title != blank %}
+      <h2
+        class='
+          mb-24
+          text-center
+          text-[28px]
+          leading-tight
+          font-bold
+          text-(--title-color)
+          md:mb-40
+          md:text-[40px]
+        '
+      >
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    <div class='grid grid-cols-2 gap-12 sm:flex'>
+      {% for block in section.blocks %}
+        <div
+          style='
+            --card-title-color: {{ block.settings.title_color }};
+            --card-desc-color: {{ block.settings.desc_color }};
+          '
+          class='
+            relative
+            overflow-hidden
+            rounded-[16px]
+            {% if section.blocks.size == 3 and forloop.last
+              or section.blocks.size == 5 and forloop.last
+            %}
+              flex-2
+              aspect-2/1
+              col-span-2
+            {% else %}
+              flex-1
+              aspect-square
+            {% endif %}
+          '
+          {{ block.shopify_attributes }}
+        >
+          {% if block.settings.image != blank %}
+            <img
+              src='{{ block.settings.image | image_url: width: 900 }}'
+              alt='{{ block.settings.title }}'
+              class='absolute inset-0 h-full w-full object-cover'
+              loading='lazy'
+              width='auto'
+              height='auto'
+            >
+          {% endif %}
+
+          <div class='relative z-10 flex flex-col p-16 md:p-24'>
+            {% if block.settings.title != blank %}
+              <h3
+                class='
+                  text-[16px]
+                  leading-tight
+                  font-bold
+                  text-(--card-title-color)
+                  md:text-[22px]
+                '
+              >
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.desc != blank %}
+              <p
+                class='
+                  mt-8
+                  text-[13px]
+                  leading-[1.4]
+                  text-(--card-desc-color)
+                  md:mt-10
+                  md:text-[15px]
+                '
+              >
+                {{ block.settings.desc }}
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Refurbished Grid",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Why Certified Refurbished?"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Section Title Color",
+      "default": "#25282A"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Same Performance"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "All units tested by Yarbo officials to meet original performance standards."
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "desc_color",
+          "label": "Description Color",
+          "default": "#ffffff"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Refurbished Grid",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "Same Performance",
+            "desc": "All units tested by Yarbo officials to meet original performance standards."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "2-Year Warranty",
+            "desc": "Full protection, use with confidence."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Smarter & Sustainable",
+            "desc": "Save your budget, save the planet."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

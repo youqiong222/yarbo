@@ -1,0 +1,85 @@
+{{ 'yb-base.css' | asset_url | stylesheet_tag }}
+<div class="migrated-page">
+  <div id="shopify-section-showcases-confirmation" class="shopline-section">
+    <div class="w-full bg-[#E2E2E2] py-12">
+      <div class="mx-auto max-w-[900px] rounded-xl bg-white px-[126px] py-16 flex flex-col mobile:py-10 mobile:px-5">
+        <h1 class="mb-4 text-center text-2xl/7 font-bold text-[#02060B] mobile:mb-8 mobile:text-xl/6">
+          Appointment Confirmation
+        </h1>
+        <div class="w-full md:rounded-xl md:bg-[#FAFAFA] md:px-11 md:py-10">
+          <div class="flex items-center justify-between border-b border-[#F3F3F3] py-[10px] first:border-t">
+            <p class="text-nowrap text-sm font-medium text-[#868686] mobile:text-xs">Name:</p>
+            <p id="name" class="text-right text-sm font-bold mobile:text-xs"></p>
+          </div>
+          <div class="flex items-center justify-between border-b border-[#F3F3F3] py-[10px] first:border-t">
+            <p class="text-nowrap text-sm font-medium text-[#868686] mobile:text-xs">Email:</p>
+            <p id="email" class="text-right text-sm font-bold mobile:text-xs"></p>
+          </div>
+          <div class="flex items-center justify-between border-b border-[#F3F3F3] py-[10px] first:border-t">
+            <p class="text-nowrap text-sm font-medium text-[#868686] mobile:text-xs">Phone:</p>
+            <p id="phone" class="text-right text-sm font-bold mobile:text-xs"></p>
+          </div>
+          <div class="flex items-center justify-between border-b border-[#F3F3F3] py-[10px] first:border-t">
+            <p class="text-nowrap text-sm font-medium text-[#868686] mobile:text-xs">Yarbo user:</p>
+            <p id="yarbo_user" class="text-right text-sm font-bold mobile:text-xs"></p>
+          </div>
+          <div class="flex items-center justify-between border-b border-[#F3F3F3] py-[10px] first:border-t">
+            <p class="text-nowrap text-sm font-medium text-[#868686] mobile:text-xs">Appointment Type:</p>
+            <p id="appointment_type" class="text-right text-sm font-bold mobile:text-xs"></p>
+          </div>
+          <div class="flex items-center justify-between border-b border-[#F3F3F3] py-[10px] first:border-t">
+            <p class="text-nowrap text-sm font-medium text-[#868686] mobile:text-xs">Machine to View:</p>
+            <p id="products" class="text-right text-sm font-bold mobile:text-xs"></p>
+          </div>
+          <div class="flex items-center justify-between border-b border-[#F3F3F3] py-[10px] first:border-t">
+            <p class="text-nowrap text-sm font-medium text-[#868686] mobile:text-xs">Appointment Time:</p>
+            <p id="appointment_time" class="text-right text-sm font-bold mobile:text-xs">~</p>
+          </div>
+          <p class="mt-10 text-sm text-black font-medium mobile:mt-8">
+            Thank you for your submission! We will first contact the Yarbo user to confirm their available time and get
+            back to you as soon as possible.
+          </p>
+        </div>
+        <a
+          class="mt-10 mx-auto h-12 w-fit rounded-[25px] bg-[#FEDB1E] px-5 text-center text-xl/[48px] font-semibold text-black mobile:h-10 mobile:w-full mobile:px-0 mobile:text-[18px]/[40px] mobile:mt-8"
+          href="/"
+          >Great, I'll Wait for the Update</a
+        >
+      </div>
+    </div>
+    <script>
+      function getUrlParams() {
+        const params = {};
+        const url = window.location.href;
+        const parser = new URL(url);
+        const queryString = parser.searchParams;
+
+        queryString.forEach((value, key) => {
+          params[key] = value;
+        });
+
+        return params;
+      }
+      function populateConfirmation() {
+        const params = getUrlParams();
+        document.getElementById('name').textContent = params.name || '';
+        document.getElementById('email').textContent = params.email || '';
+        document.getElementById('phone').textContent = params.phone || '';
+        document.getElementById('products').textContent = params.products || '';
+        document.getElementById('yarbo_user').textContent = params.ambassador_name || '';
+        document.getElementById('appointment_type').textContent = params.type || '';
+        document.getElementById('appointment_time').textContent =
+          `${params.start_time ? `${params.start_time} 00:00` : ''} ~ ${
+            params.end_time ? `${params.end_time} 00:00` : ''
+          }`.trim() || '';
+      }
+      populateConfirmation();
+    </script>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Showcases confirmation"
+
+}
+{% endschema %}

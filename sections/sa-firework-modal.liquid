@@ -1,0 +1,60 @@
+{% if section.settings.show_live_modal and section.settings.channel != blank and section.settings.playlist != blank %}
+  <script
+    async
+    type='text/javascript'
+    src='https://asset.fwcdn3.com/js/fwn.js{%- if section.settings.business_id != blank %}?business_id={{ section.settings.business_id }}{% endif -%}'
+  ></script>
+  <fw-storyblock
+    id='fw-live-float'
+    channel='{{ section.settings.channel }}'
+    playlist='{{ section.settings.playlist }}'
+    mode='pinned'
+    player_placement='bottom-left'
+    autoplay='true'
+    max_videos='1'
+    style='display:none;'
+  ></fw-storyblock>
+  <script>
+    (function () {
+      function setVisibility(status) {
+        var el = document.getElementById('fw-live-float');
+        if (!el) return;
+        el.style.display = status === 'active' ? 'block' : 'none';
+      }
+      // Fires when the player loads a video — show only if live
+      document.addEventListener('fw:video:impression', function (e) {
+        var status = e.detail && e.detail.liveStreamStatus;
+        if (status) setVisibility(status);
+      });
+    })();
+  </script>
+{% endif %}
+{% schema %}
+{
+  "name": "SA Firework Modal",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_live_modal",
+      "label": "Show Firework Modal",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "playlist",
+      "label": "Playlist ID"
+    },
+    {
+      "type": "text",
+      "id": "channel",
+      "label": "Firework Channel",
+      "default": "yarbo"
+    },
+    {
+      "type": "text",
+      "id": "business_id",
+      "label": "Firework Business ID (for live modal integration)"
+    }
+  ]
+}
+{% endschema %}

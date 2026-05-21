@@ -1,0 +1,7 @@
+{% if _settings.show_overlay %}
+  {% assign overlay_alpha = _settings.overlay_opacity | divided_by: 100.0 %}
+  <div
+    class='pointer-events-none absolute inset-0 z-1 block! transition-opacity duration-300'
+    style='background-color: {{ _settings.overlay_color }}; opacity: {{ overlay_alpha }};'
+  ></div>
+{% endif %}

@@ -1,0 +1,54 @@
+{%- if recommendations.performed and recommendations.products_count > 0 -%}
+  <div class='swiper prod-recs__swiper overflow-hidden'>
+    <div class='swiper-wrapper'>
+      {%- for recommendation in recommendations.products -%}
+        <div class='swiper-slide h-auto!'>
+          <a
+            href='{{ recommendation.url }}'
+            class='group flex h-full items-center bg-[#F2F2F2] p-8 text-[#25282A] no-underline transition-transform duration-300'
+          >
+            <div class='flex h-60 w-60 shrink-0 items-center justify-center overflow-hidden bg-[#f2f2f2] md:h-92 md:w-92'>
+              {%- if recommendation.featured_image != blank -%}
+                <img
+                  src='{{ recommendation.featured_image | image_url: width: 184 }}'
+                  alt='{{ recommendation.featured_image.alt | escape }}'
+                  loading='lazy'
+                  width='92'
+                  height='92'
+                  class='h-full w-full object-contain transition-transform duration-500 group-hover:scale-105'
+                >
+              {%- endif -%}
+            </div>
+            <div class='flex min-w-0 flex-1 flex-col justify-center py-8 pl-16'>
+              <h3 class='text-[14px] leading-[1.2] font-medium uppercase'>
+                {{ recommendation.title | escape }}
+              </h3>
+              <div class='mt-4 text-[14px] text-[#25282A] md:text-[15px]'>
+                {{ recommendation.price | money }}
+              </div>
+            </div>
+
+            {%- assign product_form_id = 'prod-recs-' | append: section.id | append: '-' | append: recommendation.id -%}
+            <div class='ml-8'>
+              {%- assign add_text = 'products.product.add' | t -%}
+              {%- render 'sn-buy-buttons-new',
+                add_text: add_text,
+                btn_class: 'h-32 min-h-32 px-16 text-[12px]',
+                product: recommendation,
+                product_form_id: product_form_id,
+                section_id: section.id
+              -%}
+            </div>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product Recommendations",
+  "settings": []
+}
+{% endschema %}

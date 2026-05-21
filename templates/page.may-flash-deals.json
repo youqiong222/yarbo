@@ -1,0 +1,740 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_common_banner_63jbWq": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_VBr7f9": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458561.jpg",
+            "h5_image": "shopify://shop_images/Frame_2036458562.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "bottom-center",
+            "sub_title": "<p>May 9 – May 11, 2026 | 3 Days Only</p>",
+            "sub_title_color": "#ffffff",
+            "title": "<p>Fast Track to Summer</p>",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "#",
+            "button1_anchor_id": "mainproducts",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_VBr7f9"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 21,
+        "pc_aspect_ratio_h": 9,
+        "h5_aspect_ratio_w": 3,
+        "h5_aspect_ratio_h": 5,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_contact_section_maXkYq": {
+      "type": "sa-contact-section",
+      "blocks": {
+        "contact_item_yE3rFz": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2036458313.jpg",
+            "title": "Flash Savings, No Waiting",
+            "primary_text": "Limited-time deals on the tools built for the season ahead.",
+            "primary_link": "",
+            "secondary_text": "",
+            "secondary_link": ""
+          }
+        },
+        "contact_item_zrzHky": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2036458314.jpg",
+            "title": "Buy Now, Mow Sooner",
+            "primary_text": "Upgrade now and be ready when your yard needs it most.",
+            "primary_link": "",
+            "secondary_text": "",
+            "secondary_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "contact_item_yE3rFz",
+        "contact_item_zrzHky"
+      ],
+      "name": "Contact Section",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "h5_padding_top": 30,
+        "h5_padding_bottom": 30,
+        "title": "Why Now",
+        "bg_color": "#ffffff",
+        "title_color": "#000000",
+        "card_title_color": "#000000",
+        "text_color": "#25282a"
+      }
+    },
+    "sa_index_img_text_blocks_type3_KwD3qg": {
+      "type": "sa-index-img-text-blocks-type3",
+      "blocks": {
+        "block_XYQQ89": {
+          "type": "block",
+          "settings": {
+            "product": "yarbo-lawn-mower",
+            "label": "Save $600",
+            "badge": "shopify://shop_images/Frame_2036458611.png",
+            "badge_position": "right",
+            "badge_pc_width": 160,
+            "badge_h5_width": 100,
+            "label_color": "#000000",
+            "label_bg": "#fedb1e",
+            "title": "",
+            "desc": "",
+            "shop_now": "Shop Now",
+            "shop_now_link": "#",
+            "btn_anchor_id": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458317.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_TLWEW3": {
+          "type": "block",
+          "settings": {
+            "product": "yarbo-lawn-mower-pro",
+            "label": "Save $300",
+            "badge": "shopify://shop_images/Frame_2036458344.png",
+            "badge_position": "right",
+            "badge_pc_width": 160,
+            "badge_h5_width": 100,
+            "label_color": "#000000",
+            "label_bg": "#fedb1e",
+            "title": "",
+            "desc": "",
+            "shop_now": "Shop Now",
+            "shop_now_link": "#",
+            "btn_anchor_id": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458316.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_fpD3kG": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "product": "yarbo-snow-blower",
+            "label": "",
+            "badge_position": "left",
+            "badge_pc_width": 160,
+            "badge_h5_width": 100,
+            "label_color": "#000000",
+            "label_bg": "#fedb1e",
+            "title": "<p>Yarbo Snow Blower</p>",
+            "desc": "",
+            "shop_now": "Shop now",
+            "shop_now_link": "#",
+            "btn_anchor_id": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458318.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "block_ULxeLB": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "product": "yarbo-lawn-mower",
+            "label": "",
+            "badge_position": "left",
+            "badge_pc_width": 160,
+            "badge_h5_width": 100,
+            "label_color": "#000000",
+            "label_bg": "#fedb1e",
+            "title": "<p>Yarbo Blower</p>",
+            "desc": "",
+            "shop_now": "Shop now",
+            "shop_now_link": "#",
+            "btn_anchor_id": "",
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/Frame_2036458319.jpg",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "block_XYQQ89",
+        "block_TLWEW3",
+        "block_fpD3kG",
+        "block_ULxeLB"
+      ],
+      "name": "Index Img Text Blocks3",
+      "settings": {
+        "anchor_id": "mainproducts",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "sub_title": "",
+        "title": "",
+        "heading_alignment": "left",
+        "pc_aspect_ratio_w": 4,
+        "pc_aspect_ratio_h": 3,
+        "h5_aspect_ratio_w": 3,
+        "h5_aspect_ratio_h": 4
+      }
+    },
+    "sa_compatible_modules_MQ8PKm": {
+      "type": "sa-compatible-modules",
+      "name": "Compatible Modules",
+      "settings": {
+        "animations_reveal_on_scroll": false,
+        "anchor_id": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Bundle Up, Save More</p>",
+        "product_list": [
+          "yarbo-4-in-1-yard-robot",
+          "yarbo-snow-blower-lawn-mower",
+          "yarbo-lawn-mower-blower",
+          "yarbo-4-in-1-yard-robot-with-lawn-mower-pro-module",
+          "yarbo-lawn-mower-pro-snow-blower",
+          "yarbo-lawn-mower-pro-blower"
+        ],
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_additional_accessories_4eQzz8": {
+      "type": "sa-additional-accessories",
+      "name": "Additional accessories",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Upgrade in a Flash</p>",
+        "products": [
+          "lawn-mower-module",
+          "yarbo-lawn-mower-pro-module",
+          "snow-blower-module",
+          "blower-module"
+        ],
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_rating": true,
+        "quick_add": "standard"
+      }
+    },
+    "sa_index_scrolling_AFKmYA": {
+      "type": "sa-index-scrolling",
+      "blocks": {
+        "block_gUMAzM": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/4_16_1.jpg",
+            "media_type": "video",
+            "video": "shopify://files/videos/FDownloader.Net_AQOErI5zI7yOZjcJYj-gNgOnfnlaaoFwEz8iLxC1ApM_neKehdTRT1BfkZzesEFEnFyYt0EJx53ltkYJLrUnH85G9D3SUsSwg_r8FNJfgpbYvg_720p_(HD) (1) (1).mp4",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/maxresdefault_841a2015-1a0f-4310-94b4-007bb71171b1.jpg",
+            "media_type2": "video_url",
+            "video_url2": "https://www.youtube.com/watch?v=8C1kjZNcKtA&t=293s",
+            "other_url2": "",
+            "img3": "shopify://shop_images/4_16.jpg",
+            "media_type3": "video",
+            "video3": "shopify://files/videos/FDownloader.Net_AQOeMxGsr34smltwLsp1ZAUSU-bKoA8Mn0zSsigOPe7L3miMHOqUQtRSZin4lzM0tuD1GquZiSw4VpljdTwYtlb4zqnLCx9KiypfrN5Pw70Q-Q_720p_(HD).mp4",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_TFXtJd": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/maxresdefault_1_84c1907c-a9d5-4501-ab28-b8097fa31eb8.jpg",
+            "media_type": "video_url",
+            "video_url": "https://www.youtube.com/watch?v=9BP40fKU9Kw&t=124s",
+            "other_url": "",
+            "img2": "shopify://shop_images/image_43.png",
+            "media_type2": "video",
+            "video_url2": "",
+            "other_url2": "",
+            "img3": "shopify://shop_images/9704b596f477feac12a64afe79203ee666118bb7.png",
+            "media_type3": "video",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_9MLcp7": {
+          "type": "block",
+          "settings": {
+            "img": "shopify://shop_images/667826560_122107351779214436_7325298365434661641_n_1.jpg",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/maxresdefault_2.jpg",
+            "media_type2": "video_url",
+            "video_url2": "https://www.youtube.com/watch?v=cO7XFB0cBMo&t=463s",
+            "other_url2": "",
+            "img3": "shopify://shop_images/4_16_1_f3174828-68cd-4041-89b3-a4216bcb831d.jpg",
+            "media_type3": "video",
+            "video3": "shopify://files/videos/FDownloader.Net_AQMm8jBzQ7aqcZIk-yGpNS_8fj6F7blOMARsOUIErvv9z6H1I7fUywfHI0-Q3LFIqq0dAJh6C4i8xu5g8iYGfMCEr7brn89B0YTd_bw0-MAbeQ_720p_(HD) (1).mp4",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        },
+        "block_BiBbtP": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "img": "shopify://shop_images/10f7b24d0723718f6be8ae0a9a10e04fd2b8c1a7.png",
+            "media_type": "video",
+            "video_url": "",
+            "other_url": "",
+            "img2": "shopify://shop_images/a00d39adac7e15aa2c56e8f3122b965ba851e184.jpg",
+            "media_type2": "video",
+            "video_url2": "",
+            "other_url2": "",
+            "img3": "shopify://shop_images/9704b596f477feac12a64afe79203ee666118bb7.png",
+            "media_type3": "video",
+            "video_url3": "",
+            "other_url3": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_gUMAzM",
+        "block_TFXtJd",
+        "block_9MLcp7",
+        "block_BiBbtP"
+      ],
+      "name": "Index Scrolling",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "h5_padding_top": 80,
+        "h5_padding_bottom": 0,
+        "title": "<p>Trusted by Thousands <br/>of Homeowners and experts</p>",
+        "link": "shopify://pages/yarbo-official-community",
+        "link_text": "Join the Community"
+      }
+    },
+    "sa_index_awards_9VRM4R": {
+      "type": "sa-index-awards",
+      "blocks": {
+        "block_87AYjC": {
+          "type": "block",
+          "settings": {
+            "text": "2024 Edison Awards",
+            "award_img": "shopify://shop_images/Frame_2036457807_6ded0d61-99b1-4de0-867b-3b755e9a155a.png"
+          }
+        },
+        "block_kan7VD": {
+          "type": "block",
+          "settings": {
+            "text": "iF Design Award 2026",
+            "award_img": "shopify://shop_images/Frame_2036457811.png"
+          }
+        },
+        "block_jDwKe3": {
+          "type": "block",
+          "settings": {
+            "text": "CES Innovation Awards 2025",
+            "award_img": "shopify://shop_images/Frame_2036457812.png"
+          }
+        },
+        "block_F6pVW3": {
+          "type": "block",
+          "settings": {
+            "text": "Red Dot Design Award 2023",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_WFzmgN": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        },
+        "block_3PYYJt": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "text": "Red Dot Design Award",
+            "award_img": "shopify://shop_images/RD2023_01_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_87AYjC",
+        "block_kan7VD",
+        "block_jDwKe3",
+        "block_F6pVW3",
+        "block_WFzmgN",
+        "block_3PYYJt"
+      ],
+      "name": "Index Awards",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "h5_padding_top": 48,
+        "h5_padding_bottom": 56
+      }
+    },
+    "sa_index_img_text_banner_NtibHj": {
+      "type": "sa-index-img-text-banner",
+      "blocks": {
+        "block_7Vctrt": {
+          "type": "block",
+          "settings": {
+            "text": "Split your payment using your existing credit card with zero interest.",
+            "icon": "shopify://shop_images/Splitit-Primary-Logo-1_1.png"
+          }
+        },
+        "block_BRNH3x": {
+          "type": "block",
+          "settings": {
+            "text": "Enjoy flexible monthly payments with clear terms.",
+            "icon": "shopify://shop_images/black_logo-transparent_bg_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_7Vctrt",
+        "block_BRNH3x"
+      ],
+      "name": "Index Img Text Banner",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "title": "<p>Own Your Yarbo Sooner </p><p>with 0% Financing and </p><p>flexible payment plans</p>"
+      }
+    },
+    "sa_why_shop_with_hover_JtbkRR": {
+      "type": "sa-why-shop-with-hover",
+      "blocks": {
+        "item_LqYJXd": {
+          "type": "item",
+          "settings": {
+            "title": "FREE SHIPPING",
+            "desc": "Delivered in 3-8 business days",
+            "icon": "shopify://shop_images/Icon_-_Chunky_1.svg"
+          }
+        },
+        "item_6R6r3R": {
+          "type": "item",
+          "settings": {
+            "title": "24/7 Expert Support",
+            "desc": "Help anytime you need",
+            "icon": "shopify://shop_images/Icon_-_Chunky_2.svg"
+          }
+        },
+        "item_nJ8rWX": {
+          "type": "item",
+          "settings": {
+            "title": "Flexible Payment Options",
+            "desc": "Pay now or over time using affirm or splitit",
+            "icon": "shopify://shop_images/Icon_-_Chunky_5.svg"
+          }
+        },
+        "item_KbEAYN": {
+          "type": "item",
+          "settings": {
+            "title": "30-Day Free Returns",
+            "desc": "Full refund, no hassle",
+            "icon": "shopify://shop_images/Icon_-_Chunky_3.svg"
+          }
+        },
+        "item_Bk99gR": {
+          "type": "item",
+          "settings": {
+            "title": "up to 5-year Warranty",
+            "desc": "Protection you can trust",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4.svg"
+          }
+        },
+        "item_fkCwJb": {
+          "type": "item",
+          "settings": {
+            "title": "Secure Payments",
+            "desc": "Safe and protected checkout",
+            "icon": "shopify://shop_images/Icon_-_Chunky_4e2d1176-003a-426a-80ba-7e23caad6839.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_LqYJXd",
+        "item_6R6r3R",
+        "item_nJ8rWX",
+        "item_KbEAYN",
+        "item_Bk99gR",
+        "item_fkCwJb"
+      ],
+      "name": "Why Shop Hover",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "pc_aspect_ratio_w": 250,
+        "pc_aspect_ratio_h": 300,
+        "title": "WHY SHOP WITH US",
+        "auto_rotate": true,
+        "change_slides_speed": 5
+      }
+    },
+    "yb_faq_categories_WxBad4": {
+      "type": "yb-faq-categories",
+      "blocks": {
+        "category_PA8Qy4": {
+          "type": "category",
+          "settings": {
+            "title": "EVENT DETAILS & PERIOD",
+            "bg_color": "#e5e5e5"
+          }
+        },
+        "faq_8ipcaD": {
+          "type": "faq",
+          "settings": {
+            "question": "Event Period",
+            "answer": "<p>This promotion is valid from May 8 to May 11, 2026 (EDT). The offer is available to customers in eligible regions (The United States only).</p>"
+          }
+        },
+        "faq_iaDyW6": {
+          "type": "faq",
+          "settings": {
+            "question": "Promotion Details",
+            "answer": "<p>Discounts are applied as instant price reductions on selected products during the campaign period. Savings vary by product type and currency (USD), as outlined below.</p><p>Single Products</p><ul><li>Yarbo Lawn Mower: Save $600 USD</li><li>Yarbo Lawn Mower Pro: Save $300 USD</li></ul><p>Bundles</p><ul><li>Yarbo Lawn Mower + Snow Blower + Blower Bundles: Save $700 USD</li><li>Yarbo Lawn Mower + Snow Blower: Save $700 USD</li><li>Yarbo Lawn Mower + Blower: Save $700 USD</li><li>Yarbo Lawn Mower Pro + Snow Blower + Blower: Save $400 USD</li><li>Yarbo Lawn Mower Pro + Snow Blower: Save $400 USD</li><li>Yarbo Lawn Mower Pro + Blower: Save $400 USD</li></ul><p>Other bundles are not included in this promotion.</p><p>Modules</p><ul><li>Lawn Mower Module: Save $200 USD</li><li>Lawn Mower Pro Module: Save $200 USD </li></ul><p>Additional coupons or promotional offers may be combined with base discounts where applicable. Final savings and eligibility are subject to the rules displayed on the product page at checkout.</p>"
+          }
+        },
+        "category_mAVWtg": {
+          "type": "category",
+          "settings": {
+            "title": "COVERAGE & ELIGIBILITY",
+            "bg_color": "#e5e5e5"
+          }
+        },
+        "faq_QdbYwk": {
+          "type": "faq",
+          "settings": {
+            "question": "Refunds & Returns",
+            "answer": "<ul><li>Yarbo offers a <strong>30-day return window</strong> starting from the earlier of either product activation or three days after delivery.</li><li>Items must be returned in <strong>original packaging</strong>, with all accessories included, and in <strong>resalable condition</strong>.</li><li>Missing packaging or accessories may result in a <strong>deduction from the refund</strong>.</li><li>For more details, please refer to the official return policy on the Yarbo website.<br/></li></ul>"
+          }
+        },
+        "faq_JYc3H4": {
+          "type": "faq",
+          "settings": {
+            "question": "Shipping",
+            "answer": "<ul><li>Orders are typically delivered within <strong>3–8 business days</strong>.</li></ul>"
+          }
+        },
+        "faq_wt8LqC": {
+          "type": "faq",
+          "settings": {
+            "question": "Liability & Modification",
+            "answer": "<ul><li>Organizer is not responsible for technical issues, email delivery failures, or customer errors.</li><li>Organizer reserves the right to amend, suspend, or terminate the promotion at any time without prior notice.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "category_PA8Qy4",
+        "faq_8ipcaD",
+        "faq_iaDyW6",
+        "category_mAVWtg",
+        "faq_QdbYwk",
+        "faq_JYc3H4",
+        "faq_wt8LqC"
+      ],
+      "disabled": true,
+      "name": "Advanced FAQ (Nav)",
+      "settings": {
+        "anchor_id": "",
+        "title": "FAQs",
+        "bg_color": "#ffffff",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 60,
+        "padding_top_m": 40,
+        "padding_bottom_m": 40
+      }
+    },
+    "sa_faq_gxzRJp": {
+      "type": "sa-faq",
+      "blocks": {
+        "tab_jkC39q": {
+          "type": "tab",
+          "settings": {
+            "label": "EVENT DETAILS & PERIOD"
+          }
+        },
+        "qa_AbiE8b": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Event Period</p>",
+            "answer": "<p>This promotion is valid from May 9 to May 11, 2026 (EDT). The offer is available to customers in eligible regions (The United States only).</p>"
+          }
+        },
+        "qa_7qWXng": {
+          "type": "qa",
+          "settings": {
+            "tab": "1",
+            "question": "<p>Promotion Details</p>",
+            "answer": "<p>Discounts are applied as instant price reductions on selected products during the campaign period. Savings vary by product type and currency (USD), as outlined below.</p><p>Single Products</p><ul><li>Yarbo Lawn Mower: Save $600 USD</li><li>Yarbo Lawn Mower Pro: Save $300 USD</li></ul><p>Bundles</p><ul><li>Yarbo Lawn Mower + Snow Blower + Blower Bundles: Save $700 USD</li><li>Yarbo Lawn Mower + Snow Blower: Save $700 USD</li><li>Yarbo Lawn Mower + Blower: Save $700 USD</li><li>Yarbo Lawn Mower Pro + Snow Blower + Blower: Save $400 USD</li><li>Yarbo Lawn Mower Pro + Snow Blower: Save $400 USD</li><li>Yarbo Lawn Mower Pro + Blower: Save $400 USD</li></ul><p>Other bundles are not included in this promotion.</p><p>Modules</p><ul><li>Lawn Mower Module: Save $200 USD</li><li>Lawn Mower Pro Module: Save $200 USD </li></ul><p>Additional coupons or promotional offers may be combined with base discounts where applicable. Final savings and eligibility are subject to the rules displayed on the product page at checkout.</p>"
+          }
+        },
+        "tab_dfzie4": {
+          "type": "tab",
+          "settings": {
+            "label": "COVERAGE & ELIGIBILITY"
+          }
+        },
+        "qa_cHDQXH": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>Refunds & Returns</p>",
+            "answer": "<ul><li>Yarbo offers a <strong>30-day return window</strong> starting from the earlier of either product activation or three days after delivery.</li><li>Items must be returned in <strong>original packaging</strong>, with all accessories included, and in <strong>resalable condition</strong>.</li><li>Missing packaging or accessories may result in a <strong>deduction from the refund</strong>.</li><li>For more details, please refer to the official return policy on the Yarbo website.</li></ul>"
+          }
+        },
+        "qa_A8DYh7": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>Shipping</p>",
+            "answer": "<ul><li>Orders are typically delivered within <strong>3–8 business days</strong>.</li></ul>"
+          }
+        },
+        "qa_GTxBQk": {
+          "type": "qa",
+          "settings": {
+            "tab": "2",
+            "question": "<p>Liability & Modification</p>",
+            "answer": "<ul><li>Organizer is not responsible for technical issues, email delivery failures, or customer errors.</li><li>Organizer reserves the right to amend, suspend, or terminate the promotion at any time without prior notice.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_jkC39q",
+        "qa_AbiE8b",
+        "qa_7qWXng",
+        "tab_dfzie4",
+        "qa_cHDQXH",
+        "qa_A8DYh7",
+        "qa_GTxBQk"
+      ],
+      "name": "Faq",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 56,
+        "h5_padding_bottom": 56,
+        "title": "<p>Frequently Asked Questions</p>",
+        "see_all_text": "",
+        "see_all_url": "",
+        "enable_tabs": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_common_banner_63jbWq",
+    "sa_contact_section_maXkYq",
+    "sa_index_img_text_blocks_type3_KwD3qg",
+    "sa_compatible_modules_MQ8PKm",
+    "sa_additional_accessories_4eQzz8",
+    "sa_index_scrolling_AFKmYA",
+    "sa_index_awards_9VRM4R",
+    "sa_index_img_text_banner_NtibHj",
+    "sa_why_shop_with_hover_JtbkRR",
+    "yb_faq_categories_WxBad4",
+    "sa_faq_gxzRJp"
+  ]
+}

@@ -1,0 +1,270 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "<h3>MEMORIAL DAY: RECLAIM YOUR WEEKEND  <a href=\"/pages/memorial-day\" title=\"Memorial Day\">SHOP NOW!</a></h3>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-3",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "font_size": 12,
+        "h5_font_size": 12
+      }
+    },
+    "sa-header": {
+      "type": "sa-header",
+      "blocks": {
+        "mega_menu_PHYikg": {
+          "type": "mega_menu",
+          "settings": {
+            "column": "2",
+            "dropdown_style": "1",
+            "product_limit": "4",
+            "enter_line": true,
+            "title_1": "<p>Find your <br/>perfect yarbo</p>",
+            "link_1": "",
+            "enter_calculate_1": false,
+            "title_2": "",
+            "link_2": "shopify://collections/all-products",
+            "enter_calculate_2": false,
+            "view_more": "Shop All Products"
+          }
+        },
+        "mega_menu_6YU4Hq": {
+          "type": "mega_menu",
+          "settings": {
+            "column": "3",
+            "dropdown_style": "3",
+            "product_limit": "4",
+            "enter_line": false,
+            "title_1": "<p>Find your <br/>perfect yarbo</p>",
+            "link_1": "",
+            "enter_calculate_1": false,
+            "image_2": "shopify://shop_images/Product_Image_60491e89-e6db-4c3f-b57c-7786b4f3e2cc.png",
+            "title_2": "<p>Calculate your ROI</p>",
+            "link_2": "",
+            "enter_calculate_2": true,
+            "view_more": "Shop All Products"
+          }
+        },
+        "mega_menu_xhjrt6": {
+          "type": "mega_menu",
+          "settings": {
+            "column": "4",
+            "dropdown_style": "1",
+            "product_limit": "4",
+            "enter_line": false,
+            "title_1": "",
+            "link_1": "",
+            "enter_calculate_1": false,
+            "title_2": "",
+            "link_2": "",
+            "enter_calculate_2": false,
+            "view_more": "Shop All Accessories"
+          }
+        },
+        "mega_menu_NKKPqk": {
+          "type": "mega_menu",
+          "settings": {
+            "column": "5",
+            "dropdown_style": "2",
+            "product_limit": "4",
+            "enter_line": true,
+            "image_1": "shopify://shop_images/Frame_2036458038_1.png",
+            "title_1": "<p>our story</p>",
+            "link_1": "shopify://pages/about-us",
+            "enter_calculate_1": false,
+            "image_2": "shopify://shop_images/Frame_2036458039.png",
+            "title_2": "<p>Community</p>",
+            "link_2": "shopify://pages/yarbo-official-community",
+            "enter_calculate_2": false,
+            "view_more": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_PHYikg",
+        "mega_menu_6YU4Hq",
+        "mega_menu_xhjrt6",
+        "mega_menu_NKKPqk"
+      ],
+      "settings": {
+        "enable_sticky_header": true,
+        "transparent_pages": "about-new,sustainability",
+        "disable_sticky_pages": "/products/",
+        "logo": "shopify://shop_images/logo.svg",
+        "logo_mobile": "shopify://shop_images/mobile-logo.svg",
+        "menu": "test-menu",
+        "sidebar_navigation_menu": "test-menu",
+        "menu_type_desktop": "dropdown",
+        "show_live": true,
+        "live_nav": "Yarbo Live",
+        "live_link": "shopify://pages/yarbo-live",
+        "enable_customer_avatar": true,
+        "enable_transparent_header": true,
+        "transparent_header_text_color": "#ffffff",
+        "transparent_logo": "shopify://shop_images/hover-logo.svg",
+        "header_background": "",
+        "header_text_color": "#121212"
+      }
+    },
+    "sa_website_map_TmQz33": {
+      "type": "sa-website-map",
+      "blocks": {
+        "country_RffjJJ": {
+          "type": "country",
+          "settings": {
+            "id": "Americas",
+            "country_title": "Americas"
+          }
+        },
+        "national_flag_biCcpX": {
+          "type": "national-flag",
+          "settings": {
+            "id": "Americas",
+            "title": "United States",
+            "content": "English / USD",
+            "link": "https://yarbo.com",
+            "abbreviation": "us"
+          }
+        },
+        "national_flag_RBMMJe": {
+          "type": "national-flag",
+          "settings": {
+            "id": "Americas",
+            "title": "Canada",
+            "content": "English / CAD",
+            "link": "http://ca.yarbo.com/",
+            "abbreviation": ""
+          }
+        },
+        "country_4fjHRk": {
+          "type": "country",
+          "settings": {
+            "id": "Europe",
+            "country_title": "Europe"
+          }
+        },
+        "national_flag_Gj8QBE": {
+          "type": "national-flag",
+          "settings": {
+            "id": "Europe",
+            "title": "Deutschland",
+            "content": "Deutsch / EUR",
+            "link": "http://de.yarbo.com/",
+            "abbreviation": ""
+          }
+        },
+        "national_flag_FLkPEw": {
+          "type": "national-flag",
+          "settings": {
+            "id": "Europe",
+            "title": "France",
+            "content": "Français / EUR",
+            "link": "http://fr.yarbo.com/",
+            "abbreviation": ""
+          }
+        },
+        "national_flag_da8e7w": {
+          "type": "national-flag",
+          "settings": {
+            "id": "Europe",
+            "title": "Sverige",
+            "content": "Svenska / EUR",
+            "link": "http://se.yarbo.com/",
+            "abbreviation": ""
+          }
+        },
+        "national_flag_kHwyUC": {
+          "type": "national-flag",
+          "settings": {
+            "id": "Europe",
+            "title": "United Kingdom",
+            "content": "English / GBP",
+            "link": "http://uk.yarbo.com/",
+            "abbreviation": ""
+          }
+        },
+        "national_flag_GBpnnw": {
+          "type": "national-flag",
+          "settings": {
+            "id": "Europe",
+            "title": "Other",
+            "content": "English / EUR",
+            "link": "http://eu.yarbo.com/",
+            "abbreviation": ""
+          }
+        },
+        "country_wb8jQQ": {
+          "type": "country",
+          "settings": {
+            "id": "Oceania",
+            "country_title": "Oceania"
+          }
+        },
+        "national_flag_XpJQ6W": {
+          "type": "national-flag",
+          "settings": {
+            "id": "Oceania",
+            "title": "Australia",
+            "content": "English / AUD",
+            "link": "https://au.yarbo.com/",
+            "abbreviation": ""
+          }
+        }
+      },
+      "block_order": [
+        "country_RffjJJ",
+        "national_flag_biCcpX",
+        "national_flag_RBMMJe",
+        "country_4fjHRk",
+        "national_flag_Gj8QBE",
+        "national_flag_FLkPEw",
+        "national_flag_da8e7w",
+        "national_flag_kHwyUC",
+        "national_flag_GBpnnw",
+        "country_wb8jQQ",
+        "national_flag_XpJQ6W"
+      ],
+      "name": "Website Map",
+      "settings": {
+        "title": "Select Your Location"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "sa-header",
+    "sa_website_map_TmQz33"
+  ]
+}

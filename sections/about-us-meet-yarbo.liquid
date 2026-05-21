@@ -1,0 +1,241 @@
+{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}
+{{ 'yb-section-slideshow.css' | asset_url | stylesheet_tag }}
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/custom-product-swiper.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/swiper-bundle.min.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+<script
+  defer
+  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/custom-product-swiper.js"
+></script>
+<script
+  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/swiper-bundle.min.js"
+></script>
+
+<style>
+  .custom-product-swiper .thumbnail-item {
+    width: auto;
+  }
+
+  .thumbnail-grid {
+    gap: 1rem;
+  }
+</style>
+<style>
+  .display-block {
+    display: block !important;
+  }
+
+  .display-none {
+    display: none !important;
+  }
+
+  .display-flex {
+    display: flex !important;
+  }
+
+  .display-inline-block {
+    display: inline-block !important;
+  }
+
+  .display-inline-flex {
+    display: inline-flex !important;
+  }
+
+  @media screen and (max-width: 959px) {
+    .display-block-tablet {
+      display: block !important;
+    }
+
+    .display-none-tablet {
+      display: none !important;
+    }
+
+    .display-flex-tablet {
+      display: flex !important;
+    }
+
+    .display-inline-block-tablet {
+      display: inline-block !important;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .display-block-desktop {
+      display: block !important;
+    }
+
+    .display-none-desktop {
+      display: none !important;
+    }
+
+    .display-flex-desktop {
+      display: flex !important;
+    }
+
+    .display-inline-block-desktop {
+      display: inline-block !important;
+    }
+
+    .display-inline-flex-desktop {
+      display: inline-flex !important;
+    }
+  }
+
+  :root {
+    /**
+  * content element
+  */
+    --z-index-hover: 1;
+    --z-index-active: 2;
+    --z-index-focus: 3;
+
+    /**
+  * overlay element
+  */
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1010;
+    --z-index-fixed: 1020;
+    --z-index-modal: 1030;
+    --z-index-popover: 1040;
+    --z-index-tooltip: 1050;
+    --z-index-toast: 1060;
+  }
+
+  :root {
+    --title1-font-size: calc(var(--title-font-size) * 1);
+    --title2-font-size: calc(var(--title-font-size) * 0.833333);
+    --title3-font-size: calc(var(--title-font-size) * 0.733333);
+    --title4-font-size: calc(var(--title-font-size) * 0.666667);
+    --title5-font-size: calc(var(--title-font-size) * 0.6);
+    --title6-font-size: calc(var(--title-font-size) * 0.6);
+
+    --body1-font-size: calc(var(--body-font-size) * 1.142857);
+    --body2-font-size: calc(var(--body-font-size) * 1.071429);
+    --body3-font-size: calc(var(--body-font-size) * 1);
+    --body4-font-size: calc(var(--body-font-size) * 0.928571);
+    --body5-font-size: calc(var(--body-font-size) * 0.857143);
+    --body6-font-size: calc(var(--body-font-size) * 0.857143);
+  }
+
+  @media (min-width: 960px) {
+    :root {
+      --title1-font-size: calc(var(--title-font-size) * 2.333333);
+      --title2-font-size: calc(var(--title-font-size) * 1.666667);
+      --title3-font-size: calc(var(--title-font-size) * 1.2);
+      --title4-font-size: calc(var(--title-font-size) * 1);
+      --title5-font-size: calc(var(--title-font-size) * 0.833333);
+      --title6-font-size: calc(var(--title-font-size) * 0.666667);
+
+      --body1-font-size: calc(var(--body-font-size) * 1.571429);
+      --body2-font-size: calc(var(--body-font-size) * 1.285714);
+      --body3-font-size: calc(var(--body-font-size) * 1.142857);
+      --body4-font-size: calc(var(--body-font-size) * 1);
+      --body5-font-size: calc(var(--body-font-size) * 0.928571);
+      --body6-font-size: calc(var(--body-font-size) * 0.857143);
+    }
+  }
+
+  .title1,
+  .title2,
+  .title3,
+  .title4,
+  .title5,
+  .title6 {
+    font-family: var(--title-font);
+    font-style: var(--title-font-style);
+    font-weight: var(--title-font-weight, 700);
+    letter-spacing: var(--title-letter-spacing);
+    line-height: var(--title-line-height);
+    margin-bottom: 0;
+    margin-top: 0;
+    word-break: break-word;
+    text-transform: var(--title-text-transform);
+  }
+
+  .title1 {
+    font-size: var(--title1-font-size);
+  }
+
+  .title2 {
+    font-size: var(--title2-font-size);
+  }
+
+  .title3 {
+    font-size: var(--title3-font-size);
+  }
+
+  .title4 {
+    font-size: var(--title4-font-size);
+  }
+
+  .title5 {
+    font-size: var(--title5-font-size);
+  }
+
+  .title6 {
+    font-size: var(--title6-font-size);
+  }
+
+  .body-font,
+  .body1,
+  .body2,
+  .body3,
+  .body4,
+  .body5,
+  .body6 {
+    font-family: var(--body-font);
+    font-style: var(--body-font-style);
+    font-weight: var(--body-font-weight, 400);
+    letter-spacing: var(--body-letter-spacing);
+    line-height: var(--body-line-height);
+    word-break: break-word;
+  }
+
+  .body1 {
+    font-size: var(--body1-font-size);
+  }
+
+  .body2 {
+    font-size: var(--body2-font-size);
+  }
+
+  .body3 {
+    font-size: var(--body3-font-size);
+  }
+
+  .body4 {
+    font-size: var(--body4-font-size);
+  }
+
+  .body5 {
+    font-size: var(--body5-font-size);
+  }
+
+  .body6 {
+    font-size: var(--body6-font-size);
+  }
+
+  :root {
+    --duration-short: 100ms;
+    --duration-long: 500ms;
+    --duration-default: 250ms;
+  }
+</style>
+{% render 'about-us-meet-yarbo-1' %}
+{% render 'about-us-meet-yarbo-2' %}
+
+{% schema %}
+{
+  "name": "About Us Meet Yarbo"
+
+}
+{% endschema %}

@@ -1,0 +1,112 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    overflow: auto;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 99;
+  }
+</style>
+{%- capture shop_now_btn -%}
+  <a
+    data-anchor-id='main-product'
+    href='javascript:void(0);'
+    class=' bg-[#FEDB1E] px-16 py-8 text-[12px] text-[#25282A] transition-colors duration-300 hover:bg-[#25282A] hover:text-white'
+  >
+    Shop Now
+  </a>
+{%- endcapture -%}
+<div class='py-16'>
+  <div class='page-container'>
+    <div class='flex flex-wrap justify-between gap-6 max-md:flex-col md:items-center'>
+      <div class='flex items-center justify-between gap-16 max-md:py-12'>
+        <div class='flex flex-col gap-2 '>
+          <div class='flex flex-col gap-2 md:flex-row md:items-center md:gap-16'>
+            <h3 class='text-[16px] leading-[1.3] md:text-[18px]'>{{ product.title }}</h3>
+            {% render 'sn-anchors-price', product: product %}
+          </div>
+          {% render 'sn-yarbo-pay', product: product, pay_class: '' %}
+        </div>
+        <div class='block shrink-0 md:hidden'>
+          {{ shop_now_btn }}
+        </div>
+      </div>
+      <div class='flex items-center gap-16 max-md:w-full max-md:border-t max-md:border-[#CCCCCC] max-md:py-8 md:gap-32'>
+        <div
+          data-anchor-nav
+          class='relative flex gap-16 max-md:overflow-x-auto max-md:[scrollbar-width:none] md:gap-32 max-md:[&::-webkit-scrollbar]:hidden'
+        >
+          {% for block in section.blocks %}
+            <a
+              {% if block.settings.btn_anchor_id != blank %}
+                data-anchor-id='{{ block.settings.btn_anchor_id }}'
+              {% endif %}
+              href='javascript:void(0);'
+              class='
+                relative
+                inline-block
+                shrink-0
+                py-8
+                text-[14px]
+                text-[#25282A]
+                after:absolute
+                after:bottom-0
+                after:left-0
+                after:h-2
+                after:w-full
+                after:origin-left
+                after:scale-x-0
+                after:bg-[#25282A]
+                after:transition-transform
+                after:duration-300
+                after:ease-out
+                after:content-[""]
+                hover:after:scale-x-100
+                md:text-[18px]
+              '
+            >
+              {{ block.settings.anchor_title }}
+            </a>
+          {% endfor %}
+        </div>
+        <div class='hidden shrink-0 md:block'>
+          {{ shop_now_btn }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Anchors",
+  "tag": "section",
+  "class": "css-reset tailwind-layout sa-anchors",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Anchor",
+      "settings": [
+        {
+          "type": "text",
+          "id": "anchor_title",
+          "label": "Anchor Title",
+          "default": "Anchor"
+        },
+        {
+          "type": "text",
+          "id": "btn_anchor_id",
+          "label": "Anchor ID"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Anchors",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

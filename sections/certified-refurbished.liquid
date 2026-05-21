@@ -1,0 +1,84 @@
+<!-- CSS 文件 - 每个只保留一次 -->
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-banner-swiper.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/lib-splide.min_223bf385-ef7c-40c3-82e5-833dddfd1855.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/index.min_0d79c694-2302-4336-9da8-e3f8db4b54a4.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/swiper-bundle.min.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-swiper-with-modal.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb_snippet_modal.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-section-common.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+
+<link
+  href="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/faq-new.css"
+  media="all"
+  rel="stylesheet"
+  type="text/css"
+>
+
+<!-- JS 文件 - 每个只保留一次 (注意defer属性) -->
+<script
+  defer
+  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/swiper-bundle.min.js"
+></script>
+
+<script
+  defer
+  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb-swiper-with-modal.js"
+></script>
+
+<script
+  defer
+  src="https://cdn.shopify.com/s/files/1/0604/5394/5441/files/yb_snippet_modal.js"
+></script>
+{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}
+
+<div class="migrated-page">
+  {% render 'certified-refurbished-1' %}
+  {% render 'certified-refurbished-2' %}
+</div>
+{% schema %}
+{
+  "name": "Certified Refurbished"
+
+}
+{% endschema %}

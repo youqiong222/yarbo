@@ -1,0 +1,264 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sa_common_banner_Ez4Qgb": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_dW8Rwy": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/ca11a4c2-1566-45aa-94eb-0ea111543d88.webp",
+            "h5_image": "shopify://shop_images/019bd7d9-2295-49b7-bb33-22916a3a16f9.webp",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "middle-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_dW8Rwy"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 720,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 500,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_common_banner_98pDVH": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_PUVMiP": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/dd5d1471-06df-47cd-9dea-abad6c92f368.webp",
+            "h5_image": "shopify://shop_images/bb10f0c8-1a60-47f9-9825-59256256c440.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "middle-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_PUVMiP"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 851,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 565,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_common_banner_YQ7kRA": {
+      "type": "sa-common-banner",
+      "blocks": {
+        "slide_P8mnCN": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "pc_image": "shopify://shop_images/5ab8adef-0d5e-4347-b851-def4ad20d0e9.png",
+            "h5_image": "shopify://shop_images/aa1fbd91-9e41-4ab0-b436-3f706febd8ba.png",
+            "video_url": "https://www.youtube.com/watch?v=NpEaa2P7qZI",
+            "other_url": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "content_width_pc": 1320,
+            "content_position_pc": "middle-left",
+            "content_position_h5": "middle-left",
+            "sub_title": "",
+            "sub_title_color": "#e6e6e6",
+            "title": "",
+            "title_color": "#ffffff",
+            "desc": "",
+            "desc_color": "#ffffff",
+            "button1_text": "Shop Now",
+            "button1_link": "",
+            "button1_anchor_id": "",
+            "button1_color": "#25282a",
+            "button1_border_color": "#fedb1e",
+            "button1_bg_color": "#fedb1e",
+            "button1_hover_color": "#ffffff",
+            "button1_bg_hover_color": "#25282a",
+            "button2_text": "Shop Now",
+            "button2_link": "",
+            "button2_anchor_id": "",
+            "button2_color": "#25282a",
+            "button2_border_color": "#ffffff",
+            "button2_bg_color": "#ffffff",
+            "button2_hover_color": "#25282a",
+            "button2_bg_hover_color": "#fedb1e"
+          }
+        }
+      },
+      "block_order": [
+        "slide_P8mnCN"
+      ],
+      "name": "Common Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "h5_padding_top": 0,
+        "h5_padding_bottom": 0,
+        "pc_aspect_ratio_w": 1440,
+        "pc_aspect_ratio_h": 900,
+        "h5_aspect_ratio_w": 375,
+        "h5_aspect_ratio_h": 687,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "sa_ces_grid_m43WbX": {
+      "type": "sa-ces-grid",
+      "blocks": {
+        "award_b4xEF6": {
+          "type": "award",
+          "settings": {
+            "image": "shopify://shop_images/Group-1484584706-_1_-412x_6effe957-bf57-4de8-84fd-6a1b71a59b28.webp",
+            "title": ""
+          }
+        },
+        "award_kiBxjj": {
+          "type": "award",
+          "settings": {
+            "image": "shopify://shop_images/5431ea3c-9334-4d7b-8a0b-bea3d08e413d.png",
+            "title": ""
+          }
+        },
+        "award_TKMCw4": {
+          "type": "award",
+          "settings": {
+            "image": "shopify://shop_images/20911efb-1eb3-4f77-82dc-bd989986f543.webp",
+            "title": ""
+          }
+        },
+        "award_ifimMf": {
+          "type": "award",
+          "settings": {
+            "image": "shopify://shop_images/f12d879b-2790-44ee-9e83-2dad92c10e2c.webp",
+            "title": ""
+          }
+        },
+        "award_fy9Kf7": {
+          "type": "award",
+          "settings": {
+            "image": "shopify://shop_images/10001.webp",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "award_b4xEF6",
+        "award_kiBxjj",
+        "award_TKMCw4",
+        "award_ifimMf",
+        "award_fy9Kf7"
+      ],
+      "name": "CES Grid",
+      "settings": {
+        "anchor_id": "",
+        "animations_reveal_on_scroll": false,
+        "bg_color": "#1a1a1a",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "h5_padding_top": 40,
+        "h5_padding_bottom": 40,
+        "title": "Award-Winning Innovation",
+        "title_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sa_common_banner_Ez4Qgb",
+    "sa_common_banner_98pDVH",
+    "sa_common_banner_YQ7kRA",
+    "sa_ces_grid_m43WbX"
+  ]
+}

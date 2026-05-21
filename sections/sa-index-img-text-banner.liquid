@@ -1,0 +1,119 @@
+{% render 'section-padding', section_id: section.id, settings: section.settings %}
+<div class='page-container {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+  <div class='flex flex-col justify-between gap-48 bg-black px-24 py-40 md:flex-row md:items-center md:gap-80 md:px-60'>
+    <h2 class='text-[32px]/[1.1] text-white uppercase'>
+      {{ section.settings.title }}
+    </h2>
+    <div class='flex flex-col gap-12 md:flex-row'>
+      {% for block in section.blocks %}
+        <div class='flex flex-col items-center bg-white px-20 pt-24 pb-20 text-center md:max-w-274 md:px-24 md:pt-32 md:pb-24 lg:w-274'>
+          {% render 'media-element',
+            media_type: 'image',
+            class: 'w-auto h-auto',
+            media_class: 'w-auto h-40',
+            pc_image: block.settings.icon,
+            h5_image: block.settings.h5_icon
+          %}
+          <p class='mt-16 text-[14px]/[1.4]'>{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Index Img Text Banner",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (PC)"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_icon",
+          "label": "Icon (Mobile)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Index Img Text Banner",
+      "settings": {
+        "title": "<p>Own Your Yarbo Sooner </p><p>with 0% Financing and </p><p>flexible payment plans1</p>"
+      },
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "text": "Split your payment using your existing credit card with zero interest."
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "text": "Enjoy flexible monthly payments with clear terms."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

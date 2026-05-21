@@ -1,0 +1,341 @@
+<div
+  class='tabs-container'
+  style='background-color: {{section.settings.section_bg_color}}'
+>
+  <div class='tab-contaner-inner'>
+    <div
+      class='tabs-wrapper'
+      id='tabsWrapper'
+    >
+      <div
+        class='scroll-indicator left'
+        id='scrollArrowLeft'
+        style='background-color: {{section.settings.section_bg_color}}'
+      >
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 320 512'
+        >
+          <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+        </svg>
+      </div>
+
+      {% for block in section.blocks %}
+        <a
+          {% comment %} class="tab-item{% if forloop.first %} active{% endif %}" {% endcomment %}
+          class='tab-item'
+          onclick="scrollToTab('{{ block.settings.target_id }}', this)"
+          data-anchor-id='{{ block.settings.btn_anchor_id }}'
+          style='color: {{ block.settings.tab_title_color }}; '
+          {% comment %} style="color: {{ block.settings.tab_title_color }}; {% if forloop.first %}background-color: {{ block.settings.active_tab_bg_color }}; color: {{ block.settings.active_tab_title_color }};{% endif %}" {% endcomment %}
+          data-tab-title-color='{{ block.settings.tab_title_color }}'
+          data-active-tab-bg-color='{{ block.settings.active_tab_bg_color }}'
+          data-active-tab-title-color='{{ block.settings.active_tab_title_color }}'
+        >
+          {{ block.settings.title }}
+        </a>
+      {% endfor %}
+      <div
+        class='scroll-indicator right'
+        id='scrollArrowRight'
+        style='background-color: {{section.settings.section_bg_color}}'
+      >
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 320 512'
+        >
+          <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  #shopify-section-{{section.id}}{
+      position: sticky;
+      z-index: 99;
+      overflow: hidden;
+      top: 0;
+  }
+
+  #shopify-section-{{section.id}} .tabs-container {
+      position: relative;
+  }
+  #shopify-section-{{section.id}} .tab-contaner-inner{
+      position: relative;
+  }
+  #shopify-section-{{section.id}} .tabs-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content:center;
+      white-space: nowrap;
+      padding: 12.21px 38px;
+      background-color: {{section.settings.section_bg_color}};
+      scrollbar-width: none;
+      height: 56px;
+  }
+  #shopify-section-{{section.id}} .tabs-wrapper::-webkit-scrollbar {
+      display: none;
+  }
+  #shopify-section-{{section.id}} .dark-mode .tabs-wrapper {
+      background-color: #0a0a0a;
+      border-color: #333;
+  }
+  #shopify-section-{{section.id}} .dark-mode .tab-item {
+      color: #fff;
+  }
+  #shopify-section-{{section.id}} .dark-mode .tab-item.active {
+      background-color: #555;
+  }
+  #shopify-section-{{section.id}} .tab-item.active{
+      font-weight: 600;
+  }
+  #shopify-section-{{section.id}} .tab-item{
+      cursor: pointer;
+      font-weight: 400;
+      padding: 6px 20px;
+      height: 32px;
+  }
+  /* #shopify-section-{{section.id}} .tabs-wrapper{
+      position: fixed;
+      right: 0;
+      left: 0;
+      top: 0 ! important;
+      z-index: 30;
+  } */
+  #shopify-section-{{section.id}} .scroll-indicator {
+      color: #ffff;
+      z-index: 2222;
+      cursor: pointer;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 20px;
+      position: absolute;
+  }
+  #shopify-section-{{section.id}} .scroll-indicator.right{
+      right: 0;
+  }
+  #shopify-section-{{section.id}} .scroll-indicator.left{
+      left: 0;
+  }
+  #shopify-section-{{section.id}} .scroll-indicator svg {
+      width: 7.4px;
+      height: 15px;
+      fill: {{section.settings.svg_color}};
+  }
+  #shopify-section-{{section.id}} .tabs-wrapper {
+      padding: 0px 38px;
+      overflow-x: auto;
+  }
+  @media (min-width: 1920px){
+      #shopify-section-{{section.id}} .tabs-wrapper .tabs-wrapper-inner{
+          gap: 16px;
+      }
+      #shopify-section-{{section.id}} .tab-item {
+          font-size: 14px;
+          line-height: 1.4;
+          border-radius: 19px;
+      }
+  }
+  @media (min-width: 1440px) and (max-width: 1919px){
+      #shopify-section-{{section.id}} .tabs-wrapper .tabs-wrapper-inner{
+          gap: 16px;
+      }
+      #shopify-section-{{section.id}} .tab-item {
+          font-size: 14px;
+          line-height: 1.4;
+          border-radius: 19px;
+      }
+      #shopify-section-{{section.id}} .scroll-indicator {
+          padding: 15px 20px;
+      }
+  }
+  @media (min-width: 960px) and (max-width: 1439px){
+      #shopify-section-{{section.id}} .tabs-wrapper .tabs-wrapper-inner{
+          gap: 16px;
+      }
+      #shopify-section-{{section.id}} .tab-item {
+          font-size: 14px;
+          line-height: 1.4;
+          border-radius: 19px;
+      }
+  }
+  @media (min-width: 680px) and (max-width: 959px){
+      #shopify-section-{{section.id}} .tabs-wrapper .tabs-wrapper-inner{
+          gap: 8px;
+      }
+      #shopify-section-{{section.id}} .tab-item {
+          font-size: 12px;
+          line-height: 1.4;
+          border-radius: 19px;
+      }
+      #shopify-section-{{section.id}} .tabs-wrapper{
+          padding: 0px 38px;
+          overflow-x: auto;
+          justify-content: flex-start;
+      }
+  }
+  @media (max-width: 679px){
+      #shopify-section-{{section.id}} .tabs-wrapper .tabs-wrapper-inner{
+          gap: 8px;
+      }
+      #shopify-section-{{section.id}} .tab-item {
+          font-size: 12px;
+          line-height: 1.4;
+          border-radius: 19px;
+      }
+      #shopify-section-{{section.id}} .scroll-indicator.right, #shopify-section-{{section.id}} .scroll-indicator.left{
+          top: 0px;
+      }
+  }
+
+
+  @media (max-width: 400px){
+      #shopify-section-{{section.id}} .scroll-indicator {
+          top: 108px;
+      }
+      #shopify-section-{{section.id}} .scroll-indicator{
+          top: 56px;
+      }
+  }
+
+  {% comment %}
+  @media (min-width: 750px) and (max-width: 780px){
+      #shopify-section-{{section.id}} .tab-item:first-child{
+          margin-left: 140px;
+      }
+  }
+  @media (min-width: 680px) and (max-width: 749px){
+      #shopify-section-{{section.id}} .tab-item:first-child{
+          margin-left: 211px;
+      }
+  } {% endcomment %}
+</style>
+<script>
+  function scrollToTab(targetId, tab) {
+    document.querySelectorAll('.tab-item').forEach((item) => {
+      item.classList.remove('active');
+      item.style.backgroundColor = 'transparent';
+      item.style.color = item.dataset.tabTitleColor || '';
+    });
+    tab.classList.add('active');
+    tab.style.backgroundColor = tab.dataset.activeTabBgColor || '';
+    tab.style.color = tab.dataset.activeTabTitleColor || '';
+
+    const target = document.getElementById(targetId);
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  }
+
+  function checkTabOverflow() {
+    const wrapper = document.getElementById('tabsWrapper');
+    const rightArrow = document.getElementById('scrollArrowRight');
+    const leftArrow = document.getElementById('scrollArrowLeft');
+    const threshold = 10;
+
+    if (wrapper.scrollWidth > wrapper.clientWidth) {
+      wrapper.style.justifyContent = 'flex-start';
+      rightArrow.style.display = wrapper.scrollLeft + wrapper.clientWidth < wrapper.scrollWidth - threshold ? 'block' : 'none';
+      leftArrow.style.display = wrapper.scrollLeft > threshold ? 'block' : 'none';
+    } else {
+      rightArrow.style.display = 'none';
+      leftArrow.style.display = 'none';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const wrapper = document.getElementById('tabsWrapper');
+    const rightArrow = document.getElementById('scrollArrowRight');
+    const leftArrow = document.getElementById('scrollArrowLeft');
+
+    // Function to get current tab width (in case layout changes)
+
+    rightArrow.addEventListener('click', function () {
+      wrapper.scrollBy({ left: 100, behavior: 'smooth' });
+      setTimeout(checkTabOverflow, 50);
+    });
+
+    leftArrow.addEventListener('click', function () {
+      wrapper.scrollBy({ left: -100, behavior: 'smooth' });
+      setTimeout(checkTabOverflow, 50);
+    });
+
+    wrapper.addEventListener('scroll', checkTabOverflow);
+    checkTabOverflow();
+
+    window.addEventListener('resize', checkTabOverflow);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Tabs Section",
+  "class": "migrated-page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "svg_color",
+      "label": "SVG COLOR",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab Title",
+          "default": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "btn_anchor_id",
+          "label": "Target Anchor ID"
+        },
+        {
+          "type": "header",
+          "content": "Tab Style Settings"
+        },
+        {
+          "type": "color",
+          "id": "tab_title_color",
+          "label": "Tab Title Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "active_tab_title_color",
+          "label": "Active Tab Title Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "active_tab_bg_color",
+          "label": "Active Tab Background Color",
+          "default": "#f5f5f5"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10
+}
+{% endschema %}

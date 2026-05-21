@@ -1,0 +1,349 @@
+{% render 'sn-anchor-target', anchor_id: section.settings.anchor_id %}
+<div
+  style='
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --h5-padding-top: {{ section.settings.h5_padding_top }}px;
+    --h5-padding-bottom: {{ section.settings.h5_padding_bottom }}px;
+    --bg-color: {{ section.settings.bg_color }};
+  '
+  class='
+    bg-(--bg-color)
+    pt-(--h5-padding-top)
+    pb-(--h5-padding-bottom)
+    md:pt-(--padding-top)
+    md:pb-(--padding-bottom) {% if section.settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+  '
+>
+  <div class='page-container'>
+    <div
+      class='
+        flex items-start gap-32 md:gap-0
+        {% if section.settings.mobile_layout == 'image_top' %} flex-col-reverse {% else %} flex-col {% endif %}
+        {% if section.settings.pc_layout == 'image_left' %} md:flex-row {% else %} md:flex-row-reverse {% endif %}
+      '
+      x-data='{ activeIndex: 0, imageIndex: 0 }'
+    >
+      <div class='flex flex-1 flex-col justify-center md:p-40 lg:p-60'>
+        {%- if section.settings.title != blank or section.settings.description != blank -%}
+          <div class='mb-32  md:mb-60 md:text-[44px]'>
+            {% if section.settings.title != blank %}
+              <h2 class='text-[32px] leading-none uppercase'>
+                {{ section.settings.title }}
+              </h2>
+            {% endif %}
+            {% if section.settings.description != blank %}
+              <div class='mt-8 text-[13px] leading-[1.3] text-[#515355] md:mt-12 md:text-[14px]'>
+                {{ section.settings.description }}
+              </div>
+            {% endif %}
+          </div>
+        {%- endif -%}
+
+        <ul class='flex flex-col'>
+          {% for block in section.blocks %}
+            <li
+              class='border-b border-[#CCCCCC] py-24 first:pt-0'
+              {{ block.shopify_attributes }}
+            >
+              <header
+                class='flex w-full cursor-pointer items-center justify-between text-left'
+                @click='activeIndex = activeIndex === {{ forloop.index0 }} ? null : {{ forloop.index0 }}; imageIndex = {{ forloop.index0 }}'
+              >
+                <div class='flex items-center gap-12 sm:gap-16'>
+                  {% if block.settings.number != blank %}
+                    <span class='flex h-28 w-28 items-center justify-center bg-[#FEDB1E] text-[13px] font-bold'>
+                      {{ block.settings.number }}
+                    </span>
+                  {% endif %}
+                  <h3 class='text-[15px] font-bold text-[#25282A] md:text-[18px]'>
+                    {{ block.settings.title }}
+                  </h3>
+                </div>
+                <span class='flex'>
+                  <svg
+                    x-show='activeIndex === {{ forloop.index0 }}'
+                    width='15'
+                    height='2'
+                    viewBox='0 0 15 2'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path d="M13.9832 0.648437L0.649902 0.648438" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+                  </svg>
+
+                  <svg
+                    x-show='activeIndex !== {{ forloop.index0 }}'
+                    width='15'
+                    height='15'
+                    viewBox='0 0 15 15'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path d="M7.31657 0.648438L7.31657 13.9818M13.9832 7.3151L0.649902 7.3151" stroke="#25282A" stroke-width="1.3" stroke-linecap="square"/>
+                  </svg>
+                </span>
+              </header>
+
+              <main
+                class='grid transition-[grid-template-rows] duration-300 ease-in-out'
+                :class="activeIndex === {{ forloop.index0 }} ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
+              >
+                <div class='overflow-hidden'>
+                  <div class='pt-12 text-[15px] leading-[1.3] font-medium text-[#515355] md:text-[14px]'>
+                    {{ block.settings.description }}
+                  </div>
+                </div>
+              </main>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div
+        style='--width:{{ section.settings.image_width }}%'
+        class='w-full md:w-(--width)'
+      >
+        {%- liquid
+          assign s = section.settings
+          assign pc_w = s.pc_aspect_ratio_w | default: 4
+          assign pc_h = s.pc_aspect_ratio_h | default: 3
+          assign pc_ratio = pc_w | append: '/' | append: pc_h
+          assign h5_w = s.h5_aspect_ratio_w | default: 4
+          assign h5_h = s.h5_aspect_ratio_h | default: 3
+          assign h5_ratio = h5_w | append: '/' | append: h5_h
+        -%}
+        <div
+          style='
+            --media-aspect-pc: {{ pc_ratio }};
+            --media-aspect-h5: {{ h5_ratio }};
+          '
+          class='
+            relative aspect-(--media-aspect-h5) h-full w-full
+            overflow-hidden md:aspect-(--media-aspect-pc)
+          '
+        >
+          {% for block in section.blocks %}
+            <div
+              x-show='imageIndex === {{ forloop.index0 }}'
+              x-transition:enter='transition-opacity duration-100 ease-out'
+              x-transition:enter-start='opacity-0'
+              x-transition:enter-end='opacity-100'
+              x-transition:leave='transition-opacity duration-100 ease-out'
+              x-transition:leave-start='opacity-100'
+              x-transition:leave-end='opacity-0'
+              class='absolute inset-0 h-full w-full'
+              {% unless forloop.first %}
+                x-cloak
+              {% endunless %}
+            >
+              {% render 'media-element',
+                class: 'absolute inset-0 h-full w-full object-cover',
+                media_class: 'w-full h-full object-cover',
+                media_type: 'image',
+                pc_image: block.settings.pc_image,
+                h5_image: block.settings.h5_image
+              %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Features Accordion",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Id"
+    },
+    {
+      "type": "checkbox",
+      "id": "animations_reveal_on_scroll",
+      "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Bg Color",
+      "default": "#F2F2F2"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_top",
+      "label": "H5 Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "h5_padding_bottom",
+      "label": "H5 Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "EFFORTS WE'VE TAKEN"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section Description"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image Width (PC)",
+      "min": 40,
+      "max": 100,
+      "step": 1,
+      "default": 50,
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "pc_layout",
+      "label": "PC Layout",
+      "default": "image_right",
+      "options": [
+        { "value": "image_left", "label": "Text Left, Image Right" },
+        { "value": "image_right", "label": "Image Left, Text Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile Layout",
+      "default": "image_top",
+      "options": [
+        { "value": "image_top", "label": "Text Top, Image Bottom" },
+        { "value": "text_top", "label": "Image Top, Text Bottom" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Media Aspect Ratio"
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_w",
+      "label": "PC Ratio Width",
+      "default": 4
+    },
+    {
+      "type": "number",
+      "id": "pc_aspect_ratio_h",
+      "label": "PC Ratio Height",
+      "default": 3
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_w",
+      "label": "Mobile Ratio Width",
+      "default": 4
+    },
+    {
+      "type": "number",
+      "id": "h5_aspect_ratio_h",
+      "label": "Mobile Ratio Height",
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_item",
+      "name": "List Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number Badge",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cleaner Energy"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "The robotic snow blower features durable Q355 steel construction with 355 MPa strength, operates in -13°F to 113°F, and carries an IPX5 waterproof rating for reliable performance."
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "h5_image",
+          "label": "H5 Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features Accordion",
+      "blocks": [
+        {
+          "type": "accordion_item",
+          "settings": {
+            "number": "01",
+            "title": "Cleaner Energy"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "settings": {
+            "number": "02",
+            "title": "Inclusive Design"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "settings": {
+            "number": "03",
+            "title": "Lower Carbon Footprint"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

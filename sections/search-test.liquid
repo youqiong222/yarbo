@@ -1,0 +1,20 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    overflow: visible;
+  }
+</style>
+{%- render 'sn-search-modal' -%}
+{% schema %}
+{
+  "name": "Search Test",
+  "tag": "section",
+  "class": "css-reset tailwind-layout",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Search Test",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

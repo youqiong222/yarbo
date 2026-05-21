@@ -1,0 +1,173 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_QRUfr8": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{{ 'migrated-summary.css' | asset_url | stylesheet_tag }}",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "yb_banner_swiper_CDpzUM": {
+      "type": "yb-banner-swiper",
+      "blocks": {
+        "item_Vrif9j": {
+          "type": "item",
+          "settings": {
+            "text_horizontal_position": "center",
+            "text_vertical_position": "center",
+            "text_width": 50,
+            "description": "",
+            "title": "<p>Media Kit</p>",
+            "subTitle": "<p>For media inquiries, please contact us at pr@yarbo.com. To access the latest photos and videos, please click the buttons below.</p>",
+            "enable_btn_group": true,
+            "enable_global_btn": false,
+            "enable_global_anchor": false,
+            "global_anchor_id": "",
+            "button_text": "Access Online Media Library",
+            "button_type": "link",
+            "button_link": "https://drive.google.com/drive/folders/14pt7n5TWuzB0PC_-gWzl66MQk83bn29X",
+            "button_class": "",
+            "button_anchor": "pic",
+            "button_modal_title": "",
+            "button_modal_content": "",
+            "button2_text": "Download a Concise Package",
+            "button2_type": "link",
+            "button2_link": "",
+            "button2_class": "",
+            "button2_anchor": "",
+            "button2_modal_title": "",
+            "button2_modal_content": "",
+            "enable_subscription": false,
+            "subscription_absolute": false,
+            "subscription_position": 24,
+            "email_type": "",
+            "klaviyo_list_id": "",
+            "subscription_title": "",
+            "subscription_button_text": "",
+            "pc_img": "shopify://shop_images/10002_1944x_6d8d2d36-95dc-4371-9f64-784332369683.webp",
+            "pc_external_video": "",
+            "mobile_img": "shopify://shop_images/10002_900x_0911b71a-3221-45b4-af2e-4861697f0095.webp",
+            "mobile_external_video": "",
+            "mobile_layout": "style1"
+          }
+        }
+      },
+      "block_order": [
+        "item_Vrif9j"
+      ],
+      "name": "Yb-Banner",
+      "settings": {
+        "banner_speed": 6
+      }
+    },
+    "premium_reviews_6XX6TV": {
+      "type": "premium-reviews",
+      "blocks": {
+        "premium_review_6qJMGh": {
+          "type": "premium_review",
+          "settings": {
+            "icon": "shopify://shop_images/76cc4699-4b5c-4e8b-adcd-894c6c584141.png",
+            "company": "Forbes",
+            "review": "<p>“This winter has been full of heavy snowstorms for millions of people in North America, and with snowstorms comes lots of shoveling—unless you’re fortunate to have the automated Yarbo Snow Blower S1 Plus, announced at CES 2024. Imagine it as a kind of outdoor Roomba.”</p>",
+            "link": "https://www.forbes.com/sites/forbestechcouncil/2024/03/04/ces-2024-17-exciting-products-that-are-intriguing-tech-experts/?sh=1a2300992ad3"
+          }
+        },
+        "premium_review_JcYdkF": {
+          "type": "premium_review",
+          "settings": {
+            "icon": "shopify://shop_images/0f9353dc-226e-46d2-be3b-164dbf9d0ab6.png",
+            "company": "CNET",
+            "review": "<p>\"When I was a wee lad growing up in rural Illinois, I dreaded snowstorms because they meant I'd have to bundle up and shovel the driveway for my mom the next morning. I dreamt of a utopian future in which robots could do this work for me. At <a href=\"https://www.cnet.com/ces/\" title=\"https://www.cnet.com/ces/\">CES 2024</a>, that dream became reality.\"</p>",
+            "link": "https://www.cnet.com/home/yard-and-outdoors/everyone-hates-plowing-snow-the-updated-yarbo-robot-cleans-up-while-youre-inside/"
+          }
+        },
+        "premium_review_C36V8t": {
+          "type": "premium_review",
+          "settings": {
+            "icon": "shopify://shop_images/1186fded-75a7-4383-a485-d7d1fd609e3a.png",
+            "company": "ZDNET",
+            "review": "<p>\"The best part is that all the products work with the same power docking station, which provides a seamless experience.\"</p>",
+            "link": "https://www.zdnet.com/article/the-14-best-robots-and-ai-tech-weve-seen-at-ces-2024-so-far/"
+          }
+        },
+        "premium_review_6epM4h": {
+          "type": "premium_review",
+          "settings": {
+            "icon": "shopify://shop_images/e94f6aba-9c8c-4727-9e7e-018c6e96889d.png",
+            "company": "WIRED",
+            "review": "<p>\"Yarbo uses its own computer vision system and other Al smarts to navigate around your yardlike an outdoor Roomba, complete with obstacle identification, virtual boundaries, and no-go zones.\"</p>",
+            "link": "https://www.wired.com/gallery/ces-2024-photo-gallery-day-2/"
+          }
+        },
+        "premium_review_4GRdgA": {
+          "type": "premium_review",
+          "settings": {
+            "icon": "shopify://shop_images/5120ae56-ead9-480c-a6fb-142912e559b2.png",
+            "company": "The Verge",
+            "review": "<p>\"Yarbo has developed a modular yard robot that can function as a snow blower, lawn mower, leafblower, and trailer to tow yard equipment, among other features.\"<br/><br/></p>",
+            "link": "https://www.theverge.com/2024/3/19/24105936/segway-navimow-i-robot-mower-price-release-date-specs"
+          }
+        }
+      },
+      "block_order": [
+        "premium_review_6qJMGh",
+        "premium_review_JcYdkF",
+        "premium_review_C36V8t",
+        "premium_review_6epM4h",
+        "premium_review_4GRdgA"
+      ],
+      "name": "premium-reviews",
+      "settings": {
+        "anchor_id": "",
+        "title": "Featured On"
+      }
+    },
+    "download_picture_7kWdtQ": {
+      "type": "download-picture",
+      "name": "download-picture",
+      "settings": {
+        "anchor_id": "pic",
+        "all-picture-url": "https://4zx17x5q7l.execute-api.us-east-1.amazonaws.com/Stage/yarbo/common/ListPressKit",
+        "download-url": "https://4zx17x5q7l.execute-api.us-east-1.amazonaws.com/Stage/yarbo/common/downloadPressKit",
+        "download-key": "compressedKey"
+      }
+    },
+    "youtube_video_url_VWehpH": {
+      "type": "youtube-video-url",
+      "custom_css": [
+        ".youtube_video_main_box {max-width: 1200px; margin: 0 auto; padding-bottom: 6rem;}",
+        ".media-kits {background: white;}",
+        "@media screen and (max-width: 767px) {.youtube_video_main_box {padding-bottom: 3rem; }}"
+      ],
+      "name": "youtube-vide-url",
+      "settings": {
+        "anchor_id": "",
+        "youtube_video_title": "Yarbo Videos",
+        "youtube_video_title_m_font_size": 18,
+        "youtube_video_title_pc_font_size": 25,
+        "youtube_video_font_family": "system_ui_n4",
+        "youtube_video_image_url": "https://imagedelivery.net/FCXqi8BC3uKlNw5AGYVCpw/bb0d2103-9a2f-482d-0159-3933bbac6300/q=100",
+        "youtube_video_link": "https://www.youtube.com/@yarboglobal/featured"
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_QRUfr8",
+    "yb_banner_swiper_CDpzUM",
+    "premium_reviews_6XX6TV",
+    "download_picture_7kWdtQ",
+    "youtube_video_url_VWehpH"
+  ]
+}

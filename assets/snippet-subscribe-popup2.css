@@ -1,0 +1,106 @@
+/*邮箱二次弹窗*/
+.subscribe-popup-container-recheck {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  font-size: 16px;
+  z-index: 9999;
+}
+
+.subscribe-popup-container-recheck.subscribe-popup-container-recheck-show {
+  display: flex;
+}
+
+.subscribe-popup-container-recheck-content {
+  background-color: #fff;
+  border-radius: 0.75em;
+  height: 11.3125em;
+  text-align: center;
+  color: #000;
+}
+
+.subscribe-popup-container-recheck-title {
+  font-size: 1.25em;
+  height: 3em;
+  line-height: 3;
+}
+
+.subscribe-popup-container-recheck-info {
+  font-size: 1em;
+  line-height: 1.5em;
+  padding: 0 2em;
+}
+
+.subscribe-popup-container-recheck-email {
+  color: rgb(227, 46, 33);
+}
+
+.subscribe-popup-container-recheck-bottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgb(229, 229, 229);
+  margin-top: 0.625em;
+  font-size: 1.2em;
+  align-items: center;
+  height: 3.125em;
+}
+
+.subscribe-popup-container-recheck-line {
+  width: 1px;
+  height: 1.666667em;
+  background: rgb(238, 238, 238);
+}
+
+.subscribe-popup-container-recheck-clear,
+.subscribe-popup-container-recheck-checked {
+  flex: 1;
+  cursor: pointer;
+}
+
+.subscribe-popup-container-recheck-clear {
+  color: rgb(119, 119, 119);
+}
+
+@media screen and (max-width: 959px) {
+  .subscribe-popup-container-recheck {
+    font-size: 4.2666666vw;
+    /* 375下 1em = 16px */
+  }
+
+  .subscribe-popup-container-recheck-content {
+    border-radius: 0.75em;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .subscribe-popup-container-recheck-title {
+    font-size: 1em;
+    height: 2.875em;
+    line-height: 2.875em;
+  }
+
+  .subscribe-popup-container-recheck-info {
+    font-size: 1em;
+    line-height: 1.5em;
+    white-space: break-spaces;
+  }
+
+  .subscribe-popup-container-recheck-bottom {
+    margin-top: 0.75em;
+    font-size: 1em;
+    height: 2.875em;
+    line-height: 2.875em;
+  }
+
+  .subscribe-popup-container-recheck-line {
+    height: 2em;
+  }
+}
