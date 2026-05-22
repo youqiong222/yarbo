@@ -1,0 +1,57 @@
+name: Theme Deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'sections/**'
+      - 'assets/**'
+      - 'snippets/**'
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: yq
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Shopify CLI
+        run: npm install -g @shopify/cli
+
+      - name: Get changed files in target directories
+        id: changed
+        run: |
+          files=$(git diff --name-only HEAD~1 HEAD -- sections/ assets/ snippets/ | tr '\n' ' ')
+          echo "files=$files" >> $GITHUB_OUTPUT
+
+      - name: Push changed files to Store 1
+        if: steps.changed.outputs.files != ''
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+        run: |
+          only_flags=$(echo "${{ steps.changed.outputs.files }}" | xargs -n1 | sed 's/^/--only /' | tr '\n' ' ')
+          eval shopify theme push \
+            $only_flags \
+            --theme "${{ secrets.SHOPIFY_THEME_ID }}" \
+            --store "${{ secrets.SHOPIFY_FLAG_STORE }}" \
+            --allow-live
+
+      - name: Push changed files to Store 2
+        if: steps.changed.outputs.files != ''
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN_2 }}
+        run: |
+          only_flags=$(echo "${{ steps.changed.outputs.files }}" | xargs -n1 | sed 's/^/--only /' | tr '\n' ' ')
+          eval shopify theme push \
+            $only_flags \
+            --theme "${{ secrets.SHOPIFY_THEME_ID_2 }}" \
+            --store "${{ secrets.SHOPIFY_FLAG_STORE_2 }}" \
+            --allow-live
